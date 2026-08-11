@@ -56,12 +56,12 @@ export function Navbar() {
       )}
     >
       <nav
-        className="container-jg flex h-[72px] items-center justify-between"
+        className="container-jg flex h-[96px] items-center justify-between"
         aria-label="Primary"
       >
-        {/* Logo */}
-        <Link href="/" className="group flex items-center" aria-label="J-Gate home">
-          <JGateLogo variant="light" className="transition-opacity duration-300 group-hover:opacity-90" />
+        {/* Logo — enlarged 150% for brand authority */}
+        <Link href="/" className="group flex items-center py-2" aria-label="J-Gate home">
+          <JGateLogo size="md" className="transition-opacity duration-300 group-hover:opacity-90" />
         </Link>
 
         {/* Desktop nav */}
@@ -137,7 +137,7 @@ export function Navbar() {
       {/* Mobile full-screen drawer */}
       <div
         className={cn(
-          "fixed inset-0 top-[72px] z-40 overflow-y-auto bg-midnight/97 backdrop-blur-xl transition-all duration-300 lg:hidden",
+          "fixed inset-0 top-[96px] z-40 overflow-y-auto bg-midnight/97 backdrop-blur-xl transition-all duration-300 lg:hidden",
           open ? "visible opacity-100" : "invisible opacity-0"
         )}
       >

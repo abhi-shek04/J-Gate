@@ -8,21 +8,26 @@ import type { SVGProps } from "react";
    ============================================================ */
 
 /** Full logo lockup — official logo image only (no text wordmark)
- *  The provided official logo already contains the "J-Gate" wordmark. */
+ *  The provided official logo already contains the "J-Gate" wordmark.
+ *  Enlarged 150% for brand authority — h-16 navbar, h-20 footer. */
 export function JGateLogo({
   className = "",
   variant: _variant = "light",
+  size = "md",
 }: {
   className?: string;
   /** kept for API compatibility, no longer used */
   variant?: "light" | "dark";
+  /** "sm" footer watermark, "md" navbar (h-16), "lg" hero (h-24) */
+  size?: "sm" | "md" | "lg";
 }) {
+  const h = size === "lg" ? "h-32" : size === "sm" ? "h-16" : "h-24";
   return (
     <img
       src="/jgate-logo.png"
       alt="J-Gate logo"
-      className={`h-11 w-auto object-contain ${className}`}
-      style={{ filter: "drop-shadow(0 1px 3px rgba(0,0,0,0.12))" }}
+      className={`${h} w-auto object-contain ${className}`}
+      style={{ filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.18))" }}
     />
   );
 }

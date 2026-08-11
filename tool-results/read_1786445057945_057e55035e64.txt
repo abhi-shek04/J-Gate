@@ -1,0 +1,629 @@
+     1→"use client";
+     2→
+     3→import { Reveal, Eyebrow } from "@/components/jgate/shared";
+     4→import { PageHero } from "@/components/jgate/page-hero";
+     5→import { useI18n } from "@/lib/i18n";
+     6→import {
+     7→  Target,
+     8→  Eye,
+     9→  ShieldCheck,
+    10→  Globe2,
+    11→  Cpu,
+    12→  Handshake,
+    13→  Sparkles,
+    14→  ArrowRight,
+    15→  MapPin,
+    16→  Building2,
+    17→  CalendarClock,
+    18→  Rocket,
+    19→  GraduationCap,
+    20→  HandHeart,
+    21→  CheckCircle2,
+    22→} from "lucide-react";
+    23→import Link from "next/link";
+    24→
+    25→/* ============================================================
+    26→   About J-Gate — Premium corporate identity page
+    27→   Sections: PageHero → Core Purpose (3 pillars) → Strategic Locations (2 cards) → Company Story → Mission & Vision → Core Values → CTA
+    28→   ============================================================ */
+    29→
+    30→const STORY = {
+    31→  p1: {
+    32→    EN: "J-Gate was born from a singular conviction — that the world's two most complementary technology ecosystems, India's deep engineering talent and Japan's enterprise precision, were never meant to remain separate. In August 2013, our founder Daisuke Tanji arrived in Hyderabad to discover a city bursting with world-class engineers, yet operating at a cultural distance from the Japanese enterprises that needed them most. A decade of bridging work followed, eventually crystallising into J-Gate.",
+    33→    JP: "J-Gateは一つの信念から生まれました — 世界で最も補完的な技術生態系であるインドの深いエンジニアリング人材と日本の企業精度は、本来分かれたままにあるべきではないという確信です。2013年8月、創業者のダンジ・ダイスケがハイデラバードに赴任した際、世界クラスのエンジニアに満ちた都市を見出しましたが、彼らは最も必要としていた日本企業から文化的に遠い距離にありました。それから10年の架け橋の仕事が続き、最終的にJ-Gateとして結晶化しました。",
+    34→  },
+    35→  p2: {
+    36→    EN: "Inaugurated in 2026 at Cyber Gateway, Hyderabad, J-Gate was launched with the endorsement of JETRO and the partnership of Genesys Info X, T-Hub, and Woxsen University. On the inaugural day, over fifty guests from Japanese and Indian enterprises witnessed the formalisation of an MoU with Genesys Info X and the formation of our Technical Advisory Council — anchored by former T-Hub CEO Srinivas Rao Mahankali and former T-Hub CIO Sujit Jagirdar.",
+    37→    JP: "2026年、ハイデラバードのサイバー・ゲートウェイにて開設されたJ-Gateは、JETROの支援とGenesys Info X、T-Hub、Woxsen Universityのパートナーシップのもとに立ち上げられました。開設当日には、日印両国の企業から50名を超える来賓が集い、Genesys Info XとのMoU締結と、元T-Hub CEOのSrinivas Rao Mahankali氏、元T-Hub CIOのSujit Jagirdar氏を中心とする技術諮問評議会の発足を目撃しました。",
+    38→  },
+    39→  p3: {
+    40→    EN: "What sets J-Gate apart is that we are not a job board, nor a language school, nor a relocation agency. We are all three — and more. We exist to make the Indo-Japanese corridor operational at every touchpoint: from the first Japanese conversation an engineer has, to their first day at a Tokyo office, to the long-term retention that defines a successful placement. This is the bridge we build.",
+    41→    JP: "J-Gateが際立っているのは、私たちが求人掲示板でも、語学学校でも、再配置業者でもない点です。私たちはその三つすべてであり、さらにそれ以上です。エンジニアが交わす最初の日本語の会話から、東京オフィスでの初日、そして成功した紹介を定義する長期的定着に至るまで、日印回廊のあらゆる接点を機能させることが私たちの存在意義です。これが私たちが建設する架け橋です。",
+    42→  },
+    43→} as const;
+    44→
+    45→const MISSION = {
+    46→  title: { EN: "Our Mission", JP: "ミッション" },
+    47→  body: {
+    48→    EN: "To make the India expansion 'right answer' accessible to Japanese enterprises — through a dedicated working hub, a resident Japan Desk, and end-to-end support from first curiosity to corporate entity establishment.",
+    49→    JP: "専用ワーキングハブ、常駐ジャパンデスク、そして最初の関心から法人設立までのエンドツーエンド支援を通じ、日本企業にとってのインド進出の「正解」をアクセシブルにする。",
+    50→  },
+    51→} as const;
+    52→
+    53→const VISION = {
+    54→  title: { EN: "Our Vision", JP: "ビジョン" },
+    55→  body: {
+    56→    EN: "To become the definitive gateway for Japanese enterprises entering India — the first name called when a company decides to explore Hyderabad, Gurgaon, or anywhere in between. Two cities, one bridge, every touchpoint operational.",
+    57→    JP: "インドに進出する日本企業にとって決定的なゲートウェイになること — 企業がハイデラバード、グルガオン、あるいはその間のどこかを検討し始める時に最初に呼ばれる名前に。二つの都市、一つの架け橋、すべての接点を機能させて。",
+    58→  },
+    59→} as const;
+    60→
+    61→const VALUES = [
+    62→  {
+    63→    icon: ShieldCheck,
+    64→    title: { EN: "Integrity", JP: "誠実さ" },
+    65→    desc: {
+    66→      EN: "Transparent, honest, long-term relationships — never transactional. We treat every candidate and every partner as a decade-long commitment.",
+    67→      JP: "透明で誠実な長期的関係 — 決して取引的ではない。すべての候補者とパートナーを10年単位のコミットメントとして扱います。",
+    68→    },
+    69→  },
+    70→  {
+    71→    icon: Globe2,
+    72→    title: { EN: "Cultural Fluency", JP: "文化的流暢さ" },
+    73→    desc: {
+    74→      EN: "Deep mastery of both Japanese and Indian business cultures, so placements land ready to contribute from day one — not after a year of adjustment.",
+    75→      JP: "日本とインドの両ビジネス文化の深い理解。1年間の適応期間の後ではなく、初日から貢献できる状態で人材を届けます。",
+    76→    },
+    77→  },
+    78→  {
+    79→    icon: Cpu,
+    80→    title: { EN: "Technical Excellence", JP: "技術的卓越" },
+    81→    desc: {
+    82→      EN: "Rigorous screening across CS, AI/ML, and core engineering — only the top percentile of evaluated talent clears our benchmarks for placement.",
+    83→      JP: "CS、AI/ML、コアエンジニアリングにおける厳格なスクリーニング — 評価された人材のトップパーセンタイルのみが紹介の基準を通過します。",
+    84→    },
+    85→  },
+    86→  {
+    87→    icon: Handshake,
+    88→    title: { EN: "Long-Term Partnership", JP: "長期パートナーシップ" },
+    89→    desc: {
+    90→      EN: "We succeed only when our placements and partners succeed. Retention, not placement volume, is the metric we optimise for — every time.",
+    91→      JP: "紹介とパートナーが成功して初めて私たちも成功する。紹介数ではなく定着率を、毎回最適化の対象とします。",
+    92→    },
+    93→  },
+    94→] as const;
+    95→
+    96→/* 3 Core Purpose Pillars — unique horizontal layout with large numerals */
+    97→const PILLARS = [
+    98→  {
+    99→    num: "01",
+   100→    icon: Rocket,
+   101→    tagKey: "about.pillar1.tag",
+   102→    titleKey: "about.pillar1.title",
+   103→    jpKey: "about.pillar1.jp",
+   104→    descKey: "about.pillar1.desc",
+   105→    accent: "crimson",
+   106→  },
+   107→  {
+   108→    num: "02",
+   109→    icon: GraduationCap,
+   110→    tagKey: "about.pillar2.tag",
+   111→    titleKey: "about.pillar2.title",
+   112→    jpKey: "about.pillar2.jp",
+   113→    descKey: "about.pillar2.desc",
+   114→    accent: "saffron",
+   115→  },
+   116→  {
+   117→    num: "03",
+   118→    icon: HandHeart,
+   119→    tagKey: "about.pillar3.tag",
+   120→    titleKey: "about.pillar3.title",
+   121→    jpKey: "about.pillar3.jp",
+   122→    descKey: "about.pillar3.desc",
+   123→    accent: "crimson",
+   124→  },
+   125→] as const;
+   126→
+   127→/* Strategic Locations — feature lists */
+   128→const HYDERABAD_FEATURES = [
+   129→  { key: "about.hyderabad.f1" },
+   130→  { key: "about.hyderabad.f2" },
+   131→  { key: "about.hyderabad.f3" },
+   132→] as const;
+   133→
+   134→const GURGAON_FEATURES = [
+   135→  { key: "about.gurgaon.f1" },
+   136→  { key: "about.gurgaon.f2" },
+   137→  { key: "about.gurgaon.f3" },
+   138→] as const;
+   139→
+   140→export default function AboutPage() {
+   141→  const { t, tx } = useI18n();
+   142→
+   143→  return (
+   144→    <>
+   145→      <PageHero
+   146→        eyebrowKey="about.eyebrow"
+   147→        titleNode={
+   148→          <>
+   149→            {tx({ EN: "From India Entry Spark", JP: "インド展開の" })}
+   150→            <br />
+   151→            <span className="text-gradient-saffron">
+   152→              {tx({ EN: "to Talent Development", JP: "きっかけ作りから育成まで" })}
+   153→            </span>
+   154→          </>
+   155→        }
+   156→        subtitleKey="about.title"
+   157→      />
+   158→
+   159→      {/* ───────────────────────────────────────────────────────────
+   160→          Core Purpose & Vision — 3 horizontal pillar cards
+   161→         ─────────────────────────────────────────────────────────── */}
+   162→      <section className="section-pad bg-ivory">
+   163→        <div className="container-jg">
+   164→          <Reveal>
+   165→            <div className="mx-auto max-w-3xl text-center">
+   166→              <Eyebrow>{t("about.purpose.eyebrow")}</Eyebrow>
+   167→              <h2
+   168→                className="mt-4 font-serif-jp font-bold leading-[1.2] text-ink"
+   169→                style={{ fontSize: "clamp(1.625rem,3.6vw,2.375rem)" }}
+   170→              >
+   171→                {t("about.purpose.title")}
+   172→              </h2>
+   173→              <p className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate" style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}>
+   174→                {t("about.purpose.subtitle")}
+   175→              </p>
+   176→            </div>
+   177→          </Reveal>
+   178→
+   179→          {/* Unique horizontal pillar layout — each pillar spans full width with large numeral */}
+   180→          <div className="mx-auto mt-10 max-w-5xl space-y-6">
+   181→            {PILLARS.map((p, i) => {
+   182→              const isSaffron = p.accent === "saffron";
+   183→              return (
+   184→                <Reveal key={p.num} delay={i * 120} variant="left">
+   185→                  <article
+   186→                    className={`lift-card group relative grid grid-cols-[auto_1fr] gap-5 overflow-hidden rounded-xl border bg-pearl p-6 shadow-card transition-all hover:shadow-hover sm:grid-cols-[auto_1fr] sm:p-8 ${
+   187→                      isSaffron ? "border-saffron/15" : "border-crimson/12"
+   188→                    }`}
+   189→                  >
+   190→                    {/* Large numeral watermark */}
+   191→                    <div
+   192→                      className={`pointer-events-none absolute -right-4 -top-8 select-none font-serif-jp text-[8rem] font-bold leading-none opacity-[0.06] sm:text-[10rem] ${
+   193→                        isSaffron ? "text-saffron" : "text-crimson"
+   194→                      }`}
+   195→                      aria-hidden="true"
+   196→                    >
+   197→                      {p.num}
+   198→                    </div>
+   199→
+   200→                    {/* Icon badge */}
+   201→                    <div
+   202→                      className={`relative flex h-16 w-16 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br text-white shadow-card transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3 ${
+   203→                        isSaffron ? "from-saffron to-[#c9881a]" : "from-crimson to-crimson-deep"
+   204→                      }`}
+   205→                    >
+   206→                      <p.icon className="h-8 w-8" strokeWidth={1.5} />
+   207→                    </div>
+   208→
+   209→                    {/* Text content */}
+   210→                    <div className="relative min-w-0">
+   211→                      <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+   212→                        <span
+   213→                          className={`font-inter text-[11px] font-bold uppercase ${
+   214→                            isSaffron ? "text-saffron" : "text-crimson"
+   215→                          }`}
+   216→                          style={{ letterSpacing: "0.15em" }}
+   217→                        >
+   218→                          {t(p.tagKey)}
+   219→                        </span>
+   220→                        <span className="font-serif-jp text-[13px] text-mist">·</span>
+   221→                        <span className="font-serif-jp text-[15px] font-medium text-slate">
+   222→                          {t(p.jpKey)}
+   223→                        </span>
+   224→                      </div>
+   225→                      <h3
+   226→                        className="mt-1.5 font-serif-jp font-bold leading-tight text-ink"
+   227→                        style={{ fontSize: "clamp(1.25rem,2.5vw,1.625rem)" }}
+   228→                      >
+   229→                        {t(p.titleKey)}
+   230→                      </h3>
+   231→                      <p className="mt-3 font-inter text-[14px] leading-relaxed text-slate sm:text-[15px]">
+   232→                        {t(p.descKey)}
+   233→                      </p>
+   234→                    </div>
+   235→                  </article>
+   236→                </Reveal>
+   237→              );
+   238→            })}
+   239→          </div>
+   240→        </div>
+   241→      </section>
+   242→
+   243→      {/* ───────────────────────────────────────────────────────────
+   244→          Strategic Locations — Hyderabad + Gurgaon (split cards with map accents)
+   245→         ─────────────────────────────────────────────────────────── */}
+   246→      <section className="section-pad relative overflow-hidden bg-midnight">
+   247→        <div className="pattern-asanoha-dark absolute inset-0 opacity-60" />
+   248→        <div
+   249→          className="absolute inset-0"
+   250→          style={{ background: "radial-gradient(ellipse at 30% 0%, rgba(232,160,26,0.10), transparent 55%), radial-gradient(ellipse at 80% 100%, rgba(188,26,44,0.10), transparent 55%)" }}
+   251→        />
+   252→        <div className="container-jg relative">
+   253→          <Reveal>
+   254→            <div className="mx-auto max-w-3xl text-center">
+   255→              <Eyebrow light>{t("about.locations.eyebrow")}</Eyebrow>
+   256→              <h2
+   257→                className="mt-4 font-serif-jp font-bold leading-[1.18] text-white"
+   258→                style={{ fontSize: "clamp(1.625rem,3.6vw,2.375rem)" }}
+   259→              >
+   260→                {t("about.locations.title")}
+   261→              </h2>
+   262→              <p className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-mist" style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}>
+   263→                {t("about.locations.subtitle")}
+   264→              </p>
+   265→            </div>
+   266→          </Reveal>
+   267→
+   268→          <div className="mt-10 grid gap-6 lg:grid-cols-2">
+   269→            {/* Hyderabad — Main Base */}
+   270→            <Reveal delay={100}>
+   271→              <article className="glass-dark lift-card relative h-full overflow-hidden rounded-xl border border-saffron/25 p-8">
+   272→                {/* Status badge */}
+   273→                <div className="flex flex-wrap items-start justify-between gap-3">
+   274→                  <div className="flex items-center gap-3">
+   275→                    <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-saffron/20 text-saffron">
+   276→                      <Building2 className="h-6 w-6" strokeWidth={1.5} />
+   277→                    </span>
+   278→                    <div>
+   279→                      <span className="block font-inter text-[11px] font-semibold uppercase text-saffron" style={{ letterSpacing: "0.15em" }}>
+   280→                        {t("about.hyderabad.tag")}
+   281→                      </span>
+   282→                      <h3 className="mt-0.5 font-serif-jp text-2xl font-bold text-white">
+   283→                        {t("about.hyderabad.title")}
+   284→                      </h3>
+   285→                    </div>
+   286→                  </div>
+   287→                  <span className="inline-flex items-center gap-1.5 rounded-md bg-saffron/15 px-3 py-1.5 font-inter text-[11px] font-bold uppercase text-saffron">
+   288→                    <CalendarClock className="h-3 w-3" />
+   289→                    {t("about.hyderabad.status")}
+   290→                  </span>
+   291→                </div>
+   292→
+   293→                {/* Nickname */}
+   294→                <p className="mt-5 font-serif-jp text-[15px] font-medium italic text-saffron/85">
+   295→                  {t("about.hyderabad.nick")}
+   296→                </p>
+   297→
+   298→                {/* Description */}
+   299→                <p className="mt-3 font-inter text-[14px] leading-relaxed text-mist">
+   300→                  {t("about.hyderabad.desc")}
+   301→                </p>
+   302→
+   303→                {/* Features list */}
+   304→                <ul className="mt-6 space-y-2.5 border-t border-white/10 pt-5">
+   305→                  {HYDERABAD_FEATURES.map((f, fi) => (
+   306→                    <li key={fi} className="flex items-start gap-2.5">
+   307→                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-saffron" strokeWidth={2} />
+   308→                      <span className="font-inter text-[13px] text-white/90">{t(f.key)}</span>
+   309→                    </li>
+   310→                  ))}
+   311→                </ul>
+   312→
+   313→                {/* Decorative pin marker */}
+   314→                <MapPin className="absolute -bottom-4 -right-2 h-24 w-24 text-saffron/10" strokeWidth={1} />
+   315→              </article>
+   316→            </Reveal>
+   317→
+   318→            {/* Gurgaon — Sub Base */}
+   319→            <Reveal delay={200}>
+   320→              <article className="glass-dark lift-card relative h-full overflow-hidden rounded-xl border border-crimson/25 p-8">
+   321→                <div className="flex flex-wrap items-start justify-between gap-3">
+   322→                  <div className="flex items-center gap-3">
+   323→                    <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-crimson/20 text-crimson">
+   324→                      <Building2 className="h-6 w-6" strokeWidth={1.5} />
+   325→                    </span>
+   326→                    <div>
+   327→                      <span className="block font-inter text-[11px] font-semibold uppercase text-crimson" style={{ letterSpacing: "0.15em" }}>
+   328→                        {t("about.gurgaon.tag")}
+   329→                      </span>
+   330→                      <h3 className="mt-0.5 font-serif-jp text-2xl font-bold text-white">
+   331→                        {t("about.gurgaon.title")}
+   332→                      </h3>
+   333→                    </div>
+   334→                  </div>
+   335→                  <span className="inline-flex items-center gap-1.5 rounded-md bg-crimson/15 px-3 py-1.5 font-inter text-[11px] font-bold uppercase text-crimson">
+   336→                    <CalendarClock className="h-3 w-3" />
+   337→                    {t("about.gurgaon.status")}
+   338→                  </span>
+   339→                </div>
+   340→
+   341→                <p className="mt-5 font-serif-jp text-[15px] font-medium italic text-crimson/85">
+   342→                  {t("about.gurgaon.nick")}
+   343→                </p>
+   344→
+   345→                <p className="mt-3 font-inter text-[14px] leading-relaxed text-mist">
+   346→                  {t("about.gurgaon.desc")}
+   347→                </p>
+   348→
+   349→                <ul className="mt-6 space-y-2.5 border-t border-white/10 pt-5">
+   350→                  {GURGAON_FEATURES.map((f, fi) => (
+   351→                    <li key={fi} className="flex items-start gap-2.5">
+   352→                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-crimson" strokeWidth={2} />
+   353→                      <span className="font-inter text-[13px] text-white/90">{t(f.key)}</span>
+   354→                    </li>
+   355→                  ))}
+   356→                </ul>
+   357→
+   358→                <MapPin className="absolute -bottom-4 -right-2 h-24 w-24 text-crimson/10" strokeWidth={1} />
+   359→              </article>
+   360→            </Reveal>
+   361→          </div>
+   362→
+   363→          {/* Footnote: India map legend */}
+   364→          <Reveal delay={300}>
+   365→            <div className="mx-auto mt-10 flex max-w-3xl items-center justify-center gap-6 font-inter text-[12px] text-mist">
+   366→              <span className="flex items-center gap-2">
+   367→                <span className="h-2.5 w-2.5 rounded-full bg-saffron" />
+   368→                {tx({ EN: "Hyderabad — Main Base", JP: "ハイデラバード — 主拠点" })}
+   369→              </span>
+   370→              <span className="flex items-center gap-2">
+   371→                <span className="h-2.5 w-2.5 rounded-full bg-crimson" />
+   372→                {tx({ EN: "Gurgaon — Sub Base (in prep)", JP: "グルガオン — サブ拠点（準備中）" })}
+   373→              </span>
+   374→            </div>
+   375→          </Reveal>
+   376→        </div>
+   377→      </section>
+   378→
+   379→      {/* ───────────────────────────────────────────────────────────
+   380→          Company Story — narrative with numbered side index
+   381→         ─────────────────────────────────────────────────────────── */}
+   382→      <section className="section-pad bg-ivory">
+   383→        <div className="container-jg">
+   384→          <div className="mx-auto max-w-4xl">
+   385→            <Reveal>
+   386→              <div className="flex items-center gap-3">
+   387→                <span className="flex h-10 w-10 items-center justify-center rounded-md bg-crimson/10 text-crimson">
+   388→                  <Sparkles className="h-5 w-5" strokeWidth={1.5} />
+   389→                </span>
+   390→                <Eyebrow>{tx({ EN: "Our Story", JP: "私たちのストーリー" })}</Eyebrow>
+   391→              </div>
+   392→              <h2
+   393→                className="mt-6 font-serif-jp font-bold leading-[1.18] text-ink"
+   394→                style={{ fontSize: "clamp(1.875rem,4vw,2.625rem)" }}
+   395→              >
+   396→                {tx({
+   397→                  EN: "A Decade of Bridging, Crystallised into One Institution",
+   398→                  JP: "10年の架け橋の仕事が、一つの機関として結晶化",
+   399→                })}
+   400→              </h2>
+   401→            </Reveal>
+   402→
+   403→            <div className="mt-10 grid gap-8 md:grid-cols-[auto_1fr]">
+   404→              {/* Side index */}
+   405→              <Reveal delay={100} variant="left">
+   406→                <ol className="hidden md:flex md:flex-col md:gap-3 md:border-l md:border-crimson/20 md:pl-5">
+   407→                  {[1, 2, 3].map((n, idx) => (
+   408→                    <li key={n} className="flex items-center gap-3">
+   409→                      <span
+   410→                        className={`flex h-9 w-9 items-center justify-center rounded-full font-serif-jp text-sm font-bold ${
+   411→                          idx === 0
+   412→                            ? "bg-crimson text-white"
+   413→                            : "border border-crimson/30 text-crimson"
+   414→                        }`}
+   415→                      >
+   416→                        {n}
+   417→                      </span>
+   418→                      <span className="font-inter text-[12px] font-medium uppercase text-mist" style={{ letterSpacing: "0.1em" }}>
+   419→                        {tx({
+   420→                          EN: idx === 0 ? "Origin" : idx === 1 ? "Inauguration" : "Today",
+   421→                          JP: idx === 0 ? "起点" : idx === 1 ? "開設" : "現在",
+   422→                        })}
+   423→                      </span>
+   424→                    </li>
+   425→                  ))}
+   426→                </ol>
+   427→              </Reveal>
+   428→
+   429→              {/* Story paragraphs */}
+   430→              <Reveal delay={150}>
+   431→                <div className="space-y-5 font-inter leading-[1.85] text-slate" style={{ fontSize: "clamp(0.9375rem, 1.5vw, 1.0625rem)" }}>
+   432→                  <p className="md:border-l-2 md:border-crimson/15 md:pl-5 md:first:border-l-2">
+   433→                    <span className="mb-2 block font-serif-jp text-[12px] font-bold uppercase text-crimson md:hidden" style={{ letterSpacing: "0.12em" }}>
+   434→                      {tx({ EN: "01 · Origin", JP: "01 · 起点" })}
+   435→                    </span>
+   436→                    {tx(STORY.p1)}
+   437→                  </p>
+   438→                  <p className="md:border-l-2 md:border-crimson/15 md:pl-5">
+   439→                    <span className="mb-2 block font-serif-jp text-[12px] font-bold uppercase text-crimson md:hidden" style={{ letterSpacing: "0.12em" }}>
+   440→                      {tx({ EN: "02 · Inauguration", JP: "02 · 開設" })}
+   441→                    </span>
+   442→                    {tx(STORY.p2)}
+   443→                  </p>
+   444→                  <p className="md:border-l-2 md:border-crimson/15 md:pl-5">
+   445→                    <span className="mb-2 block font-serif-jp text-[12px] font-bold uppercase text-crimson md:hidden" style={{ letterSpacing: "0.12em" }}>
+   446→                      {tx({ EN: "03 · Today", JP: "03 · 現在" })}
+   447→                    </span>
+   448→                    {tx(STORY.p3)}
+   449→                  </p>
+   450→                </div>
+   451→              </Reveal>
+   452→            </div>
+   453→
+   454→            {/* Pull-quote */}
+   455→            <Reveal delay={200}>
+   456→              <blockquote className="mt-10 border-l-2 border-crimson pl-6">
+   457→                <p className="font-serif-jp text-[clamp(1.125rem,2vw,1.375rem)] font-medium italic leading-snug text-ink">
+   458→                  {tx({
+   459→                    EN: "“We are not a job board, nor a language school. We are the bridge — operational at every touchpoint of the Indo-Japanese corridor.”",
+   460→                    JP: "「私たちは求人掲示板でも、語学学校でもない。日印回廊のあらゆる接点で機能する、架け橋です。」",
+   461→                  })}
+   462→                </p>
+   463→                <footer className="mt-3 font-inter text-[13px] font-medium uppercase text-mist" style={{ letterSpacing: "0.08em" }}>
+   464→                  — Daisuke Tanji, {tx({ EN: "Founder & CEO", JP: "創業者兼CEO" })}
+   465→                </footer>
+   466→              </blockquote>
+   467→            </Reveal>
+   468→          </div>
+   469→        </div>
+   470→      </section>
+   471→
+   472→      {/* ───────────────────────────────────────────────────────────
+   473→          Mission & Vision — two cards (crimson + saffron)
+   474→         ─────────────────────────────────────────────────────────── */}
+   475→      <section className="section-pad bg-ivory-warm">
+   476→        <div className="container-jg">
+   477→          <Reveal>
+   478→            <div className="mx-auto max-w-3xl text-center">
+   479→              <Eyebrow>{tx({ EN: "Mission & Vision", JP: "ミッション＆ビジョン" })}</Eyebrow>
+   480→              <h2
+   481→                className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
+   482→                style={{ fontSize: "clamp(1.875rem,4vw,2.5rem)" }}
+   483→              >
+   484→                {tx({ EN: "What We Exist To Do", JP: "私たちの存在意義" })}
+   485→              </h2>
+   486→              <p className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate" style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}>
+   487→                {tx({
+   488→                  EN: "Two statements — one for what we do today, one for what we are building toward.",
+   489→                  JP: "二つの声明 — 今日私たちが行うことと、私たちが構築している未来。",
+   490→                })}
+   491→              </p>
+   492→            </div>
+   493→          </Reveal>
+   494→
+   495→          <div className="mt-8 grid gap-6 md:grid-cols-2">
+   496→            {/* Mission — crimson accent */}
+   497→            <Reveal delay={100}>
+   498→              <article className="lift-card relative h-full overflow-hidden rounded-lg border border-crimson/15 bg-pearl p-8 shadow-card">
+   499→                <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-crimson to-crimson-deep" />
+   500→                <div className="flex items-center gap-3">
+   501→                  <span className="flex h-12 w-12 items-center justify-center rounded-md bg-crimson/10 text-crimson">
+   502→                    <Target className="h-6 w-6" strokeWidth={1.5} />
+   503→                  </span>
+   504→                  <h3 className="font-serif-jp text-xl font-bold text-ink">{tx(MISSION.title)}</h3>
+   505→                </div>
+   506→                <p className="mt-5 font-inter text-[15px] leading-relaxed text-slate">{tx(MISSION.body)}</p>
+   507→                <div className="mt-6 flex items-center gap-2 border-t border-crimson/10 pt-5">
+   508→                  <span className="font-inter text-[11px] font-semibold uppercase text-crimson" style={{ letterSpacing: "0.15em" }}>
+   509→                    {tx({ EN: "What we do today", JP: "今日私たちが行うこと" })}
+   510→                  </span>
+   511→                </div>
+   512→              </article>
+   513→            </Reveal>
+   514→
+   515→            {/* Vision — saffron accent */}
+   516→            <Reveal delay={200}>
+   517→              <article className="lift-card relative h-full overflow-hidden rounded-lg border border-saffron/20 bg-pearl p-8 shadow-card">
+   518→                <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-saffron to-[#c9881a]" />
+   519→                <div className="flex items-center gap-3">
+   520→                  <span className="flex h-12 w-12 items-center justify-center rounded-md bg-saffron/15 text-saffron">
+   521→                    <Eye className="h-6 w-6" strokeWidth={1.5} />
+   522→                  </span>
+   523→                  <h3 className="font-serif-jp text-xl font-bold text-ink">{tx(VISION.title)}</h3>
+   524→                </div>
+   525→                <p className="mt-5 font-inter text-[15px] leading-relaxed text-slate">{tx(VISION.body)}</p>
+   526→                <div className="mt-6 flex items-center gap-2 border-t border-saffron/15 pt-5">
+   527→                  <span className="font-inter text-[11px] font-semibold uppercase text-saffron" style={{ letterSpacing: "0.15em" }}>
+   528→                    {tx({ EN: "What we build toward", JP: "私たちが構築する未来" })}
+   529→                  </span>
+   530→                </div>
+   531→              </article>
+   532→            </Reveal>
+   533→          </div>
+   534→        </div>
+   535→      </section>
+   536→
+   537→      {/* ───────────────────────────────────────────────────────────
+   538→          Core Values — 4-card grid with vertical accent bars
+   539→         ─────────────────────────────────────────────────────────── */}
+   540→      <section className="section-pad bg-ivory">
+   541→        <div className="container-jg">
+   542→          <Reveal>
+   543→            <div className="mx-auto max-w-3xl text-center">
+   544→              <Eyebrow>{tx({ EN: "Core Values", JP: "コアバリュー" })}</Eyebrow>
+   545→              <h2
+   546→                className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
+   547→                style={{ fontSize: "clamp(1.875rem,4vw,2.5rem)" }}
+   548→              >
+   549→                {tx({ EN: "The Principles Behind Every Placement", JP: "すべての紹介の背景にある原則" })}
+   550→              </h2>
+   551→              <p className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate" style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}>
+   552→                {tx({
+   553→                  EN: "Four principles guide every recruitment, every training, every partnership — without exception.",
+   554→                  JP: "四つの原則が例外なく、すべての採用、研修、パートナーシップを導きます。",
+   555→                })}
+   556→              </p>
+   557→            </div>
+   558→          </Reveal>
+   559→
+   560→          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+   561→            {VALUES.map((v, i) => (
+   562→              <Reveal key={i} delay={i * 100}>
+   563→                <article className="lift-card group relative h-full overflow-hidden rounded-lg border border-crimson/8 bg-pearl p-7 shadow-card">
+   564→                  {/* Vertical accent bar on left */}
+   565→                  <span
+   566→                    className={`absolute inset-y-0 left-0 w-1 ${
+   567→                      i % 2 === 0 ? "bg-gradient-to-b from-crimson to-crimson-deep" : "bg-gradient-to-b from-saffron to-[#c9881a]"
+   568→                    }`}
+   569→                  />
+   570→                  <div className={`flex h-14 w-14 items-center justify-center rounded-lg bg-gradient-to-br ${i % 2 === 0 ? "from-crimson/10 to-saffron/5" : "from-saffron/10 to-crimson/5"} text-crimson transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3`}>
+   571→                    <v.icon className="h-7 w-7" strokeWidth={1.5} />
+   572→                  </div>
+   573→                  <h3 className="mt-5 font-serif-jp text-lg font-bold text-ink">{tx(v.title)}</h3>
+   574→                  <p className="mt-2.5 font-inter text-[13px] leading-relaxed text-slate">{tx(v.desc)}</p>
+   575→                </article>
+   576→              </Reveal>
+   577→            ))}
+   578→          </div>
+   579→        </div>
+   580→      </section>
+   581→
+   582→      {/* ───────────────────────────────────────────────────────────
+   583→          Closing CTA
+   584→         ─────────────────────────────────────────────────────────── */}
+   585→      <section className="section-pad bg-ivory">
+   586→        <div className="container-jg">
+   587→          <Reveal>
+   588→            <div className="mx-auto max-w-2xl text-center">
+   589→              <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-crimson/10 text-crimson">
+   590→                <Sparkles className="h-6 w-6" strokeWidth={1.5} />
+   591→              </span>
+   592→              <h2
+   593→                className="mt-6 font-serif-jp font-bold leading-[1.18] text-ink"
+   594→                style={{ fontSize: "clamp(1.75rem,3.5vw,2.25rem)" }}
+   595→              >
+   596→                {tx({
+   597→                  EN: "See How the Bridge Translates Into Outcomes",
+   598→                  JP: "架け橋がどう成果に変換されるかを見る",
+   599→                })}
+   600→              </h2>
+   601→              <p className="mx-auto mt-4 font-inter leading-relaxed text-slate" style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}>
+   602→                {tx({
+   603→                  EN: "Our values are visible in every differentiator, every service, and every placement we deliver.",
+   604→                  JP: "私たちの価値観は、すべての差別化要素、サービス、そして紹介に現れています。",
+   605→                })}
+   606→              </p>
+   607→              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+   608→                <Link
+   609→                  href="/why-jgate"
+   610→                  className="btn-shine flex items-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-7 py-3.5 font-inter text-[14px] font-semibold text-white shadow-[0_0_20px_rgba(188,26,44,0.35)] transition-all hover:-translate-y-0.5"
+   611→                >
+   612→                  {tx({ EN: "Why J-Gate", JP: "J-Gateの強み" })}
+   613→                  <ArrowRight className="h-4 w-4" />
+   614→                </Link>
+   615→                <Link
+   616→                  href="/services"
+   617→                  className="rounded-md border border-crimson/30 px-7 py-3.5 font-inter text-[14px] font-semibold text-crimson transition-all hover:-translate-y-0.5 hover:bg-crimson/5"
+   618→                >
+   619→                  {tx({ EN: "Explore Services", JP: "サービスを見る" })}
+   620→                </Link>
+   621→              </div>
+   622→            </div>
+   623→          </Reveal>
+   624→        </div>
+   625→      </section>
+   626→    </>
+   627→  );
+   628→}
+   629→

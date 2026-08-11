@@ -40,47 +40,47 @@
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
 
-  /* ── J-Gate Premium Brand Palette (refined institutional) ── */
-  --color-crimson: #bc1a2c;
-  --color-crimson-deep: #8b0f1e;
-  --color-midnight: #080f1a;
-  --color-navy: #0d1b2a;
-  --color-ink: #1a1a2e;
-  --color-saffron: #e8a01a;
-  --color-saffron-light: #ffc84a;
-  --color-ivory: #f5f0e8;
-  --color-ivory-warm: #ede8de;
-  --color-pearl: #fafafa;
-  --color-slate: #4a4e69;
-  --color-mist: #8892a4;
-  --color-success: #1a936f;
+  /* ── J-Gate Executive Design System ── */
+  --color-crimson: #dc2626;
+  --color-crimson-deep: #b91c1c;
+  --color-midnight: #0f172a;
+  --color-navy: #0f172a;
+  --color-ink: #0f172a;
+  --color-saffron: #d97706;
+  --color-saffron-light: #f59e0b;
+  --color-ivory: #ffffff;
+  --color-ivory-warm: #f8fafc;
+  --color-pearl: #ffffff;
+  --color-slate: #64748b;
+  --color-mist: #94a3b8;
+  --color-success: #059669;
 
-  --radius-sm: 4px;
-  --radius-md: 6px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
 }
 
 :root {
   --radius: 0.625rem;
-  --background: #f5f0e8;
-  --foreground: #080f1a;
-  --card: #fafafa;
-  --card-foreground: #080f1a;
-  --popover: #fafafa;
-  --popover-foreground: #080f1a;
-  --primary: #bc1a2c;
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #dc2626;
   --primary-foreground: oklch(0.985 0 0);
-  --secondary: #ede8de;
-  --secondary-foreground: #080f1a;
-  --muted: #ede8de;
-  --muted-foreground: #4a4e69;
-  --accent: #ede8de;
-  --accent-foreground: #080f1a;
+  --secondary: #f8fafc;
+  --secondary-foreground: #0f172a;
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
+  --accent: #f8fafc;
+  --accent-foreground: #0f172a;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: rgba(188, 26, 44, 0.12);
-  --input: rgba(188, 26, 44, 0.12);
-  --ring: #bc1a2c;
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #dc2626;
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);

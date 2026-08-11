@@ -35,7 +35,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Col 1 — Brand */}
           <div>
-            <JGateLogo variant="light" />
+            <JGateLogo size="sm" />
             <p className="mt-4 font-inter text-sm leading-relaxed text-mist">{t("footer.tagline")}</p>
             <div className="mt-5 flex gap-2.5">
               {SOCIALS.map(({ Icon, label, href }) => (

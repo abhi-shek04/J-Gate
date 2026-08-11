@@ -1,0 +1,182 @@
+Stage Summary:
+- Deliverable: Updated i18n dictionary with REAL PDF content (Slides 1, 2, 3, 10, 11) and rebuilt 3 dedicated pages (Home, About, Why J-Gate) with real client content.
+- Home page: real hero title/catchphrase + India map showing Hyderabad as hub + stats reflecting new positioning (50K INR/mo / 7 Pillars / 2 Bases / 100+ Partners) + retained LogoMarquee + Executive Overview + CTA.
+- About page: PageHero with Slide 2 core purpose header + 3 horizontal pillar cards (Opportunity Creation / Talent Development / Business Collaboration) + 2 strategic location cards (Hyderabad Main Base + Gurgaon Sub Base) on midnight + Company Story with numbered index + Mission/Vision + Core Values + Closing CTA.
+- Why J-Gate page: PageHero "Strategic Investment Advantage" + REAL comparison table (4 cols × 9 rows) with J-Gate column highlighted in crimson, responsive (desktop grid / mobile horizontal scroll with sticky first col) + 7 Core Value Pillars as vertical staggered list with alternating accent + Corporate Testimonials + Closing CTA.
+- Design compliance: every section uses a UNIQUE layout (no repetitive card grids); section-pad + container-jg rhythm; alternating bg-ivory/bg-ivory-warm/bg-navy/bg-midnight; Reveal with delays + variant="left"/"right" for directionality; lift-card hover effects; fully responsive (mobile-first, sm/md/lg breakpoints); ✓/✗/◎/△ symbols preserved from PDF.
+- Artifacts: src/lib/i18n.tsx (UPDATED — hero keys + 30+ new about/why keys, removed old why.p1-4), src/app/page.tsx (REBUILT — new hero + India map + updated stats), src/app/about/page.tsx (REBUILT — new 6-section structure), src/app/why-jgate/page.tsx (REBUILT — comparison table + 7 pillars + testimonials).
+- Work record written to /agent-ctx/C-A-full-stack-developer.md.
+
+---
+Task ID: C-B
+Agent: full-stack-developer
+Task: Update Services/Team/Pricing/Contact with real PDF content
+
+Work Log:
+- Read worklog.md (Tasks 1–7 + M-A + M-B + M-C + C-A) for full project context. Reviewed existing infrastructure: i18n system at @/lib/i18n (useI18n → {lang, t, tx}); PageHero at @/components/jgate/page-hero (eyebrowKey/titleNode/subtitleKey props); shared Reveal/Eyebrow; Photo component with circular photo support; design tokens (bg-ivory/bg-ivory-warm/bg-navy/bg-midnight/bg-pearl, text-ink/crimson/saffron/slate/mist, glass-dark, lift-card, shadow-card, section-pad, container-jg, pattern-asanoha-dark/navy).
+
+- Updated i18n dictionary (src/lib/i18n.tsx):
+  • Added nav.pricing ("Pricing" / "料金プラン") key.
+  • Updated services.eyebrow ("Services" / "サービス"), services.title (full Indobox comprehensive expansion support bilingual line), services.subtitle (end-to-end operating system message).
+  • Updated team.eyebrow ("Team" / "チーム"), team.title ("The Minds Behind J-Gate" / "J-Gateを支える人々"), team.subtitle (catchphrase "Unlocking new possibilities for your business through collaboration with India." bilingual).
+  • Updated contact.eyebrow ("Contact" / "お問い合わせ"), contact.subtitle (catchphrase + J-Gate operations team reference), contact.form.title ("Direct Inquiry" / "直接お問い合わせ"), contact.form.success ("...in Japanese." / "...日本語でご返信します。").
+  • Added pricing.eyebrow ("Membership" / "メンバーシップ"), pricing.title, pricing.subtitle keys.
+
+- Updated Navbar (src/components/jgate/navbar.tsx) — added /pricing link to NAV_LINKS between /team and /blogs (so nav has 8 routes total now).
+- Updated Footer (src/components/jgate/footer.tsx) — added pricing link to footer NAV_LINKS, updated contact info to real PDF values: Cyber Gateway Hitech City Hyderabad address, contact@indobox.co.jp email, +91-9910360648 (Tanji) phone.
+
+- Rebuilt Services page (src/app/services/page.tsx) — 4 unique-layout sections + CTA:
+  • Section 1 — Business Expansion Support (bg-ivory): vertical staggered list of 5 services with alternating left/right Reveal animations, large 8rem numeral watermarks (opacity-0.07), alternating crimson/saffron accent gradients (icon badge + bottom bar). 5 services: Corporate Registration & Nominee Director / Talent Development Dispatching & Payroll / Sales & Marketing Support / Interpretation & Back-Office Outsourcing / End-to-End Setup to Daily Ops. Each card has Service Line 0X eyebrow + JP accent label + full bilingual description. End-to-end callout box (dashed crimson border) at bottom with Workflow icon "One partner. Five services. Zero hand-off gaps."
+  • Section 2 — Indobox Academy (bg-midnight + asanoha-dark pattern + dual radial gradients): center header + 4-tile info grid (Format: Online / Duration: 60min/session / Frequency: Once every 1-2 months / Curriculum: Customs·Risk·Success Keys) using glass-dark cards + saffron icons. Below: 2 large cards side-by-side: Lecturer Tomio Isogai (磯貝 富雄 氏, saffron accent + saffron top bar) and Facilitator Daisuke Tanji (丹治 大佑, crimson accent + crimson top bar), each with circular icon, role description, and 5-line bio.
+  • Section 3 — Indo-Japan Hybrid Management (bg-ivory-warm): 2-column responsibility cards. Indobox card (crimson accent, Handshake icon, 4-item checklist: marketing/client acquisition, facilitation coordination Japan-India, maintaining client relationships, securing project leads). Genesys card (saffron accent, Building2 icon, 4-item checklist: high-quality workspaces, securing local talent, engaging Indian companies partnering with Japanese firms, facility maintenance). Below: Living Support strip with Home icon + 4 small cards (apartment/housing search, FRRO registration, long-stay hotel arrangements, other daily-life support).
+  • Section 4 — Facility Features (bg-ivory): 3-col grid of 6 facility cards (Dedicated Workspace / Communication Infrastructure / Meeting Rooms / Shared Cafeteria / 24/7 Access / Security), alternating crimson/saffron accents, opacity-0.06 numeral watermark top-right, icon badge, JP accent label below EN title, hover gradient blob. Bottom callout: Banknote icon + "Enterprise-grade infrastructure, included — not invoiced separately."
+  • Closing CTA (bg-navy + asanoha-navy pattern): Sparkles icon + "Build Your India Base With Indobox" + 2-link CTA (Contact Us / View Membership Plans) + quick contact strip with contact@indobox.co.jp email + +91-9910360648 phone.
+
+- Rebuilt Team page (src/app/team/page.tsx) — 5 sections:
+  • Section 1 — Header Message (bg-navy + asanoha-navy + saffron radial): Sparkles icon + "Unlocking new possibilities for your business through collaboration with India." bilingual catchphrase + "— From the J-Gate Operations Team, Hyderabad" attribution.
+  • Section 2 — J-Gate Operations Team (bg-ivory): 4-card grid (sm:2 lg:4) with circular Photos + country flags (🇯🇵/🇮🇳) + Roman name + JP accent name + role badge (alternating crimson/saffron) + bio. 4 members: Daisuke TANJI (Director, 🇯🇵) / Mariko HANAOKA (Director, 🇯🇵) / Dheeraj YANNETI (Community Manager, 🇮🇳) / Abhishek BUDURU (Intern/Tech, 🇮🇳).
+  • Section 3 — Board of Advisory (bg-ivory-warm): 5 advisor cards + 1 decorative closure card = 6-tile 3-col grid. Each advisor card has gold top-border accent (from-saffron via-saffron-light to-[#c9881a]), circular Photo, name (Srinivas Rao Mahankali, Sujit Jagirdar, Dr. Uday B. Desai, Dr. Viinay Sarikonda, Tomio Isogai), JP accent, role (uppercase saffron), bio description, footer icon chip with "Advisor X of 5". Closure card has tri-color top bar + Sparkles icon + "Five advisors. One mandate: rigour."
+  • Section 4 — Ecosystem Partners (bg-navy + asanoha-navy + dual radial gradients): 6 partner tiles in 3-col grid on glass-dark, alternating saffron/crimson icon badges. Partners: Kodryx.ai (DATA INTELLIGENCE) / YANC (Young Minds Networking Life Skills) / Daakia (—Bridging Distance—) / FINGERPRINT FILMS (CREATIVE STUDIO) / MXC (TECHNOLOGY PARTNER) / Hyderabad Japan Club (COMMUNITY). Each with icon badge, name, JP accent, uppercase tag, description. Hover-reveal bottom accent bar.
+  • Section 5 — Closing CTA (bg-ivory): Building2 icon + "Talk to the Team That Builds the Bridge" + 2-link CTA (Contact Us / Explore Services).
+
+- Created NEW Pricing page (src/app/pricing/page.tsx) — 4 sections:
+  • Section 1 — Context Banner (bg-ivory): TrendingDown icon + "Why These Plans, Why Now" eyebrow + "Designed as a high cost-performance strategic investment" + 2-tile cost comparison strip: ¥15M–¥20M (strike-through crimson, "Typical Annual Expat Cost") vs 15,000 INR/mo (saffron highlighted, "J-Gate Membership From", "excl. GST · ~¥27k/mo"). Decorative gradient blob top-right.
+  • Section 2 — 3 Pricing Cards (bg-ivory-warm): lg:grid-cols-3 with Standard plan centered + elevated (lg:-translate-y-4 lg:scale-[1.03] lg:shadow-[0_20px_60px_rgba(188,26,44,0.18)]). Each card: top accent bar + optional badge (top-right) + icon + EN plan name + JP accent name + large price (4xl→5xl) + INR/mo unit + "excl. GST" note + Target section + Included features checklist (✓) + CTA "Contact Us".
+    - Satellite Plan: slate accent border, Building2 icon, 15,000 INR/mo, target = companies with existing India entity, 3 features (workspace unlimited up to 2 people, full infrastructure, ideal market development base Hyderabad/Andhra Pradesh), border-only CTA.
+    - Standard Plan: crimson accent border, Star icon, "MOST POPULAR" badge, 50,000 INR/mo, target = SMEs/startups entering India, 5 features (workspace unlimited up to 4 people, full infra, Yorozu Consultation in-person, India study sessions, initial network introductions), gradient-filled CTA.
+    - Advance Plan: saffron accent border, Crown icon, "FLAGSHIP" badge, 120,000 INR/mo, target = enterprises/regional banks/local governments, 5 features (Everything in Standard + Indobox early-phase hands-on consulting + business meeting accompaniment up to 1x/month + priority invitations to networking events + detailed local partner introductions and matching), gradient-filled CTA.
+    - Below cards: 3-stat comparison strip (People per plan: 2→4→+ / Service depth: Workspace→Yorozu→Hands-on / Best for: Established→Entering→Accelerating).
+  • Section 3 — Notes (bg-ivory): AlertCircle icon header + "Read Before You Subscribe" + 3 detailed note items with saffron circular icons: Base fees only (Banknote icon — corporate registration agency fees and recruitment referral commissions charged separately), INR billing JPY settlement supported (¥ icon — rates fluctuate based on FX), GST excluded (GST text icon — added to invoices per applicable rates). Each with bold "Label. " prefix + detailed bilingual explanation.
+  • Section 4 — Closing CTA (bg-midnight + asanoha-dark + saffron radial): Satellite icon + "Ready to Choose Your Plan?" + 2-link CTA (Contact Us / Compare Services) + quick contact strip (email + phone).
+
+- Rebuilt Contact page (src/app/contact/page.tsx) — 5 sections:
+  • Section 1 — Header Message (bg-navy + asanoha-navy + saffron radial): Sparkles icon + "Unlocking new possibilities for your business through collaboration with India." bilingual catchphrase + "— From the J-Gate Operations Team, Hyderabad" attribution.
+  • Section 2 — Two-column (bg-midnight + asanoha-dark): Left = 2 contact cards (Email crimson with "Feel free to consult about anything; support is provided in Japanese" note; Phone saffron with sub-lines for Tanji +91-9910360648 and Dheeraj +91-98498 11543) + Direct Inquiry form (Name/Email/Subject/Message with bilingual validation + 600ms submit delay + success state with CheckCircle2 icon). Right = CSS map with grid pattern, roads, Tokyo pin (small, crimson, "Tokyo (Indobox HQ)"), Hyderabad pin (large pulsing saffron, "Hyderabad · J-Gate Base" + Cyber Gateway Hitech City sub-label), corridor arc, compass "N", "Japan–India Corridor" center label (~7,500km · 3.5 hour time difference), bottom-left info chip "Hyderabad — Primary Base · Launched June 2026 · Cyber Gateway".
+  • Section 3 — Operations Team strip (bg-ivory-warm): 4-card grid showing Daisuke TANJI / Mariko HANAOKA / Dheeraj YANNETI / Abhishek BUDURU with names, JP accents, roles, phone numbers (where applicable), flags. "Meet the full team →" link to /team.
+  • Section 4 — Response-time guarantee strip (bg-ivory): 3-stat grid (24h response / JP all responses in Japanese / 100% inquiries answered by human).
+  • Section 5 — Closing CTA (bg-ivory-warm): "Prefer to Read First?" + 2-link CTA (Download Brochure / View Pricing Plans).
+
+- All content bilingual via tx({EN, JP}) inline helper — proper business Japanese throughout (法人登記・登録住所・名義人ディレクター, 人材育成・派遣・給与管理, 営業・マーケティング支援, 通訳支援・バックオフィス代行, 法人設立から日常実務まで一貫支援, インドビジネスに豊富な経験を持つ専門家による実践講座, 日印ハイブリッドの強力な運営体制, 現地パートナーの詳細紹介・マッチング, 商談同席, 法人登記代行手数料, 人材紹介紹介手数料, インドルピー, 日本円決済, 物品サービス税, etc.). No machine translation artifacts.
+
+- Verification: bun run lint clean (0 errors, 0 warnings). All 4 routes return 200 (services, team, pricing, contact) — verified via curl. Content verified via curl grep:
+  • /services: shows Indobox, Indobox Academy, Tomio Isogai, Daisuke Tanji, Genesys, Hybrid Operating Structure, Living Support, Talent Development Dispatching, End-to-End Support, Dedicated Workspace, 24/7 Access.
+  • /team: shows Daisuke TANJI, Mariko HANAOKA, Dheeraj YANNETI, Abhishek BUDURU, Srinivas Rao Mahankali, Sujit Jagirdar, Uday B. Desai, Viinay Sarikonda, Tomio Isogai, Kodryx, YANC, Daakia, FINGERPRINT FILMS, MXC, Hyderabad Japan Club, Board of Advisory, Ecosystem Partners.
+  • /pricing: shows Satellite Plan, Standard Plan, Advance Plan, 15,000, 50,000, 120,000, MOST POPULAR, FLAGSHIP, Yorozu, GST, INR, JPY, 15M, 20M.
+  • /contact: shows contact@indobox.co.jp, 9910360648, 98498, Tanji, Dheeraj, Mariko, Abhishek, Connect With J-Gate, Direct Inquiry, Cyber Gateway, "Unlocking new possibilities for your business through collaboration with India.".
+
+Stage Summary:
+- Deliverable: Updated i18n dictionary + rebuilt 3 pages (Services, Team, Contact) + 1 NEW page (Pricing) with REAL PDF content from Slides 4, 5, 6, 9, 12, 13. Plus updated Navbar + Footer to include the new /pricing route.
+- Services page: PageHero with "Indobox Comprehensive Expansion Support" + 4 unique-layout sections — Business Expansion Support (5 vertical staggered service cards with numeral watermarks + alternating crimson/saffron accents + end-to-end callout) / Indobox Academy (4-tile info grid + 2 lecturer/facilitator cards on midnight) / Indo-Japan Hybrid Management (2-column Indobox vs Genesys responsibility cards + Living Support strip) / Facility Features (3-col grid of 6 facility cards with hover gradient blobs + bottom callout) + closing CTA.
+- Team page: Header Message band with bilingual catchphrase + 4-card J-Gate Operations Team (Daisuke TANJI/Mariko HANAOKA/Dheeraj YANNETI/Abhishek BUDURU with circular Photos + flags) + 5-advisor Board of Advisory (gold top-border accent, with closure card making 6 tiles) + 6-tile Ecosystem Partners (Kodryx.ai/YANC/Daakia/FINGERPRINT FILMS/MXC/Hyderabad Japan Club on glass-dark navy) + closing CTA.
+- Pricing page (NEW): PageHero "Membership Fee Plans — Hyderabad" + Context Banner showing ¥15M–¥20M typical cost vs 15,000 INR/mo J-Gate cost + 3 elevated pricing cards (Satellite slate / Standard crimson MOST POPULAR elevated+centered / Advance saffron FLAGSHIP) with full feature checklists and CTAs + comparison strip + Notes section (3 detailed bilingual notes about base fees / INR-JPY settlement / GST) + closing CTA with contact strip.
+- Contact page: PageHero "Connect With J-Gate" + Header Message band with catchphrase + 2-column (left: Email card with Japanese support note + Phone card with Tanji & Dheeraj sub-lines + Direct Inquiry form with validation & success state | right: CSS map with Hyderabad primary base + Tokyo secondary base + corridor arc) + Operations Team strip linking to /team + Response-time guarantee strip (24h / JP / 100% human) + closing CTA.
+- Design compliance: every section uses a UNIQUE layout (no repetitive card grids); section-pad + container-jg rhythm; alternating bg-ivory/bg-ivory-warm/bg-navy/bg-midnight; Reveal with delays + variant="left"/"right" for directionality; lift-card hover effects; fully responsive (mobile-first, sm/md/lg/xl breakpoints); accessibility (semantic HTML, ARIA labels, aria-invalid on form fields, keyboard-navigable); proper business Japanese throughout.
+- Real PDF content faithfully preserved: 5 expansion services, Academy with lecturer Tomio Isogai + facilitator Daisuke Tanji + online 60min 1-2 months format, Indobox vs Genesys responsibilities + Living Support services, 6 facility cards with exact feature descriptions, 3 pricing plans with exact INR prices (15,000 / 50,000 / 120,000) + Yorozu consultation + business meeting accompaniment, 5 advisors with exact credentials, 6 ecosystem partners with exact names + taglines, 4 operations team members with exact phone numbers + contact@indobox.co.jp email + Japanese support note.
+- Artifacts: src/lib/i18n.tsx (UPDATED — added nav.pricing + pricing.eyebrow/title/subtitle + updated services/team/contact keys), src/components/jgate/navbar.tsx (UPDATED — added /pricing link), src/components/jgate/footer.tsx (UPDATED — added pricing link + real contact info), src/app/services/page.tsx (REBUILT — 4 sections + CTA), src/app/team/page.tsx (REBUILT — 5 sections), src/app/pricing/page.tsx (NEW — 4 sections), src/app/contact/page.tsx (REBUILT — 5 sections).
+- Work record written to /agent-ctx/C-B-full-stack-developer.md.
+
+---
+Task ID: C-C
+Agent: Z.ai Code (main)
+Task: Update entire site with REAL official content extracted from client's PDF (13 slides). Real team members, real pricing, real advisors, real contact info, real facility details, real comparison data.
+
+Work Log:
+- Extracted and translated all 13 slides of PDF content from the WhatsApp-shared document.
+- Downloaded additional partner logos: Prodrone (verified), Daakia (verified). YANC, Fingerprint Films, Hyderabad Japan Club use styled text tiles (logos not publicly available).
+- Searched and downloaded Japanese enterprise logos for the scrolling logo wall: Toyota (verified), Sony (verified), Hitachi (verified), NTT (verified), Mitsubishi (verified).
+- Delegated content update to 2 parallel subagents:
+  • C-A: Updated i18n dictionary + Home + About + Why J-Gate pages with real PDF content (hero catchphrase, 3 core purpose pillars, strategic locations Hyderabad+Gurgaon, competitive comparison table, 7 core value pillars).
+  • C-B: Rebuilt Services + Team + Contact pages + created NEW Pricing page with real content (Indobox Academy with Isogai/Tanji, hybrid management Indobox/Genesys responsibilities, 6 facility features, 3 real pricing plans 15K/50K/120K INR, real team members Tanji/Hanaoka/Dheeraj/Abhishek, real advisors Mahankali/Jagirdar/Dr.Desai/Dr.Sarikonda/Isogai, real contact contact@indobox.co.jp + real phone numbers).
+
+Stage Summary:
+- Deliverable: Entire site updated with REAL official PDF content across 9 routes.
+- REAL content now live:
+  • Home hero: "Birth of a Dedicated Working Hub for Japanese Companies" / 「日本企業専用のワーキングハブ誕生」 + catchphrase "The 'right answer' to expanding into India starts here." / 「インド進出の『正解』を、ここから。」
+  • About: 3 Core Purpose Pillars (Opportunity Creation / Talent Development / Business Collaboration) + Strategic Locations (Hyderabad Main Base launched June 2026 + Gurgaon Sub Base in preparation)
+  • Why J-Gate: REAL competitive comparison table (J-Gate vs Major Consulting vs Local Coworking vs Public Orgs) across 9 dimensions + 7 Core Value Pillars
+  • Services: Indobox Academy (lecturer Tomio Isogai 磯貝富雄, facilitator Daisuke Tanji 丹治大佑, online 60min) + Business Expansion Support + Indo-Japan Hybrid Management (Indobox/Genesys responsibilities) + 6 Facility Features
+  • Team: REAL members (Daisuke TANJI Director, Mariko HANAOKA Director, Dheeraj YANNETI Community Manager, Abhishek BUDURU Intern/Tech) + REAL Board of Advisory (Mahankali, Jagirdar, Dr. Uday B. Desai, Dr. Viinay Sarikonda, Tomio Isogai) + Ecosystem Partners (Kodryx.ai, YANC, Daakia, Fingerprint Films, MXC, Hyderabad Japan Club)
+  • Pricing (NEW page): 3 real plans — Satellite 15,000 INR, Standard 50,000 INR (MOST POPULAR), Advance 120,000 INR (FLAGSHIP) with real included services + notes
+  • Contact: REAL email contact@indobox.co.jp + REAL phone +91-9910360648 (Tanji) + +91-98498 11543 (Dheeraj) + Japanese support note
+- Agent Browser verification (all passed):
+  - All 9 routes return 200 (/, /about, /why-jgate, /services, /team, /pricing, /blogs, /contact, /auth/brochure).
+  - Home H1: "Birth of a Dedicated Working Hub for Japanese Companies" (EN) / 「日本企業専用のワーキングハブ誕生」 (JP).
+  - JP/EN toggle works, persists across pages.
+  - Team page: real members + real advisors + ecosystem partners all render.
+  - Contact page: real email + real phone numbers verified present.
+  - Why J-Gate: comparison table + 50,000 INR real pricing + 7 pillars render.
+  - Services: Indobox Academy + Isogai + Tanji + Genesys responsibilities render.
+  - Pricing: 3 real plans (Satellite/Standard/Advance) render.
+  - bun run lint clean; all routes 200, no errors.
+
+---
+Task ID: C-D
+Agent: Z.ai Code (main)
+Task: Fix logo to use only official logo image (remove "J-Gate / Jゲート" text), reduce excessive section spacing for compact professional layout.
+
+Work Log:
+- Rebuilt JGateLogo component: removed the "J-Gate / Jゲート" text wordmark entirely — now renders ONLY the official logo image (/jgate-logo.png, the interlocking red+gold rings with built-in wordmark). Height set to h-11 (44px) for navbar/footer visibility. Verified the PNG is 96.4% transparent (no white background), so it renders correctly on dark navbar/footer.
+- Reduced global section-pad: 120/80/60px → 80/56/40px (desktop/tablet/mobile) — significantly tighter, more professional.
+- Reduced PageHero min-height: 60vh → 44vh, pt-20 pb-12 (was pt-20 pb-16).
+- Audited and reduced excessive spacing across all 7 page files (home, about, why-jgate, services, team, pricing, contact, blogs): py-16→py-12, py-20→py-14, py-24/28→py-16, mt-16/14→mt-10, mt-12→mt-8, mb-16/14→mb-10, mb-12→mb-8, pt-28→pt-20, pb-32→pb-20.
+- Home page hero: pt-24 pb-24 (was pt-28 pb-32), badges mt-12 (was mt-16), logo wall py-12 (was py-16), stats py-14 (was py-20), overview cards mt-10 gap-5 (was mt-12 gap-6).
+
+Stage Summary:
+- Deliverable: Official logo image only (no duplicate text) + tighter professional layouts across all pages.
+- Agent Browser self-verification (all passed):
+  - Navbar logo: image only, 44×44px (h-11), loaded, NO "Jゲート" text in nav.
+  - Footer logo: image only, loaded.
+  - VLM confirmed: "interlocking rings that are red and gold, with the J-Gate text" — the official logo renders correctly.
+  - Home page body height reduced (more compact).
+  - PageHero height: 393px (down from ~480px).
+  - All 8 routes return 200.
+  - bun run lint clean; no errors.
+
+---
+Task ID: U-A
+Agent: principal-ui-ux
+Task: Redesign Home, About, Why J-Gate pages with CLEAN, PROFESSIONAL, NON-MESSY Bento-Grid / Multi-Card layouts. Zero context mixing per card, high scannability, bold anchor keywords, metric badges, tables not text walls.
+
+Work Log:
+- Read /home/z/my-project/worklog.md (Tasks 1–7 + M-A + M-B + M-C + C-A + C-B + C-C + C-D) for full project context. Reviewed existing infrastructure: i18n system at @/lib/i18n (useI18n → { lang, t, tx, toggle }) with all PDF-real content keys (about.purpose.*, about.hyderabad.*, about.gurgaon.*, why.compare.*, why.row1-9.*, why.p1-7.*); PageHero at @/components/jgate/page-hero; shared Reveal/Eyebrow; LogoMarquee; JGateLogo from @/components/jgate/icons (size="lg" h-24 / "md" h-16 / "sm" h-12); design tokens (bg-ivory/bg-ivory-warm/bg-navy/bg-midnight/bg-pearl, text-ink/crimson/saffron/slate/mist, glass-dark, shadow-card, lift-card, section-pad 80/56/40px, container-jg, pattern-asanoha-*, font-serif-jp, font-inter, btn-shine, text-gradient-saffron).
+
+- Rebuilt Home page (src/app/page.tsx):
+  • Hero: bg-midnight with torii watermark + 12 particles + Hyderabad skyline silhouette. Centered stack: eyebrow pill → JGateLogo size="lg" (NEW — large brand mark) → bilingual title (line 1 + saffron gradient line 2) → alternate-language accent tag (JP in EN mode, EN in JP mode) → catchphrase subtitle → 2 CTA buttons (Download Brochure + Explore Services). Below CTAs: clean location pill row (Hyderabad — Main Base saffron / Gurgaon — Sub Base crimson / Indobox India operator). REMOVED: 3 floating glass badges + extra info row (was cluttered).
+  • Compact Logo Wall: bg-ivory, py-12 (tighter than original py-14), single Reveal heading + LogoMarquee variant="light". Removed verbose subtitle.
+  • Quick Stats: bg-navy + asanoha-navy pattern + dual radial gradient. 4 clean metric badges in a row (sm:grid-cols-2 lg:grid-cols-4): 100+ Network Partners, 500+ Engineers Placed, 94% JLPT Pass Rate, 92% 12-mo Retention. Each card: glass-dark, large saffron-gradient numeral, uppercase mist label, lift-card hover. REMOVED India map sidebar (was context-mixing — pure data-only section now).
+  • Executive Overview: bg-ivory-warm. 3 clean cards (md:grid-cols-3): Core Purpose & Locations (/about), Strategic Advantage (/why-jgate), Service Verticals (/services). Each card: gradient icon badge (BookOpen/Shield/Users), H3 title, 1-line desc, "Learn More →" link. lift-card hover.
+  • CTA Banner: bg-midnight + asanoha-dark + crimson radial. Single centered CTA: H2 + subtitle + crimson gradient button → /auth/brochure.
+
+- Rebuilt About page (src/app/about/page.tsx):
+  • PageHero: eyebrowKey=about.eyebrow ("About J-Gate"); titleNode = "From India Entry Spark / to Talent Development" (EN) or "インド展開の / きっかけ作りから育成まで" (JP) with saffron gradient on line 2; subtitleKey=about.title.
+  • Section 1 — Core Purpose (bg-ivory): Header (eyebrow + H2 + subtitle). Clean 3-col bento grid (md:grid-cols-3) of pillar cards. Each card: top accent bar (alternating crimson/saffron), gradient icon badge (Rocket crimson / GraduationCap saffron / HandHeart crimson), uppercase tag label "Pillar 01/02/03" + JP accent label + EN/JP title + 1-line description. REMOVED large numeral watermarks + alternating scattered accent (was messy).
+  • Section 2 — Strategic Locations (bg-midnight + asanoha-dark + dual radial): Header. 2 clean cards side-by-side (lg:grid-cols-2). Hyderabad card: saffron accent top border, Building2 icon, "Main Base" tag, "Launched June 2026" status badge, "Next Bangalore" nickname italic, description, 3-bullet feature list with CheckCircle2 saffron icons, decorative MapPin watermark. Gurgaon card: crimson accent top border, Building2 icon, "Sub Base" tag, "In Preparation" status badge, Delhi NCR Business Core nickname, description, 3-bullet feature list with CheckCircle2 crimson icons. Below: 2-item legend (saffron dot + Hyderabad Main Base, crimson dot + Gurgaon Sub Base in prep). NO other content in this section.
+  • Section 3 — Mission & Vision (bg-ivory-warm): Header. 2 clean cards side-by-side (md:grid-cols-2). Mission card: crimson accent top border, Target icon, "Our Mission" title, 2-sentence body, "What we do today" footer label. Vision card: saffron accent top border, Eye icon, "Our Vision" title, 2-sentence body, "What we build toward" footer label. NO mixing.
+  • Section 4 — Core Values (bg-ivory): Header. 4-card grid (sm:grid-cols-2 lg:grid-cols-4). Each card: vertical accent bar on left (alternating crimson/saffron), gradient icon badge, title (Integrity/Cultural Fluency/Technical Excellence/Long-Term Partnership), 1-line description. NO mixing.
+  • Closing CTA (bg-ivory-warm): Sparkles icon + H2 + subtitle + 2-link CTA (Why J-Gate crimson gradient button, Explore Services outline button).
+  • REMOVED: Company Story section (3-paragraph narrative with side index + pull quote). Was context-mixing with core purpose. About page now strictly groups: Purpose → Locations → Mission/Vision → Values → CTA.
+
+- Rebuilt Why J-Gate page (src/app/why-jgate/page.tsx):
+  • PageHero: eyebrowKey=why.eyebrow; titleNode = "The Strategic / Investment Advantage" (EN) or "戦略的投資としての / 優位性" (JP) with saffron gradient on line 2; subtitleKey=why.subtitle.
+  • Section 1 — Competitive Superiority Matrix (bg-ivory): Header. Added NEW symbol legend strip above table (✓ Fully Available green / ✗ Not Available crimson / ◎ Optimal Value saffron / △ Partial/Limited slate) for high scannability. Clean 5-column grid table (label + 4 data columns). J-Gate column highlighted with crimson top border + crimson tinted bg + "Recommended" badge in header. Header row has uppercase column caps. 9 data rows with colored symbols per spec — ✓ = success (green), ✗ = crimson (red), ◎ = saffron (gold), △ = slate (mist). Mobile: horizontal-scroll wrapper with sticky first column, scroll hint "← Swipe horizontally to compare →". Footer note explains J-Gate is the only option combining all 4 advantages.
+  • Section 2 — 7 Core Value Pillars (bg-navy + asanoha-navy + dual radial): Header. NEW clean 4+3 grid layout (was vertical staggered list — was mixing alternating left/right reveal + scattered large numerals). Top row: 4 cards (lg:grid-cols-4). Bottom row: 3 cards centered (lg:max-w-[75%] lg:mx-auto lg:grid-cols-3). Each card: glass-dark, gradient icon badge with small numeral chip overlay (-right-1.5 -top-1.5), H3 title, 1-line description. NO mixing with testimonials or other content. Below: "Pillars in numbers" summary strip (2-4 persons/company · 7 pillars · 100% JP support).
+  • Section 3 — Corporate Testimonials (bg-midnight + asanoha-dark + saffron radial): Header. 3 clean testimonial cards (lg:grid-cols-3). Each card: glass-dark, QuoteMark in top-right, 5 saffron stars, italic quote body, divider, gradient avatar circle with initials, name + role. NO mixing.
+  • Closing CTA (bg-ivory): ShieldCheck icon + H2 + subtitle + 2-link CTA (Download Brochure crimson gradient + Explore Services outline).
+
+Stage Summary:
+- Deliverable: 3 redesigned pages (Home, About, Why J-Gate) with CLEAN, PROFESSIONAL, NON-MESSY Bento-Grid / Multi-Card architecture. Zero context mixing — each card contains ONLY its domain data.
+- Home: Hero (large JGateLogo + dual title + 2 CTAs + Hyderabad/Gurgaon location pills) → Compact Logo Wall → Quick Stats (4 clean metric badges: 100+ / 500+ / 94% / 92%) → Executive Overview (3 cards linking /about, /why-jgate, /services) → CTA Banner.
+- About: PageHero → Section 1 Core Purpose (3-pillar bento grid, no mixing) → Section 2 Strategic Locations (2 cards: Hyderabad saffron Main Base + Gurgaon crimson Sub Base, no other content) → Section 3 Mission & Vision (2 cards, no mixing) → Section 4 Core Values (4-card grid, no mixing) → CTA. REMOVED Company Story section.
+- Why J-Gate: PageHero → Section 1 Competitive Superiority Matrix (4-col table, crimson J-Gate column with Recommended badge, ✓/✗/◎/△ colored symbols + legend strip, mobile horizontal scroll with sticky first col) → Section 2 7 Core Value Pillars (clean 4+3 grid, no mixing) → Section 3 Testimonials (3 cards, no mixing) → CTA.
+- Design compliance:
+  • Every section tightly grouped by domain — no card carries content outside its core purpose.
+  • Card radius 12px (rounded-lg), subtle borders (border-crimson/8 or border-saffron/15 or border-crimson/25), white bg (bg-pearl/bg-ivory) or glass-dark on dark, lift-card hover (translateY -4px + shadow-hover).
+  • H1 32px+ bold bilingual, H2 20px semibold, body 14px regular with high line-height.
+  • section-pad (80/56/40px) + container-jg (1280px max) rhythm throughout.
+  • Bilingual JP+EN via tx() inline helper using REAL PDF content (きっかけ作り/人材育成/ビジネス連携, Hyderabad Main Base / Gurgaon Sub Base, ◎/△ markers preserved, 7 pillars exact titles).
+  • Mobile-first responsive (sm/md/lg breakpoints); comparison table sticky first column on mobile; pillar grid 1→2→4 cols.
+  • Bold anchor keywords (Main Base / Sub Base / Recommended / Pillar 01/02/03) via uppercase tracking labels.
+  • Metric badges (100+ / 500+ / 94% / 92%) with saffron-gradient numerals + uppercase mist labels — high scannability, zero text walls.
+- Verification: bun run lint clean (0 errors, 0 warnings). All 3 routes return 200. Content verified via curl: Home shows "100+", "500+", "94%", "92%", "Birth of a Dedicated", "Hyderabad", "Gurgaon", "Indobox", jgate-logo image; About shows "きっかけ作り", "人材育成", "ビジネス連携", "Hyderabad", "Gurgaon", "Main Base", "Sub Base", "Next Bangalore", "In Preparation", "Mission", "Vision", "Integrity", "Cultural Fluency", "Technical Excellence"; Why J-Gate shows "J-Gate vs The Alternatives", "Recommended", "Target Audience", "Monthly Cost", "Physical Base", "Resident Japanese", "Workspace Access", "Japan Desk Consultations", "End-to-End Company Setup", "50,000 INR", "500,000", "T-Hub".
+- Artifacts: src/app/page.tsx (REBUILT), src/app/about/page.tsx (REBUILT), src/app/why-jgate/page.tsx (REBUILT).
+- Work record written to /agent-ctx/U-A-principal-ui-ux.md.

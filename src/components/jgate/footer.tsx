@@ -1,22 +1,22 @@
 "use client";
 
-import { ToriiGate, LinkedInIcon, XIcon, InstagramIcon, JapanFlag, IndiaFlag } from "./icons";
+import { ToriiGate, LinkedInIcon, XIcon, InstagramIcon, JapanFlag, IndiaFlag, AsanohaSeal } from "./icons";
+import { ArrowRight } from "lucide-react";
 
-const QUICK_LINKS = [
-  { id: "home", label: "Home" },
-  { id: "about", label: "About" },
+const NAV_LINKS = [
+  { id: "about", label: "About J-Gate" },
+  { id: "why-hyderabad", label: "Why Hyderabad" },
+  { id: "membership", label: "Membership" },
   { id: "features", label: "Features" },
-  { id: "pricing", label: "Pricing" },
+  { id: "partners", label: "Partners" },
+  { id: "advisory", label: "Advisory Council" },
+  { id: "team", label: "Founding Team" },
   { id: "events", label: "Events" },
+  { id: "faq", label: "FAQ" },
   { id: "contact", label: "Contact" },
 ];
 
-const PARTNER_LINKS = [
-  "Genesys Info X",
-  "JETRO",
-  "T-Hub",
-  "Woxsen University",
-];
+const PARTNER_LINKS = ["JETRO", "T-Hub", "Woxsen University", "Genesys Info X", "MXC", "DMI", "Kodryx AI"];
 
 const SOCIALS = [
   { Icon: LinkedInIcon, label: "LinkedIn", href: "#" },
@@ -29,32 +29,33 @@ export function Footer() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <footer className="relative mt-auto overflow-hidden bg-jgate-navy text-white">
-      <div className="pattern-asanoha-dark absolute inset-0 opacity-60" />
-      {/* top gradient hairline */}
-      <div className="relative h-1 w-full bg-gradient-to-r from-jgate-red via-jgate-gold to-jgate-green" />
+    <footer className="relative mt-auto overflow-hidden bg-[#04080f] text-white">
+      {/* torii watermark faint */}
+      <div className="pointer-events-none absolute -right-20 top-10 opacity-[0.03] text-crimson">
+        <ToriiGate className="h-64 w-64" />
+      </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
+      {/* top hairline */}
+      <div className="relative h-px w-full bg-gradient-to-r from-transparent via-crimson/40 to-transparent" />
+
+      <div className="container-jg relative py-16">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Col 1 — Brand */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center gap-2.5">
-              <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-jgate-red text-white">
-                <ToriiGate className="h-5 w-5" />
+          <div>
+            <div className="flex items-center gap-3">
+              <span className="text-crimson">
+                <ToriiGate className="h-7 w-7" />
               </span>
               <span className="flex flex-col leading-none">
                 <span className="font-serif-jp text-xl font-bold">J-Gate</span>
-                <span className="font-sans-jp text-[10px] text-white/50">
-                  Jゲート
-                </span>
+                <span className="font-sans-jp text-[10px] text-mist">Jゲート</span>
               </span>
             </div>
-            <p className="mt-4 text-sm leading-relaxed text-white/65">
-              Hyderabad&apos;s premier working hub for Japan-India business
-              collaboration. Where Japan meets India. Where vision meets
-              opportunity.
+            <p className="mt-4 font-inter text-sm leading-relaxed text-mist">
+              Hyderabad&apos;s premier working hub connecting Japan and India —
+              a sovereign platform for Japanese businesses to land, grow, and
+              lead in India.
             </p>
-            {/* Socials */}
             <div className="mt-5 flex gap-2.5">
               {SOCIALS.map(({ Icon, label, href }) => (
                 <a
@@ -62,31 +63,32 @@ export function Footer() {
                   href={href}
                   onClick={(e) => e.preventDefault()}
                   aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/8 text-white/70 transition-all hover:-translate-y-0.5 hover:bg-jgate-red hover:text-white"
+                  className="flex h-9 w-9 items-center justify-center rounded-md bg-white/[0.06] text-mist transition-all hover:-translate-y-0.5 hover:bg-crimson hover:text-white"
                 >
                   <Icon className="h-4 w-4" />
                 </a>
               ))}
             </div>
-            <div className="mt-5 flex items-center gap-2 text-xs text-white/50">
-              <JapanFlag className="h-3.5 w-5" />
-              <span>×</span>
-              <IndiaFlag className="h-3.5 w-5" />
-              <span>India × Japan</span>
-            </div>
+            <p className="mt-5 font-inter text-[12px] text-mist">
+              Operated by{" "}
+              <span className="font-semibold text-white/80">Indobox India Pvt. Ltd.</span>
+            </p>
+            <p className="font-sans-jp mt-1 text-[11px] text-mist/70">
+              インドボックス・インディア・プライベート・リミテッド
+            </p>
           </div>
 
-          {/* Col 2 — Quick Links */}
+          {/* Col 2 — Navigation */}
           <div>
-            <h3 className="font-serif-jp text-sm font-bold uppercase tracking-wider text-jgate-gold">
-              Quick Links
+            <h3 className="font-inter text-[11px] font-semibold uppercase text-saffron" style={{ letterSpacing: "0.15em" }}>
+              Navigate
             </h3>
-            <ul className="mt-4 space-y-2.5">
-              {QUICK_LINKS.map((l) => (
+            <ul className="mt-5 grid grid-cols-1 gap-2.5">
+              {NAV_LINKS.map((l) => (
                 <li key={l.id}>
                   <button
                     onClick={() => go(l.id)}
-                    className="text-sm text-white/70 transition-colors hover:text-jgate-red hover:underline"
+                    className="font-inter text-[14px] text-mist transition-colors hover:text-crimson"
                   >
                     {l.label}
                   </button>
@@ -97,16 +99,16 @@ export function Footer() {
 
           {/* Col 3 — Partners */}
           <div>
-            <h3 className="font-serif-jp text-sm font-bold uppercase tracking-wider text-jgate-gold">
-              Partners
+            <h3 className="font-inter text-[11px] font-semibold uppercase text-saffron" style={{ letterSpacing: "0.15em" }}>
+              Our Network
             </h3>
-            <ul className="mt-4 space-y-2.5">
+            <ul className="mt-5 space-y-2.5">
               {PARTNER_LINKS.map((p) => (
                 <li key={p}>
                   <a
                     href="#"
                     onClick={(e) => e.preventDefault()}
-                    className="text-sm text-white/70 transition-colors hover:text-jgate-red hover:underline"
+                    className="font-inter text-[14px] text-mist transition-colors hover:text-crimson"
                   >
                     {p}
                   </a>
@@ -115,56 +117,62 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Col 4 — Contact */}
+          {/* Col 4 — Contact + CTA */}
           <div>
-            <h3 className="font-serif-jp text-sm font-bold uppercase tracking-wider text-jgate-gold">
-              Get in Touch
+            <h3 className="font-inter text-[11px] font-semibold uppercase text-saffron" style={{ letterSpacing: "0.15em" }}>
+              Contact
             </h3>
-            <ul className="mt-4 space-y-3 text-sm text-white/70">
-              <li className="flex items-start gap-2.5">
+            <ul className="mt-5 space-y-3 font-inter text-[13px] text-mist">
+              <li className="flex items-start gap-2">
                 <span aria-hidden>📍</span>
-                <span>Cyber Gateway, Hyderabad, Telangana, India</span>
+                <span>Cyber Gateway, Hyderabad</span>
               </li>
-              <li className="flex items-start gap-2.5">
+              <li className="flex items-start gap-2">
                 <span aria-hidden>📧</span>
-                <a
-                  href="mailto:info@indobox.in"
-                  className="transition-colors hover:text-jgate-red"
-                >
-                  info@indobox.in
-                </a>
+                <a href="mailto:info@jgate.in" className="transition-colors hover:text-crimson">info@jgate.in</a>
               </li>
-              <li className="flex items-start gap-2.5">
-                <span aria-hidden>📞</span>
-                <span>+91 XXXXX XXXXX</span>
+              <li className="flex items-start gap-2">
+                <span aria-hidden>🌐</span>
+                <span>www.jgate.in</span>
               </li>
             </ul>
-            <div className="mt-5 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3">
-              <p className="text-xs leading-relaxed text-white/60">
-                Powered by{" "}
-                <span className="font-semibold text-white">
-                  Indobox India Pvt. Ltd.
-                </span>
-              </p>
-              <p className="font-sans-jp mt-1 text-[11px] text-white/40">
-                インドボックス・インディア・プライベート・リミテッド
-              </p>
+            <button
+              onClick={() => go("contact")}
+              className="mt-5 inline-flex items-center gap-1.5 rounded-md bg-crimson px-4 py-2.5 font-inter text-[13px] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-crimson-deep"
+            >
+              Book a Tour
+              <ArrowRight className="h-3.5 w-3.5" />
+            </button>
+            <div className="mt-5 flex items-center gap-2">
+              <AsanohaSeal className="h-6 w-6 text-saffron/40" />
+              <span className="font-inter text-[11px] text-mist/60">Est. June 22, 2026</span>
             </div>
           </div>
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-white/10 pt-6 text-center sm:flex-row sm:text-left">
-          <p className="text-xs text-white/55">
-            © 2026 J-Gate | Indobox India Pvt. Ltd. All rights reserved.
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/[0.06] pt-6 text-center md:flex-row md:text-left">
+          <p className="font-inter text-[12px] text-mist/70">
+            © 2026 J-Gate | Indobox India Private Limited. All rights reserved.
           </p>
-          <p className="flex items-center gap-1.5 text-xs text-white/55">
-            Crafted with
+          <p className="flex items-center gap-1.5 font-inter text-[12px] text-mist/70">
             <JapanFlag className="h-3 w-4" />
-            <span className="text-jgate-red">❤</span>
+            <span className="text-crimson">❤</span>
             <IndiaFlag className="h-3 w-4" />
-            in Hyderabad
+            Crafted in Hyderabad
           </p>
+          <div className="flex gap-4">
+            {["Privacy Policy", "Terms", "Sitemap"].map((t) => (
+              <a
+                key={t}
+                href="#"
+                onClick={(e) => e.preventDefault()}
+                className="font-inter text-[12px] text-mist/70 transition-colors hover:text-crimson"
+              >
+                {t}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

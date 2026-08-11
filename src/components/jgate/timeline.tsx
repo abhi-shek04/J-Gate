@@ -1,120 +1,120 @@
 "use client";
 
-import { Reveal, SectionHeading } from "./shared";
+import { Reveal, Eyebrow } from "./shared";
 import { cn } from "@/lib/utils";
 
-const MILESTONES = [
+const EVENTS = [
   {
     icon: "📅",
     date: "June 22, 2026",
     title: "Official Inauguration",
-    desc: "J-Gate officially opens its doors at Cyber Gateway, Hyderabad — marking the birth of a new Japan-India gateway.",
+    desc: "J-Gate is officially launched at Cyber Gateway, Hyderabad. A landmark moment in India-Japan bilateral business relations.",
   },
   {
     icon: "👥",
     date: "Launch Day",
     title: "50+ Distinguished Guests",
-    desc: "Entrepreneurs, diplomats, students and industry leaders gathered to witness the inauguration ceremony.",
-  },
-  {
-    icon: "🍡",
-    date: "Omotenashi",
-    title: "Daifuku Mochi & Green Tea",
-    desc: "Japanese Daifuku Mochi and green tea were served in the true spirit of Omotenashi (おもてなし).",
+    desc: "Global business leaders, entrepreneurs, investors, university students, Japanese expatriates, and business travelers from Japan gathered to celebrate the launch — reflecting the breadth of J-Gate's vision.",
   },
   {
     icon: "🎤",
     date: "Keynote Address",
-    title: "Mr. Naoto Nakadate, JETRO",
-    desc: "Senior Director of JETRO delivered the keynote, underscoring the importance of Japan-India collaboration.",
-  },
-  {
-    icon: "🏢",
-    date: "Day 1",
-    title: "2 Founding Member Companies",
-    desc: "Two Japanese companies joined as founding members on launch day — proving immediate market demand.",
+    title: "JETRO Keynote",
+    desc: "Mr. Naoto Nakadate, Senior Director of JETRO (Japan External Trade Organization), delivered the congratulatory keynote address — officially affirming Hyderabad's growing significance as a destination for Japanese investment.",
   },
   {
     icon: "🤝",
     date: "Partnership",
-    title: "MoU with Genesys Info X",
-    desc: "A strategic MoU was signed with Genesys Info X, combining international networks with deep local expertise.",
+    title: "MoU Signed with Genesys Info X",
+    desc: "Mr. Daisuke Tanji and Mr. Viinay Sarikonda jointly inaugurated J-Gate and formalized the Memorandum of Understanding powering J-Gate's operations and network.",
+  },
+  {
+    icon: "🎌",
+    date: "Omotenashi",
+    title: "Omotenashi Experience",
+    desc: "Guests were welcomed with Daifuku Mochi (大福餅) — Japan's traditional confection whose name means \"Great Fortune\" — paired with authentic Japanese green tea. A gesture that set the cultural tone for everything J-Gate represents.",
+  },
+  {
+    icon: "🏢",
+    date: "Day 1",
+    title: "Two Founding Member Companies",
+    desc: "Two Japanese companies announced their membership at inauguration — proving that demand for J-Gate existed before the doors even opened.",
+  },
+  {
+    icon: "🎓",
+    date: "Advisory",
+    title: "Advisory Council Pledges Support",
+    desc: "Mr. Sujit Jagirdar (former CIO, T-Hub) and Mr. Srinivas Rao Mahankali (former CEO, T-Hub) formally joined the J-Gate Advisory Council and delivered speeches expressing their full commitment.",
   },
 ];
 
 export function Timeline() {
   return (
-    <section
-      id="inauguration"
-      className="relative overflow-hidden bg-jgate-navy py-20 sm:py-28"
-    >
-      <div className="pattern-asanoha-dark absolute inset-0 opacity-70" />
+    <section id="inauguration" className="section-pad relative overflow-hidden bg-midnight">
+      <div className="pattern-asanoha-dark absolute inset-0 opacity-60" />
       <div
         className="absolute inset-0"
         style={{
-          background:
-            "radial-gradient(ellipse at 50% 0%, rgba(244,163,0,0.10), transparent 60%)",
+          background: "radial-gradient(ellipse at 50% 0%, rgba(232,160,26,0.08), transparent 60%)",
         }}
       />
 
-      <div className="relative mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+      <div className="container-jg relative">
         <Reveal>
-          <SectionHeading
-            light
-            eyebrow="Milestone"
-            title={
-              <>
-                A <span className="text-gradient-gold">Historic Launch</span>
-              </>
-            }
-            subtitle="On June 22, 2026, J-Gate marked the beginning of a new chapter in Japan-India business collaboration."
-          />
+          <div className="mx-auto max-w-3xl text-center">
+            <Eyebrow light>A Historic Moment</Eyebrow>
+            <h2
+              className="mt-4 font-serif-jp font-bold leading-[1.18] text-white"
+              style={{ fontSize: "clamp(1.875rem, 4vw, 2.5rem)" }}
+            >
+              The Launch of J-Gate —{" "}
+              <span className="text-gradient-saffron">June 22, 2026</span>
+            </h2>
+          </div>
         </Reveal>
 
-        {/* Timeline */}
-        <div className="relative mt-16">
-          {/* vertical line */}
+        {/* Vertical timeline */}
+        <div className="relative mx-auto mt-16 max-w-4xl">
+          {/* Center line */}
           <div
-            className="absolute left-5 top-0 h-full w-0.5 bg-gradient-to-b from-jgate-gold via-jgate-red to-jgate-green sm:left-1/2 sm:-translate-x-1/2"
+            className="absolute left-5 top-0 h-full w-px bg-gradient-to-b from-crimson via-saffron to-success sm:left-1/2 sm:-translate-x-1/2"
             aria-hidden
           />
 
           <ol className="space-y-8">
-            {MILESTONES.map((m, i) => {
+            {EVENTS.map((e, i) => {
               const isLeft = i % 2 === 0;
               return (
                 <li
-                  key={m.title}
+                  key={e.title}
                   className={cn(
                     "relative pl-14 sm:grid sm:grid-cols-2 sm:gap-8 sm:pl-0",
-                    isLeft ? "" : "sm:[&>*:first-child]:col-start-2"
+                    !isLeft && "sm:[&>*:first-child]:col-start-2"
                   )}
                 >
                   {/* Node */}
                   <span
-                    className="absolute left-5 top-2 z-10 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full border-2 border-jgate-gold bg-jgate-navy text-lg shadow-soft-lg sm:left-1/2"
+                    className="absolute left-5 top-3 z-10 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full border-2 border-crimson bg-midnight text-lg shadow-crimp sm:left-1/2"
                     aria-hidden
                   >
-                    {m.icon}
+                    {e.icon}
+                    <span className="absolute inset-0 rounded-full animate-node-glow" />
                   </span>
 
                   <Reveal
+                    variant={isLeft ? "left" : "right"}
                     delay={60}
                     className={cn(
                       "sm:col-span-1",
                       isLeft ? "sm:pr-12 sm:text-right" : "sm:col-start-2 sm:pl-12"
                     )}
                   >
-                    <div className="lift-card rounded-2xl border border-white/10 bg-white/[0.06] p-5 backdrop-blur-md hover:border-jgate-gold/40 sm:p-6">
-                      <span className="inline-flex rounded-full bg-jgate-gold/15 px-3 py-1 text-[11px] font-semibold uppercase tracking-wide text-jgate-gold">
-                        {m.date}
+                    <div className="lift-card rounded-lg border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm hover:border-saffron/30">
+                      <span className="inline-block rounded bg-saffron/15 px-2.5 py-1 font-inter text-[11px] font-semibold uppercase text-saffron" style={{ letterSpacing: "0.08em" }}>
+                        {e.date}
                       </span>
-                      <h3 className="mt-3 font-serif-jp text-lg font-bold text-white">
-                        {m.title}
-                      </h3>
-                      <p className="mt-2 text-sm leading-relaxed text-white/70">
-                        {m.desc}
-                      </p>
+                      <h3 className="mt-3 font-serif-jp text-lg font-bold text-white">{e.title}</h3>
+                      <p className="mt-2 font-inter text-[14px] leading-relaxed text-mist">{e.desc}</p>
                     </div>
                   </Reveal>
                 </li>

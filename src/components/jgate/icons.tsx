@@ -1,70 +1,99 @@
 import type { SVGProps } from "react";
 
 /* ============================================================
-   J-Gate custom SVG icon set
+   J-Gate Premium SVG Icon Set
+   The Torii gate is the soul of this design — thin crimson
+   lines, used with restraint. When it appears, it means something.
    ============================================================ */
 
-/** Stylized Japanese torii gate — used in the logo lockup */
+/** Thin-line torii gate (stroke-based, not filled) — logomark */
 export function ToriiGate(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
-      viewBox="0 0 64 52"
+      viewBox="0 0 64 56"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
       {...props}
     >
-      {/* Kasagi — curved top lintel */}
+      {/* Kasagi — top lintel, curving slightly up at ends */}
       <path
-        d="M3 13 C 18 3, 46 3, 61 13"
+        d="M2 14 C 18 4, 46 4, 62 14"
         stroke="currentColor"
-        strokeWidth="4.5"
+        strokeWidth="1.5"
         strokeLinecap="round"
         fill="none"
       />
       {/* Kasagi extended ends */}
-      <path d="M2 13 L 62 13" stroke="currentColor" strokeWidth="4.5" strokeLinecap="round" />
+      <path d="M1 14 L 63 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
       {/* Nuki — second lintel */}
-      <rect x="9" y="19" width="46" height="4.5" rx="1.5" fill="currentColor" />
+      <path d="M8 22 L 56 22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
       {/* Gakuzuka — center tablet */}
-      <rect x="28.5" y="13.5" width="7" height="6" rx="1" fill="currentColor" />
-      {/* Pillars */}
-      <rect x="14" y="16" width="6.5" height="33" rx="1.5" fill="currentColor" />
-      <rect x="43.5" y="16" width="6.5" height="33" rx="1.5" fill="currentColor" />
+      <rect x="29" y="14" width="6" height="8" stroke="currentColor" strokeWidth="1.5" fill="none" />
+      {/* Two pillars */}
+      <line x1="16" y1="22" x2="16" y2="54" stroke="currentColor" strokeWidth="1.5" />
+      <line x1="48" y1="22" x2="48" y2="54" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   );
 }
 
-/** Compact Japanese flag (white field, red sun) */
+/** Large geometric torii watermark — for hero/CTA backgrounds */
+export function ToriiWatermark(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      viewBox="0 0 400 360"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+      {...props}
+    >
+      {/* Kasagi — large curved top */}
+      <path
+        d="M20 60 C 100 20, 300 20, 380 60"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        fill="none"
+        strokeLinecap="round"
+      />
+      <path d="M15 60 L 385 60" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      {/* Nuki */}
+      <path d="M50 110 L 350 110" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      {/* Gakuzuka */}
+      <rect x="190" y="60" width="20" height="50" stroke="currentColor" strokeWidth="1.5" fill="none" />
+      {/* Pillars — tall, extending down */}
+      <line x1="90" y1="110" x2="90" y2="350" stroke="currentColor" strokeWidth="1.5" />
+      <line x1="310" y1="110" x2="310" y2="350" stroke="currentColor" strokeWidth="1.5" />
+      {/* Inner pillars for geometric depth */}
+      <line x1="140" y1="110" x2="140" y2="350" stroke="currentColor" strokeWidth="0.8" opacity="0.5" />
+      <line x1="260" y1="110" x2="260" y2="350" stroke="currentColor" strokeWidth="0.8" opacity="0.5" />
+    </svg>
+  );
+}
+
+/** Compact Japanese flag */
 export function JapanFlag(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
-      <rect width="30" height="20" rx="2.5" fill="#ffffff" stroke="rgba(13,27,42,0.15)" strokeWidth="0.6" />
-      <circle cx="15" cy="10" r="6" fill="#C8102E" />
+      <rect width="30" height="20" rx="2" fill="#ffffff" stroke="rgba(8,15,26,0.12)" strokeWidth="0.5" />
+      <circle cx="15" cy="10" r="6" fill="#BC1A2C" />
     </svg>
   );
 }
 
-/** Compact Indian flag (saffron / white / green with chakra) */
+/** Compact Indian flag */
 export function IndiaFlag(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
-      <rect width="30" height="20" rx="2.5" fill="#ffffff" stroke="rgba(13,27,42,0.15)" strokeWidth="0.6" />
-      <rect width="30" height="6.67" rx="2.5" fill="#FF9933" />
-      <rect y="13.33" width="30" height="6.67" rx="2.5" fill="#138808" />
+      <rect width="30" height="20" rx="2" fill="#ffffff" stroke="rgba(8,15,26,0.12)" strokeWidth="0.5" />
+      <rect width="30" height="6.67" rx="2" fill="#FF9933" />
+      <rect y="13.33" width="30" height="6.67" rx="2" fill="#138808" />
       <rect y="6.67" width="30" height="6.66" fill="#ffffff" />
-      <circle cx="15" cy="10" r="2.7" fill="none" stroke="#000080" strokeWidth="0.6" />
-      <g stroke="#000080" strokeWidth="0.45">
+      <circle cx="15" cy="10" r="2.7" fill="none" stroke="#000080" strokeWidth="0.5" />
+      <g stroke="#000080" strokeWidth="0.4">
         {Array.from({ length: 12 }).map((_, i) => {
           const a = (i * 30 * Math.PI) / 180;
           return (
-            <line
-              key={i}
-              x1="15"
-              y1="10"
-              x2={15 + Math.cos(a) * 2.7}
-              y2={10 + Math.sin(a) * 2.7}
-            />
+            <line key={i} x1="15" y1="10" x2={15 + Math.cos(a) * 2.7} y2={10 + Math.sin(a) * 2.7} />
           );
         })}
       </g>
@@ -72,24 +101,7 @@ export function IndiaFlag(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-/** Linked flags motif — Japan + India connected by a subtle bridge arc */
-export function LinkedFlags(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg viewBox="0 0 80 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
-      <rect width="30" height="20" rx="2.5" fill="#fff" stroke="rgba(13,27,42,0.15)" strokeWidth="0.6" />
-      <circle cx="15" cy="10" r="6" fill="#C8102E" />
-      <path d="M30 12 Q 40 4 50 12" fill="none" stroke="#F4A300" strokeWidth="1.4" strokeDasharray="2 2" />
-      <g transform="translate(50,0)">
-        <rect width="30" height="20" rx="2.5" fill="#fff" stroke="rgba(13,27,42,0.15)" strokeWidth="0.6" />
-        <rect width="30" height="6.67" rx="2.5" fill="#FF9933" />
-        <rect y="13.33" width="30" height="6.67" rx="2.5" fill="#138808" />
-        <circle cx="15" cy="10" r="2.7" fill="none" stroke="#000080" strokeWidth="0.6" />
-      </g>
-    </svg>
-  );
-}
-
-/** LinkedIn icon */
+/** LinkedIn */
 export function LinkedInIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
@@ -98,7 +110,7 @@ export function LinkedInIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-/** X (Twitter) icon */
+/** X (Twitter) */
 export function XIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
@@ -107,13 +119,24 @@ export function XIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-/** Instagram icon */
+/** Instagram */
 export function InstagramIcon(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
-      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-      <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
+      <rect x="2" y="2" width="20" height="20" rx="5" />
+      <circle cx="12" cy="12" r="4" />
       <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+    </svg>
+  );
+}
+
+/** Globe */
+export function GlobeIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
+      <circle cx="12" cy="12" r="10" />
+      <line x1="2" y1="12" x2="22" y2="12" />
+      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
     </svg>
   );
 }
@@ -122,12 +145,12 @@ export function InstagramIcon(props: SVGProps<SVGSVGElement>) {
 export function StarIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
-      <path d="M12 2l2.94 5.96 6.58.96-4.76 4.64 1.12 6.55L12 17.77 6.12 20.7l1.12-6.55L2.48 9.5l6.58-.96L12 2z" />
+      <path d="M12 2l2.94 5.96 6.58.96-4.76 4.64 1.12 6.55L12 17.77 6.12 20.7l1.12-6.55L2.48 8.92l6.58-.96L12 2z" />
     </svg>
   );
 }
 
-/** Quote mark */
+/** Quote mark — large decorative */
 export function QuoteMark(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
@@ -136,143 +159,170 @@ export function QuoteMark(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-/** Animated Hyderabad skyline silhouette for the hero */
+/** Hyderabad skyline — refined, silhouette with Charminar + Hitech towers */
 export function HyderabadSkyline(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      viewBox="0 0 1440 320"
-      preserveAspectRatio="xMidYMax slice"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-      {...props}
-    >
+    <svg viewBox="0 0 1440 320" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
       <defs>
         <linearGradient id="sky-far" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#13263b" />
-          <stop offset="100%" stopColor="#0d1b2a" />
+          <stop offset="0%" stopColor="#0d1b2a" />
+          <stop offset="100%" stopColor="#080f1a" />
         </linearGradient>
         <linearGradient id="sky-near" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#0a1521" />
-          <stop offset="100%" stopColor="#060d16" />
+          <stop offset="0%" stopColor="#060d16" />
+          <stop offset="100%" stopColor="#04080f" />
         </linearGradient>
       </defs>
-
-      {/* Far skyline row */}
-      <g fill="url(#sky-far)" opacity="0.7">
-        <rect x="40" y="200" width="46" height="120" />
-        <rect x="92" y="170" width="34" height="150" />
-        <rect x="132" y="210" width="54" height="110" />
-        <rect x="196" y="150" width="40" height="170" />
-        <rect x="244" y="190" width="60" height="130" />
-        <rect x="312" y="160" width="36" height="160" />
-        <rect x="356" y="200" width="50" height="120" />
-        <rect x="416" y="140" width="44" height="180" />
-        <rect x="468" y="185" width="58" height="135" />
-        <rect x="534" y="165" width="38" height="155" />
-        <rect x="580" y="205" width="52" height="115" />
-        <rect x="640" y="150" width="42" height="170" />
-        <rect x="690" y="180" width="56" height="140" />
-        <rect x="754" y="160" width="40" height="160" />
-        <rect x="802" y="200" width="54" height="120" />
-        <rect x="864" y="145" width="44" height="175" />
-        <rect x="916" y="190" width="58" height="130" />
-        <rect x="982" y="170" width="38" height="150" />
-        <rect x="1028" y="205" width="50" height="115" />
-        <rect x="1086" y="155" width="44" height="165" />
-        <rect x="1138" y="195" width="56" height="125" />
-        <rect x="1202" y="165" width="40" height="155" />
-        <rect x="1250" y="205" width="52" height="115" />
-        <rect x="1310" y="175" width="44" height="145" />
+      {/* Far row */}
+      <g fill="url(#sky-far)" opacity="0.6">
+        <rect x="40" y="200" width="46" height="120" /><rect x="92" y="170" width="34" height="150" />
+        <rect x="132" y="210" width="54" height="110" /><rect x="196" y="150" width="40" height="170" />
+        <rect x="244" y="190" width="60" height="130" /><rect x="312" y="160" width="36" height="160" />
+        <rect x="356" y="200" width="50" height="120" /><rect x="416" y="140" width="44" height="180" />
+        <rect x="468" y="185" width="58" height="135" /><rect x="534" y="165" width="38" height="155" />
+        <rect x="580" y="205" width="52" height="115" /><rect x="640" y="150" width="42" height="170" />
+        <rect x="690" y="180" width="56" height="140" /><rect x="754" y="160" width="40" height="160" />
+        <rect x="802" y="200" width="54" height="120" /><rect x="864" y="145" width="44" height="175" />
+        <rect x="916" y="190" width="58" height="130" /><rect x="982" y="170" width="38" height="150" />
+        <rect x="1028" y="205" width="50" height="115" /><rect x="1086" y="155" width="44" height="165" />
+        <rect x="1138" y="195" width="56" height="125" /><rect x="1202" y="165" width="40" height="155" />
+        <rect x="1250" y="205" width="52" height="115" /><rect x="1310" y="175" width="44" height="145" />
         <rect x="1362" y="200" width="54" height="120" />
       </g>
-
-      {/* Far row tower tops + antenna */}
-      <g stroke="#13263b" strokeWidth="2" opacity="0.8">
-        <line x1="216" y1="150" x2="216" y2="120" />
-        <line x1="438" y1="140" x2="438" y2="108" />
-        <line x1="661" y1="150" x2="661" y2="118" />
-        <line x1="886" y1="145" x2="886" y2="112" />
-        <line x1="1108" y1="155" x2="1108" y2="122" />
-      </g>
-
-      {/* Lit windows (far) */}
-      <g fill="#F4A300" opacity="0.55">
-        {Array.from({ length: 60 }).map((_, i) => {
-          const x = 50 + (i * 23) % 1360;
-          const y = 180 + ((i * 37) % 110);
-          return <rect key={i} x={x} y={y} width="2.5" height="2.5" rx="0.5" />;
-        })}
-      </g>
-
-      {/* Near skyline row (taller, darker) — modern towers + Charminar-inspired dome */}
+      {/* Near row — Charminar-inspired + Hitech towers */}
       <g fill="url(#sky-near)">
-        <rect x="0" y="250" width="80" height="70" />
-        <rect x="80" y="225" width="60" height="95" />
-        {/* Hitech-style glass tower */}
-        <rect x="150" y="120" width="64" height="200" />
-        <rect x="214" y="170" width="44" height="150" />
+        <rect x="0" y="250" width="80" height="70" /><rect x="80" y="225" width="60" height="95" />
+        <rect x="150" y="120" width="64" height="200" /><rect x="214" y="170" width="44" height="150" />
         <rect x="258" y="225" width="70" height="95" />
-        {/* Charminar-inspired monument */}
+        {/* Charminar monument */}
         <rect x="340" y="220" width="120" height="100" />
-        <rect x="350" y="195" width="14" height="125" />
-        <rect x="436" y="195" width="14" height="125" />
-        <path d="M340 220 Q 400 168 460 220 Z" />
-        <circle cx="400" cy="178" r="16" />
+        <rect x="350" y="195" width="14" height="125" /><rect x="436" y="195" width="14" height="125" />
+        <path d="M340 220 Q 400 168 460 220 Z" /><circle cx="400" cy="178" r="16" />
         <rect x="394" y="150" width="12" height="30" />
-        {/* Mid towers */}
-        <rect x="470" y="200" width="52" height="120" />
-        <rect x="522" y="150" width="58" height="170" />
-        <rect x="580" y="225" width="48" height="95" />
-        <rect x="628" y="100" width="70" height="220" />
-        <rect x="698" y="185" width="50" height="135" />
-        <rect x="748" y="225" width="64" height="95" />
+        <rect x="470" y="200" width="52" height="120" /><rect x="522" y="150" width="58" height="170" />
+        <rect x="580" y="225" width="48" height="95" /><rect x="628" y="100" width="70" height="220" />
+        <rect x="698" y="185" width="50" height="135" /><rect x="748" y="225" width="64" height="95" />
         {/* Dome cluster */}
-        <rect x="820" y="210" width="80" height="110" />
-        <path d="M820 210 Q 860 158 900 210 Z" />
+        <rect x="820" y="210" width="80" height="110" /><path d="M820 210 Q 860 158 900 210 Z" />
         <circle cx="860" cy="166" r="14" />
-        {/* More towers */}
-        <rect x="910" y="170" width="56" height="150" />
-        <rect x="966" y="120" width="60" height="200" />
-        <rect x="1026" y="210" width="50" height="110" />
-        <rect x="1076" y="160" width="64" height="160" />
-        <rect x="1140" y="220" width="56" height="100" />
-        <rect x="1196" y="130" width="58" height="190" />
-        <rect x="1254" y="205" width="52" height="115" />
-        <rect x="1306" y="170" width="60" height="150" />
+        <rect x="910" y="170" width="56" height="150" /><rect x="966" y="120" width="60" height="200" />
+        <rect x="1026" y="210" width="50" height="110" /><rect x="1076" y="160" width="64" height="160" />
+        <rect x="1140" y="220" width="56" height="100" /><rect x="1196" y="130" width="58" height="190" />
+        <rect x="1254" y="205" width="52" height="115" /><rect x="1306" y="170" width="60" height="150" />
         <rect x="1366" y="230" width="74" height="90" />
       </g>
-
-      {/* Antennas on near towers */}
-      <g stroke="#060d16" strokeWidth="2.5">
-        <line x1="182" y1="120" x2="182" y2="78" />
-        <line x1="663" y1="100" x2="663" y2="56" />
-        <line x1="996" y1="120" x2="996" y2="80" />
-        <line x1="1225" y1="130" x2="1225" y2="92" />
+      {/* Antennas with crimson beacons */}
+      <g stroke="#04080f" strokeWidth="2.5">
+        <line x1="182" y1="120" x2="182" y2="78" /><line x1="663" y1="100" x2="663" y2="56" />
+        <line x1="996" y1="120" x2="996" y2="80" /><line x1="1225" y1="130" x2="1225" y2="92" />
       </g>
-      <g fill="#C8102E">
-        <circle cx="182" cy="78" r="2.5" />
-        <circle cx="663" cy="56" r="2.5" />
-        <circle cx="996" cy="80" r="2.5" />
-        <circle cx="1225" cy="92" r="2.5" />
-      </g>
-
-      {/* Lit windows (near) */}
-      <g fill="#F4A300" opacity="0.7">
-        {Array.from({ length: 48 }).map((_, i) => {
-          const x = 160 + (i * 29) % 1240;
-          const y = 150 + ((i * 53) % 120);
-          return <rect key={i} x={x} y={y} width="3" height="3" rx="0.5" />;
+      <g fill="#BC1A2C"><circle cx="182" cy="78" r="2.5" /><circle cx="663" cy="56" r="2.5" />
+        <circle cx="996" cy="80" r="2.5" /><circle cx="1225" cy="92" r="2.5" /></g>
+      {/* Lit windows */}
+      <g fill="#E8A01A" opacity="0.65">
+        {Array.from({ length: 56 }).map((_, i) => {
+          const x = 160 + (i * 29) % 1240; const y = 150 + ((i * 53) % 120);
+          return <rect key={i} x={x} y={y} width="2.5" height="2.5" rx="0.5" />;
         })}
       </g>
     </svg>
   );
 }
 
-/** Decorative asanoha seal — small ornamental mark */
+/** Venn diagram — Japan × India = J-Gate (for About section) */
+export function VennDiagram(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 520 380" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
+      <defs>
+        <linearGradient id="venn-intersect" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stopColor="#BC1A2C" stopOpacity="0.35" />
+          <stop offset="100%" stopColor="#E8A01A" stopOpacity="0.35" />
+        </linearGradient>
+      </defs>
+      {/* Network nodes around */}
+      <g fill="#8892A4" opacity="0.3">
+        {[[60,80],[480,80],[60,300],[480,300],[260,40],[260,340],[40,190],[480,190]].map(([x,y],i)=>(
+          <circle key={i} cx={x} cy={y} r="2.5" />
+        ))}
+      </g>
+      <g stroke="#8892A4" strokeWidth="0.6" opacity="0.25">
+        <line x1="60" y1="80" x2="180" y2="160" /><line x1="480" y1="80" x2="340" y2="160" />
+        <line x1="60" y1="300" x2="180" y2="240" /><line x1="480" y1="300" x2="340" y2="240" />
+        <line x1="260" y1="40" x2="260" y2="120" /><line x1="260" y1="340" x2="260" y2="260" />
+      </g>
+      {/* Left circle — Japan (crimson) */}
+      <circle cx="200" cy="190" r="140" fill="none" stroke="#BC1A2C" strokeWidth="2" />
+      <circle cx="200" cy="190" r="140" fill="#BC1A2C" opacity="0.04" />
+      {/* Right circle — India (saffron) */}
+      <circle cx="320" cy="190" r="140" fill="none" stroke="#E8A01A" strokeWidth="2" />
+      <circle cx="320" cy="190" r="140" fill="#E8A01A" opacity="0.04" />
+      {/* Intersection */}
+      <path
+        d="M 260 70 A 140 140 0 0 1 260 310 A 140 140 0 0 1 260 70 Z"
+        fill="url(#venn-intersect)"
+      />
+      {/* Japan labels */}
+      <text x="120" y="120" fontFamily="Noto Sans JP, sans-serif" fontWeight="700" fontSize="16" fill="#BC1A2C">🇯🇵 Japan</text>
+      <text x="110" y="165" fontFamily="Inter, sans-serif" fontWeight="500" fontSize="13" fill="#4A4E69">Innovation</text>
+      <text x="115" y="185" fontFamily="Inter, sans-serif" fontWeight="500" fontSize="13" fill="#4A4E69">Precision</text>
+      <text x="118" y="205" fontFamily="Inter, sans-serif" fontWeight="500" fontSize="13" fill="#4A4E69">Trust</text>
+      {/* India labels */}
+      <text x="360" y="120" fontFamily="Noto Sans JP, sans-serif" fontWeight="700" fontSize="16" fill="#B07A0E">🇮🇳 India</text>
+      <text x="365" y="165" fontFamily="Inter, sans-serif" fontWeight="500" fontSize="13" fill="#4A4E69">Scale</text>
+      <text x="365" y="185" fontFamily="Inter, sans-serif" fontWeight="500" fontSize="13" fill="#4A4E69">Speed</text>
+      <text x="365" y="205" fontFamily="Inter, sans-serif" fontWeight="500" fontSize="13" fill="#4A4E69">Talent</text>
+      {/* Center — J-Gate */}
+      <text x="260" y="185" textAnchor="middle" fontFamily="Noto Serif JP, serif" fontWeight="700" fontSize="26" fill="#080F1A">J-Gate</text>
+      <text x="260" y="208" textAnchor="middle" fontFamily="Noto Sans JP, sans-serif" fontWeight="500" fontSize="11" fill="#8892A4" letterSpacing="2">Jゲート</text>
+    </svg>
+  );
+}
+
+/** Cyber Gateway building outline — thin crimson lines (for Why Hyderabad) */
+export function BuildingOutline(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 280 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
+      <g stroke="currentColor" strokeWidth="1.2" fill="none">
+        {/* Main tower block */}
+        <rect x="80" y="40" width="120" height="170" />
+        {/* Roofline */}
+        <path d="M70 40 L 80 28 L 200 28 L 210 40" />
+        {/* Central vertical lines */}
+        <line x1="120" y1="40" x2="120" y2="210" />
+        <line x1="160" y1="40" x2="160" y2="210" />
+        {/* Windows grid */}
+        {Array.from({ length: 6 }).map((_, row) =>
+          Array.from({ length: 4 }).map((_, col) => (
+            <rect
+              key={`${row}-${col}`}
+              x={88 + col * 28}
+              y={56 + row * 24}
+              width="20"
+              height="16"
+              strokeWidth="0.8"
+            />
+          ))
+        )}
+        {/* Side low-rise buildings */}
+        <rect x="20" y="120" width="55" height="90" />
+        <line x1="20" y1="140" x2="75" y2="140" /><line x1="47" y1="120" x2="47" y2="210" />
+        <rect x="205" y="100" width="60" height="110" />
+        <line x1="205" y1="125" x2="265" y2="125" /><line x1="235" y1="100" x2="235" y2="210" />
+        {/* Ground line */}
+        <line x1="0" y1="210" x2="280" y2="210" strokeWidth="1.5" />
+        {/* Antenna */}
+        <line x1="140" y1="28" x2="140" y2="8" />
+        <circle cx="140" cy="8" r="2" fill="currentColor" />
+      </g>
+    </svg>
+  );
+}
+
+/** Decorative asanoha seal — ornamental mark */
 export function AsanohaSeal(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
-      <g stroke="currentColor" strokeWidth="1.4">
+      <g stroke="currentColor" strokeWidth="1">
         <path d="M24 3 L45 15 L45 33 L24 45 L3 33 L3 15 Z" />
         <path d="M24 3 L24 45 M3 15 L45 33 M3 33 L45 15" />
         <path d="M24 12 L36 19 L36 29 L24 36 L12 29 L12 19 Z" />

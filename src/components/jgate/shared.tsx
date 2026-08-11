@@ -4,17 +4,20 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
 
 /* ============================================================
-   Reveal — fade-in-up on scroll using IntersectionObserver
+   Reveal — fade-in-up on scroll, translateY(24px → 0)
+   IntersectionObserver, fires once
    ============================================================ */
 export function Reveal({
   children,
   className,
   delay = 0,
+  variant = "up",
   as: Tag = "div",
 }: {
   children: ReactNode;
   className?: string;
   delay?: number;
+  variant?: "up" | "left" | "right";
   as?: keyof JSX.IntrinsicElements;
 }) {
   const ref = useRef<HTMLElement | null>(null);
@@ -38,12 +41,15 @@ export function Reveal({
     return () => observer.disconnect();
   }, []);
 
+  const variantClass =
+    variant === "left" ? "reveal-left" : variant === "right" ? "reveal-right" : "reveal";
+
   const Component = Tag as any;
   return (
     <Component
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
-      className={cn("reveal", visible && "is-visible", className)}
+      className={cn(variantClass, visible && "is-visible", className)}
     >
       {children}
     </Component>
@@ -51,7 +57,8 @@ export function Reveal({
 }
 
 /* ============================================================
-   SectionHeading — consistent eyebrow + title + subtitle
+   SectionHeading — eyebrow + title + subtitle
+   eyebrow: small caps, crimson, Inter 600, 3px letter-spacing
    ============================================================ */
 export function SectionHeading({
   eyebrow,
@@ -76,20 +83,20 @@ export function SectionHeading({
       {eyebrow && (
         <span
           className={cn(
-            "inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em]",
-            light
-              ? "bg-white/10 text-jgate-gold ring-1 ring-white/15"
-              : "bg-jgate-red/10 text-jgate-red ring-1 ring-jgate-red/15"
+            "inline-block text-[11px] font-semibold uppercase",
+            light ? "text-saffron" : "text-crimson"
           )}
+          style={{ letterSpacing: "0.2em" }}
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-current" />
           {eyebrow}
         </span>
       )}
       <h2
         className={cn(
-          "mt-5 font-serif-jp text-3xl font-bold leading-tight sm:text-4xl md:text-[2.75rem]",
-          light ? "text-white" : "text-jgate-navy"
+          "mt-4 font-serif-jp font-bold leading-[1.15]",
+          align === "center" ? "mx-auto" : "",
+          light ? "text-white" : "text-ink",
+          "text-[clamp(1.875rem,4vw,2.75rem)]"
         )}
       >
         {title}
@@ -97,8 +104,10 @@ export function SectionHeading({
       {subtitle && (
         <p
           className={cn(
-            "mt-4 text-base leading-relaxed sm:text-lg",
-            light ? "text-white/70" : "text-jgate-slate"
+            "mt-4 font-inter leading-relaxed",
+            light ? "text-mist" : "text-slate",
+            "text-[clamp(0.9rem,1.6vw,1.0625rem)]",
+            align === "center" ? "mx-auto max-w-2xl" : "max-w-xl"
           )}
         >
           {subtitle}
@@ -109,9 +118,9 @@ export function SectionHeading({
 }
 
 /* ============================================================
-   useScrollSpy — highlight active nav link based on scroll
+   useScrollSpy — highlight active nav link
    ============================================================ */
-export function useScrollSpy(ids: string[], offset = 120) {
+export function useScrollSpy(ids: string[], offset = 140) {
   const [activeId, setActiveId] = useState<string>(ids[0] ?? "");
 
   useEffect(() => {
@@ -120,15 +129,9 @@ export function useScrollSpy(ids: string[], offset = 120) {
       let current = ids[0];
       for (const id of ids) {
         const el = document.getElementById(id);
-        if (el && el.offsetTop <= scrollY) {
-          current = id;
-        }
+        if (el && el.offsetTop <= scrollY) current = id;
       }
-      // If near bottom, force last
-      if (
-        window.innerHeight + window.scrollY >=
-        document.body.offsetHeight - 80
-      ) {
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 80) {
         current = ids[ids.length - 1];
       }
       setActiveId(current);
@@ -146,9 +149,9 @@ export function useScrollSpy(ids: string[], offset = 120) {
 }
 
 /* ============================================================
-   useScrolled — boolean for whether page has scrolled past threshold
+   useScrolled — boolean for scroll past threshold
    ============================================================ */
-export function useScrolled(threshold = 24) {
+export function useScrolled(threshold = 80) {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
     const handler = () => setScrolled(window.scrollY > threshold);
@@ -157,4 +160,27 @@ export function useScrolled(threshold = 24) {
     return () => window.removeEventListener("scroll", handler);
   }, [threshold]);
   return scrolled;
+}
+
+/* ============================================================
+   Eyebrow label — consistent small-caps tag
+   ============================================================ */
+export function Eyebrow({
+  children,
+  light = false,
+}: {
+  children: ReactNode;
+  light?: boolean;
+}) {
+  return (
+    <span
+      className={cn(
+        "inline-block text-[11px] font-semibold uppercase",
+        light ? "text-saffron" : "text-crimson"
+      )}
+      style={{ letterSpacing: "0.2em" }}
+    >
+      {children}
+    </span>
+  );
 }

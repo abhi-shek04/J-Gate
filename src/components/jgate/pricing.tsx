@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Check, X, Sparkles } from "lucide-react";
-import { Reveal, SectionHeading } from "./shared";
+import { Check, X } from "lucide-react";
+import { Reveal, Eyebrow } from "./shared";
 import { cn } from "@/lib/utils";
 
 type Plan = {
@@ -10,30 +10,33 @@ type Plan = {
   subtitle: string;
   monthly: string;
   annual: string;
-  accent: string;
-  border: string;
-  popular?: boolean;
+  note: string;
+  borderTop: string;
+  badge?: { text: string; bg: string };
   cta: string;
-  ctaStyle: "outline" | "red" | "gold";
+  ctaStyle: "outline-crimson" | "filled-crimson" | "outline-saffron";
   features: { text: string; included: boolean }[];
 };
 
 const PLANS: Plan[] = [
   {
     name: "Starter",
-    subtitle: "Hot Desk",
+    subtitle: "Hot Desk Access",
     monthly: "Contact for Pricing",
     annual: "Contact for Pricing",
-    accent: "text-jgate-slate",
-    border: "border-jgate-navy/10",
-    cta: "Get Started",
-    ctaStyle: "outline",
+    note: "Perfect for initial market exploration",
+    borderTop: "border-top-slate",
+    cta: "Enquire Now",
+    ctaStyle: "outline-crimson",
     features: [
-      { text: "Shared desk access (5 days/week)", included: true },
-      { text: "High-speed Wi-Fi", included: true },
-      { text: "Access to meeting rooms (4 hrs/month)", included: true },
-      { text: "Community events access", included: true },
+      { text: "Shared hot desk — 5 days/week access", included: true },
+      { text: "High-speed fiber WiFi", included: true },
+      { text: "4 hours/month of meeting room access", included: true },
+      { text: "Access to J-Gate community events", included: true },
       { text: "Basic partner network introduction", included: true },
+      { text: "Business address — Cyber Gateway, Hyderabad", included: true },
+      { text: "Lounge & common area access", included: true },
+      { text: "Mail handling service", included: true },
       { text: "Dedicated desk", included: false },
       { text: "Private cabin", included: false },
     ],
@@ -43,40 +46,50 @@ const PLANS: Plan[] = [
     subtitle: "Dedicated Desk",
     monthly: "Contact for Pricing",
     annual: "Contact for Pricing",
-    accent: "text-jgate-red",
-    border: "border-jgate-red",
-    popular: true,
-    cta: "Join Now",
-    ctaStyle: "red",
+    note: "Your permanent seat in Hyderabad's premier Japan hub",
+    borderTop: "border-top-crimson",
+    badge: { text: "MOST POPULAR", bg: "bg-crimson" },
+    cta: "Join Now →",
+    ctaStyle: "filled-crimson",
     features: [
-      { text: "Dedicated desk (your own space)", included: true },
-      { text: "High-speed Wi-Fi", included: true },
-      { text: "Meeting rooms (10 hrs/month)", included: true },
-      { text: "Priority partner introductions", included: true },
-      { text: "Monthly business consultation (1hr)", included: true },
-      { text: "Community events + networking dinners", included: true },
-      { text: "Japan-India business etiquette workshops", included: true },
+      { text: "Your own dedicated desk (locked, permanent)", included: true },
+      { text: "High-speed fiber WiFi", included: true },
+      { text: "12 hours/month of meeting room access", included: true },
+      { text: "Priority partner network introductions (legal, HR, finance, tech)", included: true },
+      { text: "1 hour/month strategic business consultation", included: true },
+      { text: "Access to all J-Gate community events + networking dinners", included: true },
+      { text: "Japan-India business etiquette & culture workshops", included: true },
+      { text: "Business address — Cyber Gateway, Hyderabad", included: true },
+      { text: "Mail handling & courier management", included: true },
+      { text: "Access to JETRO coordination support", included: true },
+      { text: "Member directory listing", included: true },
       { text: "Private cabin", included: false },
     ],
   },
   {
     name: "Enterprise",
-    subtitle: "Private Cabin",
-    monthly: "Contact for Pricing",
-    annual: "Contact for Pricing",
-    accent: "text-jgate-gold",
-    border: "border-jgate-gold",
-    cta: "Contact Us",
-    ctaStyle: "gold",
+    subtitle: "Private Furnished Cabin",
+    monthly: "Contact Us — Custom Pricing",
+    annual: "Contact Us — Custom Pricing",
+    note: "Your Japan headquarters in India",
+    borderTop: "border-top-gold-feature",
+    badge: { text: "FLAGSHIP", bg: "bg-saffron" },
+    cta: "Contact Our Team",
+    ctaStyle: "outline-saffron",
     features: [
-      { text: "Private furnished cabin (2–6 seats)", included: true },
-      { text: "Dedicated fiber internet", included: true },
-      { text: "Unlimited meeting room access", included: true },
-      { text: "VIP partner network access", included: true },
-      { text: "Monthly strategic advisory session", included: true },
-      { text: "JETRO coordination support", included: true },
-      { text: "Market entry consulting included", included: true },
-      { text: "Bilingual concierge (EN/JP)", included: true },
+      { text: "Private furnished cabin (2 to 6 seats, fully branded if desired)", included: true },
+      { text: "Dedicated fiber internet line", included: true },
+      { text: "Unlimited meeting room & conference room access", included: true },
+      { text: "VIP partner network access (direct introductions, not referrals)", included: true },
+      { text: "Monthly strategic advisory session with Advisory Council", included: true },
+      { text: "JETRO coordination & government liaison support", included: true },
+      { text: "Full market entry consulting package (registration, HR, legal, finance)", included: true },
+      { text: "Bilingual concierge support (English & Japanese)", included: true },
+      { text: "Dedicated receptionist & administrative support", included: true },
+      { text: "Business address — Cyber Gateway, Hyderabad", included: true },
+      { text: "Priority event hosting rights", included: true },
+      { text: "Custom branding rights inside J-Gate premises", included: true },
+      { text: "Access to Indobox India's complete talent sourcing network", included: true },
     ],
   },
 ];
@@ -88,30 +101,28 @@ export function Pricing() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section id="pricing" className="relative bg-white py-20 sm:py-28">
-      <div className="pattern-rangoli absolute inset-x-0 top-0 h-24 opacity-50" />
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="membership" className="section-pad bg-ivory">
+      <div className="container-jg">
         <Reveal>
-          <SectionHeading
-            eyebrow="Membership"
-            title={
-              <>
-                Find Your <span className="text-jgate-red">Perfect Plan</span>
-              </>
-            }
-            subtitle="Transparent pricing. No hidden costs. Full support from Day 1."
-          />
+          <div className="mx-auto max-w-3xl text-center">
+            <Eyebrow>Your Workspace</Eyebrow>
+            <h2
+              className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
+              style={{ fontSize: "clamp(1.875rem, 4vw, 2.625rem)" }}
+            >
+              Choose Your <span className="text-crimson">Base of Operations</span>
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl font-inter font-light text-mist" style={{ fontSize: "clamp(0.95rem,1.6vw,1.125rem)" }}>
+              Every membership includes access to our partner network, JETRO
+              coordination support, and J-Gate community events.
+            </p>
+          </div>
         </Reveal>
 
         {/* Toggle */}
         <Reveal delay={80}>
-          <div className="mt-10 flex items-center justify-center gap-4">
-            <span
-              className={cn(
-                "text-sm font-semibold transition-colors",
-                !annual ? "text-jgate-navy" : "text-jgate-slate/60"
-              )}
-            >
+          <div className="mt-10 flex items-center justify-center gap-3">
+            <span className={cn("font-inter text-sm font-medium transition-colors", !annual ? "text-ink" : "text-mist")}>
               Monthly
             </span>
             <button
@@ -120,28 +131,21 @@ export function Pricing() {
               aria-label="Toggle annual billing"
               onClick={() => setAnnual((v) => !v)}
               className={cn(
-                "relative h-8 w-16 rounded-full transition-colors duration-300",
-                annual ? "bg-jgate-red" : "bg-jgate-navy/15"
+                "relative h-7 w-14 rounded-full transition-colors duration-300",
+                annual ? "bg-crimson" : "bg-slate/25"
               )}
             >
               <span
                 className={cn(
-                  "absolute top-1 flex h-6 w-6 items-center justify-center rounded-full bg-white shadow-soft transition-all duration-300",
-                  annual ? "left-9" : "left-1"
+                  "absolute top-1 h-5 w-5 rounded-full bg-white shadow-card transition-all duration-300",
+                  annual ? "left-8" : "left-1"
                 )}
-              >
-                {annual && <Sparkles className="h-3.5 w-3.5 text-jgate-red" />}
-              </span>
+              />
             </button>
-            <span
-              className={cn(
-                "text-sm font-semibold transition-colors",
-                annual ? "text-jgate-navy" : "text-jgate-slate/60"
-              )}
-            >
+            <span className={cn("font-inter text-sm font-medium transition-colors", annual ? "text-ink" : "text-mist")}>
               Annual
             </span>
-            <span className="rounded-full bg-jgate-green/15 px-2.5 py-1 text-xs font-bold text-jgate-green">
+            <span className="rounded bg-success/12 px-2 py-0.5 font-inter text-xs font-bold text-success">
               Save 20%
             </span>
           </div>
@@ -153,86 +157,77 @@ export function Pricing() {
             <Reveal key={plan.name} delay={i * 120}>
               <article
                 className={cn(
-                  "relative flex h-full flex-col rounded-3xl border-2 bg-white p-7 shadow-soft transition-all duration-300 sm:p-8",
-                  plan.border,
-                  plan.popular
-                    ? "lg:-translate-y-3 lg:shadow-soft-lg"
-                    : "lift-card"
+                  "relative flex h-full flex-col rounded-lg bg-pearl p-7 shadow-card transition-all duration-300 lift-card",
+                  plan.borderTop,
+                  plan.badge?.bg === "bg-crimson" && "lg:-translate-y-3 lg:shadow-hover"
                 )}
               >
-                {plan.popular && (
-                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 rounded-full bg-jgate-red px-4 py-1.5 text-xs font-bold uppercase tracking-wide text-white shadow-soft-lg">
-                    ★ Most Popular
+                {plan.badge && (
+                  <span
+                    className={cn(
+                      "absolute -top-3 right-6 rounded px-3 py-1 font-inter text-[11px] font-semibold uppercase text-white",
+                      plan.badge.bg,
+                      plan.badge.bg === "bg-saffron" && "text-ink"
+                    )}
+                    style={{ letterSpacing: "0.08em" }}
+                  >
+                    {plan.badge.text}
                   </span>
                 )}
 
                 <div>
-                  <h3 className={cn("font-serif-jp text-2xl font-bold", plan.accent)}>
-                    {plan.name}
-                  </h3>
-                  <p className="mt-1 text-sm font-medium uppercase tracking-wide text-jgate-slate/70">
+                  <h3 className="font-serif-jp text-2xl font-bold text-ink">{plan.name}</h3>
+                  <p className="mt-1 font-inter text-[13px] font-medium uppercase text-mist" style={{ letterSpacing: "0.05em" }}>
                     {plan.subtitle}
                   </p>
                 </div>
 
                 {/* Price */}
                 <div className="mt-5">
-                  <div className="flex items-baseline gap-2">
-                    <span className="font-serif-jp text-2xl font-bold text-jgate-navy">
-                      ¥
-                    </span>
-                    <span className="font-serif-jp text-3xl font-bold text-jgate-navy">
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="font-serif-jp text-2xl font-bold text-crimson">¥</span>
+                    <span className="font-serif-jp text-lg font-bold text-ink">
                       {annual ? plan.annual : plan.monthly}
                     </span>
                   </div>
-                  <p className="mt-1 text-xs text-jgate-slate/70">
+                  <p className="mt-1 font-inter text-[13px] text-mist">
                     {annual ? "/ year · billed annually" : "/ month"}
                   </p>
+                  <p className="mt-2 font-inter text-[13px] italic text-slate">{plan.note}</p>
                 </div>
 
-                {/* CTA */}
+                {/* CTA — 6px radius */}
                 <button
                   onClick={() => scrollTo("contact")}
                   className={cn(
-                    "btn-shine mt-6 w-full rounded-full px-5 py-3 text-sm font-semibold transition-all",
-                    plan.ctaStyle === "red" &&
-                      "bg-jgate-red text-white hover:bg-[#a80c26] hover:-translate-y-0.5",
-                    plan.ctaStyle === "gold" &&
-                      "bg-jgate-gold text-jgate-navy hover:bg-[#d98e00] hover:-translate-y-0.5",
-                    plan.ctaStyle === "outline" &&
-                      "border-2 border-jgate-navy/15 text-jgate-navy hover:border-jgate-red hover:text-jgate-red"
+                    "mt-6 w-full rounded-md px-5 py-3 font-inter text-sm font-semibold transition-all duration-300 hover:-translate-y-0.5",
+                    plan.ctaStyle === "filled-crimson" && "bg-crimson text-white hover:bg-crimson-deep",
+                    plan.ctaStyle === "outline-crimson" && "border border-crimson text-crimson hover:bg-crimson hover:text-white",
+                    plan.ctaStyle === "outline-saffron" && "border border-saffron text-[#a06d00] hover:bg-saffron hover:text-ink"
                   )}
                 >
                   {plan.cta}
                 </button>
 
                 {/* Features */}
-                <ul className="mt-7 space-y-3 border-t border-jgate-navy/8 pt-6">
+                <ul className="mt-6 space-y-2.5 border-t border-crimson/8 pt-5">
                   {plan.features.map((f) => (
                     <li
                       key={f.text}
                       className={cn(
-                        "flex items-start gap-2.5 text-sm",
-                        f.included
-                          ? "text-jgate-navy"
-                          : "text-jgate-slate/40 line-through"
+                        "flex items-start gap-2.5 font-inter text-[13px] leading-snug",
+                        f.included ? "text-ink" : "text-mist/60 line-through"
                       )}
                     >
                       <span
                         className={cn(
-                          "mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full",
-                          f.included
-                            ? "bg-jgate-green/15 text-jgate-green"
-                            : "bg-jgate-slate/10 text-jgate-slate/40"
+                          "mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full",
+                          f.included ? "bg-success/15 text-success" : "bg-mist/15 text-mist/50"
                         )}
                       >
-                        {f.included ? (
-                          <Check className="h-3 w-3" strokeWidth={3} />
-                        ) : (
-                          <X className="h-3 w-3" strokeWidth={3} />
-                        )}
+                        {f.included ? <Check className="h-2.5 w-2.5" strokeWidth={3} /> : <X className="h-2.5 w-2.5" strokeWidth={3} />}
                       </span>
-                      <span className="leading-snug">{f.text}</span>
+                      <span>{f.text}</span>
                     </li>
                   ))}
                 </ul>
@@ -241,16 +236,14 @@ export function Pricing() {
           ))}
         </div>
 
+        {/* Small print */}
         <Reveal delay={120}>
-          <p className="mt-10 text-center text-sm text-jgate-slate">
-            All plans include access to the J-Gate community network, Omotenashi
-            hospitality, and Cyber Gateway amenities.{" "}
-            <button
-              onClick={() => scrollTo("contact")}
-              className="font-semibold text-jgate-red underline-offset-4 hover:underline"
-            >
-              Request a custom quote →
-            </button>
+          <p className="mt-10 text-center font-inter text-[13px] leading-relaxed text-mist">
+            All memberships are subject to availability. Pricing is customized
+            based on duration, team size, and service requirements. Contact us
+            for a personalized proposal.
+            <br />
+            <span className="font-sans-jp">価格はご要望に応じてカスタマイズいたします。</span>
           </p>
         </Reveal>
       </div>

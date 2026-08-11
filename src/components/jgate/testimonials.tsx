@@ -2,34 +2,34 @@
 
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { Reveal, SectionHeading } from "./shared";
+import { Reveal, Eyebrow } from "./shared";
 import { StarIcon, QuoteMark } from "./icons";
 import { cn } from "@/lib/utils";
 
 const TESTIMONIALS = [
   {
     quote:
-      "J-Gate provided exactly what we needed — a trusted local base to confidently begin our India operations. The network here is extraordinary.",
+      "J-Gate gave us exactly what we needed when entering India — not just a desk, but a complete local foundation. The partner network alone saved us months of groundwork. For any Japanese company serious about India, this is the only way to begin.",
     author: "Founding Member",
-    role: "Japanese Technology Company",
+    role: "Japanese Technology Company | Hyderabad, 2026",
     initials: "FM",
-    accent: "from-jgate-red to-jgate-navy",
+    accent: "from-crimson to-midnight",
   },
   {
     quote:
-      "The Advisory Council's support and the T-Hub connection gave us immediate credibility in the Indian market.",
-    author: "Japanese Business Executive",
-    role: "J-Gate Member",
-    initials: "BE",
-    accent: "from-jgate-gold to-jgate-red",
+      "The Advisory Council's connections and T-Hub's ecosystem gave us immediate credibility with Indian clients and investors. We were taken seriously from the first conversation — that is the J-Gate effect.",
+    author: "Executive Director",
+    role: "Japanese Business Services Company | J-Gate Member",
+    initials: "ED",
+    accent: "from-saffron to-crimson",
   },
   {
     quote:
-      "The spirit of Omotenashi at J-Gate made us feel at home while we navigated a completely new market.",
-    author: "Japanese Entrepreneur",
-    role: "Hyderabad",
-    initials: "JE",
-    accent: "from-jgate-green to-jgate-navy",
+      "Mr. Tanji and his team understand the Japanese way of doing business. The cultural sensitivity here is not performative — it is embedded in how J-Gate operates every single day. We feel at home, and we feel supported.",
+    author: "Founder",
+    role: "Japanese Consumer Goods Company | Hyderabad, 2026",
+    initials: "FO",
+    accent: "from-navy to-success",
   },
 ];
 
@@ -37,7 +37,7 @@ function Stars() {
   return (
     <div className="flex gap-0.5" aria-label="5 out of 5 stars">
       {Array.from({ length: 5 }).map((_, i) => (
-        <StarIcon key={i} className="h-4 w-4 text-jgate-gold" />
+        <StarIcon key={i} className="h-4 w-4 text-saffron" />
       ))}
     </div>
   );
@@ -57,25 +57,25 @@ function TestimonialCard({
   accent: string;
 }) {
   return (
-    <article className="lift-card relative h-full overflow-hidden rounded-2xl border border-jgate-navy/8 bg-white p-7 shadow-soft sm:p-8">
-      <QuoteMark className="absolute right-5 top-4 h-14 w-14 text-jgate-red/8" />
+    <article className="lift-card relative h-full overflow-hidden rounded-lg bg-pearl p-8 shadow-card">
+      <QuoteMark className="absolute right-6 top-4 h-20 w-20 text-crimson/[0.08]" />
       <Stars />
-      <blockquote className="relative mt-4 font-serif-jp text-base font-medium leading-relaxed text-jgate-navy sm:text-lg">
+      <blockquote className="relative mt-5 font-serif-jp text-[16px] font-medium leading-relaxed text-ink">
         &ldquo;{quote}&rdquo;
       </blockquote>
-      <figcaption className="mt-6 flex items-center gap-3 border-t border-jgate-navy/8 pt-5">
+      <figcaption className="mt-6 flex items-center gap-3 border-t border-crimson/8 pt-5">
         <span
           className={cn(
-            "flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br font-serif-jp text-base font-bold text-white shadow-soft",
+            "flex h-12 w-12 items-center justify-center rounded-full bg-gradient-to-br font-serif-jp text-base font-bold text-white shadow-card",
             accent
           )}
         >
           {initials}
         </span>
-        <span>
-          <span className="block font-semibold text-jgate-navy">{author}</span>
-          <span className="block text-xs text-jgate-slate">{role}</span>
-        </span>
+        <div>
+          <div className="font-inter text-sm font-semibold text-ink">{author}</div>
+          <div className="font-inter text-[12px] text-mist">{role}</div>
+        </div>
       </figcaption>
     </article>
   );
@@ -84,29 +84,25 @@ function TestimonialCard({
 export function Testimonials() {
   const [active, setActive] = useState(0);
   const count = TESTIMONIALS.length;
-
   const prev = () => setActive((a) => (a - 1 + count) % count);
   const next = () => setActive((a) => (a + 1) % count);
 
   return (
-    <section
-      id="testimonials"
-      className="pattern-asanoha-light relative py-20 sm:py-28"
-    >
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="testimonials" className="section-pad bg-ivory">
+      <div className="container-jg">
         <Reveal>
-          <SectionHeading
-            eyebrow="Social Proof"
-            title={
-              <>
-                What Our <span className="text-jgate-red">Community Says</span>
-              </>
-            }
-            subtitle="Real voices from the Japanese businesses building their India story at J-Gate."
-          />
+          <div className="mx-auto max-w-3xl text-center">
+            <Eyebrow>Member Voices</Eyebrow>
+            <h2
+              className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
+              style={{ fontSize: "clamp(1.875rem, 4vw, 2.5rem)" }}
+            >
+              What Our <span className="text-crimson">Community Says</span>
+            </h2>
+          </div>
         </Reveal>
 
-        {/* Desktop grid */}
+        {/* Desktop 3-col grid */}
         <Reveal delay={100}>
           <div className="mt-14 hidden gap-6 md:grid md:grid-cols-3">
             {TESTIMONIALS.map((t) => (
@@ -129,13 +125,11 @@ export function Testimonials() {
               ))}
             </div>
           </div>
-
-          {/* Controls */}
           <div className="mt-6 flex items-center justify-center gap-4">
             <button
               onClick={prev}
               aria-label="Previous testimonial"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-jgate-navy/15 bg-white text-jgate-navy shadow-soft transition-colors hover:bg-jgate-red hover:text-white"
+              className="flex h-10 w-10 items-center justify-center rounded-md border border-crimson/15 bg-pearl text-ink shadow-card transition-colors hover:bg-crimson hover:text-white"
             >
               <ChevronLeft className="h-5 w-5" />
             </button>
@@ -145,19 +139,14 @@ export function Testimonials() {
                   key={i}
                   onClick={() => setActive(i)}
                   aria-label={`Go to testimonial ${i + 1}`}
-                  className={cn(
-                    "h-2 rounded-full transition-all",
-                    i === active
-                      ? "w-6 bg-jgate-red"
-                      : "w-2 bg-jgate-navy/20"
-                  )}
+                  className={cn("h-2 rounded-full transition-all", i === active ? "w-6 bg-crimson" : "w-2 bg-slate/25")}
                 />
               ))}
             </div>
             <button
               onClick={next}
               aria-label="Next testimonial"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-jgate-navy/15 bg-white text-jgate-navy shadow-soft transition-colors hover:bg-jgate-red hover:text-white"
+              className="flex h-10 w-10 items-center justify-center rounded-md border border-crimson/15 bg-pearl text-ink shadow-card transition-colors hover:bg-crimson hover:text-white"
             >
               <ChevronRight className="h-5 w-5" />
             </button>

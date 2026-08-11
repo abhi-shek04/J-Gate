@@ -2,115 +2,106 @@
 
 import {
   Building2,
-  Handshake,
+  Wifi,
+  Mic,
+  Scale,
+  Users,
+  BarChart3,
+  Flag,
+  Landmark,
   Globe2,
-  Sparkles,
-  Flower2,
-  TrendingUp,
 } from "lucide-react";
-import { Reveal, SectionHeading } from "./shared";
-import { cn } from "@/lib/utils";
+import { Reveal, Eyebrow } from "./shared";
 
 const FEATURES = [
   {
     icon: Building2,
     title: "Premium Workspace",
-    desc: "Dedicated desks and private cabins at Cyber Gateway, Hyderabad's top business district.",
-    accent: "from-jgate-navy to-jgate-navy-soft",
+    desc: "Fully furnished dedicated desks and private cabins inside Cyber Gateway — Hyderabad's most prestigious business district. 24/7 access, ergonomic setups, and enterprise-grade facilities.",
   },
   {
-    icon: Handshake,
-    title: "Local Partner Network",
-    desc: "Instant access to trusted Indian business partners, legal, HR, and financial advisors.",
-    accent: "from-jgate-green to-[#2bbf99]",
+    icon: Wifi,
+    title: "Enterprise Fiber Internet",
+    desc: "Dedicated high-speed fiber connectivity ensuring your team stays connected to Tokyo headquarters, global clients, and cloud systems with zero compromise.",
+  },
+  {
+    icon: Mic,
+    title: "Professional Meeting Rooms",
+    desc: "Fully equipped conference rooms with presentation displays, video conferencing setup, whiteboard facilities, and catering options available for client and partner meetings.",
+  },
+  {
+    icon: Scale,
+    title: "Legal & Regulatory Guidance",
+    desc: "Navigating India's company registration, GST, employment law, and compliance requirements — our partner legal network has specific expertise in Japan-India cross-border business.",
+  },
+  {
+    icon: Users,
+    title: "Bilingual Talent Pipeline",
+    desc: "Access to Indobox India's curated talent network — professionals fluent in Japanese business culture, bilingual staff, and a sourcing pipeline for roles from interns to C-suite.",
+  },
+  {
+    icon: BarChart3,
+    title: "India Market Intelligence",
+    desc: "Customized market entry research, competitor analysis, and industry mapping specific to your sector — delivered through our partnership with T-Hub's knowledge network.",
+  },
+  {
+    icon: Flag,
+    title: "Japanese Business Culture Support",
+    desc: "Regular workshops on Indian business etiquette for your Japan-based teams, and Japanese business culture briefings for your local hires — we bridge the gap that sinks most cross-cultural expansions.",
+  },
+  {
+    icon: Landmark,
+    title: "JETRO & Government Interface",
+    desc: "Our alignment with JETRO — Japan's official trade promotion body — gives you access to government-backed support, diplomatic introductions, and trade facilitation resources.",
   },
   {
     icon: Globe2,
-    title: "JETRO Endorsed",
-    desc: "Strategic alignment with JETRO for Japanese business support and market navigation.",
-    accent: "from-jgate-red to-[#e84855]",
-  },
-  {
-    icon: Sparkles,
-    title: "Innovation Ecosystem",
-    desc: "Connected to T-Hub, India's largest startup innovation hub, and Woxsen University.",
-    accent: "from-jgate-gold to-[#ffcb47]",
-  },
-  {
-    icon: Flower2,
-    title: "Japanese Omotenashi",
-    desc: "A culturally aware environment designed for the comfort and etiquette of Japanese professionals.",
-    accent: "from-jgate-red to-[#f4788a]",
-  },
-  {
-    icon: TrendingUp,
-    title: "Market Entry Support",
-    desc: "End-to-end assistance from company registration to first client acquisition in India.",
-    accent: "from-jgate-navy to-jgate-green",
+    title: "J-Gate Member Community",
+    desc: "Monthly networking events, bilateral business dinners, industry speaker sessions, and cultural exchange programs that connect you to Hyderabad's most influential business community.",
   },
 ];
 
-function FeatureCard({
-  icon: Icon,
-  title,
-  desc,
-  accent,
-  index,
-}: {
-  icon: typeof Building2;
-  title: string;
-  desc: string;
-  accent: string;
-  index: number;
-}) {
-  return (
-    <Reveal delay={(index % 3) * 100}>
-      <article className="accent-left-red lift-card group h-full rounded-2xl border border-jgate-navy/8 bg-white p-6 shadow-soft sm:p-7">
-        <div
-          className={cn(
-            "flex h-14 w-14 items-center justify-center rounded-xl bg-gradient-to-br text-white shadow-soft transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3",
-            accent
-          )}
-        >
-          <Icon className="h-7 w-7" />
-        </div>
-        <h3 className="mt-5 font-serif-jp text-xl font-bold text-jgate-navy">
-          {title}
-        </h3>
-        <p className="mt-2.5 text-sm leading-relaxed text-jgate-slate">
-          {desc}
-        </p>
-        <div className="mt-5 flex items-center gap-1 text-xs font-semibold uppercase tracking-wide text-jgate-red opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <span>Learn more</span>
-          <span aria-hidden>→</span>
-        </div>
-      </article>
-    </Reveal>
-  );
-}
-
 export function Features() {
   return (
-    <section id="features" className="relative bg-white py-20 sm:py-28">
-      {/* subtle rangoli top accent */}
-      <div className="pattern-rangoli absolute inset-x-0 top-0 h-24 opacity-60" />
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="features" className="section-pad relative overflow-hidden bg-navy">
+      <div className="pattern-asanoha-navy absolute inset-0 opacity-60" />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(ellipse at 50% 0%, rgba(188,26,44,0.10), transparent 60%)",
+        }}
+      />
+      <div className="container-jg relative">
         <Reveal>
-          <SectionHeading
-            eyebrow="What We Offer"
-            title={
-              <>
-                Everything You Need to{" "}
-                <span className="text-jgate-red">Launch in India</span>
-              </>
-            }
-            subtitle="From premium infrastructure to deep cultural understanding — J-Gate equips Japanese enterprises with the complete foundation for a confident India entry."
-          />
+          <div className="mx-auto max-w-3xl text-center">
+            <Eyebrow light>Full Feature Breakdown</Eyebrow>
+            <h2
+              className="mt-4 font-serif-jp font-bold leading-[1.18] text-white"
+              style={{ fontSize: "clamp(1.875rem, 4vw, 2.625rem)" }}
+            >
+              Everything You Need to{" "}
+              <span className="text-gradient-saffron">Succeed in India</span>
+            </h2>
+          </div>
         </Reveal>
 
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {/* 3×3 glass morphism grid */}
+        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {FEATURES.map((f, i) => (
-            <FeatureCard key={f.title} {...f} index={i} />
+            <Reveal key={f.title} delay={(i % 3) * 100}>
+              <article className="glass-dark lift-card group h-full rounded-lg p-7">
+                <div className="flex h-12 w-12 items-center justify-center rounded-md bg-crimson/15 text-saffron transition-transform duration-300 group-hover:scale-105">
+                  <f.icon className="h-6 w-6" strokeWidth={1.5} />
+                </div>
+                <h3 className="mt-5 font-inter text-[17px] font-semibold text-white">
+                  {f.title}
+                </h3>
+                <p className="mt-2.5 font-inter text-[14px] leading-relaxed text-mist">
+                  {f.desc}
+                </p>
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>

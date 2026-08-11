@@ -15,6 +15,7 @@ const NAV_LINKS = [
   { href: "/why-jgate", key: "nav.why" },
   { href: "/services", key: "nav.services" },
   { href: "/team", key: "nav.team" },
+  { href: "/pricing", key: "nav.pricing" },
   { href: "/blogs", key: "nav.blogs" },
   { href: "/contact", key: "nav.contact" },
 ] as const;

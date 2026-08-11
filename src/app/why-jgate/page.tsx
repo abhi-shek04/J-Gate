@@ -6,139 +6,253 @@ import { useI18n } from "@/lib/i18n";
 import {
   Check,
   X,
-  Languages,
-  Cpu,
-  Plane,
   ArrowRight,
   ShieldCheck,
+  CircleDot,
+  Triangle,
+  CheckCircle2,
+  Building2,
+  Wifi,
+  MessageCircle,
+  FileStack,
+  Users,
+  GraduationCap,
+  Briefcase,
 } from "lucide-react";
 import Link from "next/link";
 import { QuoteMark, StarIcon as JStar } from "@/components/jgate/icons";
 
 /* ============================================================
-   Why J-Gate — deep-dive into differentiators
-   Sections: PageHero → Comparison Matrix → 3 Core Pillars → Corporate Testimonials → CTA
+   Why J-Gate — Competitive advantage + membership value
+   Sections: PageHero → Comparison Table (Slide 10) → 7 Pillars (Slide 11) → Testimonials → CTA
    ============================================================ */
 
 type Bilingual = { EN: string; JP: string };
 
-/* ── Comparison Matrix ── */
-const COMPARISON_ROWS: Bilingual[] = [
+/* ── Comparison Table — Slide 10 (4 columns × 9 rows) ── */
+
+type Row = {
+  labelKey: string;
+  jgate: string;
+  consult: string;
+  cowork: string;
+  publicOrg: string;
+  /** How to render each cell: check / cross / circle-good / triangle-warn / text */
+  jgateType?: CellType;
+  consultType?: CellType;
+  coworkType?: CellType;
+  publicType?: CellType;
+};
+
+type CellType = "check" | "cross" | "good" | "warn" | "text";
+
+const COMPARISON_ROWS: Row[] = [
   {
-    EN: "Language Screening",
-    JP: "語学スクリーニング",
+    labelKey: "why.row1.label",
+    jgate: "why.row1.jgate",
+    consult: "why.row1.consult",
+    cowork: "why.row1.cowork",
+    publicOrg: "why.row1.public",
   },
   {
-    EN: "Cultural Fit Assessment",
-    JP: "文化適合性評価",
+    labelKey: "why.row2.label",
+    jgate: "why.row2.jgate",
+    consult: "why.row2.consult",
+    cowork: "why.row2.cowork",
+    publicOrg: "why.row2.public",
   },
   {
-    EN: "Visa & Relocation Support",
-    JP: "ビザ・再配置サポート",
+    labelKey: "why.row3.label",
+    jgate: "why.row3.jgate",
+    consult: "why.row3.consult",
+    cowork: "why.row3.cowork",
+    publicOrg: "why.row3.public",
+    jgateType: "check",
+    consultType: "cross",
+    coworkType: "check",
+    publicType: "cross",
   },
   {
-    EN: "Direct Corporate Network Access",
-    JP: "直接企業ネットワークへのアクセス",
+    labelKey: "why.row4.label",
+    jgate: "why.row4.jgate",
+    consult: "why.row4.consult",
+    cowork: "why.row4.cowork",
+    publicOrg: "why.row4.public",
+    jgateType: "check",
+    consultType: "cross",
+    coworkType: "cross",
+    publicType: "cross",
   },
   {
-    EN: "Post-Placement Support",
-    JP: "配置後サポート",
+    labelKey: "why.row5.label",
+    jgate: "why.row5.jgate",
+    consult: "why.row5.consult",
+    cowork: "why.row5.cowork",
+    publicOrg: "why.row5.public",
+    jgateType: "check",
+    consultType: "check",
+    coworkType: "cross",
+    publicType: "check",
   },
   {
-    EN: "Retention Focus (12+ months)",
-    JP: "定着率重視（12ヶ月以上）",
+    labelKey: "why.row6.label",
+    jgate: "why.row6.jgate",
+    consult: "why.row6.consult",
+    cowork: "why.row6.cowork",
+    publicOrg: "why.row6.public",
+    jgateType: "check",
+    consultType: "warn",
+    coworkType: "cross",
+    publicType: "warn",
+  },
+  {
+    labelKey: "why.row7.label",
+    jgate: "why.row7.jgate",
+    consult: "why.row7.consult",
+    cowork: "why.row7.cowork",
+    publicOrg: "why.row7.public",
+    jgateType: "check",
+    consultType: "warn",
+    coworkType: "cross",
+    publicType: "cross",
+  },
+  {
+    labelKey: "why.row8.label",
+    jgate: "why.row8.jgate",
+    consult: "why.row8.consult",
+    cowork: "why.row8.cowork",
+    publicOrg: "why.row8.public",
+  },
+  {
+    labelKey: "why.row9.label",
+    jgate: "why.row9.jgate",
+    consult: "why.row9.consult",
+    cowork: "why.row9.cowork",
+    publicOrg: "why.row9.public",
+    jgateType: "good",
+    consultType: "warn",
+    coworkType: "warn",
+    publicType: "good",
   },
 ];
 
-// Standard Recruitment offers only [0] (Language Screening, partial) and [4] (Post-Placement, partial)
-const STANDARD_OFFERS = [false, false, false, false, false, false];
-
-// J-Gate 360° Bridging offers all
-const JGATE_OFFERS = [true, true, true, true, true, true];
-
-/* ── Core Pillars ── */
-const PILLARS = [
+/* ── 7 Core Value Pillars — Slide 11 ── */
+const SEVEN_PILLARS = [
   {
-    icon: Languages,
-    gradient: "from-crimson to-crimson-deep",
-    title: {
-      EN: "Bicultural Competency",
-      JP: "バイカルチュラル・コンピテンシー",
-    } as Bilingual,
-    desc: {
-      EN: "We believe language is necessary but insufficient. Real placement success requires bicultural competency — the ability to read a room, understand implicit expectations, and operate fluently inside Japanese corporate norms. Our candidates train not only in JLPT/NAT grammar, but in keigo, nemawashi, ho-ren-so, and the unwritten rhythms of Japanese enterprise life — alongside deep English technical fluency for cross-border teams.",
-      JP: "語学は必要だが十分ではないと私たちは考えています。真の紹介成功にはバイカルチュラル・コンピテンシー — 状況を読み解き、暗黙の期待を理解し、日本の企業規範の中で流暢に行動する能力が必要です。私たちの候補者はJLPT・NATの文法だけでなく、敬語、根回し、報連相、そして日本企業生活の暗黙のリズムを訓練します — さらに越境チーム向けの深い英語技術流暢さも。",
-    } as Bilingual,
-    bullets: [
-      {
-        EN: "JLPT N5–N1 coaching with measurable pass-rate milestones",
-        JP: "測定可能な合格率マイルストーン付きのJLPT N5–N1コーチング",
-      },
-      {
-        EN: "Keigo, business email, and meeting etiquette drill modules",
-        JP: "敬語、ビジネスメール、会議エチケットの訓練モジュール",
-      },
-      {
-        EN: "Cross-cultural workshop on ho-ren-so and nemawashi",
-        JP: "報連相と根回しに関する異文化ワークショップ",
-      },
-    ] as Bilingual[],
+    num: "1",
+    icon: Building2,
+    titleKey: "why.p1.title",
+    descKey: "why.p1.desc",
+    accent: "crimson",
   },
   {
-    icon: Cpu,
-    gradient: "from-saffron to-[#c9881a]",
-    title: {
-      EN: "Vetted Technical Screening",
-      JP: "審査済み技術スクリーニング",
-    } as Bilingual,
-    desc: {
-      EN: "Every candidate is screened against rigorous software, AI/ML, and core-engineering benchmarks designed by our Technical Advisory Council — chaired by former T-Hub CEO Srinivas Rao Mahankali and former T-Hub CIO Sujit Jagirdar. We evaluate not only what candidates know, but how they think under pressure, how they communicate technical trade-offs, and whether their craft meets the standards Japanese enterprises expect from day-one contributors.",
-      JP: "すべての候補者は、元T-Hub CEOのSrinivas Rao Mahankali氏と元T-Hub CIOのSujit Jagirdar氏が主導する技術諮問評議会が設計した、ソフトウェア、AI/ML、コアエンジニアリングの厳格なベンチマークで審査されます。候補者が知っていることだけでなく、プレッシャー下でどう思考し、技術的トレードオフをどう伝え、その技芸が初日から貢献できる日本企業の基準を満たすかを評価します。",
-    } as Bilingual,
-    bullets: [
-      {
-        EN: "Multi-stage technical screen: algorithm, system design, code review",
-        JP: "多段階技術審査：アルゴリズム、システム設計、コードレビュー",
-      },
-      {
-        EN: "Domain-specific tracks: full-stack, AI/ML, embedded, cloud, data",
-        JP: "領域別トラック：フルスタック、AI/ML、組み込み、クラウド、データ",
-      },
-      {
-        EN: "Advisory Council-reviewed evaluation rubric, updated quarterly",
-        JP: "四半期ごとに更新される、諮問評議会レビュー済みの評価基準",
-      },
-    ] as Bilingual[],
+    num: "2",
+    icon: Wifi,
+    titleKey: "why.p2.title",
+    descKey: "why.p2.desc",
+    accent: "saffron",
   },
   {
-    icon: Plane,
-    gradient: "from-navy to-success",
-    title: {
-      EN: "Pre-to-Post Onboarding",
-      JP: "プレ・トゥ・ポスト・オンボーディング",
-    } as Bilingual,
-    desc: {
-      EN: "Most recruitment ends at the offer letter. Ours begins there. From visa facilitation and pre-departure cultural orientation, through housing transition and city registration in Tokyo, to first-day office accompaniment and a 90-day integration check-in — we own the entire journey. Candidates and companies focus on the work; we handle the rest, end to end.",
-      JP: "ほとんどの採用はオファーレターで終わります。私たちはそこから始まります。ビザ支援と出発前文化オリエンテーション、東京での住居移行と市区町村登録、初日のオフィス同行、そして90日間の統合チェックインまで — 全行程を私たちが担います。候補者と企業は仕事に集中し、私たちが残りすべてをエンドツーエンドで対応します。",
-    } as Bilingual,
-    bullets: [
-      {
-        EN: "Visa processing, COE support, and municipal registration guidance",
-        JP: "ビザ処理、在留資格認定書（COE）支援、市区町村登録ガイダンス",
-      },
-      {
-        EN: "Housing search, lease negotiation, and settling-in logistics",
-        JP: "住居探し、賃貸契約交渉、定着物流のサポート",
-      },
-      {
-        EN: "First-day office accompaniment and 30/60/90-day integration check-ins",
-        JP: "初日のオフィス同行と30/60/90日統合チェックイン",
-      },
-    ] as Bilingual[],
+    num: "3",
+    icon: MessageCircle,
+    titleKey: "why.p3.title",
+    descKey: "why.p3.desc",
+    accent: "crimson",
+  },
+  {
+    num: "4",
+    icon: FileStack,
+    titleKey: "why.p4.title",
+    descKey: "why.p4.desc",
+    accent: "saffron",
+  },
+  {
+    num: "5",
+    icon: Users,
+    titleKey: "why.p5.title",
+    descKey: "why.p5.desc",
+    accent: "crimson",
+  },
+  {
+    num: "6",
+    icon: GraduationCap,
+    titleKey: "why.p6.title",
+    descKey: "why.p6.desc",
+    accent: "saffron",
+  },
+  {
+    num: "7",
+    icon: Briefcase,
+    titleKey: "why.p7.title",
+    descKey: "why.p7.desc",
+    accent: "crimson",
   },
 ] as const;
 
-/* ── Testimonials ── */
+/* ── Cell renderer for the comparison table ── */
+function Cell({
+  type,
+  text,
+  highlight = false,
+}: {
+  type?: CellType;
+  text: string;
+  highlight?: boolean;
+}) {
+  // If type is set, render icon + text; otherwise render text only
+  if (!type) {
+    return (
+      <span
+        className={`font-inter text-[12px] leading-snug sm:text-[13px] ${
+          highlight ? "font-semibold text-ink" : "text-slate"
+        }`}
+      >
+        {text}
+      </span>
+    );
+  }
+
+  let Icon = CheckCircle2;
+  let color = "text-success";
+  let bg = "bg-success/15";
+  if (type === "check") {
+    Icon = Check;
+    color = highlight ? "text-crimson" : "text-success";
+    bg = highlight ? "bg-crimson/15" : "bg-success/15";
+  } else if (type === "cross") {
+    Icon = X;
+    color = "text-slate";
+    bg = "bg-slate/10";
+  } else if (type === "good") {
+    Icon = CircleDot;
+    color = highlight ? "text-crimson" : "text-success";
+    bg = highlight ? "bg-crimson/15" : "bg-success/15";
+  } else if (type === "warn") {
+    Icon = Triangle;
+    color = "text-saffron";
+    bg = "bg-saffron/15";
+  }
+
+  return (
+    <div className="flex items-center gap-2.5">
+      <span
+        className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${bg} ${color}`}
+        aria-hidden="true"
+      >
+        <Icon className="h-3.5 w-3.5" strokeWidth={2.5} />
+      </span>
+      <span
+        className={`font-inter text-[12px] leading-snug sm:text-[13px] ${
+          highlight ? "font-semibold text-ink" : "text-slate"
+        }`}
+      >
+        {text}
+      </span>
+    </div>
+  );
+}
+
+/* ── Corporate Testimonials (retained) ── */
 const TESTIMONIALS = [
   {
     quote: {
@@ -179,7 +293,7 @@ const TESTIMONIALS = [
 ] as const;
 
 export default function WhyJGatePage() {
-  const { tx } = useI18n();
+  const { t, tx } = useI18n();
 
   return (
     <>
@@ -187,94 +301,93 @@ export default function WhyJGatePage() {
         eyebrowKey="why.eyebrow"
         titleNode={
           <>
-            {tx({ EN: "The Bridge That", JP: "結果を届ける" })}
+            {tx({ EN: "The Strategic", JP: "戦略的投資としての" })}
             <br />
             <span className="text-gradient-saffron">
-              {tx({ EN: "Delivers Results", JP: "架け橋" })}
+              {tx({ EN: "Investment Advantage", JP: "優位性" })}
             </span>
           </>
         }
-        subtitleKey="why.title"
+        subtitleKey="why.subtitle"
       />
 
       {/* ───────────────────────────────────────────────────────────
-          Comparison Matrix
+          Competitive Comparison Table — Slide 10
+          Desktop: 4-col grid table. Mobile: horizontal-scroll with sticky first col.
          ─────────────────────────────────────────────────────────── */}
       <section className="section-pad bg-ivory">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
-              <Eyebrow>{tx({ EN: "Side-by-Side Comparison", JP: "直接比較" })}</Eyebrow>
+              <Eyebrow>{t("why.compare.eyebrow")}</Eyebrow>
               <h2
                 className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.875rem,4vw,2.5rem)" }}
+                style={{ fontSize: "clamp(1.625rem,3.6vw,2.375rem)" }}
               >
-                {tx({ EN: "Standard Recruitment vs J-Gate 360° Bridging", JP: "従来型紹介 vs J-Gate 360°ブリッジング" })}
+                {t("why.compare.title")}
               </h2>
               <p className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate" style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}>
-                {tx({
-                  EN: "Six capabilities that separate a transactional hire from a long-term placement.",
-                  JP: "取引的な採用と長期的紹介を分ける6つの能力。",
-                })}
+                {t("why.compare.subtitle")}
               </p>
             </div>
           </Reveal>
 
+          {/* Desktop table (md and up) */}
           <Reveal delay={120}>
-            <div className="mx-auto mt-12 max-w-4xl overflow-hidden rounded-lg border border-crimson/10 bg-pearl shadow-card">
+            <div className="mt-12 hidden overflow-hidden rounded-xl border border-crimson/12 bg-pearl shadow-card md:block">
               {/* Header row */}
-              <div className="grid grid-cols-[1.6fr_1fr_1fr] gap-2 border-b border-crimson/10 bg-ivory-warm px-4 py-4 sm:px-6">
-                <div className="font-inter text-[11px] font-semibold uppercase text-mist sm:text-[12px]" style={{ letterSpacing: "0.1em" }}>
-                  {tx({ EN: "Capability", JP: "能力" })}
+              <div className="grid grid-cols-[1.4fr_1.1fr_1.1fr_1.1fr_1.1fr] border-b border-crimson/10 bg-ivory-warm">
+                <div className="px-5 py-4">
+                  <span className="font-inter text-[11px] font-semibold uppercase text-mist" style={{ letterSpacing: "0.12em" }}>
+                    {t("why.compare.col.cap")}
+                  </span>
                 </div>
-                <div className="text-center">
-                  <div className="font-serif-jp text-[13px] font-bold text-slate sm:text-[15px]">
-                    {tx({ EN: "Standard", JP: "従来型" })}
-                  </div>
-                  <div className="font-inter text-[10px] text-mist sm:text-[11px]">
-                    {tx({ EN: "Recruitment", JP: "紹介" })}
+                {/* J-Gate column header — highlighted */}
+                <div className="relative bg-gradient-to-b from-crimson/10 to-transparent px-5 py-4 text-center">
+                  <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-crimson to-crimson-deep" />
+                  <div className="font-serif-jp text-[15px] font-bold text-crimson">{t("why.compare.col.jgate")}</div>
+                  <div className="mt-0.5 font-inter text-[10px] uppercase text-crimson/70" style={{ letterSpacing: "0.12em" }}>
+                    {tx({ EN: "Recommended", JP: "おすすめ" })}
                   </div>
                 </div>
-                <div className="text-center">
-                  <div className="font-serif-jp text-[13px] font-bold text-crimson sm:text-[15px]">
-                    {tx({ EN: "J-Gate 360°", JP: "J-Gate 360°" })}
-                  </div>
-                  <div className="font-inter text-[10px] text-crimson/70 sm:text-[11px]">
-                    {tx({ EN: "Bridging", JP: "ブリッジング" })}
-                  </div>
+                <div className="px-5 py-4 text-center">
+                  <div className="font-serif-jp text-[14px] font-bold text-slate">{t("why.compare.col.consult")}</div>
+                </div>
+                <div className="px-5 py-4 text-center">
+                  <div className="font-serif-jp text-[14px] font-bold text-slate">{t("why.compare.col.cowork")}</div>
+                </div>
+                <div className="px-5 py-4 text-center">
+                  <div className="font-serif-jp text-[14px] font-bold text-slate">{t("why.compare.col.public")}</div>
                 </div>
               </div>
 
-              {/* Rows */}
+              {/* Body rows */}
               {COMPARISON_ROWS.map((row, i) => (
                 <div
                   key={i}
-                  className={`grid grid-cols-[1.6fr_1fr_1fr] items-center gap-2 px-4 py-4 sm:px-6 ${
-                    i !== COMPARISON_ROWS.length - 1 ? "border-b border-crimson/8" : ""
-                  } ${i % 2 === 0 ? "bg-pearl" : "bg-ivory/40"}`}
+                  className={`grid grid-cols-[1.4fr_1.1fr_1.1fr_1.1fr_1.1fr] items-center border-b border-crimson/8 ${
+                    i === COMPARISON_ROWS.length - 1 ? "border-b-0" : ""
+                  } ${i % 2 === 0 ? "bg-pearl" : "bg-ivory/30"}`}
                 >
-                  <div className="font-inter text-[13px] font-medium text-ink sm:text-[14px]">
-                    {tx(row)}
+                  {/* Label */}
+                  <div className="px-5 py-4">
+                    <span className="font-inter text-[13px] font-semibold text-ink">{t(row.labelKey)}</span>
                   </div>
-                  <div className="flex justify-center">
-                    <span
-                      className={`flex h-7 w-7 items-center justify-center rounded-full ${
-                        STANDARD_OFFERS[i] ? "bg-success/15 text-success" : "bg-slate/10 text-slate"
-                      }`}
-                      aria-label={STANDARD_OFFERS[i] ? "Yes" : "No"}
-                    >
-                      {STANDARD_OFFERS[i] ? <Check className="h-4 w-4" strokeWidth={2.5} /> : <X className="h-4 w-4" strokeWidth={2.5} />}
-                    </span>
+                  {/* J-Gate — highlighted */}
+                  <div className="bg-crimson/[0.04] px-5 py-4">
+                    <Cell type={row.jgateType} text={t(row.jgate)} highlight />
                   </div>
-                  <div className="flex justify-center">
-                    <span
-                      className={`flex h-7 w-7 items-center justify-center rounded-full ${
-                        JGATE_OFFERS[i] ? "bg-crimson/15 text-crimson" : "bg-slate/10 text-slate"
-                      }`}
-                      aria-label={JGATE_OFFERS[i] ? "Yes" : "No"}
-                    >
-                      {JGATE_OFFERS[i] ? <Check className="h-4 w-4" strokeWidth={2.5} /> : <X className="h-4 w-4" strokeWidth={2.5} />}
-                    </span>
+                  {/* Consulting */}
+                  <div className="px-5 py-4">
+                    <Cell type={row.consultType} text={t(row.consult)} />
+                  </div>
+                  {/* Coworking */}
+                  <div className="px-5 py-4">
+                    <Cell type={row.coworkType} text={t(row.cowork)} />
+                  </div>
+                  {/* Public */}
+                  <div className="px-5 py-4">
+                    <Cell type={row.publicType} text={t(row.publicOrg)} />
                   </div>
                 </div>
               ))}
@@ -282,11 +395,178 @@ export default function WhyJGatePage() {
               {/* Footer note */}
               <div className="border-t border-crimson/10 bg-crimson/5 px-6 py-4 text-center">
                 <p className="font-inter text-[12px] text-slate sm:text-[13px]">
-                  {tx({
-                    EN: "Standard recruitment typically delivers partial language screening only. J-Gate delivers all six — end-to-end.",
-                    JP: "従来型紹介は通常、部分的な語学スクリーニングのみを提供。J-Gateは6つすべてをエンドツーエンドで提供します。",
-                  })}
+                  {t("why.compare.note")}
                 </p>
+              </div>
+            </div>
+          </Reveal>
+
+          {/* Mobile: horizontal scroll with sticky first column */}
+          <Reveal delay={120}>
+            <div className="mt-12 md:hidden">
+              <div className="overflow-x-auto rounded-xl border border-crimson/12 bg-pearl shadow-card" style={{ scrollbarWidth: "thin" }}>
+                <div className="min-w-[640px]">
+                  {/* Header */}
+                  <div className="grid grid-cols-[1.3fr_1fr_1fr_1fr_1fr] border-b border-crimson/10 bg-ivory-warm">
+                    <div className="sticky left-0 z-10 bg-ivory-warm px-4 py-3">
+                      <span className="font-inter text-[10px] font-semibold uppercase text-mist" style={{ letterSpacing: "0.1em" }}>
+                        {t("why.compare.col.cap")}
+                      </span>
+                    </div>
+                    <div className="relative bg-gradient-to-b from-crimson/10 to-transparent px-3 py-3 text-center">
+                      <span className="absolute inset-x-0 top-0 h-0.5 bg-gradient-to-r from-crimson to-crimson-deep" />
+                      <div className="font-serif-jp text-[12px] font-bold text-crimson">{t("why.compare.col.jgate")}</div>
+                    </div>
+                    <div className="px-3 py-3 text-center">
+                      <div className="font-serif-jp text-[11px] font-bold text-slate">{t("why.compare.col.consult")}</div>
+                    </div>
+                    <div className="px-3 py-3 text-center">
+                      <div className="font-serif-jp text-[11px] font-bold text-slate">{t("why.compare.col.cowork")}</div>
+                    </div>
+                    <div className="px-3 py-3 text-center">
+                      <div className="font-serif-jp text-[11px] font-bold text-slate">{t("why.compare.col.public")}</div>
+                    </div>
+                  </div>
+                  {/* Rows */}
+                  {COMPARISON_ROWS.map((row, i) => (
+                    <div
+                      key={i}
+                      className={`grid grid-cols-[1.3fr_1fr_1fr_1fr_1fr] items-center border-b border-crimson/8 ${
+                        i === COMPARISON_ROWS.length - 1 ? "border-b-0" : ""
+                      } ${i % 2 === 0 ? "bg-pearl" : "bg-ivory/30"}`}
+                    >
+                      <div className="sticky left-0 z-10 bg-inherit px-4 py-3">
+                        <span className="font-inter text-[12px] font-semibold text-ink">{t(row.labelKey)}</span>
+                      </div>
+                      <div className="bg-crimson/[0.05] px-3 py-3">
+                        <Cell type={row.jgateType} text={t(row.jgate)} highlight />
+                      </div>
+                      <div className="px-3 py-3">
+                        <Cell type={row.consultType} text={t(row.consult)} />
+                      </div>
+                      <div className="px-3 py-3">
+                        <Cell type={row.coworkType} text={t(row.cowork)} />
+                      </div>
+                      <div className="px-3 py-3">
+                        <Cell type={row.publicType} text={t(row.publicOrg)} />
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              {/* Scroll hint */}
+              <p className="mt-2 text-center font-inter text-[11px] text-mist">
+                {tx({ EN: "← Swipe horizontally to compare →", JP: "← 横にスワイプして比較 →" })}
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ───────────────────────────────────────────────────────────
+          7 Core Value Pillars — Slide 11
+          Unique vertical staggered layout with large numerals + alternating accent.
+         ─────────────────────────────────────────────────────────── */}
+      <section className="section-pad relative overflow-hidden bg-navy">
+        <div className="pattern-asanoha-navy absolute inset-0 opacity-60" />
+        <div
+          className="absolute inset-0"
+          style={{ background: "radial-gradient(ellipse at 20% 0%, rgba(188,26,44,0.10), transparent 55%), radial-gradient(ellipse at 80% 100%, rgba(232,160,26,0.08), transparent 55%)" }}
+        />
+        <div className="container-jg relative">
+          <Reveal>
+            <div className="mx-auto max-w-3xl text-center">
+              <Eyebrow light>{t("why.pillars.eyebrow")}</Eyebrow>
+              <h2
+                className="mt-4 font-serif-jp font-bold leading-[1.18] text-white"
+                style={{ fontSize: "clamp(1.625rem,3.6vw,2.375rem)" }}
+              >
+                {t("why.pillars.title")}
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-mist" style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}>
+                {t("why.pillars.subtitle")}
+              </p>
+            </div>
+          </Reveal>
+
+          {/* 7-pillar vertical list — alternating accent + large numerals */}
+          <div className="mx-auto mt-14 max-w-4xl space-y-4">
+            {SEVEN_PILLARS.map((p, i) => {
+              const isSaffron = p.accent === "saffron";
+              const isReversed = i % 2 === 1;
+              return (
+                <Reveal key={p.num} delay={i * 80} variant={isReversed ? "right" : "left"}>
+                  <article
+                    className={`glass-dark lift-card group relative grid grid-cols-[auto_1fr] items-center gap-5 overflow-hidden rounded-xl border p-5 sm:p-6 ${
+                      isSaffron ? "border-saffron/25" : "border-crimson/25"
+                    }`}
+                  >
+                    {/* Large numeral */}
+                    <div
+                      className={`pointer-events-none absolute select-none font-serif-jp font-bold leading-none opacity-10 ${
+                        isReversed ? "right-4 top-1/2 -translate-y-1/2" : "left-4 top-1/2 -translate-y-1/2"
+                      }`}
+                      style={{ fontSize: "5.5rem" }}
+                      aria-hidden="true"
+                    >
+                      {p.num}
+                    </div>
+
+                    {/* Icon + number badge */}
+                    <div
+                      className={`relative flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br text-white shadow-card transition-transform duration-300 group-hover:scale-110 ${
+                        isSaffron ? "from-saffron to-[#c9881a]" : "from-crimson to-crimson-deep"
+                      }`}
+                    >
+                      <p.icon className="h-7 w-7" strokeWidth={1.5} />
+                      {/* Small numeral chip */}
+                      <span
+                        className={`absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full font-serif-jp text-[10px] font-bold ${
+                          isSaffron ? "bg-saffron text-midnight" : "bg-crimson text-white"
+                        }`}
+                      >
+                        {p.num}
+                      </span>
+                    </div>
+
+                    {/* Text content */}
+                    <div className="relative min-w-0">
+                      <h3
+                        className="font-serif-jp font-bold leading-tight text-white"
+                        style={{ fontSize: "clamp(1.0625rem,2vw,1.25rem)" }}
+                      >
+                        {t(p.titleKey)}
+                      </h3>
+                      <p className="mt-1.5 font-inter text-[13px] leading-relaxed text-mist sm:text-[14px]">
+                        {t(p.descKey)}
+                      </p>
+                    </div>
+                  </article>
+                </Reveal>
+              );
+            })}
+          </div>
+
+          {/* Bottom: "Pillars in numbers" summary card */}
+          <Reveal delay={200}>
+            <div className="mx-auto mt-10 max-w-3xl">
+              <div className="glass-dark rounded-xl border border-saffron/25 p-6 text-center">
+                <div className="mx-auto flex max-w-2xl flex-wrap items-center justify-center gap-x-8 gap-y-3 font-inter text-mist">
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="font-serif-jp text-2xl font-bold text-saffron">2-4</span>
+                    <span className="text-[12px]">{tx({ EN: "Persons / company", JP: "名/社" })}</span>
+                  </div>
+                  <span className="h-4 w-px bg-white/15" />
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="font-serif-jp text-2xl font-bold text-saffron">7</span>
+                    <span className="text-[12px]">{tx({ EN: "Pillars total", JP: "柱の合計" })}</span>
+                  </div>
+                  <span className="h-4 w-px bg-white/15" />
+                  <div className="flex items-baseline gap-1.5">
+                    <span className="font-serif-jp text-2xl font-bold text-saffron">100%</span>
+                    <span className="text-[12px]">{tx({ EN: "JP-language support", JP: "日本語対応" })}</span>
+                  </div>
+                </div>
               </div>
             </div>
           </Reveal>
@@ -294,73 +574,10 @@ export default function WhyJGatePage() {
       </section>
 
       {/* ───────────────────────────────────────────────────────────
-          Core Pillars — 3 detailed cards
+          Corporate Testimonials — glass-dark on navy (retained)
          ─────────────────────────────────────────────────────────── */}
-      <section className="section-pad bg-ivory-warm">
-        <div className="container-jg">
-          <Reveal>
-            <div className="mx-auto max-w-3xl text-center">
-              <Eyebrow>{tx({ EN: "Core Pillars", JP: "コア・ピラー" })}</Eyebrow>
-              <h2
-                className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.875rem,4vw,2.5rem)" }}
-              >
-                {tx({ EN: "Three Pillars That Define Our 360° Approach", JP: "360°アプローチを定義する3つの柱" })}
-              </h2>
-              <p className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate" style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}>
-                {tx({
-                  EN: "Each pillar is a non-negotiable — together they form the operating system of every J-Gate placement.",
-                  JP: "各柱は譲れない要素 — 併せてJ-Gateのすべての紹介のオペレーティングシステムを形成します。",
-                })}
-              </p>
-            </div>
-          </Reveal>
-
-          <div className="mt-14 grid gap-6 lg:grid-cols-3">
-            {PILLARS.map((p, i) => (
-              <Reveal key={i} delay={i * 120}>
-                <article className="lift-card group relative flex h-full flex-col overflow-hidden rounded-lg border border-crimson/10 bg-pearl p-8 shadow-card">
-                  {/* Decorative gradient blob */}
-                  <div className={`pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-gradient-to-br ${p.gradient} opacity-10 blur-3xl transition-opacity duration-500 group-hover:opacity-20`} />
-
-                  {/* Icon badge */}
-                  <div className={`relative flex h-14 w-14 items-center justify-center rounded-lg bg-gradient-to-br ${p.gradient} text-white shadow-card transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3`}>
-                    <p.icon className="h-7 w-7" strokeWidth={1.5} />
-                  </div>
-
-                  <h3 className="relative mt-5 font-serif-jp text-xl font-bold text-ink">
-                    {tx(p.title)}
-                  </h3>
-
-                  <p className="relative mt-3 font-inter text-[14px] leading-relaxed text-slate">
-                    {tx(p.desc)}
-                  </p>
-
-                  {/* Bullets */}
-                  <ul className="relative mt-6 space-y-3 border-t border-crimson/10 pt-6">
-                    {p.bullets.map((b, bi) => (
-                      <li key={bi} className="flex items-start gap-3">
-                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-crimson/10 text-crimson">
-                          <Check className="h-3 w-3" strokeWidth={3} />
-                        </span>
-                        <span className="font-inter text-[13px] leading-snug text-slate">
-                          {tx(b)}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ───────────────────────────────────────────────────────────
-          Corporate Testimonials — glass-dark on navy
-         ─────────────────────────────────────────────────────────── */}
-      <section className="section-pad relative overflow-hidden bg-navy">
-        <div className="pattern-asanoha-navy absolute inset-0 opacity-60" />
+      <section className="section-pad relative overflow-hidden bg-midnight">
+        <div className="pattern-asanoha-dark absolute inset-0 opacity-60" />
         <div
           className="absolute inset-0"
           style={{ background: "radial-gradient(ellipse at 30% 20%, rgba(232,160,26,0.08), transparent 55%)" }}
@@ -385,32 +602,25 @@ export default function WhyJGatePage() {
           </Reveal>
 
           <div className="mt-14 grid gap-6 lg:grid-cols-3">
-            {TESTIMONIALS.map((t, i) => (
+            {TESTIMONIALS.map((tm, i) => (
               <Reveal key={i} delay={i * 120}>
                 <article className="glass-dark lift-card relative flex h-full flex-col rounded-lg p-8">
-                  {/* Quote mark */}
                   <QuoteMark className="absolute right-6 top-6 h-10 w-10 text-crimson/40" />
-
-                  {/* 5-star rating */}
                   <div className="flex items-center gap-1">
                     {Array.from({ length: 5 }).map((_, si) => (
                       <JStar key={si} className="h-4 w-4 text-saffron" />
                     ))}
                   </div>
-
-                  {/* Quote body */}
                   <p className="mt-5 flex-1 font-inter text-[14px] leading-relaxed text-white/90">
-                    “{tx(t.quote)}”
+                    “{tx(tm.quote)}”
                   </p>
-
-                  {/* Attribution */}
                   <div className="mt-6 flex items-center gap-3 border-t border-white/10 pt-5">
                     <div className="flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br from-crimson/30 to-saffron/20 font-serif-jp text-[14px] font-bold text-white">
-                      {t.initials}
+                      {tm.initials}
                     </div>
                     <div className="min-w-0">
-                      <div className="font-serif-jp text-[14px] font-bold text-white">{tx(t.name)}</div>
-                      <div className="font-inter text-[11px] text-mist">{tx(t.role)}</div>
+                      <div className="font-serif-jp text-[14px] font-bold text-white">{tx(tm.name)}</div>
+                      <div className="font-inter text-[11px] text-mist">{tx(tm.role)}</div>
                     </div>
                   </div>
                 </article>
@@ -435,29 +645,29 @@ export default function WhyJGatePage() {
                 style={{ fontSize: "clamp(1.75rem,3.5vw,2.25rem)" }}
               >
                 {tx({
-                  EN: "Experience the J-Gate 360° Difference",
-                  JP: "J-Gate 360°の違いを体験する",
+                  EN: "Experience the J-Gate Membership Difference",
+                  JP: "J-Gateメンバーシップの違いを体験する",
                 })}
               </h2>
               <p className="mx-auto mt-4 font-inter leading-relaxed text-slate" style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}>
                 {tx({
-                  EN: "From bicultural training to vetted screening to end-to-end onboarding — explore the services that operationalise these pillars.",
-                  JP: "バイカルチュラル訓練から審査済みスクリーニング、エンドツーエンドオンボーディングまで — これらの柱を実現するサービスを見る。",
+                  EN: "Seven pillars of value — workspace, infrastructure, Japan Desk, end-to-end setup, networking, study sessions, and hiring support. All in one membership.",
+                  JP: "7つの価値の柱 — ワークスペース、インフラ、ジャパンデスク、設立支援、ネットワーキング、勉強会、採用支援。すべて一つのメンバーシップで。",
                 })}
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
                 <Link
-                  href="/services"
+                  href="/auth/brochure"
                   className="btn-shine flex items-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-7 py-3.5 font-inter text-[14px] font-semibold text-white shadow-[0_0_20px_rgba(188,26,44,0.35)] transition-all hover:-translate-y-0.5"
                 >
-                  {tx({ EN: "Explore Services", JP: "サービスを見る" })}
+                  {tx({ EN: "Download Brochure", JP: "パンフレットをダウンロード" })}
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link
-                  href="/team"
+                  href="/services"
                   className="rounded-md border border-crimson/30 px-7 py-3.5 font-inter text-[14px] font-semibold text-crimson transition-all hover:-translate-y-0.5 hover:bg-crimson/5"
                 >
-                  {tx({ EN: "Meet the Team", JP: "チームを見る" })}
+                  {tx({ EN: "Explore Services", JP: "サービスを見る" })}
                 </Link>
               </div>
             </div>

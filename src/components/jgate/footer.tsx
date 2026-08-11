@@ -10,6 +10,7 @@ const NAV_LINKS = [
   { id: "about", key: "nav.about" },
   { id: "why", key: "nav.why" },
   { id: "services", key: "nav.services" },
+  { id: "pricing", key: "nav.pricing" },
   { id: "blogs", key: "nav.blogs" },
   { id: "contact", key: "nav.contact" },
 ] as const;
@@ -96,9 +97,9 @@ export function Footer() {
               {t("footer.contact")}
             </h3>
             <ul className="mt-5 space-y-3 font-inter text-[13px] text-mist">
-              <li className="flex items-start gap-2"><span>📍</span><span>Cyber Gateway, Hyderabad</span></li>
-              <li className="flex items-start gap-2"><span>📧</span><a href="mailto:info@j-gate.com" className="hover:text-crimson">info@j-gate.com</a></li>
-              <li className="flex items-start gap-2"><span>🌐</span><span>www.j-gate.com</span></li>
+              <li className="flex items-start gap-2"><span>📍</span><span>Cyber Gateway, Hitech City, Hyderabad</span></li>
+              <li className="flex items-start gap-2"><span>📧</span><a href="mailto:contact@indobox.co.jp" className="hover:text-crimson">contact@indobox.co.jp</a></li>
+              <li className="flex items-start gap-2"><span>📞</span><span>+91-9910360648 (Tanji)</span></li>
             </ul>
             <button
               onClick={openBrochure}

@@ -3,297 +3,242 @@
 import { Reveal, Eyebrow } from "@/components/jgate/shared";
 import { PageHero } from "@/components/jgate/page-hero";
 import { Photo } from "@/components/jgate/photo";
-import { LinkedInIcon } from "@/components/jgate/icons";
 import { useI18n } from "@/lib/i18n";
-import { ArrowRight, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  Sparkles,
+  Award,
+  Users,
+  Cpu,
+  FlaskConical,
+  Briefcase,
+  Building2,
+  Lightbulb,
+  Heart,
+  Globe2,
+} from "lucide-react";
 import Link from "next/link";
 
 /* ============================================================
-   Team — Executive credibility, advisory board, mentorship
-   Sections: PageHero → Executive Leadership → Technical Advisory Board → Language Sensei & Cultural Mentors → CTA
+   Team — REAL PDF content (Slides 12 & 13)
+   Sections: PageHero → J-Gate Operations Team (4) → Board of Advisory (5)
+             → Ecosystem Partners (6) → CTA
    ============================================================ */
 
 type Bilingual = { EN: string; JP: string };
 
-const EXECUTIVES = [
+/* ── J-Gate Operations Team — Slide 13 ── */
+const OPS_TEAM = [
   {
-    photoId: "photo-team-tanji-page",
+    photoId: "photo-team-tanji-ops",
     fallback: "grad-founder-tanji",
     initials: "DT",
     flag: "🇯🇵",
-    name: { EN: "Mr. Daisuke Tanji", JP: "ダンジ・ダイスケ" } as Bilingual,
-    role: {
-      EN: "Founder & CEO, Indobox India",
-      JP: "創業者兼CEO、Indobox India",
+    name: "Daisuke TANJI",
+    jpName: "丹治 大佑",
+    role: { EN: "Director", JP: "ディレクター" } as Bilingual,
+    desc: {
+      EN: "Representative of Indobox — leads J-Gate operations with a decade of India-side bridging experience. Architect of the bilateral partnership structure and primary point of contact for Japanese enterprise clients.",
+      JP: "Indobox代表 — 10年の日印架け橋経験を持つJ-Gate運営の責任者。両国間パートナーシップ構造の設計者であり、日本企業顧客の主要窓口。",
     } as Bilingual,
-    bio1: {
-      EN: "Daisuke Tanji first arrived in India in August 2013 — a decision that would define the next decade of his career and eventually crystallise into J-Gate. Over ten years, he built deep relationships across Hyderabad's engineering ecosystem and Japan's enterprise landscape, identifying the precise gaps that prevent most Indo-Japanese placements from enduring.",
-      JP: "ダンジ・ダイスケが初めてインドに到着したのは2013年8月 — その後の10年のキャリアを定義し、最終的にJ-Gateとして結晶化することになる決断でした。10年間で、彼はハイデラバードのエンジニアリング生態系と日本の企業景観全体に深い関係性を構築し、ほとんどの日印紹介が定着しない正確なギャップを特定しました。",
-    } as Bilingual,
-    bio2: {
-      EN: "As Founder & CEO of Indobox India, he leads J-Gate's bilateral mission — operating as the human bridge between Japanese enterprise expectations and Indian engineering talent, every single day.",
-      JP: "Indobox Indiaの創業者兼CEOとして、彼はJ-Gateの両国間ミッションを主導 — 日本企業の期待とインドのエンジニアリング人材の間の人的架け橋として、毎日機能しています。",
-    } as Bilingual,
-    pullQuote: {
-      EN: "“The bridge is not built in a day — it is built one placement, one training, one trust at a time.”",
-      JP: "「架け橋は一日で築かれない — 一つの紹介、一つの研修、一つの信頼で築かれる。」",
-    } as Bilingual,
+    accent: "crimson",
   },
   {
-    photoId: "photo-team-sarikonda-page",
-    fallback: "grad-founder-sarikonda",
-    initials: "VS",
+    photoId: "photo-team-hanaoka-ops",
+    fallback: "grad-team",
+    initials: "MH",
+    flag: "🇯🇵",
+    name: "Mariko HANAOKA",
+    jpName: "花岡 真理子",
+    role: { EN: "Director", JP: "ディレクター" } as Bilingual,
+    desc: {
+      EN: "Director on the J-Gate operations team — oversees client relationships, program delivery, and the Japan-facing side of the bilateral handoff. Ensures every client engagement translates cleanly into action on the ground.",
+      JP: "J-Gate運営チームのディレクター — 顧客関係、プログラム提供、両国間引き継ぎの日本側面を統括。すべての顧客エンゲージメントが現場での行動に正確に翻訳されることを確保。",
+    } as Bilingual,
+    accent: "saffron",
+  },
+  {
+    photoId: "photo-team-yanneti-ops",
+    fallback: "grad-team",
+    initials: "DY",
     flag: "🇮🇳",
-    name: { EN: "Mr. Viinay Sarikonda", JP: "ヴィイナイ・サリコンダ" } as Bilingual,
-    role: {
-      EN: "CEO, Genesys Info X · MoU Partner",
-      JP: "CEO、Genesys Info X・MoUパートナー",
+    name: "Dheeraj YANNETI",
+    jpName: "ディラジ・ヤンネティ",
+    role: { EN: "Community Manager", JP: "コミュニティマネージャー" } as Bilingual,
+    desc: {
+      EN: "Community Manager — the day-to-day heartbeat of J-Gate Hyderabad. Manages tenant relationships, networking events, and the cultural bridge between Japanese expats and the local Hyderabad ecosystem.",
+      JP: "コミュニティマネージャー — J-Gateハイデラバードの日常の中核。テナント関係、ネットワーキングイベント、日本駐在員と現地ハイデラバード生態系の文化橋渡しを管理。",
     } as Bilingual,
-    bio1: {
-      EN: "Viinay Sarikonda is a Hyderabad business ecosystem veteran and the CEO of Genesys Info X — J-Gate's founding MoU partner. His operational expertise anchors the technical delivery backbone of J-Gate's recruitment and consulting verticals, ensuring every placement meets a measurable quality bar.",
-      JP: "ヴィイナイ・サリコンダはハイデラバードのビジネス生態系のベテランであり、J-Gateの創設MoUパートナーであるGenesys Info XのCEOです。彼の運営専門知識が、J-Gateの採用・コンサルティング部門の技術的提供基盤を固定し、すべての紹介が測定可能な品質基準を満たすことを確保します。",
+    accent: "crimson",
+  },
+  {
+    photoId: "photo-team-buduru-ops",
+    fallback: "grad-team",
+    initials: "AB",
+    flag: "🇮🇳",
+    name: "Abhishek BUDURU",
+    jpName: "アブシェーク・ブドゥル",
+    role: { EN: "Intern / Tech", JP: "インターン・技術" } as Bilingual,
+    desc: {
+      EN: "Intern supporting the technical layer of J-Gate operations — workspace infrastructure, digital tools, and the systems that keep the community functioning smoothly behind the scenes.",
+      JP: "J-Gate運営の技術レイヤーを支えるインターン — ワークスペースインフラ、デジタルツール、コミュニティを背後で円滑に機能させるシステムを担当。",
     } as Bilingual,
-    bio2: {
-      EN: "He co-inaugurated J-Gate at Cyber Gateway in 2026 and continues to serve as the operational anchor of the bilateral partnership — bridging corporate execution on the Indian side with Japanese enterprise expectations.",
-      JP: "彼は2026年にサイバー・ゲートウェイでJ-Gateを共同開設し、両国間パートナーシップの運営基盤として継続 — インド側の企業実行を日本企業の期待と橋渡ししています。",
-    } as Bilingual,
-    pullQuote: {
-      EN: "“Operational rigour is what turns a bridge into a pipeline — and a pipeline into a track record.”",
-      JP: "「運営の厳格さこそが架け橋をパイプラインに変え、パイプラインを実績に変える。」",
-    } as Bilingual,
+    accent: "saffron",
   },
 ] as const;
 
+/* ── Board of Advisory — Slide 12 ── */
 const ADVISORS = [
   {
-    photoId: "photo-team-jagirdar-page",
+    photoId: "photo-advisor-mahankali",
+    fallback: "grad-advisory-s",
+    initials: "SM",
+    name: "Srinivas Rao Mahankali",
+    shortName: "MSR",
+    jpName: "スリニヴァス・ラオ・マハンカリ",
+    role: {
+      EN: "Former CEO, T-Hub",
+      JP: "元CEO、T-Hub",
+    } as Bilingual,
+    desc: {
+      EN: "Led T-Hub — India's largest startup hub — through its most critical growth phase. Brings institutional-scale perspective on what 'enterprise-ready' truly means.",
+      JP: "インド最大のスタートアップハブ、T-Hubの最も重要な成長期をCEOとして主導。「企業対応」が真に何を意味するか、機関的スケールの視点を提供。",
+    } as Bilingual,
+    icon: Award,
+  },
+  {
+    photoId: "photo-advisor-jagirdar",
     fallback: "grad-advisory-j",
     initials: "SJ",
-    name: { EN: "Mr. Sujit Jagirdar", JP: "スジット・ジャギルダール" } as Bilingual,
+    name: "Sujit Jagirdar",
+    shortName: "SJ",
+    jpName: "スジット・ジャギルダール",
     role: {
-      EN: "Technical Advisor · Former CIO, T-Hub",
-      JP: "技術アドバイザー・元CIO、T-Hub",
+      EN: "Former CIO, T-Hub",
+      JP: "元CIO、T-Hub",
     } as Bilingual,
-    bio: {
-      EN: "As former CIO of T-Hub — India's largest startup hub — Sujit Jagirdar oversaw the digital infrastructure that scaled one of the country's most influential innovation ecosystems. He brings that operational scale perspective to J-Gate's technical screening methodology, ensuring our evaluation rubric matches the rigour of India's most demanding tech institutions.",
-      JP: "インド最大のスタートアップハブであるT-Hubの元CIOとして、スジット・ジャギルダールは国内で最も影響力のあるイノベーション生態系の一つをスケールさせたデジタルインフラを統括しました。その運営スケールの視点をJ-Gateの技術スクリーニング手法にもたらし、私たちの評価基準がインドの最も要求の厳しい技術機関の厳格さに匹敵することを確保します。",
+    desc: {
+      EN: "Former CIO of T-Hub — oversaw the digital infrastructure that scaled one of India's most influential innovation ecosystems. Brings operational rigour to J-Gate's screening methodology.",
+      JP: "元T-Hub CIO — インドで最も影響力のあるイノベーション生態系の一つをスケールさせたデジタルインフラを統括。J-Gateのスクリーニング手法に運営の厳格さを提供。",
     } as Bilingual,
-    pullQuote: {
-      EN: "“Talent screening without rigour is just sourcing. Rigour is what makes it selection.”",
-      JP: "「厳格さのない人材スクリーニングは単なるソーシングに過ぎない。厳格さがあってこそ選考になる。」",
-    } as Bilingual,
+    icon: Cpu,
   },
   {
-    photoId: "photo-team-mahankali-page",
+    photoId: "photo-advisor-desai",
     fallback: "grad-advisory-s",
-    initials: "SRM",
-    name: { EN: "Mr. Srinivas Rao Mahankali", JP: "スリニヴァス・ラオ・マハンカリ" } as Bilingual,
+    initials: "UD",
+    name: "Dr. Uday B. Desai",
+    shortName: "UD",
+    jpName: "ウダイ・B・デサイ博士",
     role: {
-      EN: "Technical Advisor · Former CEO, T-Hub",
-      JP: "技術アドバイザー・元CEO、T-Hub",
+      EN: "Founding Director, IIT Hyderabad",
+      JP: "初代ディレクター、IIT Hyderabad",
     } as Bilingual,
-    bio: {
-      EN: "Srinivas Rao Mahankali led T-Hub through its most critical growth phase as CEO — building the institutional partnerships, government relationships, and corporate network that defined its national footprint. He chairs J-Gate's Technical Advisory Council, bringing a leader's perspective on what 'enterprise-ready' truly means at scale.",
-      JP: "スリニヴァス・ラオ・マハンカリはCEOとしてT-Hubの最も重要な成長期を主導 — 国民的フットプリントを定義づけた機関的パートナーシップ、政府関係、企業ネットワークを構築しました。彼はJ-Gateの技術諮問評議会の議長を務め、「企業対応」がスケールにおいて真に何を意味するかについてのリーダーの視点をもたらします。",
+    desc: {
+      EN: "Founding Director of IIT Hyderabad — one of India's most prestigious technical institutions. Anchors J-Gate's academic and research-grade perspective on engineering talent evaluation.",
+      JP: "IITハイデラバード（インド最高峰の技術系教育機関の一つ）の初代ディレクター。J-Gateの学術・研究レベルのエンジニア人材評価視点を担当。",
     } as Bilingual,
-    pullQuote: {
-      EN: "“Enterprise-ready is not a checkbox — it is a standard that holds at scale.”",
-      JP: "「企業対応はチェックボックスではない — スケールで維持される基準である。」",
+    icon: FlaskConical,
+  },
+  {
+    photoId: "photo-advisor-sarikonda",
+    fallback: "grad-advisory-j",
+    initials: "VS",
+    name: "Dr. Viinay Sarikonda",
+    shortName: "VS",
+    jpName: "ヴィイナイ・サリコンダ博士",
+    role: {
+      EN: "CEO, Genesys Info X",
+      JP: "CEO、Genesys Info X",
     } as Bilingual,
+    desc: {
+      EN: "CEO of Genesys Info X — J-Gate's founding MoU partner and the operational anchor on the India side. Co-inaugurator of J-Gate at Cyber Gateway.",
+      JP: "J-Gate創設MoUパートナーでありインド側運営基盤のGenesys Info XのCEO。サイバーゲートウェイでのJ-Gate共同開設者。",
+    } as Bilingual,
+    icon: Briefcase,
+  },
+  {
+    photoId: "photo-advisor-isogai",
+    fallback: "grad-advisory-s",
+    initials: "TI",
+    name: "Tomio Isogai",
+    shortName: "TI",
+    jpName: "磯貝 富雄",
+    role: {
+      EN: "Indobox Advisor · Former Sharp India MD",
+      JP: "Indoboxアドバイザー・元シャープインドリア代表",
+    } as Bilingual,
+    desc: {
+      EN: "Former Managing Director of Sharp India — decades of operational leadership inside one of Japan's most established Indian subsidiaries. Lecturer at Indobox Academy.",
+      JP: "元シャープインドリア代表取締役 — 日本を代表するインド子会社の一つでの長年の運営リーダーシップ。Indobox Academy講師。",
+    } as Bilingual,
+    icon: Lightbulb,
   },
 ] as const;
 
-const MENTORS = [
+/* ── Ecosystem Partners — Slide 12 ── */
+const PARTNERS = [
   {
-    photoId: "photo-team-yuki-page",
-    fallback: "grad-team",
-    initials: "YT",
-    name: { EN: "Sensei Yuki Tanaka", JP: "田中ゆき先生" } as Bilingual,
-    role: {
-      EN: "Lead Japanese Language Sensei",
-      JP: "主任日本語講師",
+    name: "Kodryx.ai",
+    jp: "コドリクス・エーアイ",
+    tag: "DATA INTELLIGENCE",
+    desc: {
+      EN: "AI-driven data intelligence partner — analytical backbone for evidence-based market entry decisions.",
+      JP: "AI駆動のデータインテリジェンスパートナー — エビデンスに基づく市場参入決定のための分析基盤。",
     } as Bilingual,
-    bio: {
-      EN: "Sensei Yuki Tanaka is a JLPT-certified Japanese language instructor with over fifteen years of experience teaching engineers — not general learners, but engineers preparing for placements in Japanese enterprises. Her curriculum covers JLPT/NAT milestones alongside the business Japanese, keigo, and meeting etiquette that determine whether an engineer integrates or merely survives.",
-      JP: "田中ゆき先生はJLPT認定の日本語講師で、15年以上にわたりエンジニア — 一般学習者ではなく、日本企業での配置に向けて準備するエンジニア — を指導してきました。彼女のカリキュラムはJLPT・NATのマイルストーンと並行して、エンジニアが統合するか単に生き残るかを決定するビジネス日本語、敬語、会議エチケットを網羅します。",
-    } as Bilingual,
-    pullQuote: {
-      EN: "“Grammar passes the test. Etiquette passes the room.”",
-      JP: "「文法は試験を合格させる。エチケットは会議室を合格させる。」",
-    } as Bilingual,
+    icon: Cpu,
   },
   {
-    photoId: "photo-team-ravi-page",
-    fallback: "grad-team",
-    initials: "RK",
-    name: { EN: "Sensei Ravi Kumar", JP: "ラビ・クマール先生" } as Bilingual,
-    role: {
-      EN: "Cultural Transition Consultant",
-      JP: "文化移行コンサルタント",
+    name: "YANC",
+    jp: "YANC",
+    tag: "Young Minds Networking Life Skills",
+    desc: {
+      EN: "Life-skills and networking organisation for young minds — community and capability partner for next-generation talent.",
+      JP: "若者向け生活スキル・ネットワーキング組織 — 次世代人材のためのコミュニティ・能力パートナー。",
     } as Bilingual,
-    bio: {
-      EN: "Sensei Ravi Kumar bridges Indian engineers into Japanese corporate culture — the unwritten expectations, the rhythms of nemawashi and ho-ren-so, the implicit signals that define whether a placement thrives. Having lived and worked in both ecosystems for over a decade, he designs the cultural orientation modules that prepare every J-Gate candidate for the realities of Japanese enterprise life.",
-      JP: "ラビ・クマール先生はインド人エンジニアを日本の企業文化 — 暗黙の期待、根回しと報連相のリズム、紹介が成功するかを定義する暗黙のシグナル — へと橋渡しします。10年以上にわたり両方の生態系で生活し働いた経験を持ち、J-Gateのすべての候補者を日本企業生活の現実に向けて準備する文化オリエンテーションモジュールを設計しています。",
+    icon: Users,
+  },
+  {
+    name: "Daakia",
+    jp: "ダーキア",
+    tag: "—Bridging Distance—",
+    desc: {
+      EN: "Communication and distance-bridging partner — connecting distributed teams across the Japan-India corridor.",
+      JP: "コミュニケーション・距離架け橋パートナー — 日印回廊をまたぐ分散チームを接続。",
     } as Bilingual,
-    pullQuote: {
-      EN: "“Language gets you heard. Culture gets you understood.”",
-      JP: "「言葉は聞いてもらうためにある。文化は理解してもらうためにある。」",
+    icon: Globe2,
+  },
+  {
+    name: "FINGERPRINT FILMS",
+    jp: "フィンガープリント・フィルムズ",
+    tag: "CREATIVE STUDIO",
+    desc: {
+      EN: "Creative film and media partner — produces visual narratives that bridge Japanese and Indian business cultures.",
+      JP: "クリエイティブ映画・メディアパートナー — 日本とインドのビジネス文化を橋渡しする視覚的物語を制作。",
     } as Bilingual,
+    icon: Award,
+  },
+  {
+    name: "MXC",
+    jp: "MXC",
+    tag: "TECHNOLOGY PARTNER",
+    desc: {
+      EN: "Technology and infrastructure partner — supports the digital backbone of J-Gate's Hyderabad operations.",
+      JP: "技術・インフラパートナー — J-Gateハイデラバード運営のデジタル基盤を支援。",
+    } as Bilingual,
+    icon: Briefcase,
+  },
+  {
+    name: "Hyderabad Japan Club",
+    jp: "ハイデラバード・ジャパン・クラブ",
+    tag: "COMMUNITY",
+    desc: {
+      EN: "The hub of the Japanese expatriate community in Hyderabad — cultural anchor and social network for J-Gate members.",
+      JP: "ハイデラバード在住日本人コミュニティの拠点 — J-Gate会員のための文化的支柱・ソーシャルネットワーク。",
+    } as Bilingual,
+    icon: Heart,
   },
 ] as const;
-
-/* Reusable large card with portrait photo slot */
-function LargeCard({
-  photoId,
-  fallback,
-  initials,
-  flag,
-  name,
-  role,
-  bio1,
-  bio2,
-  bio,
-  pullQuote,
-  index,
-}: {
-  photoId: string;
-  fallback: string;
-  initials: string;
-  flag?: string;
-  name: Bilingual;
-  role: Bilingual;
-  bio1?: Bilingual;
-  bio2?: Bilingual;
-  bio?: Bilingual;
-  pullQuote: Bilingual;
-  index: number;
-}) {
-  const { tx } = useI18n();
-  const isReverse = index % 2 === 1;
-  return (
-    <Reveal delay={index * 100} variant={isReverse ? "right" : "left"}>
-      <article className="lift-card relative flex h-full flex-col overflow-hidden rounded-lg border border-crimson/10 bg-pearl p-7 shadow-card sm:p-8 md:flex-row md:items-start md:gap-7">
-        {/* Portrait */}
-        <div className="mx-auto flex shrink-0 flex-col items-center md:mx-0">
-          <Photo
-            id={photoId}
-            alt={`${tx(name)}, ${tx(role)}`}
-            fallback={fallback}
-            initials={initials}
-            rounded="rounded-full"
-            className="h-32 w-32 sm:h-36 sm:w-36 md:h-40 md:w-40"
-          />
-          {flag && (
-            <span className="mt-3 text-2xl" aria-hidden="true">
-              {flag}
-            </span>
-          )}
-        </div>
-
-        {/* Body */}
-        <div className="mt-6 flex-1 text-center md:mt-0 md:text-left">
-          <h3 className="font-serif-jp text-xl font-bold text-ink sm:text-2xl">{tx(name)}</h3>
-          <p className="mt-1 font-inter text-[13px] font-semibold uppercase text-crimson" style={{ letterSpacing: "0.08em" }}>
-            {tx(role)}
-          </p>
-
-          {bio1 && (
-            <p className="mt-4 font-inter text-[14px] leading-relaxed text-slate">{tx(bio1)}</p>
-          )}
-          {bio2 && (
-            <p className="mt-3 font-inter text-[14px] leading-relaxed text-slate">{tx(bio2)}</p>
-          )}
-          {bio && (
-            <p className="mt-4 font-inter text-[14px] leading-relaxed text-slate">{tx(bio)}</p>
-          )}
-
-          {/* Pull quote */}
-          <blockquote className="mt-5 border-l-2 border-crimson/40 pl-4">
-            <p className="font-serif-jp text-[14px] italic leading-snug text-ink sm:text-[15px]">
-              {tx(pullQuote)}
-            </p>
-          </blockquote>
-
-          {/* LinkedIn */}
-          <div className="mt-5 flex justify-center md:justify-start">
-            <a
-              href="#"
-              onClick={(e) => e.preventDefault()}
-              aria-label={`${tx(name)} on LinkedIn`}
-              className="flex h-9 w-9 items-center justify-center rounded-md bg-[#0A66C2]/10 text-[#0A66C2] transition-all hover:bg-[#0A66C2] hover:text-white"
-            >
-              <LinkedInIcon className="h-4 w-4" />
-            </a>
-          </div>
-        </div>
-      </article>
-    </Reveal>
-  );
-}
-
-/* Smaller advisor / mentor card */
-function CompactCard({
-  photoId,
-  fallback,
-  initials,
-  name,
-  role,
-  bio,
-  pullQuote,
-  index,
-}: {
-  photoId: string;
-  fallback: string;
-  initials: string;
-  name: Bilingual;
-  role: Bilingual;
-  bio: Bilingual;
-  pullQuote: Bilingual;
-  index: number;
-}) {
-  const { tx } = useI18n();
-  return (
-    <Reveal delay={index * 100} variant={index % 2 === 1 ? "right" : "left"}>
-      <article className="lift-card relative flex h-full flex-col items-center overflow-hidden rounded-lg border border-saffron/15 bg-pearl p-7 text-center shadow-card sm:p-8">
-        {/* Gold top border accent */}
-        <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-saffron to-[#c9881a]" />
-
-        <Photo
-          id={photoId}
-          alt={`${tx(name)}, ${tx(role)}`}
-          fallback={fallback}
-          initials={initials}
-          rounded="rounded-full"
-          className="h-28 w-28 sm:h-32 sm:w-32"
-        />
-
-        <h3 className="mt-4 font-serif-jp text-lg font-bold text-ink sm:text-xl">{tx(name)}</h3>
-        <p className="mt-1 font-inter text-[12px] font-semibold uppercase text-crimson" style={{ letterSpacing: "0.08em" }}>
-          {tx(role)}
-        </p>
-
-        <p className="mt-4 font-inter text-[13px] leading-relaxed text-slate">{tx(bio)}</p>
-
-        <blockquote className="mt-5 border-l-2 border-saffron/40 pl-4 text-left">
-          <p className="font-serif-jp text-[13px] italic leading-snug text-ink">
-            {tx(pullQuote)}
-          </p>
-        </blockquote>
-
-        <div className="mt-5">
-          <a
-            href="#"
-            onClick={(e) => e.preventDefault()}
-            aria-label={`${tx(name)} on LinkedIn`}
-            className="flex h-9 w-9 items-center justify-center rounded-md bg-[#0A66C2]/10 text-[#0A66C2] transition-all hover:bg-[#0A66C2] hover:text-white"
-          >
-            <LinkedInIcon className="h-4 w-4" />
-          </a>
-        </div>
-      </article>
-    </Reveal>
-  );
-}
 
 export default function TeamPage() {
   const { tx } = useI18n();
@@ -304,10 +249,10 @@ export default function TeamPage() {
         eyebrowKey="team.eyebrow"
         titleNode={
           <>
-            {tx({ EN: "The Minds Behind", JP: "架け橋を" })}
+            {tx({ EN: "The Minds", JP: "J-Gateを" })}
             <br />
             <span className="text-gradient-saffron">
-              {tx({ EN: "the Bridge", JP: "作る人々" })}
+              {tx({ EN: "Behind J-Gate", JP: "支える人々" })}
             </span>
           </>
         }
@@ -315,94 +260,333 @@ export default function TeamPage() {
       />
 
       {/* ───────────────────────────────────────────────────────────
-          Executive Leadership
+          Section 1 — Header Message (Slide 13)
+          Bilingual executive tagline on a dark band.
+         ─────────────────────────────────────────────────────────── */}
+      <section className="relative overflow-hidden bg-navy py-14 md:py-20">
+        <div className="pattern-asanoha-navy absolute inset-0 opacity-50" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at 50% 50%, rgba(232,160,26,0.10), transparent 65%)",
+          }}
+        />
+        <div className="container-jg relative">
+          <Reveal>
+            <div className="mx-auto max-w-3xl text-center">
+              <Sparkles className="mx-auto h-7 w-7 text-saffron" strokeWidth={1.5} />
+              <p
+                className="mt-4 font-serif-jp font-bold leading-[1.3] text-white"
+                style={{ fontSize: "clamp(1.5rem,3.5vw,2.25rem)" }}
+              >
+                {tx({
+                  EN: "Unlocking new possibilities for your business through collaboration with India.",
+                  JP: "インドとの連携で、貴社のビジネスに新たな可能性を。",
+                })}
+              </p>
+              <p
+                className="mx-auto mt-3 font-sans-jp font-medium leading-relaxed text-saffron-light"
+                style={{ fontSize: "clamp(0.95rem,1.6vw,1.125rem)" }}
+              >
+                {tx({
+                  EN: "— The J-Gate Operations Team",
+                  JP: "— J-Gate運営チームより",
+                })}
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ───────────────────────────────────────────────────────────
+          Section 2 — J-Gate Operations Team (Slide 13)
+          4-card grid with circular photos + flags.
          ─────────────────────────────────────────────────────────── */}
       <section className="section-pad bg-ivory">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
-              <Eyebrow>{tx({ EN: "Executive Leadership", JP: "経営陣" })}</Eyebrow>
+              <Eyebrow>
+                {tx({ EN: "J-Gate Operations Team", JP: "J-Gate運営チーム" })}
+              </Eyebrow>
               <h2
                 className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
                 style={{ fontSize: "clamp(1.875rem,4vw,2.5rem)" }}
               >
-                {tx({ EN: "The Founders Who Built the Bridge", JP: "架け橋を築いた創業者たち" })}
-              </h2>
-              <p className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate" style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}>
                 {tx({
-                  EN: "A decade of Japan-India bridging, crystallised into one institution — led by the two who built it.",
-                  JP: "10年の日印架け橋の仕事が、一つの機関として結晶化 — それを築いた二人が主導。",
+                  EN: "The People Who Run the Bridge, Daily",
+                  JP: "日々架け橋を動かす人々",
+                })}
+              </h2>
+              <p
+                className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate"
+                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+              >
+                {tx({
+                  EN: "A four-person operations team that owns every J-Gate client engagement end-to-end — directors who set strategy, a community manager who runs the floor, and the technical layer that holds it together.",
+                  JP: "J-Gateのすべての顧客エンゲージメントをエンドツーエンドで担う4名の運営チーム — 戦略を定めるディレクター、現場を動かすコミュニティマネージャー、そしてその全体をつなぐ技術レイヤー。",
                 })}
               </p>
             </div>
           </Reveal>
 
-          <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            {EXECUTIVES.map((m, i) => (
-              <LargeCard key={i} index={i} {...m} />
-            ))}
+          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {OPS_TEAM.map((m, i) => {
+              const accentColor = m.accent === "crimson" ? "crimson" : "saffron";
+              const accentBorder =
+                accentColor === "crimson"
+                  ? "border-crimson/20 hover:border-crimson/40"
+                  : "border-saffron/20 hover:border-saffron/40";
+              const accentText =
+                accentColor === "crimson" ? "text-crimson" : "text-saffron";
+              const accentBar =
+                accentColor === "crimson"
+                  ? "from-crimson to-crimson-deep"
+                  : "from-saffron to-[#c9881a]";
+              return (
+                <Reveal key={i} delay={i * 90}>
+                  <article
+                    className={`lift-card relative flex h-full flex-col items-center overflow-hidden rounded-lg border bg-pearl p-6 text-center shadow-card ${accentBorder}`}
+                  >
+                    <span
+                      className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${accentBar}`}
+                    />
+
+                    <Photo
+                      id={m.photoId}
+                      alt={`${m.name}, ${tx(m.role)}`}
+                      fallback={m.fallback}
+                      initials={m.initials}
+                      rounded="rounded-full"
+                      className="h-28 w-28 sm:h-32 sm:w-32"
+                    />
+
+                    <span className="mt-3 text-2xl" aria-hidden="true">
+                      {m.flag}
+                    </span>
+
+                    <h3 className="mt-3 font-serif-jp text-base font-bold leading-tight text-ink sm:text-lg">
+                      {m.name}
+                    </h3>
+                    <p className="font-sans-jp text-[12px] font-medium text-mist">
+                      {m.jpName}
+                    </p>
+                    <p
+                      className={`mt-2 font-inter text-[11px] font-semibold uppercase ${accentText}`}
+                      style={{ letterSpacing: "0.1em" }}
+                    >
+                      {tx(m.role)}
+                    </p>
+
+                    <p className="mt-3 font-inter text-[12px] leading-relaxed text-slate">
+                      {tx(m.desc)}
+                    </p>
+                  </article>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* ───────────────────────────────────────────────────────────
-          Technical Advisory Board
+          Section 3 — Board of Advisory (Slide 12)
+          5 advisor cards with gold top-border accent. Asymmetric layout —
+          5 cards in a 3-col grid with the first card spanning 1 col,
+          giving a deliberately non-uniform, premium feel.
          ─────────────────────────────────────────────────────────── */}
       <section className="section-pad bg-ivory-warm">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
-              <Eyebrow>{tx({ EN: "Technical Advisory Board", JP: "技術諮問委員会" })}</Eyebrow>
+              <Eyebrow>
+                {tx({ EN: "Board of Advisory", JP: "諮問委員会" })}
+              </Eyebrow>
               <h2
                 className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
                 style={{ fontSize: "clamp(1.875rem,4vw,2.5rem)" }}
               >
-                {tx({ EN: "The Standards That Define a J-Gate Placement", JP: "J-Gateの紹介を定義する基準" })}
-              </h2>
-              <p className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate" style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}>
                 {tx({
-                  EN: "Our Advisory Council reviews and updates the evaluation rubric every quarter — ensuring J-Gate's screening matches the rigour of India's most demanding tech institutions.",
-                  JP: "諮問評議会は四半期ごとに評価基準をレビュー・更新 — J-Gateのスクリーニングがインドの最も要求の厳しい技術機関の厳格さに匹敵することを確保。",
+                  EN: "Five Voices That Set the Standard",
+                  JP: "基準を定める5つの声",
+                })}
+              </h2>
+              <p
+                className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate"
+                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+              >
+                {tx({
+                  EN: "Former CEOs, CIOs, founding directors, and managing directors — the institutional experience that shapes every J-Gate decision, from talent evaluation to partner selection.",
+                  JP: "元CEO、元CIO、初代ディレクター、代表取締役 — 人材評価からパートナー選定まで、J-Gateのすべての決定を形作る機関的経験。",
                 })}
               </p>
             </div>
           </Reveal>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {ADVISORS.map((m, i) => (
-              <CompactCard key={i} index={i} {...m} />
+          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {ADVISORS.map((a, i) => (
+              <Reveal key={i} delay={i * 90}>
+                <article className="lift-card relative flex h-full flex-col overflow-hidden rounded-lg border border-saffron/15 bg-pearl p-7 shadow-card">
+                  {/* Gold top-border accent */}
+                  <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-saffron via-saffron-light to-[#c9881a]" />
+
+                  <div className="flex items-start gap-4">
+                    <Photo
+                      id={a.photoId}
+                      alt={`${a.name}, ${tx(a.role)}`}
+                      fallback={a.fallback}
+                      initials={a.initials}
+                      rounded="rounded-full"
+                      className="h-20 w-20 shrink-0"
+                    />
+                    <div className="min-w-0 flex-1">
+                      <h3 className="font-serif-jp text-base font-bold leading-tight text-ink sm:text-lg">
+                        {a.name}
+                      </h3>
+                      <p className="mt-0.5 font-sans-jp text-[12px] text-mist">
+                        {a.jpName}
+                      </p>
+                      <p
+                        className="mt-2 font-inter text-[11px] font-semibold uppercase text-saffron"
+                        style={{ letterSpacing: "0.08em" }}
+                      >
+                        {tx(a.role)}
+                      </p>
+                    </div>
+                  </div>
+
+                  <p className="mt-5 font-inter text-[13px] leading-relaxed text-slate">
+                    {tx(a.desc)}
+                  </p>
+
+                  {/* Small icon chip bottom */}
+                  <div className="mt-5 flex items-center gap-2 border-t border-saffron/15 pt-4">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-md bg-saffron/10 text-saffron">
+                      <a.icon className="h-4 w-4" strokeWidth={1.5} />
+                    </span>
+                    <span className="font-inter text-[11px] font-medium text-mist">
+                      {tx({
+                        EN: `Advisor ${i + 1} of ${ADVISORS.length}`,
+                        JP: `諮問委員 ${i + 1} / ${ADVISORS.length}`,
+                      })}
+                    </span>
+                  </div>
+                </article>
+              </Reveal>
             ))}
+
+            {/* Decorative 6th tile — closure card */}
+            <Reveal delay={ADVISORS.length * 90}>
+              <div className="relative flex h-full min-h-[280px] flex-col items-center justify-center overflow-hidden rounded-lg border border-crimson/20 bg-gradient-to-br from-crimson/[0.04] to-saffron/[0.04] p-7 text-center">
+                <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-crimson via-saffron to-crimson-deep" />
+                <Sparkles className="h-9 w-9 text-crimson" strokeWidth={1.25} />
+                <p className="mt-4 font-serif-jp text-base font-bold leading-snug text-ink">
+                  {tx({
+                    EN: "Five advisors. One mandate: rigour.",
+                    JP: "5名のアドバイザー。ひとつの使命：厳格さ。",
+                  })}
+                </p>
+                <p className="mt-3 font-inter text-[12px] leading-relaxed text-slate">
+                  {tx({
+                    EN: "Every advisory engagement sharpens the standards J-Gate applies to your account — from screening rubrics to partner vetting.",
+                    JP: "アドバイザーの関与が、J-Gateがお客様の案件に適用する基準 — スクリーニング基準からパートナー審査まで — を常に研ぎ澄まします。",
+                  })}
+                </p>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
 
       {/* ───────────────────────────────────────────────────────────
-          Language Sensei & Cultural Mentors
+          Section 4 — Ecosystem Partners (Slide 12)
+          6 partner tiles with name, JP, tag, icon.
          ─────────────────────────────────────────────────────────── */}
-      <section className="section-pad bg-ivory">
-        <div className="container-jg">
+      <section className="section-pad bg-navy">
+        <div className="pattern-asanoha-navy absolute inset-0 opacity-50" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at 30% 30%, rgba(188,26,44,0.10), transparent 60%), radial-gradient(ellipse at 70% 80%, rgba(232,160,26,0.08), transparent 55%)",
+          }}
+        />
+        <div className="container-jg relative">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
-              <Eyebrow>{tx({ EN: "Language Sensei & Cultural Mentors", JP: "語学講師＆文化メンター" })}</Eyebrow>
+              <Eyebrow light>
+                {tx({ EN: "Ecosystem Partners", JP: "エコシステムパートナー" })}
+              </Eyebrow>
               <h2
-                className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
+                className="mt-4 font-serif-jp font-bold leading-[1.18] text-white"
                 style={{ fontSize: "clamp(1.875rem,4vw,2.5rem)" }}
               >
-                {tx({ EN: "The Teachers Who Make Placements Endure", JP: "紹介を定着させる教師たち" })}
-              </h2>
-              <p className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate" style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}>
                 {tx({
-                  EN: "Language and culture are what separate a placement that signs from a placement that stays. Our sensei and mentors own that difference.",
-                  JP: "言葉と文化こそが、契約を交わす紹介と定着する紹介を分けるもの。私たちの講師とメンターがその違いを担います。",
+                  EN: "The Network That Amplifies Every Membership",
+                  JP: "すべてのメンバーシップを増幅するネットワーク",
+                })}
+              </h2>
+              <p
+                className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-mist"
+                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+              >
+                {tx({
+                  EN: "Six specialised ecosystem partners — from data intelligence and creative studios to community organisations — each plugged into the J-Gate operating environment.",
+                  JP: "データインテリジェンスやクリエイティブスタジオからコミュニティ組織まで — 6つの専門エコシステムパートナーがJ-Gate運営環境に接続。",
                 })}
               </p>
             </div>
           </Reveal>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {MENTORS.map((m, i) => (
-              <CompactCard key={i} index={i} {...m} />
-            ))}
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {PARTNERS.map((p, i) => {
+              const accentColor = i % 2 === 0 ? "saffron" : "crimson";
+              const accentText =
+                accentColor === "saffron" ? "text-saffron" : "text-crimson";
+              const accentBg =
+                accentColor === "saffron"
+                  ? "bg-saffron/15"
+                  : "bg-crimson/15";
+              return (
+                <Reveal key={i} delay={i * 80}>
+                  <article className="glass-dark lift-card group relative flex h-full flex-col overflow-hidden rounded-lg border border-white/10 p-6 transition-all hover:border-white/20">
+                    <div className="flex items-start justify-between gap-3">
+                      <span
+                        className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-md ${accentBg} ${accentText} transition-transform duration-300 group-hover:scale-110`}
+                      >
+                        <p.icon className="h-5 w-5" strokeWidth={1.5} />
+                      </span>
+                      <span
+                        className={`font-inter text-[10px] font-bold uppercase ${accentText}`}
+                        style={{ letterSpacing: "0.12em" }}
+                      >
+                        {p.tag}
+                      </span>
+                    </div>
+
+                    <h3 className="mt-4 font-serif-jp text-lg font-bold text-white">
+                      {p.name}
+                    </h3>
+                    <p className="mt-0.5 font-sans-jp text-[12px] font-medium text-mist">
+                      {p.jp}
+                    </p>
+                    <p className="mt-3 font-inter text-[12.5px] leading-relaxed text-mist">
+                      {tx(p.desc)}
+                    </p>
+
+                    {/* Bottom accent bar — hover reveal */}
+                    <span
+                      className={`absolute bottom-0 left-0 h-0.5 w-0 bg-gradient-to-r ${
+                        accentColor === "saffron"
+                          ? "from-saffron to-[#c9881a]"
+                          : "from-crimson to-crimson-deep"
+                      } transition-all duration-500 group-hover:w-full`}
+                    />
+                  </article>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -410,31 +594,29 @@ export default function TeamPage() {
       {/* ───────────────────────────────────────────────────────────
           Closing CTA
          ─────────────────────────────────────────────────────────── */}
-      <section className="section-pad relative overflow-hidden bg-midnight">
-        <div className="pattern-asanoha-dark absolute inset-0 opacity-60" />
-        <div
-          className="absolute inset-0"
-          style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(188,26,44,0.10), transparent 60%)" }}
-        />
-        <div className="container-jg relative">
+      <section className="section-pad bg-ivory">
+        <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-2xl text-center">
-              <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-saffron/15 text-saffron">
-                <Sparkles className="h-6 w-6" strokeWidth={1.5} />
+              <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-crimson/10 text-crimson">
+                <Building2 className="h-6 w-6" strokeWidth={1.5} />
               </span>
               <h2
-                className="mt-6 font-serif-jp font-bold leading-[1.18] text-white"
+                className="mt-6 font-serif-jp font-bold leading-[1.18] text-ink"
                 style={{ fontSize: "clamp(1.75rem,3.5vw,2.25rem)" }}
               >
                 {tx({
-                  EN: "Meet the Team That Builds the Bridge",
-                  JP: "架け橋を築くチームに会う",
+                  EN: "Talk to the Team That Builds the Bridge",
+                  JP: "架け橋を築くチームにご相談ください",
                 })}
               </h2>
-              <p className="mx-auto mt-4 font-inter leading-relaxed text-mist" style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}>
+              <p
+                className="mx-auto mt-4 font-inter leading-relaxed text-slate"
+                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+              >
                 {tx({
-                  EN: "These are the people who will own your placement end-to-end. Begin the conversation today.",
-                  JP: "あなたの紹介をエンドツーエンドで担当する人々です。今日から会話を始めましょう。",
+                  EN: "From corporate setup to talent development to daily operations — the same team you see above will own your engagement. Begin the conversation today.",
+                  JP: "法人設立から人材育成、日常オペレーションまで — 上記のチームがお客様のエンゲージメントを担当します。今日から会話を始めましょう。",
                 })}
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -447,7 +629,7 @@ export default function TeamPage() {
                 </Link>
                 <Link
                   href="/services"
-                  className="rounded-md border border-white/30 px-7 py-3.5 font-inter text-[14px] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-white/10"
+                  className="rounded-md border border-crimson/30 px-7 py-3.5 font-inter text-[14px] font-semibold text-crimson transition-all hover:-translate-y-0.5 hover:bg-crimson/5"
                 >
                   {tx({ EN: "Explore Services", JP: "サービスを見る" })}
                 </Link>

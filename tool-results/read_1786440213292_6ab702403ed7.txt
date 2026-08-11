@@ -1,0 +1,631 @@
+     1→"use client";
+     2→
+     3→import { useState } from "react";
+     4→import {
+     5→  MapPin,
+     6→  Mail,
+     7→  Phone,
+     8→  Send,
+     9→  CheckCircle2,
+    10→  Building2,
+    11→  Clock,
+    12→  ArrowRight,
+    13→  Globe2,
+    14→  Plane,
+    15→} from "lucide-react";
+    16→import { Reveal, Eyebrow } from "@/components/jgate/shared";
+    17→import { PageHero } from "@/components/jgate/page-hero";
+    18→import { useI18n } from "@/lib/i18n";
+    19→import { JapanFlag, IndiaFlag } from "@/components/jgate/icons";
+    20→import { cn } from "@/lib/utils";
+    21→import Link from "next/link";
+    22→
+    23→/* ============================================================
+    24→   /contact — Contact Us
+    25→   Layout: PageHero → Two-column (Offices + Form | Map)
+    26→         → Response-time guarantee strip
+    27→   ============================================================ */
+    28→
+    29→type Bilingual = { EN: string; JP: string };
+    30→
+    31→type Office = {
+    32→  flag: React.ReactNode;
+    33→  nameKey: string;
+    34→  city: Bilingual;
+    35→  address: string;
+    36→  email: string;
+    37→  phone: string;
+    38→  hours: Bilingual;
+    39→  accent: "crimson" | "saffron";
+    40→};
+    41→
+    42→const OFFICES: Office[] = [
+    43→  {
+    44→    flag: <JapanFlag className="h-6 w-9" />,
+    45→    nameKey: "contact.tokyo",
+    46→    city: { EN: "Tokyo, Japan", JP: "東京・日本" },
+    47→    address: "1-2-3 Marunouchi, Chiyoda City, Tokyo 100-0005, Japan",
+    48→    email: "tokyo@j-gate.com",
+    49→    phone: "+81 3-1234-5678",
+    50→    hours: {
+    51→      EN: "Mon–Fri · 09:00–18:00 JST",
+    52→      JP: "月〜金 · 9:00〜18:00（日本時間）",
+    53→    },
+    54→    accent: "crimson",
+    55→  },
+    56→  {
+    57→    flag: <IndiaFlag className="h-6 w-9" />,
+    58→    nameKey: "contact.india",
+    59→    city: { EN: "Hyderabad, India", JP: "ハイデラバード・インド" },
+    60→    address: "Cyber Gateway, Hitech City, Hyderabad, Telangana 500081, India",
+    61→    email: "hyderabad@j-gate.com",
+    62→    phone: "+91 40-1234-5678",
+    63→    hours: {
+    64→      EN: "Mon–Sat · 09:30–18:30 IST",
+    65→      JP: "月〜土 · 9:30〜18:30（インド時間）",
+    66→    },
+    67→    accent: "saffron",
+    68→  },
+    69→];
+    70→
+    71→type ContactForm = {
+    72→  name: string;
+    73→  email: string;
+    74→  subject: string;
+    75→  message: string;
+    76→};
+    77→
+    78→type FormErrors = Partial<Record<keyof ContactForm, string>>;
+    79→
+    80→export default function ContactPage() {
+    81→  const { t, tx } = useI18n();
+    82→  const [sent, setSent] = useState(false);
+    83→  const [submitting, setSubmitting] = useState(false);
+    84→  const [form, setForm] = useState<ContactForm>({
+    85→    name: "",
+    86→    email: "",
+    87→    subject: "",
+    88→    message: "",
+    89→  });
+    90→  const [errors, setErrors] = useState<FormErrors>({});
+    91→
+    92→  const validate = (): boolean => {
+    93→    const e: FormErrors = {};
+    94→    if (!form.name.trim()) {
+    95→      e.name = tx({ EN: "Please enter your name", JP: "お名前を入力してください" });
+    96→    }
+    97→    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+    98→      e.email = tx({ EN: "Please enter a valid email", JP: "有効なメールアドレスを入力してください" });
+    99→    }
+   100→    if (!form.message.trim()) {
+   101→      e.message = tx({ EN: "Please enter a message", JP: "メッセージを入力してください" });
+   102→    }
+   103→    setErrors(e);
+   104→    return Object.keys(e).length === 0;
+   105→  };
+   106→
+   107→  const handleSubmit = async (e: React.FormEvent) => {
+   108→    e.preventDefault();
+   109→    if (!validate()) return;
+   110→    setSubmitting(true);
+   111→    // Simulate brief network round-trip for premium UX feel
+   112→    await new Promise((r) => setTimeout(r, 600));
+   113→    setSubmitting(false);
+   114→    setSent(true);
+   115→  };
+   116→
+   117→  const reset = () => {
+   118→    setSent(false);
+   119→    setForm({ name: "", email: "", subject: "", message: "" });
+   120→    setErrors({});
+   121→  };
+   122→
+   123→  const inputClass =
+   124→    "w-full rounded-md border bg-white/[0.05] px-4 py-3 font-inter text-sm text-white placeholder-white/35 outline-none transition-colors focus:border-saffron";
+   125→  const labelClass = "mb-1.5 block font-inter text-[11px] font-semibold uppercase text-mist";
+   126→
+   127→  return (
+   128→    <>
+   129→      <PageHero
+   130→        eyebrowKey="contact.eyebrow"
+   131→        titleNode={
+   132→          <>
+   133→            {tx({ EN: "Connect With", JP: "J-Gateに" })}
+   134→            <br />
+   135→            <span className="text-gradient-saffron">
+   136→              {tx({ EN: "J-Gate", JP: "繋がる" })}
+   137→            </span>
+   138→          </>
+   139→        }
+   140→        subtitleKey="contact.subtitle"
+   141→      />
+   142→
+   143→      {/* ───────────────────────────────────────────────────────────
+   144→          Two-column: Offices + Form | Map
+   145→         ─────────────────────────────────────────────────────────── */}
+   146→      <section className="section-pad relative overflow-hidden bg-navy">
+   147→        <div className="pattern-asanoha-navy absolute inset-0 opacity-60" aria-hidden="true" />
+   148→        <div className="container-jg relative">
+   149→          <div className="grid gap-8 lg:grid-cols-2">
+   150→            {/* LEFT — Office cards + Contact form */}
+   151→            <Reveal variant="left">
+   152→              <div className="space-y-5">
+   153→                {/* Office cards */}
+   154→                {OFFICES.map((o) => {
+   155→                  const accentRing =
+   156→                    o.accent === "crimson"
+   157→                      ? "border-crimson/20 hover:border-crimson/40"
+   158→                      : "border-saffron/20 hover:border-saffron/40";
+   159→                  const accentBadge =
+   160→                    o.accent === "crimson"
+   161→                      ? "bg-crimson/15 text-saffron"
+   162→                      : "bg-saffron/15 text-saffron";
+   163→                  const accentIcon =
+   164→                    o.accent === "crimson" ? "text-crimson" : "text-saffron";
+   165→                  return (
+   166→                    <article
+   167→                      key={o.nameKey}
+   168→                      className={cn(
+   169→                        "glass-dark lift-card rounded-lg border p-6",
+   170→                        accentRing
+   171→                      )}
+   172→                    >
+   173→                      <div className="flex items-start justify-between gap-3">
+   174→                        <div className="flex items-center gap-3">
+   175→                          <span className="overflow-hidden rounded shadow-card">
+   176→                            {o.flag}
+   177→                          </span>
+   178→                          <div>
+   179→                            <h3 className="font-serif-jp text-base font-bold text-white">
+   180→                              {t(o.nameKey)}
+   181→                            </h3>
+   182→                            <p className="font-inter text-[12px] text-mist">
+   183→                              {tx(o.city)}
+   184→                            </p>
+   185→                          </div>
+   186→                        </div>
+   187→                        <span
+   188→                          className={cn(
+   189→                            "rounded px-2 py-0.5 font-inter text-[10px] font-bold uppercase",
+   190→                            accentBadge
+   191→                          )}
+   192→                          style={{ letterSpacing: "0.1em" }}
+   193→                        >
+   194→                          HQ
+   195→                        </span>
+   196→                      </div>
+   197→
+   198→                      <div className="mt-4 space-y-2.5 font-inter text-[13px] text-mist">
+   199→                        <p className="flex items-start gap-2.5">
+   200→                          <MapPin className={cn("mt-0.5 h-4 w-4 shrink-0", accentIcon)} />
+   201→                          <span>{o.address}</span>
+   202→                        </p>
+   203→                        <p className="flex items-center gap-2.5">
+   204→                          <Mail className={cn("h-4 w-4 shrink-0", accentIcon)} />
+   205→                          <a
+   206→                            href={`mailto:${o.email}`}
+   207→                            className="transition-colors hover:text-saffron"
+   208→                          >
+   209→                            {o.email}
+   210→                          </a>
+   211→                        </p>
+   212→                        <p className="flex items-center gap-2.5">
+   213→                          <Phone className={cn("h-4 w-4 shrink-0", accentIcon)} />
+   214→                          <a
+   215→                            href={`tel:${o.phone.replace(/\s/g, "")}`}
+   216→                            className="transition-colors hover:text-saffron"
+   217→                          >
+   218→                            {o.phone}
+   219→                          </a>
+   220→                        </p>
+   221→                        <p className="flex items-center gap-2.5">
+   222→                          <Clock className={cn("h-4 w-4 shrink-0", accentIcon)} />
+   223→                          <span>{tx(o.hours)}</span>
+   224→                        </p>
+   225→                      </div>
+   226→                    </article>
+   227→                  );
+   228→                })}
+   229→
+   230→                {/* Contact form card */}
+   231→                <div className="glass-dark rounded-lg p-6 sm:p-7">
+   232→                  <div className="mb-5 flex items-center gap-3">
+   233→                    <span className="flex h-10 w-10 items-center justify-center rounded-md bg-crimson/15 text-crimson">
+   234→                      <Send className="h-5 w-5" strokeWidth={1.5} />
+   235→                    </span>
+   236→                    <div>
+   237→                      <h3 className="font-serif-jp text-lg font-bold text-white">
+   238→                        {t("contact.form.title")}
+   239→                      </h3>
+   240→                      <p className="font-inter text-[12px] text-mist">
+   241→                        {tx({
+   242→                          EN: "We respond to every inquiry within 24 hours.",
+   243→                          JP: "すべてのお問い合わせに24時間以内にご返信します。",
+   244→                        })}
+   245→                      </p>
+   246→                    </div>
+   247→                  </div>
+   248→
+   249→                  {sent ? (
+   250→                    <div className="flex flex-col items-center py-8 text-center">
+   251→                      <span className="flex h-16 w-16 items-center justify-center rounded-full bg-success/15 text-success">
+   252→                        <CheckCircle2 className="h-9 w-9" strokeWidth={1.5} />
+   253→                      </span>
+   254→                      <p className="mt-4 max-w-xs font-inter text-[14px] leading-relaxed text-white">
+   255→                        {t("contact.form.success")}
+   256→                      </p>
+   257→                      <button
+   258→                        onClick={reset}
+   259→                        className="mt-5 inline-flex items-center gap-2 rounded-md border border-white/20 px-5 py-2.5 font-inter text-[13px] font-semibold text-white transition-all hover:bg-white/10"
+   260→                      >
+   261→                        {tx({ EN: "Send another", JP: "もう一度送信" })}
+   262→                        <ArrowRight className="h-3.5 w-3.5" />
+   263→                      </button>
+   264→                    </div>
+   265→                  ) : (
+   266→                    <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+   267→                      <div className="grid gap-4 sm:grid-cols-2">
+   268→                        <div>
+   269→                          <label htmlFor="c-name" className={labelClass}>
+   270→                            {t("contact.form.name")} <span className="text-crimson">*</span>
+   271→                          </label>
+   272→                          <input
+   273→                            id="c-name"
+   274→                            value={form.name}
+   275→                            onChange={(e) => setForm({ ...form, name: e.target.value })}
+   276→                            placeholder={tx({ EN: "Your full name", JP: "お名前" })}
+   277→                            className={cn(
+   278→                              inputClass,
+   279→                              errors.name ? "border-crimson" : "border-white/12"
+   280→                            )}
+   281→                            aria-invalid={!!errors.name}
+   282→                          />
+   283→                          {errors.name && (
+   284→                            <p className="mt-1 font-inter text-[11px] text-crimson">
+   285→                              {errors.name}
+   286→                            </p>
+   287→                          )}
+   288→                        </div>
+   289→                        <div>
+   290→                          <label htmlFor="c-email" className={labelClass}>
+   291→                            {t("contact.form.email")} <span className="text-crimson">*</span>
+   292→                          </label>
+   293→                          <input
+   294→                            id="c-email"
+   295→                            type="email"
+   296→                            value={form.email}
+   297→                            onChange={(e) => setForm({ ...form, email: e.target.value })}
+   298→                            placeholder="you@company.com"
+   299→                            className={cn(
+   300→                              inputClass,
+   301→                              errors.email ? "border-crimson" : "border-white/12"
+   302→                            )}
+   303→                            aria-invalid={!!errors.email}
+   304→                          />
+   305→                          {errors.email && (
+   306→                            <p className="mt-1 font-inter text-[11px] text-crimson">
+   307→                              {errors.email}
+   308→                            </p>
+   309→                          )}
+   310→                        </div>
+   311→                      </div>
+   312→
+   313→                      <div>
+   314→                        <label htmlFor="c-subject" className={labelClass}>
+   315→                          {t("contact.form.subject")}
+   316→                        </label>
+   317→                        <input
+   318→                          id="c-subject"
+   319→                          value={form.subject}
+   320→                          onChange={(e) => setForm({ ...form, subject: e.target.value })}
+   321→                          placeholder={tx({
+   322→                            EN: "e.g. Engineering recruitment inquiry",
+   323→                            JP: "例：エンジニア採用のお問い合わせ",
+   324→                          })}
+   325→                          className={cn(inputClass, "border-white/12")}
+   326→                        />
+   327→                      </div>
+   328→
+   329→                      <div>
+   330→                        <label htmlFor="c-message" className={labelClass}>
+   331→                          {t("contact.form.message")} <span className="text-crimson">*</span>
+   332→                        </label>
+   333→                        <textarea
+   334→                          id="c-message"
+   335→                          rows={5}
+   336→                          value={form.message}
+   337→                          onChange={(e) => setForm({ ...form, message: e.target.value })}
+   338→                          placeholder={tx({
+   339→                            EN: "Tell us about your goals, your team, or the role you're hiring for...",
+   340→                            JP: "目標、チーム、または採用したい役職についてお聞かせください...",
+   341→                          })}
+   342→                          className={cn(
+   343→                            inputClass,
+   344→                            "resize-none",
+   345→                            errors.message ? "border-crimson" : "border-white/12"
+   346→                          )}
+   347→                          aria-invalid={!!errors.message}
+   348→                        />
+   349→                        {errors.message && (
+   350→                          <p className="mt-1 font-inter text-[11px] text-crimson">
+   351→                            {errors.message}
+   352→                          </p>
+   353→                        )}
+   354→                      </div>
+   355→
+   356→                      <button
+   357→                        type="submit"
+   358→                        disabled={submitting}
+   359→                        className="btn-shine flex w-full items-center justify-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3.5 font-inter text-sm font-semibold text-white shadow-crimp transition-all hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70"
+   360→                      >
+   361→                        {submitting ? (
+   362→                          <>
+   363→                            <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
+   364→                            {tx({ EN: "Sending...", JP: "送信中..." })}
+   365→                          </>
+   366→                        ) : (
+   367→                          <>
+   368→                            <Send className="h-4 w-4" />
+   369→                            {t("contact.form.submit")}
+   370→                          </>
+   371→                        )}
+   372→                      </button>
+   373→
+   374→                      <p className="flex items-center justify-center gap-1.5 pt-1 text-center font-inter text-[11px] text-mist/70">
+   375→                        <Globe2 className="h-3 w-3" />
+   376→                        {tx({
+   377→                          EN: "Bilingual support available in English & 日本語",
+   378→                          JP: "英語・日本語のバイリンガルサポート対応",
+   379→                        })}
+   380→                      </p>
+   381→                    </form>
+   382→                  )}
+   383→                </div>
+   384→              </div>
+   385→            </Reveal>
+   386→
+   387→            {/* RIGHT — CSS map placeholder */}
+   388→            <Reveal variant="right" delay={120}>
+   389→              <div className="relative h-full min-h-[500px] overflow-hidden rounded-lg border border-white/10 lg:min-h-[700px]">
+   390→                <div className="grad-map absolute inset-0" aria-hidden="true" />
+   391→
+   392→                {/* Grid pattern */}
+   393→                <svg
+   394→                  className="absolute inset-0 h-full w-full opacity-30"
+   395→                  aria-hidden="true"
+   396→                >
+   397→                  <defs>
+   398→                    <pattern
+   399→                      id="contact-page-map-grid"
+   400→                      width="32"
+   401→                      height="32"
+   402→                      patternUnits="userSpaceOnUse"
+   403→                    >
+   404→                      <path
+   405→                        d="M 32 0 L 0 0 0 32"
+   406→                        fill="none"
+   407→                        stroke="rgba(232,160,26,0.4)"
+   408→                        strokeWidth="0.5"
+   409→                      />
+   410→                    </pattern>
+   411→                  </defs>
+   412→                  <rect width="100%" height="100%" fill="url(#contact-page-map-grid)" />
+   413→                  {/* Roads */}
+   414→                  <line
+   415→                    x1="0"
+   416→                    y1="35%"
+   417→                    x2="100%"
+   418→                    y2="32%"
+   419→                    stroke="rgba(255,255,255,0.18)"
+   420→                    strokeWidth="2"
+   421→                  />
+   422→                  <line
+   423→                    x1="0"
+   424→                    y1="68%"
+   425→                    x2="100%"
+   426→                    y2="72%"
+   427→                    stroke="rgba(255,255,255,0.14)"
+   428→                    strokeWidth="1.5"
+   429→                  />
+   430→                  <line
+   431→                    x1="32%"
+   432→                    y1="0"
+   433→                    x2="36%"
+   434→                    y2="100%"
+   435→                    stroke="rgba(255,255,255,0.15)"
+   436→                    strokeWidth="2"
+   437→                  />
+   438→                  <line
+   439→                    x1="70%"
+   440→                    y1="0"
+   441→                    x2="65%"
+   442→                    y2="100%"
+   443→                    stroke="rgba(255,255,255,0.12)"
+   444→                    strokeWidth="1.5"
+   445→                  />
+   446→                </svg>
+   447→
+   448→                {/* Connecting arc — Japan to India corridor */}
+   449→                <svg
+   450→                  className="absolute inset-0 h-full w-full"
+   451→                  viewBox="0 0 100 100"
+   452→                  preserveAspectRatio="none"
+   453→                  aria-hidden="true"
+   454→                >
+   455→                  <path
+   456→                    d="M 32 28 Q 50 50 70 70"
+   457→                    fill="none"
+   458→                    stroke="rgba(232,160,26,0.4)"
+   459→                    strokeWidth="0.4"
+   460→                    strokeDasharray="1.5 1"
+   461→                  />
+   462→                  <path
+   463→                    d="M 32 28 Q 50 50 70 70"
+   464→                    fill="none"
+   465→                    stroke="rgba(188,26,44,0.5)"
+   466→                    strokeWidth="0.25"
+   467→                  />
+   468→                </svg>
+   469→
+   470→                {/* Tokyo pin — crimson, top-left */}
+   471→                <div className="absolute left-[28%] top-[26%] flex flex-col items-center">
+   472→                  <span className="relative flex h-4 w-4">
+   473→                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-crimson opacity-60" />
+   474→                    <span className="relative inline-flex h-4 w-4 items-center justify-center rounded-full bg-crimson shadow-[0_0_0_4px_rgba(188,26,44,0.25)]">
+   475→                      <Building2 className="h-2 w-2 text-white" />
+   476→                    </span>
+   477→                  </span>
+   478→                  <span className="mt-2 whitespace-nowrap rounded-md bg-midnight/85 px-2.5 py-1 font-inter text-[11px] font-semibold text-white backdrop-blur-sm">
+   479→                    {tx({ EN: "Tokyo Office", JP: "東京オフィス" })}
+   480→                  </span>
+   481→                  <span className="mt-1 font-inter text-[10px] text-mist">🇯🇵 +81 3-1234-5678</span>
+   482→                </div>
+   483→
+   484→                {/* Hyderabad pin — saffron, bottom-right */}
+   485→                <div className="absolute right-[26%] bottom-[26%] flex flex-col items-center">
+   486→                  <span className="relative flex h-4 w-4">
+   487→                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-saffron opacity-60" />
+   488→                    <span className="relative inline-flex h-4 w-4 items-center justify-center rounded-full bg-saffron shadow-[0_0_0_4px_rgba(232,160,26,0.25)]">
+   489→                      <Building2 className="h-2 w-2 text-ink" />
+   490→                    </span>
+   491→                  </span>
+   492→                  <span className="mt-2 whitespace-nowrap rounded-md bg-midnight/85 px-2.5 py-1 font-inter text-[11px] font-semibold text-white backdrop-blur-sm">
+   493→                    {tx({ EN: "Hyderabad Office", JP: "ハイデラバードオフィス" })}
+   494→                  </span>
+   495→                  <span className="mt-1 font-inter text-[10px] text-mist">🇮🇳 +91 40-1234-5678</span>
+   496→                </div>
+   497→
+   498→                {/* Corridor label — centered */}
+   499→                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+   500→                  <div className="flex flex-col items-center gap-1 rounded-lg bg-midnight/70 px-4 py-2.5 backdrop-blur-sm">
+   501→                    <Plane className="h-4 w-4 text-saffron" />
+   502→                    <p className="font-serif-jp text-[12px] font-bold text-white">
+   503→                      {tx({ EN: "Japan–India Corridor", JP: "日印回廊" })}
+   504→                    </p>
+   505→                    <p className="font-inter text-[10px] text-mist">
+   506→                      {tx({ EN: "~7,500 km · 3.5 hour time difference", JP: "約7,500km · 時差3.5時間" })}
+   507→                    </p>
+   508→                  </div>
+   509→                </div>
+   510→
+   511→                {/* Bottom-left info chip */}
+   512→                <div className="absolute bottom-4 left-4 rounded-md bg-midnight/80 px-3 py-2 backdrop-blur">
+   513→                  <p className="font-inter text-[11px] font-semibold text-white">
+   514→                    📍 {tx({ EN: "Tokyo & Hyderabad", JP: "東京・ハイデラバード" })}
+   515→                  </p>
+   516→                  <p className="font-inter text-[10px] text-mist">
+   517→                    {tx({ EN: "Two offices, one corridor", JP: "二つのオフィス、一つの回廊" })}
+   518→                  </p>
+   519→                </div>
+   520→
+   521→                {/* Top-right compass */}
+   522→                <div className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full border border-white/15 bg-midnight/60 backdrop-blur">
+   523→                  <span className="font-serif-jp text-[14px] font-bold text-saffron">N</span>
+   524→                </div>
+   525→              </div>
+   526→            </Reveal>
+   527→          </div>
+   528→        </div>
+   529→      </section>
+   530→
+   531→      {/* ───────────────────────────────────────────────────────────
+   532→          Response-time guarantee strip
+   533→         ─────────────────────────────────────────────────────────── */}
+   534→      <section className="bg-ivory-warm py-14 md:py-20">
+   535→        <div className="container-jg">
+   536→          <Reveal>
+   537→            <div className="grid gap-5 sm:grid-cols-3">
+   538→              {[
+   539→                {
+   540→                  icon: Clock,
+   541→                  stat: "24h",
+   542→                  label: {
+   543→                    EN: "Average response time",
+   544→                    JP: "平均応答時間",
+   545→                  },
+   546→                },
+   547→                {
+   548→                  icon: Globe2,
+   549→                  stat: "2",
+   550→                  label: {
+   551→                    EN: "Offices across the corridor",
+   552→                    JP: "回廊をまたぐオフィス",
+   553→                  },
+   554→                },
+   555→                {
+   556→                  icon: Send,
+   557→                  stat: "100%",
+   558→                  label: {
+   559→                    EN: "Inquiries answered by a human",
+   560→                    JP: "すべての問い合わせを人が対応",
+   561→                  },
+   562→                },
+   563→              ].map((s, i) => (
+   564→                <div
+   565→                  key={i}
+   566→                  className="flex items-center gap-4 rounded-lg border border-crimson/10 bg-pearl p-5 shadow-card"
+   567→                >
+   568→                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-crimson/10 text-crimson">
+   569→                    <s.icon className="h-6 w-6" strokeWidth={1.5} />
+   570→                  </span>
+   571→                  <div>
+   572→                    <div className="font-serif-jp text-2xl font-bold text-ink">{s.stat}</div>
+   573→                    <div className="font-inter text-[12px] text-slate">
+   574→                      {tx(s.label)}
+   575→                    </div>
+   576→                  </div>
+   577→                </div>
+   578→              ))}
+   579→            </div>
+   580→          </Reveal>
+   581→        </div>
+   582→      </section>
+   583→
+   584→      {/* ───────────────────────────────────────────────────────────
+   585→          Closing CTA
+   586→         ─────────────────────────────────────────────────────────── */}
+   587→      <section className="section-pad bg-ivory">
+   588→        <div className="container-jg">
+   589→          <Reveal>
+   590→            <div className="mx-auto max-w-2xl text-center">
+   591→              <h2
+   592→                className="font-serif-jp font-bold leading-[1.18] text-ink"
+   593→                style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.25rem)" }}
+   594→              >
+   595→                {tx({
+   596→                  EN: "Prefer to Read First?",
+   597→                  JP: "まずは資料をお読みになりたいですか？",
+   598→                })}
+   599→              </h2>
+   600→              <p
+   601→                className="mx-auto mt-4 font-inter leading-relaxed text-slate"
+   602→                style={{ fontSize: "clamp(0.95rem, 1.6vw, 1.0625rem)" }}
+   603→              >
+   604→                {tx({
+   605→                  EN: "Download our brochure for a complete overview of services, track record, and partnership models.",
+   606→                  JP: "サービス、実績、パートナーシップモデルの完全な概要をまとめたパンフレットをダウンロードしてください。",
+   607→                })}
+   608→              </p>
+   609→              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+   610→                <Link
+   611→                  href="/auth/brochure"
+   612→                  className="btn-shine flex items-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-7 py-3.5 font-inter text-[14px] font-semibold text-white shadow-[0_0_20px_rgba(188,26,44,0.35)] transition-all hover:-translate-y-0.5"
+   613→                >
+   614→                  {tx({ EN: "Download Brochure", JP: "パンフレットをダウンロード" })}
+   615→                  <ArrowRight className="h-4 w-4" />
+   616→                </Link>
+   617→                <Link
+   618→                  href="/services"
+   619→                  className="rounded-md border border-crimson/30 px-7 py-3.5 font-inter text-[14px] font-semibold text-crimson transition-all hover:-translate-y-0.5 hover:bg-crimson/5"
+   620→                >
+   621→                  {tx({ EN: "Explore Services", JP: "サービスを見る" })}
+   622→                </Link>
+   623→              </div>
+   624→            </div>
+   625→          </Reveal>
+   626→        </div>
+   627→      </section>
+   628→    </>
+   629→  );
+   630→}
+   631→

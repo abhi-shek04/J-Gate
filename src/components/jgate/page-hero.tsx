@@ -20,7 +20,7 @@ export function PageHero({
 }) {
   const { t } = useI18n();
   return (
-    <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden bg-midnight pt-20 pb-16">
+    <section className="relative flex min-h-[44vh] items-center justify-center overflow-hidden bg-midnight pt-20 pb-12">
       <div className="pattern-asanoha-dark absolute inset-0 opacity-60" />
       <div
         className="absolute inset-0"

@@ -153,7 +153,7 @@ export default function ContactPage() {
           Section 1 — Header Message (Slide 13)
           Bilingual executive tagline strip.
          ─────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-navy py-12 md:py-16">
+      <section className="relative overflow-hidden bg-navy py-12 md:py-12">
         <div className="pattern-asanoha-navy absolute inset-0 opacity-50" />
         <div
           className="absolute inset-0"
@@ -587,7 +587,7 @@ export default function ContactPage() {
           Section 3 — Operations Team strip (Slide 13 mini-summary)
           4-card horizontal strip linking to /team
          ─────────────────────────────────────────────────────────── */}
-      <section className="bg-ivory-warm py-14 md:py-20">
+      <section className="bg-ivory-warm py-14 md:py-14">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto mb-8 max-w-2xl text-center">
@@ -683,7 +683,7 @@ export default function ContactPage() {
       {/* ───────────────────────────────────────────────────────────
           Section 4 — Response-time guarantee strip
          ─────────────────────────────────────────────────────────── */}
-      <section className="bg-ivory py-14 md:py-20">
+      <section className="bg-ivory py-14 md:py-14">
         <div className="container-jg">
           <Reveal>
             <div className="grid gap-5 sm:grid-cols-3">

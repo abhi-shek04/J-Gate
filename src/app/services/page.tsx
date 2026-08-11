@@ -296,7 +296,7 @@ export default function ServicesPage() {
           </Reveal>
 
           {/* Vertical staggered list — alternating accent bars + numerals */}
-          <div className="mx-auto mt-14 max-w-5xl">
+          <div className="mx-auto mt-10 max-w-5xl">
             {EXPANSION_SERVICES.map((s, i) => {
               const isReverse = i % 2 === 1;
               const accentColor =
@@ -434,7 +434,7 @@ export default function ServicesPage() {
           </Reveal>
 
           {/* Academy info grid — 4 stat tiles */}
-          <div className="mx-auto mt-12 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto mt-8 grid max-w-5xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 icon: Video,
@@ -584,7 +584,7 @@ export default function ServicesPage() {
           </Reveal>
 
           {/* Two-column responsibility cards */}
-          <div className="mt-14 grid gap-6 lg:grid-cols-2">
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
             {/* Indobox */}
             <Reveal variant="left">
               <article className="lift-card relative h-full overflow-hidden rounded-lg border border-crimson/15 bg-pearl p-8 shadow-card">
@@ -736,7 +736,7 @@ export default function ServicesPage() {
             </div>
           </Reveal>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {FACILITIES.map((f, i) => {
               const accentColor = i % 2 === 0 ? "crimson" : "saffron";
               const accentGradient =
@@ -785,7 +785,7 @@ export default function ServicesPage() {
 
           {/* Bottom callout — 24/7 badge */}
           <Reveal delay={120}>
-            <div className="mx-auto mt-12 flex max-w-3xl flex-col items-center justify-center gap-5 rounded-lg border border-saffron/20 bg-saffron/[0.04] p-6 text-center sm:flex-row sm:text-left">
+            <div className="mx-auto mt-8 flex max-w-3xl flex-col items-center justify-center gap-5 rounded-lg border border-saffron/20 bg-saffron/[0.04] p-6 text-center sm:flex-row sm:text-left">
               <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-saffron/15 text-saffron">
                 <Banknote className="h-7 w-7" strokeWidth={1.5} />
               </span>

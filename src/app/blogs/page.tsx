@@ -319,7 +319,7 @@ export default function BlogsPage() {
 
             {/* Newsletter CTA strip */}
             <Reveal delay={120}>
-              <div className="mt-14 flex flex-col items-center justify-between gap-4 rounded-lg border border-crimson/10 bg-pearl p-6 shadow-card sm:flex-row sm:p-8">
+              <div className="mt-10 flex flex-col items-center justify-between gap-4 rounded-lg border border-crimson/10 bg-pearl p-6 shadow-card sm:flex-row sm:p-8">
                 <div>
                   <h3 className="font-serif-jp text-lg font-bold text-ink">
                     {tx({ EN: "Get new articles in your inbox", JP: "新着記事をメールでお届け" })}

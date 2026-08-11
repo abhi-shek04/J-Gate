@@ -199,7 +199,7 @@ export default function PricingPage() {
           Section 1 — Context Banner (Slide 9)
           High-impact strip explaining the cost-performance thesis.
          ─────────────────────────────────────────────────────────── */}
-      <section className="bg-ivory py-12 md:py-16">
+      <section className="bg-ivory py-12 md:py-12">
         <div className="container-jg">
           <Reveal>
             <div className="relative overflow-hidden rounded-lg border border-crimson/15 bg-gradient-to-br from-pearl via-ivory to-ivory-warm p-7 shadow-card sm:p-10">
@@ -299,7 +299,7 @@ export default function PricingPage() {
             </div>
           </Reveal>
 
-          <div className="mt-14 grid gap-6 lg:grid-cols-3 lg:items-stretch">
+          <div className="mt-10 grid gap-6 lg:grid-cols-3 lg:items-stretch">
             {PLANS.map((plan, i) => {
               const a = accentMap[plan.accent];
               const isHighlight = plan.highlight;
@@ -398,7 +398,7 @@ export default function PricingPage() {
 
           {/* Below-cards comparison strip */}
           <Reveal delay={120}>
-            <div className="mt-12 grid gap-3 rounded-lg border border-crimson/12 bg-pearl p-5 shadow-card sm:grid-cols-3 sm:p-6">
+            <div className="mt-8 grid gap-3 rounded-lg border border-crimson/12 bg-pearl p-5 shadow-card sm:grid-cols-3 sm:p-6">
               {[
                 { icon: Users, label: tx({ EN: "People per plan", JP: "プランあたり人数" }), value: "2 → 4 → +" },
                 { icon: Sparkles, label: tx({ EN: "Service depth", JP: "サービス深度" }), value: tx({ EN: "Workspace → Yorozu → Hands-on", JP: "ワークスペース → よろず → 実践" }) },

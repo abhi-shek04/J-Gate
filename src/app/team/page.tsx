@@ -263,7 +263,7 @@ export default function TeamPage() {
           Section 1 — Header Message (Slide 13)
           Bilingual executive tagline on a dark band.
          ─────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-navy py-14 md:py-20">
+      <section className="relative overflow-hidden bg-navy py-14 md:py-14">
         <div className="pattern-asanoha-navy absolute inset-0 opacity-50" />
         <div
           className="absolute inset-0"
@@ -331,7 +331,7 @@ export default function TeamPage() {
             </div>
           </Reveal>
 
-          <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {OPS_TEAM.map((m, i) => {
               const accentColor = m.accent === "crimson" ? "crimson" : "saffron";
               const accentBorder =
@@ -424,7 +424,7 @@ export default function TeamPage() {
             </div>
           </Reveal>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {ADVISORS.map((a, i) => (
               <Reveal key={i} delay={i * 90}>
                 <article className="lift-card relative flex h-full flex-col overflow-hidden rounded-lg border border-saffron/15 bg-pearl p-7 shadow-card">
@@ -539,7 +539,7 @@ export default function TeamPage() {
             </div>
           </Reveal>
 
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {PARTNERS.map((p, i) => {
               const accentColor = i % 2 === 0 ? "saffron" : "crimson";
               const accentText =

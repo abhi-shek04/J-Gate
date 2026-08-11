@@ -177,7 +177,7 @@ export default function AboutPage() {
           </Reveal>
 
           {/* Unique horizontal pillar layout — each pillar spans full width with large numeral */}
-          <div className="mx-auto mt-14 max-w-5xl space-y-6">
+          <div className="mx-auto mt-10 max-w-5xl space-y-6">
             {PILLARS.map((p, i) => {
               const isSaffron = p.accent === "saffron";
               return (
@@ -265,7 +265,7 @@ export default function AboutPage() {
             </div>
           </Reveal>
 
-          <div className="mt-14 grid gap-6 lg:grid-cols-2">
+          <div className="mt-10 grid gap-6 lg:grid-cols-2">
             {/* Hyderabad — Main Base */}
             <Reveal delay={100}>
               <article className="glass-dark lift-card relative h-full overflow-hidden rounded-xl border border-saffron/25 p-8">
@@ -492,7 +492,7 @@ export default function AboutPage() {
             </div>
           </Reveal>
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
             {/* Mission — crimson accent */}
             <Reveal delay={100}>
               <article className="lift-card relative h-full overflow-hidden rounded-lg border border-crimson/15 bg-pearl p-8 shadow-card">
@@ -557,7 +557,7 @@ export default function AboutPage() {
             </div>
           </Reveal>
 
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {VALUES.map((v, i) => (
               <Reveal key={i} delay={i * 100}>
                 <article className="lift-card group relative h-full overflow-hidden rounded-lg border border-crimson/8 bg-pearl p-7 shadow-card">

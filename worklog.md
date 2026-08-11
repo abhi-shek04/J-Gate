@@ -547,3 +547,26 @@ Stage Summary:
   - Services: Indobox Academy + Isogai + Tanji + Genesys responsibilities render.
   - Pricing: 3 real plans (Satellite/Standard/Advance) render.
   - bun run lint clean; all routes 200, no errors.
+
+---
+Task ID: C-D
+Agent: Z.ai Code (main)
+Task: Fix logo to use only official logo image (remove "J-Gate / Jゲート" text), reduce excessive section spacing for compact professional layout.
+
+Work Log:
+- Rebuilt JGateLogo component: removed the "J-Gate / Jゲート" text wordmark entirely — now renders ONLY the official logo image (/jgate-logo.png, the interlocking red+gold rings with built-in wordmark). Height set to h-11 (44px) for navbar/footer visibility. Verified the PNG is 96.4% transparent (no white background), so it renders correctly on dark navbar/footer.
+- Reduced global section-pad: 120/80/60px → 80/56/40px (desktop/tablet/mobile) — significantly tighter, more professional.
+- Reduced PageHero min-height: 60vh → 44vh, pt-20 pb-12 (was pt-20 pb-16).
+- Audited and reduced excessive spacing across all 7 page files (home, about, why-jgate, services, team, pricing, contact, blogs): py-16→py-12, py-20→py-14, py-24/28→py-16, mt-16/14→mt-10, mt-12→mt-8, mb-16/14→mb-10, mb-12→mb-8, pt-28→pt-20, pb-32→pb-20.
+- Home page hero: pt-24 pb-24 (was pt-28 pb-32), badges mt-12 (was mt-16), logo wall py-12 (was py-16), stats py-14 (was py-20), overview cards mt-10 gap-5 (was mt-12 gap-6).
+
+Stage Summary:
+- Deliverable: Official logo image only (no duplicate text) + tighter professional layouts across all pages.
+- Agent Browser self-verification (all passed):
+  - Navbar logo: image only, 44×44px (h-11), loaded, NO "Jゲート" text in nav.
+  - Footer logo: image only, loaded.
+  - VLM confirmed: "interlocking rings that are red and gold, with the J-Gate text" — the official logo renders correctly.
+  - Home page body height reduced (more compact).
+  - PageHero height: 393px (down from ~480px).
+  - All 8 routes return 200.
+  - bun run lint clean; no errors.

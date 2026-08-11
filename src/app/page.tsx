@@ -168,7 +168,7 @@ export default function HomePage() {
         </div>
         <div className="absolute bottom-0 left-0 h-[34%] w-full" style={{ background: "linear-gradient(180deg, transparent, #080f1a 85%)" }} />
 
-        <div className="container-jg relative z-10 pt-28 pb-32 text-center">
+        <div className="container-jg relative z-10 pt-24 pb-24 text-center">
           <span className="inline-flex items-center gap-2 rounded-md bg-crimson px-4 py-1.5 font-inter text-[13px] font-medium text-white shadow-crimp" style={{ letterSpacing: "0.1em" }}>
             <JapanFlag className="h-3.5 w-5" />
             {t("hero.eyebrow")}
@@ -212,7 +212,7 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="mx-auto mt-16 grid max-w-2xl gap-3 sm:grid-cols-3">
+          <div className="mx-auto mt-12 grid max-w-2xl gap-3 sm:grid-cols-3">
             {[
               { emoji: "🇯🇵", text: t("hero.badge1") },
               { emoji: "📍", text: t("hero.badge2") },
@@ -228,7 +228,7 @@ export default function HomePage() {
       </section>
 
       {/* ============ SCROLLING LOGO WALL ============ */}
-      <section className="bg-ivory py-16">
+      <section className="bg-ivory py-12">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto mb-10 max-w-3xl text-center">
@@ -248,7 +248,7 @@ export default function HomePage() {
       </section>
 
       {/* ============ STATS + MAP (unique split layout) ============ */}
-      <section className="relative overflow-hidden bg-navy py-20">
+      <section className="relative overflow-hidden bg-navy py-14">
         <div className="pattern-asanoha-navy absolute inset-0 opacity-60" />
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(188,26,44,0.08) 0%, transparent 50%, rgba(232,160,26,0.06) 100%)" }} />
         <div className="container-jg relative">
@@ -313,7 +313,7 @@ export default function HomePage() {
               </p>
             </div>
           </Reveal>
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
             {previews.map((p, i) => (
               <Reveal key={p.href} delay={i * 120}>
                 <Link href={p.href} className="lift-card group flex h-full flex-col rounded-lg border border-crimson/8 bg-pearl p-7 shadow-card">

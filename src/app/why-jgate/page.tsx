@@ -334,7 +334,7 @@ export default function WhyJGatePage() {
 
           {/* Desktop table (md and up) */}
           <Reveal delay={120}>
-            <div className="mt-12 hidden overflow-hidden rounded-xl border border-crimson/12 bg-pearl shadow-card md:block">
+            <div className="mt-8 hidden overflow-hidden rounded-xl border border-crimson/12 bg-pearl shadow-card md:block">
               {/* Header row */}
               <div className="grid grid-cols-[1.4fr_1.1fr_1.1fr_1.1fr_1.1fr] border-b border-crimson/10 bg-ivory-warm">
                 <div className="px-5 py-4">
@@ -403,7 +403,7 @@ export default function WhyJGatePage() {
 
           {/* Mobile: horizontal scroll with sticky first column */}
           <Reveal delay={120}>
-            <div className="mt-12 md:hidden">
+            <div className="mt-8 md:hidden">
               <div className="overflow-x-auto rounded-xl border border-crimson/12 bg-pearl shadow-card" style={{ scrollbarWidth: "thin" }}>
                 <div className="min-w-[640px]">
                   {/* Header */}
@@ -490,7 +490,7 @@ export default function WhyJGatePage() {
           </Reveal>
 
           {/* 7-pillar vertical list — alternating accent + large numerals */}
-          <div className="mx-auto mt-14 max-w-4xl space-y-4">
+          <div className="mx-auto mt-10 max-w-4xl space-y-4">
             {SEVEN_PILLARS.map((p, i) => {
               const isSaffron = p.accent === "saffron";
               const isReversed = i % 2 === 1;
@@ -601,7 +601,7 @@ export default function WhyJGatePage() {
             </div>
           </Reveal>
 
-          <div className="mt-14 grid gap-6 lg:grid-cols-3">
+          <div className="mt-10 grid gap-6 lg:grid-cols-3">
             {TESTIMONIALS.map((tm, i) => (
               <Reveal key={i} delay={i * 120}>
                 <article className="glass-dark lift-card relative flex h-full flex-col rounded-lg p-8">

@@ -7,38 +7,23 @@ import type { SVGProps } from "react";
    Uses the uploaded original PNG at /jgate-logo.png
    ============================================================ */
 
-/** Full logo lockup — icon + wordmark, for navbar/footer */
+/** Full logo lockup — official logo image only (no text wordmark)
+ *  The provided official logo already contains the "J-Gate" wordmark. */
 export function JGateLogo({
   className = "",
-  variant = "light",
+  variant: _variant = "light",
 }: {
   className?: string;
-  /** "light" = white text (over dark bg), "dark" = navy text (over light bg) */
+  /** kept for API compatibility, no longer used */
   variant?: "light" | "dark";
 }) {
   return (
-    <span
-      className={`inline-flex items-center gap-2.5 ${className}`}
-      role="img"
-      aria-label="J-Gate logo"
-    >
-      <img
-        src="/jgate-logo.png"
-        alt=""
-        className="h-8 w-8 object-contain"
-        style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.08))" }}
-      />
-      <span className="flex flex-col leading-none">
-        <span
-          className={`font-serif-jp text-[19px] font-bold tracking-tight ${
-            variant === "light" ? "text-white" : "text-ink"
-          }`}
-        >
-          J-Gate
-        </span>
-        <span className="font-sans-jp text-[10px] text-mist">Jゲート</span>
-      </span>
-    </span>
+    <img
+      src="/jgate-logo.png"
+      alt="J-Gate logo"
+      className={`h-11 w-auto object-contain ${className}`}
+      style={{ filter: "drop-shadow(0 1px 3px rgba(0,0,0,0.12))" }}
+    />
   );
 }
 

@@ -5,6 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { I18nProvider } from "@/lib/i18n";
 import { BrochureProvider } from "@/lib/brochure-context";
 import { LightboxProvider } from "@/components/jgate/photo";
+import { Navbar } from "@/components/jgate/navbar";
+import { Footer } from "@/components/jgate/footer";
 
 const notoSerifJP = Noto_Serif_JP({
   variable: "--font-noto-serif-jp",
@@ -63,7 +65,11 @@ export default function RootLayout({
         <I18nProvider>
           <BrochureProvider>
             <LightboxProvider>
-              {children}
+              <div className="flex min-h-screen flex-col bg-ivory">
+                <Navbar />
+                <main className="flex-1">{children}</main>
+                <Footer />
+              </div>
             </LightboxProvider>
           </BrochureProvider>
         </I18nProvider>

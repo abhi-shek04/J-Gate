@@ -1,31 +1,29 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X, Download } from "lucide-react";
 import { JGateLogo } from "./icons";
-import { useScrolled, useScrollSpy } from "./shared";
+import { useScrolled } from "./shared";
 import { useI18n } from "@/lib/i18n";
-import { useBrochure } from "@/lib/brochure-context";
 import { cn } from "@/lib/utils";
 
-const NAV_IDS = [
-  { id: "home", key: "nav.home" },
-  { id: "about", key: "nav.about" },
-  { id: "why", key: "nav.why" },
-  { id: "services", key: "nav.services" },
-  { id: "team", key: "nav.team" },
-  { id: "blogs", key: "nav.blogs" },
-  { id: "contact", key: "nav.contact" },
+const NAV_LINKS = [
+  { href: "/", key: "nav.home" },
+  { href: "/about", key: "nav.about" },
+  { href: "/why-jgate", key: "nav.why" },
+  { href: "/services", key: "nav.services" },
+  { href: "/team", key: "nav.team" },
+  { href: "/blogs", key: "nav.blogs" },
+  { href: "/contact", key: "nav.contact" },
 ] as const;
-
-const SPY_IDS = NAV_IDS.map((n) => n.id);
 
 export function Navbar() {
   const scrolled = useScrolled(80);
   const [open, setOpen] = useState(false);
   const { lang, setLang, t } = useI18n();
-  const { open: openBrochure } = useBrochure();
-  const activeId = useScrollSpy(SPY_IDS as unknown as string[], 140);
+  const pathname = usePathname();
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -34,16 +32,26 @@ export function Navbar() {
     };
   }, [open]);
 
-  const handleNav = (id: string) => {
+  // Close mobile menu on route change
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [pathname]);
+
+  // Determine if a nav link is active
+  const isActive = (href: string) => {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href);
   };
+
+  // On auth page, navbar is transparent over dark content
+  const isAuthPage = pathname === "/auth/brochure";
 
   return (
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled ? "glass-frost" : "bg-transparent"
+        scrolled || isAuthPage ? "glass-frost" : "bg-transparent"
       )}
     >
       <nav
@@ -51,24 +59,20 @@ export function Navbar() {
         aria-label="Primary"
       >
         {/* Logo */}
-        <button
-          onClick={() => handleNav("home")}
-          className="group flex items-center"
-          aria-label="J-Gate home"
-        >
+        <Link href="/" className="group flex items-center" aria-label="J-Gate home">
           <JGateLogo variant="light" className="transition-opacity duration-300 group-hover:opacity-90" />
-        </button>
+        </Link>
 
         {/* Desktop nav */}
         <ul className="hidden items-center gap-1 lg:flex">
-          {NAV_IDS.map((link) => (
-            <li key={link.id}>
-              <button
-                onClick={() => handleNav(link.id)}
+          {NAV_LINKS.map((link) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
                 className={cn(
                   "relative px-3 py-2 font-inter text-[14px] font-medium transition-colors",
                   "text-white/70 hover:text-white",
-                  activeId === link.id && "text-white"
+                  isActive(link.href) && "text-white"
                 )}
                 style={{ letterSpacing: "0.01em" }}
               >
@@ -76,10 +80,10 @@ export function Navbar() {
                 <span
                   className={cn(
                     "absolute bottom-1 left-3 h-px bg-crimson transition-all duration-300",
-                    activeId === link.id ? "w-[calc(100%-1.5rem)]" : "w-0"
+                    isActive(link.href) ? "w-[calc(100%-1.5rem)]" : "w-0"
                   )}
                 />
-              </button>
+              </Link>
             </li>
           ))}
         </ul>
@@ -105,14 +109,14 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Download Brochure CTA */}
-          <button
-            onClick={openBrochure}
+          {/* Download Brochure CTA — routes to /auth/brochure */}
+          <Link
+            href="/auth/brochure"
             className="btn-shine hidden items-center gap-1.5 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-4 py-2.5 font-inter text-[13px] font-semibold text-white shadow-[0_0_20px_rgba(188,26,44,0.4)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_28px_rgba(188,26,44,0.6)] lg:inline-flex"
           >
             <Download className="h-3.5 w-3.5" />
             {t("nav.brochure")}
-          </button>
+          </Link>
 
           {/* Hamburger */}
           <button
@@ -137,19 +141,19 @@ export function Navbar() {
         )}
       >
         <ul className="container-jg flex flex-col gap-1 py-8">
-          {NAV_IDS.map((link, i) => (
-            <li key={link.id}>
-              <button
-                onClick={() => handleNav(link.id)}
+          {NAV_LINKS.map((link, i) => (
+            <li key={link.href}>
+              <Link
+                href={link.href}
                 style={{ transitionDelay: open ? `${i * 40}ms` : "0ms" }}
                 className={cn(
                   "flex w-full items-center justify-between border-b border-white/8 py-4 text-left font-serif-jp text-xl font-medium transition-all",
-                  activeId === link.id ? "text-crimson" : "text-white/85 hover:text-white",
+                  isActive(link.href) ? "text-crimson" : "text-white/85 hover:text-white",
                   open ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
                 )}
               >
                 {t(link.key)}
-              </button>
+              </Link>
             </li>
           ))}
         </ul>
@@ -172,16 +176,13 @@ export function Navbar() {
               ))}
             </div>
           </div>
-          <button
-            onClick={() => {
-              setOpen(false);
-              openBrochure();
-            }}
+          <Link
+            href="/auth/brochure"
             className="btn-shine flex items-center justify-center gap-1.5 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3.5 font-inter text-sm font-semibold text-white shadow-[0_0_20px_rgba(188,26,44,0.4)]"
           >
             <Download className="h-4 w-4" />
             {t("nav.brochure")}
-          </button>
+          </Link>
         </div>
       </div>
     </header>

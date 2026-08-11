@@ -1,12 +1,64 @@
 import type { SVGProps } from "react";
 
 /* ============================================================
-   J-Gate Premium SVG Icon Set
-   The Torii gate is the soul of this design — thin crimson
-   lines, used with restraint. When it appears, it means something.
+   J-Gate Brand Logo
+   Original: interlocking red + gold rings (J/link motif)
+   + "J-Gate" wordmark in red.
+   Uses the uploaded original PNG at /jgate-logo.png
    ============================================================ */
 
-/** Thin-line torii gate (stroke-based, not filled) — logomark */
+/** Full logo lockup — icon + wordmark, for navbar/footer */
+export function JGateLogo({
+  className = "",
+  variant = "light",
+}: {
+  className?: string;
+  /** "light" = white text (over dark bg), "dark" = navy text (over light bg) */
+  variant?: "light" | "dark";
+}) {
+  return (
+    <span
+      className={`inline-flex items-center gap-2.5 ${className}`}
+      role="img"
+      aria-label="J-Gate logo"
+    >
+      <img
+        src="/jgate-logo.png"
+        alt=""
+        className="h-8 w-8 object-contain"
+        style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.08))" }}
+      />
+      <span className="flex flex-col leading-none">
+        <span
+          className={`font-serif-jp text-[19px] font-bold tracking-tight ${
+            variant === "light" ? "text-white" : "text-ink"
+          }`}
+        >
+          J-Gate
+        </span>
+        <span className="font-sans-jp text-[10px] text-mist">Jゲート</span>
+      </span>
+    </span>
+  );
+}
+
+/** Logo mark only (just the icon) — for small spaces, mobile, etc. */
+export function JGateMark({ className = "" }: { className?: string }) {
+  return (
+    <img
+      src="/jgate-logo.png"
+      alt="J-Gate"
+      className={`object-contain ${className}`}
+      style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.08))" }}
+    />
+  );
+}
+
+/* ============================================================
+   Legacy icons retained for section watermarks (not the logo)
+   ============================================================ */
+
+/** Thin-line torii gate — used only as a section watermark motif, NOT as the logo */
 export function ToriiGate(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -16,54 +68,26 @@ export function ToriiGate(props: SVGProps<SVGSVGElement>) {
       aria-hidden="true"
       {...props}
     >
-      {/* Kasagi — top lintel, curving slightly up at ends */}
-      <path
-        d="M2 14 C 18 4, 46 4, 62 14"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        strokeLinecap="round"
-        fill="none"
-      />
-      {/* Kasagi extended ends */}
+      <path d="M2 14 C 18 4, 46 4, 62 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" fill="none" />
       <path d="M1 14 L 63 14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      {/* Nuki — second lintel */}
       <path d="M8 22 L 56 22" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      {/* Gakuzuka — center tablet */}
       <rect x="29" y="14" width="6" height="8" stroke="currentColor" strokeWidth="1.5" fill="none" />
-      {/* Two pillars */}
       <line x1="16" y1="22" x2="16" y2="54" stroke="currentColor" strokeWidth="1.5" />
       <line x1="48" y1="22" x2="48" y2="54" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   );
 }
 
-/** Large geometric torii watermark — for hero/CTA backgrounds */
+/** Large geometric torii watermark — for hero/CTA backgrounds (decorative only) */
 export function ToriiWatermark(props: SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      viewBox="0 0 400 360"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-      {...props}
-    >
-      {/* Kasagi — large curved top */}
-      <path
-        d="M20 60 C 100 20, 300 20, 380 60"
-        stroke="currentColor"
-        strokeWidth="1.5"
-        fill="none"
-        strokeLinecap="round"
-      />
+    <svg viewBox="0 0 400 360" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
+      <path d="M20 60 C 100 20, 300 20, 380 60" stroke="currentColor" strokeWidth="1.5" fill="none" strokeLinecap="round" />
       <path d="M15 60 L 385 60" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      {/* Nuki */}
       <path d="M50 110 L 350 110" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      {/* Gakuzuka */}
       <rect x="190" y="60" width="20" height="50" stroke="currentColor" strokeWidth="1.5" fill="none" />
-      {/* Pillars — tall, extending down */}
       <line x1="90" y1="110" x2="90" y2="350" stroke="currentColor" strokeWidth="1.5" />
       <line x1="310" y1="110" x2="310" y2="350" stroke="currentColor" strokeWidth="1.5" />
-      {/* Inner pillars for geometric depth */}
       <line x1="140" y1="110" x2="140" y2="350" stroke="currentColor" strokeWidth="0.8" opacity="0.5" />
       <line x1="260" y1="110" x2="260" y2="350" stroke="currentColor" strokeWidth="0.8" opacity="0.5" />
     </svg>
@@ -92,16 +116,13 @@ export function IndiaFlag(props: SVGProps<SVGSVGElement>) {
       <g stroke="#000080" strokeWidth="0.4">
         {Array.from({ length: 12 }).map((_, i) => {
           const a = (i * 30 * Math.PI) / 180;
-          return (
-            <line key={i} x1="15" y1="10" x2={15 + Math.cos(a) * 2.7} y2={10 + Math.sin(a) * 2.7} />
-          );
+          return <line key={i} x1="15" y1="10" x2={15 + Math.cos(a) * 2.7} y2={10 + Math.sin(a) * 2.7} />;
         })}
       </g>
     </svg>
   );
 }
 
-/** LinkedIn */
 export function LinkedInIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
@@ -110,7 +131,6 @@ export function LinkedInIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-/** X (Twitter) */
 export function XIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
@@ -119,7 +139,6 @@ export function XIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-/** Instagram */
 export function InstagramIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
@@ -130,7 +149,6 @@ export function InstagramIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-/** Globe */
 export function GlobeIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
@@ -141,7 +159,6 @@ export function GlobeIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-/** Star (filled) */
 export function StarIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
@@ -150,7 +167,6 @@ export function StarIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-/** Quote mark — large decorative */
 export function QuoteMark(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 48 48" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
@@ -159,7 +175,6 @@ export function QuoteMark(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-/** Hyderabad skyline — refined, silhouette with Charminar + Hitech towers */
 export function HyderabadSkyline(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 1440 320" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
@@ -173,7 +188,6 @@ export function HyderabadSkyline(props: SVGProps<SVGSVGElement>) {
           <stop offset="100%" stopColor="#04080f" />
         </linearGradient>
       </defs>
-      {/* Far row */}
       <g fill="url(#sky-far)" opacity="0.6">
         <rect x="40" y="200" width="46" height="120" /><rect x="92" y="170" width="34" height="150" />
         <rect x="132" y="210" width="54" height="110" /><rect x="196" y="150" width="40" height="170" />
@@ -189,12 +203,10 @@ export function HyderabadSkyline(props: SVGProps<SVGSVGElement>) {
         <rect x="1250" y="205" width="52" height="115" /><rect x="1310" y="175" width="44" height="145" />
         <rect x="1362" y="200" width="54" height="120" />
       </g>
-      {/* Near row — Charminar-inspired + Hitech towers */}
       <g fill="url(#sky-near)">
         <rect x="0" y="250" width="80" height="70" /><rect x="80" y="225" width="60" height="95" />
         <rect x="150" y="120" width="64" height="200" /><rect x="214" y="170" width="44" height="150" />
         <rect x="258" y="225" width="70" height="95" />
-        {/* Charminar monument */}
         <rect x="340" y="220" width="120" height="100" />
         <rect x="350" y="195" width="14" height="125" /><rect x="436" y="195" width="14" height="125" />
         <path d="M340 220 Q 400 168 460 220 Z" /><circle cx="400" cy="178" r="16" />
@@ -202,7 +214,6 @@ export function HyderabadSkyline(props: SVGProps<SVGSVGElement>) {
         <rect x="470" y="200" width="52" height="120" /><rect x="522" y="150" width="58" height="170" />
         <rect x="580" y="225" width="48" height="95" /><rect x="628" y="100" width="70" height="220" />
         <rect x="698" y="185" width="50" height="135" /><rect x="748" y="225" width="64" height="95" />
-        {/* Dome cluster */}
         <rect x="820" y="210" width="80" height="110" /><path d="M820 210 Q 860 158 900 210 Z" />
         <circle cx="860" cy="166" r="14" />
         <rect x="910" y="170" width="56" height="150" /><rect x="966" y="120" width="60" height="200" />
@@ -211,14 +222,12 @@ export function HyderabadSkyline(props: SVGProps<SVGSVGElement>) {
         <rect x="1254" y="205" width="52" height="115" /><rect x="1306" y="170" width="60" height="150" />
         <rect x="1366" y="230" width="74" height="90" />
       </g>
-      {/* Antennas with crimson beacons */}
       <g stroke="#04080f" strokeWidth="2.5">
         <line x1="182" y1="120" x2="182" y2="78" /><line x1="663" y1="100" x2="663" y2="56" />
         <line x1="996" y1="120" x2="996" y2="80" /><line x1="1225" y1="130" x2="1225" y2="92" />
       </g>
       <g fill="#BC1A2C"><circle cx="182" cy="78" r="2.5" /><circle cx="663" cy="56" r="2.5" />
         <circle cx="996" cy="80" r="2.5" /><circle cx="1225" cy="92" r="2.5" /></g>
-      {/* Lit windows */}
       <g fill="#E8A01A" opacity="0.65">
         {Array.from({ length: 56 }).map((_, i) => {
           const x = 160 + (i * 29) % 1240; const y = 150 + ((i * 53) % 120);
@@ -229,7 +238,6 @@ export function HyderabadSkyline(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-/** Venn diagram — Japan × India = J-Gate (for About section) */
 export function VennDiagram(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 520 380" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
@@ -239,7 +247,6 @@ export function VennDiagram(props: SVGProps<SVGSVGElement>) {
           <stop offset="100%" stopColor="#E8A01A" stopOpacity="0.35" />
         </linearGradient>
       </defs>
-      {/* Network nodes around */}
       <g fill="#8892A4" opacity="0.3">
         {[[60,80],[480,80],[60,300],[480,300],[260,40],[260,340],[40,190],[480,190]].map(([x,y],i)=>(
           <circle key={i} cx={x} cy={y} r="2.5" />
@@ -250,67 +257,43 @@ export function VennDiagram(props: SVGProps<SVGSVGElement>) {
         <line x1="60" y1="300" x2="180" y2="240" /><line x1="480" y1="300" x2="340" y2="240" />
         <line x1="260" y1="40" x2="260" y2="120" /><line x1="260" y1="340" x2="260" y2="260" />
       </g>
-      {/* Left circle — Japan (crimson) */}
       <circle cx="200" cy="190" r="140" fill="none" stroke="#BC1A2C" strokeWidth="2" />
       <circle cx="200" cy="190" r="140" fill="#BC1A2C" opacity="0.04" />
-      {/* Right circle — India (saffron) */}
       <circle cx="320" cy="190" r="140" fill="none" stroke="#E8A01A" strokeWidth="2" />
       <circle cx="320" cy="190" r="140" fill="#E8A01A" opacity="0.04" />
-      {/* Intersection */}
-      <path
-        d="M 260 70 A 140 140 0 0 1 260 310 A 140 140 0 0 1 260 70 Z"
-        fill="url(#venn-intersect)"
-      />
-      {/* Japan labels */}
+      <path d="M 260 70 A 140 140 0 0 1 260 310 A 140 140 0 0 1 260 70 Z" fill="url(#venn-intersect)" />
       <text x="120" y="120" fontFamily="Noto Sans JP, sans-serif" fontWeight="700" fontSize="16" fill="#BC1A2C">🇯🇵 Japan</text>
       <text x="110" y="165" fontFamily="Inter, sans-serif" fontWeight="500" fontSize="13" fill="#4A4E69">Innovation</text>
       <text x="115" y="185" fontFamily="Inter, sans-serif" fontWeight="500" fontSize="13" fill="#4A4E69">Precision</text>
       <text x="118" y="205" fontFamily="Inter, sans-serif" fontWeight="500" fontSize="13" fill="#4A4E69">Trust</text>
-      {/* India labels */}
       <text x="360" y="120" fontFamily="Noto Sans JP, sans-serif" fontWeight="700" fontSize="16" fill="#B07A0E">🇮🇳 India</text>
       <text x="365" y="165" fontFamily="Inter, sans-serif" fontWeight="500" fontSize="13" fill="#4A4E69">Scale</text>
       <text x="365" y="185" fontFamily="Inter, sans-serif" fontWeight="500" fontSize="13" fill="#4A4E69">Speed</text>
       <text x="365" y="205" fontFamily="Inter, sans-serif" fontWeight="500" fontSize="13" fill="#4A4E69">Talent</text>
-      {/* Center — J-Gate */}
       <text x="260" y="185" textAnchor="middle" fontFamily="Noto Serif JP, serif" fontWeight="700" fontSize="26" fill="#080F1A">J-Gate</text>
       <text x="260" y="208" textAnchor="middle" fontFamily="Noto Sans JP, sans-serif" fontWeight="500" fontSize="11" fill="#8892A4" letterSpacing="2">Jゲート</text>
     </svg>
   );
 }
 
-/** Cyber Gateway building outline — thin crimson lines (for Why Hyderabad) */
 export function BuildingOutline(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 280 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
       <g stroke="currentColor" strokeWidth="1.2" fill="none">
-        {/* Main tower block */}
         <rect x="80" y="40" width="120" height="170" />
-        {/* Roofline */}
         <path d="M70 40 L 80 28 L 200 28 L 210 40" />
-        {/* Central vertical lines */}
         <line x1="120" y1="40" x2="120" y2="210" />
         <line x1="160" y1="40" x2="160" y2="210" />
-        {/* Windows grid */}
         {Array.from({ length: 6 }).map((_, row) =>
           Array.from({ length: 4 }).map((_, col) => (
-            <rect
-              key={`${row}-${col}`}
-              x={88 + col * 28}
-              y={56 + row * 24}
-              width="20"
-              height="16"
-              strokeWidth="0.8"
-            />
+            <rect key={`${row}-${col}`} x={88 + col * 28} y={56 + row * 24} width="20" height="16" strokeWidth="0.8" />
           ))
         )}
-        {/* Side low-rise buildings */}
         <rect x="20" y="120" width="55" height="90" />
         <line x1="20" y1="140" x2="75" y2="140" /><line x1="47" y1="120" x2="47" y2="210" />
         <rect x="205" y="100" width="60" height="110" />
         <line x1="205" y1="125" x2="265" y2="125" /><line x1="235" y1="100" x2="235" y2="210" />
-        {/* Ground line */}
         <line x1="0" y1="210" x2="280" y2="210" strokeWidth="1.5" />
-        {/* Antenna */}
         <line x1="140" y1="28" x2="140" y2="8" />
         <circle cx="140" cy="8" r="2" fill="currentColor" />
       </g>
@@ -318,7 +301,6 @@ export function BuildingOutline(props: SVGProps<SVGSVGElement>) {
   );
 }
 
-/** Decorative asanoha seal — ornamental mark */
 export function AsanohaSeal(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>

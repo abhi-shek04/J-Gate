@@ -1,6 +1,6 @@
 "use client";
 
-import { ToriiGate, LinkedInIcon, XIcon, InstagramIcon, JapanFlag, IndiaFlag, AsanohaSeal } from "./icons";
+import { JGateLogo, JGateMark, LinkedInIcon, XIcon, InstagramIcon, JapanFlag, IndiaFlag, AsanohaSeal } from "./icons";
 import { ArrowRight } from "lucide-react";
 
 const NAV_LINKS = [
@@ -29,9 +29,9 @@ export function Footer() {
 
   return (
     <footer className="relative mt-auto overflow-hidden bg-[#04080f] text-white">
-      {/* torii watermark faint */}
-      <div className="pointer-events-none absolute -right-20 top-10 opacity-[0.03] text-crimson">
-        <ToriiGate className="h-64 w-64" />
+      {/* J-Gate mark watermark faint */}
+      <div className="pointer-events-none absolute -right-16 top-8 opacity-[0.04]">
+        <JGateMark className="h-56 w-56" />
       </div>
 
       {/* top hairline */}
@@ -41,15 +41,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Col 1 — Brand */}
           <div>
-            <div className="flex items-center gap-3">
-              <span className="text-crimson">
-                <ToriiGate className="h-7 w-7" />
-              </span>
-              <span className="flex flex-col leading-none">
-                <span className="font-serif-jp text-xl font-bold">J-Gate</span>
-                <span className="font-sans-jp text-[10px] text-mist">Jゲート</span>
-              </span>
-            </div>
+            <JGateLogo variant="light" />
             <p className="mt-4 font-inter text-sm leading-relaxed text-mist">
               Hyderabad&apos;s premier working hub connecting Japan and India —
               a sovereign platform for Japanese businesses to land, grow, and

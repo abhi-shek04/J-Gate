@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { Menu, X, ArrowRight } from "lucide-react";
-import { ToriiGate } from "./icons";
+import { JGateLogo } from "./icons";
 import { useScrolled, useScrollSpy } from "./shared";
 import { cn } from "@/lib/utils";
 
@@ -56,23 +56,10 @@ export function Navbar() {
         {/* Logo */}
         <button
           onClick={() => handleNav("home")}
-          className="group flex items-center gap-3"
+          className="group flex items-center"
           aria-label="J-Gate home"
         >
-          <span className="text-crimson transition-transform duration-300 group-hover:scale-105">
-            <ToriiGate className="h-7 w-7" />
-          </span>
-          <span className="flex flex-col leading-none">
-            <span
-              className={cn(
-                "font-serif-jp text-[19px] font-bold tracking-tight transition-colors",
-                scrolled ? "text-white" : "text-white"
-              )}
-            >
-              J-Gate
-            </span>
-            <span className="font-sans-jp text-[10px] text-mist">Jゲート</span>
-          </span>
+          <JGateLogo variant="light" className="transition-opacity duration-300 group-hover:opacity-90" />
         </button>
 
         {/* Desktop nav */}

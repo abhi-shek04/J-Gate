@@ -132,3 +132,36 @@ Stage Summary:
   - 0 horizontal overflow at 1440px; body height 18483px (rich content).
   - bun run lint clean; dev server GET / 200, no errors.
 - Artifacts: globals.css (photo system + lightbox added), photo.tsx (NEW Photo + LightboxProvider), navbar.tsx, hero.tsx, trust-strip.tsx (NEW), office-tour.tsx (NEW), amenities.tsx (NEW), team.tsx (NEW — merges founders+team+advisory), why-beyond.tsx (NEW), membership.tsx (REBUILT w/ photos), partners.tsx (REBUILT w/ photos), inauguration.tsx (REBUILT w/ photos), testimonials.tsx (REBUILT w/ photos), events.tsx (REBUILT w/ photo strip), faq.tsx, final-cta.tsx, contact.tsx (REBUILT w/ map), footer.tsx, page.tsx.
+
+---
+Task ID: 4
+Agent: Z.ai Code (main)
+Task: Replace placeholder torii logo with the client's original J-Gate logo (uploaded PNG), and rebuild the Team section into a neat, compact, professional structure (was too large). Audit entire landing page for consistent neat/professional layout.
+
+Work Log:
+- Analyzed the uploaded original logo via VLM: two interlocking rings (red C-shape + gold O-shape forming a J/link motif) + "J-Gate" wordmark in red bold rounded sans-serif. Approx hex: red #E31E24, gold #D4AF37.
+- Copied original logo to public/jgate-logo.png (1024×1024 PNG, 33KB).
+- Rebuilt icons.tsx: added JGateLogo component (renders the original PNG + "J-Gate" wordmark with variant light/dark for different backgrounds) and JGateMark (icon only, for watermarks/small spaces). Kept ToriiGate/ToriiWatermark as decorative-only section watermarks (NOT the logo). Retained all other icons.
+- Updated Navbar: replaced ToriiGate + manual wordmark with JGateLogo variant="light" — cleaner, uses the real brand mark.
+- Updated Footer: replaced ToriiGate watermark with JGateMark faint watermark; brand column now uses JGateLogo variant="light".
+- Rebuilt Team section for compact professional layout:
+  • Founders: was huge multi-paragraph cards with 40/60 photo split → now compact 2-column cards with small portrait (w-28/sm:w-32, h-36/sm:h-44) + content side-by-side. Condensed bio to 2-3 sentences. Pull quote tightened. Connect + LinkedIn buttons compact.
+  • Supporting Team: was 4-col with w-36 photos → now neat 4-col with w-24 circular photos, tighter padding (p-5), condensed bio.
+  • Advisory Council: was large centered cards with big avatars → now compact 2-column cards with w-24 circular photo + content side-by-side, condensed bios, tight pull quotes.
+  • Section headings tightened (clamp 1.25-1.5rem for subsections vs 1.875-2.5rem for main).
+- Result: Team section height reduced from ~2400px to 1632px (32% more compact). Founder cards 385px tall (desktop) vs previous ~700px+.
+- VLM verification confirmed: "exceptionally neat, professional, and compact... founder cards well-proportioned... team grid tidy... well-executed team section that balances information density with elegant whitespace."
+- VLM verified navbar: "J-Gate logo clearly visible and well-positioned top-left... highly professional... clean high-contrast layout."
+
+Stage Summary:
+- Deliverable: Original J-Gate logo integrated throughout; Team section rebuilt compact & professional.
+- Agent Browser self-verification (all passed):
+  - 3 logo instances render (navbar + footer brand + footer watermark); 0 broken images.
+  - Logo click in navbar scrolls to home (scrollY: 0).
+  - Nav logo 32×32px (well-sized); footer watermark 224px at opacity 0.04.
+  - All 13 sections present; 0 horizontal overflow at 1440px.
+  - Founder cards 385px tall (desktop), 730px (mobile stacked portrait) — compact & neat.
+  - Team grid 4 cards, Advisory 2 cards — all render correctly.
+  - Body height reduced 18483→17085px (more compact overall).
+  - bun run lint clean; dev server GET / 200, no errors.
+- Artifacts updated: public/jgate-logo.png (NEW), icons.tsx (JGateLogo + JGateMark added), navbar.tsx, footer.tsx, team.tsx (REBUILT compact).

@@ -2,8 +2,14 @@
 
 import { Reveal, Eyebrow } from "./shared";
 import { useI18n } from "@/lib/i18n";
-import { VennDiagram, JapanFlag, IndiaFlag } from "./icons";
-import { Target, Eye } from "lucide-react";
+import { Target, Eye, BookOpen, ShieldCheck, Globe2, Cpu, Handshake } from "lucide-react";
+
+const VALUES = [
+  { icon: ShieldCheck, key: "about.v1" },
+  { icon: Globe2, key: "about.v2" },
+  { icon: Cpu, key: "about.v3" },
+  { icon: Handshake, key: "about.v4" },
+] as const;
 
 export function About() {
   const { t } = useI18n();
@@ -23,52 +29,68 @@ export function About() {
           </div>
         </Reveal>
 
-        <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
-          {/* Left — content */}
-          <Reveal variant="left">
-            <div>
-              <div className="space-y-4 font-inter text-[16px] leading-relaxed text-slate">
-                <p>{t("about.body1")}</p>
-                <p>{t("about.body2")}</p>
-              </div>
+        {/* Our Story */}
+        <Reveal delay={80}>
+          <div className="mx-auto mt-12 max-w-3xl">
+            <div className="flex items-center gap-3">
+              <span className="flex h-10 w-10 items-center justify-center rounded-md bg-crimson/10 text-crimson">
+                <BookOpen className="h-5 w-5" strokeWidth={1.5} />
+              </span>
+              <h3 className="font-serif-jp text-xl font-bold text-ink">{t("about.story.title")}</h3>
+            </div>
+            <p className="mt-4 font-inter text-[16px] leading-relaxed text-slate">
+              {t("about.story.body")}
+            </p>
+          </div>
+        </Reveal>
 
-              {/* Mission + Vision cards */}
-              <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                <div className="lift-card rounded-lg border border-crimson/10 bg-pearl p-6 shadow-card">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-md bg-crimson/10 text-crimson">
-                    <Target className="h-5 w-5" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="mt-3 font-serif-jp text-base font-bold text-ink">{t("about.mission")}</h3>
-                  <p className="mt-1.5 font-inter text-[13px] leading-relaxed text-slate">{t("about.missionText")}</p>
-                </div>
-                <div className="lift-card rounded-lg border border-saffron/15 bg-pearl p-6 shadow-card">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-md bg-saffron/15 text-saffron">
-                    <Eye className="h-5 w-5" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="mt-3 font-serif-jp text-base font-bold text-ink">{t("about.vision")}</h3>
-                  <p className="mt-1.5 font-inter text-[13px] leading-relaxed text-slate">{t("about.visionText")}</p>
-                </div>
+        {/* Mission + Vision — two cards */}
+        <div className="mt-10 grid gap-5 md:grid-cols-2">
+          <Reveal delay={100}>
+            <div className="lift-card h-full rounded-lg border border-crimson/10 bg-pearl p-7 shadow-card">
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 items-center justify-center rounded-md bg-crimson/10 text-crimson">
+                  <Target className="h-5 w-5" strokeWidth={1.5} />
+                </span>
+                <h3 className="font-serif-jp text-lg font-bold text-ink">{t("about.mission.title")}</h3>
               </div>
+              <p className="mt-4 font-inter text-[15px] leading-relaxed text-slate">{t("about.mission.body")}</p>
             </div>
           </Reveal>
-
-          {/* Right — Venn diagram */}
-          <Reveal variant="right" delay={120}>
-            <div className="relative">
-              <div className="absolute -inset-6 rounded-3xl bg-gradient-to-tr from-crimson/10 via-transparent to-saffron/10 blur-2xl" />
-              <div className="relative rounded-2xl border border-crimson/10 bg-pearl p-6 shadow-card sm:p-8">
-                <VennDiagram className="mx-auto h-auto w-full max-w-[440px]" />
-                <div className="mt-4 flex items-center justify-center gap-3 font-inter text-xs uppercase text-mist" style={{ letterSpacing: "0.15em" }}>
-                  <JapanFlag className="h-3.5 w-5" />
-                  <span>Two Cultures</span>
-                  <span className="text-saffron">◆</span>
-                  <span>One Bridge</span>
-                  <span className="text-saffron">◆</span>
-                  <IndiaFlag className="h-3.5 w-5" />
-                </div>
+          <Reveal delay={180}>
+            <div className="lift-card h-full rounded-lg border border-saffron/15 bg-pearl p-7 shadow-card">
+              <div className="flex items-center gap-3">
+                <span className="flex h-10 w-10 items-center justify-center rounded-md bg-saffron/15 text-saffron">
+                  <Eye className="h-5 w-5" strokeWidth={1.5} />
+                </span>
+                <h3 className="font-serif-jp text-lg font-bold text-ink">{t("about.vision.title")}</h3>
               </div>
+              <p className="mt-4 font-inter text-[15px] leading-relaxed text-slate">{t("about.vision.body")}</p>
             </div>
           </Reveal>
+        </div>
+
+        {/* Core Values — 4-col grid */}
+        <Reveal delay={120}>
+          <div className="mt-14 text-center">
+            <h3 className="font-serif-jp text-[clamp(1.25rem,2.5vw,1.5rem)] font-bold text-ink">
+              {t("about.values.title")}
+            </h3>
+            <p className="mx-auto mt-2 max-w-xl font-inter text-[14px] text-mist">{t("about.values.subtitle")}</p>
+          </div>
+        </Reveal>
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {VALUES.map((v, i) => (
+            <Reveal key={v.key} delay={i * 80}>
+              <div className="lift-card group h-full rounded-lg border border-crimson/8 bg-pearl p-6 text-center shadow-card">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-md bg-gradient-to-br from-crimson/10 to-saffron/10 text-crimson transition-transform duration-300 group-hover:scale-110">
+                  <v.icon className="h-6 w-6" strokeWidth={1.5} />
+                </div>
+                <h4 className="mt-4 font-serif-jp text-base font-bold text-ink">{t(v.key)}</h4>
+                <p className="mt-2 font-inter text-[13px] leading-relaxed text-slate">{t(`${v.key}.desc`)}</p>
+              </div>
+            </Reveal>
+          ))}
         </div>
       </div>
     </section>

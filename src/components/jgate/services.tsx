@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Users, Handshake, BookOpen, Building2, Plus, Minus } from "lucide-react";
+import { Users, Handshake, BookOpen, Plane, Plus, Minus } from "lucide-react";
 import { Reveal, Eyebrow } from "./shared";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
@@ -10,7 +10,7 @@ const SERVICES = [
   { icon: Users, key: "services.s1", color: "from-crimson to-crimson-deep" },
   { icon: Handshake, key: "services.s2", color: "from-saffron to-[#c9881a]" },
   { icon: BookOpen, key: "services.s3", color: "from-navy to-success" },
-  { icon: Building2, key: "services.s4", color: "from-saffron to-crimson" },
+  { icon: Plane, key: "services.s4", color: "from-saffron to-crimson" },
 ] as const;
 
 export function Services() {
@@ -46,35 +46,26 @@ export function Services() {
                     isOpen ? "border-crimson/30 shadow-[0_0_30px_rgba(188,26,44,0.12)]" : "border-crimson/8"
                   )}
                 >
-                  {/* hover glow */}
                   <div className={cn("pointer-events-none absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-to-br opacity-0 blur-2xl transition-opacity duration-500 group-hover:opacity-20", s.color)} />
                   <div className="relative flex items-start gap-5">
                     <div className={cn("flex h-14 w-14 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br text-white shadow-card transition-transform duration-300 group-hover:scale-105 group-hover:-rotate-3", s.color)}>
                       <s.icon className="h-7 w-7" strokeWidth={1.5} />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <h3 className="font-serif-jp text-xl font-bold text-ink">
-                        {t(`${s.key}.title`)}
-                      </h3>
-                      <p className="mt-1 font-inter text-[14px] font-medium text-crimson">
-                        {t(`${s.key}.short`)}
-                      </p>
+                      <h3 className="font-serif-jp text-xl font-bold text-ink">{t(`${s.key}.title`)}</h3>
+                      <p className="mt-1 font-inter text-[14px] font-medium text-crimson">{t(`${s.key}.short`)}</p>
                     </div>
                   </div>
 
-                  {/* Expandable description */}
                   <div
                     className="relative grid transition-all duration-300 ease-out"
                     style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
                   >
                     <div className="overflow-hidden">
-                      <p className="pt-4 font-inter text-[14px] leading-relaxed text-slate">
-                        {t(`${s.key}.desc`)}
-                      </p>
+                      <p className="pt-4 font-inter text-[14px] leading-relaxed text-slate">{t(`${s.key}.desc`)}</p>
                     </div>
                   </div>
 
-                  {/* Toggle */}
                   <button
                     onClick={() => setExpanded(isOpen ? null : i)}
                     aria-label={isOpen ? "Collapse" : "Expand"}

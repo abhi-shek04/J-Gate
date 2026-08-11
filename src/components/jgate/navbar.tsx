@@ -13,6 +13,7 @@ const NAV_IDS = [
   { id: "about", key: "nav.about" },
   { id: "why", key: "nav.why" },
   { id: "services", key: "nav.services" },
+  { id: "team", key: "nav.team" },
   { id: "blogs", key: "nav.blogs" },
   { id: "contact", key: "nav.contact" },
 ] as const;

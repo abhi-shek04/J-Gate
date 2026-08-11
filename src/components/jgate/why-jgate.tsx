@@ -1,14 +1,14 @@
 "use client";
 
-import { Zap, Languages, Network, TrendingUp } from "lucide-react";
+import { Languages, Plane, BadgeCheck, Building2 } from "lucide-react";
 import { Reveal, Eyebrow } from "./shared";
 import { useI18n } from "@/lib/i18n";
 
 const PILLARS = [
-  { icon: Zap, key: "why.p1" },
-  { icon: Languages, key: "why.p2" },
-  { icon: Network, key: "why.p3" },
-  { icon: TrendingUp, key: "why.p4" },
+  { icon: Languages, key: "why.p1", gradient: "from-crimson to-crimson-deep" },
+  { icon: Plane, key: "why.p2", gradient: "from-saffron to-[#c9881a]" },
+  { icon: BadgeCheck, key: "why.p3", gradient: "from-navy to-success" },
+  { icon: Building2, key: "why.p4", gradient: "from-saffron to-crimson" },
 ] as const;
 
 export function WhyJGate() {
@@ -40,7 +40,7 @@ export function WhyJGate() {
           {PILLARS.map((p, i) => (
             <Reveal key={p.key} delay={i * 100}>
               <article className="glass-dark lift-card group h-full rounded-lg p-7">
-                <div className="flex h-12 w-12 items-center justify-center rounded-md bg-crimson/15 text-saffron transition-transform duration-300 group-hover:scale-110">
+                <div className={`flex h-12 w-12 items-center justify-center rounded-md bg-gradient-to-br ${p.gradient} text-white shadow-card transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3`}>
                   <p.icon className="h-6 w-6" strokeWidth={1.5} />
                 </div>
                 <h3 className="mt-5 font-inter text-[16px] font-bold text-white">

@@ -3,6 +3,7 @@ import { Hero } from "@/components/jgate/hero";
 import { About } from "@/components/jgate/about";
 import { WhyJGate } from "@/components/jgate/why-jgate";
 import { Services } from "@/components/jgate/services";
+import { Team } from "@/components/jgate/team";
 import { Blogs } from "@/components/jgate/blogs";
 import { SocialProof } from "@/components/jgate/social-proof";
 import { Contact } from "@/components/jgate/contact";
@@ -18,6 +19,7 @@ export default function Home() {
         <About />
         <WhyJGate />
         <Services />
+        <Team />
         <Blogs />
         <SocialProof />
         <Contact />

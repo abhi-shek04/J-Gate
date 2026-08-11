@@ -244,3 +244,41 @@ Stage Summary:
   - curl direct API test: {"ok":true,"leadId":"...","downloadUrl":"/J-Gate-Brochure.pdf"}.
   - bun run lint clean; dev server GET / 200, POST /api/brochure/submit 200.
 - Artifacts: src/lib/i18n.tsx (NEW), src/lib/brochure-context.tsx (NEW), src/app/api/brochure/submit/route.ts (NEW), src/components/jgate/brochure-modal.tsx (NEW), navbar.tsx, hero.tsx, about.tsx, why-jgate.tsx (NEW), services.tsx (NEW), blogs.tsx (NEW), social-proof.tsx (NEW), contact.tsx, footer.tsx, shared.tsx, page.tsx, layout.tsx, prisma/schema.prisma, public/J-Gate-Brochure.pdf.
+
+---
+Task ID: 7
+Agent: Z.ai Code (main)
+Task: Restructure content into clean separate sections per new spec — About (corporate identity only), Why J-Gate (4 differentiators), Services (4 verticals), Team (NEW — 3 categories), Blogs & Culture (tabbed: Industry Insights + Life/Culture photo gallery with lightbox), Contact (Tokyo + India offices + form + map). Add Team to nav. Premium neat professional layout throughout.
+
+Work Log:
+- Expanded i18n dictionary with all new section content (bilingual JP/EN):
+  • Nav: added "Team" link (nav.team: EN "Team" / JP "チーム")
+  • Hero badges updated: 100+ Partner Companies / Bilingual Tech Talent Pool / JLPT·NAT Mastery Track
+  • About: pure corporate identity (Our Story, Mission, Vision, Core Values: Integrity/Cultural Fluency/Technical Excellence/Long-Term Partnership)
+  • Why J-Gate: 4 differentiators (Bilingual & Bicultural Fluency / End-to-End Onboarding / Vetted Technical Talent / Direct Enterprise Network)
+  • Services: 4 verticals (Executive & Engineering Recruitment / Corporate Bridging & Consulting / Specialized Language & Business Training / Post-Offer & Relocation Support)
+  • Team: 3 categories (Executive Leadership / Technical Advisors / Language & Cultural Mentors) with 6 members (Tanji/Sarikonda/Jagirdar/Mahankali/Sensei Yuki/Sensei Ravi)
+  • Blogs: tabbed (Industry Insights articles + Life & Culture gallery with 8 photo slots: Main Workspace/Dedicated Desks/Canteen&Lounge/Conference Room/Team Celebrations/Candidate Workshops/Japanese Tea Lounge/Cultural Events)
+  • Contact: Tokyo + Hyderabad offices + contact form (Name/Email/Subject/Message) + success state
+- Added LightboxProvider to layout.tsx (was missing — blogs gallery lightbox now works).
+- Rebuilt About: clean corporate structure — Our Story block, Mission + Vision two-card grid, Core Values 4-col grid with icons. No blogs/sales clutter.
+- Rebuilt Why J-Gate: navy, 4 glassmorphic pillars with gradient icon badges (Languages/Plane/BadgeCheck/Building2 icons).
+- Rebuilt Services: ivory, 4 interactive cards with hover glow + expandable details (Users/Handshake/BookOpen/Plane icons).
+- Built Team (NEW): ivory-warm, 3 category blocks — Executive Leadership (Tanji/Sarikonda), Technical Advisors (Jagirdar/Mahankali), Language & Cultural Mentors (Sensei Yuki/Sensei Ravi). Each card has circular photo slot + name/role/bio + LinkedIn button.
+- Rebuilt Blogs: navy, tabbed switcher (Industry Insights / Life & Culture). Tab A = 3 article cards with tags/read times. Tab B = 8-photo masonry gallery with hover labels + camera icons + LIGHTBOX on click (prev/next/ESC, caption with index).
+- Rebuilt Contact: navy, 2-col — left: Tokyo office card (JP address/email/phone) + Hyderabad office card (IN address/email/phone) + contact form (Name/Email/Subject/Message) with success state; right: CSS map placeholder with Tokyo + Hyderabad pins (crimson + saffron, pulsing), grid lines, roads, "Japan-India corridor" label.
+- Updated page.tsx with 8 sections in order: Hero → About → Why J-Gate → Services → Team → Blogs → Social Proof → Contact → Footer.
+
+Stage Summary:
+- Deliverable: Restructured premium landing page with clean separate sections + Team + tabbed Blogs gallery.
+- Agent Browser self-verification (all passed):
+  - All 8 sections render (home/about/why/services/team/blogs/proof/contact); zero console errors.
+  - Nav has 7 links: Home/About/Why J-Gate/Services/Team/Blogs & Culture/Contact.
+  - JP/EN toggle translates all content (nav: Home→ホーム, Team→チーム, Blogs & Culture→ブログ&カルチャー; team title: The Minds Behind the Bridge→架け橋を作る人々).
+  - Blogs tabs work: Industry Insights (3 article cards) ↔ Life & Culture (8 gallery photos with lightbox).
+  - Gallery lightbox: click photo → opens with caption "Main Workspace · 1 / 8", ESC closes.
+  - Contact form: fill + submit → success state with "Thank you! We'll respond within 24 hours."
+  - Brochure modal: still works (opens from navbar CTA).
+  - Mobile (375px): hamburger present, 0 horizontal overflow, no scrollbar.
+  - bun run lint clean; dev server GET / 200, no errors.
+- Artifacts updated: i18n.tsx (expanded ~90→130 keys), layout.tsx (LightboxProvider added), navbar.tsx (Team link), about.tsx (corporate identity), why-jgate.tsx (4 pillars), services.tsx (4 verticals), team.tsx (NEW — 3 categories), blogs.tsx (tabbed + gallery), contact.tsx (Tokyo+India+form+map), page.tsx (8 sections).

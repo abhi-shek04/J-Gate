@@ -4,6 +4,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { I18nProvider } from "@/lib/i18n";
 import { BrochureProvider } from "@/lib/brochure-context";
+import { LightboxProvider } from "@/components/jgate/photo";
 
 const notoSerifJP = Noto_Serif_JP({
   variable: "--font-noto-serif-jp",
@@ -61,7 +62,9 @@ export default function RootLayout({
       >
         <I18nProvider>
           <BrochureProvider>
-            {children}
+            <LightboxProvider>
+              {children}
+            </LightboxProvider>
           </BrochureProvider>
         </I18nProvider>
         <Toaster />

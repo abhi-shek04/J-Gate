@@ -1,10 +1,12 @@
 "use client";
 
+import { Download, ArrowRight } from "lucide-react";
 import { ToriiWatermark, JapanFlag, IndiaFlag, HyderabadSkyline } from "./icons";
+import { useI18n } from "@/lib/i18n";
+import { useBrochure } from "@/lib/brochure-context";
 
-/** Drifting particles — 20 small white dots drifting upward */
 function Particles() {
-  const particles = Array.from({ length: 20 }).map((_, i) => ({
+  const particles = Array.from({ length: 15 }).map((_, i) => ({
     left: `${(i * 37) % 100}%`,
     size: 1.5 + (i % 3) * 0.8,
     delay: `${(i * 1.7) % 18}s`,
@@ -29,22 +31,23 @@ function Particles() {
   );
 }
 
-const STATS = [
-  { flag: "🇯🇵", title: "2 Japanese", sub: "Companies Live" },
-  { flag: "📍", title: "Cyber Gateway", sub: "Hyderabad" },
-  { flag: "🤝", title: "JETRO", sub: "Endorsed" },
-];
-
 export function Hero() {
+  const { t, lang } = useI18n();
+  const { open: openBrochure } = useBrochure();
   const scrollTo = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+
+  const badges = [
+    { emoji: "🎯", text: t("hero.badge1") },
+    { emoji: " JLPT", text: t("hero.badge2") },
+    { emoji: "🤝", text: t("hero.badge3") },
+  ];
 
   return (
     <section
       id="home"
       className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden bg-midnight"
     >
-      {/* Vertical crimson gradient wash (left side) */}
       <div
         className="absolute inset-0"
         style={{
@@ -52,109 +55,92 @@ export function Hero() {
             "linear-gradient(180deg, rgba(188,26,44,0.08) 0%, rgba(188,26,44,0.02) 40%, transparent 70%)",
         }}
       />
-      {/* Radial depth */}
       <div
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse at 70% 30%, rgba(232,160,26,0.06), transparent 55%)",
+            "radial-gradient(ellipse at 70% 50%, rgba(188,26,44,0.10) 0%, transparent 65%), radial-gradient(ellipse at 20% 80%, rgba(232,160,26,0.06) 0%, transparent 50%)",
         }}
       />
 
-      {/* Torii watermark — 70vw, opacity 0.04, crimson */}
+      {/* Torii watermark */}
       <ToriiWatermark
         className="torii-watermark"
-        style={{
-          width: "70vw",
-          maxWidth: "780px",
-          right: "0",
-          top: "8%",
-        }}
+        style={{ width: "70vw", maxWidth: "780px", right: "0", top: "8%" }}
       />
 
-      {/* Drifting particles */}
       <Particles />
 
-      {/* Skyline at bottom */}
+      {/* Skyline */}
       <div className="absolute bottom-0 left-0 h-[38%] w-full opacity-60">
         <HyderabadSkyline className="h-full w-full" />
       </div>
       <div
         className="absolute bottom-0 left-0 h-[34%] w-full"
-        style={{
-          background:
-            "linear-gradient(180deg, transparent, #080f1a 85%)",
-        }}
+        style={{ background: "linear-gradient(180deg, transparent, #080f1a 85%)" }}
       />
 
       {/* Content */}
       <div className="container-jg relative z-10 pt-28 pb-32 text-center">
-        {/* Eyebrow pill */}
+        {/* Eyebrow */}
         <span className="inline-flex items-center gap-2 rounded-md bg-crimson px-4 py-1.5 font-inter text-[13px] font-medium text-white shadow-crimp" style={{ letterSpacing: "0.1em" }}>
           <JapanFlag className="h-3.5 w-5" />
-          HYDERABAD · CYBER GATEWAY
+          {t("hero.eyebrow")}
           <IndiaFlag className="h-3.5 w-5" />
         </span>
 
         {/* H1 */}
         <h1
           className="mx-auto mt-8 font-serif-jp font-bold leading-[1.05] text-white"
-          style={{ fontSize: "clamp(3.5rem, 8vw, 6.5rem)" }}
+          style={{ fontSize: "clamp(3rem, 7vw, 5.5rem)" }}
         >
-          Where Japan
+          {t("hero.title1")}
           <br />
-          <span className="text-gradient-saffron">Meets India.</span>
+          <span className="text-gradient-saffron">{t("hero.title2")}</span>
         </h1>
 
-        {/* H2 subtitle */}
+        {/* Subtitle */}
         <p
-          className="mx-auto mt-6 max-w-[560px] font-inter font-light leading-relaxed text-mist"
-          style={{ fontSize: "clamp(1.125rem, 2.5vw, 1.375rem)" }}
+          className="mx-auto mt-6 max-w-[600px] font-inter font-light leading-relaxed text-mist"
+          style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}
         >
-          J-Gate is not just a workspace — it is Hyderabad&apos;s sovereign
-          platform for Japanese businesses to land, grow, and lead in India&apos;s
-          most dynamic economy.
+          {t("hero.subtitle")}
         </p>
 
-        {/* Japanese sub-tagline — from official PDF title */}
-        <p className="mt-3 font-serif-jp text-base text-saffron/70">
-          日本企業向け専用ワーキングスペース
-        </p>
-        <p className="mt-1 font-sans-jp text-[13px] text-mist/70">
-          A New Horizon for India-Japan Business Collaboration in Hyderabad
-        </p>
+        {/* Japanese + English taglines */}
+        <p className="mt-3 font-serif-jp text-base text-saffron/70">{t("hero.jptag")}</p>
+        <p className="mt-1 font-sans-jp text-[13px] text-mist/70">{t("hero.entag")}</p>
 
-        {/* CTAs — 6px radius */}
+        {/* CTAs */}
         <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <button
-            onClick={() => scrollTo("membership")}
-            className="btn-shine rounded-md bg-crimson px-8 py-4 font-inter text-[15px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-crimson-deep"
+            onClick={openBrochure}
+            className="btn-shine flex items-center justify-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-8 py-4 font-inter text-[15px] font-semibold text-white shadow-[0_0_24px_rgba(188,26,44,0.45)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_32px_rgba(188,26,44,0.65)]"
           >
-            Become a Member
+            <Download className="h-4 w-4" />
+            {t("hero.cta1")}
           </button>
           <button
-            onClick={() => scrollTo("office-tour")}
-            className="rounded-md border border-white/40 px-8 py-4 font-inter text-[15px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/10"
+            onClick={() => scrollTo("services")}
+            className="rounded-md border border-white/40 px-8 py-4 font-inter text-[15px] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-white/10"
           >
-            Take a Virtual Tour ▶
+            {t("hero.cta2")}
+            <ArrowRight className="ml-1.5 inline h-4 w-4" />
           </button>
         </div>
 
-        {/* Stat badges — glass morphism */}
+        {/* Trust badges */}
         <div className="mx-auto mt-16 grid max-w-2xl gap-3 sm:grid-cols-3">
-          {STATS.map((s, i) => (
+          {badges.map((b, i) => (
             <div
-              key={s.title}
+              key={i}
               className={
-                "glass-dark flex flex-col items-center justify-center gap-1 rounded-lg px-4 py-4 " +
+                "glass-dark flex items-center justify-center gap-2 rounded-lg px-4 py-4 " +
                 (i === 1 ? "animate-float-slow" : i === 0 ? "animate-float" : "animate-float-delay")
               }
             >
-              <span className="text-xl" aria-hidden>
-                {s.flag}
-              </span>
-              <span className="font-inter text-sm font-semibold text-white">{s.title}</span>
-              <span className="font-inter text-xs text-mist">{s.sub}</span>
+              <span className="text-base" aria-hidden>{b.emoji}</span>
+              <span className="font-inter text-[13px] font-semibold text-white">{b.text}</span>
             </div>
           ))}
         </div>
@@ -166,8 +152,8 @@ export function Hero() {
         aria-label="Scroll to explore"
         className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2"
       >
-        <span className="font-inter text-xs font-normal text-mist" style={{ letterSpacing: "0.1em" }}>
-          ↓ Explore J-Gate
+        <span className="font-inter text-xs font-normal text-mist" style={{ letterSpacing: "0.15em" }}>
+          ↓ {t("hero.scroll")}
         </span>
         <span className="block h-10 w-px origin-top bg-mist/40 animate-scroll-line" />
       </button>

@@ -1,72 +1,54 @@
 "use client";
 
 import { Reveal, Eyebrow } from "./shared";
+import { useI18n } from "@/lib/i18n";
 import { VennDiagram, JapanFlag, IndiaFlag } from "./icons";
+import { Target, Eye } from "lucide-react";
 
 export function About() {
-  return (
-    <section id="about" className="section-pad relative overflow-hidden bg-navy">
-      <div className="pattern-asanoha-navy absolute inset-0 opacity-70" />
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse at 80% 20%, rgba(232,160,26,0.08), transparent 55%)",
-        }}
-      />
+  const { t } = useI18n();
 
-      <div className="container-jg relative">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
+  return (
+    <section id="about" className="section-pad bg-ivory">
+      <div className="container-jg">
+        <Reveal>
+          <div className="mx-auto max-w-3xl text-center">
+            <Eyebrow>{t("about.eyebrow")}</Eyebrow>
+            <h2
+              className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
+              style={{ fontSize: "clamp(1.875rem,4vw,2.625rem)" }}
+            >
+              {t("about.title")}
+            </h2>
+          </div>
+        </Reveal>
+
+        <div className="mt-12 grid items-center gap-12 lg:grid-cols-2">
           {/* Left — content */}
           <Reveal variant="left">
             <div>
-              <Eyebrow light>Our Story</Eyebrow>
-              <h2
-                className="mt-4 font-serif-jp font-bold leading-[1.15] text-white"
-                style={{ fontSize: "clamp(1.875rem, 4vw, 2.625rem)" }}
-              >
-                Bridging Two Economies.
-                <br />
-                <span className="text-gradient-saffron">Building One Future.</span>
-              </h2>
-
-              <div className="mt-6 space-y-4 font-inter text-[16px] leading-relaxed text-mist">
-                <p>
-                  J-Gate was born from a singular conviction: that the
-                  partnership between Japan and India represents one of the most
-                  powerful and underserved opportunities in global business
-                  today.
-                </p>
-                <p>
-                  Mr. Daisuke Tanji — a Japanese entrepreneur who has spent over
-                  a decade immersed in both Japanese corporate culture and the
-                  Indian business ecosystem — founded Indobox India Private
-                  Limited to bridge this gap. J-Gate is the physical and
-                  institutional expression of that mission.
-                </p>
-                <p>
-                  Inaugurated on June 22, 2026, at Cyber Gateway in Hyderabad,
-                  J-Gate opened its doors with 50+ distinguished guests, a
-                  keynote from JETRO&apos;s Senior Director, and two founding
-                  member companies on Day 1 — proof that the need was immediate
-                  and the vision was right.
-                </p>
+              <div className="space-y-4 font-inter text-[16px] leading-relaxed text-slate">
+                <p>{t("about.body1")}</p>
+                <p>{t("about.body2")}</p>
               </div>
 
-              {/* Pull quote — crimson left border */}
-              <figure className="mt-8 border-l-4 border-crimson pl-6">
-                <blockquote
-                  className="font-serif-jp text-[18px] font-medium italic leading-relaxed text-white"
-                >
-                  &ldquo;Strengthening economic ties between India and Japan
-                  requires more than business introductions. It calls for an
-                  environment where companies can connect, collaborate, and grow
-                  together.&rdquo;
-                </blockquote>
-                <figcaption className="mt-3 font-inter text-sm text-saffron">
-                  — Mr. Daisuke Tanji, Founder, Indobox India Private Limited
-                </figcaption>
-              </figure>
+              {/* Mission + Vision cards */}
+              <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                <div className="lift-card rounded-lg border border-crimson/10 bg-pearl p-6 shadow-card">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-md bg-crimson/10 text-crimson">
+                    <Target className="h-5 w-5" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="mt-3 font-serif-jp text-base font-bold text-ink">{t("about.mission")}</h3>
+                  <p className="mt-1.5 font-inter text-[13px] leading-relaxed text-slate">{t("about.missionText")}</p>
+                </div>
+                <div className="lift-card rounded-lg border border-saffron/15 bg-pearl p-6 shadow-card">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-md bg-saffron/15 text-saffron">
+                    <Eye className="h-5 w-5" strokeWidth={1.5} />
+                  </div>
+                  <h3 className="mt-3 font-serif-jp text-base font-bold text-ink">{t("about.vision")}</h3>
+                  <p className="mt-1.5 font-inter text-[13px] leading-relaxed text-slate">{t("about.visionText")}</p>
+                </div>
+              </div>
             </div>
           </Reveal>
 
@@ -74,7 +56,7 @@ export function About() {
           <Reveal variant="right" delay={120}>
             <div className="relative">
               <div className="absolute -inset-6 rounded-3xl bg-gradient-to-tr from-crimson/10 via-transparent to-saffron/10 blur-2xl" />
-              <div className="relative rounded-2xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-sm sm:p-8">
+              <div className="relative rounded-2xl border border-crimson/10 bg-pearl p-6 shadow-card sm:p-8">
                 <VennDiagram className="mx-auto h-auto w-full max-w-[440px]" />
                 <div className="mt-4 flex items-center justify-center gap-3 font-inter text-xs uppercase text-mist" style={{ letterSpacing: "0.15em" }}>
                   <JapanFlag className="h-3.5 w-5" />

@@ -30,3 +30,17 @@ model Post {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model BrochureLead {
+  id           String   @id @default(cuid())
+  fullName     String
+  organization String
+  email        String
+  phone        String
+  questions    String?
+  consent      Boolean  @default(false)
+  authMethod   String   @default("manual") // "google" | "manual"
+  sourceIp     String?
+  brochureDownloaded Boolean @default(false)
+  createdAt    DateTime @default(now())
+}

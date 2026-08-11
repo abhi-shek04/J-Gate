@@ -202,3 +202,45 @@ Stage Summary:
   - Hero: Japanese tagline 「日本企業向け専用ワーキングスペース」 + English "A New Horizon for India-Japan Business Collaboration in Hyderabad" rendered.
   - bun run lint clean; dev server GET / 200, no errors.
 - Artifacts: public/logos/ (9 logo files), partner-logo.tsx (NEW), trust-strip.tsx (REBUILT), partners.tsx (REBUILT), footer.tsx (updated with Indobox logo), hero.tsx (official Japanese), final-cta.tsx (official Japanese).
+
+---
+Task ID: 6
+Agent: Z.ai Code (main)
+Task: Restructure landing page per new spec — new nav (Home/About/Why J-Gate/Services/Blogs/Contact), working JP/EN bilingual toggle, Download Brochure button → gated auth modal (Google OAuth UI + lead capture form) → admin email notification on registration. New positioning: J-Gate as bilateral talent/business bridge (recruitment, language training, bridging, consulting).
+
+Work Log:
+- Built i18n system (src/lib/i18n.tsx): I18nProvider context + comprehensive translations dictionary (~90 keys covering nav, hero, about, why, services, blogs, proof, brochure modal, footer) in JP/EN. useI18n hook with t(key), lang, setLang, toggle. WORKING toggle (not "coming soon").
+- Added BrochureLead model to Prisma schema (fullName, organization, email, phone, questions, consent, authMethod, sourceIp, brochureDownloaded, createdAt). Ran db:push — synced.
+- Built BrochureProvider context (src/lib/brochure-context.tsx) for open/close state shared across navbar/hero/footer CTAs.
+- Built API route /api/brochure/submit (src/app/api/brochure/submit/route.ts): validates input (name/org/email/phone/consent), saves to Prisma DB, captures source IP, sends structured HTML admin email via Nodemailer (if SMTP env configured) OR logs structured notification to server console (fallback). Returns leadId + downloadUrl.
+- Installed nodemailer + @types/nodemailer.
+- Created sample brochure PDF at public/J-Gate-Brochure.pdf for download.
+- Built BrochureModal component (src/components/jgate/brochure-modal.tsx): full-screen elegant overlay with:
+  • "Continue with Google" button (OAuth UI with Google G logo — populates form in demo; real OAuth needs GOOGLE_CLIENT_ID)
+  • Divider "Or register details manually"
+  • Manual form: Full Name, Organization, Email, Phone (with country code selector: JP/IN/US/UK/SG/AU/DE/FR), Questions (optional textarea), Consent checkbox
+  • Client-side validation with bilingual error messages
+  • Submit → POST /api/brochure/submit → on success: success screen with CheckCircle icon + auto-download PDF + "Download again" link + Close button
+  • ESC to close, body scroll lock, backdrop click to close
+- Rebuilt Navbar: new nav links (Home/About Us/Why J-Gate/Services/Blogs & Insights/Contact) + working JP|EN pill toggle (red active state) + glowing "Download Brochure" CTA (crimson gradient with shadow glow). Mobile hamburger drawer with language toggle + brochure CTA.
+- Rebuilt Hero: bilingual, bilateral career/business expansion focus. Eyebrow "Japan × India Talent & Business Bridge", H1 "Where Japan Meets / Global Opportunity.", subtitle about recruitment/training/consulting, JP tagline 「日本企業向け専用ワーキングスペース & 人材橋渡し」, CTAs (Download Brochure / Explore Services), trust badges (Top Tier Placements / JLPT·NAT Track Record / Corporate Network).
+- Rebuilt About: bilingual mission/vision/bilateral bridge + Venn diagram + Mission/Vision cards.
+- Built WhyJGate (NEW): navy, 4 USP pillars (Speed Without Compromise / Deep Bilingual Expertise / Verified Corporate Network / Quality You Can Measure) as glass cards.
+- Built Services (NEW): 4 interactive cards (Recruitment & Placement / Bilateral Business Bridging / Japanese Language Training / Market Entry Consulting) with hover glow + expandable details (grid-template-rows transition).
+- Built Blogs (NEW): 3-col cards with tags (Recruitment/Language/Business), reading times, snippets.
+- Built SocialProof (NEW): 4 stat cards (150+ Placements, 94% JLPT Pass Rate, 30+ Corporate Partners, 92% Retention) + 6 real partner logos + 3 testimonials with star ratings.
+- Rebuilt Contact (minimal bilingual): CTA to download brochure + 3 contact detail cards.
+- Rebuilt Footer: bilingual, 4-col (brand/navigate/network/contact), Download Brochure CTA, bottom bar with Privacy/Terms + 🇯🇵❤️🇮🇳.
+- Composed page.tsx with 7 sections + BrochureModal. Wrapped layout.tsx with I18nProvider + BrochureProvider.
+
+Stage Summary:
+- Deliverable: Restructured premium landing page with working JP/EN bilingual + gated brochure download flow (Google OAuth UI + lead capture + admin email).
+- Agent Browser self-verification (all passed):
+  - All 7 sections render (home/about/why/services/blogs/proof/contact); zero console errors.
+  - JP/EN toggle WORKS: EN→JP translates nav (Home→ホーム, About Us→私たちについて, etc.), hero H1, brochure button (Download Brochure→パンフレットダウンロード), all section content.
+  - Download Brochure button (navbar/hero/footer) opens modal: title, Google button, 7 form fields, consent checkbox.
+  - Form validation: empty submit shows 5 bilingual errors.
+  - Successful submit (with real checkbox click): API 200, DB record saved (verified via sqlite query), admin email notification logged with full lead details (Name/Org/Email/Phone/Questions/IP/Timestamp/LeadID), modal shows success state "Thank you! Download starting..." + auto-downloads PDF.
+  - curl direct API test: {"ok":true,"leadId":"...","downloadUrl":"/J-Gate-Brochure.pdf"}.
+  - bun run lint clean; dev server GET / 200, POST /api/brochure/submit 200.
+- Artifacts: src/lib/i18n.tsx (NEW), src/lib/brochure-context.tsx (NEW), src/app/api/brochure/submit/route.ts (NEW), src/components/jgate/brochure-modal.tsx (NEW), navbar.tsx, hero.tsx, about.tsx, why-jgate.tsx (NEW), services.tsx (NEW), blogs.tsx (NEW), social-proof.tsx (NEW), contact.tsx, footer.tsx, shared.tsx, page.tsx, layout.tsx, prisma/schema.prisma, public/J-Gate-Brochure.pdf.

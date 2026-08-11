@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Noto_Serif_JP, Noto_Sans_JP, Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
+import { I18nProvider } from "@/lib/i18n";
+import { BrochureProvider } from "@/lib/brochure-context";
 
 const notoSerifJP = Noto_Serif_JP({
   variable: "--font-noto-serif-jp",
@@ -24,26 +26,24 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "J-Gate | Where Japan Meets India — Hyderabad's Premier Japan-India Working Hub",
+  title: "J-Gate | Bridging Japan & India — Talent, Training, Business",
   description:
-    "J-Gate is Hyderabad's dedicated working hub for Japanese businesses entering India. Powered by Indobox India Pvt. Ltd. at Cyber Gateway. Where Japan Meets India. Where Vision Meets Opportunity.",
+    "J-Gate bridges global and Indian talent with Japan's enterprise opportunities through recruitment, language training, and bilateral business consulting. Operated by Indobox India Pvt. Ltd.",
   keywords: [
     "J-Gate",
     "Jゲート",
+    "Japan India talent",
+    "Japan India recruitment",
+    "JLPT training",
+    "NAT preparation",
     "Japan India business",
-    "Hyderabad co-working",
-    "Cyber Gateway",
     "Indobox India",
-    "JETRO",
-    "T-Hub",
-    "Japan India collaboration",
-    "Omotenashi",
+    "Cyber Gateway Hyderabad",
   ],
   authors: [{ name: "Indobox India Private Limited" }],
   openGraph: {
-    title: "J-Gate | Where Japan Meets India",
-    description:
-      "Hyderabad's premier working hub for Japan-India business collaboration. Powered by Indobox India Pvt. Ltd.",
+    title: "J-Gate | Bridging Japan & India",
+    description: "Talent, training, and bilateral business consulting for the Japan-India corridor.",
     siteName: "J-Gate",
     type: "website",
   },
@@ -59,7 +59,11 @@ export default function RootLayout({
       <body
         className={`${notoSerifJP.variable} ${notoSansJP.variable} ${inter.variable} antialiased bg-background text-foreground`}
       >
-        {children}
+        <I18nProvider>
+          <BrochureProvider>
+            {children}
+          </BrochureProvider>
+        </I18nProvider>
         <Toaster />
       </body>
     </html>

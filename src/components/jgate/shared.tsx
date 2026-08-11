@@ -2,10 +2,10 @@
 
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { cn } from "@/lib/utils";
+import { useI18n } from "@/lib/i18n";
 
 /* ============================================================
-   Reveal — fade-in-up on scroll, translateY(24px → 0)
-   IntersectionObserver, fires once
+   Reveal — fade-in-up on scroll using IntersectionObserver
    ============================================================ */
 export function Reveal({
   children,
@@ -22,7 +22,6 @@ export function Reveal({
 }) {
   const ref = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
-
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
@@ -40,10 +39,7 @@ export function Reveal({
     observer.observe(node);
     return () => observer.disconnect();
   }, []);
-
-  const variantClass =
-    variant === "left" ? "reveal-left" : variant === "right" ? "reveal-right" : "reveal";
-
+  const variantClass = variant === "left" ? "reveal-left" : variant === "right" ? "reveal-right" : "reveal";
   const Component = Tag as any;
   return (
     <Component
@@ -56,10 +52,7 @@ export function Reveal({
   );
 }
 
-/* ============================================================
-   SectionHeading — eyebrow + title + subtitle
-   eyebrow: small caps, crimson, Inter 600, 3px letter-spacing
-   ============================================================ */
+/* SectionHeading + Eyebrow — i18n aware */
 export function SectionHeading({
   eyebrow,
   title,
@@ -74,18 +67,10 @@ export function SectionHeading({
   light?: boolean;
 }) {
   return (
-    <div
-      className={cn(
-        "max-w-3xl",
-        align === "center" ? "mx-auto text-center" : "text-left"
-      )}
-    >
+    <div className={cn("max-w-3xl", align === "center" ? "mx-auto text-center" : "text-left")}>
       {eyebrow && (
         <span
-          className={cn(
-            "inline-block text-[11px] font-semibold uppercase",
-            light ? "text-saffron" : "text-crimson"
-          )}
+          className={cn("inline-block text-[11px] font-semibold uppercase", light ? "text-saffron" : "text-crimson")}
           style={{ letterSpacing: "0.2em" }}
         >
           {eyebrow}
@@ -94,9 +79,9 @@ export function SectionHeading({
       <h2
         className={cn(
           "mt-4 font-serif-jp font-bold leading-[1.15]",
-          align === "center" ? "mx-auto" : "",
           light ? "text-white" : "text-ink",
-          "text-[clamp(1.875rem,4vw,2.75rem)]"
+          "text-[clamp(1.875rem,4vw,2.75rem)]",
+          align === "center" ? "mx-auto" : ""
         )}
       >
         {title}
@@ -117,12 +102,8 @@ export function SectionHeading({
   );
 }
 
-/* ============================================================
-   useScrollSpy — highlight active nav link
-   ============================================================ */
 export function useScrollSpy(ids: string[], offset = 140) {
   const [activeId, setActiveId] = useState<string>(ids[0] ?? "");
-
   useEffect(() => {
     const handler = () => {
       const scrollY = window.scrollY + offset;
@@ -144,13 +125,9 @@ export function useScrollSpy(ids: string[], offset = 140) {
       window.removeEventListener("resize", handler);
     };
   }, [ids, offset]);
-
   return activeId;
 }
 
-/* ============================================================
-   useScrolled — boolean for scroll past threshold
-   ============================================================ */
 export function useScrolled(threshold = 80) {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -162,22 +139,10 @@ export function useScrolled(threshold = 80) {
   return scrolled;
 }
 
-/* ============================================================
-   Eyebrow label — consistent small-caps tag
-   ============================================================ */
-export function Eyebrow({
-  children,
-  light = false,
-}: {
-  children: ReactNode;
-  light?: boolean;
-}) {
+export function Eyebrow({ children, light = false }: { children: ReactNode; light?: boolean }) {
   return (
     <span
-      className={cn(
-        "inline-block text-[11px] font-semibold uppercase",
-        light ? "text-saffron" : "text-crimson"
-      )}
+      className={cn("inline-block text-[11px] font-semibold uppercase", light ? "text-saffron" : "text-crimson")}
       style={{ letterSpacing: "0.2em" }}
     >
       {children}

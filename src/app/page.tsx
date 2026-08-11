@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { Download, ArrowRight, BookOpen, Shield, Users } from "lucide-react";
+import { Download, ArrowRight, BookOpen, Shield, Users, MapPin, Calendar, Building2 } from "lucide-react";
 import { Reveal, Eyebrow } from "@/components/jgate/shared";
 import { useI18n } from "@/lib/i18n";
 import { ToriiWatermark, JapanFlag, IndiaFlag, HyderabadSkyline } from "@/components/jgate/icons";
+import { LogoMarquee } from "@/components/jgate/logo-marquee";
 
 function Particles() {
   const particles = Array.from({ length: 15 }).map((_, i) => ({
@@ -46,7 +47,6 @@ export default function HomePage() {
     {
       icon: BookOpen,
       href: "/about",
-      eyebrowKey: "about.eyebrow",
       title: tx({ EN: "Corporate Identity", JP: "企業アイデンティティ" }),
       desc: tx({
         EN: "Discover J-Gate's mission to bridge Indo-Japanese technology ecosystems — our story, vision, and core values.",
@@ -56,7 +56,6 @@ export default function HomePage() {
     {
       icon: Shield,
       href: "/why-jgate",
-      eyebrowKey: "why.eyebrow",
       title: tx({ EN: "The J-Gate Advantage", JP: "J-Gateの強み" }),
       desc: tx({
         EN: "Four pillars that make us the trusted bridge: bilingual fluency, end-to-end onboarding, vetted talent, and direct enterprise network.",
@@ -66,7 +65,6 @@ export default function HomePage() {
     {
       icon: Users,
       href: "/services",
-      eyebrowKey: "services.eyebrow",
       title: tx({ EN: "Service Verticals", JP: "サービス分野" }),
       desc: tx({
         EN: "Recruitment, corporate bridging, language training, and relocation support — four pathways to Japan-India success.",
@@ -77,7 +75,7 @@ export default function HomePage() {
 
   return (
     <>
-      {/* Hero */}
+      {/* ============ HERO ============ */}
       <section className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden bg-midnight">
         <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(188,26,44,0.08) 0%, rgba(188,26,44,0.02) 40%, transparent 70%)" }} />
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 70% 50%, rgba(188,26,44,0.10) 0%, transparent 65%), radial-gradient(ellipse at 20% 80%, rgba(232,160,26,0.06) 0%, transparent 50%)" }} />
@@ -98,12 +96,19 @@ export default function HomePage() {
             {t("hero.title1")}<br />
             <span className="text-gradient-saffron">{t("hero.title2")}</span>
           </h1>
-          <p className="mx-auto mt-6 max-w-[600px] font-inter font-light leading-relaxed text-mist" style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}>
+          <p className="mx-auto mt-6 max-w-[640px] font-inter font-light leading-relaxed text-mist" style={{ fontSize: "clamp(1rem, 2vw, 1.25rem)" }}>
             {t("hero.subtitle")}
           </p>
           <p className="mt-3 font-serif-jp text-base text-saffron/70">{t("hero.jptag")}</p>
 
-          <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          {/* Brief info badges */}
+          <div className="mx-auto mt-5 flex max-w-2xl flex-wrap items-center justify-center gap-x-6 gap-y-2 font-inter text-[12px] text-mist">
+            <span className="flex items-center gap-1.5"><Calendar className="h-3.5 w-3.5 text-saffron" />{t("hero.founded")}</span>
+            <span className="flex items-center gap-1.5"><MapPin className="h-3.5 w-3.5 text-saffron" />{t("hero.location")}</span>
+            <span className="flex items-center gap-1.5"><Building2 className="h-3.5 w-3.5 text-saffron" />Indobox India Pvt. Ltd.</span>
+          </div>
+
+          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link href="/auth/brochure" className="btn-shine flex items-center justify-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-8 py-4 font-inter text-[15px] font-semibold text-white shadow-[0_0_24px_rgba(188,26,44,0.45)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_32px_rgba(188,26,44,0.65)]">
               <Download className="h-4 w-4" />
               {t("hero.cta1")}
@@ -129,15 +134,48 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Quick Stats */}
+      {/* ============ SCROLLING LOGO WALL ============ */}
       <section className="bg-ivory py-16">
         <div className="container-jg">
+          <Reveal>
+            <div className="mx-auto mb-10 max-w-3xl text-center">
+              <Eyebrow>{t("home.logos.eyebrow")}</Eyebrow>
+              <h2 className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink" style={{ fontSize: "clamp(1.5rem,3.5vw,2rem)" }}>
+                {t("home.logos.title")}
+              </h2>
+              <p className="mx-auto mt-3 max-w-xl font-inter text-[14px] text-mist">
+                {t("home.logos.subtitle")}
+              </p>
+            </div>
+          </Reveal>
+          <Reveal delay={100}>
+            <LogoMarquee variant="light" />
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ============ STATS (unique diagonal layout) ============ */}
+      <section className="relative overflow-hidden bg-navy py-20">
+        <div className="pattern-asanoha-navy absolute inset-0 opacity-60" />
+        {/* Diagonal accent */}
+        <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(188,26,44,0.08) 0%, transparent 50%, rgba(232,160,26,0.06) 100%)" }} />
+        <div className="container-jg relative">
+          <Reveal>
+            <div className="mx-auto mb-12 max-w-3xl text-center">
+              <Eyebrow light>{t("home.stats.eyebrow")}</Eyebrow>
+              <h2 className="mt-4 font-serif-jp font-bold leading-[1.18] text-white" style={{ fontSize: "clamp(1.875rem,4vw,2.5rem)" }}>
+                {t("home.stats.title")}
+              </h2>
+              <p className="mx-auto mt-3 max-w-xl font-inter text-[14px] text-mist">{t("home.stats.subtitle")}</p>
+            </div>
+          </Reveal>
+          {/* Stats — staggered unique layout */}
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {stats.map((s, i) => (
-              <Reveal key={i} delay={i * 80}>
-                <div className="lift-card rounded-lg border border-crimson/8 bg-pearl p-7 text-center shadow-card">
-                  <div className="font-serif-jp text-[clamp(2rem,4vw,3rem)] font-bold text-crimson">{s.num}</div>
-                  <div className="mt-2 font-inter text-[13px] font-medium uppercase text-slate" style={{ letterSpacing: "0.05em" }}>{s.label}</div>
+              <Reveal key={i} delay={i * 100}>
+                <div className={`glass-dark lift-card rounded-lg p-7 text-center ${i % 2 === 1 ? "lg:translate-y-6" : ""}`}>
+                  <div className="font-serif-jp text-[clamp(2.5rem,5vw,3.5rem)] font-bold text-gradient-saffron">{s.num}</div>
+                  <div className="mt-2 font-inter text-[13px] font-medium uppercase text-mist" style={{ letterSpacing: "0.05em" }}>{s.label}</div>
                 </div>
               </Reveal>
             ))}
@@ -145,20 +183,17 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Executive Overview — 3 preview cards */}
+      {/* ============ EXECUTIVE OVERVIEW (3 preview cards) ============ */}
       <section className="section-pad bg-ivory-warm">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
-              <Eyebrow>{tx({ EN: "Executive Overview", JP: "エグゼクティブ概要" })}</Eyebrow>
+              <Eyebrow>{t("home.overview.eyebrow")}</Eyebrow>
               <h2 className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink" style={{ fontSize: "clamp(1.875rem,4vw,2.5rem)" }}>
-                {tx({ EN: "Explore the J-Gate Ecosystem", JP: "J-Gateエコシステムを探る" })}
+                {t("home.overview.title")}
               </h2>
               <p className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate" style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}>
-                {tx({
-                  EN: "Each dimension of J-Gate is a dedicated experience. Dive deeper into what matters to you.",
-                  JP: "J-Gateの各側面は専用の体験です。あなたにとって重要なものを深く掘り下げてください。",
-                })}
+                {t("home.overview.subtitle")}
               </p>
             </div>
           </Reveal>
@@ -182,7 +217,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Banner */}
+      {/* ============ CTA BANNER ============ */}
       <section className="section-pad relative overflow-hidden bg-midnight">
         <div className="pattern-asanoha-dark absolute inset-0 opacity-60" />
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 50%, rgba(188,26,44,0.10), transparent 60%)" }} />
@@ -190,13 +225,10 @@ export default function HomePage() {
           <Reveal>
             <div className="mx-auto max-w-2xl text-center">
               <h2 className="font-serif-jp font-bold leading-[1.15] text-white" style={{ fontSize: "clamp(2rem,4.5vw,3rem)" }}>
-                {tx({ EN: "Ready to Bridge Your Future?", JP: "未来を架け橋する準備はできましたか？" })}
+                {t("home.cta.title")}
               </h2>
               <p className="mx-auto mt-5 max-w-lg font-inter font-light leading-relaxed text-mist" style={{ fontSize: "clamp(0.95rem,1.6vw,1.125rem)" }}>
-                {tx({
-                  EN: "Download the J-Gate corporate brochure — full overview of our services, track record, and partnership model.",
-                  JP: "J-Gateの企業パンフレットをダウンロード — サービス、実績、パートナーシップモデルの完全な概要。",
-                })}
+                {t("home.cta.subtitle")}
               </p>
               <Link href="/auth/brochure" className="btn-shine mt-8 inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-8 py-4 font-inter text-[15px] font-semibold text-white shadow-[0_0_24px_rgba(188,26,44,0.45)] transition-all hover:-translate-y-0.5">
                 <Download className="h-4 w-4" />

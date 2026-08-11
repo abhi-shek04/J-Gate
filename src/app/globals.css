@@ -160,11 +160,164 @@
 /* ============================================================
    J-GATE PREMIUM DESIGN SYSTEM
    Institutional-grade — Goldman Sachs × Japan House × Aman
+   Photo-First · Team-Showcased · Immersive
    ============================================================ */
 
 .font-serif-jp { font-family: var(--font-noto-serif-jp), Georgia, serif; }
 .font-sans-jp  { font-family: var(--font-noto-sans-jp), system-ui, sans-serif; }
 .font-inter    { font-family: var(--font-inter), system-ui, sans-serif; }
+
+/* ============================================================
+   PHOTO SYSTEM — premium gradient fallbacks when no image loaded
+   ============================================================ */
+.jg-photo-wrap {
+  position: relative;
+  overflow: hidden;
+}
+.jg-photo {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.jg-photo-wrap:hover .jg-photo {
+  transform: scale(1.04);
+}
+/* Hide img when src is empty/broken so the fallback shows */
+.jg-photo[src=""], .jg-photo:not([src]), .jg-photo.jg-photo-fallback {
+  opacity: 0;
+}
+.jg-photo-placeholder {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-noto-serif-jp), serif;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 1.5rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+/* Per-slot gradient fallbacks — premium, not broken */
+.grad-office-main      { background: linear-gradient(135deg, #0d1b2a 0%, #1a3a5c 100%); }
+.grad-office-desks     { background: linear-gradient(135deg, #1a2e45 0%, #2d4a6b 100%); }
+.grad-office-lounge    { background: linear-gradient(135deg, #161b28 0%, #293555 100%); }
+.grad-office-meeting   { background: linear-gradient(135deg, #0d1b2a 0%, #bc1a2c 100%); }
+.grad-office-cabin     { background: linear-gradient(135deg, #1a2e45 0%, #4a2d2d 100%); }
+.grad-office-reception { background: linear-gradient(135deg, #0d1b2a 0%, #1a3a5c 100%); }
+.grad-canteen-main     { background: linear-gradient(135deg, #1a2010 0%, #3a4a25 100%); }
+.grad-canteen-japanese { background: linear-gradient(135deg, #1a0f0f 0%, #3a1515 100%); }
+.grad-amenity          { background: linear-gradient(135deg, #0d1b2a 0%, #1a3a5c 100%); }
+.grad-founder-tanji    { background: linear-gradient(135deg, #0d1b2a 0%, #1a2e45 45%, #bc1a2c 100%); }
+.grad-founder-sarikonda{ background: linear-gradient(135deg, #0d1b2a 0%, #1a2e45 45%, #e8a01a 100%); }
+.grad-team             { background: linear-gradient(135deg, #1a2e45 0%, #2d4a6b 100%); }
+.grad-advisory-j       { background: linear-gradient(135deg, #0d1b2a 0%, #1a2e45 50%, #bc1a2c 100%); }
+.grad-advisory-s       { background: linear-gradient(135deg, #0d1b2a 0%, #1a2e45 50%, #e8a01a 100%); }
+.grad-partner          { background: linear-gradient(135deg, #0d1b2a 0%, #1a2e45 100%); }
+.grad-inauguration     { background: linear-gradient(135deg, #0d1b2a 0%, #1a3a5c 50%, #bc1a2c 100%); }
+.grad-plan-hotdesk     { background: linear-gradient(135deg, #1a2535 0%, #2d3b50 100%); }
+.grad-plan-dedicated   { background: linear-gradient(135deg, #0d1b2a 0%, #bc1a2c 100%); }
+.grad-plan-cabin       { background: linear-gradient(135deg, #0d1b2a 0%, #e8a01a 100%); }
+.grad-testimonial      { background: linear-gradient(135deg, #1a2e45 0%, #2d4a6b 100%); }
+.grad-event            { background: linear-gradient(135deg, #0d1b2a 0%, #1a3a5c 50%, #bc1a2c 100%); }
+.grad-map              { background: linear-gradient(135deg, #0d1b2a 0%, #13263b 100%); }
+
+/* ============================================================
+   LIGHTBOX — full-screen photo overlay
+   ============================================================ */
+.jg-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(4, 8, 15, 0.96);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.jg-lightbox.jg-lightbox-open {
+  opacity: 1;
+  visibility: visible;
+}
+.jg-lightbox-img-wrap {
+  position: relative;
+  max-width: 90vw;
+  max-height: 85vh;
+}
+.jg-lightbox-img-wrap .jg-photo-placeholder {
+  position: relative;
+  width: min(90vw, 900px);
+  height: min(85vh, 600px);
+  border-radius: 8px;
+}
+.jg-lightbox-img {
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: 8px;
+  object-fit: contain;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.6);
+}
+.jg-lightbox-btn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: white;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.jg-lightbox-btn:hover {
+  background: var(--color-crimson);
+  transform: scale(1.08);
+}
+.jg-lightbox-close { top: -56px; right: 0; width: 44px; height: 44px; }
+.jg-lightbox-prev  { left: -64px; top: 50%; transform: translateY(-50%); width: 52px; height: 52px; }
+.jg-lightbox-next  { right: -64px; top: 50%; transform: translateY(-50%); width: 52px; height: 52px; }
+.jg-lightbox-prev:hover, .jg-lightbox-next:hover { transform: translateY(-50%) scale(1.08); }
+.jg-lightbox-caption {
+  position: absolute;
+  bottom: -48px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--font-inter), sans-serif;
+  font-size: 14px;
+}
+@media (max-width: 768px) {
+  .jg-lightbox-prev { left: 8px; }
+  .jg-lightbox-next { right: 8px; }
+  .jg-lightbox-close { top: 12px; right: 12px; }
+}
+
+/* Torii divider watermark — between dark sections */
+.torii-divider {
+  position: relative;
+  height: 80px;
+  background: var(--color-midnight);
+  overflow: hidden;
+}
+.torii-divider svg {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: auto;
+  opacity: 0.03;
+  color: var(--color-crimson);
+}
 
 /* Section padding — 120px desktop / 80px tablet / 60px mobile */
 .section-pad { padding-top: 60px; padding-bottom: 60px; }

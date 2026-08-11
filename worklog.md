@@ -90,3 +90,45 @@ Stage Summary:
   - Sticky footer: min-h-screen flex-col + flex-1 main + mt-auto footer confirmed.
   - bun run lint clean; dev server GET / 200, no errors.
 - Artifacts (updated): globals.css, icons.tsx, shared.tsx, navbar.tsx, hero.tsx, difference.tsx (NEW), about.tsx, why-hyderabad.tsx (NEW), pricing.tsx, features.tsx, partners.tsx, advisory.tsx, founding-team.tsx, timeline.tsx, testimonials.tsx, events.tsx, faq.tsx (NEW), final-cta.tsx (NEW), contact.tsx, footer.tsx, page.tsx.
+
+---
+Task ID: 3
+Agent: Z.ai Code (main)
+Task: Rebuild J-Gate landing page per v2.0 master spec (Pasted Content_1786428438735.txt — 1080 lines). Photo-first, team-showcased, immersive. 30+ swappable photo slots with premium gradient fallbacks, lightbox gallery, masonry office grid as centrepiece, team shown with faces.
+
+Work Log:
+- Read full v2.0 spec: photo-first approach (real photos lead everything), 16 sections, lightbox gallery, 30+ photo slots the client can swap by replacing src, masonry editorial office grid as centrepiece, team with faces/names/stories, horizontal events photo strip.
+- Added photo system to globals.css: .jg-photo-wrap, .jg-photo (with hover scale 1.04), .jg-photo-placeholder (gradient fallback shown when no src), 22 per-slot gradient classes (grad-office-*, grad-founder-*, grad-team, grad-advisory-*, grad-partner, grad-inauguration, grad-plan-*, grad-testimonial, grad-event, grad-map), full lightbox styles (overlay, prev/next/close buttons, caption, mobile positioning), torii-divider watermark.
+- Built photo.tsx: Photo component (renders gradient placeholder when src empty, renders img only when src provided — avoids empty-src React warning; keeps id on hidden span so client can locate slot); LightboxProvider context with open(items, index) — full-screen overlay with prev/next/ESC/close, body scroll lock, keyboard nav (Escape/ArrowLeft/ArrowRight), caption with index "1 / 8".
+- Updated navbar: nav links now Spaces·Amenities·Team·Partners·Advisory·Events·Contact per v2.
+- Updated hero: eyebrow pill "🇯🇵 HYDERABAD · CYBER GATEWAY 🇮🇳", "Take a Virtual Tour ▶" CTA scrolls to #office-tour, 3rd stat badge = "JETRO Endorsed".
+- Built TrustStrip (NEW): white 80px, partner name tiles row with separators, mobile marquee.
+- Built OfficeTour (NEW centrepiece): masonry editorial grid — 8 office+canteen photos (main 60% tall, desks+lounge 40% stacked, 3-col row, canteen 40/60), each with gradient fallback + label overlay on hover + camera icon hint, click opens lightbox (8-item gallery with prev/next).
+- Built Amenities (NEW): navy, 2-col — left hotel-spec-sheet list under 3 headings (Workspace/Meeting&Collaboration/Lifestyle&Culture) with ✓ items, right 3 glass photo cards (Conference Rooms/Canteen&Lounge/Private Cabins).
+- Rebuilt Team (NEW merge): founder card (Tanji) with large photo 40%/content 60% + arrival badge "First arrived in India: August 2013" + pull quote; co-founder card (Sarikonda) reversed layout; 4-col team grid with circular photos (Community Manager/Business Development/Operations Lead/Japan Liaison) + language flags; Advisory Council subsection (id="advisory") with 2 cards (Jagirdar/Mahankali) — circular photos, gold top-border, T-Hub badges, full bios, pull quotes.
+- Built WhyBeyond (NEW): midnight, "The desk is the least important thing we offer.", 6-feature glass grid (Local Network/Legal&Compliance/Bilingual Talent/JETRO/Cultural Intelligence/Market Entry).
+- Rebuilt Membership: 3 plans (Explorer/Member/Headquarters) each with header photo, MOST POPULAR + FLAGSHIP badges, Monthly/Annual toggle, detailed feature lists, JP small print.
+- Rebuilt Partners: navy, 2×2 strategic cards (JETRO/Genesys/T-Hub/Woxsen) with photos + descriptions, 4 community partner tiles, infinite marquee.
+- Rebuilt Inauguration: ivory-alt, editorial 2+3 photo grid (main/speech/mochi/guests/mou) with lightbox, 7-node timeline (alternating, glowing nodes).
+- Rebuilt Testimonials: ivory, 3 cards with circular photos + large crimson quote marks + 5 saffron stars, mobile carousel.
+- Rebuilt Events: navy, horizontal scrollable photo strip (4 event photos, scroll-snap, lightbox) + 3 news cards (Inauguration/Partnership/Upcoming with Register Interest CTA).
+- Kept FAQ (8 accordion, bg→ivory-alt).
+- Updated FinalCta: "Your India Journey Begins Here.", 2 CTAs (Book a Private Tour / Contact Us in Japanese 日本語).
+- Rebuilt Contact: navy 2-col, form (8 fields + reply-language toggle EN/日本語) + details + bilingual welcome card + CSS map placeholder (Cyber Gateway pin, grid lines, roads) + social row.
+- Updated Footer: nav links per v2 (Workspace/Amenities/Membership/Partners/Founding Team/Advisory/Events/FAQ/Contact), 8 partner links.
+- Composed page.tsx with LightboxProvider wrapping all 14 sections in v2 order.
+
+Stage Summary:
+- Deliverable: photo-first, immersive J-Gate landing page — 14 sections + footer, 38 swappable photo slots.
+- Agent Browser self-verification (all passed):
+  - All 13 section IDs + advisory render; zero console/runtime errors after empty-src fix.
+  - 38 photo slots present with premium gradient fallbacks (all IDs match spec exactly: photo-office-*, photo-canteen-*, photo-amenity-*, photo-founder-*, photo-team-*, photo-advisory-*, photo-partner-*, photo-inauguration-*, photo-plan-*, photo-testimonial-*, photo-event-*).
+  - LIGHTBOX: click office photo → opens with caption "Main Workspace · Cyber Gateway · 1 / 8"; Next → "Dedicated Desks · 2 / 8"; Prev → back to 1/8; ESC closes; events lightbox works ("Inauguration Ceremony · 1 / 4").
+  - Photo swap system: placeholder display:flex shows gradient; injecting img with z-index 2 covers it (client can swap src to add real photos).
+  - Pricing toggle (false→true), FAQ accordion (one-open), contact form → 「ありがとうございます！」with JP toggle.
+  - Nav "Spaces" smooth-scrolls (7px below 73px nav).
+  - Mobile hamburger (375px) opens drawer (9 links); no horizontal scrollbar.
+  - Events horizontal photo strip scrollable (4 photos, scroll-snap).
+  - 0 horizontal overflow at 1440px; body height 18483px (rich content).
+  - bun run lint clean; dev server GET / 200, no errors.
+- Artifacts: globals.css (photo system + lightbox added), photo.tsx (NEW Photo + LightboxProvider), navbar.tsx, hero.tsx, trust-strip.tsx (NEW), office-tour.tsx (NEW), amenities.tsx (NEW), team.tsx (NEW — merges founders+team+advisory), why-beyond.tsx (NEW), membership.tsx (REBUILT w/ photos), partners.tsx (REBUILT w/ photos), inauguration.tsx (REBUILT w/ photos), testimonials.tsx (REBUILT w/ photos), events.tsx (REBUILT w/ photo strip), faq.tsx, final-cta.tsx, contact.tsx (REBUILT w/ map), footer.tsx, page.tsx.

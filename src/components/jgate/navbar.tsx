@@ -7,16 +7,16 @@ import { useScrolled, useScrollSpy } from "./shared";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
-  { id: "about", label: "About" },
-  { id: "difference", label: "Why J-Gate" },
-  { id: "membership", label: "Membership" },
+  { id: "office-tour", label: "Spaces" },
+  { id: "amenities", label: "Amenities" },
+  { id: "team", label: "Team" },
   { id: "partners", label: "Partners" },
   { id: "advisory", label: "Advisory" },
   { id: "events", label: "Events" },
   { id: "contact", label: "Contact" },
 ];
 
-const SPY_IDS = ["home", ...NAV_LINKS.map((l) => l.id)];
+const SPY_IDS = ["home", "office-tour", "amenities", "team", "partners", "advisory", "events", "contact"];
 
 export function Navbar() {
   const scrolled = useScrolled(80);

@@ -32,7 +32,7 @@ function Particles() {
 const STATS = [
   { flag: "🇯🇵", title: "2 Japanese", sub: "Companies Live" },
   { flag: "📍", title: "Cyber Gateway", sub: "Hyderabad" },
-  { flag: "🤝", title: "MoU Partner", sub: "Genesys Info X" },
+  { flag: "🤝", title: "JETRO", sub: "Endorsed" },
 ];
 
 export function Hero() {
@@ -90,10 +90,10 @@ export function Hero() {
       {/* Content */}
       <div className="container-jg relative z-10 pt-28 pb-32 text-center">
         {/* Eyebrow pill */}
-        <span className="inline-flex items-center gap-2 rounded-md bg-crimson px-4 py-1.5 font-inter text-[13px] font-medium text-white shadow-crimp">
+        <span className="inline-flex items-center gap-2 rounded-md bg-crimson px-4 py-1.5 font-inter text-[13px] font-medium text-white shadow-crimp" style={{ letterSpacing: "0.1em" }}>
           <JapanFlag className="h-3.5 w-5" />
+          HYDERABAD · CYBER GATEWAY
           <IndiaFlag className="h-3.5 w-5" />
-          Hyderabad&apos;s Premier Japan-India Business Hub
         </span>
 
         {/* H1 */}
@@ -130,10 +130,10 @@ export function Hero() {
             Become a Member
           </button>
           <button
-            onClick={() => scrollTo("contact")}
+            onClick={() => scrollTo("office-tour")}
             className="rounded-md border border-white/40 px-8 py-4 font-inter text-[15px] font-semibold text-white transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/10"
           >
-            Book a Private Tour
+            Take a Virtual Tour ▶
           </button>
         </div>
 

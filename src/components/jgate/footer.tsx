@@ -4,19 +4,18 @@ import { ToriiGate, LinkedInIcon, XIcon, InstagramIcon, JapanFlag, IndiaFlag, As
 import { ArrowRight } from "lucide-react";
 
 const NAV_LINKS = [
-  { id: "about", label: "About J-Gate" },
-  { id: "why-hyderabad", label: "Why Hyderabad" },
+  { id: "office-tour", label: "Workspace" },
+  { id: "amenities", label: "Amenities" },
   { id: "membership", label: "Membership" },
-  { id: "features", label: "Features" },
   { id: "partners", label: "Partners" },
-  { id: "advisory", label: "Advisory Council" },
   { id: "team", label: "Founding Team" },
+  { id: "advisory", label: "Advisory" },
   { id: "events", label: "Events" },
   { id: "faq", label: "FAQ" },
   { id: "contact", label: "Contact" },
 ];
 
-const PARTNER_LINKS = ["JETRO", "T-Hub", "Woxsen University", "Genesys Info X", "MXC", "DMI", "Kodryx AI"];
+const PARTNER_LINKS = ["JETRO", "T-Hub", "Woxsen University", "Genesys Info X", "MXC", "DMI", "Kodryx AI", "Hyderabad Anime Club"];
 
 const SOCIALS = [
   { Icon: LinkedInIcon, label: "LinkedIn", href: "#" },

@@ -86,7 +86,7 @@ export function Faq() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="section-pad bg-ivory">
+    <section id="faq" className="section-pad bg-ivory-warm">
       <div className="container-jg">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">

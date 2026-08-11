@@ -149,3 +149,40 @@ export function Eyebrow({ children, light = false }: { children: ReactNode; ligh
     </span>
   );
 }
+
+/* ============================================================
+   useCounter — count up from 0 to target on scroll into view
+   ============================================================ */
+export function useCounter(target: number, duration = 2000) {
+  const ref = useRef<HTMLElement | null>(null);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const start = Date.now();
+            const animate = () => {
+              const elapsed = Date.now() - start;
+              const progress = Math.min(elapsed / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3); // cubic ease-out
+              setCount(Math.floor(eased * target));
+              if (progress < 1) requestAnimationFrame(animate);
+              else setCount(target);
+            };
+            requestAnimationFrame(animate);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [target, duration]);
+
+  return { ref, count };
+}

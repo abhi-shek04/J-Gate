@@ -13,6 +13,9 @@ import {
   Plane,
   MessageCircle,
   Sparkles,
+  Languages,
+  Clock,
+  CalendarDays,
 } from "lucide-react";
 import { Reveal, Eyebrow } from "@/components/jgate/shared";
 import { PageHero } from "@/components/jgate/page-hero";
@@ -22,13 +25,14 @@ import Link from "next/link";
 
 /* ============================================================
    /contact — REAL PDF content (Slide 13)
-   CLEAN focused layout:
-     1. PageHero
-     2. Header Message — bilingual executive tagline
-     3. Two-column: Contact cards (Email + Phone) + Direct Inquiry Form
-     4. Map (CSS placeholder with Tokyo + Hyderabad pins)
-     5. Closing CTA
-   ZERO context mixing per card.
+   Premium editorial layout:
+     1. PageHero — Connect With J-Gate / Unlocking new possibilities...
+     2. Direct Channels — 2 cards (Email crimson + Phone saffron)
+     3. Direct Inquiry Form — Name/Email/Subject/Message + Language
+                              preference toggle + success state.
+     4. Two Cities Visual — Tokyo ↔ Hyderabad corridor with 2 city
+                            cards + CSS map visualization.
+     5. Brochure CTA — "Prefer to Read First?" + Download / View Pricing.
    ============================================================ */
 
 type Bilingual = { EN: string; JP: string };
@@ -38,6 +42,7 @@ type ContactForm = {
   email: string;
   subject: string;
   message: string;
+  lang: "EN" | "JP";
 };
 
 type FormErrors = Partial<Record<keyof ContactForm, string>>;
@@ -51,6 +56,7 @@ export default function ContactPage() {
     email: "",
     subject: "",
     message: "",
+    lang: "JP",
   });
   const [errors, setErrors] = useState<FormErrors>({});
 
@@ -80,7 +86,7 @@ export default function ContactPage() {
 
   const reset = () => {
     setSent(false);
-    setForm({ name: "", email: "", subject: "", message: "" });
+    setForm({ name: "", email: "", subject: "", message: "", lang: "JP" });
     setErrors({});
   };
 
@@ -101,60 +107,18 @@ export default function ContactPage() {
             </span>
           </>
         }
-        subtitleKey="contact.title"
+        subtitleKey="contact.subtitle"
       />
 
       {/* ───────────────────────────────────────────────────────────
-          Section 1 — Header Message (Slide 13)
-          Bilingual executive tagline band. SINGLE focused block.
-         ─────────────────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-navy py-14">
-        <div className="pattern-asanoha-navy absolute inset-0 opacity-50" />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse at 50% 50%, rgba(232,160,26,0.10), transparent 65%)",
-          }}
-        />
-        <div className="container-jg relative">
-          <Reveal>
-            <div className="mx-auto max-w-3xl text-center">
-              <Sparkles className="mx-auto h-7 w-7 text-saffron" strokeWidth={1.5} />
-              <p
-                className="mt-4 font-serif-jp font-bold leading-[1.3] text-white"
-                style={{ fontSize: "clamp(1.5rem,3.5vw,2.25rem)" }}
-              >
-                {tx({
-                  EN: "Unlocking new possibilities for your business through collaboration with India.",
-                  JP: "インドとの連携で、貴社のビジネスに新たな可能性を。",
-                })}
-              </p>
-              <p
-                className="mx-auto mt-3 font-sans-jp font-medium leading-relaxed text-saffron-light"
-                style={{ fontSize: "clamp(0.95rem,1.6vw,1.125rem)" }}
-              >
-                {tx({
-                  EN: "— From the J-Gate Operations Team, Hyderabad",
-                  JP: "— J-Gate運営チーム（ハイデラバード）より",
-                })}
-              </p>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ───────────────────────────────────────────────────────────
-          Section 2 — Contact cards (Email + Phone)
-          CLEAN 2-card grid. ZERO mixing with form/map.
+          Section 1 — Direct Channels (Email + Phone)
+          2-card grid. Crimson accent for Email, saffron accent for Phone.
          ─────────────────────────────────────────────────────────── */}
       <section className="section-pad bg-ivory">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
-              <Eyebrow>
-                {tx({ EN: "Direct Channels", JP: "直接連絡先" })}
-              </Eyebrow>
+              <Eyebrow>{tx({ EN: "Direct Channels", JP: "直接連絡先" })}</Eyebrow>
               <h2
                 className="mt-4 font-serif-jp font-bold leading-[1.2] text-ink"
                 style={{ fontSize: "clamp(1.75rem,3.5vw,2.25rem)" }}
@@ -162,7 +126,8 @@ export default function ContactPage() {
                 {tx({ EN: "Reach Us Directly", JP: "直接お問い合わせください" })}
               </h2>
               <p
-                className="mx-auto mt-3 max-w-2xl font-inter text-[14px] leading-relaxed text-slate"
+                className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-slate"
+                style={{ fontSize: "clamp(0.9rem,1.5vw,1rem)" }}
               >
                 {tx({
                   EN: "Pick the channel that fits — email for written inquiries, phone for direct conversation. All support is provided in Japanese.",
@@ -173,9 +138,9 @@ export default function ContactPage() {
           </Reveal>
 
           <div className="mx-auto mt-10 grid max-w-4xl gap-4 md:grid-cols-2">
-            {/* Email card */}
+            {/* Email card — crimson accent */}
             <Reveal variant="left">
-              <article className="lift-card relative h-full overflow-hidden rounded-lg border border-crimson/20 bg-pearl p-6 shadow-card">
+              <article className="lift-card relative h-full overflow-hidden rounded-lg border border-crimson/20 bg-pearl p-6 shadow-card sm:p-7">
                 <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-crimson to-crimson-deep" />
                 <div className="flex items-center gap-4">
                   <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-gradient-to-br from-crimson to-crimson-deep text-white shadow-card">
@@ -190,7 +155,7 @@ export default function ContactPage() {
                     </span>
                     <a
                       href="mailto:contact@indobox.co.jp"
-                      className="mt-1 block break-all font-serif-jp text-[16px] font-bold text-ink transition-colors hover:text-crimson"
+                      className="mt-1 block break-all font-serif-jp text-[16px] font-bold text-ink transition-colors hover:text-crimson sm:text-[17px]"
                     >
                       contact@indobox.co.jp
                     </a>
@@ -207,9 +172,9 @@ export default function ContactPage() {
               </article>
             </Reveal>
 
-            {/* Phone card */}
+            {/* Phone card — saffron accent */}
             <Reveal variant="right" delay={80}>
-              <article className="lift-card relative h-full overflow-hidden rounded-lg border border-saffron/20 bg-pearl p-6 shadow-card">
+              <article className="lift-card relative h-full overflow-hidden rounded-lg border border-saffron/20 bg-pearl p-6 shadow-card sm:p-7">
                 <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-saffron to-[#c9881a]" />
                 <div className="flex items-center gap-4">
                   <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-gradient-to-br from-saffron to-[#c9881a] text-white shadow-card">
@@ -224,7 +189,7 @@ export default function ContactPage() {
                     </span>
                     <a
                       href="tel:+919910360648"
-                      className="mt-1 block font-serif-jp text-[16px] font-bold text-ink transition-colors hover:text-saffron"
+                      className="mt-1 block font-serif-jp text-[16px] font-bold text-ink transition-colors hover:text-saffron sm:text-[17px]"
                     >
                       +91-9910360648
                     </a>
@@ -246,9 +211,7 @@ export default function ContactPage() {
                       key={i}
                       className="flex items-center justify-between gap-2 rounded-md border border-saffron/12 bg-saffron/[0.03] px-3 py-2.5"
                     >
-                      <span className="font-inter text-[12px] text-slate">
-                        {tx(sl.label)}
-                      </span>
+                      <span className="font-inter text-[12px] text-slate">{tx(sl.label)}</span>
                       <a
                         href={`tel:${sl.value.replace(/\s/g, "")}`}
                         className="font-inter text-[13px] font-semibold text-ink transition-colors hover:text-saffron"
@@ -265,25 +228,21 @@ export default function ContactPage() {
       </section>
 
       {/* ───────────────────────────────────────────────────────────
-          Section 3 — Direct Inquiry Form
-          CLEAN form card (Name/Email/Subject/Message/Submit) with success state.
+          Section 2 — Direct Inquiry Form
+          Name/Email/Subject/Message + Language preference toggle.
+          Success state on submit.
          ─────────────────────────────────────────────────────────── */}
       <section className="section-pad bg-ivory-warm">
         <div className="container-jg">
           <div className="mx-auto max-w-3xl">
             <Reveal>
               <div className="mb-6 text-center">
-                <Eyebrow>
-                  {tx({ EN: "Direct Inquiry", JP: "直接お問い合わせ" })}
-                </Eyebrow>
+                <Eyebrow>{tx({ EN: "Direct Inquiry", JP: "直接お問い合わせ" })}</Eyebrow>
                 <h2
                   className="mt-3 font-serif-jp font-bold leading-[1.2] text-ink"
                   style={{ fontSize: "clamp(1.5rem,3vw,2rem)" }}
                 >
-                  {tx({
-                    EN: "Send Us a Message",
-                    JP: "メッセージをお送りください",
-                  })}
+                  {tx({ EN: "Send Us a Message", JP: "メッセージをお送りください" })}
                 </h2>
                 <p className="mt-2 font-inter text-[13px] text-slate">
                   {tx({
@@ -331,9 +290,7 @@ export default function ContactPage() {
                           aria-invalid={!!errors.name}
                         />
                         {errors.name && (
-                          <p className="mt-1 font-inter text-[11px] text-crimson">
-                            {errors.name}
-                          </p>
+                          <p className="mt-1 font-inter text-[11px] text-crimson">{errors.name}</p>
                         )}
                       </div>
                       <div>
@@ -353,9 +310,7 @@ export default function ContactPage() {
                           aria-invalid={!!errors.email}
                         />
                         {errors.email && (
-                          <p className="mt-1 font-inter text-[11px] text-crimson">
-                            {errors.email}
-                          </p>
+                          <p className="mt-1 font-inter text-[11px] text-crimson">{errors.email}</p>
                         )}
                       </div>
                     </div>
@@ -397,10 +352,46 @@ export default function ContactPage() {
                         aria-invalid={!!errors.message}
                       />
                       {errors.message && (
-                        <p className="mt-1 font-inter text-[11px] text-crimson">
-                          {errors.message}
-                        </p>
+                        <p className="mt-1 font-inter text-[11px] text-crimson">{errors.message}</p>
                       )}
+                    </div>
+
+                    {/* Language preference toggle */}
+                    <div>
+                      <label className={cn(labelClass, "flex items-center gap-1.5")}>
+                        <Languages className="h-3.5 w-3.5 text-saffron" />
+                        {tx({ EN: "Language preference", JP: "ご返信言語" })}
+                      </label>
+                      <div className="grid grid-cols-2 gap-2">
+                        <button
+                          type="button"
+                          onClick={() => setForm({ ...form, lang: "EN" })}
+                          aria-pressed={form.lang === "EN"}
+                          className={cn(
+                            "flex items-center justify-center gap-2 rounded-md border px-4 py-2.5 font-inter text-[13px] font-semibold transition-all",
+                            form.lang === "EN"
+                              ? "border-saffron bg-saffron/15 text-saffron"
+                              : "border-white/12 text-mist hover:border-white/25 hover:text-white"
+                          )}
+                        >
+                          <Globe2 className="h-3.5 w-3.5" />
+                          {tx({ EN: "Reply in English", JP: "英語で返信" })}
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() => setForm({ ...form, lang: "JP" })}
+                          aria-pressed={form.lang === "JP"}
+                          className={cn(
+                            "flex items-center justify-center gap-2 rounded-md border px-4 py-2.5 font-sans-jp text-[13px] font-semibold transition-all",
+                            form.lang === "JP"
+                              ? "border-saffron bg-saffron/15 text-saffron"
+                              : "border-white/12 text-mist hover:border-white/25 hover:text-white"
+                          )}
+                        >
+                          <span className="font-serif-jp">日</span>
+                          {tx({ EN: "Reply in 日本語", JP: "日本語で返信" })}
+                        </button>
+                      </div>
                     </div>
 
                     <button
@@ -422,10 +413,10 @@ export default function ContactPage() {
                     </button>
 
                     <p className="flex items-center justify-center gap-1.5 pt-1 text-center font-inter text-[11px] text-mist/70">
-                      <Globe2 className="h-3 w-3" />
+                      <Clock className="h-3 w-3" />
                       {tx({
-                        EN: "Bilingual support available in English & 日本語",
-                        JP: "英語・日本語のバイリンガルサポート対応",
+                        EN: "Bilingual support · 24-hour response · Mon-Fri JST",
+                        JP: "バイリンガルサポート · 24時間以内返信 · 月-金 JST",
                       })}
                     </p>
                   </form>
@@ -437,52 +428,155 @@ export default function ContactPage() {
       </section>
 
       {/* ───────────────────────────────────────────────────────────
-          Section 4 — Map placeholder (Tokyo + Hyderabad pins)
-          Keep the existing CSS map. NO mixing with other content.
+          Section 3 — Two Cities Visual
+          Tokyo ↔ Hyderabad — Japan–India Corridor
+          2 city cards (Tokyo Indobox HQ + Hyderabad Cyber Gateway)
+          + CSS map visualization with corridor line + distance/time-diff chip.
          ─────────────────────────────────────────────────────────── */}
       <section className="section-pad relative overflow-hidden bg-midnight">
         <div className="pattern-asanoha-dark absolute inset-0 opacity-60" aria-hidden="true" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at 50% 0%, rgba(188,26,44,0.10), transparent 60%), radial-gradient(ellipse at 50% 100%, rgba(232,160,26,0.08), transparent 50%)",
+          }}
+          aria-hidden="true"
+        />
         <div className="container-jg relative">
           <Reveal>
-            <div className="mx-auto mb-6 max-w-3xl text-center">
+            <div className="mx-auto mb-8 max-w-3xl text-center">
               <Eyebrow light>
                 {tx({ EN: "Two Cities, One Corridor", JP: "二つの都市、ひとつの回廊" })}
               </Eyebrow>
               <h2
-                className="mt-3 font-serif-jp font-bold leading-[1.2] text-white"
-                style={{ fontSize: "clamp(1.5rem,3vw,2rem)" }}
+                className="mt-3 font-serif-jp font-bold leading-[1.18] text-white"
+                style={{ fontSize: "clamp(1.75rem,3.5vw,2.25rem)" }}
               >
                 {tx({ EN: "Tokyo ↔ Hyderabad", JP: "東京 ↔ ハイデラバード" })}
               </h2>
+              <p className="mx-auto mt-3 max-w-xl font-inter text-[14px] leading-relaxed text-mist">
+                {tx({
+                  EN: "Japan–India Corridor — Tokyo (Indobox HQ) ↔ Hyderabad (Cyber Gateway J-Gate base).",
+                  JP: "日印回廊 — 東京（Indobox本社）↔ ハイデラバード（Cyber Gateway J-Gate拠点）。",
+                })}
+              </p>
+              {/* Distance + time diff chip strip */}
+              <div className="mt-5 inline-flex items-center gap-3 rounded-full border border-white/15 bg-midnight/60 px-4 py-2 backdrop-blur-sm sm:gap-6">
+                <span className="flex items-center gap-2 font-inter text-[12px] font-semibold text-saffron">
+                  <Plane className="h-3.5 w-3.5" />
+                  {tx({ EN: "~7,500 km", JP: "約7,500km" })}
+                </span>
+                <span className="h-3 w-px bg-white/20" />
+                <span className="flex items-center gap-2 font-inter text-[12px] font-semibold text-saffron">
+                  <Clock className="h-3.5 w-3.5" />
+                  {tx({ EN: "3.5 hour time difference", JP: "時差3.5時間" })}
+                </span>
+              </div>
             </div>
           </Reveal>
 
-          <Reveal delay={80}>
-            <div className="relative h-full min-h-[420px] overflow-hidden rounded-lg border border-white/10 sm:min-h-[480px]">
+          {/* 2 city cards */}
+          <div className="mx-auto grid max-w-4xl gap-4 md:grid-cols-2">
+            {/* Tokyo card — Indobox HQ */}
+            <Reveal variant="left">
+              <article className="lift-card relative h-full overflow-hidden rounded-lg border border-crimson/30 bg-midnight/60 p-6 backdrop-blur-sm sm:p-7">
+                <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-crimson to-crimson-deep" />
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <span className="text-3xl" aria-hidden="true">🇯🇵</span>
+                    <div>
+                      <span
+                        className="font-inter text-[10px] font-semibold uppercase text-crimson"
+                        style={{ letterSpacing: "0.14em" }}
+                      >
+                        {tx({ EN: "Japan", JP: "日本" })}
+                      </span>
+                      <h3 className="mt-0.5 font-serif-jp text-2xl font-bold text-white sm:text-3xl">
+                        {tx({ EN: "Tokyo", JP: "東京" })}
+                      </h3>
+                    </div>
+                  </div>
+                  <span className="inline-flex items-center gap-1.5 rounded-md bg-crimson/15 px-2.5 py-1 font-inter text-[10px] font-bold uppercase text-crimson" style={{ letterSpacing: "0.12em" }}>
+                    <Building2 className="h-3 w-3" />
+                    HQ
+                  </span>
+                </div>
+                <div className="mt-5 space-y-3 border-t border-white/10 pt-4">
+                  <p className="font-serif-jp text-[15px] font-bold text-white">
+                    {tx({ EN: "Indobox HQ", JP: "Indobox本社" })}
+                  </p>
+                  <p className="flex items-start gap-2 font-inter text-[12.5px] leading-relaxed text-mist">
+                    <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-crimson" />
+                    {tx({
+                      EN: "Japan-side operator — marketing & client acquisition, Japan-India facilitation, project lead securing.",
+                      JP: "日本側オペレーター — マーケティング・顧客開拓、日印ファシリテーション、案件獲得。",
+                    })}
+                  </p>
+                </div>
+              </article>
+            </Reveal>
+
+            {/* Hyderabad card — Cyber Gateway J-Gate base */}
+            <Reveal variant="right" delay={80}>
+              <article className="lift-card relative h-full overflow-hidden rounded-lg border border-saffron/40 bg-midnight/60 p-6 backdrop-blur-sm sm:p-7">
+                <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-saffron to-[#c9881a]" />
+                <div className="flex items-start justify-between gap-3">
+                  <div className="flex items-center gap-3">
+                    <span className="text-3xl" aria-hidden="true">🇮🇳</span>
+                    <div>
+                      <span
+                        className="font-inter text-[10px] font-semibold uppercase text-saffron"
+                        style={{ letterSpacing: "0.14em" }}
+                      >
+                        {tx({ EN: "India", JP: "インド" })}
+                      </span>
+                      <h3 className="mt-0.5 font-serif-jp text-2xl font-bold text-white sm:text-3xl">
+                        {tx({ EN: "Hyderabad", JP: "ハイデラバード" })}
+                      </h3>
+                    </div>
+                  </div>
+                  <span className="inline-flex items-center gap-1.5 rounded-md bg-saffron/15 px-2.5 py-1 font-inter text-[10px] font-bold uppercase text-saffron" style={{ letterSpacing: "0.12em" }}>
+                    <Building2 className="h-3 w-3" />
+                    {tx({ EN: "Main Base", JP: "主拠点" })}
+                  </span>
+                </div>
+                <div className="mt-5 space-y-3 border-t border-white/10 pt-4">
+                  <p className="font-serif-jp text-[15px] font-bold text-white">
+                    Cyber Gateway · Hitech City
+                  </p>
+                  <p className="flex items-start gap-2 font-inter text-[12.5px] leading-relaxed text-mist">
+                    <MapPin className="mt-0.5 h-3.5 w-3.5 shrink-0 text-saffron" />
+                    {tx({
+                      EN: "India-side operator (Genesys) — workspace, infrastructure, local talent, engaging Indian companies.",
+                      JP: "インド側オペレーター（Genesys） — ワークスペース、インフラ、ローカル人材、インド企業との連携。",
+                    })}
+                  </p>
+                  <p className="flex items-start gap-2 font-inter text-[11.5px] leading-relaxed text-saffron-light">
+                    <CalendarDays className="mt-0.5 h-3.5 w-3.5 shrink-0" />
+                    {tx({
+                      EN: "Launched June 2026",
+                      JP: "2026年6月開設",
+                    })}
+                  </p>
+                </div>
+              </article>
+            </Reveal>
+          </div>
+
+          {/* CSS Map visualization */}
+          <Reveal delay={120}>
+            <div className="relative mt-6 h-full min-h-[360px] overflow-hidden rounded-lg border border-white/10 sm:min-h-[440px]">
               <div className="grad-map absolute inset-0" aria-hidden="true" />
 
-              {/* Grid pattern */}
-              <svg
-                className="absolute inset-0 h-full w-full opacity-30"
-                aria-hidden="true"
-              >
+              {/* Grid pattern + roads */}
+              <svg className="absolute inset-0 h-full w-full opacity-30" aria-hidden="true">
                 <defs>
-                  <pattern
-                    id="contact-page-map-grid"
-                    width="32"
-                    height="32"
-                    patternUnits="userSpaceOnUse"
-                  >
-                    <path
-                      d="M 32 0 L 0 0 0 32"
-                      fill="none"
-                      stroke="rgba(232,160,26,0.4)"
-                      strokeWidth="0.5"
-                    />
+                  <pattern id="contact-map-grid" width="32" height="32" patternUnits="userSpaceOnUse">
+                    <path d="M 32 0 L 0 0 0 32" fill="none" stroke="rgba(232,160,26,0.4)" strokeWidth="0.5" />
                   </pattern>
                 </defs>
-                <rect width="100%" height="100%" fill="url(#contact-page-map-grid)" />
-                {/* Roads */}
+                <rect width="100%" height="100%" fill="url(#contact-map-grid)" />
                 <line x1="0" y1="35%" x2="100%" y2="32%" stroke="rgba(255,255,255,0.18)" strokeWidth="2" />
                 <line x1="0" y1="68%" x2="100%" y2="72%" stroke="rgba(255,255,255,0.14)" strokeWidth="1.5" />
                 <line x1="32%" y1="0" x2="36%" y2="100%" stroke="rgba(255,255,255,0.15)" strokeWidth="2" />
@@ -490,28 +584,12 @@ export default function ContactPage() {
               </svg>
 
               {/* Connecting arc — Tokyo → Hyderabad */}
-              <svg
-                className="absolute inset-0 h-full w-full"
-                viewBox="0 0 100 100"
-                preserveAspectRatio="none"
-                aria-hidden="true"
-              >
-                <path
-                  d="M 32 28 Q 50 50 70 70"
-                  fill="none"
-                  stroke="rgba(232,160,26,0.4)"
-                  strokeWidth="0.4"
-                  strokeDasharray="1.5 1"
-                />
-                <path
-                  d="M 32 28 Q 50 50 70 70"
-                  fill="none"
-                  stroke="rgba(188,26,44,0.5)"
-                  strokeWidth="0.25"
-                />
+              <svg className="absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M 32 28 Q 50 50 70 70" fill="none" stroke="rgba(232,160,26,0.4)" strokeWidth="0.4" strokeDasharray="1.5 1" />
+                <path d="M 32 28 Q 50 50 70 70" fill="none" stroke="rgba(188,26,44,0.5)" strokeWidth="0.25" />
               </svg>
 
-              {/* Tokyo pin — smaller, crimson, secondary base */}
+              {/* Tokyo pin */}
               <div className="absolute left-[28%] top-[26%] flex flex-col items-center">
                 <span className="relative flex h-3.5 w-3.5">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-crimson opacity-50" />
@@ -525,7 +603,7 @@ export default function ContactPage() {
                 <span className="mt-1 font-inter text-[10px] text-mist">🇯🇵 Japan</span>
               </div>
 
-              {/* Hyderabad pin — larger, saffron, PRIMARY base */}
+              {/* Hyderabad pin */}
               <div className="absolute right-[22%] bottom-[22%] flex flex-col items-center">
                 <span className="relative flex h-6 w-6">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-saffron opacity-70" />
@@ -573,23 +651,25 @@ export default function ContactPage() {
       </section>
 
       {/* ───────────────────────────────────────────────────────────
-          Closing CTA
+          Section 4 — Brochure CTA
+          "Prefer to Read First?" + Download Brochure + View Pricing
          ─────────────────────────────────────────────────────────── */}
       <section className="section-pad bg-ivory">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-2xl text-center">
+              <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-saffron/15 text-saffron">
+                <Sparkles className="h-6 w-6" strokeWidth={1.5} />
+              </span>
               <h2
-                className="font-serif-jp font-bold leading-[1.2] text-ink"
+                className="mt-6 font-serif-jp font-bold leading-[1.18] text-ink"
                 style={{ fontSize: "clamp(1.75rem,3.5vw,2.25rem)" }}
               >
-                {tx({
-                  EN: "Prefer to Read First?",
-                  JP: "まずは資料をお読みになりたいですか？",
-                })}
+                {tx({ EN: "Prefer to Read First?", JP: "まずは資料をお読みになりたいですか？" })}
               </h2>
               <p
-                className="mx-auto mt-3 font-inter text-[14px] leading-relaxed text-slate"
+                className="mx-auto mt-3 font-inter leading-relaxed text-slate"
+                style={{ fontSize: "clamp(0.9rem,1.6vw,1.0625rem)" }}
               >
                 {tx({
                   EN: "Download our brochure for a complete overview of services, membership plans, and partnership models.",
@@ -608,7 +688,7 @@ export default function ContactPage() {
                   href="/pricing"
                   className="rounded-md border border-crimson/30 px-7 py-3.5 font-inter text-[14px] font-semibold text-crimson transition-all hover:-translate-y-0.5 hover:bg-crimson/5"
                 >
-                  {tx({ EN: "View Pricing Plans", JP: "料金プランを見る" })}
+                  {tx({ EN: "View Pricing", JP: "料金を見る" })}
                 </Link>
               </div>
             </div>

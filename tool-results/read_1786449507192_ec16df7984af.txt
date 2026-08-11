@@ -1,0 +1,461 @@
+    40→  },
+    41→  "hero.jptag": { EN: "「日本企業専用のワーキングハブ誕生」", JP: "「日本企業専用のワーキングハブ誕生」" },
+    42→  "hero.entag": { EN: "Birth of a Dedicated Working Hub for Japanese Companies in Hyderabad", JP: "Birth of a Dedicated Working Hub for Japanese Companies in Hyderabad" },
+    43→  "hero.cta1": { EN: "Download Brochure", JP: "パンフレットをダウンロード" },
+    44→  "hero.cta2": { EN: "Explore Services", JP: "サービスを見る" },
+    45→  "hero.badge1": { EN: "Dedicated Japan Desk", JP: "専任ジャパンデスク" },
+    46→  "hero.badge2": { EN: "Strategic Hyderabad Base", JP: "戦略的ハイデラバード拠点" },
+    47→  "hero.badge3": { EN: "End-to-End India Setup", JP: "エンドツーエンド進出支援" },
+    48→  "hero.scroll": { EN: "Discover J-Gate", JP: "J-Gateを知る" },
+    49→  "hero.founded": { EN: "Est. June 2026", JP: "2026年6月開設" },
+    50→  "hero.location": { EN: "Cyber Gateway, Hyderabad", JP: "Cyber Gateway、ハイデラバード" },
+    51→  "hero.operator": { EN: "Operated by Indobox India Pvt. Ltd.", JP: "Indobox India Pvt. Ltd. が運営" },
+    52→
+    53→  // Home page sections
+    54→  "home.stats.eyebrow": { EN: "J-Gate in Numbers", JP: "J-Gateの数字" },
+    55→  "home.stats.title": { EN: "A Track Record Built on Trust", JP: "信頼で築いた実績" },
+    56→  "home.stats.subtitle": { EN: "Real outcomes across the Japan-India bilateral corridor.", JP: "日印両国回廊における実際の成果。" },
+    57→  "home.logos.eyebrow": { EN: "Trusted By", JP: "信頼のパートナー" },
+    58→  "home.logos.title": { EN: "Enterprise & Ecosystem Partners", JP: "企業&エコシステムパートナー" },
+    59→  "home.logos.subtitle": { EN: "Japanese enterprises we place talent into, and the ecosystem that powers the corridor.", JP: "人材を紹介する日本企業と、回廊を支えるエコシステム。" },
+    60→  "home.overview.eyebrow": { EN: "Executive Overview", JP: "エグゼクティブ概要" },
+    61→  "home.overview.title": { EN: "Explore the J-Gate Ecosystem", JP: "J-Gateエコシステムを探る" },
+    62→  "home.overview.subtitle": { EN: "Each dimension of J-Gate is a dedicated experience. Dive deeper into what matters to you.", JP: "J-Gateの各側面は専用の体験です。あなたにとって重要なものを深く掘り下げてください。" },
+    63→  "home.cta.title": { EN: "Ready to Bridge Your Future?", JP: "未来を架け橋する準備はできましたか？" },
+    64→  "home.cta.subtitle": { EN: "Download the J-Gate corporate brochure — full overview of our services, track record, and partnership model.", JP: "J-Gateの企業パンフレットをダウンロード — サービス、実績、パートナーシップモデルの完全な概要。" },
+    65→
+    66→  // About — pure corporate identity
+    67→  "about.eyebrow": { EN: "About J-Gate", JP: "J-Gateについて" },
+    68→  "about.title": { EN: "Operated by Indobox India — a dedicated working hub for Japanese enterprises in Hyderabad.", JP: "Indobox Indiaが運営する、ハイデラバードの日本企業専用ワーキングハブ。" },
+    69→
+    70→  // About — Core Purpose & Vision (Slide 2)
+    71→  "about.purpose.eyebrow": { EN: "Core Purpose & Vision", JP: "目的とビジョン" },
+    72→  "about.purpose.title": { EN: "From creating opportunities for Indian expansion to developing personnel in charge of India", JP: "インド展開のきっかけ作りから、インド担当者の育成まで" },
+    73→  "about.purpose.subtitle": {
+    74→    EN: "Three pillars define why J-Gate exists — each a deliberate step toward making the Indo-Japanese corridor operational, end to end.",
+    75→    JP: "J-Gateの存在意義を定義する3つの柱 — それぞれが日印回廊をエンドツーエンドで機能させるための意図的な一歩です。",
+    76→  },
+    77→  "about.pillar1.tag": { EN: "Pillar 01", JP: "柱 01" },
+    78→  "about.pillar1.title": { EN: "Opportunity Creation", JP: "きっかけ作り" },
+    79→  "about.pillar1.jp": { EN: "きっかけ作り", JP: "きっかけ作り" },
+    80→  "about.pillar1.desc": {
+    81→    EN: "Providing an environment where local activities can start quickly with minimal assets — so Japanese enterprises can begin their India journey without heavy upfront investment.",
+    82→    JP: "最小限の資産で現地活動を迅速に開始できる環境を提供 — 日本企業が大きな初期投資なしにインドへの第一歩を踏み出せるよう支援。",
+    83→  },
+    84→  "about.pillar2.tag": { EN: "Pillar 02", JP: "柱 02" },
+    85→  "about.pillar2.title": { EN: "Talent Development", JP: "人材育成" },
+    86→  "about.pillar2.jp": { EN: "人材育成", JP: "人材育成" },
+    87→  "about.pillar2.desc": {
+    88→    EN: "Nurturing India representatives capable of competing locally through Indobox Academy — equipping your team with the language, business, and cultural fluency needed to win in the Indian market.",
+    89→    JP: "Indobox Academyを通じ、現地で競争できるインド担当者を育成 — インド市場で勝つために必要な語学・ビジネス・文化の流暢さをチームに装備。",
+    90→  },
+    91→  "about.pillar3.tag": { EN: "Pillar 03", JP: "柱 03" },
+    92→  "about.pillar3.title": { EN: "Business Collaboration", JP: "ビジネス連携" },
+    93→  "about.pillar3.jp": { EN: "ビジネス連携", JP: "ビジネス連携" },
+    94→  "about.pillar3.desc": {
+    95→    EN: "A dedicated space that accelerates exchange between Japanese and Indian companies — where partnerships, MoUs, and joint ventures are conceived, not just discussed.",
+    96→    JP: "日印両国の企業間交流を加速する専用空間 — パートナーシップ、MoU、合弁が議論されるだけでなく生まれる場所。",
+    97→  },
+    98→
+    99→  // About — Strategic Locations (Slide 3)
+   100→  "about.locations.eyebrow": { EN: "Strategic Locations", JP: "戦略的ロケーション" },
+   101→  "about.locations.title": { EN: "Strategic Locations: Hyderabad & Gurgaon", JP: "戦略的ロケーション：ハイデラバード ＆ グルガオン" },
+   102→  "about.locations.subtitle": {
+   103→    EN: "Two cities, two roles — a main base in India's rising tech capital, and a sub base at the heart of the country's largest Japanese business community.",
+   104→    JP: "二つの都市、二つの役割 — 台頭するインドのテック首都の主拠点と、国内最大の日本企業コミュニティの中心にあるサブ拠点。",
+   105→  },
+   106→  "about.hyderabad.tag": { EN: "Main Base", JP: "主拠点" },
+   107→  "about.hyderabad.title": { EN: "Hyderabad", JP: "ハイデラバード" },
+   108→  "about.hyderabad.status": { EN: "Launched June 2026", JP: "2026年6月開設" },
+   109→  "about.hyderabad.nick": { EN: "The 'Next Bangalore'", JP: "「ネクスト・バンガロール」" },
+   110→  "about.hyderabad.desc": {
+   111→    EN: "Known as the 'Next Bangalore,' with heavy concentration of IT, pharmaceutical, and biotechnology industries. Advanced infrastructure, numerous R&D hubs of global enterprises. The optimal business ecosystem for fostering innovation.",
+   112→    JP: "「ネクスト・バンガロール」として知られ、IT・製薬・バイオテクノロジー産業が集積。先進的なインフラと、グローバル企業のR&D拠点が多数立地。イノベーションを育む最適なビジネス生態系。",
+   113→  },
+   114→  "about.hyderabad.f1": { EN: "IT / Pharma / Biotech cluster", JP: "IT・製薬・バイオテク集積" },
+   115→  "about.hyderabad.f2": { EN: "Global R&D hub density", JP: "グローバルR&D拠点密度" },
+   116→  "about.hyderabad.f3": { EN: "Advanced urban infrastructure", JP: "先進的都市インフラ" },
+   117→  "about.gurgaon.tag": { EN: "Sub Base", JP: "サブ拠点" },
+   118→  "about.gurgaon.title": { EN: "Gurgaon", JP: "グルガオン" },
+   119→  "about.gurgaon.status": { EN: "In Preparation", JP: "準備中" },
+   120→  "about.gurgaon.nick": { EN: "Delhi NCR Business Core", JP: "デリーNCRビジネス中核" },
+   121→  "about.gurgaon.desc": {
+   122→    EN: "One of the largest business hubs adjacent to capital Delhi. The center of the community where the largest number of Japanese companies gather. Highly convenient for collaborating with existing clients and business partners.",
+   123→    JP: "首都デリーに隣接する最大級のビジネスハブの一つ。日本企業が最も多く集まるコミュニティの中心。既存の顧客やビジネスパートナーとの連携に極めて便利。",
+   124→  },
+   125→  "about.gurgaon.f1": { EN: "Largest Japanese-company community", JP: "最大の日本企業コミュニティ" },
+   126→  "about.gurgaon.f2": { EN: "Adjacent to capital Delhi", JP: "首都デリーに隣接" },
+   127→  "about.gurgaon.f3": { EN: "Direct client & partner access", JP: "顧客・パートナーへの直接アクセス" },
+   128→
+   129→  // About — story / mission / vision / values (existing, retained)
+   130→  "about.story.title": { EN: "Our Story", JP: "私たちのストーリー" },
+   131→  "about.story.body": {
+   132→    EN: "J-Gate was founded to bridge two of the world's most complementary technology ecosystems — India's deep engineering talent and Japan's enterprise precision. We exist to make that bridge operational, placing top-tier engineers and professionals into Japanese enterprises where they thrive.",
+   133→    JP: "J-Gateは、インドの深いエンジニアリング人材プールと日本の企業精度という、世界で最も補完的な技術生態系の二つを橋渡しするために設立されました。私たちはその橋を実現し、トップクラスのエンジニアとプロフェッショナルを日本企業に配置し、活躍させます。",
+   134→  },
+   135→  "about.mission.title": { EN: "Our Mission", JP: "ミッション" },
+   136→  "about.mission.body": {
+   137→    EN: "Empowering top-tier engineers and professionals with seamless career integration into Japan's leading enterprises — through recruitment, language mastery, and cultural fluency.",
+   138→    JP: "トップクラスのエンジニアとプロフェッショナルに、採用・語学習得・文化の流暢さを通じて、日本の代表的企業へのシームレスなキャリア統合を支援する。",
+   139→  },
+   140→  "about.vision.title": { EN: "Our Vision", JP: "ビジョン" },
+   141→  "about.vision.body": {
+   142→    EN: "To become the definitive Indo-Japanese talent pipeline and strategic bridge — the first name Japanese enterprises call when they need world-class technical talent.",
+   143→    JP: "決定的な日印人材パイプラインと戦略的架け橋になること — 日本企業が世界クラスの技術人材を必要とする時に最初に思い浮かべる名前になる。",
+   144→  },
+   145→  "about.values.title": { EN: "Our Core Values", JP: "コアバリュー" },
+   146→  "about.values.subtitle": { EN: "The principles that guide every placement, every training, every partnership.", JP: "すべての紹介、研修、パートナーシップを導く原則。" },
+   147→  "about.v1": { EN: "Integrity", JP: "誠実さ" },
+   148→  "about.v1.desc": { EN: "Transparent, honest, long-term relationships — never transactional.", JP: "透明で誠実な長期的関係 — 決して取引的ではない。" },
+   149→  "about.v2": { EN: "Cultural Fluency", JP: "文化的流暢さ" },
+   150→  "about.v2.desc": { EN: "Deep mastery of both Japanese and Indian business cultures.", JP: "日本とインドの両ビジネス文化の深い理解。" },
+   151→  "about.v3": { EN: "Technical Excellence", JP: "技術的卓越" },
+   152→  "about.v3.desc": { EN: "Rigorous screening — only the top percentile of technical talent.", JP: "厳格なスクリーニング — トップパーセンタイルの技術人材のみ。" },
+   153→  "about.v4": { EN: "Long-Term Partnership", JP: "長期パートナーシップ" },
+   154→  "about.v4.desc": { EN: "We succeed only when our placements and partners succeed.", JP: "紹介とパートナーが成功して初めて私たちも成功する。" },
+   155→
+   156→  // Why J-Gate — 4 differentiators
+   157→  "why.eyebrow": { EN: "Why J-Gate", JP: "J-Gateの強み" },
+   158→  "why.title": { EN: "The Strategic Investment Advantage", JP: "戦略的投資としての優位性" },
+   159→  "why.subtitle": {
+   160→    EN: "What makes J-Gate the trusted bridge between Indian technical talent and Japanese enterprises.",
+   161→    JP: "J-Gateがインドの技術人材と日本企業の信頼される架け橋である理由。",
+   162→  },
+   163→
+   164→  // Why — Competitive Comparison Table (Slide 10)
+   165→  "why.compare.eyebrow": { EN: "Side-by-Side Comparison", JP: "比較一覧表" },
+   166→  "why.compare.title": { EN: "J-Gate vs The Alternatives", JP: "J-Gateと他の選択肢の比較" },
+   167→  "why.compare.subtitle": {
+   168→    EN: "A direct comparison across the four representative paths Japanese enterprises consider when entering India — cost, support, network, and overall value.",
+   169→    JP: "日本企業がインド進出で検討する4つの代表選択肢を、コスト・サポート・ネットワーク・総合価値で直接比較。",
+   170→  },
+   171→  "why.compare.col.cap": { EN: "Comparison Item", JP: "比較項目" },
+   172→  "why.compare.col.jgate": { EN: "J-Gate", JP: "J-Gate" },
+   173→  "why.compare.col.consult": { EN: "Major Japanese Consulting Firms", JP: "日本大手コンサル" },
+   174→  "why.compare.col.cowork": { EN: "Local Coworking", JP: "現地コワーキング" },
+   175→  "why.compare.col.public": { EN: "Public Support Orgs", JP: "公的支援機関" },
+   176→  "why.compare.note": {
+   177→    EN: "J-Gate is the only option that combines a physical base, resident Japanese expertise, hands-on operational support, and direct hiring — at a cost-justifiable investment level.",
+   178→    JP: "J-Gateは、物理拠点・常駐日本語専門家・実務サポート・直接採用支援をすべて兼ね備え、かつ投資対効果が妥当な唯一の選択肢です。",
+   179→  },
+   180→  "why.row1.label": { EN: "Target Audience", JP: "対象顧客" },
+   181→  "why.row1.jgate": { EN: "Mid-size, SMEs, Municipalities, Startups, Regional Banks", JP: "中堅・中小・自治体・スタートアップ・地方銀" },
+   182→  "why.row1.consult": { EN: "Large Enterprises", JP: "大企業" },
+   183→  "why.row1.cowork": { EN: "Local Companies, Freelancers", JP: "現地企業・フリーランス" },
+   184→  "why.row1.public": { EN: "General / All", JP: "一般・全対象" },
+   185→  "why.row2.label": { EN: "Monthly Cost", JP: "月額費用" },
+   186→  "why.row2.jgate": { EN: "From 50,000 INR", JP: "50,000 INR〜" },
+   187→  "why.row2.consult": { EN: "¥500,000 – ¥1,000,000", JP: "50万〜100万円" },
+   188→  "why.row2.cowork": { EN: "10,000 – 60,000 INR", JP: "10,000〜60,000 INR" },
+   189→  "why.row2.public": { EN: "Free – Low Cost", JP: "無料〜低額" },
+   190→  "why.row3.label": { EN: "Physical Base", JP: "物理拠点" },
+   191→  "why.row3.jgate": { EN: "Yes", JP: "あり" },
+   192→  "why.row3.consult": { EN: "None (Separate contract needed)", JP: "なし（別契約必要）" },
+   193→  "why.row3.cowork": { EN: "Yes", JP: "あり" },
+   194→  "why.row3.public": { EN: "None (Temporary usage only)", JP: "なし（一時利用のみ）" },
+   195→  "why.row4.label": { EN: "Resident Japanese Expert", JP: "常駐日本語専門家" },
+   196→  "why.row4.jgate": { EN: "Yes (Japan Desk)", JP: "あり（ジャパンデスク）" },
+   197→  "why.row4.consult": { EN: "None (Dispatched per occasion)", JP: "なし（都度派遣）" },
+   198→  "why.row4.cowork": { EN: "None", JP: "なし" },
+   199→  "why.row4.public": { EN: "None (Local staff only)", JP: "なし（現地スタッフのみ）" },
+   200→  "why.row5.label": { EN: "Hands-on Support", JP: "実務サポート" },
+   201→  "why.row5.jgate": { EN: "Yes (Covers actual operations)", JP: "あり（実務まで対応）" },
+   202→  "why.row5.consult": { EN: "Yes (Mainly advisory)", JP: "あり（主に助言）" },
+   203→  "why.row5.cowork": { EN: "None", JP: "なし" },
+   204→  "why.row5.public": { EN: "Yes (Information/advice only)", JP: "あり（情報・助言のみ）" },
+   205→  "why.row6.label": { EN: "Japanese Language Support", JP: "日本語サポート" },
+   206→  "why.row6.jgate": { EN: "Fully Supported", JP: "完全対応" },
+   207→  "why.row6.consult": { EN: "Supported (High cost)", JP: "対応（高コスト）" },
+   208→  "why.row6.cowork": { EN: "None", JP: "なし" },
+   209→  "why.row6.public": { EN: "Supported (Limited)", JP: "対応（限定）" },
+   210→  "why.row7.label": { EN: "Hiring Support", JP: "採用支援" },
+   211→  "why.row7.jgate": { EN: "Yes (IndiGate Partnership)", JP: "あり（IndiGate連携）" },
+   212→  "why.row7.consult": { EN: "Yes (Referral only, expensive)", JP: "あり（紹介のみ・高額）" },
+   213→  "why.row7.cowork": { EN: "None", JP: "なし" },
+   214→  "why.row7.public": { EN: "None", JP: "なし" },
+   215→  "why.row8.label": { EN: "Network", JP: "ネットワーク" },
+   216→  "why.row8.jgate": { EN: "Close ties with T-Hub and local ecosystem", JP: "T-Hub・現地エコシステムと緊密" },
+   217→  "why.row8.consult": { EN: "Government agencies, large firms", JP: "政府機関・大企業" },
+   218→  "why.row8.cowork": { EN: "General users only", JP: "一般利用者のみ" },
+   219→  "why.row8.public": { EN: "Government agencies, large firms", JP: "政府機関・大企業" },
+   220→  "why.row9.label": { EN: "Cost Assessment", JP: "費用評価" },
+   221→  "why.row9.jgate": { EN: "◎ Optimal as a strategic investment", JP: "◎ 戦略投資として最適" },
+   222→  "why.row9.consult": { EN: "△ Very expensive", JP: "△ 非常に高額" },
+   223→  "why.row9.cowork": { EN: "Cheap, but no business support", JP: "安いがビジネス支援なし" },
+   224→  "why.row9.public": { EN: "◎ Extremely inexpensive", JP: "◎ 極めて低額" },
+   225→
+   226→  // Why — 7 Core Value Pillars (Slide 11)
+   227→  "why.pillars.eyebrow": { EN: "7 Core Value Pillars", JP: "7つのコアバリュー柱" },
+   228→  "why.pillars.title": { EN: "Value Proposition of J-Gate", JP: "J-Gateメンバーシップの提供価値" },
+   229→  "why.pillars.subtitle": {
+   230→    EN: "7 Pillars Accelerating Japanese Business in India — the complete membership value that turns a workspace into a strategic launchpad.",
+   231→    JP: "日本企業のインドビジネスを加速する7つの柱 — ワークスペースを戦略的拠点へと変える完全なメンバーシップ価値。",
+   232→  },
+   233→  "why.p1.title": { EN: "Workspace Access", JP: "ワークスペースアクセス" },
+   234→  "why.p1.desc": { EN: "Usage permitted for 2 to 4 persons per company — flexible seating sized to your team.", JP: "1社あたり2〜4名まで利用可能 — チーム規模に応じた柔軟な席数。" },
+   235→  "why.p2.title": { EN: "Infrastructure Utilization", JP: "インフラ利用" },
+   236→  "why.p2.desc": { EN: "Cabinets, Wi-Fi, meeting rooms, and cafeteria spaces — fully equipped for daily operations.", JP: "キャビネット・Wi-Fi・会議室・カフェテリア空間 — 日常業務に完全対応。" },
+   237→  "why.p3.title": { EN: "Japan Desk Consultations", JP: "ジャパンデスク相談" },
+   238→  "why.p3.desc": { EN: "General multi-topic advisory available entirely in Japanese — no language friction.", JP: "多分野にわたる総合相談を日本語で完全対応 — 言語の壁なし。" },
+   239→  "why.p4.title": { EN: "End-to-End Company Setup", JP: "エンドツーエンド設立支援" },
+   240→  "why.p4.desc": { EN: "Complete step-by-step guidance up to corporate entity establishment — from concept to registration.", JP: "法人設立までの完全ステップバイステップガイダンス — 構想から登記まで。" },
+   241→  "why.p5.title": { EN: "Expert Networking Events", JP: "専門家ネットワーキング" },
+   242→  "why.p5.desc": { EN: "Direct participation in networking events with business authorities and local experts.", JP: "ビジネス当局者や現地専門家とのネットワーキングイベントに直接参加。" },
+   243→  "why.p6.title": { EN: "India Study Sessions", JP: "インド勉強会" },
+   244→  "why.p6.desc": { EN: "Ongoing participation in specialized India market seminars — continuous learning, not one-off.", JP: "専門的なインド市場セミナーへの継続参加 — 単発ではなく継続的学習。" },
+   245→  "why.p7.title": { EN: "Talent Hiring & Local Services", JP: "採用支援・現地サービス" },
+   246→  "why.p7.desc": { EN: "Support across payroll, outsourcing, direct hiring, translation/interpretation, and meal delivery arrangements (Italian, Chinese, Japanese-style).", JP: "給与計算・アウトソーシング・直接採用・翻訳通訳・食事手配（イタリアン・中華・和食）を包括支援。" },
+   247→
+   248→  // Services — REAL PDF content (Slide 4: Indobox Comprehensive Expansion Support & Talent Development)
+   249→  "services.eyebrow": { EN: "Services", JP: "サービス" },
+   250→  "services.title": {
+   251→    EN: "Indobox's Unique Comprehensive Market Entry Support & Talent Development — Hyderabad's dedicated end-to-end platform for Japanese enterprises.",
+   252→    JP: "Indoboxならではの包括的進出支援・人材育成 — 日本企業のためのハイデラバード dedicated エンドツーエンドプラットフォーム。",
+   253→  },
+   254→  "services.subtitle": {
+   255→    EN: "From corporate establishment to practical daily operations — a single, integrated operating system for Japan-India market entry.",
+   256→    JP: "法人設立から日常実務まで — 日印市場進出のための単一の統合オペレーティングシステム。",
+   257→  },
+   258→  "services.s1.title": { EN: "Executive & Engineering Recruitment", JP: "エグゼクティブ&エンジニアリング採用" },
+   259→  "services.s1.short": { EN: "Direct hiring for Japanese tech enterprises.", JP: "日本のテック企業向け直接採用。" },
+   260→  "services.s1.desc": {
+   261→    EN: "Direct hiring channels into Japanese tech enterprises — from software engineers to C-suite executives. Rigorous technical screening, cultural-fit assessment, and bilingual interview facilitation. We place talent that stays.",
+   262→    JP: "日本のテック企業への直接採用チャネル — ソフトウェアエンジニアからC-suiteまで。厳格な技術スクリーニング、文化適合性評価、バイリンガル面接支援。定着する人材を紹介します。",
+   263→  },
+   264→  "services.s2.title": { EN: "Corporate Bridging & Consulting", JP: "企業橋渡し&コンサルティング" },
+   265→  "services.s2.short": { EN: "Cross-border business & project management.", JP: "越境ビジネス&プロジェクト管理。" },
+   266→  "services.s2.desc": {
+   267→    EN: "Cross-border business communication and technical project management. We bridge Japanese enterprises with Indian technology partners — handling MoU facilitation, partner vetting, and ongoing liaison.",
+   268→    JP: "越境ビジネスコミュニケーションと技術プロジェクト管理。日本企業とインドの技術パートナーを橋渡し — MoU調整、パートナー審査、継続的な連絡を担当。",
+   269→  },
+   270→  "services.s3.title": { EN: "Specialized Language & Business Training", JP: "専門語学&ビジネス研修" },
+   271→  "services.s3.short": { EN: "Intensive JLPT/NAT coaching for engineers.", JP: "エンジニア向け集中的JLPT/NATコーチング。" },
+   272→  "services.s3.desc": {
+   273→    EN: "Intensive JLPT/NAT language coaching tailored specifically for engineers. Corporate group training, individual coaching, business Japanese modules, and cultural etiquette — with measurable pass rates and on-the-job readiness.",
+   274→    JP: "エンジニア専用に設計された集中的JLPT/NAT語学コーチング。企業向け団体研修、個人コーチング、ビジネス日本語モジュール、文化エチケット — 測定可能な合格率と実務即戦力付き。",
+   275→  },
+   276→  "services.s4.title": { EN: "Post-Offer & Relocation Support", JP: "オファー後&再配置サポート" },
+   277→  "services.s4.short": { EN: "Visa, relocation, and housing transition.", JP: "ビザ・再配置・住居移行。" },
+   278→  "services.s4.desc": {
+   279→    EN: "Visa processing, relocation guidance, housing transition, and settling-in support. From offer acceptance to first day at the Tokyo office — we handle every logistical detail so your new hire arrives ready.",
+   280→    JP: "ビザ処理、再配置ガイダンス、住居移行、定着サポート。オファー承諾から東京オフィスでの初日まで — あらゆる物流的詳細を担当し、新入社員が準備を整えて到着します。",
+   281→  },
+   282→
+   283→  // Team — REAL PDF content (Slide 12: Board of Advisory & Ecosystem Partners + Slide 13: Operations Team)
+   284→  "team.eyebrow": { EN: "Team", JP: "チーム" },
+   285→  "team.title": { EN: "The Minds Behind J-Gate", JP: "J-Gateを支える人々" },
+   286→  "team.subtitle": {
+   287→    EN: "Unlocking new possibilities for your business through collaboration with India.",
+   288→    JP: "インドとの連携で、貴社のビジネスに新たな可能性を。",
+   289→  },
+   290→  "team.cat1": { EN: "Executive Leadership", JP: "経営陣" },
+   291→  "team.cat2": { EN: "Technical Advisors", JP: "技術アドバイザー" },
+   292→  "team.cat3": { EN: "Language & Cultural Mentors", JP: "語学&文化メンター" },
+   293→  "team.t1.name": { EN: "Mr. Daisuke Tanji", JP: "ダンジ・ダイスケ" },
+   294→  "team.t1.role": { EN: "Founder & CEO, Indobox India", JP: "創業者兼CEO、Indobox India" },
+   295→  "team.t1.bio": { EN: "A decade bridging Japan and India — founded J-Gate to make the corridor operational.", JP: "日印を橋渡しする10年 — 回廊を実現するためJ-Gateを創業。" },
+   296→  "team.t2.name": { EN: "Mr. Viinay Sarikonda", JP: "ヴィイナイ・サリコンダ" },
+   297→  "team.t2.role": { EN: "CEO, Genesys Info X · MoU Partner", JP: "CEO、Genesys Info X・MoUパートナー" },
+   298→  "team.t2.bio": { EN: "Hyderabad business ecosystem veteran — co-inaugurator of J-Gate.", JP: "ハイデラバードビジネス生態系のベテラン — J-Gate共同開設者。" },
+   299→  "team.t3.name": { EN: "Mr. Sujit Jagirdar", JP: "スジット・ジャギルダール" },
+   300→  "team.t3.role": { EN: "Technical Advisor · Former CIO, T-Hub", JP: "技術アドバイザー・元CIO、T-Hub" },
+   301→  "team.t3.bio": { EN: "Oversaw digital infrastructure at India's largest startup hub.", JP: "インド最大のスタートアップハブでデジタルインフラを統括。" },
+   302→  "team.t4.name": { EN: "Mr. Srinivas Rao Mahankali", JP: "スリニヴァス・ラオ・マハンカリ" },
+   303→  "team.t4.role": { EN: "Technical Advisor · Former CEO, T-Hub", JP: "技術アドバイザー・元CEO、T-Hub" },
+   304→  "team.t4.bio": { EN: "Led T-Hub through its most critical growth phase.", JP: "T-Hubの最も重要な成長期を主導。" },
+   305→  "team.t5.name": { EN: "Sensei Yuki Tanaka", JP: "田中ゆき先生" },
+   306→  "team.t5.role": { EN: "Lead Japanese Language Sensei", JP: "主任日本語講師" },
+   307→  "team.t5.bio": { EN: "JLPT-certified instructor with 15+ years teaching engineers.", JP: "JLPT認定講師、エンジニア指導15年以上。" },
+   308→  "team.t6.name": { EN: "Sensei Ravi Kumar", JP: "ラビ・クマール先生" },
+   309→  "team.t6.role": { EN: "Cultural Transition Consultant", JP: "文化移行コンサルタント" },
+   310→  "team.t6.bio": { EN: "Bridges Indian engineers into Japanese corporate culture.", JP: "インド人エンジニアを日本の企業文化へ橋渡し。" },
+   311→
+   312→  // Blogs & Culture — tabbed
+   313→  "blogs.eyebrow": { EN: "Blogs & Culture", JP: "ブログ&カルチャー" },
+   314→  "blogs.title": { EN: "Insights & Life at J-Gate", JP: "インサイト&J-Gateの日常" },
+   315→  "blogs.subtitle": {
+   316→    EN: "Industry insights, career guides, and a glimpse into life inside our workspace.",
+   317→    JP: "業界インサイト、キャリアガイド、ワークスペースの日常を垣間見る。",
+   318→  },
+   319→  "blogs.tab1": { EN: "Industry Insights", JP: "業界インサイト" },
+   320→  "blogs.tab2": { EN: "Life & Culture", JP: "ライフ&カルチャー" },
+   321→  "blogs.readmore": { EN: "Read More", JP: "続きを読む" },
+   322→  "blogs.b1.tag": { EN: "Career Guide", JP: "キャリアガイド" },
+   323→  "blogs.b1.title": { EN: "Why Indian Engineers Thrive in Japanese Enterprises", JP: "インド人エンジニアが日本企業で活躍する理由" },
+   324→  "blogs.b1.excerpt": {
+   325→    EN: "Cultural alignment, technical depth, and the bridge that makes the difference. A data-backed look at placement retention.",
+   326→    JP: "文化的適合、技術の深さ、そして違いを生む架け橋。定着率をデータで検証。",
+   327→  },
+   328→  "blogs.b2.tag": { EN: "JLPT Prep", JP: "JLPT対策" },
+   329→  "blogs.b2.title": { EN: "JLPT N2 in 18 Months: A Realistic Roadmap", JP: "18ヶ月でJLPT N2：現実的なロードマップ" },
+   330→  "blogs.b2.excerpt": {
+   331→    EN: "Our certified instructors break down the study path that actually works — from N5 foundations to N2 fluency.",
+   332→    JP: "認定講師が実際に機能する学習パスを解説 — N5の基礎からN2の流暢さまで。",
+   333→  },
+   334→  "blogs.b3.tag": { EN: "Tech in Tokyo", JP: "東京のテック" },
+   335→  "blogs.b3.title": { EN: "Tech in Tokyo: What Indian Engineers Need to Know", JP: "東京のテック：インド人エンジニアが知るべきこと" },
+   336→  "blogs.b3.excerpt": {
+   337→    EN: "From work culture to tech stacks — a practical guide for Indian engineers preparing for Tokyo placements.",
+   338→    JP: "仕事の文化から技術スタックまで — 東京配置に向けるインド人エンジニアのための実践ガイド。",
+   339→  },
+   340→  "blogs.gallery.title": { EN: "Inside the J-Gate Workspace", JP: "J-Gateワークスペースの内側" },
+   341→  "blogs.gallery.subtitle": { EN: "Office, canteen, team celebrations, and candidate workshops — Hyderabad.", JP: "オフィス、食堂、チームイベント、候補者ワークショップ — ハイデラバード。" },
+   342→  "blogs.g1": { EN: "Main Workspace", JP: "メインワークスペース" },
+   343→  "blogs.g2": { EN: "Dedicated Desks", JP: "専用デスク" },
+   344→  "blogs.g3": { EN: "Canteen & Lounge", JP: "食堂&ラウンジ" },
+   345→  "blogs.g4": { EN: "Conference Room", JP: "会議室" },
+   346→  "blogs.g5": { EN: "Team Celebrations", JP: "チームイベント" },
+   347→  "blogs.g6": { EN: "Candidate Workshops", JP: "候補者ワークショップ" },
+   348→  "blogs.g7": { EN: "Japanese Tea Lounge", JP: "日本茶ラウンジ" },
+   349→  "blogs.g8": { EN: "Cultural Events", JP: "文化イベント" },
+   350→
+   351→  // Social Proof
+   352→  "proof.eyebrow": { EN: "Social Proof", JP: "ソーシャルプルーフ" },
+   353→  "proof.title": { EN: "Trusted Across the Corridor", JP: "回廊全体で信頼される" },
+   354→  "proof.subtitle": {
+   355→    EN: "Corporate partners, candidate outcomes, and the numbers that define our track record.",
+   356→    JP: "企業パートナー、候補者の成果、実績を定義する数字。",
+   357→  },
+   358→  "proof.stats1": { EN: "Placements", JP: "紹介実績" },
+   359→  "proof.stats2": { EN: "JLPT Pass Rate", JP: "JLPT合格率" },
+   360→  "proof.stats3": { EN: "Corporate Partners", JP: "企業パートナー" },
+   361→  "proof.stats4": { EN: "Retention", JP: "定着率" },
+   362→
+   363→  // Contact — REAL PDF content (Slide 13: Contact Information)
+   364→  "contact.eyebrow": { EN: "Contact", JP: "お問い合わせ" },
+   365→  "contact.title": { EN: "Connect With J-Gate", JP: "J-Gateに繋がる" },
+   366→  "contact.subtitle": {
+   367→    EN: "Unlocking new possibilities for your business through collaboration with India — talk to the J-Gate operations team.",
+   368→    JP: "インドとの連携で、貴社のビジネスに新たな可能性を — J-Gate運営チームにご相談ください。",
+   369→  },
+   370→  "contact.tokyo": { EN: "Tokyo Office", JP: "東京オフィス" },
+   371→  "contact.india": { EN: "Hyderabad Office", JP: "ハイデラバードオフィス" },
+   372→  "contact.form.title": { EN: "Direct Inquiry", JP: "直接お問い合わせ" },
+   373→  "contact.form.name": { EN: "Full Name", JP: "お名前" },
+   374→  "contact.form.email": { EN: "Email", JP: "メール" },
+   375→  "contact.form.subject": { EN: "Subject", JP: "件名" },
+   376→  "contact.form.message": { EN: "Message", JP: "メッセージ" },
+   377→  "contact.form.submit": { EN: "Send Message", JP: "送信" },
+   378→  "contact.form.success": { EN: "Thank you! We'll respond within 24 hours — in Japanese.", JP: "ありがとうございます！24時間以内に日本語でご返信します。" },
+   379→
+   380→  // Pricing — NEW (Slide 9: Membership Fee Plans — Hyderabad)
+   381→  "pricing.eyebrow": { EN: "Membership", JP: "メンバーシップ" },
+   382→  "pricing.title": {
+   383→    EN: "Membership Fee Plans — Hyderabad",
+   384→    JP: "「[ハイデラバード] メンバーシップ料金プラン」",
+   385→  },
+   386→  "pricing.subtitle": {
+   387→    EN: "Designed as a high cost-performance strategic investment — replacing typical India expansion costs of ¥15M–¥20M annually per expat.",
+   388→    JP: "高い費用対効果の戦略的投資として設計 — 年間¥15M〜¥20Mかかる典型的な駐在員コストを代替。",
+   389→  },
+   390→
+   391→  // Brochure Modal
+   392→  "brochure.title": { EN: "Download the J-Gate Brochure", JP: "J-Gateパンフレットをダウンロード" },
+   393→  "brochure.subtitle": {
+   394→    EN: "Get the full overview of our services, track record, and partnership model. Register below to download instantly.",
+   395→    JP: "サービス、実績、パートナーシップモデルの完全な概要をご覧ください。下記登録で即時ダウンロード。",
+   396→  },
+   397→  "brochure.google": { EN: "Continue with Google", JP: "Googleで続行" },
+   398→  "brochure.divider": { EN: "Or register details manually", JP: "または手動で登録" },
+   399→  "brochure.name": { EN: "Full Name", JP: "お名前" },
+   400→  "brochure.namePh": { EN: "Your full name", JP: "お名前" },
+   401→  "brochure.org": { EN: "Organization / University", JP: "組織・大学名" },
+   402→  "brochure.orgPh": { EN: "Company or university name", JP: "企業名または大学名" },
+   403→  "brochure.email": { EN: "Corporate / Work Email", JP: "法人・勤務先メール" },
+   404→  "brochure.emailPh": { EN: "you@company.com", JP: "you@company.com" },
+   405→  "brochure.phone": { EN: "Contact / Phone Number", JP: "電話番号" },
+   406→  "brochure.phonePh": { EN: "+81 / +91 ...", JP: "+81 / +91 ..." },
+   407→  "brochure.questions": { EN: "Questions / Requirements (Optional)", JP: "ご質問・ご要望（任意）" },
+   408→  "brochure.questionsPh": { EN: "Tell us about your goals...", JP: "目標について教えてください..." },
+   409→  "brochure.consent": {
+   410→    EN: "I agree to the Privacy Policy and Terms, and to be contacted by J-Gate.",
+   411→    JP: "プライバシーポリシーと利用規約に同意し、J-Gateからの連絡を受け取ります。",
+   412→  },
+   413→  "brochure.submit": { EN: "Download Brochure", JP: "パンフレットをダウンロード" },
+   414→  "brochure.submitting": { EN: "Processing...", JP: "処理中..." },
+   415→  "brochure.success.title": { EN: "Thank you! Download starting...", JP: "ありがとうございます！ダウンロードを開始します..." },
+   416→  "brochure.success.body": {
+   417→    EN: "Your brochure download has started. A copy has also been sent to your email.",
+   418→    JP: "パンフレットのダウンロードが開始されました。メールにもコピーが送信されました。",
+   419→  },
+   420→  "brochure.success.downloadAgain": { EN: "Download again", JP: "再度ダウンロード" },
+   421→  "brochure.success.close": { EN: "Close", JP: "閉じる" },
+   422→  "brochure.error": { EN: "Something went wrong. Please try again.", JP: "エラーが発生しました。再度お試しください。" },
+   423→  "brochure.errName": { EN: "Name is required", JP: "お名前は必須です" },
+   424→  "brochure.errOrg": { EN: "Organization is required", JP: "組織名は必須です" },
+   425→  "brochure.errEmail": { EN: "Valid email is required", JP: "有効なメールアドレスが必要です" },
+   426→  "brochure.errPhone": { EN: "Phone number is required", JP: "電話番号は必須です" },
+   427→  "brochure.errConsent": { EN: "Please accept the terms to continue", JP: "続行には規約への同意が必要です" },
+   428→
+   429→  // Footer
+   430→  "footer.tagline": {
+   431→    EN: "Bridging global and Indian talent with Japan's enterprise opportunities.",
+   432→    JP: "グローバルおよびインドの人材と日本の企業機会を繋ぐ。",
+   433→  },
+   434→  "footer.navigate": { EN: "Navigate", JP: "ナビゲート" },
+   435→  "footer.network": { EN: "Our Network", JP: "ネットワーク" },
+   436→  "footer.contact": { EN: "Contact", JP: "お問い合わせ" },
+   437→  "footer.rights": { EN: "All rights reserved.", JP: "All rights reserved." },
+   438→  "footer.crafted": { EN: "Crafted with purpose in Hyderabad", JP: "ハイデラバードで制作" },
+   439→  "footer.privacy": { EN: "Privacy Policy", JP: "プライバシーポリシー" },
+   440→  "footer.terms": { EN: "Terms", JP: "利用規約" },
+   441→  "footer.bookTour": { EN: "Download Brochure", JP: "パンフレットダウンロード" },
+   442→
+   443→  // Common
+   444→  "common.send": { EN: "Send", JP: "送信" },
+   445→  "common.learnMore": { EN: "Learn More", JP: "詳しく見る" },
+   446→};
+   447→
+   448→type I18nContextType = {
+   449→  lang: Lang;
+   450→  setLang: (l: Lang) => void;
+   451→  toggle: () => void;
+   452→  t: (key: string) => string;
+   453→  /** Inline bilingual helper — for page-specific content */
+   454→  tx: (entry: { EN: string; JP: string }) => string;
+   455→};
+   456→
+   457→const I18nContext = createContext<I18nContextType | null>(null);
+   458→
+   459→export function I18nProvider({ children }: { children: ReactNode }) {
+   460→  const [lang, setLang] = useState<Lang>("EN");
+   461→
+   462→  const toggle = useCallback(() => {
+   463→    setLang((l) => (l === "EN" ? "JP" : "EN"));
+   464→  }, []);
+   465→
+   466→  const t = useCallback(
+   467→    (key: string) => {
+   468→      const entry = translations[key];
+   469→      if (!entry) return key;
+   470→      return entry[lang];
+   471→    },
+   472→    [lang]
+   473→  );
+   474→
+   475→  const tx = useCallback(
+   476→    (entry: { EN: string; JP: string }) => entry[lang],
+   477→    [lang]
+   478→  );
+   479→
+   480→  return (
+   481→    <I18nContext.Provider value={{ lang, setLang, toggle, t, tx }}>
+   482→      {children}
+   483→    </I18nContext.Provider>
+   484→  );
+   485→}
+   486→
+   487→export function useI18n() {
+   488→  const ctx = useContext(I18nContext);
+   489→  if (!ctx) {
+   490→    return {
+   491→      lang: "EN" as Lang,
+   492→      setLang: () => {},
+   493→      toggle: () => {},
+   494→      t: (key: string) => translations[key]?.EN ?? key,
+   495→      tx: (entry: { EN: string; JP: string }) => entry.EN,
+   496→    };
+   497→  }
+   498→  return ctx;
+   499→}
+   500→

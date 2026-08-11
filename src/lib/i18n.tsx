@@ -32,8 +32,8 @@ export const translations: Dictionary = {
 
   // Hero — REAL PDF content (Slide 1: Cover Page)
   "hero.eyebrow": { EN: "Japan × India Talent & Business Bridge", JP: "日本×インド 人材・ビジネスの架け橋" },
-  "hero.title1": { EN: "Birth of a Dedicated", JP: "「日本企業専用のワーキングハブ誕生」" },
-  "hero.title2": { EN: "Working Hub for Japanese Companies", JP: "「—ハイデラバードに—」" },
+  "hero.title1": { EN: "Birth of a Dedicated", JP: "Birth of a Dedicated" },
+  "hero.title2": { EN: "Working Hub for Japanese Companies", JP: "Working Hub for Japanese Companies" },
   "hero.subtitle": {
     EN: "The 'right answer' to expanding into India starts here. J-Gate is Hyderabad's dedicated working hub for Japanese companies, operated by Indobox India at Cyber Gateway.",
     JP: "インド進出の「正解」を、ここから。J-GateはIndobox IndiaがCyber Gatewayで運営する、日本企業専用のハイデラバード拠点です。",

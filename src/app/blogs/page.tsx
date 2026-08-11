@@ -1,7 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowRight, Clock, Camera, Bookmark, TrendingUp, Plane, FileText, Sparkles } from "lucide-react";
+import {
+  ArrowRight,
+  Clock,
+  Camera,
+  Bookmark,
+  TrendingUp,
+  Plane,
+  FileText,
+  Sparkles,
+  ArrowUpRight,
+} from "lucide-react";
 import { Reveal, Eyebrow } from "@/components/jgate/shared";
 import { PageHero } from "@/components/jgate/page-hero";
 import { Photo, useLightbox, type PhotoItem } from "@/components/jgate/photo";
@@ -10,119 +20,164 @@ import { cn } from "@/lib/utils";
 import Link from "next/link";
 
 /* ============================================================
-   /blogs — Blogs & Life at J-Gate
-   Dual-tabbed view:
-     • Industry Insights  — 6 article cards (2×3 grid)
-     • Life & Culture     — 8-photo masonry with lightbox
+   /blogs — Insights & Life at J-Gate
+   Dual-tabbed editorial magazine view:
+     • Industry Insights  — 6 article cards (large cover images + tag pill
+                              + number + read time + title + excerpt + Read More)
+     • Life & Culture     — 8-photo masonry grid with lightbox (hover label
+                              overlay + camera icon hint)
+   REAL content from spec. Premium editorial standard.
    ============================================================ */
 
 type Bilingual = { EN: string; JP: string };
 
 type Article = {
   key: string;
-  tagKey?: string;            // if present, use t() dictionary lookup for tag
-  tagInline?: Bilingual;       // otherwise use inline bilingual tag
-  tagColor: string;            // tailwind classes for tag pill
+  photoId: string;
+  fallback: string;
+  initials: string;
+  tag: Bilingual;
+  tagColor: string; // tailwind classes for tag pill
   tagIcon: typeof Bookmark;
   readTime: Bilingual;
-  titleKey?: string;
-  titleInline?: Bilingual;
-  excerptKey?: string;
-  excerptInline?: Bilingual;
-  gradient: string;
+  title: Bilingual;
+  excerpt: Bilingual;
+  accent: "crimson" | "saffron" | "success";
 };
 
 const ARTICLES: Article[] = [
   {
     key: "b1",
-    tagKey: "blogs.b1.tag",
+    photoId: "photo-blog-1",
+    fallback: "grad-office-main",
+    initials: "JG",
+    tag: { EN: "Career Guide", JP: "キャリアガイド" },
     tagColor: "bg-crimson/15 text-crimson",
     tagIcon: Bookmark,
     readTime: { EN: "5 min read", JP: "5分で読了" },
-    titleKey: "blogs.b1.title",
-    excerptKey: "blogs.b1.excerpt",
-    gradient: "from-crimson to-midnight",
+    title: {
+      EN: "Why Indian Engineers Thrive in Japanese Enterprises",
+      JP: "インド人エンジニアが日本企業で活躍する理由",
+    },
+    excerpt: {
+      EN: "Cultural alignment, technical depth, and the bridge that makes the difference. A data-backed look at placement retention.",
+      JP: "文化的適合、技術の深さ、そして違いを生む架け橋。定着率をデータで検証。",
+    },
+    accent: "crimson",
   },
   {
     key: "b2",
-    tagKey: "blogs.b2.tag",
+    photoId: "photo-blog-2",
+    fallback: "grad-office-desks",
+    initials: "JL",
+    tag: { EN: "JLPT Prep", JP: "JLPT対策" },
     tagColor: "bg-saffron/15 text-[#a06d00]",
     tagIcon: FileText,
     readTime: { EN: "7 min read", JP: "7分で読了" },
-    titleKey: "blogs.b2.title",
-    excerptKey: "blogs.b2.excerpt",
-    gradient: "from-saffron to-crimson",
+    title: {
+      EN: "JLPT N2 in 18 Months: A Realistic Roadmap",
+      JP: "18ヶ月でJLPT N2：現実的なロードマップ",
+    },
+    excerpt: {
+      EN: "Our certified instructors break down the study path that actually works — from N5 foundations to N2 fluency.",
+      JP: "認定講師が実際に機能する学習パスを解説 — N5の基礎からN2の流暢さまで。",
+    },
+    accent: "saffron",
   },
   {
     key: "b3",
-    tagKey: "blogs.b3.tag",
+    photoId: "photo-blog-3",
+    fallback: "grad-office-meeting",
+    initials: "TT",
+    tag: { EN: "Tech in Tokyo", JP: "東京のテック" },
     tagColor: "bg-success/15 text-success",
     tagIcon: TrendingUp,
     readTime: { EN: "6 min read", JP: "6分で読了" },
-    titleKey: "blogs.b3.title",
-    excerptKey: "blogs.b3.excerpt",
-    gradient: "from-navy to-success",
+    title: {
+      EN: "Tech in Tokyo: What Indian Engineers Need to Know",
+      JP: "東京のテック：インド人エンジニアが知るべきこと",
+    },
+    excerpt: {
+      EN: "From work culture to tech stacks — a practical guide for Indian engineers preparing for Tokyo placements.",
+      JP: "仕事の文化から技術スタックまで — 東京配置に向けるインド人エンジニアのための実践ガイド。",
+    },
+    accent: "success",
   },
   {
     key: "b4",
-    tagInline: { EN: "Visa Updates", JP: "ビザ最新情報" },
+    photoId: "photo-blog-4",
+    fallback: "grad-office-cabin",
+    initials: "VU",
+    tag: { EN: "Visa Updates", JP: "ビザ最新情報" },
     tagColor: "bg-crimson/15 text-crimson",
     tagIcon: Plane,
     readTime: { EN: "8 min read", JP: "8分で読了" },
-    titleInline: {
+    title: {
       EN: "Visa Updates 2026: The Engineer Visa Guide",
-      JP: "2026年ビザ最新情報：技術・人文知識・国際業務ビザ完全ガイド",
+      JP: "2026年ビザ最新情報：技術ビザ完全ガイド",
     },
-    excerptInline: {
-      EN: "The 2026 revision to Japan's Engineer/Specialist in Humanities/International Services visa — what changed, what Indian engineers need to prepare, and how J-Gate handles COE filing end-to-end.",
-      JP: "2026年に改正された日本の「技術・人文知識・国際業務」ビザ — 何が変わり、インド人エンジニアは何を準備すべきか、そしてJ-Gateが在留資格認定書（COE）申請をどのようにエンドツーエンドで処理するか。",
+    excerpt: {
+      EN: "The 2026 revision to Japan's Engineer visa — what changed, what Indian engineers need, and how J-Gate handles COE filing.",
+      JP: "2026年に改正された日本の技術ビザ — 何が変わり、インド人エンジニアは何を準備すべきか、J-GateのCOE申請対応。",
     },
-    gradient: "from-navy to-crimson",
+    accent: "crimson",
   },
   {
     key: "b5",
-    tagInline: { EN: "Business Culture", JP: "ビジネス文化" },
+    photoId: "photo-blog-5",
+    fallback: "grad-inauguration",
+    initials: "BC",
+    tag: { EN: "Business Culture", JP: "ビジネス文化" },
     tagColor: "bg-saffron/15 text-[#a06d00]",
     tagIcon: Sparkles,
     readTime: { EN: "6 min read", JP: "6分で読了" },
-    titleInline: {
+    title: {
       EN: "Business Japanese: 報連相 (Hōrensō) for Engineers",
       JP: "ビジネス日本語：エンジニアのための報連相（ほうれんそう）",
     },
-    excerptInline: {
-      EN: "Hōkoku (report), Renraku (communicate), Sōdan (consult) — the three-pillar rhythm of Japanese corporate life. Why mastering it determines whether an engineer thrives or merely survives.",
-      JP: "報告・連絡・相談 — 日本の企業生活を支える三本柱。なぜこれを習得できるかが、エンジニアが活躍するか単に生き残るかを決めるのか。",
+    excerpt: {
+      EN: "Hōkoku · Renraku · Sōdan — the three-pillar rhythm of Japanese corporate life that determines whether an engineer thrives.",
+      JP: "報告・連絡・相談 — 日本の企業生活を支える三本柱。エンジニアが活躍できるかを決めるリズム。",
     },
-    gradient: "from-saffron to-navy",
+    accent: "saffron",
   },
   {
     key: "b6",
-    tagInline: { EN: "Engineering", JP: "エンジニアリング" },
+    photoId: "photo-blog-6",
+    fallback: "grad-event",
+    initials: "ST",
+    tag: { EN: "Engineering", JP: "エンジニアリング" },
     tagColor: "bg-success/15 text-success",
     tagIcon: TrendingUp,
     readTime: { EN: "7 min read", JP: "7分で読了" },
-    titleInline: {
+    title: {
       EN: "From Hyderabad to Tokyo: A Success Story",
       JP: "ハイデラバードから東京へ：ある成功ストーリー",
     },
-    excerptInline: {
-      EN: "How a 26-year-old ML engineer from Hitech City moved through J-Gate's screening, JLPT N2 bootcamp, and visa pipeline to land — and thrive — at a Tokyo enterprise in fourteen months.",
-      JP: "ハイテクシティの26歳のMLエンジニアが、J-Gateのスクリーニング、JLPT N2ブートキャンプ、ビザパイプラインを経て、14ヶ月で東京企業に着任し活躍するに至った軌跡。",
+    excerpt: {
+      EN: "How a 26-year-old ML engineer from Hitech City moved through J-Gate's pipeline to thrive at a Tokyo enterprise in 14 months.",
+      JP: "ハイテクシティの26歳MLエンジニアが、J-Gateのパイプラインを経て、14ヶ月で東京企業に着任し活躍するまでの軌跡。",
     },
-    gradient: "from-crimson-deep to-saffron",
+    accent: "success",
   },
 ];
 
 const GALLERY: (PhotoItem & { gKey: string })[] = [
-  { id: "photo-blog-1", alt: "Main workspace at J-Gate Hyderabad", label: "Main Workspace", fallback: "grad-office-main",     initials: "JG", gKey: "blogs.g1" },
-  { id: "photo-blog-2", alt: "Dedicated desks at J-Gate",          label: "Dedicated Desks", fallback: "grad-office-desks",    initials: "DG", gKey: "blogs.g2" },
-  { id: "photo-blog-3", alt: "Canteen and lounge at J-Gate",       label: "Canteen & Lounge", fallback: "grad-canteen-main",   initials: "CN", gKey: "blogs.g3" },
-  { id: "photo-blog-4", alt: "Conference room at J-Gate",          label: "Conference Room", fallback: "grad-office-meeting",  initials: "CR", gKey: "blogs.g4" },
-  { id: "photo-blog-5", alt: "Team celebrations at J-Gate",        label: "Team Celebrations", fallback: "grad-inauguration",  initials: "TC", gKey: "blogs.g5" },
-  { id: "photo-blog-6", alt: "Candidate workshops at J-Gate",      label: "Candidate Workshops", fallback: "grad-event",       initials: "WS", gKey: "blogs.g6" },
-  { id: "photo-blog-7", alt: "Japanese tea lounge at J-Gate",      label: "Japanese Tea Lounge", fallback: "grad-canteen-japanese", initials: "🍵", gKey: "blogs.g7" },
-  { id: "photo-blog-8", alt: "Cultural events at J-Gate",          label: "Cultural Events", fallback: "grad-event",           initials: "CE", gKey: "blogs.g8" },
+  { id: "photo-blog-1", alt: "Main workspace at J-Gate Hyderabad",         label: "Main Workspace",        fallback: "grad-office-main",        initials: "JG", gKey: "blogs.g1" },
+  { id: "photo-blog-2", alt: "Dedicated desks at J-Gate",                  label: "Dedicated Desks",       fallback: "grad-office-desks",       initials: "DG", gKey: "blogs.g2" },
+  { id: "photo-blog-3", alt: "Canteen and lounge at J-Gate",               label: "Canteen & Lounge",     fallback: "grad-canteen-main",       initials: "CN", gKey: "blogs.g3" },
+  { id: "photo-blog-4", alt: "Conference room at J-Gate",                  label: "Conference Room",       fallback: "grad-office-meeting",     initials: "CR", gKey: "blogs.g4" },
+  { id: "photo-blog-5", alt: "Team celebrations at J-Gate",                 label: "Team Celebrations",     fallback: "grad-inauguration",       initials: "TC", gKey: "blogs.g5" },
+  { id: "photo-blog-6", alt: "Candidate workshops at J-Gate",              label: "Candidate Workshops",   fallback: "grad-event",              initials: "WS", gKey: "blogs.g6" },
+  { id: "photo-blog-7", alt: "Japanese tea lounge at J-Gate",             label: "Japanese Tea Lounge",   fallback: "grad-canteen-japanese",   initials: "🍵", gKey: "blogs.g7" },
+  { id: "photo-blog-8", alt: "Cultural events at J-Gate",                  label: "Cultural Events",       fallback: "grad-event",              initials: "CE", gKey: "blogs.g8" },
 ];
+
+const accentBarMap = {
+  crimson: "from-crimson to-crimson-deep",
+  saffron: "from-saffron to-[#c9881a]",
+  success: "from-success to-[#0f5c46]",
+} as const;
 
 export default function BlogsPage() {
   const { t, tx } = useI18n();
@@ -142,13 +197,6 @@ export default function BlogsPage() {
     );
   };
 
-  const getArticleTitle = (a: Article): string =>
-    a.titleKey ? t(a.titleKey) : tx(a.titleInline!);
-  const getArticleExcerpt = (a: Article): string =>
-    a.excerptKey ? t(a.excerptKey) : tx(a.excerptInline!);
-  const getArticleTag = (a: Article): string =>
-    a.tagKey ? t(a.tagKey) : tx(a.tagInline!);
-
   return (
     <>
       <PageHero
@@ -162,11 +210,11 @@ export default function BlogsPage() {
             </span>
           </>
         }
-        subtitleKey="blogs.title"
+        subtitleKey="blogs.subtitle"
       />
 
       {/* ───────────────────────────────────────────────────────────
-          Tab Switcher — pill toggle
+          Tab Switcher — pill toggle (Industry Insights | Life & Culture)
          ─────────────────────────────────────────────────────────── */}
       <section className="bg-ivory-warm pt-12 pb-2 md:pt-16">
         <div className="container-jg">
@@ -210,7 +258,9 @@ export default function BlogsPage() {
       </section>
 
       {/* ───────────────────────────────────────────────────────────
-          Tab 1 — Industry Insights (6 article cards)
+          Tab 1 — Industry Insights (6 article cards, editorial magazine style)
+          Large cover image slot + tag pill + number + read time + title +
+          excerpt + Read More → link.
          ─────────────────────────────────────────────────────────── */}
       {tab === "insights" && (
         <section className="section-pad bg-ivory-warm">
@@ -233,7 +283,7 @@ export default function BlogsPage() {
                 >
                   {tx({
                     EN: "Practical, deep-read articles written by our placement team, language sensei, and advisory council — distilled from real candidate journeys through the Japan-India corridor.",
-                    JP: "紹介チーム、語学講師、諮問評議会のメンバーが、日印回廊を通過する実際の候補者の軌跡から抽出した実践的で深い読み応えのある記事。",
+                    JP: "紹介チーム、語学講師、諮問評議会のメンバーが、日印回廊を通過する実際の候補者の軌跡から抽出した実践的な記事。",
                   })}
                 </p>
               </div>
@@ -245,26 +295,24 @@ export default function BlogsPage() {
                 return (
                   <Reveal key={a.key} delay={i * 90}>
                     <article className="lift-card group flex h-full flex-col overflow-hidden rounded-lg border border-crimson/10 bg-pearl shadow-card">
-                      {/* Gradient header */}
-                      <div
-                        className={cn(
-                          "relative flex h-36 items-center justify-center bg-gradient-to-br",
-                          a.gradient
-                        )}
-                      >
-                        <div
-                          className="absolute inset-0 opacity-30"
-                          style={{
-                            backgroundImage:
-                              "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.15) 1px, transparent 1.5px)",
-                            backgroundSize: "20px 20px",
-                          }}
-                          aria-hidden="true"
+                      {/* Large cover image slot */}
+                      <div className="relative h-56 w-full overflow-hidden">
+                        <Photo
+                          id={a.photoId}
+                          alt={tx(a.title)}
+                          fallback={a.fallback}
+                          initials={a.initials}
+                          rounded="rounded-none"
+                          className="h-56 w-full"
                         />
-                        <span className="relative font-serif-jp text-[2.75rem] font-bold text-white/30">
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        {/* Category tag pill */}
+                        {/* Top accent bar */}
+                        <span
+                          className={cn(
+                            "absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r",
+                            accentBarMap[a.accent]
+                          )}
+                        />
+                        {/* Tag pill — top-left */}
                         <span
                           className={cn(
                             "absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-md bg-pearl px-2.5 py-1 font-inter text-[10px] font-bold uppercase shadow-card",
@@ -273,7 +321,14 @@ export default function BlogsPage() {
                           style={{ letterSpacing: "0.1em" }}
                         >
                           <TagIcon className="h-3 w-3" />
-                          {getArticleTag(a)}
+                          {tx(a.tag)}
+                        </span>
+                        {/* Large faded article number — top-right */}
+                        <span
+                          className="absolute right-3 top-3 font-serif-jp text-[2.75rem] font-bold leading-none text-white/30 drop-shadow-sm"
+                          aria-hidden="true"
+                        >
+                          {String(i + 1).padStart(2, "0")}
                         </span>
                         {/* Hover sheen */}
                         <div
@@ -293,19 +348,23 @@ export default function BlogsPage() {
                             <Clock className="h-3.5 w-3.5 text-saffron" />
                             {tx(a.readTime)}
                           </span>
+                          <span className="text-mist/40">·</span>
+                          <span className="flex items-center gap-1.5 font-medium uppercase text-mist" style={{ letterSpacing: "0.08em" }}>
+                            {tx(a.tag)}
+                          </span>
                         </div>
                         <h3
-                          className="mt-3 font-serif-jp text-lg font-bold leading-snug text-ink transition-colors group-hover:text-crimson"
+                          className="mt-3 font-serif-jp font-bold leading-snug text-ink transition-colors group-hover:text-crimson"
                           style={{ fontSize: "clamp(1.0625rem, 1.8vw, 1.1875rem)" }}
                         >
-                          {getArticleTitle(a)}
+                          {tx(a.title)}
                         </h3>
                         <p className="mt-2.5 flex-1 font-inter text-[13px] leading-relaxed text-slate">
-                          {getArticleExcerpt(a)}
+                          {tx(a.excerpt)}
                         </p>
                         <button
                           className="mt-5 inline-flex items-center gap-1.5 font-inter text-[13px] font-semibold text-crimson transition-all hover:gap-2.5"
-                          aria-label={`${tx({ EN: "Read more about", JP: "続きを読む：" })} ${getArticleTitle(a)}`}
+                          aria-label={`${tx({ EN: "Read more about", JP: "続きを読む：" })} ${tx(a.title)}`}
                         >
                           {t("blogs.readmore")}
                           <ArrowRight className="h-3.5 w-3.5" />
@@ -335,7 +394,7 @@ export default function BlogsPage() {
                   href="/auth/brochure"
                   className="btn-shine flex shrink-0 items-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-6 py-3 font-inter text-[13px] font-semibold text-white shadow-crimp transition-all hover:-translate-y-0.5"
                 >
-                  {tx({ EN: "Subscribe via Brochure", JP: "パンフレット経由で登録" })}
+                  {tx({ EN: "Subscribe", JP: "登録する" })}
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
@@ -346,6 +405,7 @@ export default function BlogsPage() {
 
       {/* ───────────────────────────────────────────────────────────
           Tab 2 — Life & Culture Gallery (8 photos, masonry, lightbox)
+          Hover: label overlay + camera icon hint.
          ─────────────────────────────────────────────────────────── */}
       {tab === "culture" && (
         <section className="section-pad relative overflow-hidden bg-midnight">
@@ -384,19 +444,19 @@ export default function BlogsPage() {
                 const heights = ["h-72", "h-48", "h-56", "h-72", "h-48", "h-72", "h-56", "h-48"];
                 return (
                   <Reveal key={g.id} delay={(i % 4) * 80}>
-                    <figure className="group relative">
+                    <figure className="group relative cursor-pointer">
                       <Photo
                         id={g.id}
                         alt={g.alt}
                         fallback={g.fallback}
                         initials={g.initials}
                         rounded="rounded-lg"
-                        className={cn("w-full cursor-pointer shadow-card", heights[i % heights.length])}
+                        className={cn("w-full shadow-card", heights[i % heights.length])}
                         onClick={() => openGallery(i)}
                       />
-                      {/* Hover label overlay */}
+                      {/* Hover label overlay — bottom gradient with label */}
                       <figcaption
-                        className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end rounded-b-lg p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                        className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between rounded-b-lg p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
                         style={{
                           background:
                             "linear-gradient(to top, rgba(8,15,26,0.92) 0%, rgba(8,15,26,0.55) 50%, transparent 100%)",
@@ -405,8 +465,9 @@ export default function BlogsPage() {
                         <span className="font-inter text-[12px] font-semibold text-white">
                           {t(g.gKey)}
                         </span>
+                        <ArrowUpRight className="h-4 w-4 text-saffron" />
                       </figcaption>
-                      {/* Camera icon hint */}
+                      {/* Camera icon hint — top-right */}
                       <span
                         className="pointer-events-none absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/40 text-white opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100 group-hover:scale-110"
                         aria-hidden="true"

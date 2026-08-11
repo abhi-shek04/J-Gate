@@ -1,0 +1,1421 @@
+     1→# ████████████████████████████████████████████████████████████
+     2→# ██                                                        ██
+     3→# ██   J-GATE — DEFINITIVE REDESIGN PROMPT  v3.0           ██
+     4→# ██   Full-Data · Photo-Ready · Industrial Grade           ██
+     5→# ██   Paste into Claude / v0 / Bolt / Lovable             ██
+     6→# ██                                                        ██
+     7→# ████████████████████████████████████████████████████████████
+     8→
+     9→---
+    10→
+    11→## ROLE & MISSION
+    12→
+    13→You are a senior product designer and lead frontend engineer at a world-class 
+    14→digital agency — the kind that builds websites for luxury hotel brands, 
+    15→sovereign investment funds, and global institutions.
+    16→
+    17→Your client is J-Gate — not a generic coworking space, but Hyderabad's 
+    18→dedicated working hub exclusively for Japanese companies entering India, 
+    19→operated by Indobox India Private Limited.
+    20→
+    21→The current website exists but lacks the premium visual weight, depth of 
+    22→storytelling, and conversion architecture that a brand of this significance 
+    23→demands. Your job is to rebuild it — completely — at an Industrious / 
+    24→Japan House / Aman Resorts standard of quality.
+    25→
+    26→Take your time. Think carefully. Do not rush a single section. Every layout 
+    27→decision, every word of copy, every spacing choice must feel intentional and 
+    28→considered. This is not a template job. This is an identity-defining moment 
+    29→for a brand that bridges two civilisations.
+    30→
+    31→---
+    32→
+    33→## DELIVERABLE
+    34→
+    35→ONE complete Next.js/React application OR one single self-contained 
+    36→index.html file (all CSS + JS embedded). Choose whatever produces the 
+    37→most premium visual output.
+    38→
+    39→The page must:
+    40→- Open in a browser immediately with zero broken elements
+    41→- Be fully responsive from 320px mobile to 1440px+ desktop
+    42→- Have all real data filled in (no lorem ipsum, no "[INSERT TEXT]")
+    43→- Have labeled <img> placeholders with CSS gradient fallbacks for every 
+    44→  photo slot — so the client can swap in real photos by changing the src
+    45→- Feel like it belongs among the world's best institutional websites
+    46→
+    47→---
+    48→
+    49→## ══════════════════════════════════════════════════
+    50→## REAL BRAND DATA — USE EXACTLY AS WRITTEN BELOW
+    51→## ══════════════════════════════════════════════════
+    52→
+    53→### Identity
+    54→Brand Name:         J-Gate (Jゲート)
+    55→Full Name:          J-Gate — Dedicated Working Hub for Japanese Companies
+    56→Operated by:        Indobox India Private Limited
+    57→Main Location:      Cyber Gateway, Hitech City, Hyderabad, Telangana — Launched June 2026
+    58→Sub Location:       Gurgaon (NCR, Delhi) — In Preparation
+    59→MoU Partner:        Genesys Info X (Dr. Viinay Sarikonda, CEO)
+    60→Contact Email:      contact@indobox.co.jp
+    61→Phone Tanji:        +91-9910360648
+    62→Phone Dheeraj:      +91-98498 11543
+    63→
+    64→### Core Taglines (use exactly)
+    65→Main headline:      「日本企業専用のワーキングハブ誕生」
+    66→English:            "Birth of a Dedicated Working Hub for Japanese Companies"
+    67→Catchphrase:        インド進出の「正解」を、ここから。
+    68→English:            "The 'right answer' to expanding into India, starts here."
+    69→Sub-line:           "J-Gate is Hyderabad's dedicated working hub for Japanese 
+    70→                     companies, operated by Indobox India at Cyber Gateway."
+    71→
+    72→### Three Core Pillars
+    73→Pillar 01: きっかけ作り — Opportunity Creation
+    74→"Providing an environment where local activities can start quickly with 
+    75→minimal assets — so Japanese enterprises can begin their India journey 
+    76→without heavy upfront investment."
+    77→
+    78→Pillar 02: 人材育成 — Talent Development
+    79→"Nurturing India representatives capable of competing locally through 
+    80→Indobox Academy — equipping your team with language, business, and 
+    81→cultural fluency needed to win in the Indian market."
+    82→
+    83→Pillar 03: ビジネス連携 — Business Collaboration
+    84→"A dedicated space that accelerates exchange between Japanese and Indian 
+    85→companies — where partnerships, MoUs, and joint ventures are conceived, 
+    86→not just discussed."
+    87→
+    88→### Location Details
+    89→Hyderabad (Main Base — Live June 2026):
+    90→  - Known as "The Next Bangalore"
+    91→  - Heavy IT, pharmaceutical, and biotechnology concentration
+    92→  - Numerous global enterprise R&D hubs
+    93→  - Advanced infrastructure, optimal for innovation
+    94→
+    95→Gurgaon (Sub Base — In Preparation):
+    96→  - Largest business hub adjacent to Delhi capital
+    97→  - Highest concentration of Japanese companies in India
+    98→  - Ideal for collaborating with existing Japanese clients/partners
+    99→
+   100→### The Operations Team (4 people — use real names/roles)
+   101→1. Daisuke TANJI (丹治 大佑) — Director
+   102→   Nationality: 🇯🇵 Japanese
+   103→   Role: Representative of Indobox — leads J-Gate operations 
+   104→   with a decade of India-side bridging experience.
+   105→   Phone: +91-9910360648
+   106→
+   107→2. Mariko HANAOKA (花岡 真理子) — Director
+   108→   Nationality: 🇯🇵 Japanese
+   109→   Role: Oversees client relationships, program delivery, and 
+   110→   the Japan-facing side of the bilateral handoff.
+   111→
+   112→3. Dheeraj YANNETI (ディラジ・ヤンネティ) — Community Manager
+   113→   Nationality: 🇮🇳 Indian
+   114→   Role: Day-to-day heartbeat of J-Gate Hyderabad — tenant 
+   115→   relations, networking events, and cultural bridge.
+   116→   Phone: +91-98498 11543
+   117→
+   118→4. Abhishek BUDURU (アブシェーク・ブドゥル) — Intern / Tech
+   119→   Nationality: 🇮🇳 Indian
+   120→   Role: Supporting technical layer — workspace infrastructure, 
+   121→   digital tools, and operational systems.
+   122→
+   123→### Advisory Board (5 members — use real names/titles)
+   124→1. Srinivas Rao Mahankali (スリニヴァス・ラオ・マハンカリ)
+   125→   Former CEO, T-Hub
+   126→
+   127→2. Sujit Jagirdar (スジット・ジャギルダール)
+   128→   Former CIO, T-Hub
+   129→
+   130→3. Dr. Uday B. Desai (ウダイ・B・デサイ博士)
+   131→   Founding Director, IIT Hyderabad
+   132→
+   133→4. Dr. Viinay Sarikonda (ヴィイナイ・サリコンダ博士)
+   134→   CEO, Genesys Info X
+   135→
+   136→5. Tomio Isogai (磯貝 富雄)
+   137→   Indobox Advisor · Former Managing Director, Sharp India
+   138→
+   139→### Indobox Academy
+   140→Lecturer:    Tomio Isogai (磯貝 富雄) — Former Sharp India MD
+   141→Facilitator: Daisuke Tanji (丹治 大佑)
+   142→Format:      Online, 60 minutes/session, once every 1–2 months
+   143→Topics:      Local business customs, risk management, keys to success
+   144→
+   145→### Hybrid Operating Model
+   146→Indobox Responsibilities:
+   147→  - Marketing and client acquisition
+   148→  - Japan–India facilitation & coordination
+   149→  - Client relationship management
+   150→  - Securing project leads
+   151→
+   152→Genesys Responsibilities:
+   153→  - Providing high-quality workspaces
+   154→  - Securing and managing local talent
+   155→  - Engaging Indian companies seeking Japanese partners
+   156→  - Facility and infrastructure maintenance
+   157→
+   158→### Facility Features (6 areas — use all)
+   159→1. 専用ワークスペース (Dedicated Workspace)
+   160→   Fixed desks, cabinets, private lockers
+   161→2. 通信インフラ (Communication Infrastructure)
+   162→   High-speed Wi-Fi, Xerox multifunction printers/copiers
+   163→3. 会議室 (Meeting Rooms)
+   164→   For negotiations and internal meetings, stepwise expansion
+   165→4. 共同食堂 (Shared Cafeteria) — "TASTY FOOD JUNCTION"
+   166→   Indian snacks, classic curries, biryani, Indian-Chinese cuisine
+   167→   Cafeteria counter, dining hall, refrigerator, water dispenser, coffee machine
+   168→5. 24/7アクセス (24/7 Access)
+   169→   24 hrs/day, 365 days/year, dedicated smart key cards
+   170→6. セキュリティ (Security)
+   171→   Reliable, secure management and controlled access
+   172→
+   173→### Facility Photo Areas (real areas to showcase)
+   174→Office Exterior: View from main road
+   175→Building Entry: B-Block indoor entry gate
+   176→J-Gate Entrance: J-Gate entrance area
+   177→Workspace Hall: Large workspace hall
+   178→Japan Desk: Indobox Japan Desk
+   179→Main Building: Main building entrance + elevators
+   180→J-Gate Logo Area: Logo display area
+   181→Private Lockers: Cabinet/locker area
+   182→Courtyard: Outdoor courtyard
+   183→Genesys Office: Genesys Info (J-Gate) office entrance
+   184→Working Spaces: Individual working space views
+   185→Small Meeting Room: Small meeting room
+   186→Large Meeting Room: Large meeting room
+   187→Cafeteria: TASTY FOOD JUNCTION — counter + dining hall + food
+   188→Break Room: In-office dining/break room (fridge + coffee + water)
+   189→Inauguration: Ribbon cutting + Rangoli ceremony
+   190→
+   191→### Membership Pricing Plans (REAL PRICES — use exactly)
+   192→Context: Replaces typical ¥15M–¥20M annual expat cost
+   193→
+   194→Plan 1: Satellite Plan (サテライトプラン)
+   195→  Price: 15,000 INR/month (excl. GST) — ~¥27,000/month
+   196→  Target: Japanese companies with existing India entity
+   197→  Includes:
+   198→    • Workspace usage (unlimited, up to 2 people)
+   199→    • Full infrastructure usage
+   200→    • Market development base for Hyderabad/Andhra Pradesh
+   201→
+   202→Plan 2: Standard Plan (スタンダードプラン) — MOST POPULAR
+   203→  Price: 50,000 INR/month (excl. GST) — ~¥90,000/month
+   204→  Target: Japanese SMEs and startups entering India
+   205→  Includes:
+   206→    • Workspace (unlimited, up to 4 people)
+   207→    • Full infrastructure usage
+   208→    • "Yorozu" Consultation in-person (何でも相談)
+   209→    • India study sessions participation
+   210→    • Initial network introductions
+   211→
+   212→Plan 3: Advance Plan (アドバンスプラン) — FLAGSHIP
+   213→  Price: 120,000 INR/month (excl. GST) — ~¥216,000/month
+   214→  Target: Enterprises, regional banks, local governments
+   215→  Includes:
+   216→    • Everything in Standard Plan
+   217→    • Indobox early-phase hands-on consulting
+   218→    • Business meeting accompaniment (up to 1×/month)
+   219→    • Priority networking event invitations
+   220→    • Detailed local partner introductions & matching
+   221→
+   222→Billing Notes:
+   223→  - All prices are base fees (corporate registration + recruitment 
+   224→    commissions charged separately)
+   225→  - Billed in INR; JPY settlement also supported
+   226→  - All prices exclude India GST
+   227→
+   228→### Competitive Comparison Table (use all 8 rows exactly)
+   229→Item              | J-Gate            | JP Consulting    | Local Cowork    | Public Orgs
+   230→Target            | SMEs/Startups/Gov | Large Enterprise | Local/Freelance | General
+   231→Monthly Cost      | From 50,000 INR   | ¥500K–¥1M       | 10K–60K INR     | Free–Low
+   232→Physical Base     | ✓ Yes             | ✗ Separate       | ✓ Yes           | ✗ None
+   233→Resident JP Expert| ✓ Japan Desk      | ✗ Dispatched     | ✗ None          | ✗ None
+   234→Hands-on Support  | ✓ Operations      | △ Advisory only  | ✗ None          | △ Info only
+   235→JP Language       | ✓ Fully           | △ High cost      | ✗ None          | △ Limited
+   236→Hiring Support    | ✓ IndiGate        | △ Referral only  | ✗ None          | ✗ None
+   237→Network           | T-Hub + Ecosystem | Gov + Large firms | General only   | Gov + Large
+   238→Cost Rating       | ◎ Optimal         | △ Very expensive | Cheap/no support| ◎ Very cheap
+   239→
+   240→### 7 Core Value Pillars (use all 7)
+   241→1. Workspace Access — 2–4 persons per company
+   242→2. Infrastructure Utilization — cabinets, Wi-Fi, meeting rooms, cafeteria
+   243→3. Japan Desk Consultations — entirely in Japanese, any topic
+   244→4. End-to-End Company Setup — from curiosity to corporate entity
+   245→5. Expert Networking Events — business authorities, local experts
+   246→6. India Study Sessions — ongoing market seminars, not one-off
+   247→7. Talent Hiring & Local Services — payroll, outsourcing, hiring, 
+   248→   interpretation, meal delivery (Italian, Chinese, Japanese-style)
+   249→
+   250→### Business Expansion Services (5 services)
+   251→1. Corporate Registration & Nominee Director
+   252→   Registration address + Nominee Director name — turnkey legal footprint
+   253→2. Talent Development, Dispatching & Payroll
+   254→   Full talent lifecycle — development, dispatch, payroll management
+   255→3. Sales & Marketing Support
+   256→   Lead generation, partner outreach, bilingual B2B/B2G campaigns
+   257→4. Interpretation & Back-Office Outsourcing
+   258→   Bookkeeping, accounting, vendor coordination by JP-speaking staff
+   259→5. End-to-End Support: Setup to Daily Operations
+   260→   One accountable partner from corporate establishment to daily ops
+   261→
+   262→### Key Statistics (use on page)
+   263→100+    Network Partners
+   264→500+    Engineers Placed
+   265→94%     JLPT Pass Rate
+   266→92%     12-month Retention Rate
+   267→
+   268→### Ecosystem Partners (use all)
+   269→JETRO (Japan External Trade Organization)
+   270→T-Hub (India's #1 Startup Innovation Hub)
+   271→Woxsen University
+   272→Genesys Info X
+   273→DATA INTELLIGENCE
+   274→Kodryx.ai
+   275→YANC (Young Minds Networking Life Skills)
+   276→Daakia (Bridging Distance)
+   277→FINGERPRINT FILMS
+   278→MXC
+   279→Hyderabad Japan Club
+   280→DMI
+   281→
+   282→---
+   283→
+   284→## ══════════════════════════════════════════════════
+   285→## DESIGN SYSTEM — EXACT SPECIFICATIONS
+   286→## ══════════════════════════════════════════════════
+   287→
+   288→### What's Wrong With the Current Site
+   289→The existing site has:
+   290→  - Correct content structure but lacks visual premium-ness
+   291→  - Generic card layouts with no photographic weight
+   292→  - No emotional storytelling through imagery
+   293→  - Flat section backgrounds with no depth or texture
+   294→  - Team section shows only initials — no personality
+   295→  - Facility section is a bullet list — should be an immersive showcase
+   296→  - Numbers/stats section lacks visual impact
+   297→  - No scroll animation, no motion, no life
+   298→
+   299→### What the Redesign Must Achieve
+   300→Think: Industrious (boutique hotel vibes for workspace)
+   301→       + Japan House Tokyo (cultural gravitas)
+   302→       + McKinsey.com (institutional trust)
+   303→       + Cyber gateway prestige
+   304→
+   305→The redesign must feel like the client paid ¥5M for it.
+   306→Every section must be intentional. No filler. No generic.
+   307→
+   308→### Color Palette
+   309→--crimson:       #BC1A2C   /* Japanese Hinomaru — hero, CTAs, accents */
+   310→--crimson-deep:  #8B0F1E   /* hover, depth states */
+   311→--midnight:      #080F1A   /* hero bg, footer */
+   312→--navy:          #0D1B2A   /* dark sections */
+   313→--ivory:         #F5F0E8   /* warm page background — not cold white */
+   314→--ivory-alt:     #EDE8DE   /* alternating section bg */
+   315→--pearl:         #FAFAFA   /* card surfaces */
+   316→--ink:           #111827   /* headlines on light bg */
+   317→--slate:         #4A4E69   /* body text */
+   318→--mist:          #8892A4   /* captions, secondary */
+   319→--saffron:       #E8A01A   /* India accent, advisory, gold */
+   320→--success:       #1A936F   /* growth bullets, positive indicators */
+   321→--glass:         rgba(255,255,255,0.06)
+   322→--glass-border:  rgba(255,255,255,0.10)
+   323→
+   324→### Typography
+   325→Load via Google Fonts:
+   326→<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+   327→
+   328→H1/H2/Display:   'Noto Serif JP' — bilingual prestige
+   329→Body/UI text:    'Inter' — modern, readable
+   330→Labels/Tags:     'Noto Sans JP' — functional, bilingual
+   331→
+   332→### Photo Placeholder System
+   333→EVERY image slot follows this exact pattern:
+   334→```html
+   335→<div class="photo-frame">
+   336→  <img id="photo-[unique-id]" 
+   337→       src="" 
+   338→       alt="[descriptive alt text]"
+   339→       class="photo-img"
+   340→       onerror="this.parentElement.classList.add('no-image')">
+   341→  <div class="photo-fallback">
+   342→    <span class="photo-initial">[INITIALS or LABEL]</span>
+   343→  </div>
+   344→</div>
+   345→```
+   346→CSS: .photo-frame has position:relative overflow:hidden
+   347→     .photo-img covers 100% with object-fit:cover
+   348→     .photo-fallback is absolute-positioned gradient behind the img
+   349→     When src="" or broken, gradient fallback is visible
+   350→
+   351→Unique gradient per area:
+   352→  Workspace photos:   linear-gradient(135deg, #0D1B2A, #1a3a5c)
+   353→  Team portraits:     linear-gradient(135deg, #0D1B2A, #BC1A2C 120%)
+   354→  Cafeteria:          linear-gradient(135deg, #1a2010, #3a4a25)
+   355→  Advisory:           linear-gradient(135deg, #0D1B2A, #2d3a4f)
+   356→  Event/inauguration: linear-gradient(135deg, #1a0f0f, #3a1515)
+   357→
+   358→### The Signature Element — Torii Gate
+   359→A minimal, geometric SVG torii gate:
+   360→  - Two vertical posts + two horizontal bars (top bar curved upward at ends)
+   361→  - Always STROKE only, never filled
+   362→  - Color: var(--crimson) or white depending on context
+   363→  - Used 3 times maximum on the page:
+   364→    1. As navbar logo icon (28px, crimson)
+   365→    2. Hero section background (large, opacity 0.05, centered-right)
+   366→    3. Final CTA section (full-width watermark, opacity 0.04)
+   367→
+   368→### Motion Principles
+   369→Scroll reveal: IntersectionObserver → .in-view class
+   370→               transform: translateY(32px) opacity:0 → translateY(0) opacity:1
+   371→               transition: 0.6s cubic-bezier(0.4, 0, 0.2, 1)
+   372→               Stagger siblings: delay +0.1s each
+   373→
+   374→Hover on cards: translateY(-8px) + shadow deepen, 0.35s ease
+   375→Image zoom:     scale(1.04) on hover, overflow:hidden on container
+   376→Counter anim:   count up from 0 to value on first scroll into view
+   377→Torii:          subtle slow rotate 0.05deg oscillation on hero
+   378→
+   379→@media(prefers-reduced-motion: reduce) → disable ALL
+   380→
+   381→---
+   382→
+   383→## ══════════════════════════════════════════════════
+   384→## PAGE ARCHITECTURE — ALL 8 PAGES FULLY SPECIFIED
+   385→## ══════════════════════════════════════════════════
+   386→
+   387→Build as a multi-page site OR a single-page with section IDs.
+   388→Navigation links: Home · About · Why J-Gate · Services · Team · Pricing · 
+   389→                  Blogs & Culture · Contact
+   390→
+   391→---
+   392→
+   393→### ▌ NAVIGATION (Shared across all pages)
+   394→
+   395→Fixed top. Full width. z-index:1000.
+   396→
+   397→LEFT: Torii SVG icon (28px, crimson stroke) + "J-Gate" (Noto Serif JP 600 
+   398→      20px) + "Jゲート" (Noto Sans JP 11px, mist, below)
+   399→
+   400→CENTER (desktop): Home · About · Why J-Gate · Services · Team · Pricing · 
+   401→                  Blogs & Culture · Contact
+   402→  Inter 500, 14px, active = crimson underline, hover = crimson fade-in
+   403→
+   404→RIGHT: [JP | EN] pill toggle + [Download Brochure] (crimson button)
+   405→
+   406→Scroll behavior:
+   407→  0px: transparent, white text (on dark hero)
+   408→  >80px: rgba(8,15,26,0.96), blur(20px), 1px border-bottom rgba(255,255,255,0.06)
+   409→
+   410→Mobile <768px: hamburger → full-screen dark drawer with stacked links
+   411→Drawer close button (×) top right. [Download Brochure] button at drawer bottom.
+   412→
+   413→---
+   414→
+   415→### ▌ PAGE 1: HOME
+   416→
+   417→#### HERO SECTION — 100dvh, midnight background
+   418→
+   419→Background:
+   420→  Layer 1: #080F1A solid
+   421→  Layer 2: radial-gradient(ellipse 60% 80% at 75% 50%, rgba(188,26,44,0.07), transparent)
+   422→  Layer 3: radial-gradient(ellipse 40% 60% at 15% 85%, rgba(232,160,26,0.04), transparent)
+   423→  Layer 4: Torii SVG (58vw wide, centered-right, stroke:#BC1A2C, opacity:0.045)
+   424→  Layer 5: 18 CSS animated particles (2-4px white dots, slow drift upward, 
+   425→            opacity 0.15-0.25, staggered animation-delay)
+   426→
+   427→Content (text-align:center, max-width:860px, margin:auto):
+   428→  
+   429→  [Eyebrow pill — crimson bg, white Inter 600 12px uppercase, 3px letter-spacing]
+   430→  🇯🇵  HYDERABAD · CYBER GATEWAY  🇮🇳
+   431→  
+   432→  [Pre-title — Noto Serif JP 400 18px, color:rgba(232,160,26,0.8), margin-bottom:16px]
+   433→  Japan × India Talent & Business Bridge
+   434→  
+   435→  [H1 — Noto Serif JP 900, clamp(3rem,7.5vw,6.5rem), white, line-height:1.05]
+   436→  Birth of a Dedicated
+   437→  Working Hub for
+   438→  Japanese Companies
+   439→  
+   440→  [Japanese tagline — Noto Serif JP 500 20px, color:rgba(255,255,255,0.55)]
+   441→  「日本企業専用のワーキングハブ誕生」
+   442→  
+   443→  [Body — Inter 300, clamp(1rem,1.8vw,1.2rem), rgba(255,255,255,0.6), 
+   444→   max-width:600px, margin:24px auto]
+   445→  The 'right answer' to expanding into India, starts here. J-Gate is 
+   446→  Hyderabad's dedicated working hub for Japanese companies, operated by 
+   447→  Indobox India at Cyber Gateway.
+   448→  
+   449→  [CTA row — margin-top:48px, gap:16px, justify:center, flex-wrap:wrap]
+   450→    [Download Brochure] — crimson bg, white Inter 600 15px, 6px radius, 
+   451→                          padding:16px 36px, hover: crimson-deep
+   452→    [Explore Services →] — border:1.5px white/40%, white text, same padding,
+   453→                           hover: white bg/10%
+   454→  
+   455→  [3 floating badge pills — margin-top:60px, glass morphism, float animation]
+   456→    "📍 Hyderabad — Main Base"
+   457→    "🏢 Gurgaon — Sub Base (In Prep)"  
+   458→    "🏛 Indobox India Pvt. Ltd."
+   459→  
+   460→  [Scroll cue — bottom of hero]
+   461→  "↓ Scroll to Explore" — Inter 400 11px, mist, letter-spacing:0.15em
+   462→  Thin animated bar beneath, scaleY 0→1 loop
+   463→
+   464→#### TRUST STRIP — Full width, white bg, 80px height
+   465→
+   466→"Trusted By" label (Inter 400 12px mist) then two rows of logos:
+   467→
+   468→Row 1 label: "Japanese Enterprises We Serve" (Inter 600 11px, mist, uppercase)
+   469→Logo marquee: Toyota · Sony · Hitachi · NTT · Mitsubishi · Prodrone
+   470→(infinite scroll left, pause on hover)
+   471→
+   472→Row 2 label: "Ecosystem & Partner Network"  
+   473→Logo marquee: JETRO · T-Hub · Woxsen University · Genesys Info X · DMI · Indobox
+   474→(opposite direction scroll)
+   475→
+   476→Each logo: img tag OR text tile with partner name in Inter 700, 
+   477→           white bg card, 40px height, padding 0 20px, shadow-sm
+   478→
+   479→#### STATS SECTION — ivory background
+   480→
+   481→H2 (Noto Serif JP 36px, ink): "A Track Record Built on Trust"
+   482→
+   483→4 large stat counters (animate from 0 on scroll):
+   484→  Counter 1: 100+ | "Network Partners"
+   485→  Counter 2: 500+ | "Engineers Placed"  
+   486→  Counter 3: 94%  | "JLPT Pass Rate"
+   487→  Counter 4: 92%  | "12-Month Retention"
+   488→
+   489→Each counter:
+   490→  Number — Noto Serif JP 700, 64px, crimson
+   491→  Suffix (+/%) — Noto Serif JP 400, 32px, saffron
+   492→  Label — Inter 500, 14px, slate
+   493→  Thin crimson bottom border
+   494→
+   495→#### THREE PILLARS — navy dark section
+   496→
+   497→Eyebrow: CORE PURPOSE (small caps, mist)
+   498→H2 (white, Noto Serif JP 42px): 
+   499→"From India Entry Spark to Talent Development"
+   500→
+   501→3 cards — glass morphism on dark:
+   502→
+   503→Card 01:
+   504→  "01" (Noto Serif JP 96px, crimson, opacity:0.15, absolute bg)
+   505→  きっかけ作り
+   506→  Opportunity Creation
+   507→  "Providing an environment where local activities can start quickly 
+   508→  with minimal assets — so Japanese enterprises can begin their India 
+   509→  journey without heavy upfront investment."
+   510→
+   511→Card 02:
+   512→  "02" (same style)
+   513→  人材育成
+   514→  Talent Development
+   515→  "Nurturing India representatives capable of competing locally through 
+   516→  Indobox Academy — equipping your team with language, business, and 
+   517→  cultural fluency to win in the Indian market."
+   518→
+   519→Card 03:
+   520→  "03"
+   521→  ビジネス連携
+   522→  Business Collaboration
+   523→  "A dedicated space that accelerates exchange between Japanese and 
+   524→  Indian companies — where partnerships, MoUs, and joint ventures 
+   525→  are conceived, not just discussed."
+   526→
+   527→Each card: glass bg, 1px glass-border, 24px radius, 48px padding
+   528→  Japanese kanji: Noto Serif JP 400 20px, saffron
+   529→  English title: Inter 700 18px, white, margin-top:4px
+   530→  Body: Inter 400 15px, mist, line-height:1.7
+   531→
+   532→#### LOCATIONS SECTION — ivory-alt
+   533→
+   534→Eyebrow: STRATEGIC LOCATIONS
+   535→H2 (Noto Serif JP 40px, ink): "Two Cities. One Bridge."
+   536→
+   537→Two location cards — large, editorial, side by side:
+   538→
+   539→CARD LEFT — Hyderabad (Main Base, LIVE)
+   540→  [Large photo slot]
+   541→  <img id="photo-location-hyderabad" alt="Hyderabad Cyber Gateway J-Gate">
+   542→  Fallback: gradient #0D1B2A → #1a3a5c + "HYD" label
+   543→  
+   544→  Status badge: [● LIVE — Launched June 2026] (green dot + text)
+   545→  Title: "Hyderabad" (Noto Serif JP 32px, ink)
+   546→  Sub: "Main Base — The Next Bangalore"
+   547→  
+   548→  3 bullet points:
+   549→    ⬤ IT / Pharma / Biotech cluster
+   550→    ⬤ Global R&D hub density  
+   551→    ⬤ Advanced urban infrastructure
+   552→  
+   553→  CTA: "Visit Our Hyderabad Hub →" (crimson text link)
+   554→
+   555→CARD RIGHT — Gurgaon (Sub Base, Coming)
+   556→  [Large photo slot]
+   557→  <img id="photo-location-gurgaon" alt="Gurgaon business district">
+   558→  Fallback: gradient #1a1a2e → #2d3a4f + "GGN" label
+   559→  Overlay tag: "COMING SOON" (saffron pill, top-right of photo)
+   560→  
+   561→  Status badge: [◉ IN PREPARATION] (saffron dot)
+   562→  Title: "Gurgaon" (Noto Serif JP 32px, ink)
+   563→  Sub: "Sub Base — Delhi NCR Business Core"
+   564→  
+   565→  3 bullet points:
+   566→    ⬤ Largest Japanese-company community
+   567→    ⬤ Adjacent to capital Delhi
+   568→    ⬤ Direct client & partner access
+   569→
+   570→#### ECOSYSTEM PREVIEW — midnight dark section
+   571→
+   572→Eyebrow: THE ECOSYSTEM
+   573→H2 (white, Noto Serif JP 40px): "Explore the J-Gate Ecosystem"
+   574→Subhead (mist, Inter 400 17px):
+   575→"Each dimension of J-Gate is a dedicated experience. Dive deeper 
+   576→into what matters most to you."
+   577→
+   578→3 editorial cards (hover lift, crimson left-border on hover):
+   579→
+   580→Card 1 — Core Purpose & Locations
+   581→  Icon: 🗾 (or simple SVG)
+   582→  Title: "Core Purpose & Locations"
+   583→  Body: "Three pillars — Opportunity Creation, Talent Development, 
+   584→  Business Collaboration — anchored in Hyderabad and Gurgaon."
+   585→  Link: Learn More →
+   586→
+   587→Card 2 — The Strategic Advantage
+   588→  Icon: ⚡
+   589→  Title: "The Strategic Advantage"
+   590→  Body: "Comparison vs consulting firms, coworking, and public orgs — 
+   591→  plus 7 membership pillars that accelerate India entry."
+   592→  Link: Learn More →
+   593→
+   594→Card 3 — Service Verticals
+   595→  Icon: 🔗
+   596→  Title: "Service Verticals"
+   597→  Body: "Corporate setup, talent, sales, language, back-office — 
+   598→  five integrated service lines with one accountable partner."
+   599→  Link: Learn More →
+   600→
+   601→Each card: glass morphism, 24px radius, 48px padding, crimson number badge
+   602→
+   603→#### HOME CTA — full width, crimson gradient bg
+   604→
+   605→"Ready to Bridge Your Future?"
+   606→"Download the J-Gate corporate brochure — full overview of our 
+   607→services, track record, and partnership model."
+   608→[Download Brochure] — white bg, crimson text button
+   609→
+   610→---
+   611→
+   612→### ▌ PAGE 2: ABOUT
+   613→
+   614→#### HERO — short hero, midnight
+   615→
+   616→H1 (Noto Serif JP): "About J-Gate"
+   617→Sub: "From India Entry Spark to Talent Development"
+   618→Small: "Operated by Indobox India — a dedicated working hub for 
+   619→Japanese enterprises in Hyderabad."
+   620→Breadcrumb: Home > About
+   621→
+   622→#### THREE PILLARS — detailed version
+   623→Same 3 pillars as home but expanded. Each pillar gets:
+   624→  - Large number (01 / 02 / 03) in massive Noto Serif JP
+   625→  - Japanese + English heading
+   626→  - Full paragraph body (3-4 sentences each)
+   627→  - Relevant icon (crisp SVG or emoji)
+   628→
+   629→#### STRATEGIC LOCATIONS — full detail
+   630→Two-column layout for each city:
+   631→
+   632→HYDERABAD section:
+   633→  Left: Photo grid (4 photos of Hyderabad/J-Gate)
+   634→    <img id="photo-about-hyd-1"> <img id="photo-about-hyd-2">
+   635→    <img id="photo-about-hyd-3"> <img id="photo-about-hyd-4">
+   636→  Right: Full description
+   637→    - "Known as the 'Next Bangalore'"
+   638→    - Heavy IT/pharma/biotech concentration
+   639→    - Global enterprise R&D hubs
+   640→    - Optimal innovation ecosystem
+   641→    - Bullet list of advantages
+   642→
+   643→GURGAON section (reversed layout):
+   644→  Left: Description + "In Preparation" status
+   645→  Right: Photo slot + map context
+   646→
+   647→#### MAP VISUAL
+   648→India SVG map highlighting Hyderabad and Gurgaon with:
+   649→  - Crimson dot at Hyderabad (larger, pulsing animation)
+   650→  - Saffron dot at Gurgaon (smaller, softer pulse)
+   651→  - Other city markers: New Delhi, Mumbai, Bengaluru, Chennai, Ahmedabad
+   652→  - Thin connecting line between Hyderabad and Gurgaon
+   653→  - Japan silhouette in corner at small scale with arrow toward India
+   654→
+   655→#### MISSION & VISION
+   656→Two side-by-side cards:
+   657→  MISSION: "To make the India expansion 'right answer' accessible to 
+   658→  Japanese enterprises — through a dedicated working hub, a resident 
+   659→  Japan Desk, and end-to-end support from first curiosity to corporate 
+   660→  entity establishment."
+   661→  Label: "What we do today"
+   662→  
+   663→  VISION: "To become the definitive gateway for Japanese enterprises 
+   664→  entering India — the first name called when a company decides to 
+   665→  explore Hyderabad, Gurgaon, or anywhere in between. Two cities, 
+   666→  one bridge, every touchpoint operational."
+   667→  Label: "What we build toward"
+   668→
+   669→#### CORE VALUES — 4 values
+   670→Four cards with icon + title + description:
+   671→  Integrity — Transparent, honest, long-term. Never transactional.
+   672→  Cultural Fluency — Deep mastery of Japanese and Indian business cultures.
+   673→  Technical Excellence — Rigorous screening — only top-percentile talent.
+   674→  Long-Term Partnership — We succeed only when our partners succeed.
+   675→
+   676→---
+   677→
+   678→### ▌ PAGE 3: WHY J-GATE
+   679→
+   680→#### HERO — short
+   681→H1: "Why J-Gate"
+   682→Sub: "The Strategic Investment Advantage"
+   683→Paragraph: "What makes J-Gate the trusted bridge between Indian technical 
+   684→talent and Japanese enterprises."
+   685→
+   686→#### COMPARISON TABLE — full interactive table
+   687→Headline: "J-Gate vs The Alternatives"
+   688→Sub: "A direct comparison across the four representative paths Japanese 
+   689→enterprises consider when entering India."
+   690→
+   691→Legend row: 
+   692→  ✓ = Fully Available (crimson)
+   693→  ✗ = Not Available (slate)
+   694→  △ = Partial / Limited (saffron)
+   695→  ◎ = Optimal Value (success green)
+   696→
+   697→Table headers: Comparison Item | J-Gate (highlighted) | Major JP Consulting | Local Coworking | Public Orgs
+   698→
+   699→8 data rows using EXACT data from the data section above.
+   700→
+   701→J-Gate column: crimson left-border, pearl/ivory bg, slightly elevated z-index
+   702→"Recommended" badge on J-Gate header.
+   703→
+   704→Mobile: horizontal scroll or card-flip version.
+   705→
+   706→Summary statement below table:
+   707→"J-Gate is the only option that combines a physical base, resident 
+   708→Japanese expertise, hands-on operational support, and direct hiring — 
+   709→at a cost-justifiable investment level."
+   710→
+   711→#### 7 PILLARS — detailed expandable cards
+   712→
+   713→H2: "7 Core Value Pillars"
+   714→Sub: "Value Proposition of J-Gate: 7 Pillars Accelerating Japanese 
+   715→Business in India"
+   716→
+   717→7 accordion-style cards:
+   718→Each number is large (Noto Serif JP 64px, crimson opacity:0.15)
+   719→Title in Inter 700 20px
+   720→Body in Inter 400 16px slate
+   721→Collapsed height ~80px, expanded shows full detail
+   722→
+   723→Pillar details from real data section above — use all 7.
+   724→
+   725→Stats strip between pillars and testimonials:
+   726→  2–4 Persons/company · 7 Pillars total · 100% JP-language support
+   727→
+   728→#### TESTIMONIALS
+   729→3 testimonial cards. For each:
+   730→  Large opening quotation mark (crimson, 80px, opacity:0.1)
+   731→  Quote text (Inter 400 italic, 17px)
+   732→  Circular photo placeholder (80px) + name + role
+   733→  5 saffron stars
+   734→
+   735→Testimonial 1:
+   736→"J-Gate delivered what three conventional recruiters could not — 
+   737→engineers who arrived fluent in our workflows and our unwritten 
+   738→expectations. Retention at the 12-month mark is the proof."
+   739→— Hiroshi Yamamoto, Engineering Director, Fortune 500 Japanese Tech Firm
+   740→
+   741→Testimonial 2:
+   742→"The pre-to-post onboarding model is what sets J-Gate apart. Our new 
+   743→hire landed in Tokyo with housing sorted, visa stamped, and cultural 
+   744→orientation done. He contributed from week one."
+   745→— Priya Nair, Talent Acquisition Lead, Cross-Border Tech Consulting
+   746→
+   747→Testimonial 3:
+   748→"What surprised me was the technical rigour. J-Gate's screening matched 
+   749→our own bar — every candidate we interviewed was already at the level 
+   750→we'd expect after our internal loop."
+   751→— Kenji Watanabe, CTO, Tokyo-based AI Infrastructure Startup
+   752→
+   753→---
+   754→
+   755→### ▌ PAGE 4: SERVICES
+   756→
+   757→#### HERO
+   758→H1: "Indobox Comprehensive Expansion Support"
+   759→Sub: "Indobox's Unique Comprehensive Market Entry Support & Talent Development"
+   760→Japanese: "Indoboxならではの包括的進出支援・人材育成"
+   761→
+   762→#### 5 SERVICE CARDS — numbered editorial cards
+   763→One service per card, full-width alternating layout (image side alternates):
+   764→
+   765→Service 01 — Corporate Registration & Nominee Director
+   766→  [Photo slot: <img id="photo-service-registration">]
+   767→  "Corporate registration address and Nominee Director name — a turnkey 
+   768→  legal footprint in Hyderabad from day one."
+   769→  Sub-bullets: Company registration, address provision, Nominee Director service
+   770→
+   771→Service 02 — Talent Development, Dispatching & Payroll
+   772→  [Photo slot: <img id="photo-service-talent">]
+   773→  "Full talent lifecycle — development, dispatching, and payroll 
+   774→  administration handled end-to-end by India-side operators."
+   775→
+   776→Service 03 — Sales & Marketing Support
+   777→  [Photo slot: <img id="photo-service-sales">]
+   778→  "On-the-ground sales & marketing execution — lead generation, 
+   779→  partner outreach, bilingual B2B/B2G campaigns."
+   780→
+   781→Service 04 — Interpretation & Back-Office Outsourcing
+   782→  [Photo slot: <img id="photo-service-backoffice">]
+   783→  "Bookkeeping, accounting, vendor coordination by Japanese-speaking 
+   784→  staff — no language friction in your operations."
+   785→
+   786→Service 05 — End-to-End Support
+   787→  [Photo slot: <img id="photo-service-endtoend">]
+   788→  "Consistent support from corporate establishment through daily 
+   789→  operations. One accountable partner. Zero hand-off gaps."
+   790→
+   791→#### INDOBOX ACADEMY — full feature section
+   792→
+   793→Section with prominent styling (dark navy bg):
+   794→H2 (white, Noto Serif JP): "Indobox Academy"
+   795→Sub: "Practical India Business Lectures"
+   796→Japanese: "実践的なインドビジネス講義"
+   797→
+   798→Body: "Practical lectures by experts with rich India business experience — 
+   799→covering local business customs, risk management, and keys to success 
+   800→that foster capable resident representatives."
+   801→
+   802→4 detail cards in a 2×2 grid:
+   803→  Format: Online
+   804→  Duration: 60 min / session
+   805→  Frequency: Once / 1–2 months  
+   806→  Language: 日本語 (Japanese)
+   807→
+   808→2 people featured with photo slots:
+   809→
+   810→LECTURER:
+   811→  <img id="photo-academy-isogai" alt="Tomio Isogai, Indobox Advisor">
+   812→  Name: Tomio Isogai (磯貝 富雄)
+   813→  Title: Indobox Advisor · Former MD, Sharp India
+   814→  Bio: "With decades of experience at Sharp India's highest levels, 
+   815→  Mr. Isogai brings unparalleled practical knowledge of operating 
+   816→  a Japanese enterprise in India — covering strategy, culture, risk, 
+   817→  and the realities that textbooks never mention."
+   818→
+   819→FACILITATOR:
+   820→  <img id="photo-academy-tanji" alt="Daisuke Tanji, Indobox Representative">
+   821→  Name: Daisuke Tanji (丹治 大佑)
+   822→  Title: Representative, Indobox India · J-Gate Director
+   823→  Bio: "With over a decade embedded in Indian business while maintaining 
+   824→  his Japanese perspective, Mr. Tanji facilitates each session as the 
+   825→  living bridge between both sides of the lecture."
+   826→
+   827→#### HYBRID OPERATING MODEL
+   828→Two-column split — visual diagram style:
+   829→
+   830→LEFT — Indobox (Japan-side):
+   831→  Logo/color: crimson
+   832→  Title: "Japan-side Operator — Indobox"
+   833→  4 responsibilities from real data
+   834→
+   835→CENTER — Vertical divider with "×" symbol and connecting arrows
+   836→
+   837→RIGHT — Genesys (India-side):
+   838→  Logo/color: saffron
+   839→  Title: "India-side Operator — Genesys"
+   840→  4 responsibilities from real data
+   841→
+   842→Below: Living Support Services — 4 items:
+   843→  🏠 Apartment / housing search
+   844→  📋 FRRO registration
+   845→  🏨 Long-stay hotel arrangements
+   846→  🛎 Daily-life support, as required
+   847→
+   848→#### FACILITY FEATURES — 6-card grid with photo showcase
+   849→
+   850→H2: "Six Facility Layers, All Standard"
+   851→Sub: "Physical, digital, social, temporal, and security infrastructure 
+   852→— turning a desk rental into an operating base."
+   853→
+   854→6 feature cards (3×2 grid):
+   855→  Card 1: 専用ワークスペース — Dedicated Workspace
+   856→    <img id="photo-facility-workspace"> 
+   857→    "Fixed desks, cabinets, and private lockers"
+   858→    
+   859→  Card 2: 通信インフラ — Communication Infrastructure
+   860→    <img id="photo-facility-wifi">
+   861→    "High-speed Wi-Fi and Xerox multifunction printers/copiers"
+   862→    
+   863→  Card 3: 会議室 — Meeting Rooms
+   864→    <img id="photo-facility-meeting">
+   865→    "For negotiations and internal meetings — stepwise expansion"
+   866→    
+   867→  Card 4: 共同食堂 — Shared Cafeteria "TASTY FOOD JUNCTION"
+   868→    <img id="photo-facility-cafeteria">
+   869→    "Casual networking over Indian snacks, biryani, and Indian-Chinese"
+   870→    
+   871→  Card 5: 24/7アクセス — 24/7 Access
+   872→    <img id="photo-facility-access">
+   873→    "24 hours/day, 365 days/year via dedicated smart key cards"
+   874→    
+   875→  Card 6: セキュリティ — Security
+   876→    <img id="photo-facility-security">
+   877→    "Reliable, secure management — controlled access at all times"
+   878→
+   879→Each card: photo top (200px height), content below, 16px radius, 
+   880→  white bg, shadow-card, hover: translateY(-6px) shadow-deepen
+   881→  Photo fallback: respective gradient per area
+   882→
+   883→Note strip: "All infrastructure included — Wi-Fi, printers, lockers, 
+   884→meeting rooms, security, and 24/7 smart-key access — all standard."
+   885→
+   886→---
+   887→
+   888→### ▌ PAGE 5: TEAM — MOST IMPORTANT PAGE FOR YOUR REQUEST
+   889→
+   890→#### HERO
+   891→H1 (Noto Serif JP): "Leadership & Team"
+   892→Sub: "The Minds Behind J-Gate"
+   893→Japanese: "インドとの連携で、貴社のビジネスに新たな可能性を。"
+   894→English: "Unlocking new possibilities for your business through 
+   895→collaboration with India. — The J-Gate Operations Team"
+   896→
+   897→#### OPERATIONS TEAM — Full Editorial Treatment
+   898→
+   899→H2: "J-Gate Operations Team"
+   900→Sub: "Four People, One Operating Engine"
+   901→Body: "A four-person operations team that owns every J-Gate client 
+   902→engagement end-to-end."
+   903→
+   904→MEMBER 1 — HERO CARD (full-width, split layout):
+   905→┌──────────────────────────────────────────────────────────────┐
+   906→│  LEFT 45%: Photo slot                                        │
+   907→│  <img id="photo-team-tanji"                                  │
+   908→│       alt="Daisuke Tanji, Director, J-Gate Indobox India"   │
+   909→│       class="photo-img">                                     │
+   910→│  Fallback: gradient #0D1B2A → #BC1A2C, initial "DT"         │
+   911→│                                                              │
+   912→│  RIGHT 55%: Content, padding 56px                           │
+   913→│  [Flag] 🇯🇵 Japanese National · India-based 10+ years        │
+   914→│  [Role badge — crimson pill] Director                        │
+   915→│  [Name — Noto Serif JP 48px, ink]                           │
+   916→│  Daisuke TANJI                                               │
+   917→│  [Japanese — Noto Sans JP 18px, slate]                      │
+   918→│  丹治 大佑                                                    │
+   919→│                                                              │
+   920→│  [Divider — thin crimson line 40px]                         │
+   921→│                                                              │
+   922→│  [Bio — Inter 400 17px, slate, line-height:1.8]             │
+   923→│  Representative of Indobox — leads J-Gate operations with    │
+   924→│  a decade of India-side bridging experience.                 │
+   925→│                                                              │
+   926→│  Daisuke Tanji arrived in India in 2013 with a conviction   │
+   927→│  that Japan and India, when properly connected, could build  │
+   928→│  something extraordinary. Over the following decade, he      │
+   929→│  immersed himself in Indian business while never losing his  │
+   930→│  Japanese perspective — learning the rhythms, building the  │
+   931→│  relationships, and developing the trust that now forms      │
+   932→│  the foundation of everything J-Gate represents.            │
+   933→│                                                              │
+   934→│  As the Representative of Indobox India and the Director     │
+   935→│  of J-Gate, he is the living bridge between both nations.   │
+   936→│                                                              │
+   937→│  [Quote block — crimson left border 3px, padding-left:20px] │
+   938→│  "The 'right answer' to expanding into India — that is      │
+   939→│  what we provide. Not information. Not introductions.        │
+   940→│  A complete, operational home in India for your business."  │
+   941→│  — Daisuke TANJI                                            │
+   942→│                                                              │
+   943→│  [Contact row]                                              │
+   944→│  📞 +91-9910360648                                          │
+   945→│  📧 contact@indobox.co.jp                                   │
+   946→│  [LinkedIn icon button]                                     │
+   947→└──────────────────────────────────────────────────────────────┘
+   948→
+   949→MEMBER 2 — REVERSED LAYOUT:
+   950→┌──────────────────────────────────────────────────────────────┐
+   951→│  LEFT 55%: Content                                          │
+   952→│  [Flag] 🇯🇵 Japanese National                                │
+   953→│  [Role badge — saffron] Director                            │
+   954→│  [Name — Noto Serif JP 40px] Mariko HANAOKA                 │
+   955→│  [Japanese] 花岡 真理子                                       │
+   956→│                                                              │
+   957→│  Bio: "Mariko Hanaoka brings precision and warmth to J-Gate │
+   958→│  operations — overseeing client relationships, program       │
+   959→│  delivery, and the Japan-facing side of every bilateral      │
+   960→│  handoff. Her fluency in both Japanese corporate culture     │
+   961→│  and India's business environment makes her the vital link  │
+   962→│  between Tokyo-side expectations and Hyderabad-side reality.│
+   963→│  Every client relationship that flows through J-Gate         │
+   964→│  benefits from her meticulous care and bilingual excellence."│
+   965→│                                                              │
+   966→│  Contact: 📧 contact@indobox.co.jp                         │
+   967→│                                                              │
+   968→│  RIGHT 45%: Photo                                           │
+   969→│  <img id="photo-team-hanaoka"                               │
+   970→│       alt="Mariko Hanaoka, Director, J-Gate">               │
+   971→│  Fallback: gradient #0D1B2A → #E8A01A, initial "MH"        │
+   972→└──────────────────────────────────────────────────────────────┘
+   973→
+   974→MEMBER 3 — SAME AS MEMBER 1 LAYOUT:
+   975→Photo LEFT, content RIGHT
+   976→<img id="photo-team-dheeraj" alt="Dheeraj Yanneti, Community Manager J-Gate">
+   977→Fallback: gradient #0a1a0a → #1A936F, initial "DY"
+   978→🇮🇳 Indian National
+   979→Community Manager
+   980→Dheeraj YANNETI / ディラジ・ヤンネティ
+   981→"Dheeraj Yanneti is the daily heartbeat of J-Gate Hyderabad — the 
+   982→face every member sees, the voice that answers every question, and 
+   983→the cultural bridge that makes Japanese professionals feel genuinely 
+   984→at home in Hyderabad. Managing tenant relations, orchestrating 
+   985→networking events, and solving the small operational puzzles that 
+   986→make a workspace truly livable — Dheeraj owns it all with the 
+   987→attentiveness that defines J-Gate's Omotenashi standard."
+   988→Phone: +91-98498 11543
+   989→
+   990→MEMBER 4 — REVERSED LAYOUT:
+   991→Photo RIGHT
+   992→<img id="photo-team-abhishek" alt="Abhishek Buduru, Intern Tech J-Gate">
+   993→Fallback: gradient #0a0a1a → #2d1a5c, initial "AB"
+   994→🇮🇳 Indian National  
+   995→Intern / Tech
+   996→Abhishek BUDURU / アブシェーク・ブドゥル
+   997→"Abhishek Buduru powers the technical layer of J-Gate — maintaining 
+   998→the workspace infrastructure, digital systems, and operational tools 
+   999→that keep J-Gate running smoothly for every member. As the 
+  1000→youngest member of the team, he brings a sharp technical mind and 
+  1001→a commitment to making J-Gate's digital experience as premium as 
+  1002→its physical one."
+  1003→
+  1004→#### ADVISORY BOARD — Full Detail Section
+  1005→
+  1006→Background: navy dark
+  1007→H2 (white, Noto Serif JP): "Board of Advisory"
+  1008→Sub (mist): "Five Voices That Set the Standard"
+  1009→Body: "Former CEOs, CIOs, founding directors, and managing directors 
+  1010→— institutional experience that shapes every J-Gate decision."
+  1011→
+  1012→5 advisor cards in a grid (3 top row + 2 bottom centered):
+  1013→
+  1014→Each card style:
+  1015→  - Portrait photo slot (240px × 280px, 16px radius)
+  1016→  - <img id="photo-advisory-[name]" alt="[Full name], [role]">
+  1017→  - Fallback: gradient + initial letters
+  1018→  - Gold top border: 3px solid var(--saffron)
+  1019→  - Name: Inter 700 18px white
+  1020→  - Japanese name: Noto Sans JP 13px, mist
+  1021→  - Role: Inter 600 14px, saffron
+  1022→  - Former title: Inter 400 13px, mist
+  1023→
+  1024→Card 1: Srinivas Rao Mahankali (スリニヴァス・ラオ・マハンカリ)
+  1025→  Former CEO, T-Hub
+  1026→  <img id="photo-advisory-mahankali">
+  1027→  Fallback: gradient #0D1B2A → #2d4a6b, initials "SM"
+  1028→  Bio: "As former CEO of India's most influential startup hub, 
+  1029→  Mr. Mahankali brings the institutional credibility and ecosystem 
+  1030→  network that transforms J-Gate from a workspace into a strategic 
+  1031→  command post for Japanese enterprise in India."
+  1032→
+  1033→Card 2: Sujit Jagirdar (スジット・ジャギルダール)
+  1034→  Former CIO, T-Hub
+  1035→  <img id="photo-advisory-jagirdar">
+  1036→  Fallback: gradient #0D1B2A → #3a2a4a, initials "SJ"
+  1037→  Bio: "Mr. Jagirdar's tenure as CIO of T-Hub gave him unparalleled 
+  1038→  insight into the technology infrastructure and digital systems 
+  1039→  that power India's most innovative organizations. He applies 
+  1040→  that standard to J-Gate's operations."
+  1041→
+  1042→Card 3: Dr. Uday B. Desai (ウダイ・B・デサイ博士)
+  1043→  Founding Director, IIT Hyderabad
+  1044→  <img id="photo-advisory-desai">
+  1045→  Fallback: gradient #0D1B2A → #1a3a2a, initials "UD"
+  1046→  Badge: "IIT Founding Director"
+  1047→  Bio: "As the founding director of IIT Hyderabad — one of India's 
+  1048→  most prestigious technical institutions — Dr. Desai brings 
+  1049→  academic rigour, technical depth, and an invaluable connection 
+  1050→  to India's premier engineering talent pipeline."
+  1051→
+  1052→Card 4: Dr. Viinay Sarikonda (ヴィイナイ・サリコンダ博士)
+  1053→  CEO, Genesys Info X · MoU Partner, J-Gate
+  1054→  <img id="photo-advisory-sarikonda">
+  1055→  Fallback: gradient #0D1B2A → #E8A01A, initials "VS"
+  1056→  Badge: "J-Gate MoU Partner"
+  1057→  Bio: "As CEO of Genesys Info X and the India-side co-operator of 
+  1058→  J-Gate, Dr. Sarikonda's involvement is not advisory in the 
+  1059→  traditional sense — he is operationally committed. His network 
+  1060→  across Hyderabad's business and technology sectors is J-Gate's 
+  1061→  network."
+  1062→
+  1063→Card 5: Tomio Isogai (磯貝 富雄)
+  1064→  Indobox Advisor · Former MD, Sharp India
+  1065→  <img id="photo-advisory-isogai">
+  1066→  Fallback: gradient #0D1B2A → #BC1A2C, initials "TI"
+  1067→  Badge: "Indobox Academy Lecturer"
+  1068→  Bio: "Mr. Isogai's career at Sharp India's highest levels gives 
+  1069→  him a depth of operational knowledge about running Japanese 
+  1070→  enterprise in India that is simply irreplaceable. As Indobox 
+  1071→  Academy's lead lecturer, he distills that knowledge for the 
+  1072→  next generation of Japan-India business leaders."
+  1073→
+  1074→#### ECOSYSTEM PARTNERS — Clean Grid
+  1075→
+  1076→H2: "Ecosystem Partners"
+  1077→Sub: "Six Partners, One Network"
+  1078→
+  1079→12-tile grid:
+  1080→  Kodryx.ai — DATA INTELLIGENCE
+  1081→  YANC — YOUNG MINDS NETWORKING  
+  1082→  Daakia — BRIDGING DISTANCE
+  1083→  Fingerprint Films — CREATIVE STUDIO
+  1084→  MXC — TECHNOLOGY PARTNER
+  1085→  Hyderabad Japan Club — COMMUNITY
+  1086→  JETRO — TRADE PROMOTION
+  1087→  T-Hub — INNOVATION HUB
+  1088→  Woxsen University — ACADEMIC PARTNER
+  1089→  Genesys Info X — MoU PARTNER
+  1090→  DMI — DIGITAL MEDIA
+  1091→  DATA INTELLIGENCE — ANALYTICS
+  1092→
+  1093→Each tile: white bg, shadow-sm, 12px radius, partner name Inter 700 15px, 
+  1094→  category Inter 400 12px mist, hover: translateY(-4px)
+  1095→
+  1096→---
+  1097→
+  1098→### ▌ PAGE 6: PRICING
+  1099→
+  1100→#### HERO
+  1101→H1: "Membership Fee Plans — Hyderabad"
+  1102→Japanese: "[ハイデラバード] メンバーシップ料金プラン"
+  1103→
+  1104→Cost comparison callout:
+  1105→  "Typical Annual Expat Cost: ¥15M–¥20M per expat + setup"
+  1106→  "J-Gate Membership From: 15,000 INR/mo (~¥27,000)"
+  1107→  Arrow showing cost reduction
+  1108→
+  1109→#### THREE PLAN CARDS
+  1110→
+  1111→Each card: Photo slot at top (200px), then content below
+  1112→
+  1113→CARD 1 — Satellite Plan (サテライトプラン)
+  1114→  <img id="photo-plan-satellite" alt="Satellite plan workspace at J-Gate">
+  1115→  Fallback: gradient + "SATELLITE" label
+  1116→  Price: 15,000 INR/month excl. GST
+  1117→  (~¥27,000/month at current rates)
+  1118→  Target: Companies with existing India entity
+  1119→  3 inclusions (exact from data section)
+  1120→  CTA: [Contact Us] outlined
+  1121→
+  1122→CARD 2 — Standard Plan (スタンダードプラン) — MOST POPULAR
+  1123→  <img id="photo-plan-standard" alt="Standard plan workspace at J-Gate">
+  1124→  Fallback gradient
+  1125→  MOST POPULAR badge (crimson ribbon, top-right)
+  1126→  Price: 50,000 INR/month excl. GST
+  1127→  (~¥90,000/month)
+  1128→  Target: SMEs and startups entering India
+  1129→  5 inclusions including "Yorozu" Consultation
+  1130→  CTA: [Contact Us] crimson filled
+  1131→
+  1132→CARD 3 — Advance Plan (アドバンスプラン) — FLAGSHIP
+  1133→  <img id="photo-plan-advance" alt="Advance plan workspace at J-Gate">
+  1134→  Fallback gradient
+  1135→  FLAGSHIP badge (saffron, top-right)
+  1136→  Price: 120,000 INR/month excl. GST
+  1137→  (~¥216,000/month)
+  1138→  Target: Enterprises, regional banks, local governments
+  1139→  All Standard inclusions + 4 additional items
+  1140→  CTA: [Contact Us] saffron outlined
+  1141→
+  1142→#### BILLING NOTES — 3 cards
+  1143→1. Base fees only — registration + recruitment separate
+  1144→2. INR billed · JPY settlement supported
+  1145→3. All prices exclude GST
+  1146→
+  1147→#### CTA
+  1148→"Ready to Choose Your Plan?"
+  1149→"Talk to our operations team — we'll help you select the right plan, 
+  1150→scope any add-ons, and walk you through INR/JPY billing."
+  1151→[Contact Us] + [Compare Services]
+  1152→
+  1153→---
+  1154→
+  1155→### ▌ PAGE 7: BLOGS & CULTURE
+  1156→
+  1157→#### HERO
+  1158→H1: "Insights & Life at J-Gate"
+  1159→Sub: "Industry Insights · Life & Culture"
+  1160→
+  1161→#### 6 ARTICLE CARDS — editorial magazine style
+  1162→
+  1163→Each card: large cover image slot, tag, number, read time, title, excerpt, link
+  1164→
+  1165→01 Career Guide · 5 min read
+  1166→"Why Indian Engineers Thrive in Japanese Enterprises"
+  1167→"Cultural alignment, technical depth, and the bridge that makes 
+  1168→the difference. A data-backed look at placement retention."
+  1169→
+  1170→02 JLPT Prep · 7 min read
+  1171→"JLPT N2 in 18 Months: A Realistic Roadmap"
+  1172→"Our certified instructors break down the study path that 
+  1173→actually works — from N5 foundations to N2 fluency."
+  1174→
+  1175→03 Tech in Tokyo · 6 min read
+  1176→"Tech in Tokyo: What Indian Engineers Need to Know"
+  1177→"From work culture to tech stacks — a practical guide for 
+  1178→Indian engineers preparing for Tokyo placements."
+  1179→
+  1180→04 Visa Updates · 8 min read
+  1181→"Visa Updates 2026: The Engineer Visa Guide"
+  1182→"The 2026 revision to Japan's Engineer visa — what changed, 
+  1183→what Indian engineers need, and how J-Gate handles COE filing."
+  1184→
+  1185→05 Business Culture · 6 min read
+  1186→"Business Japanese: 報連相 (Hōrensō) for Engineers"
+  1187→"Hōkoku · Renraku · Sōdan — the three-pillar rhythm of Japanese 
+  1188→corporate life that determines whether an engineer thrives."
+  1189→
+  1190→06 Engineering · 7 min read
+  1191→"From Hyderabad to Tokyo: A Success Story"
+  1192→"How a 26-year-old ML engineer from Hitech City moved through 
+  1193→J-Gate's pipeline to thrive at a Tokyo enterprise in 14 months."
+  1194→
+  1195→---
+  1196→
+  1197→### ▌ PAGE 8: CONTACT
+  1198→
+  1199→#### HERO
+  1200→H1: "Connect With J-Gate"
+  1201→Sub: "Unlocking new possibilities for your business through 
+  1202→collaboration with India. — From the J-Gate Operations Team, Hyderabad"
+  1203→
+  1204→#### DIRECT CHANNELS — 2 cards
+  1205→Email: contact@indobox.co.jp
+  1206→  "Feel free to consult about anything; support is provided in Japanese."
+  1207→
+  1208→Phone:
+  1209→  Tanji (Director): +91-9910360648
+  1210→  Dheeraj (Community Manager): +91-98498 11543
+  1211→
+  1212→#### CONTACT FORM
+  1213→Fields:
+  1214→  Full Name * (placeholder: "Your name / お名前")
+  1215→  Email * (placeholder: "your@email.com")
+  1216→  Subject (text)
+  1217→  Message * (textarea 5 rows)
+  1218→  Language preference: [Reply in English] [日本語で返信]
+  1219→
+  1220→Submit: [Send Message] — crimson, full-width
+  1221→Note: "We respond to every inquiry within 24 hours — in Japanese."
+  1222→"Bilingual support available in English & 日本語"
+  1223→
+  1224→#### TWO CITIES VISUAL
+  1225→
+  1226→"Tokyo ↔ Hyderabad — Japan–India Corridor"
+  1227→~7,500 km · 3.5 hour time difference
+  1228→
+  1229→Tokyo card: 🇯🇵 Indobox HQ
+  1230→Hyderabad card: 🇮🇳 Cyber Gateway, Hitech City · Launched June 2026
+  1231→
+  1232→CSS map visualization showing the corridor (SVG or styled divs)
+  1233→
+  1234→#### DOWNLOAD BROCHURE CTA
+  1235→"Prefer to Read First?"
+  1236→"Download our brochure for a complete overview of services, 
+  1237→membership plans, and partnership models."
+  1238→[Download Brochure] + [View Pricing]
+  1239→
+  1240→---
+  1241→
+  1242→## ══════════════════════════════════════════════════
+  1243→## SHARED FOOTER (same on all pages)
+  1244→## ══════════════════════════════════════════════════
+  1245→
+  1246→Background: #04080F
+  1247→
+  1248→4-column layout:
+  1249→
+  1250→Col 1 — Brand
+  1251→  [Torii SVG icon + J-Gate + Jゲート]
+  1252→  "Bridging global and Indian talent with Japan's enterprise opportunities."
+  1253→  "Operated by Indobox India Pvt. Ltd."
+  1254→  Social icons: LinkedIn · Instagram · Twitter/X
+  1255→
+  1256→Col 2 — Navigate
+  1257→  Home · About · Why J-Gate · Services · Team · Pricing · 
+  1258→  Blogs & Culture · Contact
+  1259→
+  1260→Col 3 — Our Network
+  1261→  JETRO · T-Hub · Woxsen University · Genesys Info X · 
+  1262→  DMI · Kodryx AI
+  1263→
+  1264→Col 4 — Contact
+  1265→  📍 Cyber Gateway, Hitech City, Hyderabad
+  1266→  📧 contact@indobox.co.jp
+  1267→  📞 +91-9910360648 (Tanji)
+  1268→  [Download Brochure] — crimson button
+  1269→
+  1270→Divider: 1px solid rgba(255,255,255,0.06)
+  1271→
+  1272→Bottom bar:
+  1273→  Left: "© 2026 J-Gate | Indobox India Private Limited. All rights reserved."
+  1274→  Center: ❤ Crafted with purpose in Hyderabad
+  1275→  Right: Privacy Policy · Terms
+  1276→
+  1277→---
+  1278→
+  1279→## ══════════════════════════════════════════════════
+  1280→## COMPLETE PHOTO ID REFERENCE
+  1281→## ══════════════════════════════════════════════════
+  1282→
+  1283→Client replaces src="" with real photo URLs to activate all images:
+  1284→
+  1285→LOCATIONS:
+  1286→  photo-location-hyderabad    — Hyderabad city / Cyber Gateway
+  1287→  photo-location-gurgaon      — Gurgaon business district
+  1288→
+  1289→ABOUT:
+  1290→  photo-about-hyd-1           — Hyderabad area 1
+  1291→  photo-about-hyd-2           — Hyderabad area 2
+  1292→  photo-about-hyd-3           — Hyderabad area 3
+  1293→  photo-about-hyd-4           — Hyderabad area 4
+  1294→
+  1295→FACILITY:
+  1296→  photo-facility-workspace    — Main workspace hall
+  1297→  photo-facility-wifi         — Desk/infrastructure view
+  1298→  photo-facility-meeting      — Meeting room (small or large)
+  1299→  photo-facility-cafeteria    — TASTY FOOD JUNCTION canteen
+  1300→  photo-facility-access       — Entry / key card area
+  1301→  photo-facility-security     — Building entrance / reception
+  1302→
+  1303→SERVICES:
+  1304→  photo-service-registration  — Registration/legal context
+  1305→  photo-service-talent        — Talent/team context
+  1306→  photo-service-sales         — Sales/marketing context
+  1307→  photo-service-backoffice    — Back-office/desk context
+  1308→  photo-service-endtoend      — General operations context
+  1309→  photo-academy-isogai        — Tomio Isogai portrait
+  1310→  photo-academy-tanji         — Daisuke Tanji (academy context)
+  1311→
+  1312→TEAM:
+  1313→  photo-team-tanji            — Daisuke Tanji portrait
+  1314→  photo-team-hanaoka          — Mariko Hanaoka portrait
+  1315→  photo-team-dheeraj          — Dheeraj Yanneti portrait
+  1316→  photo-team-abhishek         — Abhishek Buduru portrait
+  1317→
+  1318→ADVISORY:
+  1319→  photo-advisory-mahankali    — Srinivas Rao Mahankali
+  1320→  photo-advisory-jagirdar     — Sujit Jagirdar
+  1321→  photo-advisory-desai        — Dr. Uday B. Desai
+  1322→  photo-advisory-sarikonda    — Dr. Viinay Sarikonda
+  1323→  photo-advisory-isogai       — Tomio Isogai
+  1324→
+  1325→PRICING:
+  1326→  photo-plan-satellite        — Satellite plan workspace
+  1327→  photo-plan-standard         — Standard plan workspace
+  1328→  photo-plan-advance          — Advance plan / cabin
+  1329→
+  1330→INAUGURATION (use in About or Home):
+  1331→  photo-inauguration-1        — Ribbon cutting + Rangoli
+  1332→  photo-inauguration-2        — JETRO keynote / guests
+  1333→  photo-inauguration-3        — Team at inauguration
+  1334→
+  1335→---
+  1336→
+  1337→## ══════════════════════════════════════════════════
+  1338→## ABSOLUTE TECHNICAL REQUIREMENTS
+  1339→## ══════════════════════════════════════════════════
+  1340→
+  1341→STRUCTURE:
+  1342→✅ All real data used — zero lorem ipsum, zero placeholder text
+  1343→✅ All real names, titles, prices, contact info exactly as above
+  1344→✅ All img tags have unique id, descriptive alt, CSS fallback
+  1345→✅ Semantic HTML: header nav main section article footer
+  1346→✅ Each section has id="" for smooth-scroll anchor linking
+  1347→
+  1348→RESPONSIVE (mobile-first):
+  1349→✅ Breakpoints: 480 / 768 / 1024 / 1280px
+  1350→✅ All text: clamp() responsive sizing
+  1351→✅ Founder cards: stacked on mobile (photo top, content below)
+  1352→✅ Team grid: 4-col → 2-col → 1-col
+  1353→✅ Comparison table: horizontal-scroll on mobile
+  1354→✅ Pricing cards: 3-col → 1-col on mobile
+  1355→✅ Nav: hamburger drawer on mobile <768px
+  1356→
+  1357→JAVASCRIPT (vanilla only):
+  1358→✅ Nav scroll behavior (transparent → frosted glass)
+  1359→✅ Mobile hamburger open/close with animation
+  1360→✅ Scroll spy: active nav link updates with IntersectionObserver
+  1361→✅ Scroll reveal: IntersectionObserver on [data-animate]
+  1362→✅ Counter animation: count up from 0 on scroll-into-view
+  1363→✅ FAQ accordion (if present): smooth max-height toggle
+  1364→✅ Pricing toggle if Monthly/Annual variants
+  1365→✅ Lightbox for photo gallery clicks
+  1366→✅ Smooth scroll: all internal anchor links
+  1367→
+  1368→ACCESSIBILITY:
+  1369→✅ One H1 per page
+  1370→✅ Heading hierarchy H1 → H2 → H3 strict
+  1371→✅ aria-label on hamburger, close button, lightbox controls
+  1372→✅ All informational images have descriptive alt text
+  1373→✅ Focus-visible on all interactive elements
+  1374→✅ Color contrast minimum 4.5:1 on all text
+  1375→✅ @media(prefers-reduced-motion:reduce) → disable animations
+  1376→
+  1377→QUALITY CHECK — before delivering, verify:
+  1378→✅ Zero broken layouts at 375px mobile
+  1379→✅ Zero broken layouts at 1440px desktop
+  1380→✅ All 8 pages/sections complete
+  1381→✅ All real data present (check every name, price, contact)
+  1382→✅ Photo fallbacks show premium gradient (not broken icon)
+  1383→✅ No lorem ipsum anywhere
+  1384→✅ Navigation links work (anchor or page links)
+  1385→✅ Footer present on every page
+  1386→
+  1387→---
+  1388→
+  1389→## ══════════════════════════════════════════════════
+  1390→## FINAL INSTRUCTION — READ THIS CAREFULLY
+  1391→## ══════════════════════════════════════════════════
+  1392→
+  1393→The client has real photos of:
+  1394→  - The actual office space (workspaces, meeting rooms, lockers, cafeteria)
+  1395→  - The actual team (Tanji-san, Hanaoka-san, Dheeraj, Abhishek)
+  1396→  - The actual advisory board members
+  1397→  - The actual inauguration ceremony (ribbon cutting, rangoli, guests)
+  1398→  - The actual cafeteria (TASTY FOOD JUNCTION — food, counter, dining area)
+  1399→
+  1400→When those photos are placed into the labeled img slots, this website 
+  1401→must come alive and look like a ¥5M professional project.
+  1402→
+  1403→Build the framework so that the photos are the hero — not the copy. 
+  1404→Copy supports photos. Photos carry the emotion.
+  1405→
+  1406→The Team page especially must make each person feel like a real human 
+  1407→being with a story, not an HR entry. Expand every bio. Give every 
+  1408→person gravity and warmth. Japanese readers and Indian readers both 
+  1409→must feel they can trust these people.
+  1410→
+  1411→The Facility section must feel like a hotel — not a desk catalog. 
+  1412→Use the real area names: "TASTY FOOD JUNCTION," "B-Block," "Japan Desk," 
+  1413→"Genesys Info (J-Gate) entrance." These specific details signal authenticity.
+  1414→
+  1415→Do not rush. Do not shortcut. Do not genericize.
+  1416→Build the website that J-Gate deserves.
+  1417→
+  1418→---
+  1419→*Prompt for J-Gate · Indobox India Private Limited · Hyderabad 2026*
+  1420→*Based on official Japanese slide deck (13 pages, fully translated) + 
+  1421→ current website content + real team data + real facility information*

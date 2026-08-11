@@ -3,6 +3,7 @@
 import { Reveal, Eyebrow } from "@/components/jgate/shared";
 import { PageHero } from "@/components/jgate/page-hero";
 import { useI18n } from "@/lib/i18n";
+import { Photo } from "@/components/jgate/photo";
 import {
   Target,
   Eye,
@@ -10,30 +11,106 @@ import {
   Globe2,
   Cpu,
   Handshake,
-  Sparkles,
-  ArrowRight,
-  MapPin,
-  Building2,
-  CalendarClock,
   Rocket,
   GraduationCap,
   HandHeart,
+  ArrowRight,
   CheckCircle2,
+  Building2,
+  CalendarClock,
+  Sparkles,
+  MapPin,
 } from "lucide-react";
 import Link from "next/link";
 
 /* ============================================================
-   About J-Gate — Strictly grouped, modular B2B layout
-   Sections (one domain per section — zero context mixing):
-     1. PageHero
-     2. Core Purpose — 3-pillar bento grid
-     3. Strategic Locations — 2 cards (Hyderabad + Gurgaon)
-     4. Mission & Vision — 2 cards
-     5. Core Values — 4-card grid
-     6. Closing CTA
+   About J-Gate — v3.0 Definitive Redesign
+   Architecture:
+     1. PageHero — "About J-Gate" / "From India Entry Spark to Talent Development"
+     2. 3 Pillars detailed (large 01/02/03 + JP+EN heading + full paragraph + icon)
+     3. Strategic Locations — Hyderabad (4 photo slots) + Gurgaon (reversed)
+     4. India Map SVG (HYD crimson pulsing + GGN saffron + other cities + connecting line)
+     5. Mission & Vision — 2 side-by-side cards
+     6. Core Values — 4-card grid
+     7. Closing CTA
    ============================================================ */
 
-/* ── Mission & Vision — 2 clean cards (no mixing) ── */
+/* ── India Map SVG — simplified outline with city dots ── */
+function IndiaMap() {
+  // Cities positioned in viewBox 0 0 360 420
+  const cities = [
+    { name: "New Delhi", x: 110, y: 90, isJGate: false },
+    { name: "Gurgaon", x: 102, y: 96, isJGate: true, color: "#e8a01a" },
+    { name: "Ahmedabad", x: 80, y: 175, isJGate: false },
+    { name: "Mumbai", x: 95, y: 240, isJGate: false },
+    { name: "Hyderabad", x: 165, y: 250, isJGate: true, color: "#bc1a2c" },
+    { name: "Bengaluru", x: 130, y: 320, isJGate: false },
+    { name: "Chennai", x: 195, y: 320, isJGate: false },
+  ];
+  const hyd = cities.find((c) => c.name === "Hyderabad")!;
+  const ggn = cities.find((c) => c.name === "Gurgaon")!;
+  return (
+    <svg viewBox="0 0 360 420" className="h-full w-full" role="img" aria-label="Map of India showing J-Gate locations">
+      {/* Simplified India outline */}
+      <path
+        d="M 130 30 L 170 25 L 200 50 L 230 55 L 250 80 L 245 110 L 260 130 L 250 160 L 270 175 L 280 200 L 270 230 L 290 270 L 285 310 L 260 340 L 235 360 L 210 380 L 180 385 L 160 370 L 145 350 L 130 320 L 115 290 L 100 260 L 90 220 L 80 190 L 75 160 L 85 130 L 95 100 L 110 70 Z"
+        fill="rgba(188,26,44,0.04)"
+        stroke="rgba(188,26,44,0.30)"
+        strokeWidth="1.2"
+        strokeLinejoin="round"
+      />
+      {/* Connecting line HYD ↔ GGN */}
+      <line
+        x1={hyd.x}
+        y1={hyd.y}
+        x2={ggn.x}
+        y2={ggn.y}
+        stroke="rgba(232,160,26,0.45)"
+        strokeWidth="1.5"
+        strokeDasharray="4 4"
+      />
+      {/* City dots */}
+      {cities.map((c) => (
+        <g key={c.name}>
+          {c.isJGate ? (
+            <>
+              <circle cx={c.x} cy={c.y} r="10" fill={c.color} opacity="0.18">
+                <animate
+                  attributeName="r"
+                  values="6;14;6"
+                  dur="2.4s"
+                  repeatCount="indefinite"
+                />
+                <animate
+                  attributeName="opacity"
+                  values="0.35;0;0.35"
+                  dur="2.4s"
+                  repeatCount="indefinite"
+                />
+              </circle>
+              <circle cx={c.x} cy={c.y} r="5" fill={c.color} />
+            </>
+          ) : (
+            <circle cx={c.x} cy={c.y} r="2.8" fill="#8892a4" opacity="0.7" />
+          )}
+          <text
+            x={c.x + (c.name === "Gurgaon" ? -6 : 8)}
+            y={c.y + 4}
+            textAnchor={c.name === "Gurgaon" ? "end" : "start"}
+            fontFamily="Inter, sans-serif"
+            fontSize={c.isJGate ? "11" : "9"}
+            fontWeight={c.isJGate ? 700 : 500}
+            fill={c.isJGate ? c.color : "#8892a4"}
+          >
+            {c.name}
+          </text>
+        </g>
+      ))}
+    </svg>
+  );
+}
+
+/* ── Mission & Vision content ── */
 const MISSION = {
   title: { EN: "Our Mission", JP: "ミッション" },
   body: {
@@ -52,7 +129,7 @@ const VISION = {
   tag: { EN: "What we build toward", JP: "私たちが構築する未来" },
 } as const;
 
-/* ── Core Values — 4-card grid (no mixing) ── */
+/* ── Core Values — 4-card grid ── */
 const VALUES = [
   {
     icon: ShieldCheck,
@@ -88,46 +165,41 @@ const VALUES = [
   },
 ] as const;
 
-/* ── Core Purpose — 3-pillar bento grid ── */
+/* ── 3 Pillars — detailed cards ── */
 const PILLARS = [
   {
+    num: "01",
     icon: Rocket,
     tagKey: "about.pillar1.tag",
     titleKey: "about.pillar1.title",
     jpKey: "about.pillar1.jp",
     descKey: "about.pillar1.desc",
-    accent: "crimson",
   },
   {
+    num: "02",
     icon: GraduationCap,
     tagKey: "about.pillar2.tag",
     titleKey: "about.pillar2.title",
     jpKey: "about.pillar2.jp",
     descKey: "about.pillar2.desc",
-    accent: "saffron",
   },
   {
+    num: "03",
     icon: HandHeart,
     tagKey: "about.pillar3.tag",
     titleKey: "about.pillar3.title",
     jpKey: "about.pillar3.jp",
     descKey: "about.pillar3.desc",
-    accent: "crimson",
   },
 ] as const;
 
-/* ── Strategic Locations — feature lists ── */
-const HYDERABAD_FEATURES = [
-  { key: "about.hyderabad.f1" },
-  { key: "about.hyderabad.f2" },
-  { key: "about.hyderabad.f3" },
-] as const;
-
-const GURGAON_FEATURES = [
-  { key: "about.gurgaon.f1" },
-  { key: "about.gurgaon.f2" },
-  { key: "about.gurgaon.f3" },
-] as const;
+/* ── Hyderabad 4 photo slots ── */
+const HYD_PHOTOS = [
+  { id: "photo-about-hyd-1", label: "Workspace", fallback: "grad-office-main" },
+  { id: "photo-about-hyd-2", label: "Meeting Room", fallback: "grad-office-meeting" },
+  { id: "photo-about-hyd-3", label: "Reception", fallback: "grad-office-reception" },
+  { id: "photo-about-hyd-4", label: "Cafeteria", fallback: "grad-canteen-japanese" },
+];
 
 export default function AboutPage() {
   const { t, tx } = useI18n();
@@ -149,9 +221,8 @@ export default function AboutPage() {
       />
 
       {/* ════════════════════════════════════════════════════════════
-          Section 1 — Core Purpose & Vision
-          3-pillar bento grid. Domain: opportunity creation / talent / collaboration.
-          No mixing with other content.
+          Section 1 — 3 Pillars Detailed
+          Each pillar: large number (01/02/03) + JP+EN heading + full paragraph + icon
          ════════════════════════════════════════════════════════════ */}
       <section className="section-pad bg-ivory">
         <div className="container-jg">
@@ -173,43 +244,27 @@ export default function AboutPage() {
             </div>
           </Reveal>
 
-          {/* Clean 3-col bento grid — uniform cards, no scattered layouts */}
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {PILLARS.map((p, i) => {
-              const isSaffron = p.accent === "saffron";
-              return (
-                <Reveal key={p.tagKey} delay={i * 100}>
-                  <article
-                    className={`lift-card group relative flex h-full flex-col overflow-hidden rounded-lg border bg-pearl p-7 shadow-card ${
-                      isSaffron ? "border-saffron/15" : "border-crimson/12"
-                    }`}
+          <div className="mt-12 grid gap-5 md:grid-cols-3">
+            {PILLARS.map((p, i) => (
+              <Reveal key={p.num} delay={i * 100}>
+                <article className="lift-card group relative h-full overflow-hidden rounded-lg border border-crimson/12 bg-pearl p-7 shadow-card">
+                  {/* Faded large numeral */}
+                  <span
+                    className="pointer-events-none absolute -top-6 right-2 font-serif-jp font-black leading-none text-crimson"
+                    style={{ fontSize: "120px", opacity: 0.08 }}
+                    aria-hidden
                   >
-                    {/* Top accent bar — subtle domain marker */}
-                    <span
-                      className={`absolute inset-x-0 top-0 h-1 ${
-                        isSaffron
-                          ? "bg-gradient-to-r from-saffron to-[#c9881a]"
-                          : "bg-gradient-to-r from-crimson to-crimson-deep"
-                      }`}
-                    />
-
+                    {p.num}
+                  </span>
+                  <div className="relative">
                     {/* Icon badge */}
-                    <div
-                      className={`flex h-14 w-14 items-center justify-center rounded-lg bg-gradient-to-br text-white shadow-card transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3 ${
-                        isSaffron
-                          ? "from-saffron to-[#c9881a]"
-                          : "from-crimson to-crimson-deep"
-                      }`}
-                    >
+                    <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-gradient-to-br from-crimson to-crimson-deep text-white shadow-card transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
                       <p.icon className="h-7 w-7" strokeWidth={1.5} />
                     </div>
-
                     {/* Tag + JP accent label */}
                     <div className="mt-5 flex items-center gap-2">
                       <span
-                        className={`font-inter text-[11px] font-bold uppercase ${
-                          isSaffron ? "text-saffron" : "text-crimson"
-                        }`}
+                        className="font-inter text-[11px] font-bold uppercase text-crimson"
                         style={{ letterSpacing: "0.15em" }}
                       >
                         {t(p.tagKey)}
@@ -219,7 +274,6 @@ export default function AboutPage() {
                         {t(p.jpKey)}
                       </span>
                     </div>
-
                     {/* Title */}
                     <h3
                       className="mt-2 font-serif-jp font-bold leading-tight text-ink"
@@ -227,45 +281,34 @@ export default function AboutPage() {
                     >
                       {t(p.titleKey)}
                     </h3>
-
-                    {/* Description (1-line) */}
+                    {/* Full paragraph */}
                     <p className="mt-3 font-inter text-[14px] leading-relaxed text-slate">
                       {t(p.descKey)}
                     </p>
-                  </article>
-                </Reveal>
-              );
-            })}
+                  </div>
+                </article>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          Section 2 — Strategic Locations
-          2 cards (Hyderabad + Gurgaon). Domain: geography only.
-          No other content in this section.
+          Section 2 — Strategic Locations (Hyderabad 4 photos + Gurgaon reversed)
          ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad relative overflow-hidden bg-midnight">
-        <div className="pattern-asanoha-dark absolute inset-0 opacity-60" />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(ellipse at 30% 0%, rgba(232,160,26,0.10), transparent 55%), radial-gradient(ellipse at 80% 100%, rgba(188,26,44,0.10), transparent 55%)",
-          }}
-        />
-        <div className="container-jg relative">
+      <section className="section-pad bg-ivory-warm">
+        <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
-              <Eyebrow light>{t("about.locations.eyebrow")}</Eyebrow>
+              <Eyebrow>{t("about.locations.eyebrow")}</Eyebrow>
               <h2
-                className="mt-4 font-serif-jp font-bold leading-[1.18] text-white"
+                className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
                 style={{ fontSize: "clamp(1.625rem,3.6vw,2.25rem)" }}
               >
                 {t("about.locations.title")}
               </h2>
               <p
-                className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-mist"
+                className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate"
                 style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
               >
                 {t("about.locations.subtitle")}
@@ -273,148 +316,213 @@ export default function AboutPage() {
             </div>
           </Reveal>
 
-          <div className="mt-10 grid gap-6 lg:grid-cols-2">
-            {/* Hyderabad — Main Base, saffron accent */}
-            <Reveal delay={100}>
-              <article className="glass-dark lift-card relative h-full overflow-hidden rounded-lg border border-saffron/25 p-8">
-                {/* Top accent bar */}
-                <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-saffron to-[#c9881a]" />
-
-                {/* Header row: icon + tag/title + status badge */}
-                <div className="flex flex-wrap items-start justify-between gap-3">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-saffron/20 text-saffron">
-                      <Building2 className="h-6 w-6" strokeWidth={1.5} />
-                    </span>
-                    <div>
-                      <span
-                        className="block font-inter text-[11px] font-semibold uppercase text-saffron"
-                        style={{ letterSpacing: "0.15em" }}
-                      >
-                        {t("about.hyderabad.tag")}
-                      </span>
-                      <h3 className="mt-0.5 font-serif-jp text-2xl font-bold text-white">
-                        {t("about.hyderabad.title")}
-                      </h3>
-                    </div>
-                  </div>
-                  <span className="inline-flex items-center gap-1.5 rounded-md bg-saffron/15 px-3 py-1.5 font-inter text-[11px] font-bold uppercase text-saffron">
-                    <CalendarClock className="h-3 w-3" />
-                    {t("about.hyderabad.status")}
-                  </span>
-                </div>
-
-                {/* Nickname badge */}
-                <p className="mt-5 font-serif-jp text-[15px] font-medium italic text-saffron/85">
-                  {t("about.hyderabad.nick")}
-                </p>
-
-                {/* Description */}
-                <p className="mt-3 font-inter text-[14px] leading-relaxed text-mist">
-                  {t("about.hyderabad.desc")}
-                </p>
-
-                {/* Features list — 3 bullets */}
-                <ul className="mt-6 space-y-2.5 border-t border-white/10 pt-5">
-                  {HYDERABAD_FEATURES.map((f, fi) => (
-                    <li key={fi} className="flex items-start gap-2.5">
-                      <CheckCircle2
-                        className="mt-0.5 h-4 w-4 shrink-0 text-saffron"
-                        strokeWidth={2}
-                      />
-                      <span className="font-inter text-[13px] text-white/90">
-                        {t(f.key)}
-                      </span>
-                    </li>
+          {/* Hyderabad — 2-col: photo grid on left, content on right */}
+          <Reveal delay={120}>
+            <article className="lift-card mt-12 overflow-hidden rounded-lg border border-saffron/20 bg-pearl shadow-card">
+              <span className="block h-1 bg-gradient-to-r from-saffron to-[#c9881a]" />
+              <div className="grid lg:grid-cols-2">
+                {/* Photo grid: 4 slots */}
+                <div className="grid grid-cols-2 gap-1 p-1">
+                  {HYD_PHOTOS.map((ph) => (
+                    <Photo
+                      key={ph.id}
+                      id={ph.id}
+                      alt={`${ph.label} — J-Gate Hyderabad`}
+                      fallback={ph.fallback}
+                      initials="HYD"
+                      rounded="rounded-sm"
+                      className="aspect-[4/3] w-full"
+                    />
                   ))}
-                </ul>
-
-                {/* Decorative pin watermark */}
-                <MapPin
-                  className="absolute -bottom-4 -right-2 h-24 w-24 text-saffron/10"
-                  strokeWidth={1}
-                />
-              </article>
-            </Reveal>
-
-            {/* Gurgaon — Sub Base, crimson accent */}
-            <Reveal delay={200}>
-              <article className="glass-dark lift-card relative h-full overflow-hidden rounded-lg border border-crimson/25 p-8">
-                <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-crimson to-crimson-deep" />
-
-                <div className="flex flex-wrap items-start justify-between gap-3">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-crimson/20 text-crimson">
-                      <Building2 className="h-6 w-6" strokeWidth={1.5} />
-                    </span>
-                    <div>
-                      <span
-                        className="block font-inter text-[11px] font-semibold uppercase text-crimson"
-                        style={{ letterSpacing: "0.15em" }}
-                      >
-                        {t("about.gurgaon.tag")}
-                      </span>
-                      <h3 className="mt-0.5 font-serif-jp text-2xl font-bold text-white">
-                        {t("about.gurgaon.title")}
-                      </h3>
-                    </div>
-                  </div>
-                  <span className="inline-flex items-center gap-1.5 rounded-md bg-crimson/15 px-3 py-1.5 font-inter text-[11px] font-bold uppercase text-crimson">
-                    <CalendarClock className="h-3 w-3" />
-                    {t("about.gurgaon.status")}
-                  </span>
                 </div>
-
-                <p className="mt-5 font-serif-jp text-[15px] font-medium italic text-crimson/85">
-                  {t("about.gurgaon.nick")}
-                </p>
-
-                <p className="mt-3 font-inter text-[14px] leading-relaxed text-mist">
-                  {t("about.gurgaon.desc")}
-                </p>
-
-                <ul className="mt-6 space-y-2.5 border-t border-white/10 pt-5">
-                  {GURGAON_FEATURES.map((f, fi) => (
-                    <li key={fi} className="flex items-start gap-2.5">
-                      <CheckCircle2
-                        className="mt-0.5 h-4 w-4 shrink-0 text-crimson"
-                        strokeWidth={2}
-                      />
-                      <span className="font-inter text-[13px] text-white/90">
-                        {t(f.key)}
+                {/* Content */}
+                <div className="p-8 lg:p-10">
+                  <div className="flex flex-wrap items-start justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-saffron/15 text-saffron">
+                        <Building2 className="h-6 w-6" strokeWidth={1.5} />
                       </span>
-                    </li>
-                  ))}
-                </ul>
+                      <div>
+                        <span
+                          className="block font-inter text-[11px] font-bold uppercase text-saffron"
+                          style={{ letterSpacing: "0.15em" }}
+                        >
+                          {t("about.hyderabad.tag")}
+                        </span>
+                        <h3 className="mt-0.5 font-serif-jp text-2xl font-bold text-ink">
+                          {t("about.hyderabad.title")}
+                        </h3>
+                      </div>
+                    </div>
+                    <span className="inline-flex items-center gap-1.5 rounded-md bg-success/15 px-2.5 py-1 font-inter text-[11px] font-bold uppercase text-success">
+                      <CalendarClock className="h-3 w-3" />
+                      {t("about.hyderabad.status")}
+                    </span>
+                  </div>
+                  <p className="mt-5 font-serif-jp text-[15px] font-medium italic text-saffron/85">
+                    {t("about.hyderabad.nick")}
+                  </p>
+                  <p className="mt-3 font-inter text-[14px] leading-relaxed text-slate">
+                    {t("about.hyderabad.desc")}
+                  </p>
+                  <ul className="mt-5 space-y-2.5 border-t border-crimson/10 pt-5">
+                    {[t("about.hyderabad.f1"), t("about.hyderabad.f2"), t("about.hyderabad.f3")].map((f, fi) => (
+                      <li key={fi} className="flex items-start gap-2.5">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-saffron" strokeWidth={2} />
+                        <span className="font-inter text-[13px] text-ink">{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </article>
+          </Reveal>
 
-                <MapPin
-                  className="absolute -bottom-4 -right-2 h-24 w-24 text-crimson/10"
-                  strokeWidth={1}
-                />
-              </article>
-            </Reveal>
-          </div>
-
-          {/* Footnote: location legend */}
-          <Reveal delay={300}>
-            <div className="mx-auto mt-8 flex max-w-3xl items-center justify-center gap-6 font-inter text-[12px] text-mist">
-              <span className="flex items-center gap-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-saffron" />
-                {tx({ EN: "Hyderabad — Main Base", JP: "ハイデラバード — 主拠点" })}
-              </span>
-              <span className="flex items-center gap-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-crimson" />
-                {tx({ EN: "Gurgaon — Sub Base (in prep)", JP: "グルガオン — サブ拠点（準備中）" })}
-              </span>
-            </div>
+          {/* Gurgaon — reversed 2-col: content on left, photo on right */}
+          <Reveal delay={200}>
+            <article className="lift-card mt-6 overflow-hidden rounded-lg border border-crimson/20 bg-pearl shadow-card">
+              <span className="block h-1 bg-gradient-to-r from-crimson to-crimson-deep" />
+              <div className="grid lg:grid-cols-2">
+                {/* Content (left on lg) */}
+                <div className="p-8 lg:p-10 lg:order-1">
+                  <div className="flex flex-wrap items-start justify-between gap-3">
+                    <div className="flex items-center gap-3">
+                      <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-crimson/15 text-crimson">
+                        <Building2 className="h-6 w-6" strokeWidth={1.5} />
+                      </span>
+                      <div>
+                        <span
+                          className="block font-inter text-[11px] font-bold uppercase text-crimson"
+                          style={{ letterSpacing: "0.15em" }}
+                        >
+                          {t("about.gurgaon.tag")}
+                        </span>
+                        <h3 className="mt-0.5 font-serif-jp text-2xl font-bold text-ink">
+                          {t("about.gurgaon.title")}
+                        </h3>
+                      </div>
+                    </div>
+                    <span className="inline-flex items-center gap-1.5 rounded-md bg-saffron/15 px-2.5 py-1 font-inter text-[11px] font-bold uppercase text-saffron">
+                      <CalendarClock className="h-3 w-3" />
+                      {t("about.gurgaon.status")}
+                    </span>
+                  </div>
+                  <p className="mt-5 font-serif-jp text-[15px] font-medium italic text-crimson/85">
+                    {t("about.gurgaon.nick")}
+                  </p>
+                  <p className="mt-3 font-inter text-[14px] leading-relaxed text-slate">
+                    {t("about.gurgaon.desc")}
+                  </p>
+                  <ul className="mt-5 space-y-2.5 border-t border-crimson/10 pt-5">
+                    {[t("about.gurgaon.f1"), t("about.gurgaon.f2"), t("about.gurgaon.f3")].map((f, fi) => (
+                      <li key={fi} className="flex items-start gap-2.5">
+                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-crimson" strokeWidth={2} />
+                        <span className="font-inter text-[13px] text-ink">{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                {/* Single photo (right on lg) */}
+                <div className="lg:order-2">
+                  <Photo
+                    id="photo-about-gurgaon"
+                    alt="J-Gate Gurgaon sub base — Delhi NCR (in preparation)"
+                    fallback="grad-office-cabin"
+                    initials="GGN"
+                    rounded="rounded-none lg:rounded-r-lg"
+                    className="h-full min-h-[280px] w-full"
+                  />
+                </div>
+              </div>
+            </article>
           </Reveal>
         </div>
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          Section 3 — Mission & Vision
-          2 clean cards. Domain: corporate mission/vision only.
-          No mixing with values or story.
+          Section 3 — India Map SVG
+          Hyderabad (crimson pulsing) + Gurgaon (saffron) + other cities + connecting line
+         ════════════════════════════════════════════════════════════ */}
+      <section className="section-pad relative overflow-hidden bg-midnight">
+        <div className="pattern-asanoha-dark absolute inset-0 opacity-60" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at 50% 50%, rgba(188,26,44,0.10), transparent 60%)",
+          }}
+        />
+        <div className="container-jg relative">
+          <Reveal>
+            <div className="mx-auto max-w-3xl text-center">
+              <Eyebrow light>{tx({ EN: "India Footprint", JP: "インド拠点マップ" })}</Eyebrow>
+              <h2
+                className="mt-4 font-serif-jp font-bold leading-[1.18] text-white"
+                style={{ fontSize: "clamp(1.625rem,3.6vw,2.25rem)" }}
+              >
+                {tx({ EN: "Two Cities. One Bridge.", JP: "二つの都市、一つの架け橋。" })}
+              </h2>
+              <p
+                className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-mist"
+                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+              >
+                {tx({
+                  EN: "Hyderabad leads as our main base; Gurgaon follows as the sub base. The corridor between them covers every major Japanese business touchpoint in India.",
+                  JP: "ハイデラバードが主拠点、グルガオンがサブ拠点。両者の回廊が、インドにおける日本ビジネスの主要接点をすべてカバーします。",
+                })}
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="mt-10 grid gap-8 lg:grid-cols-5 lg:items-center">
+            {/* Map */}
+            <Reveal variant="left" delay={120} className="lg:col-span-3">
+              <div className="mx-auto max-w-md rounded-lg border border-white/10 bg-white/[0.02] p-6">
+                <IndiaMap />
+              </div>
+            </Reveal>
+            {/* Legend + connecting corridor summary */}
+            <Reveal variant="right" delay={200} className="lg:col-span-2">
+              <div className="glass-dark rounded-lg border border-white/10 p-6">
+                <h3 className="font-serif-jp text-lg font-bold text-white">
+                  {tx({ EN: "Active Corridor", JP: "稼働回廊" })}
+                </h3>
+                <p className="mt-2 font-inter text-[13px] leading-relaxed text-mist">
+                  {tx({
+                    EN: "Direct line from Gurgaon (Delhi NCR) to Hyderabad — covering India's two largest Japanese business communities.",
+                    JP: "グルガオン（デリーNCR）からハイデラバードへの直線 — インドの二大日本ビジネスコミュニティを結ぶ。",
+                  })}
+                </p>
+                <ul className="mt-5 space-y-3">
+                  <li className="flex items-center gap-3">
+                    <span className="h-3 w-3 rounded-full bg-crimson shadow-[0_0_12px_rgba(188,26,44,0.6)]" />
+                    <span className="font-inter text-[13px] text-white">
+                      <strong className="font-bold">Hyderabad</strong>
+                      <span className="ml-2 text-mist">{tx({ EN: "Main Base · LIVE", JP: "主拠点・稼働中" })}</span>
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="h-3 w-3 rounded-full bg-saffron shadow-[0_0_12px_rgba(232,160,26,0.6)]" />
+                    <span className="font-inter text-[13px] text-white">
+                      <strong className="font-bold">Gurgaon</strong>
+                      <span className="ml-2 text-mist">{tx({ EN: "Sub Base · In Prep", JP: "サブ拠点・準備中" })}</span>
+                    </span>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <span className="h-3 w-3 rounded-full bg-mist/50" />
+                    <span className="font-inter text-[13px] text-mist">
+                      {tx({ EN: "Other major cities", JP: "その他主要都市" })}
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════
+          Section 4 — Mission & Vision — 2 side-by-side cards
          ════════════════════════════════════════════════════════════ */}
       <section className="section-pad bg-ivory-warm">
         <div className="container-jg">
@@ -496,9 +604,7 @@ export default function AboutPage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          Section 4 — Core Values
-          4-card grid. Domain: corporate principles only.
-          No mixing.
+          Section 5 — Core Values — 4-card grid
          ════════════════════════════════════════════════════════════ */}
       <section className="section-pad bg-ivory">
         <div className="container-jg">
@@ -527,7 +633,6 @@ export default function AboutPage() {
             {VALUES.map((v, i) => (
               <Reveal key={i} delay={i * 100}>
                 <article className="lift-card group relative h-full overflow-hidden rounded-lg border border-crimson/8 bg-pearl p-7 shadow-card">
-                  {/* Vertical accent bar on left — alternating crimson/saffron */}
                   <span
                     className={`absolute inset-y-0 left-0 w-1 ${
                       i % 2 === 0
@@ -537,9 +642,7 @@ export default function AboutPage() {
                   />
                   <div
                     className={`flex h-14 w-14 items-center justify-center rounded-lg bg-gradient-to-br ${
-                      i % 2 === 0
-                        ? "from-crimson/10 to-saffron/5"
-                        : "from-saffron/10 to-crimson/5"
+                      i % 2 === 0 ? "from-crimson/10 to-saffron/5" : "from-saffron/10 to-crimson/5"
                     } text-crimson transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3`}
                   >
                     <v.icon className="h-7 w-7" strokeWidth={1.5} />

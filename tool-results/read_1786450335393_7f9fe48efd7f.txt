@@ -1,0 +1,711 @@
+     1→"use client";
+     2→
+     3→import { Reveal, Eyebrow } from "@/components/jgate/shared";
+     4→import { PageHero } from "@/components/jgate/page-hero";
+     5→import { useI18n } from "@/lib/i18n";
+     6→import {
+     7→  Building2,
+     8→  Users,
+     9→  Megaphone,
+    10→  Languages,
+    11→  Workflow,
+    12→  Video,
+    13→  Clock,
+    14→  CalendarDays,
+    15→  UserCog,
+    16→  Sparkles,
+    17→  ArrowRight,
+    18→  CheckCircle2,
+    19→  Briefcase,
+    20→  Handshake,
+    21→  Home,
+    22→  Wifi,
+    23→  DoorOpen,
+    24→  ShieldCheck,
+    25→  Coffee,
+    26→  Building,
+    27→  Plane,
+    28→  Mail,
+    29→  Phone,
+    30→  Banknote,
+    31→} from "lucide-react";
+    32→import Link from "next/link";
+    33→
+    34→/* ============================================================
+    35→   Services — REAL PDF content (Slides 4, 5, 6)
+    36→   CLEAN modular layout: each domain in its own section.
+    37→   1. Business Expansion Support  — 5 cards
+    38→   2. Indobox Academy             — single card + 3 metric badges
+    39→   3. Indo-Japan Hybrid Model      — 2-col matrix + Living Support strip
+    40→   4. Facility Features            — 6-card bento grid
+    41→   5. Closing CTA
+    42→   ============================================================ */
+    43→
+    44→type Bilingual = { EN: string; JP: string };
+    45→
+    46→/* ── Section 1 — Business Expansion Support — Slide 4 ── */
+    47→const EXPANSION_SERVICES = [
+    48→  {
+    49→    num: "01",
+    50→    icon: Building2,
+    51→    accent: "crimson",
+    52→    title: {
+    53→      EN: "Corporate Registration & Nominee Director",
+    54→      JP: "法人登記・登録住所・名義人ディレクター",
+    55→    } as Bilingual,
+    56→    desc: {
+    57→      EN: "Corporate registration address and Nominee Director name — a turnkey legal footprint in Hyderabad from day one.",
+    58→      JP: "法人登録住所および名義人ディレクター（Nominee Director）の提供 — 初日からハイデラバードに法的な拠点を構築。",
+    59→    } as Bilingual,
+    60→  },
+    61→  {
+    62→    num: "02",
+    63→    icon: Users,
+    64→    accent: "saffron",
+    65→    title: {
+    66→      EN: "Talent Development, Dispatching & Payroll",
+    67→      JP: "人材育成・派遣・給与管理",
+    68→    } as Bilingual,
+    69→    desc: {
+    70→      EN: "Full talent lifecycle — development, dispatching, and payroll administration handled end-to-end by India-side operators.",
+    71→      JP: "人材ライフサイクルの包括管理 — 育成・派遣・給与管理をインド側運営チームがエンドツーエンドで担当。",
+    72→    } as Bilingual,
+    73→  },
+    74→  {
+    75→    num: "03",
+    76→    icon: Megaphone,
+    77→    accent: "crimson",
+    78→    title: {
+    79→      EN: "Sales & Marketing Support",
+    80→      JP: "営業・マーケティング支援",
+    81→    } as Bilingual,
+    82→    desc: {
+    83→      EN: "On-the-ground sales & marketing execution — lead generation, partner outreach, bilingual B2B/B2G campaigns.",
+    84→      JP: "現地での営業・マーケティング実行 — リード獲得、パートナーアプローチ、バイリンガルB2B/B2Gキャンペーン。",
+    85→    } as Bilingual,
+    86→  },
+    87→  {
+    88→    num: "04",
+    89→    icon: Languages,
+    90→    accent: "saffron",
+    91→    title: {
+    92→      EN: "Interpretation & Back-Office Outsourcing",
+    93→      JP: "通訳支援・バックオフィス代行",
+    94→    } as Bilingual,
+    95→    desc: {
+    96→      EN: "Interpretation support and back-office outsourcing — bookkeeping, accounting, vendor coordination by Japanese-speaking staff.",
+    97→      JP: "通訳支援およびバックオフィスアウトソーシング — 記帳・経理・ベンダー調整を日本語対応スタッフが担当。",
+    98→    } as Bilingual,
+    99→  },
+   100→  {
+   101→    num: "05",
+   102→    icon: Workflow,
+   103→    accent: "crimson",
+   104→    title: {
+   105→      EN: "End-to-End Support: Setup to Daily Ops",
+   106→      JP: "法人設立から日常実務まで一貫支援",
+   107→    } as Bilingual,
+   108→    desc: {
+   109→      EN: "Consistent end-to-end support — corporate establishment through to daily operations. One accountable partner.",
+   110→      JP: "法人設立から日常実務まで一貫したサポート — 責任の所在が一元的な単一パートナー。",
+   111→    } as Bilingual,
+   112→  },
+   113→] as const;
+   114→
+   115→/* ── Section 2 — Indobox Academy metric badges ── */
+   116→const ACADEMY_METRICS = [
+   117→  {
+   118→    icon: Video,
+   119→    label: { EN: "Format", JP: "形式" } as Bilingual,
+   120→    value: { EN: "Online", JP: "オンライン" } as Bilingual,
+   121→  },
+   122→  {
+   123→    icon: Clock,
+   124→    label: { EN: "Duration", JP: "時間" } as Bilingual,
+   125→    value: { EN: "60 min / session", JP: "1回60分" } as Bilingual,
+   126→  },
+   127→  {
+   128→    icon: CalendarDays,
+   129→    label: { EN: "Frequency", JP: "頻度" } as Bilingual,
+   130→    value: { EN: "Once / 1–2 months", JP: "1〜2か月に1回" } as Bilingual,
+   131→  },
+   132→] as const;
+   133→
+   134→/* ── Section 3 — Indo-Japan Hybrid Operating Model ── */
+   135→const INDOBOX_DUTIES = [
+   136→  { EN: "Marketing & client acquisition", JP: "マーケティングおよび顧客獲得" },
+   137→  { EN: "Japan–India facilitation & coordination", JP: "日印間の調整および連携" },
+   138→  { EN: "Client relationship management", JP: "顧客関係の維持・管理" },
+   139→  { EN: "Project lead securing", JP: "プロジェクトリードの獲得" },
+   140→] as const;
+   141→
+   142→const GENESYS_DUTIES = [
+   143→  { EN: "High-quality workspaces", JP: "高品質なワークスペースの提供" },
+   144→  { EN: "Local talent securing & management", JP: "現地人材の確保・管理" },
+   145→  { EN: "Engaging Indian cos seeking JP partners", JP: "日本企業と連携するインド企業との折衝" },
+   146→  { EN: "Facility & infrastructure maintenance", JP: "現地施設・インフラの保守・運営" },
+   147→] as const;
+   148→
+   149→const LIVING_SUPPORT = [
+   150→  { icon: Home, label: { EN: "Apartment / housing search", JP: "住居・アパート探し" } as Bilingual },
+   151→  { icon: Building, label: { EN: "FRRO registration", JP: "FRRO（外国人登録）手続き" } as Bilingual },
+   152→  { icon: Plane, label: { EN: "Long-stay hotel arrangements", JP: "長期滞在ホテル手配" } as Bilingual },
+   153→  { icon: Briefcase, label: { EN: "Daily-life support, as required", JP: "日常生活支援（必要に応じて）" } as Bilingual },
+   154→] as const;
+   155→
+   156→/* ── Section 4 — Facility Features — Slide 6 ── */
+   157→const FACILITIES = [
+   158→  {
+   159→    icon: Briefcase,
+   160→    title: { EN: "Dedicated Workspace", JP: "専用ワークスペース" } as Bilingual,
+   161→    desc: { EN: "Fixed desks, cabinets, and private lockers.", JP: "固定デスク、キャビネット、プライベートロッカー。" } as Bilingual,
+   162→  },
+   163→  {
+   164→    icon: Wifi,
+   165→    title: { EN: "Communication Infrastructure", JP: "通信インフラ" } as Bilingual,
+   166→    desc: { EN: "High-speed Wi-Fi and Xerox multifunction printers/copiers.", JP: "高速Wi-FiおよびXerox複合機プリンター・コピー機。" } as Bilingual,
+   167→  },
+   168→  {
+   169→    icon: Users,
+   170→    title: { EN: "Meeting Rooms", JP: "会議室" } as Bilingual,
+   171→    desc: { EN: "For negotiations and team meetings — stepwise expansion.", JP: "商談やチーム会議に利用可能 — 段階的に拡張。" } as Bilingual,
+   172→  },
+   173→  {
+   174→    icon: Coffee,
+   175→    title: { EN: "Shared Cafeteria", JP: "共同食堂" } as Bilingual,
+   176→    desc: { EN: "Refreshment space that encourages casual networking.", JP: "カジュアルな交流を促すリフレッシュスペース。" } as Bilingual,
+   177→  },
+   178→  {
+   179→    icon: DoorOpen,
+   180→    title: { EN: "24/7 Access", JP: "24/7アクセス" } as Bilingual,
+   181→    desc: { EN: "24 hrs/day, 365 days/year via smart key cards.", JP: "年中無休24時間・スマートキーカードで利用可能。" } as Bilingual,
+   182→  },
+   183→  {
+   184→    icon: ShieldCheck,
+   185→    title: { EN: "Security", JP: "セキュリティ" } as Bilingual,
+   186→    desc: { EN: "Reliable, secure management — controlled access.", JP: "信頼性の高いセキュアな管理・入退室管理。" } as Bilingual,
+   187→  },
+   188→] as const;
+   189→
+   190→/* ============================================================
+   191→   Reusable accent map
+   192→   ============================================================ */
+   193→const ACCENT = {
+   194→  crimson: {
+   195→    text: "text-crimson",
+   196→    chipBg: "bg-crimson/10",
+   197→    bar: "from-crimson to-crimson-deep",
+   198→    iconBg: "bg-gradient-to-br from-crimson to-crimson-deep",
+   199→    ring: "border-crimson/20 hover:border-crimson/40",
+   200→  },
+   201→  saffron: {
+   202→    text: "text-saffron",
+   203→    chipBg: "bg-saffron/10",
+   204→    bar: "from-saffron to-[#c9881a]",
+   205→    iconBg: "bg-gradient-to-br from-saffron to-[#c9881a]",
+   206→    ring: "border-saffron/20 hover:border-saffron/40",
+   207→  },
+   208→} as const;
+   209→
+   210→export default function ServicesPage() {
+   211→  const { tx } = useI18n();
+   212→
+   213→  return (
+   214→    <>
+   215→      <PageHero
+   216→        eyebrowKey="services.eyebrow"
+   217→        titleNode={
+   218→          <>
+   219→            {tx({ EN: "Indobox Comprehensive", JP: "Indoboxの包括的" })}
+   220→            <br />
+   221→            <span className="text-gradient-saffron">
+   222→              {tx({ EN: "Expansion Support", JP: "進出支援・人材育成" })}
+   223→            </span>
+   224→          </>
+   225→        }
+   226→        subtitleKey="services.title"
+   227→      />
+   228→
+   229→      {/* ───────────────────────────────────────────────────────────
+   230→          Section 1 — Business Expansion Support (Slide 4)
+   231→          CLEAN 5-card grid. Each card: number + title + 1-line desc.
+   232→          ZERO mixing with Academy / Facilities.
+   233→         ─────────────────────────────────────────────────────────── */}
+   234→      <section className="section-pad bg-ivory">
+   235→        <div className="container-jg">
+   236→          <Reveal>
+   237→            <div className="mx-auto max-w-3xl text-center">
+   238→              <Eyebrow>
+   239→                {tx({ EN: "Business Expansion Support", JP: "ビジネス展開サポート" })}
+   240→              </Eyebrow>
+   241→              <h2
+   242→                className="mt-4 font-serif-jp font-bold leading-[1.2] text-ink"
+   243→                style={{ fontSize: "clamp(1.75rem,3.5vw,2.25rem)" }}
+   244→              >
+   245→                {tx({
+   246→                  EN: "Five Integrated Service Lines",
+   247→                  JP: "5つの統合サービスライン",
+   248→                })}
+   249→              </h2>
+   250→              <p
+   251→                className="mx-auto mt-3 max-w-2xl font-inter text-[14px] leading-relaxed text-slate"
+   252→              >
+   253→                {tx({
+   254→                  EN: "From corporate setup to daily operations — one accountable partner covering legal footing, talent, sales, language, and ongoing operations.",
+   255→                  JP: "法人設立から日常実務まで — 法的拠点・人材・営業・言語・日常オペレーションを一元的に担う責任パートナー。",
+   256→                })}
+   257→              </p>
+   258→            </div>
+   259→          </Reveal>
+   260→
+   261→          {/* Clean 5-card responsive grid */}
+   262→          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+   263→            {EXPANSION_SERVICES.map((s, i) => {
+   264→              const a = ACCENT[s.accent];
+   265→              return (
+   266→                <Reveal key={i} delay={i * 70}>
+   267→                  <article
+   268→                    className={`lift-card relative flex h-full flex-col overflow-hidden rounded-lg border bg-pearl p-6 shadow-card ${a.ring}`}
+   269→                  >
+   270→                    {/* Top accent bar */}
+   271→                    <span className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${a.bar}`} />
+   272→
+   273→                    {/* Header: number + icon */}
+   274→                    <div className="flex items-center justify-between">
+   275→                      <span
+   276→                        className={`flex h-11 w-11 items-center justify-center rounded-md ${a.iconBg} text-white shadow-card`}
+   277→                      >
+   278→                        <s.icon className="h-5 w-5" strokeWidth={1.5} />
+   279→                      </span>
+   280→                      <span
+   281→                        className={`font-serif-jp text-3xl font-bold leading-none ${a.text} opacity-25`}
+   282→                      >
+   283→                        {s.num}
+   284→                      </span>
+   285→                    </div>
+   286→
+   287→                    {/* Title */}
+   288→                    <h3 className="mt-5 font-serif-jp text-[16px] font-bold leading-tight text-ink">
+   289→                      {tx(s.title)}
+   290→                    </h3>
+   291→
+   292→                    {/* One-line description */}
+   293→                    <p className="mt-2 font-inter text-[13px] leading-relaxed text-slate">
+   294→                      {tx(s.desc)}
+   295→                    </p>
+   296→                  </article>
+   297→                </Reveal>
+   298→              );
+   299→            })}
+   300→
+   301→            {/* 6th cell — callout card (Service Line 06) keeps grid balanced */}
+   302→            <Reveal delay={EXPANSION_SERVICES.length * 70}>
+   303→              <div className="relative flex h-full min-h-[200px] flex-col justify-center overflow-hidden rounded-lg border border-crimson/25 bg-gradient-to-br from-crimson/[0.04] to-saffron/[0.04] p-6 text-center">
+   304→                <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-crimson via-saffron to-crimson-deep" />
+   305→                <Workflow className="mx-auto h-8 w-8 text-crimson" strokeWidth={1.25} />
+   306→                <p className="mt-3 font-serif-jp text-[14px] font-bold leading-snug text-ink">
+   307→                  {tx({
+   308→                    EN: "One partner. Five services. Zero hand-off gaps.",
+   309→                    JP: "ひとつのパートナー。5つのサービス。引き継ぎの隙間なし。",
+   310→                  })}
+   311→                </p>
+   312→              </div>
+   313→            </Reveal>
+   314→          </div>
+   315→        </div>
+   316→      </section>
+   317→
+   318→      {/* ───────────────────────────────────────────────────────────
+   319→          Section 2 — Indobox Academy (Slide 4)
+   320→          CLEAN single-card layout: lecturer + facilitator + 3 metric badges.
+   321→          ZERO mixing with expansion services or facilities.
+   322→         ─────────────────────────────────────────────────────────── */}
+   323→      <section className="section-pad relative overflow-hidden bg-midnight">
+   324→        <div className="pattern-asanoha-dark absolute inset-0 opacity-60" />
+   325→        <div
+   326→          className="absolute inset-0"
+   327→          style={{
+   328→            background:
+   329→              "radial-gradient(ellipse at 30% 20%, rgba(232,160,26,0.10) 0%, transparent 55%), radial-gradient(ellipse at 80% 80%, rgba(188,26,44,0.08) 0%, transparent 50%)",
+   330→          }}
+   331→        />
+   332→        <div className="container-jg relative">
+   333→          <Reveal>
+   334→            <div className="mx-auto max-w-3xl text-center">
+   335→              <Eyebrow light>
+   336→                {tx({ EN: "Indobox Academy", JP: "Indobox Academy" })}
+   337→              </Eyebrow>
+   338→              <h2
+   339→                className="mt-4 font-serif-jp font-bold leading-[1.2] text-white"
+   340→                style={{ fontSize: "clamp(1.75rem,3.5vw,2.25rem)" }}
+   341→              >
+   342→                {tx({
+   343→                  EN: "Practical India Business Lectures",
+   344→                  JP: "インドビジネスの実践講座",
+   345→                })}
+   346→              </h2>
+   347→              <p
+   348→                className="mx-auto mt-3 max-w-2xl font-inter text-[14px] leading-relaxed text-mist"
+   349→              >
+   350→                {tx({
+   351→                  EN: "Practical lectures by experts with rich India business experience — covering local business customs, risk management, and keys to success that foster capable resident representatives.",
+   352→                  JP: "インドビジネスに豊富な経験を持つ専門家による実践講座 — 現地ビジネス習慣、リスク管理、有能な駐在担当者を育成する成功の鍵を網羅。",
+   353→                })}
+   354→              </p>
+   355→            </div>
+   356→          </Reveal>
+   357→
+   358→          {/* 3 metric badges — clean, scannable */}
+   359→          <Reveal delay={100}>
+   360→            <div className="mx-auto mt-8 grid max-w-3xl gap-4 sm:grid-cols-3">
+   361→              {ACADEMY_METRICS.map((m, i) => (
+   362→                <div
+   363→                  key={i}
+   364→                  className="glass-dark lift-card flex items-center gap-4 rounded-lg border border-white/10 p-4"
+   365→                >
+   366→                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-saffron/15 text-saffron">
+   367→                    <m.icon className="h-5 w-5" strokeWidth={1.5} />
+   368→                  </span>
+   369→                  <div className="min-w-0">
+   370→                    <p className="font-inter text-[10px] font-semibold uppercase text-mist" style={{ letterSpacing: "0.12em" }}>
+   371→                      {tx(m.label)}
+   372→                    </p>
+   373→                    <p className="mt-0.5 font-serif-jp text-[14px] font-bold text-white">
+   374→                      {tx(m.value)}
+   375→                    </p>
+   376→                  </div>
+   377→                </div>
+   378→              ))}
+   379→            </div>
+   380→          </Reveal>
+   381→
+   382→          {/* 2 clean cards: Lecturer + Facilitator */}
+   383→          <div className="mx-auto mt-8 grid max-w-5xl gap-4 lg:grid-cols-2">
+   384→            {/* Lecturer */}
+   385→            <Reveal variant="left">
+   386→              <article className="glass-dark lift-card relative h-full overflow-hidden rounded-lg border border-saffron/25 p-6">
+   387→                <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-saffron to-[#c9881a]" />
+   388→                <div className="flex items-start gap-4">
+   389→                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-saffron to-[#c9881a] text-midnight shadow-card">
+   390→                    <UserCog className="h-7 w-7" strokeWidth={1.5} />
+   391→                  </span>
+   392→                  <div className="flex-1">
+   393→                    <span className="font-inter text-[10px] font-semibold uppercase text-saffron" style={{ letterSpacing: "0.15em" }}>
+   394→                      {tx({ EN: "Lecturer", JP: "講師" })}
+   395→                    </span>
+   396→                    <h3 className="mt-1 font-serif-jp text-lg font-bold text-white">
+   397→                      Tomio Isogai
+   398→                    </h3>
+   399→                    <p className="font-sans-jp text-[12px] font-semibold text-saffron-light">磯貝 富雄 氏</p>
+   400→                    <p className="mt-1 font-inter text-[12px] text-mist">
+   401→                      {tx({
+   402→                        EN: "Indobox Advisor · Former Sharp India MD",
+   403→                        JP: "Indoboxアドバイザー・元シャープインドリア代表",
+   404→                      })}
+   405→                    </p>
+   406→                  </div>
+   407→                </div>
+   408→              </article>
+   409→            </Reveal>
+   410→
+   411→            {/* Facilitator */}
+   412→            <Reveal variant="right" delay={80}>
+   413→              <article className="glass-dark lift-card relative h-full overflow-hidden rounded-lg border border-crimson/25 p-6">
+   414→                <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-crimson to-crimson-deep" />
+   415→                <div className="flex items-start gap-4">
+   416→                  <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-crimson to-crimson-deep text-white shadow-card">
+   417→                    <Briefcase className="h-7 w-7" strokeWidth={1.5} />
+   418→                  </span>
+   419→                  <div className="flex-1">
+   420→                    <span className="font-inter text-[10px] font-semibold uppercase text-crimson" style={{ letterSpacing: "0.15em" }}>
+   421→                      {tx({ EN: "Facilitator", JP: "ファシリテーター" })}
+   422→                    </span>
+   423→                    <h3 className="mt-1 font-serif-jp text-lg font-bold text-white">
+   424→                      Daisuke Tanji
+   425→                    </h3>
+   426→                    <p className="font-sans-jp text-[12px] font-semibold text-saffron-light">丹治 大佑</p>
+   427→                    <p className="mt-1 font-inter text-[12px] text-mist">
+   428→                      {tx({
+   429→                        EN: "Indobox Representative · Facilitates every session",
+   430→                        JP: "Indobox代表・全セッションをファシリテート",
+   431→                      })}
+   432→                    </p>
+   433→                  </div>
+   434→                </div>
+   435→              </article>
+   436→            </Reveal>
+   437→          </div>
+   438→        </div>
+   439→      </section>
+   440→
+   441→      {/* ───────────────────────────────────────────────────────────
+   442→          Section 3 — Indo-Japan Hybrid Operating Model (Slide 5)
+   443→          CLEAN 2-col matrix: Indobox vs Genesys. Below: Living Support strip.
+   444→          ZERO mixing with other content.
+   445→         ─────────────────────────────────────────────────────────── */}
+   446→      <section className="section-pad bg-ivory-warm">
+   447→        <div className="container-jg">
+   448→          <Reveal>
+   449→            <div className="mx-auto max-w-3xl text-center">
+   450→              <Eyebrow>
+   451→                {tx({ EN: "Hybrid Operating Model", JP: "ハイブリッド運営体制" })}
+   452→              </Eyebrow>
+   453→              <h2
+   454→                className="mt-4 font-serif-jp font-bold leading-[1.2] text-ink"
+   455→                style={{ fontSize: "clamp(1.75rem,3.5vw,2.25rem)" }}
+   456→              >
+   457→                {tx({
+   458→                  EN: "Indobox × Genesys — Two Operators, One Engine",
+   459→                  JP: "Indobox × Genesys — 二つの運営主体、ひとつのエンジン",
+   460→                })}
+   461→              </h2>
+   462→              <p
+   463→                className="mx-auto mt-3 max-w-2xl font-inter text-[14px] leading-relaxed text-slate"
+   464→              >
+   465→                {tx({
+   466→                  EN: "A deliberate partnership between two specialised entities — each owning a clearly defined lane of the J-Gate Hyderabad operation.",
+   467→                  JP: "二つの専門企業による意図的なパートナーシップ — それぞれがJ-Gateハイデラバード運営の明確に定義された領域を担当。",
+   468→                })}
+   469→              </p>
+   470→            </div>
+   471→          </Reveal>
+   472→
+   473→          {/* 2-col responsibility matrix */}
+   474→          <div className="mt-10 grid gap-4 lg:grid-cols-2">
+   475→            {/* Indobox */}
+   476→            <Reveal variant="left">
+   477→              <article className="lift-card relative h-full overflow-hidden rounded-lg border border-crimson/15 bg-pearl p-6 shadow-card">
+   478→                <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-crimson to-crimson-deep" />
+   479→                <div className="flex items-center gap-3">
+   480→                  <span className="flex h-11 w-11 items-center justify-center rounded-md bg-gradient-to-br from-crimson to-crimson-deep text-white shadow-card">
+   481→                    <Handshake className="h-5 w-5" strokeWidth={1.5} />
+   482→                  </span>
+   483→                  <div>
+   484→                    <span className="font-inter text-[10px] font-semibold uppercase text-crimson" style={{ letterSpacing: "0.12em" }}>
+   485→                      {tx({ EN: "Japan-side Operator", JP: "日本側運営" })}
+   486→                    </span>
+   487→                    <h3 className="font-serif-jp text-lg font-bold text-ink">Indobox</h3>
+   488→                  </div>
+   489→                </div>
+   490→                <ul className="mt-5 space-y-2.5">
+   491→                  {INDOBOX_DUTIES.map((d, i) => (
+   492→                    <li key={i} className="flex items-start gap-3">
+   493→                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-crimson/15 text-crimson">
+   494→                        <CheckCircle2 className="h-3 w-3" strokeWidth={2.5} />
+   495→                      </span>
+   496→                      <span className="font-inter text-[13px] leading-snug text-slate">{tx(d)}</span>
+   497→                    </li>
+   498→                  ))}
+   499→                </ul>
+   500→              </article>
+   501→            </Reveal>
+   502→
+   503→            {/* Genesys */}
+   504→            <Reveal variant="right" delay={80}>
+   505→              <article className="lift-card relative h-full overflow-hidden rounded-lg border border-saffron/15 bg-pearl p-6 shadow-card">
+   506→                <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-saffron to-[#c9881a]" />
+   507→                <div className="flex items-center gap-3">
+   508→                  <span className="flex h-11 w-11 items-center justify-center rounded-md bg-gradient-to-br from-saffron to-[#c9881a] text-white shadow-card">
+   509→                    <Building2 className="h-5 w-5" strokeWidth={1.5} />
+   510→                  </span>
+   511→                  <div>
+   512→                    <span className="font-inter text-[10px] font-semibold uppercase text-saffron" style={{ letterSpacing: "0.12em" }}>
+   513→                      {tx({ EN: "India-side Operator", JP: "インド側運営" })}
+   514→                    </span>
+   515→                    <h3 className="font-serif-jp text-lg font-bold text-ink">Genesys</h3>
+   516→                  </div>
+   517→                </div>
+   518→                <ul className="mt-5 space-y-2.5">
+   519→                  {GENESYS_DUTIES.map((d, i) => (
+   520→                    <li key={i} className="flex items-start gap-3">
+   521→                      <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-saffron/15 text-saffron">
+   522→                        <CheckCircle2 className="h-3 w-3" strokeWidth={2.5} />
+   523→                      </span>
+   524→                      <span className="font-inter text-[13px] leading-snug text-slate">{tx(d)}</span>
+   525→                    </li>
+   526→                  ))}
+   527→                </ul>
+   528→              </article>
+   529→            </Reveal>
+   530→          </div>
+   531→
+   532→          {/* Living Support strip — 4 items */}
+   533→          <Reveal delay={120}>
+   534→            <div className="mt-6 rounded-lg border border-slate-200 bg-pearl p-5 shadow-card">
+   535→              <div className="flex items-center gap-3">
+   536→                <span className="flex h-10 w-10 items-center justify-center rounded-md bg-crimson/10 text-crimson">
+   537→                  <Home className="h-5 w-5" strokeWidth={1.5} />
+   538→                </span>
+   539→                <div>
+   540→                  <span className="font-inter text-[10px] font-semibold uppercase text-crimson" style={{ letterSpacing: "0.15em" }}>
+   541→                    {tx({ EN: "Living Support Services", JP: "生活支援サービス" })}
+   542→                  </span>
+   543→                  <h3 className="font-serif-jp text-[15px] font-bold text-ink">
+   544→                    {tx({ EN: "Settling into Hyderabad — handled", JP: "ハイデラバードへの定着 — お任せください" })}
+   545→                  </h3>
+   546→                </div>
+   547→              </div>
+   548→              <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+   549→                {LIVING_SUPPORT.map((item, i) => (
+   550→                  <div
+   551→                    key={i}
+   552→                    className="flex items-center gap-2.5 rounded-md border border-slate-200 bg-ivory-warm/60 px-3 py-2.5 transition-colors hover:border-crimson/30 hover:bg-ivory-warm"
+   553→                  >
+   554→                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-crimson/10 text-crimson">
+   555→                      <item.icon className="h-4 w-4" strokeWidth={1.5} />
+   556→                    </span>
+   557→                    <span className="font-inter text-[12px] font-medium leading-snug text-slate">
+   558→                      {tx(item.label)}
+   559→                    </span>
+   560→                  </div>
+   561→                ))}
+   562→              </div>
+   563→            </div>
+   564→          </Reveal>
+   565→        </div>
+   566→      </section>
+   567→
+   568→      {/* ───────────────────────────────────────────────────────────
+   569→          Section 4 — Facility Features (Slide 6)
+   570→          CLEAN 6-card bento grid (2×3). Each card: icon + title + 1-line desc.
+   571→          ZERO mixing with other content.
+   572→         ─────────────────────────────────────────────────────────── */}
+   573→      <section className="section-pad bg-ivory">
+   574→        <div className="container-jg">
+   575→          <Reveal>
+   576→            <div className="mx-auto max-w-3xl text-center">
+   577→              <Eyebrow>
+   578→                {tx({ EN: "Facility Features & Infrastructure", JP: "充実の設備とインフラ" })}
+   579→              </Eyebrow>
+   580→              <h2
+   581→                className="mt-4 font-serif-jp font-bold leading-[1.2] text-ink"
+   582→                style={{ fontSize: "clamp(1.75rem,3.5vw,2.25rem)" }}
+   583→              >
+   584→                {tx({
+   585→                  EN: "Six Facility Layers, All Standard",
+   586→                  JP: "6つの施設レイヤー、すべて標準装備",
+   587→                })}
+   588→              </h2>
+   589→              <p
+   590→                className="mx-auto mt-3 max-w-2xl font-inter text-[14px] leading-relaxed text-slate"
+   591→              >
+   592→                {tx({
+   593→                  EN: "Physical, digital, social, temporal, and security infrastructure — turning a desk rental into an operating base.",
+   594→                  JP: "物理・デジタル・社交・時間・セキュリティインフラ — デスクの貸し借りを拠点として機能させる。",
+   595→                })}
+   596→              </p>
+   597→            </div>
+   598→          </Reveal>
+   599→
+   600→          <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+   601→            {FACILITIES.map((f, i) => {
+   602→              const accent = i % 2 === 0 ? "crimson" : "saffron";
+   603→              const a = ACCENT[accent];
+   604→              return (
+   605→                <Reveal key={i} delay={i * 70}>
+   606→                  <article
+   607→                    className={`lift-card relative h-full overflow-hidden rounded-lg border bg-pearl p-6 shadow-card ${a.ring}`}
+   608→                  >
+   609→                    <span className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${a.bar}`} />
+   610→                    <span className={`flex h-11 w-11 items-center justify-center rounded-md ${a.iconBg} text-white shadow-card`}>
+   611→                      <f.icon className="h-5 w-5" strokeWidth={1.5} />
+   612→                    </span>
+   613→                    <h3 className="mt-4 font-serif-jp text-[16px] font-bold leading-tight text-ink">
+   614→                      {tx(f.title)}
+   615→                    </h3>
+   616→                    <p className="mt-1.5 font-inter text-[13px] leading-relaxed text-slate">
+   617→                      {tx(f.desc)}
+   618→                    </p>
+   619→                  </article>
+   620→                </Reveal>
+   621→              );
+   622→            })}
+   623→          </div>
+   624→
+   625→          {/* Single small note — clean callout, no clutter */}
+   626→          <Reveal delay={120}>
+   627→            <div className="mx-auto mt-6 flex max-w-2xl items-center gap-3 rounded-lg border border-saffron/20 bg-saffron/[0.04] p-4">
+   628→              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-saffron/15 text-saffron">
+   629→                <Banknote className="h-5 w-5" strokeWidth={1.5} />
+   630→              </span>
+   631→              <p className="font-inter text-[12.5px] leading-snug text-slate">
+   632→                <span className="font-semibold text-ink">
+   633→                  {tx({ EN: "Included — not invoiced separately. ", JP: "別途請求なし。含まれます。 " })}
+   634→                </span>
+   635→                {tx({
+   636→                  EN: "Wi-Fi, printers, lockers, meeting rooms, security, and 24/7 smart-key access — all part of every plan.",
+   637→                  JP: "Wi-Fi・プリンター・ロッカー・会議室・セキュリティ・24時間スマートキーアクセス — 全プランに含まれます。",
+   638→                })}
+   639→              </p>
+   640→            </div>
+   641→          </Reveal>
+   642→        </div>
+   643→      </section>
+   644→
+   645→      {/* ───────────────────────────────────────────────────────────
+   646→          Closing CTA — single focused block, no contact-strip clutter
+   647→         ─────────────────────────────────────────────────────────── */}
+   648→      <section className="section-pad relative overflow-hidden bg-navy">
+   649→        <div className="pattern-asanoha-navy absolute inset-0 opacity-60" />
+   650→        <div
+   651→          className="absolute inset-0"
+   652→          style={{
+   653→            background:
+   654→              "radial-gradient(ellipse at 50% 50%, rgba(232,160,26,0.10), transparent 60%)",
+   655→          }}
+   656→        />
+   657→        <div className="container-jg relative">
+   658→          <Reveal>
+   659→            <div className="mx-auto max-w-2xl text-center">
+   660→              <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-saffron/15 text-saffron">
+   661→                <Sparkles className="h-6 w-6" strokeWidth={1.5} />
+   662→              </span>
+   663→              <h2
+   664→                className="mt-6 font-serif-jp font-bold leading-[1.2] text-white"
+   665→                style={{ fontSize: "clamp(1.75rem,3.5vw,2.25rem)" }}
+   666→              >
+   667→                {tx({ EN: "Build Your India Base With Indobox", JP: "Indoboxと共にインド拠点を構築する" })}
+   668→              </h2>
+   669→              <p
+   670→                className="mx-auto mt-3 font-inter text-[14px] leading-relaxed text-mist"
+   671→              >
+   672→                {tx({
+   673→                  EN: "Talk to us about your expansion goals — corporate setup, talent, sales, language, or all of the above. The conversation is free.",
+   674→                  JP: "進出目標についてお話しください — 法人設立、人材、営業、言語、あるいはそのすべて。相談は無料。",
+   675→                })}
+   676→              </p>
+   677→              <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
+   678→                <Link
+   679→                  href="/contact"
+   680→                  className="btn-shine flex items-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-7 py-3.5 font-inter text-[14px] font-semibold text-white shadow-[0_0_20px_rgba(188,26,44,0.35)] transition-all hover:-translate-y-0.5"
+   681→                >
+   682→                  {tx({ EN: "Contact Us", JP: "お問い合わせ" })}
+   683→                  <ArrowRight className="h-4 w-4" />
+   684→                </Link>
+   685→                <Link
+   686→                  href="/pricing"
+   687→                  className="rounded-md border border-saffron/40 px-7 py-3.5 font-inter text-[14px] font-semibold text-saffron transition-all hover:-translate-y-0.5 hover:bg-saffron/10"
+   688→                >
+   689→                  {tx({ EN: "View Membership Plans", JP: "メンバーシッププランを見る" })}
+   690→                </Link>
+   691→              </div>
+   692→
+   693→              {/* Compact contact strip */}
+   694→              <div className="mt-8 flex flex-col items-center justify-center gap-4 border-t border-white/10 pt-6 sm:flex-row sm:gap-8">
+   695→                <a href="mailto:contact@indobox.co.jp" className="flex items-center gap-2 font-inter text-[13px] text-mist transition-colors hover:text-saffron">
+   696→                  <Mail className="h-4 w-4 text-saffron" />
+   697→                  contact@indobox.co.jp
+   698→                </a>
+   699→                <a href="tel:+919910360648" className="flex items-center gap-2 font-inter text-[13px] text-mist transition-colors hover:text-saffron">
+   700→                  <Phone className="h-4 w-4 text-saffron" />
+   701→                  +91-9910360648 (Tanji)
+   702→                </a>
+   703→              </div>
+   704→            </div>
+   705→          </Reveal>
+   706→        </div>
+   707→      </section>
+   708→    </>
+   709→  );
+   710→}
+   711→

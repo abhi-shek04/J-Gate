@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Download } from "lucide-react";
-import { JGateLogo } from "./icons";
+import { ToriiGate } from "./icons";
 import { useScrolled } from "./shared";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
@@ -56,12 +56,18 @@ export function Navbar() {
       )}
     >
       <nav
-        className="container-jg flex h-[96px] items-center justify-between"
+        className="container-jg flex h-[76px] items-center justify-between"
         aria-label="Primary"
       >
-        {/* Logo — enlarged 150% for brand authority */}
-        <Link href="/" className="group flex items-center py-2" aria-label="J-Gate home">
-          <JGateLogo size="md" className="transition-opacity duration-300 group-hover:opacity-90" />
+        {/* Logo — Torii gate SVG + J-Gate wordmark */}
+        <Link href="/" className="group flex items-center gap-2.5" aria-label="J-Gate home">
+          <span className="text-crimson">
+            <ToriiGate className="h-8 w-8" />
+          </span>
+          <span className="flex flex-col leading-none">
+            <span className="font-serif-jp text-[19px] font-bold tracking-tight text-white">J-Gate</span>
+            <span className="font-sans-jp text-[10px] text-mist">Jゲート</span>
+          </span>
         </Link>
 
         {/* Desktop nav */}
@@ -137,7 +143,7 @@ export function Navbar() {
       {/* Mobile full-screen drawer */}
       <div
         className={cn(
-          "fixed inset-0 top-[96px] z-40 overflow-y-auto bg-midnight/97 backdrop-blur-xl transition-all duration-300 lg:hidden",
+          "fixed inset-0 top-[76px] z-40 overflow-y-auto bg-midnight/97 backdrop-blur-xl transition-all duration-300 lg:hidden",
           open ? "visible opacity-100" : "invisible opacity-0"
         )}
       >

@@ -116,9 +116,12 @@ export function Hero() {
           most dynamic economy.
         </p>
 
-        {/* Japanese sub-tagline */}
+        {/* Japanese sub-tagline — from official PDF title */}
         <p className="mt-3 font-serif-jp text-base text-saffron/70">
-          「日本とインドをつなぐ、ビジネスの架け橋」
+          日本企業向け専用ワーキングスペース
+        </p>
+        <p className="mt-1 font-sans-jp text-[13px] text-mist/70">
+          A New Horizon for India-Japan Business Collaboration in Hyderabad
         </p>
 
         {/* CTAs — 6px radius */}

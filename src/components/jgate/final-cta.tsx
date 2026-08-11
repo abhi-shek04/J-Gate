@@ -45,7 +45,7 @@ export function FinalCta() {
               <span className="text-gradient-saffron">Begins Here.</span>
             </h2>
             <p className="mt-5 font-serif-jp text-[18px] text-saffron/70">
-              「インドでのビジネスを、J-Gateと共に始めましょう」
+              日本企業向け専用ワーキングスペース — A New Horizon for India-Japan Business
             </p>
             <p className="mx-auto mt-5 max-w-[520px] font-inter font-light leading-relaxed text-mist" style={{ fontSize: "clamp(0.95rem,1.6vw,1.125rem)" }}>
               Whether you are exploring, ready to establish operations, or

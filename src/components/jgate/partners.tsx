@@ -2,6 +2,7 @@
 
 import { Reveal, Eyebrow } from "./shared";
 import { Photo } from "./photo";
+import { PartnerLogo } from "./partner-logo";
 
 const STRATEGIC = [
   {
@@ -43,13 +44,20 @@ const STRATEGIC = [
 ];
 
 const COMMUNITY = [
-  { name: "MXC", desc: "Technology & Innovation Community" },
-  { name: "DMI", desc: "Digital Media Industry Partner" },
-  { name: "Kodryx AI", desc: "AI & Deep-Tech Ecosystem" },
-  { name: "Hyderabad Anime Club", desc: "Japan-India Cultural Bridge" },
+  "MXC",
+  "DMI",
+  "Kodryx AI",
+  "Hyderabad Anime Club",
 ];
 
-const MARQUEE = ["JETRO", "T-Hub", "Woxsen", "Genesys Info X", "MXC", "DMI", "Kodryx AI", "Hyderabad Anime Club"];
+const COMMUNITY_DESCS: Record<string, string> = {
+  "MXC": "Technology & Innovation Community",
+  "DMI": "Digital Media Industry Partner",
+  "Kodryx AI": "AI & Deep-Tech Ecosystem",
+  "Hyderabad Anime Club": "Japan-India Cultural Bridge",
+};
+
+const MARQUEE = ["JETRO", "T-Hub", "Woxsen University", "Genesys Info X", "DMI", "MXC", "Kodryx AI", "Hyderabad Anime Club"];
 
 export function Partners() {
   const marquee = [...MARQUEE, ...MARQUEE];
@@ -75,20 +83,21 @@ export function Partners() {
           </div>
         </Reveal>
 
-        {/* 2×2 strategic partner cards */}
+        {/* 2×2 strategic partner cards with real logos */}
         <div className="mt-14 grid gap-6 md:grid-cols-2">
           {STRATEGIC.map((p, i) => (
             <Reveal key={p.id} delay={(i % 2) * 120}>
               <article className="glass-dark lift-card flex h-full overflow-hidden rounded-lg">
-                <div className="w-28 shrink-0 sm:w-36">
-                  <Photo
-                    id={p.id}
-                    alt={`${p.name}, partner of J-Gate`}
-                    fallback={p.fallback}
-                    initials={p.initials}
-                    rounded="rounded-l-lg"
-                    className="h-full min-h-[140px] w-full"
-                  />
+                {/* Real logo card */}
+                <div className="w-32 shrink-0 bg-white sm:w-40">
+                  <div className="flex h-full min-h-[140px] items-center justify-center p-5">
+                    <img
+                      src={p.name === "JETRO" ? "/logos/jetro.jpg" : p.name === "T-Hub" ? "/logos/thub.jpg" : p.name === "Woxsen University" ? "/logos/woxsen.jpg" : "/logos/genesys-info-x.png"}
+                      alt={`${p.name} official logo`}
+                      className="max-h-20 w-full max-w-[120px] object-contain"
+                      loading="lazy"
+                    />
+                  </div>
                 </div>
                 <div className="flex-1 p-6">
                   <span className="inline-block rounded bg-saffron/15 px-2 py-0.5 font-inter text-[10px] font-bold uppercase text-saffron" style={{ letterSpacing: "0.08em" }}>
@@ -103,27 +112,25 @@ export function Partners() {
           ))}
         </div>
 
-        {/* Community partners */}
+        {/* Community partners — logo tiles */}
         <Reveal>
           <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {COMMUNITY.map((c) => (
-              <div key={c.name} className="rounded-lg border border-white/10 bg-white/[0.04] p-4 text-center backdrop-blur-sm">
-                <div className="font-serif-jp text-sm font-bold text-white">{c.name}</div>
-                <div className="mt-0.5 font-inter text-[11px] text-mist">{c.desc}</div>
+              <div key={c} className="flex flex-col items-center gap-2 rounded-lg border border-white/10 bg-white/[0.04] p-4 text-center backdrop-blur-sm">
+                <PartnerLogo name={c} variant="light" className="w-full h-16" />
+                <div className="font-serif-jp text-sm font-bold text-white">{c}</div>
+                <div className="font-inter text-[11px] text-mist">{COMMUNITY_DESCS[c]}</div>
               </div>
             ))}
           </div>
         </Reveal>
 
-        {/* Marquee */}
+        {/* Marquee with all logos */}
         <Reveal delay={100}>
-          <div className="marquee-track mt-8 overflow-hidden rounded-lg border-y border-white/10 py-4">
+          <div className="marquee-track mt-8 overflow-hidden rounded-lg border-y border-white/10 bg-white/[0.03] py-5">
             <div className="flex w-max gap-4 animate-marquee">
               {marquee.map((name, i) => (
-                <div key={`${name}-${i}`} className="flex items-center gap-2.5 whitespace-nowrap rounded-md bg-white/[0.06] px-6 py-2">
-                  <span className="h-2 w-2 rounded-full bg-crimson" />
-                  <span className="font-inter text-sm font-semibold text-white">{name}</span>
-                </div>
+                <PartnerLogo key={`${name}-${i}`} name={name} variant="light" className="h-16 w-28 shrink-0" />
               ))}
             </div>
           </div>

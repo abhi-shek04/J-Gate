@@ -60,13 +60,22 @@ export function Footer() {
                 </a>
               ))}
             </div>
-            <p className="mt-5 font-inter text-[12px] text-mist">
-              Operated by{" "}
-              <span className="font-semibold text-white/80">Indobox India Pvt. Ltd.</span>
-            </p>
-            <p className="font-sans-jp mt-1 text-[11px] text-mist/70">
-              インドボックス・インディア・プライベート・リミテッド
-            </p>
+            <div className="mt-5 flex items-center gap-3 rounded-lg border border-white/10 bg-white/[0.04] p-3">
+              <img
+                src="/logos/indobox.jpg"
+                alt="Indobox India Private Limited logo"
+                className="h-10 w-auto rounded object-contain"
+              />
+              <div>
+                <p className="font-inter text-[12px] text-white/80">
+                  Operated by{" "}
+                  <span className="font-semibold text-white">Indobox India Pvt. Ltd.</span>
+                </p>
+                <p className="font-sans-jp text-[11px] text-mist/70">
+                  インドボックス・インディア・プライベート・リミテッド
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Col 2 — Navigation */}

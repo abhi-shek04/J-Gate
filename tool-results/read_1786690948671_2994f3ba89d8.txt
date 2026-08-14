@@ -1,0 +1,713 @@
+     1→"use client";
+     2→
+     3→import { Reveal, Eyebrow } from "@/components/jgate/shared";
+     4→import { PageHero } from "@/components/jgate/page-hero";
+     5→import { useI18n } from "@/lib/i18n";
+     6→import { Photo } from "@/components/jgate/photo";
+     7→import {
+     8→  Target,
+     9→  Eye,
+    10→  ShieldCheck,
+    11→  Globe2,
+    12→  Cpu,
+    13→  Handshake,
+    14→  Rocket,
+    15→  GraduationCap,
+    16→  HandHeart,
+    17→  ArrowRight,
+    18→  CheckCircle2,
+    19→  Building2,
+    20→  CalendarClock,
+    21→  Sparkles,
+    22→  MapPin,
+    23→} from "lucide-react";
+    24→import Link from "next/link";
+    25→
+    26→/* ============================================================
+    27→   About J-Gate — v3.0 Definitive Redesign
+    28→   Architecture:
+    29→     1. PageHero — "About J-Gate" / "From India Entry Spark to Talent Development"
+    30→     2. 3 Pillars detailed (large 01/02/03 + JP+EN heading + full paragraph + icon)
+    31→     3. Strategic Locations — Hyderabad (4 photo slots) + Gurgaon (reversed)
+    32→     4. India Map SVG (HYD crimson pulsing + GGN saffron + other cities + connecting line)
+    33→     5. Mission & Vision — 2 side-by-side cards
+    34→     6. Core Values — 4-card grid
+    35→     7. Closing CTA
+    36→   ============================================================ */
+    37→
+    38→/* ── India Map SVG — simplified outline with city dots ── */
+    39→function IndiaMap() {
+    40→  // Cities positioned in viewBox 0 0 360 420
+    41→  const cities = [
+    42→    { name: "New Delhi", x: 110, y: 90, isJGate: false },
+    43→    { name: "Gurgaon", x: 102, y: 96, isJGate: true, color: "#e8a01a" },
+    44→    { name: "Ahmedabad", x: 80, y: 175, isJGate: false },
+    45→    { name: "Mumbai", x: 95, y: 240, isJGate: false },
+    46→    { name: "Hyderabad", x: 165, y: 250, isJGate: true, color: "#bc1a2c" },
+    47→    { name: "Bengaluru", x: 130, y: 320, isJGate: false },
+    48→    { name: "Chennai", x: 195, y: 320, isJGate: false },
+    49→  ];
+    50→  const hyd = cities.find((c) => c.name === "Hyderabad")!;
+    51→  const ggn = cities.find((c) => c.name === "Gurgaon")!;
+    52→  return (
+    53→    <svg viewBox="0 0 360 420" className="h-full w-full" role="img" aria-label="Map of India showing J-Gate locations">
+    54→      {/* Simplified India outline */}
+    55→      <path
+    56→        d="M 130 30 L 170 25 L 200 50 L 230 55 L 250 80 L 245 110 L 260 130 L 250 160 L 270 175 L 280 200 L 270 230 L 290 270 L 285 310 L 260 340 L 235 360 L 210 380 L 180 385 L 160 370 L 145 350 L 130 320 L 115 290 L 100 260 L 90 220 L 80 190 L 75 160 L 85 130 L 95 100 L 110 70 Z"
+    57→        fill="rgba(188,26,44,0.04)"
+    58→        stroke="rgba(188,26,44,0.30)"
+    59→        strokeWidth="1.2"
+    60→        strokeLinejoin="round"
+    61→      />
+    62→      {/* Connecting line HYD ↔ GGN */}
+    63→      <line
+    64→        x1={hyd.x}
+    65→        y1={hyd.y}
+    66→        x2={ggn.x}
+    67→        y2={ggn.y}
+    68→        stroke="rgba(232,160,26,0.45)"
+    69→        strokeWidth="1.5"
+    70→        strokeDasharray="4 4"
+    71→      />
+    72→      {/* City dots */}
+    73→      {cities.map((c) => (
+    74→        <g key={c.name}>
+    75→          {c.isJGate ? (
+    76→            <>
+    77→              <circle cx={c.x} cy={c.y} r="10" fill={c.color} opacity="0.18">
+    78→                <animate
+    79→                  attributeName="r"
+    80→                  values="6;14;6"
+    81→                  dur="2.4s"
+    82→                  repeatCount="indefinite"
+    83→                />
+    84→                <animate
+    85→                  attributeName="opacity"
+    86→                  values="0.35;0;0.35"
+    87→                  dur="2.4s"
+    88→                  repeatCount="indefinite"
+    89→                />
+    90→              </circle>
+    91→              <circle cx={c.x} cy={c.y} r="5" fill={c.color} />
+    92→            </>
+    93→          ) : (
+    94→            <circle cx={c.x} cy={c.y} r="2.8" fill="#8892a4" opacity="0.7" />
+    95→          )}
+    96→          <text
+    97→            x={c.x + (c.name === "Gurgaon" ? -6 : 8)}
+    98→            y={c.y + 4}
+    99→            textAnchor={c.name === "Gurgaon" ? "end" : "start"}
+   100→            fontFamily="Inter, sans-serif"
+   101→            fontSize={c.isJGate ? "11" : "9"}
+   102→            fontWeight={c.isJGate ? 700 : 500}
+   103→            fill={c.isJGate ? c.color : "#8892a4"}
+   104→          >
+   105→            {c.name}
+   106→          </text>
+   107→        </g>
+   108→      ))}
+   109→    </svg>
+   110→  );
+   111→}
+   112→
+   113→/* ── Mission & Vision content ── */
+   114→const MISSION = {
+   115→  title: { EN: "Our Mission", JP: "ミッション" },
+   116→  body: {
+   117→    EN: "To make the India expansion 'right answer' accessible to Japanese enterprises — through a dedicated working hub, a resident Japan Desk, and end-to-end support from first curiosity to corporate entity establishment.",
+   118→    JP: "専用ワーキングハブ、常駐ジャパンデスク、そして最初の関心から法人設立までのエンドツーエンド支援を通じ、日本企業にとってのインド進出の「正解」をアクセシブルにする。",
+   119→  },
+   120→  tag: { EN: "What we do today", JP: "今日私たちが行うこと" },
+   121→} as const;
+   122→
+   123→const VISION = {
+   124→  title: { EN: "Our Vision", JP: "ビジョン" },
+   125→  body: {
+   126→    EN: "To become the definitive gateway for Japanese enterprises entering India — the first name called when a company decides to explore Hyderabad, Gurgaon, or anywhere in between. Two cities, one bridge, every touchpoint operational.",
+   127→    JP: "インドに進出する日本企業にとって決定的なゲートウェイになること — 企業がハイデラバード、グルガオン、あるいはその間のどこかを検討し始める時に最初に呼ばれる名前に。二つの都市、一つの架け橋、すべての接点を機能させて。",
+   128→  },
+   129→  tag: { EN: "What we build toward", JP: "私たちが構築する未来" },
+   130→} as const;
+   131→
+   132→/* ── Core Values — 4-card grid ── */
+   133→const VALUES = [
+   134→  {
+   135→    icon: ShieldCheck,
+   136→    title: { EN: "Integrity", JP: "誠実さ" },
+   137→    desc: {
+   138→      EN: "Transparent, honest, long-term relationships — never transactional.",
+   139→      JP: "透明で誠実な長期的関係 — 決して取引的ではない。",
+   140→    },
+   141→  },
+   142→  {
+   143→    icon: Globe2,
+   144→    title: { EN: "Cultural Fluency", JP: "文化的流暢さ" },
+   145→    desc: {
+   146→      EN: "Deep mastery of both Japanese and Indian business cultures.",
+   147→      JP: "日本とインドの両ビジネス文化の深い理解。",
+   148→    },
+   149→  },
+   150→  {
+   151→    icon: Cpu,
+   152→    title: { EN: "Technical Excellence", JP: "技術的卓越" },
+   153→    desc: {
+   154→      EN: "Rigorous screening — only the top percentile of technical talent.",
+   155→      JP: "厳格なスクリーニング — トップパーセンタイルの技術人材のみ。",
+   156→    },
+   157→  },
+   158→  {
+   159→    icon: Handshake,
+   160→    title: { EN: "Long-Term Partnership", JP: "長期パートナーシップ" },
+   161→    desc: {
+   162→      EN: "We succeed only when our placements and partners succeed.",
+   163→      JP: "紹介とパートナーが成功して初めて私たちも成功する。",
+   164→    },
+   165→  },
+   166→] as const;
+   167→
+   168→/* ── 3 Pillars — detailed cards ── */
+   169→const PILLARS = [
+   170→  {
+   171→    num: "01",
+   172→    icon: Rocket,
+   173→    tagKey: "about.pillar1.tag",
+   174→    titleKey: "about.pillar1.title",
+   175→    jpKey: "about.pillar1.jp",
+   176→    descKey: "about.pillar1.desc",
+   177→  },
+   178→  {
+   179→    num: "02",
+   180→    icon: GraduationCap,
+   181→    tagKey: "about.pillar2.tag",
+   182→    titleKey: "about.pillar2.title",
+   183→    jpKey: "about.pillar2.jp",
+   184→    descKey: "about.pillar2.desc",
+   185→  },
+   186→  {
+   187→    num: "03",
+   188→    icon: HandHeart,
+   189→    tagKey: "about.pillar3.tag",
+   190→    titleKey: "about.pillar3.title",
+   191→    jpKey: "about.pillar3.jp",
+   192→    descKey: "about.pillar3.desc",
+   193→  },
+   194→] as const;
+   195→
+   196→/* ── Hyderabad 4 photo slots ── */
+   197→const HYD_PHOTOS = [
+   198→  { id: "photo-about-hyd-1", label: "Workspace", fallback: "grad-office-main" },
+   199→  { id: "photo-about-hyd-2", label: "Meeting Room", fallback: "grad-office-meeting" },
+   200→  { id: "photo-about-hyd-3", label: "Reception", fallback: "grad-office-reception" },
+   201→  { id: "photo-about-hyd-4", label: "Cafeteria", fallback: "grad-canteen-japanese" },
+   202→];
+   203→
+   204→export default function AboutPage() {
+   205→  const { t, tx } = useI18n();
+   206→
+   207→  return (
+   208→    <>
+   209→      <PageHero
+   210→        eyebrowKey="about.eyebrow"
+   211→        titleNode={
+   212→          <>
+   213→            {tx({ EN: "From India Entry Spark", JP: "インド展開の" })}
+   214→            <br />
+   215→            <span className="text-gradient-saffron">
+   216→              {tx({ EN: "to Talent Development", JP: "きっかけ作りから育成まで" })}
+   217→            </span>
+   218→          </>
+   219→        }
+   220→        subtitleKey="about.title"
+   221→      />
+   222→
+   223→      {/* ════════════════════════════════════════════════════════════
+   224→          Section 1 — 3 Pillars Detailed
+   225→          Each pillar: large number (01/02/03) + JP+EN heading + full paragraph + icon
+   226→         ════════════════════════════════════════════════════════════ */}
+   227→      <section className="section-pad bg-ivory">
+   228→        <div className="container-jg">
+   229→          <Reveal>
+   230→            <div className="mx-auto max-w-3xl text-center">
+   231→              <Eyebrow>{t("about.purpose.eyebrow")}</Eyebrow>
+   232→              <h2
+   233→                className="mt-4 font-serif-jp font-bold leading-[1.2] text-ink"
+   234→                style={{ fontSize: "clamp(1.625rem,3.6vw,2.25rem)" }}
+   235→              >
+   236→                {t("about.purpose.title")}
+   237→              </h2>
+   238→              <p
+   239→                className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate"
+   240→                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+   241→              >
+   242→                {t("about.purpose.subtitle")}
+   243→              </p>
+   244→            </div>
+   245→          </Reveal>
+   246→
+   247→          <div className="mt-12 grid gap-5 md:grid-cols-3">
+   248→            {PILLARS.map((p, i) => (
+   249→              <Reveal key={p.num} delay={i * 100}>
+   250→                <article className="lift-card group relative h-full overflow-hidden rounded-lg border border-crimson/12 bg-pearl p-7 shadow-card">
+   251→                  {/* Faded large numeral */}
+   252→                  <span
+   253→                    className="pointer-events-none absolute -top-6 right-2 font-serif-jp font-black leading-none text-crimson"
+   254→                    style={{ fontSize: "120px", opacity: 0.08 }}
+   255→                    aria-hidden
+   256→                  >
+   257→                    {p.num}
+   258→                  </span>
+   259→                  <div className="relative">
+   260→                    {/* Icon badge */}
+   261→                    <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-gradient-to-br from-crimson to-crimson-deep text-white shadow-card transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+   262→                      <p.icon className="h-7 w-7" strokeWidth={1.5} />
+   263→                    </div>
+   264→                    {/* Tag + JP accent label */}
+   265→                    <div className="mt-5 flex items-center gap-2">
+   266→                      <span
+   267→                        className="font-inter text-[11px] font-bold uppercase text-crimson"
+   268→                        style={{ letterSpacing: "0.15em" }}
+   269→                      >
+   270→                        {t(p.tagKey)}
+   271→                      </span>
+   272→                      <span className="text-mist">·</span>
+   273→                      <span className="font-serif-jp text-[13px] font-medium text-slate">
+   274→                        {t(p.jpKey)}
+   275→                      </span>
+   276→                    </div>
+   277→                    {/* Title */}
+   278→                    <h3
+   279→                      className="mt-2 font-serif-jp font-bold leading-tight text-ink"
+   280→                      style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
+   281→                    >
+   282→                      {t(p.titleKey)}
+   283→                    </h3>
+   284→                    {/* Full paragraph */}
+   285→                    <p className="mt-3 font-inter text-[14px] leading-relaxed text-slate">
+   286→                      {t(p.descKey)}
+   287→                    </p>
+   288→                  </div>
+   289→                </article>
+   290→              </Reveal>
+   291→            ))}
+   292→          </div>
+   293→        </div>
+   294→      </section>
+   295→
+   296→      {/* ════════════════════════════════════════════════════════════
+   297→          Section 2 — Strategic Locations (Hyderabad 4 photos + Gurgaon reversed)
+   298→         ════════════════════════════════════════════════════════════ */}
+   299→      <section className="section-pad bg-ivory-warm">
+   300→        <div className="container-jg">
+   301→          <Reveal>
+   302→            <div className="mx-auto max-w-3xl text-center">
+   303→              <Eyebrow>{t("about.locations.eyebrow")}</Eyebrow>
+   304→              <h2
+   305→                className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
+   306→                style={{ fontSize: "clamp(1.625rem,3.6vw,2.25rem)" }}
+   307→              >
+   308→                {t("about.locations.title")}
+   309→              </h2>
+   310→              <p
+   311→                className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate"
+   312→                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+   313→              >
+   314→                {t("about.locations.subtitle")}
+   315→              </p>
+   316→            </div>
+   317→          </Reveal>
+   318→
+   319→          {/* Hyderabad — 2-col: photo grid on left, content on right */}
+   320→          <Reveal delay={120}>
+   321→            <article className="lift-card mt-12 overflow-hidden rounded-lg border border-saffron/20 bg-pearl shadow-card">
+   322→              <span className="block h-1 bg-gradient-to-r from-saffron to-[#c9881a]" />
+   323→              <div className="grid lg:grid-cols-2">
+   324→                {/* Photo grid: 4 slots */}
+   325→                <div className="grid grid-cols-2 gap-1 p-1">
+   326→                  {HYD_PHOTOS.map((ph) => (
+   327→                    <Photo
+   328→                      key={ph.id}
+   329→                      id={ph.id}
+   330→                      alt={`${ph.label} — J-Gate Hyderabad`}
+   331→                      fallback={ph.fallback}
+   332→                      initials="HYD"
+   333→                      rounded="rounded-sm"
+   334→                      className="aspect-[4/3] w-full"
+   335→                    />
+   336→                  ))}
+   337→                </div>
+   338→                {/* Content */}
+   339→                <div className="p-8 lg:p-10">
+   340→                  <div className="flex flex-wrap items-start justify-between gap-3">
+   341→                    <div className="flex items-center gap-3">
+   342→                      <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-saffron/15 text-saffron">
+   343→                        <Building2 className="h-6 w-6" strokeWidth={1.5} />
+   344→                      </span>
+   345→                      <div>
+   346→                        <span
+   347→                          className="block font-inter text-[11px] font-bold uppercase text-saffron"
+   348→                          style={{ letterSpacing: "0.15em" }}
+   349→                        >
+   350→                          {t("about.hyderabad.tag")}
+   351→                        </span>
+   352→                        <h3 className="mt-0.5 font-serif-jp text-2xl font-bold text-ink">
+   353→                          {t("about.hyderabad.title")}
+   354→                        </h3>
+   355→                      </div>
+   356→                    </div>
+   357→                    <span className="inline-flex items-center gap-1.5 rounded-md bg-success/15 px-2.5 py-1 font-inter text-[11px] font-bold uppercase text-success">
+   358→                      <CalendarClock className="h-3 w-3" />
+   359→                      {t("about.hyderabad.status")}
+   360→                    </span>
+   361→                  </div>
+   362→                  <p className="mt-5 font-serif-jp text-[15px] font-medium italic text-saffron/85">
+   363→                    {t("about.hyderabad.nick")}
+   364→                  </p>
+   365→                  <p className="mt-3 font-inter text-[14px] leading-relaxed text-slate">
+   366→                    {t("about.hyderabad.desc")}
+   367→                  </p>
+   368→                  <ul className="mt-5 space-y-2.5 border-t border-crimson/10 pt-5">
+   369→                    {[t("about.hyderabad.f1"), t("about.hyderabad.f2"), t("about.hyderabad.f3")].map((f, fi) => (
+   370→                      <li key={fi} className="flex items-start gap-2.5">
+   371→                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-saffron" strokeWidth={2} />
+   372→                        <span className="font-inter text-[13px] text-ink">{f}</span>
+   373→                      </li>
+   374→                    ))}
+   375→                  </ul>
+   376→                </div>
+   377→              </div>
+   378→            </article>
+   379→          </Reveal>
+   380→
+   381→          {/* Gurgaon — reversed 2-col: content on left, photo on right */}
+   382→          <Reveal delay={200}>
+   383→            <article className="lift-card mt-6 overflow-hidden rounded-lg border border-crimson/20 bg-pearl shadow-card">
+   384→              <span className="block h-1 bg-gradient-to-r from-crimson to-crimson-deep" />
+   385→              <div className="grid lg:grid-cols-2">
+   386→                {/* Content (left on lg) */}
+   387→                <div className="p-8 lg:p-10 lg:order-1">
+   388→                  <div className="flex flex-wrap items-start justify-between gap-3">
+   389→                    <div className="flex items-center gap-3">
+   390→                      <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-crimson/15 text-crimson">
+   391→                        <Building2 className="h-6 w-6" strokeWidth={1.5} />
+   392→                      </span>
+   393→                      <div>
+   394→                        <span
+   395→                          className="block font-inter text-[11px] font-bold uppercase text-crimson"
+   396→                          style={{ letterSpacing: "0.15em" }}
+   397→                        >
+   398→                          {t("about.gurgaon.tag")}
+   399→                        </span>
+   400→                        <h3 className="mt-0.5 font-serif-jp text-2xl font-bold text-ink">
+   401→                          {t("about.gurgaon.title")}
+   402→                        </h3>
+   403→                      </div>
+   404→                    </div>
+   405→                    <span className="inline-flex items-center gap-1.5 rounded-md bg-saffron/15 px-2.5 py-1 font-inter text-[11px] font-bold uppercase text-saffron">
+   406→                      <CalendarClock className="h-3 w-3" />
+   407→                      {t("about.gurgaon.status")}
+   408→                    </span>
+   409→                  </div>
+   410→                  <p className="mt-5 font-serif-jp text-[15px] font-medium italic text-crimson/85">
+   411→                    {t("about.gurgaon.nick")}
+   412→                  </p>
+   413→                  <p className="mt-3 font-inter text-[14px] leading-relaxed text-slate">
+   414→                    {t("about.gurgaon.desc")}
+   415→                  </p>
+   416→                  <ul className="mt-5 space-y-2.5 border-t border-crimson/10 pt-5">
+   417→                    {[t("about.gurgaon.f1"), t("about.gurgaon.f2"), t("about.gurgaon.f3")].map((f, fi) => (
+   418→                      <li key={fi} className="flex items-start gap-2.5">
+   419→                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-crimson" strokeWidth={2} />
+   420→                        <span className="font-inter text-[13px] text-ink">{f}</span>
+   421→                      </li>
+   422→                    ))}
+   423→                  </ul>
+   424→                </div>
+   425→                {/* Single photo (right on lg) */}
+   426→                <div className="lg:order-2">
+   427→                  <Photo
+   428→                    id="photo-about-gurgaon"
+   429→                    alt="J-Gate Gurgaon sub base — Delhi NCR (in preparation)"
+   430→                    fallback="grad-office-cabin"
+   431→                    initials="GGN"
+   432→                    rounded="rounded-none lg:rounded-r-lg"
+   433→                    className="h-full min-h-[280px] w-full"
+   434→                  />
+   435→                </div>
+   436→              </div>
+   437→            </article>
+   438→          </Reveal>
+   439→        </div>
+   440→      </section>
+   441→
+   442→      {/* ════════════════════════════════════════════════════════════
+   443→          Section 3 — India Map SVG
+   444→          Hyderabad (crimson pulsing) + Gurgaon (saffron) + other cities + connecting line
+   445→         ════════════════════════════════════════════════════════════ */}
+   446→      <section className="section-pad relative overflow-hidden bg-midnight">
+   447→        <div className="pattern-asanoha-dark absolute inset-0 opacity-60" />
+   448→        <div
+   449→          className="absolute inset-0"
+   450→          style={{
+   451→            background:
+   452→              "radial-gradient(ellipse at 50% 50%, rgba(188,26,44,0.10), transparent 60%)",
+   453→          }}
+   454→        />
+   455→        <div className="container-jg relative">
+   456→          <Reveal>
+   457→            <div className="mx-auto max-w-3xl text-center">
+   458→              <Eyebrow light>{tx({ EN: "India Footprint", JP: "インド拠点マップ" })}</Eyebrow>
+   459→              <h2
+   460→                className="mt-4 font-serif-jp font-bold leading-[1.18] text-white"
+   461→                style={{ fontSize: "clamp(1.625rem,3.6vw,2.25rem)" }}
+   462→              >
+   463→                {tx({ EN: "Two Cities. One Bridge.", JP: "二つの都市、一つの架け橋。" })}
+   464→              </h2>
+   465→              <p
+   466→                className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-mist"
+   467→                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+   468→              >
+   469→                {tx({
+   470→                  EN: "Hyderabad leads as our main base; Gurgaon follows as the sub base. The corridor between them covers every major Japanese business touchpoint in India.",
+   471→                  JP: "ハイデラバードが主拠点、グルガオンがサブ拠点。両者の回廊が、インドにおける日本ビジネスの主要接点をすべてカバーします。",
+   472→                })}
+   473→              </p>
+   474→            </div>
+   475→          </Reveal>
+   476→
+   477→          <div className="mt-10 grid gap-8 lg:grid-cols-5 lg:items-center">
+   478→            {/* Map */}
+   479→            <Reveal variant="left" delay={120} className="lg:col-span-3">
+   480→              <div className="mx-auto max-w-md rounded-lg border border-white/10 bg-white/[0.02] p-6">
+   481→                <IndiaMap />
+   482→              </div>
+   483→            </Reveal>
+   484→            {/* Legend + connecting corridor summary */}
+   485→            <Reveal variant="right" delay={200} className="lg:col-span-2">
+   486→              <div className="glass-dark rounded-lg border border-white/10 p-6">
+   487→                <h3 className="font-serif-jp text-lg font-bold text-white">
+   488→                  {tx({ EN: "Active Corridor", JP: "稼働回廊" })}
+   489→                </h3>
+   490→                <p className="mt-2 font-inter text-[13px] leading-relaxed text-mist">
+   491→                  {tx({
+   492→                    EN: "Direct line from Gurgaon (Delhi NCR) to Hyderabad — covering India's two largest Japanese business communities.",
+   493→                    JP: "グルガオン（デリーNCR）からハイデラバードへの直線 — インドの二大日本ビジネスコミュニティを結ぶ。",
+   494→                  })}
+   495→                </p>
+   496→                <ul className="mt-5 space-y-3">
+   497→                  <li className="flex items-center gap-3">
+   498→                    <span className="h-3 w-3 rounded-full bg-crimson shadow-[0_0_12px_rgba(188,26,44,0.6)]" />
+   499→                    <span className="font-inter text-[13px] text-white">
+   500→                      <strong className="font-bold">Hyderabad</strong>
+   501→                      <span className="ml-2 text-mist">{tx({ EN: "Main Base · LIVE", JP: "主拠点・稼働中" })}</span>
+   502→                    </span>
+   503→                  </li>
+   504→                  <li className="flex items-center gap-3">
+   505→                    <span className="h-3 w-3 rounded-full bg-saffron shadow-[0_0_12px_rgba(232,160,26,0.6)]" />
+   506→                    <span className="font-inter text-[13px] text-white">
+   507→                      <strong className="font-bold">Gurgaon</strong>
+   508→                      <span className="ml-2 text-mist">{tx({ EN: "Sub Base · In Prep", JP: "サブ拠点・準備中" })}</span>
+   509→                    </span>
+   510→                  </li>
+   511→                  <li className="flex items-center gap-3">
+   512→                    <span className="h-3 w-3 rounded-full bg-mist/50" />
+   513→                    <span className="font-inter text-[13px] text-mist">
+   514→                      {tx({ EN: "Other major cities", JP: "その他主要都市" })}
+   515→                    </span>
+   516→                  </li>
+   517→                </ul>
+   518→              </div>
+   519→            </Reveal>
+   520→          </div>
+   521→        </div>
+   522→      </section>
+   523→
+   524→      {/* ════════════════════════════════════════════════════════════
+   525→          Section 4 — Mission & Vision — 2 side-by-side cards
+   526→         ════════════════════════════════════════════════════════════ */}
+   527→      <section className="section-pad bg-ivory-warm">
+   528→        <div className="container-jg">
+   529→          <Reveal>
+   530→            <div className="mx-auto max-w-3xl text-center">
+   531→              <Eyebrow>{tx({ EN: "Mission & Vision", JP: "ミッション＆ビジョン" })}</Eyebrow>
+   532→              <h2
+   533→                className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
+   534→                style={{ fontSize: "clamp(1.75rem,3.8vw,2.25rem)" }}
+   535→              >
+   536→                {tx({ EN: "What We Exist To Do", JP: "私たちの存在意義" })}
+   537→              </h2>
+   538→              <p
+   539→                className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate"
+   540→                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+   541→              >
+   542→                {tx({
+   543→                  EN: "Two statements — one for what we do today, one for what we are building toward.",
+   544→                  JP: "二つの声明 — 今日私たちが行うことと、私たちが構築している未来。",
+   545→                })}
+   546→              </p>
+   547→            </div>
+   548→          </Reveal>
+   549→
+   550→          <div className="mt-10 grid gap-6 md:grid-cols-2">
+   551→            {/* Mission — crimson accent */}
+   552→            <Reveal delay={100}>
+   553→              <article className="lift-card relative h-full overflow-hidden rounded-lg border border-crimson/15 bg-pearl p-8 shadow-card">
+   554→                <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-crimson to-crimson-deep" />
+   555→                <div className="flex items-center gap-3">
+   556→                  <span className="flex h-12 w-12 items-center justify-center rounded-md bg-crimson/10 text-crimson">
+   557→                    <Target className="h-6 w-6" strokeWidth={1.5} />
+   558→                  </span>
+   559→                  <h3 className="font-serif-jp text-xl font-bold text-ink">
+   560→                    {tx(MISSION.title)}
+   561→                  </h3>
+   562→                </div>
+   563→                <p className="mt-5 font-inter text-[15px] leading-relaxed text-slate">
+   564→                  {tx(MISSION.body)}
+   565→                </p>
+   566→                <div className="mt-6 flex items-center gap-2 border-t border-crimson/10 pt-5">
+   567→                  <span
+   568→                    className="font-inter text-[11px] font-semibold uppercase text-crimson"
+   569→                    style={{ letterSpacing: "0.15em" }}
+   570→                  >
+   571→                    {tx(MISSION.tag)}
+   572→                  </span>
+   573→                </div>
+   574→              </article>
+   575→            </Reveal>
+   576→
+   577→            {/* Vision — saffron accent */}
+   578→            <Reveal delay={200}>
+   579→              <article className="lift-card relative h-full overflow-hidden rounded-lg border border-saffron/20 bg-pearl p-8 shadow-card">
+   580→                <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-saffron to-[#c9881a]" />
+   581→                <div className="flex items-center gap-3">
+   582→                  <span className="flex h-12 w-12 items-center justify-center rounded-md bg-saffron/15 text-saffron">
+   583→                    <Eye className="h-6 w-6" strokeWidth={1.5} />
+   584→                  </span>
+   585→                  <h3 className="font-serif-jp text-xl font-bold text-ink">
+   586→                    {tx(VISION.title)}
+   587→                  </h3>
+   588→                </div>
+   589→                <p className="mt-5 font-inter text-[15px] leading-relaxed text-slate">
+   590→                  {tx(VISION.body)}
+   591→                </p>
+   592→                <div className="mt-6 flex items-center gap-2 border-t border-saffron/15 pt-5">
+   593→                  <span
+   594→                    className="font-inter text-[11px] font-semibold uppercase text-saffron"
+   595→                    style={{ letterSpacing: "0.15em" }}
+   596→                  >
+   597→                    {tx(VISION.tag)}
+   598→                  </span>
+   599→                </div>
+   600→              </article>
+   601→            </Reveal>
+   602→          </div>
+   603→        </div>
+   604→      </section>
+   605→
+   606→      {/* ════════════════════════════════════════════════════════════
+   607→          Section 5 — Core Values — 4-card grid
+   608→         ════════════════════════════════════════════════════════════ */}
+   609→      <section className="section-pad bg-ivory">
+   610→        <div className="container-jg">
+   611→          <Reveal>
+   612→            <div className="mx-auto max-w-3xl text-center">
+   613→              <Eyebrow>{tx({ EN: "Core Values", JP: "コアバリュー" })}</Eyebrow>
+   614→              <h2
+   615→                className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
+   616→                style={{ fontSize: "clamp(1.75rem,3.8vw,2.25rem)" }}
+   617→              >
+   618→                {tx({ EN: "The Principles Behind Every Placement", JP: "すべての紹介の背景にある原則" })}
+   619→              </h2>
+   620→              <p
+   621→                className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate"
+   622→                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+   623→              >
+   624→                {tx({
+   625→                  EN: "Four principles guide every recruitment, every training, every partnership — without exception.",
+   626→                  JP: "四つの原則が例外なく、すべての採用、研修、パートナーシップを導きます。",
+   627→                })}
+   628→              </p>
+   629→            </div>
+   630→          </Reveal>
+   631→
+   632→          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+   633→            {VALUES.map((v, i) => (
+   634→              <Reveal key={i} delay={i * 100}>
+   635→                <article className="lift-card group relative h-full overflow-hidden rounded-lg border border-crimson/8 bg-pearl p-7 shadow-card">
+   636→                  <span
+   637→                    className={`absolute inset-y-0 left-0 w-1 ${
+   638→                      i % 2 === 0
+   639→                        ? "bg-gradient-to-b from-crimson to-crimson-deep"
+   640→                        : "bg-gradient-to-b from-saffron to-[#c9881a]"
+   641→                    }`}
+   642→                  />
+   643→                  <div
+   644→                    className={`flex h-14 w-14 items-center justify-center rounded-lg bg-gradient-to-br ${
+   645→                      i % 2 === 0 ? "from-crimson/10 to-saffron/5" : "from-saffron/10 to-crimson/5"
+   646→                    } text-crimson transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3`}
+   647→                  >
+   648→                    <v.icon className="h-7 w-7" strokeWidth={1.5} />
+   649→                  </div>
+   650→                  <h3 className="mt-5 font-serif-jp text-lg font-bold text-ink">
+   651→                    {tx(v.title)}
+   652→                  </h3>
+   653→                  <p className="mt-2.5 font-inter text-[13px] leading-relaxed text-slate">
+   654→                    {tx(v.desc)}
+   655→                  </p>
+   656→                </article>
+   657→              </Reveal>
+   658→            ))}
+   659→          </div>
+   660→        </div>
+   661→      </section>
+   662→
+   663→      {/* ════════════════════════════════════════════════════════════
+   664→          Closing CTA
+   665→         ════════════════════════════════════════════════════════════ */}
+   666→      <section className="section-pad bg-ivory-warm">
+   667→        <div className="container-jg">
+   668→          <Reveal>
+   669→            <div className="mx-auto max-w-2xl text-center">
+   670→              <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-crimson/10 text-crimson">
+   671→                <Sparkles className="h-6 w-6" strokeWidth={1.5} />
+   672→              </span>
+   673→              <h2
+   674→                className="mt-6 font-serif-jp font-bold leading-[1.18] text-ink"
+   675→                style={{ fontSize: "clamp(1.625rem,3.5vw,2rem)" }}
+   676→              >
+   677→                {tx({
+   678→                  EN: "See How the Bridge Translates Into Outcomes",
+   679→                  JP: "架け橋がどう成果に変換されるかを見る",
+   680→                })}
+   681→              </h2>
+   682→              <p
+   683→                className="mx-auto mt-4 font-inter leading-relaxed text-slate"
+   684→                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+   685→              >
+   686→                {tx({
+   687→                  EN: "Our values are visible in every differentiator, every service, and every placement we deliver.",
+   688→                  JP: "私たちの価値観は、すべての差別化要素、サービス、そして紹介に現れています。",
+   689→                })}
+   690→              </p>
+   691→              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+   692→                <Link
+   693→                  href="/why-jgate"
+   694→                  className="btn-shine flex items-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-7 py-3.5 font-inter text-[14px] font-semibold text-white shadow-[0_0_20px_rgba(188,26,44,0.35)] transition-all hover:-translate-y-0.5"
+   695→                >
+   696→                  {tx({ EN: "Why J-Gate", JP: "J-Gateの強み" })}
+   697→                  <ArrowRight className="h-4 w-4" />
+   698→                </Link>
+   699→                <Link
+   700→                  href="/services"
+   701→                  className="rounded-md border border-crimson/30 px-7 py-3.5 font-inter text-[14px] font-semibold text-crimson transition-all hover:-translate-y-0.5 hover:bg-crimson/5"
+   702→                >
+   703→                  {tx({ EN: "Explore Services", JP: "サービスを見る" })}
+   704→                </Link>
+   705→              </div>
+   706→            </div>
+   707→          </Reveal>
+   708→        </div>
+   709→      </section>
+   710→    </>
+   711→  );
+   712→}
+   713→

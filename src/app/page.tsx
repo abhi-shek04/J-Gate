@@ -7,9 +7,11 @@ import {
   BookOpen,
   Shield,
   Users,
-  MapPin,
   Building2,
-  CalendarClock,
+  Wifi,
+  Mic,
+  Scale,
+  BarChart3,
   ArrowDown,
 } from "lucide-react";
 import { Reveal, Eyebrow, useCounter } from "@/components/jgate/shared";
@@ -23,15 +25,16 @@ import { LogoMarquee } from "@/components/jgate/logo-marquee";
 import { Photo } from "@/components/jgate/photo";
 
 /* ============================================================
-   J-Gate Home — v3.0 Definitive Redesign
-   Architecture:
-     1. Hero (100dvh, midnight, Torii watermark, 18 particles, 3 glass badges, scroll cue)
-     2. Trust Strip (2-row logo marquee)
-     3. Stats (4 animated counters — crimson 64px + saffron suffix + thin crimson border)
-     4. 3 Pillars (navy section, glass cards with faded 01/02/03 + JP kanji + EN title + body)
-     5. Locations (2 editorial cards — Hyderabad LIVE + Gurgaon IN PREPARATION with photo slots)
-     6. Ecosystem Preview (3 editorial cards → /about, /why-jgate, /services)
-     7. CTA Banner ("Ready to Bridge Your Future?")
+   J-Gate Home — v4.0 Compact Redesign
+   Architecture (8 sections, single Hyderabad location):
+     1. Hero (100dvh, midnight, Torii watermark, 18 particles, 2 glass badges, scroll cue)
+     2. Trust Strip (2-row logo marquee — single instance)
+     3. Stats (4 animated counters — compact crimson 32px max)
+     4. Workspace Features (6 cards — what the co-working space provides)
+     5. Core Pillars (3 navy glass cards)
+     6. Hyderabad Location (single centered card — LIVE)
+     7. Ecosystem Preview (3 editorial cards → /about, /why-jgate, /services)
+     8. CTA Banner ("Ready to Bridge Your Future?")
    ============================================================ */
 
 /* 18 CSS particles drifting upward via jg-drift keyframe */
@@ -109,22 +112,51 @@ function StatCard({
     <Reveal delay={delay}>
       <div
         ref={ref as React.RefObject<HTMLDivElement>}
-        className="lift-card relative flex h-full flex-col items-center justify-center rounded-lg border-b-2 border-crimson bg-pearl p-6 text-center shadow-card sm:p-8"
+        className="lift-card relative flex h-full flex-col items-center justify-center rounded-lg border-b-2 border-crimson bg-pearl p-4 text-center shadow-card sm:p-5"
       >
         <div
           className="font-serif-jp font-bold leading-none text-crimson"
-          style={{ fontSize: "clamp(2.75rem,5vw,4rem)" }}
+          style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)" }}
         >
           {count}
           <span className="text-saffron">{suffix}</span>
         </div>
         <div
-          className="mt-3 font-inter text-[12px] font-semibold uppercase text-slate"
+          className="mt-2 font-inter text-[11px] font-semibold uppercase text-slate"
           style={{ letterSpacing: "0.08em" }}
         >
           {label}
         </div>
       </div>
+    </Reveal>
+  );
+}
+
+/* Workspace feature card (compact) */
+function FeatureCard({
+  icon: Icon,
+  title,
+  desc,
+  delay,
+}: {
+  icon: typeof Building2;
+  title: string;
+  desc: string;
+  delay: number;
+}) {
+  return (
+    <Reveal delay={delay}>
+      <article className="lift-card group flex h-full flex-col rounded-lg border border-crimson/8 bg-pearl p-5 shadow-card">
+        <div className="flex h-11 w-11 items-center justify-center rounded-md bg-gradient-to-br from-crimson/10 to-saffron/10 text-crimson transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+          <Icon className="h-5 w-5" strokeWidth={1.5} />
+        </div>
+        <h3 className="mt-3 font-inter text-[15px] font-semibold leading-snug text-ink">
+          {title}
+        </h3>
+        <p className="mt-2 font-inter text-[13px] leading-relaxed text-slate">
+          {desc}
+        </p>
+      </article>
     </Reveal>
   );
 }
@@ -162,6 +194,58 @@ export default function HomePage() {
     { value: 92, suffix: "%", label: tx({ EN: "12-Month Retention", JP: "12ヶ月定着率" }) },
   ];
 
+  /* 6 Workspace Features — what the co-working space provides */
+  const features = [
+    {
+      icon: Building2,
+      title: tx({ EN: "Premium Workspace", JP: "プレミアムワークスペース" }),
+      desc: tx({
+        EN: "Dedicated desks and private cabins inside Cyber Gateway — 24/7 access, ergonomic setups, enterprise-grade facilities.",
+        JP: "Cyber Gateway内の専用デスクと個室 — 24時間アクセス、人間工学設備、エンタープライズ級施設。",
+      }),
+    },
+    {
+      icon: Wifi,
+      title: tx({ EN: "Enterprise Fiber Internet", JP: "エンタープライズ光回線" }),
+      desc: tx({
+        EN: "Dedicated high-speed fiber connecting your team to Tokyo HQ, global clients, and cloud systems — zero compromise.",
+        JP: "専用高速ファイバーで東京本社・グローバル顧客・クラウドに接続 — 一切の妥協なし。",
+      }),
+    },
+    {
+      icon: Mic,
+      title: tx({ EN: "Professional Meeting Rooms", JP: "プロフェッショナル会議室" }),
+      desc: tx({
+        EN: "Fully equipped conference rooms with 4K displays, video conferencing, whiteboards, and catering options.",
+        JP: "4Kディスプレイ、ビデオ会議、ホワイトボード、ケータリング完備の会議室。",
+      }),
+    },
+    {
+      icon: Scale,
+      title: tx({ EN: "Legal & Regulatory Guidance", JP: "法務・規制ガイダンス" }),
+      desc: tx({
+        EN: "India company registration, GST, employment law, and compliance — partner network with Japan-India expertise.",
+        JP: "インド法人設立、GST、労働法、コンプライアンス — 日印専門のパートナーネットワーク。",
+      }),
+    },
+    {
+      icon: Users,
+      title: tx({ EN: "Bilingual Talent Pipeline", JP: "バイリンガル人材パイプライン" }),
+      desc: tx({
+        EN: "Access Indobox India's curated network — Japanese-business-fluent professionals from interns to C-suite.",
+        JP: "Indobox India厳選ネットワーク — インターンからC級まで日本ビジネス堪能な人材。",
+      }),
+    },
+    {
+      icon: BarChart3,
+      title: tx({ EN: "India Market Intelligence", JP: "インド市場インテリジェンス" }),
+      desc: tx({
+        EN: "Market entry research, competitor analysis, and industry mapping — delivered through T-Hub's knowledge network.",
+        JP: "市場参入調査、競合分析、業界マッピング — T-Hub知識ネットワーク経由で提供。",
+      }),
+    },
+  ];
+
   /* Ecosystem preview cards */
   const previews = [
     {
@@ -169,8 +253,8 @@ export default function HomePage() {
       href: "/about",
       title: tx({ EN: "About J-Gate", JP: "J-Gateについて" }),
       desc: tx({
-        EN: "Three pillars — Opportunity Creation, Talent Development, Business Collaboration — anchored in Hyderabad and Gurgaon.",
-        JP: "きっかけ作り・人材育成・ビジネス連携の3本柱 — ハイデラバードとグルガオンを拠点に。",
+        EN: "Three pillars — Opportunity Creation, Talent Development, Business Collaboration — anchored in Hyderabad.",
+        JP: "きっかけ作り・人材育成・ビジネス連携の3本柱 — ハイデラバードを拠点に。",
       }),
     },
     {
@@ -196,7 +280,7 @@ export default function HomePage() {
   return (
     <>
       {/* ════════════════════════════════════════════════════════════
-          HERO — 100dvh, midnight, Torii watermark, 18 particles, 3 glass badges
+          1. HERO — 100dvh, midnight, Torii watermark, 18 particles, 2 glass badges
          ════════════════════════════════════════════════════════════ */}
       <section className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden bg-midnight">
         {/* Ambient gradient washes */}
@@ -251,18 +335,18 @@ export default function HomePage() {
           {/* Pre-title */}
           <Reveal delay={80}>
             <p
-              className="mt-7 font-inter text-[13px] font-semibold uppercase text-saffron"
+              className="mt-6 font-inter text-[12px] font-semibold uppercase text-saffron"
               style={{ letterSpacing: "0.25em" }}
             >
               {t("hero.eyebrow")}
             </p>
           </Reveal>
 
-          {/* H1 — 3 lines, Noto Serif JP 900, clamp 3rem-6.5rem */}
+          {/* H1 — Noto Serif JP 900, clamp 1.75rem-2.5rem (max 40px) */}
           <Reveal delay={140}>
             <h1
-              className="mx-auto mt-5 max-w-5xl font-serif-jp font-black leading-[1.05] text-white"
-              style={{ fontSize: "clamp(3rem, 7vw, 6.5rem)" }}
+              className="mx-auto mt-4 max-w-4xl font-serif-jp font-black leading-[1.1] text-white"
+              style={{ fontSize: "clamp(1.75rem, 4vw, 2.5rem)" }}
             >
               {t("hero.title1")}
               <br />
@@ -275,8 +359,8 @@ export default function HomePage() {
           {/* JP tagline */}
           <Reveal delay={200}>
             <p
-              className="mt-6 font-serif-jp font-medium text-saffron/85"
-              style={{ fontSize: "clamp(1rem,1.6vw,1.25rem)", letterSpacing: "0.05em" }}
+              className="mt-4 font-serif-jp font-medium text-saffron/85"
+              style={{ fontSize: "clamp(0.875rem, 1.4vw, 1rem)", letterSpacing: "0.05em" }}
             >
               {t("hero.jptag")}
             </p>
@@ -285,8 +369,8 @@ export default function HomePage() {
           {/* Body subtitle — catchphrase */}
           <Reveal delay={260}>
             <p
-              className="mx-auto mt-5 max-w-[640px] font-inter font-light leading-relaxed text-mist"
-              style={{ fontSize: "clamp(1rem, 1.6vw, 1.125rem)" }}
+              className="mx-auto mt-4 max-w-[600px] font-inter font-light leading-relaxed text-mist"
+              style={{ fontSize: "clamp(0.875rem, 1.4vw, 1rem)" }}
             >
               {t("hero.subtitle")}
             </p>
@@ -294,17 +378,17 @@ export default function HomePage() {
 
           {/* 2 CTAs */}
           <Reveal delay={320}>
-            <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <Link
                 href="/auth/brochure"
-                className="btn-shine flex items-center justify-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-8 py-4 font-inter text-[15px] font-semibold text-white shadow-[0_0_24px_rgba(188,26,44,0.45)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_32px_rgba(188,26,44,0.65)]"
+                className="btn-shine flex items-center justify-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-6 py-3 font-inter text-[14px] font-semibold text-white shadow-[0_0_24px_rgba(188,26,44,0.45)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_32px_rgba(188,26,44,0.65)]"
               >
                 <Download className="h-4 w-4" />
                 {t("hero.cta1")}
               </Link>
               <Link
                 href="/services"
-                className="rounded-md border border-white/40 px-8 py-4 font-inter text-[15px] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-white/10"
+                className="rounded-md border border-white/40 px-6 py-3 font-inter text-[14px] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-white/10"
               >
                 {t("hero.cta2")}
                 <ArrowRight className="ml-1.5 inline h-4 w-4" />
@@ -312,20 +396,14 @@ export default function HomePage() {
             </div>
           </Reveal>
 
-          {/* 3 floating glass badges */}
+          {/* 2 floating glass badges — Hyderabad + Operator */}
           <Reveal delay={420}>
-            <div className="mt-12 flex flex-wrap items-center justify-center gap-3">
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
               <GlassBadge
                 emoji="📍"
                 primary={tx({ EN: "Hyderabad", JP: "ハイデラバード" })}
                 secondary={tx({ EN: "Main Base", JP: "主拠点" })}
                 accent="saffron"
-              />
-              <GlassBadge
-                emoji="🏢"
-                primary={tx({ EN: "Gurgaon", JP: "グルガオン" })}
-                secondary={tx({ EN: "Sub Base (In Prep)", JP: "サブ拠点（準備中）" })}
-                accent="crimson"
               />
               <GlassBadge
                 emoji="🏛"
@@ -353,16 +431,16 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          TRUST STRIP — 2-row logo marquee
+          2. TRUST STRIP — 2-row logo marquee (single instance)
          ════════════════════════════════════════════════════════════ */}
-      <section className="bg-ivory py-14">
+      <section className="bg-ivory py-8">
         <div className="container-jg">
           <Reveal>
-            <div className="mx-auto mb-9 max-w-3xl text-center">
+            <div className="mx-auto mb-6 max-w-3xl text-center">
               <Eyebrow>{t("home.logos.eyebrow")}</Eyebrow>
               <h2
-                className="mt-3 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.375rem,3vw,1.75rem)" }}
+                className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
+                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
               >
                 {t("home.logos.title")}
               </h2>
@@ -375,30 +453,29 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          STATS — 4 animated counters (crimson 64px + saffron suffix + thin crimson border)
-          On ivory bg.
+          3. STATS — 4 animated counters (compact crimson max 32px)
          ════════════════════════════════════════════════════════════ */}
       <section className="section-pad bg-ivory">
         <div className="container-jg">
           <Reveal>
-            <div className="mx-auto mb-10 max-w-3xl text-center">
+            <div className="mx-auto mb-8 max-w-3xl text-center">
               <Eyebrow>{t("home.stats.eyebrow")}</Eyebrow>
               <h2
-                className="mt-3 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.625rem,3.5vw,2.125rem)" }}
+                className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
+                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
               >
                 {t("home.stats.title")}
               </h2>
               <p
-                className="mx-auto mt-3 max-w-xl font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.9rem,1.5vw,1rem)" }}
+                className="mx-auto mt-2 max-w-xl font-inter leading-relaxed text-slate"
+                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
               >
                 {t("home.stats.subtitle")}
               </p>
             </div>
           </Reveal>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {stats.map((s, i) => (
               <StatCard
                 key={i}
@@ -413,8 +490,52 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          3 PILLARS — navy section, glass cards
-          Each card: large faded number (96px crimson opacity 0.15) + JP kanji (saffron 20px) + EN title (white 18px) + body (mist 15px)
+          4. WORKSPACE FEATURES — 6 cards (what the co-working space provides)
+          Ivory-warm bg, compact cards (p-5, 15px titles, 13px body)
+         ════════════════════════════════════════════════════════════ */}
+      <section className="section-pad bg-ivory-warm">
+        <div className="container-jg">
+          <Reveal>
+            <div className="mx-auto mb-8 max-w-3xl text-center">
+              <Eyebrow>{tx({ EN: "What's Included", JP: "提供内容" })}</Eyebrow>
+              <h2
+                className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
+                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+              >
+                {tx({
+                  EN: "Everything You Need to Operate from Day One",
+                  JP: "初日から稼働するために必要なすべて",
+                })}
+              </h2>
+              <p
+                className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate"
+                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
+              >
+                {tx({
+                  EN: "Six core capabilities bundled into every J-Gate membership — workspace, connectivity, and the operational support Japanese enterprises expect.",
+                  JP: "J-Gateの全メンバーシップに含まれる6つのコア機能 — ワークスペース、接続性、そして日本企業が期待する運用サポート。",
+                })}
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {features.map((f, i) => (
+              <FeatureCard
+                key={i}
+                icon={f.icon}
+                title={f.title}
+                desc={f.desc}
+                delay={(i % 3) * 100}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════
+          5. CORE PILLARS — navy section, 3 glass cards
+          Each card: faded number + JP kanji + EN title + body (compact)
          ════════════════════════════════════════════════════════════ */}
       <section className="section-pad relative overflow-hidden bg-navy">
         <div className="pattern-asanoha-navy absolute inset-0 opacity-60" />
@@ -427,11 +548,11 @@ export default function HomePage() {
         />
         <div className="container-jg relative">
           <Reveal>
-            <div className="mx-auto mb-12 max-w-3xl text-center">
+            <div className="mx-auto mb-10 max-w-3xl text-center">
               <Eyebrow light>{tx({ EN: "Why J-Gate Exists", JP: "J-Gateの存在意義" })}</Eyebrow>
               <h2
-                className="mt-4 font-serif-jp font-bold leading-[1.15] text-white"
-                style={{ fontSize: "clamp(1.75rem,4vw,2.5rem)" }}
+                className="mt-3 font-serif-jp font-bold leading-[1.15] text-white"
+                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
               >
                 {tx({
                   EN: "Three Pillars. One Operating Engine.",
@@ -439,43 +560,43 @@ export default function HomePage() {
                 })}
               </h2>
               <p
-                className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-mist"
-                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+                className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-mist"
+                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
               >
                 {t("about.purpose.subtitle")}
               </p>
             </div>
           </Reveal>
 
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-3">
             {pillars.map((p, i) => (
               <Reveal key={p.num} delay={i * 120}>
-                <article className="glass-dark lift-card relative h-full overflow-hidden rounded-lg border border-white/10 p-8">
+                <article className="glass-dark lift-card relative h-full overflow-hidden rounded-lg border border-white/10 p-5">
                   {/* Faded large numeral */}
                   <span
                     className="pointer-events-none absolute -top-4 right-4 font-serif-jp font-black leading-none text-crimson"
-                    style={{ fontSize: "96px", opacity: 0.15 }}
+                    style={{ fontSize: "72px", opacity: 0.15 }}
                     aria-hidden
                   >
                     {p.num}
                   </span>
                   <div className="relative">
                     <span
-                      className="block font-serif-jp text-[20px] font-bold text-saffron"
+                      className="block font-serif-jp text-[16px] font-bold text-saffron"
                       style={{ letterSpacing: "0.05em" }}
                     >
                       {p.kanji}
                     </span>
                     <h3
-                      className="mt-3 font-serif-jp font-bold leading-tight text-white"
-                      style={{ fontSize: "clamp(1.125rem,2vw,1.375rem)" }}
+                      className="mt-2 font-serif-jp font-bold leading-tight text-white"
+                      style={{ fontSize: "clamp(1rem, 1.6vw, 1.125rem)" }}
                     >
                       {p.title}
                     </h3>
-                    <div className="mt-4 h-px w-12 bg-crimson/40" />
+                    <div className="mt-3 h-px w-10 bg-crimson/40" />
                     <p
-                      className="mt-4 font-inter leading-relaxed text-mist"
-                      style={{ fontSize: "15px" }}
+                      className="mt-3 font-inter leading-relaxed text-mist"
+                      style={{ fontSize: "13px" }}
                     >
                       {p.body}
                     </p>
@@ -488,154 +609,96 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          LOCATIONS — 2 editorial cards side-by-side
-          Hyderabad (LIVE badge + photo + 3 bullets + visit link)
-          Gurgaon (COMING SOON + IN PREPARATION + photo + 3 bullets)
+          6. HYDERABAD LOCATION — single centered card
          ════════════════════════════════════════════════════════════ */}
       <section className="section-pad bg-ivory-warm">
         <div className="container-jg">
           <Reveal>
-            <div className="mx-auto mb-12 max-w-3xl text-center">
+            <div className="mx-auto mb-8 max-w-3xl text-center">
               <Eyebrow>{t("about.locations.eyebrow")}</Eyebrow>
               <h2
-                className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.75rem,3.8vw,2.25rem)" }}
+                className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
+                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
               >
                 {t("about.locations.title")}
               </h2>
               <p
-                className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+                className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate"
+                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
               >
                 {t("about.locations.subtitle")}
               </p>
             </div>
           </Reveal>
 
-          <div className="grid gap-6 lg:grid-cols-2">
-            {/* Hyderabad card */}
-            <Reveal delay={100}>
-              <article className="lift-card group h-full overflow-hidden rounded-lg border border-saffron/20 bg-pearl shadow-card">
-                <div className="relative">
-                  <Photo
-                    id="photo-location-hyderabad"
-                    alt="J-Gate Hyderabad main base — Cyber Gateway, Hitech City"
-                    fallback="grad-office-main"
-                    initials="HYD"
-                    rounded="rounded-t-lg"
-                    className="h-56 w-full"
-                  />
-                  <div className="absolute inset-0 rounded-t-lg bg-gradient-to-t from-midnight/60 via-transparent to-transparent" />
-                  <span className="absolute right-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-success px-3 py-1.5 font-inter text-[11px] font-bold uppercase text-white shadow-crimp" style={{ letterSpacing: "0.1em" }}>
-                    <span className="h-2 w-2 rounded-full bg-white animate-pulse-soft" />
-                    {tx({ EN: "LIVE", JP: "稼働中" })}
+          {/* Hyderabad card — single, centered, max-w-3xl */}
+          <Reveal delay={100}>
+            <article className="lift-card group mx-auto max-w-3xl overflow-hidden rounded-lg border border-saffron/20 bg-pearl shadow-card">
+              <div className="relative">
+                <Photo
+                  id="photo-location-hyderabad"
+                  alt="J-Gate Hyderabad main base — Cyber Gateway, Hitech City"
+                  fallback="grad-office-main"
+                  initials="HYD"
+                  rounded="rounded-t-lg"
+                  className="h-40 w-full"
+                />
+                <div className="absolute inset-0 rounded-t-lg bg-gradient-to-t from-midnight/60 via-transparent to-transparent" />
+                <span className="absolute right-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-success px-3 py-1.5 font-inter text-[11px] font-bold uppercase text-white shadow-crimp" style={{ letterSpacing: "0.1em" }}>
+                  <span className="h-2 w-2 rounded-full bg-white animate-pulse-soft" />
+                  {tx({ EN: "LIVE", JP: "稼働中" })}
+                </span>
+              </div>
+              <div className="p-5 sm:p-6">
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div>
+                    <span
+                      className="block font-inter text-[11px] font-bold uppercase text-saffron"
+                      style={{ letterSpacing: "0.15em" }}
+                    >
+                      {t("about.hyderabad.tag")}
+                    </span>
+                    <h3
+                      className="mt-1 font-serif-jp font-bold text-ink"
+                      style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+                    >
+                      {t("about.hyderabad.title")}
+                    </h3>
+                  </div>
+                  <span className="inline-flex items-center gap-1.5 rounded-md bg-saffron/15 px-2.5 py-1 font-inter text-[11px] font-bold uppercase text-saffron">
+                    <Building2 className="h-3 w-3" />
+                    {t("about.hyderabad.status")}
                   </span>
                 </div>
-                <div className="p-7">
-                  <div className="flex flex-wrap items-start justify-between gap-3">
-                    <div>
-                      <span
-                        className="block font-inter text-[11px] font-bold uppercase text-saffron"
-                        style={{ letterSpacing: "0.15em" }}
-                      >
-                        {t("about.hyderabad.tag")}
-                      </span>
-                      <h3 className="mt-1 font-serif-jp text-2xl font-bold text-ink">
-                        {t("about.hyderabad.title")}
-                      </h3>
-                    </div>
-                    <span className="inline-flex items-center gap-1.5 rounded-md bg-saffron/15 px-2.5 py-1 font-inter text-[11px] font-bold uppercase text-saffron">
-                      <CalendarClock className="h-3 w-3" />
-                      {t("about.hyderabad.status")}
-                    </span>
-                  </div>
-                  <p className="mt-3 font-serif-jp text-[14px] font-medium italic text-saffron/85">
-                    {t("about.hyderabad.nick")}
-                  </p>
-                  <p className="mt-3 font-inter text-[14px] leading-relaxed text-slate">
-                    {t("about.hyderabad.desc")}
-                  </p>
-                  <ul className="mt-5 space-y-2.5 border-t border-crimson/10 pt-5">
-                    {[t("about.hyderabad.f1"), t("about.hyderabad.f2"), t("about.hyderabad.f3")].map((f, fi) => (
-                      <li key={fi} className="flex items-start gap-2.5">
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-saffron" />
-                        <span className="font-inter text-[13px] text-ink">{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href="/contact"
-                    className="mt-6 inline-flex items-center gap-1.5 font-inter text-[13px] font-semibold text-crimson transition-all hover:gap-2.5"
-                  >
-                    {tx({ EN: "Visit Our Hyderabad Hub", JP: "ハイデラバード拠点を見る" })}
-                    <ArrowRight className="h-3.5 w-3.5" />
-                  </Link>
-                </div>
-              </article>
-            </Reveal>
-
-            {/* Gurgaon card */}
-            <Reveal delay={200}>
-              <article className="lift-card group h-full overflow-hidden rounded-lg border border-crimson/20 bg-pearl shadow-card">
-                <div className="relative">
-                  <Photo
-                    id="photo-location-gurgaon"
-                    alt="J-Gate Gurgaon sub base — Delhi NCR business core (in preparation)"
-                    fallback="grad-office-cabin"
-                    initials="GGN"
-                    rounded="rounded-t-lg"
-                    className="h-56 w-full"
-                  />
-                  <div className="absolute inset-0 rounded-t-lg bg-gradient-to-t from-midnight/60 via-transparent to-transparent" />
-                  <span className="absolute right-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-saffron px-3 py-1.5 font-inter text-[11px] font-bold uppercase text-white shadow-gold" style={{ letterSpacing: "0.1em" }}>
-                    {tx({ EN: "COMING SOON", JP: "近日公開" })}
-                  </span>
-                </div>
-                <div className="p-7">
-                  <div className="flex flex-wrap items-start justify-between gap-3">
-                    <div>
-                      <span
-                        className="block font-inter text-[11px] font-bold uppercase text-crimson"
-                        style={{ letterSpacing: "0.15em" }}
-                      >
-                        {t("about.gurgaon.tag")}
-                      </span>
-                      <h3 className="mt-1 font-serif-jp text-2xl font-bold text-ink">
-                        {t("about.gurgaon.title")}
-                      </h3>
-                    </div>
-                    <span className="inline-flex items-center gap-1.5 rounded-md bg-crimson/15 px-2.5 py-1 font-inter text-[11px] font-bold uppercase text-crimson">
-                      <CalendarClock className="h-3 w-3" />
-                      {t("about.gurgaon.status")}
-                    </span>
-                  </div>
-                  <p className="mt-3 font-serif-jp text-[14px] font-medium italic text-crimson/85">
-                    {t("about.gurgaon.nick")}
-                  </p>
-                  <p className="mt-3 font-inter text-[14px] leading-relaxed text-slate">
-                    {t("about.gurgaon.desc")}
-                  </p>
-                  <ul className="mt-5 space-y-2.5 border-t border-crimson/10 pt-5">
-                    {[t("about.gurgaon.f1"), t("about.gurgaon.f2"), t("about.gurgaon.f3")].map((f, fi) => (
-                      <li key={fi} className="flex items-start gap-2.5">
-                        <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-crimson" />
-                        <span className="font-inter text-[13px] text-ink">{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <p className="mt-6 inline-flex items-center gap-1.5 font-inter text-[13px] font-medium text-slate">
-                    <MapPin className="h-3.5 w-3.5 text-crimson" />
-                    {tx({ EN: "Delhi NCR · Sub Base In Preparation", JP: "デリーNCR · サブ拠点準備中" })}
-                  </p>
-                </div>
-              </article>
-            </Reveal>
-          </div>
+                <p className="mt-3 font-serif-jp text-[13px] font-medium italic text-saffron/85">
+                  {t("about.hyderabad.nick")}
+                </p>
+                <p className="mt-2 font-inter text-[13px] leading-relaxed text-slate">
+                  {t("about.hyderabad.desc")}
+                </p>
+                <ul className="mt-4 space-y-2 border-t border-crimson/10 pt-4">
+                  {[t("about.hyderabad.f1"), t("about.hyderabad.f2"), t("about.hyderabad.f3")].map((f, fi) => (
+                    <li key={fi} className="flex items-start gap-2.5">
+                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-saffron" />
+                      <span className="font-inter text-[13px] text-ink">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/contact"
+                  className="mt-5 inline-flex items-center gap-1.5 font-inter text-[13px] font-semibold text-crimson transition-all hover:gap-2.5"
+                >
+                  {tx({ EN: "Visit Our Hyderabad Hub", JP: "ハイデラバード拠点を見る" })}
+                  <ArrowRight className="h-3.5 w-3.5" />
+                </Link>
+              </div>
+            </article>
+          </Reveal>
         </div>
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          ECOSYSTEM PREVIEW — 3 editorial cards linking to /about, /why-jgate, /services
+          7. ECOSYSTEM PREVIEW — 3 editorial cards linking to /about, /why-jgate, /services
          ════════════════════════════════════════════════════════════ */}
       <section className="section-pad bg-ivory">
         <div className="container-jg">
@@ -643,37 +706,40 @@ export default function HomePage() {
             <div className="mx-auto max-w-3xl text-center">
               <Eyebrow>{t("home.overview.eyebrow")}</Eyebrow>
               <h2
-                className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.625rem,3.5vw,2.125rem)" }}
+                className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
+                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
               >
                 {t("home.overview.title")}
               </h2>
               <p
-                className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+                className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate"
+                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
               >
                 {t("home.overview.subtitle")}
               </p>
             </div>
           </Reveal>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
+          <div className="mt-8 grid gap-4 md:grid-cols-3">
             {previews.map((p, i) => (
               <Reveal key={p.href} delay={i * 120}>
                 <Link
                   href={p.href}
-                  className="lift-card group flex h-full flex-col rounded-lg border border-crimson/8 bg-pearl p-7 shadow-card"
+                  className="lift-card group flex h-full flex-col rounded-lg border border-crimson/8 bg-pearl p-5 shadow-card"
                 >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-gradient-to-br from-crimson/10 to-saffron/10 text-crimson transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
-                    <p.icon className="h-7 w-7" strokeWidth={1.5} />
+                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-crimson/10 to-saffron/10 text-crimson transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+                    <p.icon className="h-6 w-6" strokeWidth={1.5} />
                   </div>
-                  <h3 className="mt-5 font-serif-jp text-xl font-bold text-ink">
+                  <h3
+                    className="mt-4 font-serif-jp font-bold text-ink"
+                    style={{ fontSize: "clamp(1rem, 1.6vw, 1.125rem)" }}
+                  >
                     {p.title}
                   </h3>
-                  <p className="mt-2.5 flex-1 font-inter text-[14px] leading-relaxed text-slate">
+                  <p className="mt-2 flex-1 font-inter text-[13px] leading-relaxed text-slate">
                     {p.desc}
                   </p>
-                  <span className="mt-5 inline-flex items-center gap-1.5 font-inter text-[13px] font-semibold text-crimson transition-all group-hover:gap-2.5">
+                  <span className="mt-4 inline-flex items-center gap-1.5 font-inter text-[13px] font-semibold text-crimson transition-all group-hover:gap-2.5">
                     {t("common.learnMore")}
                     <ArrowRight className="h-3.5 w-3.5" />
                   </span>
@@ -685,7 +751,7 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          CTA BANNER — "Ready to Bridge Your Future?" + Download Brochure
+          8. CTA BANNER — "Ready to Bridge Your Future?" + Download Brochure
          ════════════════════════════════════════════════════════════ */}
       <section className="section-pad relative overflow-hidden bg-midnight">
         <div className="pattern-asanoha-dark absolute inset-0 opacity-60" />
@@ -699,24 +765,24 @@ export default function HomePage() {
         <div className="container-jg relative">
           <Reveal>
             <div className="mx-auto max-w-2xl text-center">
-              <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-crimson/15 text-crimson">
-                <Building2 className="h-7 w-7" strokeWidth={1.5} />
+              <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-crimson/15 text-crimson">
+                <Building2 className="h-6 w-6" strokeWidth={1.5} />
               </span>
               <h2
-                className="mt-6 font-serif-jp font-bold leading-[1.15] text-white"
-                style={{ fontSize: "clamp(1.75rem,4vw,2.5rem)" }}
+                className="mt-4 font-serif-jp font-bold leading-[1.15] text-white"
+                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
               >
                 {t("home.cta.title")}
               </h2>
               <p
-                className="mx-auto mt-5 max-w-lg font-inter font-light leading-relaxed text-mist"
-                style={{ fontSize: "clamp(0.95rem,1.6vw,1.125rem)" }}
+                className="mx-auto mt-4 max-w-lg font-inter font-light leading-relaxed text-mist"
+                style={{ fontSize: "clamp(0.85rem, 1.4vw, 1rem)" }}
               >
                 {t("home.cta.subtitle")}
               </p>
               <Link
                 href="/auth/brochure"
-                className="btn-shine mt-8 inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-8 py-4 font-inter text-[15px] font-semibold text-white shadow-[0_0_24px_rgba(188,26,44,0.45)] transition-all hover:-translate-y-0.5"
+                className="btn-shine mt-6 inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-7 py-3 font-inter text-[14px] font-semibold text-white shadow-[0_0_24px_rgba(188,26,44,0.45)] transition-all hover:-translate-y-0.5"
               >
                 <Download className="h-4 w-4" />
                 {t("nav.brochure")}

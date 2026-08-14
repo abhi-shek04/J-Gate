@@ -19,17 +19,16 @@ import {
   Building2,
   CalendarClock,
   Sparkles,
-  MapPin,
 } from "lucide-react";
 import Link from "next/link";
 
 /* ============================================================
-   About J-Gate — v3.0 Definitive Redesign
+   About J-Gate — v4.0 Compact Redesign
    Architecture:
      1. PageHero — "About J-Gate" / "From India Entry Spark to Talent Development"
      2. 3 Pillars detailed (large 01/02/03 + JP+EN heading + full paragraph + icon)
-     3. Strategic Locations — Hyderabad (4 photo slots) + Gurgaon (reversed)
-     4. India Map SVG (HYD crimson pulsing + GGN saffron + other cities + connecting line)
+     3. Strategic Location — Hyderabad (centered, 4 photo slots + content)
+     4. India Map SVG (HYD crimson pulsing + other cities)
      5. Mission & Vision — 2 side-by-side cards
      6. Core Values — 4-card grid
      7. Closing CTA
@@ -40,17 +39,14 @@ function IndiaMap() {
   // Cities positioned in viewBox 0 0 360 420
   const cities = [
     { name: "New Delhi", x: 110, y: 90, isJGate: false },
-    { name: "Gurgaon", x: 102, y: 96, isJGate: true, color: "#e8a01a" },
     { name: "Ahmedabad", x: 80, y: 175, isJGate: false },
     { name: "Mumbai", x: 95, y: 240, isJGate: false },
     { name: "Hyderabad", x: 165, y: 250, isJGate: true, color: "#bc1a2c" },
     { name: "Bengaluru", x: 130, y: 320, isJGate: false },
     { name: "Chennai", x: 195, y: 320, isJGate: false },
   ];
-  const hyd = cities.find((c) => c.name === "Hyderabad")!;
-  const ggn = cities.find((c) => c.name === "Gurgaon")!;
   return (
-    <svg viewBox="0 0 360 420" className="h-full w-full" role="img" aria-label="Map of India showing J-Gate locations">
+    <svg viewBox="0 0 360 420" className="h-full w-full" role="img" aria-label="Map of India showing J-Gate location in Hyderabad">
       {/* Simplified India outline */}
       <path
         d="M 130 30 L 170 25 L 200 50 L 230 55 L 250 80 L 245 110 L 260 130 L 250 160 L 270 175 L 280 200 L 270 230 L 290 270 L 285 310 L 260 340 L 235 360 L 210 380 L 180 385 L 160 370 L 145 350 L 130 320 L 115 290 L 100 260 L 90 220 L 80 190 L 75 160 L 85 130 L 95 100 L 110 70 Z"
@@ -58,16 +54,6 @@ function IndiaMap() {
         stroke="rgba(188,26,44,0.30)"
         strokeWidth="1.2"
         strokeLinejoin="round"
-      />
-      {/* Connecting line HYD ↔ GGN */}
-      <line
-        x1={hyd.x}
-        y1={hyd.y}
-        x2={ggn.x}
-        y2={ggn.y}
-        stroke="rgba(232,160,26,0.45)"
-        strokeWidth="1.5"
-        strokeDasharray="4 4"
       />
       {/* City dots */}
       {cities.map((c) => (
@@ -94,9 +80,9 @@ function IndiaMap() {
             <circle cx={c.x} cy={c.y} r="2.8" fill="#8892a4" opacity="0.7" />
           )}
           <text
-            x={c.x + (c.name === "Gurgaon" ? -6 : 8)}
+            x={c.x + 8}
             y={c.y + 4}
-            textAnchor={c.name === "Gurgaon" ? "end" : "start"}
+            textAnchor="start"
             fontFamily="Inter, sans-serif"
             fontSize={c.isJGate ? "11" : "9"}
             fontWeight={c.isJGate ? 700 : 500}
@@ -123,8 +109,8 @@ const MISSION = {
 const VISION = {
   title: { EN: "Our Vision", JP: "ビジョン" },
   body: {
-    EN: "To become the definitive gateway for Japanese enterprises entering India — the first name called when a company decides to explore Hyderabad, Gurgaon, or anywhere in between. Two cities, one bridge, every touchpoint operational.",
-    JP: "インドに進出する日本企業にとって決定的なゲートウェイになること — 企業がハイデラバード、グルガオン、あるいはその間のどこかを検討し始める時に最初に呼ばれる名前に。二つの都市、一つの架け橋、すべての接点を機能させて。",
+    EN: "To become the definitive gateway for Japanese enterprises entering India — the first name called when a company decides to explore Hyderabad, or anywhere in India. One city, one bridge, every touchpoint operational.",
+    JP: "インドに進出する日本企業にとって決定的なゲートウェイになること — 企業がハイデラバード、あるいはインドのどこかを検討し始める時に最初に呼ばれる名前に。一つの都市、一つの架け橋、すべての接点を機能させて。",
   },
   tag: { EN: "What we build toward", JP: "私たちが構築する未来" },
 } as const;
@@ -230,14 +216,14 @@ export default function AboutPage() {
             <div className="mx-auto max-w-3xl text-center">
               <Eyebrow>{t("about.purpose.eyebrow")}</Eyebrow>
               <h2
-                className="mt-4 font-serif-jp font-bold leading-[1.2] text-ink"
-                style={{ fontSize: "clamp(1.625rem,3.6vw,2.25rem)" }}
+                className="mt-2 font-serif-jp font-bold leading-[1.2] text-ink"
+                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
               >
                 {t("about.purpose.title")}
               </h2>
               <p
-                className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+                className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate"
+                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
               >
                 {t("about.purpose.subtitle")}
               </p>
@@ -294,7 +280,8 @@ export default function AboutPage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          Section 2 — Strategic Locations (Hyderabad 4 photos + Gurgaon reversed)
+          Section 2 — Strategic Location (Hyderabad only, centered)
+          2-col: photo grid on left, content on right (within max-w-4xl)
          ════════════════════════════════════════════════════════════ */}
       <section className="section-pad bg-ivory-warm">
         <div className="container-jg">
@@ -302,23 +289,23 @@ export default function AboutPage() {
             <div className="mx-auto max-w-3xl text-center">
               <Eyebrow>{t("about.locations.eyebrow")}</Eyebrow>
               <h2
-                className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.625rem,3.6vw,2.25rem)" }}
+                className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
+                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
               >
                 {t("about.locations.title")}
               </h2>
               <p
-                className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+                className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate"
+                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
               >
                 {t("about.locations.subtitle")}
               </p>
             </div>
           </Reveal>
 
-          {/* Hyderabad — 2-col: photo grid on left, content on right */}
+          {/* Hyderabad — centered max-w-4xl, 2-col: photo grid on left, content on right */}
           <Reveal delay={120}>
-            <article className="lift-card mt-12 overflow-hidden rounded-lg border border-saffron/20 bg-pearl shadow-card">
+            <article className="lift-card mx-auto mt-8 max-w-4xl overflow-hidden rounded-lg border border-saffron/20 bg-pearl shadow-card">
               <span className="block h-1 bg-gradient-to-r from-saffron to-[#c9881a]" />
               <div className="grid lg:grid-cols-2">
                 {/* Photo grid: 4 slots */}
@@ -336,11 +323,11 @@ export default function AboutPage() {
                   ))}
                 </div>
                 {/* Content */}
-                <div className="p-8 lg:p-10">
+                <div className="p-5 sm:p-6 lg:p-7">
                   <div className="flex flex-wrap items-start justify-between gap-3">
                     <div className="flex items-center gap-3">
-                      <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-saffron/15 text-saffron">
-                        <Building2 className="h-6 w-6" strokeWidth={1.5} />
+                      <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-saffron/15 text-saffron">
+                        <Building2 className="h-5 w-5" strokeWidth={1.5} />
                       </span>
                       <div>
                         <span
@@ -349,7 +336,10 @@ export default function AboutPage() {
                         >
                           {t("about.hyderabad.tag")}
                         </span>
-                        <h3 className="mt-0.5 font-serif-jp text-2xl font-bold text-ink">
+                        <h3
+                          className="mt-0.5 font-serif-jp font-bold text-ink"
+                          style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+                        >
                           {t("about.hyderabad.title")}
                         </h3>
                       </div>
@@ -359,13 +349,13 @@ export default function AboutPage() {
                       {t("about.hyderabad.status")}
                     </span>
                   </div>
-                  <p className="mt-5 font-serif-jp text-[15px] font-medium italic text-saffron/85">
+                  <p className="mt-4 font-serif-jp text-[13px] font-medium italic text-saffron/85">
                     {t("about.hyderabad.nick")}
                   </p>
-                  <p className="mt-3 font-inter text-[14px] leading-relaxed text-slate">
+                  <p className="mt-2 font-inter text-[13px] leading-relaxed text-slate">
                     {t("about.hyderabad.desc")}
                   </p>
-                  <ul className="mt-5 space-y-2.5 border-t border-crimson/10 pt-5">
+                  <ul className="mt-4 space-y-2 border-t border-crimson/10 pt-4">
                     {[t("about.hyderabad.f1"), t("about.hyderabad.f2"), t("about.hyderabad.f3")].map((f, fi) => (
                       <li key={fi} className="flex items-start gap-2.5">
                         <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-saffron" strokeWidth={2} />
@@ -377,71 +367,12 @@ export default function AboutPage() {
               </div>
             </article>
           </Reveal>
-
-          {/* Gurgaon — reversed 2-col: content on left, photo on right */}
-          <Reveal delay={200}>
-            <article className="lift-card mt-6 overflow-hidden rounded-lg border border-crimson/20 bg-pearl shadow-card">
-              <span className="block h-1 bg-gradient-to-r from-crimson to-crimson-deep" />
-              <div className="grid lg:grid-cols-2">
-                {/* Content (left on lg) */}
-                <div className="p-8 lg:p-10 lg:order-1">
-                  <div className="flex flex-wrap items-start justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <span className="flex h-12 w-12 items-center justify-center rounded-lg bg-crimson/15 text-crimson">
-                        <Building2 className="h-6 w-6" strokeWidth={1.5} />
-                      </span>
-                      <div>
-                        <span
-                          className="block font-inter text-[11px] font-bold uppercase text-crimson"
-                          style={{ letterSpacing: "0.15em" }}
-                        >
-                          {t("about.gurgaon.tag")}
-                        </span>
-                        <h3 className="mt-0.5 font-serif-jp text-2xl font-bold text-ink">
-                          {t("about.gurgaon.title")}
-                        </h3>
-                      </div>
-                    </div>
-                    <span className="inline-flex items-center gap-1.5 rounded-md bg-saffron/15 px-2.5 py-1 font-inter text-[11px] font-bold uppercase text-saffron">
-                      <CalendarClock className="h-3 w-3" />
-                      {t("about.gurgaon.status")}
-                    </span>
-                  </div>
-                  <p className="mt-5 font-serif-jp text-[15px] font-medium italic text-crimson/85">
-                    {t("about.gurgaon.nick")}
-                  </p>
-                  <p className="mt-3 font-inter text-[14px] leading-relaxed text-slate">
-                    {t("about.gurgaon.desc")}
-                  </p>
-                  <ul className="mt-5 space-y-2.5 border-t border-crimson/10 pt-5">
-                    {[t("about.gurgaon.f1"), t("about.gurgaon.f2"), t("about.gurgaon.f3")].map((f, fi) => (
-                      <li key={fi} className="flex items-start gap-2.5">
-                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-crimson" strokeWidth={2} />
-                        <span className="font-inter text-[13px] text-ink">{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                {/* Single photo (right on lg) */}
-                <div className="lg:order-2">
-                  <Photo
-                    id="photo-about-gurgaon"
-                    alt="J-Gate Gurgaon sub base — Delhi NCR (in preparation)"
-                    fallback="grad-office-cabin"
-                    initials="GGN"
-                    rounded="rounded-none lg:rounded-r-lg"
-                    className="h-full min-h-[280px] w-full"
-                  />
-                </div>
-              </div>
-            </article>
-          </Reveal>
         </div>
       </section>
 
       {/* ════════════════════════════════════════════════════════════
           Section 3 — India Map SVG
-          Hyderabad (crimson pulsing) + Gurgaon (saffron) + other cities + connecting line
+          Hyderabad (crimson pulsing) + other cities
          ════════════════════════════════════════════════════════════ */}
       <section className="section-pad relative overflow-hidden bg-midnight">
         <div className="pattern-asanoha-dark absolute inset-0 opacity-60" />
@@ -457,18 +388,18 @@ export default function AboutPage() {
             <div className="mx-auto max-w-3xl text-center">
               <Eyebrow light>{tx({ EN: "India Footprint", JP: "インド拠点マップ" })}</Eyebrow>
               <h2
-                className="mt-4 font-serif-jp font-bold leading-[1.18] text-white"
-                style={{ fontSize: "clamp(1.625rem,3.6vw,2.25rem)" }}
+                className="mt-2 font-serif-jp font-bold leading-[1.18] text-white"
+                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
               >
-                {tx({ EN: "Two Cities. One Bridge.", JP: "二つの都市、一つの架け橋。" })}
+                {tx({ EN: "One City. One Bridge.", JP: "一つの都市、一つの架け橋。" })}
               </h2>
               <p
-                className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-mist"
-                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+                className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-mist"
+                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
               >
                 {tx({
-                  EN: "Hyderabad leads as our main base; Gurgaon follows as the sub base. The corridor between them covers every major Japanese business touchpoint in India.",
-                  JP: "ハイデラバードが主拠点、グルガオンがサブ拠点。両者の回廊が、インドにおける日本ビジネスの主要接点をすべてカバーします。",
+                  EN: "Hyderabad is our main base and the operational heart of J-Gate — where every Japan-India business touchpoint in the corridor comes together.",
+                  JP: "ハイデラバードはJ-Gateの主拠点であり運営の中心 — 回廊のすべての日本ビジネス接点が集まる場所。",
                 })}
               </p>
             </div>
@@ -481,31 +412,27 @@ export default function AboutPage() {
                 <IndiaMap />
               </div>
             </Reveal>
-            {/* Legend + connecting corridor summary */}
+            {/* Legend + Hyderabad summary */}
             <Reveal variant="right" delay={200} className="lg:col-span-2">
-              <div className="glass-dark rounded-lg border border-white/10 p-6">
-                <h3 className="font-serif-jp text-lg font-bold text-white">
-                  {tx({ EN: "Active Corridor", JP: "稼働回廊" })}
+              <div className="glass-dark rounded-lg border border-white/10 p-5">
+                <h3
+                  className="font-serif-jp font-bold text-white"
+                  style={{ fontSize: "clamp(1rem, 1.6vw, 1.125rem)" }}
+                >
+                  {tx({ EN: "Our Base", JP: "私たちの拠点" })}
                 </h3>
                 <p className="mt-2 font-inter text-[13px] leading-relaxed text-mist">
                   {tx({
-                    EN: "Direct line from Gurgaon (Delhi NCR) to Hyderabad — covering India's two largest Japanese business communities.",
-                    JP: "グルガオン（デリーNCR）からハイデラバードへの直線 — インドの二大日本ビジネスコミュニティを結ぶ。",
+                    EN: "Anchored in Hyderabad — India's rising tech capital and home to one of the country's largest Japanese business communities.",
+                    JP: "ハイデラバードに根ざす — イドの台頭するテック首都であり、国内最大級の日本ビジネスコミュニティの拠点。",
                   })}
                 </p>
-                <ul className="mt-5 space-y-3">
+                <ul className="mt-4 space-y-3">
                   <li className="flex items-center gap-3">
                     <span className="h-3 w-3 rounded-full bg-crimson shadow-[0_0_12px_rgba(188,26,44,0.6)]" />
                     <span className="font-inter text-[13px] text-white">
                       <strong className="font-bold">Hyderabad</strong>
                       <span className="ml-2 text-mist">{tx({ EN: "Main Base · LIVE", JP: "主拠点・稼働中" })}</span>
-                    </span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <span className="h-3 w-3 rounded-full bg-saffron shadow-[0_0_12px_rgba(232,160,26,0.6)]" />
-                    <span className="font-inter text-[13px] text-white">
-                      <strong className="font-bold">Gurgaon</strong>
-                      <span className="ml-2 text-mist">{tx({ EN: "Sub Base · In Prep", JP: "サブ拠点・準備中" })}</span>
                     </span>
                   </li>
                   <li className="flex items-center gap-3">
@@ -530,14 +457,14 @@ export default function AboutPage() {
             <div className="mx-auto max-w-3xl text-center">
               <Eyebrow>{tx({ EN: "Mission & Vision", JP: "ミッション＆ビジョン" })}</Eyebrow>
               <h2
-                className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.75rem,3.8vw,2.25rem)" }}
+                className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
+                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
               >
                 {tx({ EN: "What We Exist To Do", JP: "私たちの存在意義" })}
               </h2>
               <p
-                className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+                className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate"
+                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
               >
                 {tx({
                   EN: "Two statements — one for what we do today, one for what we are building toward.",
@@ -612,14 +539,14 @@ export default function AboutPage() {
             <div className="mx-auto max-w-3xl text-center">
               <Eyebrow>{tx({ EN: "Core Values", JP: "コアバリュー" })}</Eyebrow>
               <h2
-                className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.75rem,3.8vw,2.25rem)" }}
+                className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
+                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
               >
                 {tx({ EN: "The Principles Behind Every Placement", JP: "すべての紹介の背景にある原則" })}
               </h2>
               <p
-                className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+                className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate"
+                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
               >
                 {tx({
                   EN: "Four principles guide every recruitment, every training, every partnership — without exception.",
@@ -671,8 +598,8 @@ export default function AboutPage() {
                 <Sparkles className="h-6 w-6" strokeWidth={1.5} />
               </span>
               <h2
-                className="mt-6 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.625rem,3.5vw,2rem)" }}
+                className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
+                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
               >
                 {tx({
                   EN: "See How the Bridge Translates Into Outcomes",
@@ -680,8 +607,8 @@ export default function AboutPage() {
                 })}
               </h2>
               <p
-                className="mx-auto mt-4 font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+                className="mx-auto mt-3 font-inter leading-relaxed text-slate"
+                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
               >
                 {tx({
                   EN: "Our values are visible in every differentiator, every service, and every placement we deliver.",

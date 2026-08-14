@@ -96,12 +96,12 @@ export const translations: Dictionary = {
     JP: "日印両国の企業間交流を加速する専用空間 — パートナーシップ、MoU、合弁が議論されるだけでなく生まれる場所。",
   },
 
-  // About — Strategic Locations (Slide 3)
-  "about.locations.eyebrow": { EN: "Strategic Locations", JP: "戦略的ロケーション" },
-  "about.locations.title": { EN: "Strategic Locations: Hyderabad & Gurgaon", JP: "戦略的ロケーション：ハイデラバード ＆ グルガオン" },
+  // About — Strategic Location (Slide 3)
+  "about.locations.eyebrow": { EN: "Strategic Location", JP: "戦略的ロケーション" },
+  "about.locations.title": { EN: "Strategic Location: Hyderabad", JP: "戦略的ロケーション：ハイデラバード" },
   "about.locations.subtitle": {
-    EN: "Two cities, two roles — a main base in India's rising tech capital, and a sub base at the heart of the country's largest Japanese business community.",
-    JP: "二つの都市、二つの役割 — 台頭するインドのテック首都の主拠点と、国内最大の日本企業コミュニティの中心にあるサブ拠点。",
+    EN: "One city, one mission — our main base in India's rising tech capital, where every major Japanese business touchpoint in the corridor comes together.",
+    JP: "一つの都市、一つのミッション — 台頭するインドのテック首都にある主拠点。回廊の日本ビジネスの主要接点がすべて集まる場所。",
   },
   "about.hyderabad.tag": { EN: "Main Base", JP: "主拠点" },
   "about.hyderabad.title": { EN: "Hyderabad", JP: "ハイデラバード" },
@@ -114,17 +114,6 @@ export const translations: Dictionary = {
   "about.hyderabad.f1": { EN: "IT / Pharma / Biotech cluster", JP: "IT・製薬・バイオテク集積" },
   "about.hyderabad.f2": { EN: "Global R&D hub density", JP: "グローバルR&D拠点密度" },
   "about.hyderabad.f3": { EN: "Advanced urban infrastructure", JP: "先進的都市インフラ" },
-  "about.gurgaon.tag": { EN: "Sub Base", JP: "サブ拠点" },
-  "about.gurgaon.title": { EN: "Gurgaon", JP: "グルガオン" },
-  "about.gurgaon.status": { EN: "In Preparation", JP: "準備中" },
-  "about.gurgaon.nick": { EN: "Delhi NCR Business Core", JP: "デリーNCRビジネス中核" },
-  "about.gurgaon.desc": {
-    EN: "One of the largest business hubs adjacent to capital Delhi. The center of the community where the largest number of Japanese companies gather. Highly convenient for collaborating with existing clients and business partners.",
-    JP: "首都デリーに隣接する最大級のビジネスハブの一つ。日本企業が最も多く集まるコミュニティの中心。既存の顧客やビジネスパートナーとの連携に極めて便利。",
-  },
-  "about.gurgaon.f1": { EN: "Largest Japanese-company community", JP: "最大の日本企業コミュニティ" },
-  "about.gurgaon.f2": { EN: "Adjacent to capital Delhi", JP: "首都デリーに隣接" },
-  "about.gurgaon.f3": { EN: "Direct client & partner access", JP: "顧客・パートナーへの直接アクセス" },
 
   // About — story / mission / vision / values (existing, retained)
   "about.story.title": { EN: "Our Story", JP: "私たちのストーリー" },

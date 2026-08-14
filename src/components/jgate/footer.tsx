@@ -1,6 +1,6 @@
 "use client";
 
-import { ToriiGate, LinkedInIcon, XIcon, InstagramIcon, JapanFlag, IndiaFlag } from "./icons";
+import { JGateLogo, LinkedInIcon, XIcon, InstagramIcon, JapanFlag, IndiaFlag } from "./icons";
 import { useI18n } from "@/lib/i18n";
 import { useBrochure } from "@/lib/brochure-context";
 import { Download } from "lucide-react";
@@ -35,15 +35,7 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Col 1 — Brand */}
           <div>
-            <div className="flex items-center gap-2.5">
-              <span className="text-crimson">
-                <ToriiGate className="h-8 w-8" />
-              </span>
-              <span className="flex flex-col leading-none">
-                <span className="font-serif-jp text-xl font-bold text-white">J-Gate</span>
-                <span className="font-sans-jp text-[10px] text-mist">Jゲート</span>
-              </span>
-            </div>
+            <JGateLogo size="sm" />
             <p className="mt-4 font-inter text-sm leading-relaxed text-mist">{t("footer.tagline")}</p>
             <div className="mt-5 flex gap-2.5">
               {SOCIALS.map(({ Icon, label, href }) => (

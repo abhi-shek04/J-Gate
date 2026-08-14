@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X, Download } from "lucide-react";
-import { ToriiGate } from "./icons";
+import { JGateLogo } from "./icons";
 import { useScrolled } from "./shared";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
@@ -59,15 +59,9 @@ export function Navbar() {
         className="container-jg flex h-[76px] items-center justify-between"
         aria-label="Primary"
       >
-        {/* Logo — Torii gate SVG + J-Gate wordmark */}
-        <Link href="/" className="group flex items-center gap-2.5" aria-label="J-Gate home">
-          <span className="text-crimson">
-            <ToriiGate className="h-8 w-8" />
-          </span>
-          <span className="flex flex-col leading-none">
-            <span className="font-serif-jp text-[19px] font-bold tracking-tight text-white">J-Gate</span>
-            <span className="font-sans-jp text-[10px] text-mist">Jゲート</span>
-          </span>
+        {/* Logo — official J-Gate logo */}
+        <Link href="/" className="group flex items-center" aria-label="J-Gate home">
+          <JGateLogo size="md" className="transition-opacity duration-300 group-hover:opacity-90" />
         </Link>
 
         {/* Desktop nav */}

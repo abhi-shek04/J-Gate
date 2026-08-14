@@ -21,7 +21,7 @@ export function JGateLogo({
   /** "sm" footer watermark, "md" navbar (h-16), "lg" hero (h-24) */
   size?: "sm" | "md" | "lg";
 }) {
-  const h = size === "lg" ? "h-32" : size === "sm" ? "h-16" : "h-24";
+  const h = size === "lg" ? "h-12" : size === "sm" ? "h-8" : "h-10";
   return (
     <img
       src="/jgate-logo.png"

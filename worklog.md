@@ -898,3 +898,97 @@ Stage Summary:
   - Why J-Gate: comparison table with ✓/✗ symbols, 7 pillars.
   - VLM assessment: 8/10 — "logo clearly visible, distinctive red torii gate icon, premium design quality".
   - bun run lint clean; all routes 200, no errors.
+
+---
+
+## Task ID: FIX-ALL
+Agent: Z.ai Code (main)
+Task: Fix multiple issues on the J-Gate multi-page Next.js 16 application — remove all Gurgaon references, reduce oversized text/card sizes, fix company marquee placement, and restructure the home page to a standard premium co-working landing page flow.
+
+Work Log:
+- Read worklog.md and full source of page.tsx, about/page.tsx, i18n.tsx, page-hero.tsx, features.tsx, amenities.tsx, logo-marquee.tsx to understand the existing architecture and locate every Gurgaon reference.
+
+### Issue 1 — Removed ALL Gurgaon references
+- `src/lib/i18n.tsx`: Removed 7 `about.gurgaon.*` keys (tag, title, status, nick, desc, f1, f2, f3). Rewrote `about.locations.title` from "Strategic Locations: Hyderabad & Gurgaon" → "Strategic Location: Hyderabad" (EN+JP). Updated `about.locations.subtitle` and `about.locations.eyebrow` to single-city messaging.
+- `src/app/page.tsx`: Removed Gurgaon floating glass badge from hero (kept only Hyderabad + Indobox operator badges). Removed entire Gurgaon location card section (was a 2-col editorial card with photo + 3 bullets + "Delhi NCR Sub Base In Preparation" tag). Converted Locations section from 2-col grid into a single centered max-w-3xl Hyderabad card. Fixed Ecosystem preview first card description: "anchored in Hyderabad and Gurgaon" → "anchored in Hyderabad" (EN+JP). Updated architecture header comment.
+- `src/app/about/page.tsx`: Removed entire Gurgaon reversed 2-col location card. Removed Gurgaon dot, label, and dashed connecting line from IndiaMap SVG (now only Hyderabad pulses crimson, other cities are static grey dots). Fixed vision text: "Hyderabad, Gurgaon, or anywhere in between" → "Hyderabad, or anywhere in India" (EN+JP), "Two cities, one bridge" → "One city, one bridge". Updated India Map section subtitle, "Active Corridor" sidebar (renamed to "Our Base"), and legend (removed Gurgaon legend item). Centered the Hyderabad card with max-w-4xl while keeping the 2-col photo-grid + content layout as instructed. Updated architecture header comments. Removed now-unused `MapPin` import.
+- Verified zero Gurgaon/グルガオン references remain across src/app, src/components, src/lib/i18n.tsx.
+
+### Issue 2 — Reduced text/font sizes (was TOO BIG)
+- `src/components/jgate/page-hero.tsx`: H1 `clamp(2.25rem, 5vw, 3.75rem)` → `clamp(1.25rem, 2.5vw, 1.75rem)` (max 28px).
+- `src/app/page.tsx`:
+  - Hero H1 `clamp(3rem, 7vw, 6.5rem)` → `clamp(1.75rem, 4vw, 2.5rem)` (max 40px).
+  - Stats counter number `clamp(2.75rem, 5vw, 4rem)` → `clamp(1.5rem, 2.5vw, 2rem)` (max 32px).
+  - All section H2s reduced to `clamp(1.125rem, 2vw, 1.5rem)` (max 24px).
+  - Pillar card title `clamp(1.125rem, 2vw, 1.375rem)` → `clamp(1rem, 1.6vw, 1.125rem)`.
+  - Hero body subtitle, JP tagline, eyebrow pre-title all reduced by ~1 step.
+  - Workspace feature card titles set to `text-[15px]` (15px, below 16px threshold).
+- `src/app/about/page.tsx`: All 5 H2s reduced from `clamp(1.625–1.75rem, 3.5–3.8vw, 2–2.25rem)` → `clamp(1.125rem, 2vw, 1.5rem)`. All section subtitles reduced from `clamp(0.95rem, 1.6vw, 1.0625rem)` → `clamp(0.85rem, 1.4vw, 0.95rem)`. Hyderabad card title `text-2xl` → `clamp(1.125rem, 2vw, 1.5rem)`. Map sidebar H3 `text-lg` → `clamp(1rem, 1.6vw, 1.125rem)`.
+
+### Issue 3 — Reduced card sizes and spacing (was TOO BIG)
+- `src/app/page.tsx`:
+  - Workspace feature cards padding: `p-7` → `p-5`. Icon badge `h-12 w-12` → `h-11 w-11`, icon `h-6` → `h-5`.
+  - Stats cards padding: `p-6 sm:p-8` → `p-4 sm:p-5`.
+  - Location card photo height: `h-56` → `h-40`. Location card content padding: `p-7` → `p-5 sm:p-6`.
+  - Pillar cards padding: `p-8` → `p-5`. Faded numeral `96px` → `72px`. Kanji `20px` → `16px`.
+  - Ecosystem preview cards padding: `p-7` → `p-5`. Icon badge `h-14 w-14` → `h-12 w-12`.
+  - Card grid gaps: `gap-5`/`gap-6` → `gap-4`.
+  - Trust strip padding: `py-14` → `py-8`. Removed `home.logos.subtitle` from the trust strip header for compactness.
+  - Stats section heading bottom margin: `mb-10` → `mb-8`.
+  - Hero CTA button padding: `px-8 py-4` → `px-6 py-3`.
+- `src/app/about/page.tsx`:
+  - Hyderabad location card padding: `p-8 lg:p-10` → `p-5 sm:p-6 lg:p-7`. Icon badge `h-12 w-12` → `h-11 w-11`, icon `h-6` → `h-5`.
+  - Map sidebar padding: `p-6` → `p-5`.
+  - Section heading top margins reduced from `mt-4` → `mt-2` throughout.
+  - Did NOT touch `section-pad` (globals.css) per instructions — desktop 64px padding is fine.
+
+### Issue 4 — Fixed company marquee placement
+- Searched codebase for `company-marquee.tsx` / `CompanyMarquee` — neither exists. The trust-strip function is fulfilled by `LogoMarquee` (two-row scrolling partner logo wall: Japanese enterprises + ecosystem partners). Per task instruction ("If there's already a LogoMarquee component there, replace it with or combine it with the CompanyMarquee. Do NOT have both — pick one"), kept LogoMarquee as the single trust-strip implementation.
+- Verified LogoMarquee is imported once and rendered once in page.tsx (line 22 import, line ~372 render) — no duplicates.
+- Positioned it immediately after the hero section as the standard premium co-working landing page trust strip (WeWork/Industrious/Second Home pattern).
+
+### Issue 5 — Cleaned up home page structure (now exactly 8 sections in order)
+1. Hero (midnight, particles, Torii watermark, headline, 2 CTAs, 2 floating glass badges, scroll cue)
+2. Company logo marquee (trust strip — ONE instance, py-8 compact)
+3. Stats (4 animated counters, crimson max 32px)
+4. **NEW** Workspace Features (6 cards on ivory-warm bg — Premium Workspace, Enterprise Fiber, Meeting Rooms, Legal Guidance, Bilingual Talent Pipeline, India Market Intelligence; compact p-5 cards, 15px titles, 13px body)
+5. Core Pillars (3 navy glass cards — Opportunity Creation / Talent Development / Business Collaboration)
+6. Hyderabad Location (single centered max-w-3xl card with photo, LIVE badge, 3 bullets, visit link — no Gurgaon)
+7. Ecosystem Preview (3 cards → /about, /why-jgate, /services)
+8. CTA Banner ("Ready to Bridge Your Future?" midnight bg, download brochure)
+
+### Design rules honored
+- Kept bilingual content (every visible string has EN+JP via `t()` / `tx()`).
+- Kept the dark premium aesthetic (midnight hero, navy pillars, ivory body, crimson+saffron accents).
+- Fully responsive (mobile-first `sm:`/`md:`/`lg:` breakpoints throughout).
+- All text sizes now feel COMPACT and PROFESSIONAL, not oversized.
+
+### Verification
+- `bun run lint`: clean (no errors, no warnings).
+- `grep -rn "Gurgaon|gurgaon|グルガオン" src/app/ src/components/ src/lib/i18n.tsx --include="*.tsx" --include="*.ts" | grep -v node_modules`: zero matches.
+- `curl http://localhost:3000/` → 200 OK.
+- `curl http://localhost:3000/about` → 200 OK.
+- Dev server compiled successfully (Fast Refresh full reload expected after i18n.tsx edit).
+
+Files modified:
+- src/lib/i18n.tsx
+- src/components/jgate/page-hero.tsx
+- src/app/page.tsx (full rewrite)
+- src/app/about/page.tsx
+
+---
+Task ID: FIX-ALL-2
+Agent: Z.ai Code (main)
+Task: Restore official logo, reduce text/card sizes, remove Gurgaon, fix company marquee placement.
+
+Work Log:
+- Restored official J-Gate logo: replaced ToriiGate SVG in navbar and footer with JGateLogo image component. Cropped logo from 1024×1024 (96% transparent) to 678×180 (content only) — now displays at 40×151px, clearly readable. VLM rated 10/10 logo visibility.
+- Removed ALL Gurgaon references: 0 matches remaining (verified via grep). Removed from home page (location card, hero badge, pillar subtitle), about page (location section, India map dot/label/connecting line, vision text), i18n dictionary (7 keys removed).
+- Reduced text sizes: Hero H1 48→40px, section H2s 28→24px, stats numbers 40→32px, PageHero H1 36→28px, workspace feature titles 15px.
+- Reduced card sizes: workspace cards p-7→p-5, stats cards p-8→p-5, pillar cards p-8→p-5, location photo h-56→h-40, card gaps gap-6→gap-4, trust strip py-14→py-8.
+- Fixed home page structure to exact 8-section layout: Hero → LogoMarquee → Stats → Workspace Features → Core Pillars → Hyderabad Location → Ecosystem Preview → CTA.
+- VLM rated: Text sizing 9/10, layout cleanliness 8/10, professional design 9/10, logo 10/10.
+
+Stage Summary:
+- Deliverable: Official logo restored, text/card sizes reduced, Gurgaon removed, clean structure.
+- All 9 routes 200, lint clean, zero Gurgaon references.

@@ -210,7 +210,7 @@ export default function TeamPage() {
               <Sparkles className="mx-auto h-7 w-7 text-saffron" strokeWidth={1.5} />
               <p
                 className="mt-4 font-serif-jp font-bold leading-[1.3] text-white"
-                style={{ fontSize: "clamp(1.5rem,3.5vw,2.25rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {tx({
                   EN: "Unlocking new possibilities for your business through collaboration with India.",
@@ -219,7 +219,7 @@ export default function TeamPage() {
               </p>
               <p
                 className="mx-auto mt-3 font-sans-jp font-medium leading-relaxed text-saffron-light"
-                style={{ fontSize: "clamp(0.95rem,1.6vw,1.125rem)" }}
+                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
               >
                 {tx({
                   EN: "— The J-Gate Operations Team",
@@ -245,7 +245,7 @@ export default function TeamPage() {
               </Eyebrow>
               <h2
                 className="mt-4 font-serif-jp font-bold leading-[1.2] text-ink"
-                style={{ fontSize: "clamp(1.5rem,3vw,2rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {tx({
                   EN: "Four People, One Operating Engine",
@@ -294,7 +294,7 @@ export default function TeamPage() {
               </Eyebrow>
               <h2
                 className="mt-4 font-serif-jp font-bold leading-[1.2] text-white"
-                style={{ fontSize: "clamp(1.5rem,3vw,2rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {tx({
                   EN: "Five Voices That Set the Standard",
@@ -333,7 +333,7 @@ export default function TeamPage() {
               </Eyebrow>
               <h2
                 className="mt-4 font-serif-jp font-bold leading-[1.2] text-ink"
-                style={{ fontSize: "clamp(1.5rem,3vw,2rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {tx({
                   EN: "Twelve Partners, One Network",
@@ -389,7 +389,7 @@ export default function TeamPage() {
               </span>
               <h2
                 className="mt-6 font-serif-jp font-bold leading-[1.2] text-ink"
-                style={{ fontSize: "clamp(1.5rem,3vw,2rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {tx({
                   EN: "Talk to the Team That Builds the Bridge",

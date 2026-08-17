@@ -338,7 +338,7 @@ export default function ServicesPage() {
               </Eyebrow>
               <h2
                 className="mt-4 font-serif-jp font-bold leading-[1.2] text-white"
-                style={{ fontSize: "clamp(1.875rem,4vw,2.5rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {tx({
                   EN: "More Than a Desk. Your India Headquarters.",
@@ -387,7 +387,7 @@ export default function ServicesPage() {
               </Eyebrow>
               <h2
                 className="mt-4 font-serif-jp font-bold leading-[1.2] text-ink"
-                style={{ fontSize: "clamp(1.875rem,4vw,2.5rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {tx({
                   EN: "Five Integrated Service Lines",
@@ -459,7 +459,7 @@ export default function ServicesPage() {
 
                       <h3
                         className="mt-4 font-serif-jp font-bold leading-[1.2] text-ink"
-                        style={{ fontSize: "clamp(1.25rem,2.4vw,1.625rem)" }}
+                        style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
                       >
                         {tx(s.title)}
                       </h3>
@@ -512,7 +512,7 @@ export default function ServicesPage() {
               </Eyebrow>
               <h2
                 className="mt-4 font-serif-jp font-bold leading-[1.2] text-white"
-                style={{ fontSize: "clamp(1.875rem,4vw,2.5rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {tx({
                   EN: "Practical India Business Lectures",
@@ -645,7 +645,7 @@ export default function ServicesPage() {
               </Eyebrow>
               <h2
                 className="mt-4 font-serif-jp font-bold leading-[1.2] text-ink"
-                style={{ fontSize: "clamp(1.875rem,4vw,2.5rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {tx({
                   EN: "Indobox × Genesys — Two Operators, One Engine",
@@ -788,7 +788,7 @@ export default function ServicesPage() {
               </Eyebrow>
               <h2
                 className="mt-4 font-serif-jp font-bold leading-[1.2] text-ink"
-                style={{ fontSize: "clamp(1.875rem,4vw,2.5rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {tx({
                   EN: "Six Facility Layers, All Standard",
@@ -887,7 +887,7 @@ export default function ServicesPage() {
               </span>
               <h2
                 className="mt-6 font-serif-jp font-bold leading-[1.2] text-white"
-                style={{ fontSize: "clamp(1.75rem,3.5vw,2.25rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {tx({ EN: "Build Your India Base With Indobox", JP: "Indoboxと共にインド拠点を構築する" })}
               </h2>

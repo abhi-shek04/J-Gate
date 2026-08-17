@@ -121,13 +121,13 @@ export default function ContactPage() {
               <Eyebrow>{tx({ EN: "Direct Channels", JP: "直接連絡先" })}</Eyebrow>
               <h2
                 className="mt-4 font-serif-jp font-bold leading-[1.2] text-ink"
-                style={{ fontSize: "clamp(1.75rem,3.5vw,2.25rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {tx({ EN: "Reach Us Directly", JP: "直接お問い合わせください" })}
               </h2>
               <p
                 className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.9rem,1.5vw,1rem)" }}
+                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
               >
                 {tx({
                   EN: "Pick the channel that fits — email for written inquiries, phone for direct conversation. All support is provided in Japanese.",
@@ -240,7 +240,7 @@ export default function ContactPage() {
                 <Eyebrow>{tx({ EN: "Direct Inquiry", JP: "直接お問い合わせ" })}</Eyebrow>
                 <h2
                   className="mt-3 font-serif-jp font-bold leading-[1.2] text-ink"
-                  style={{ fontSize: "clamp(1.5rem,3vw,2rem)" }}
+                  style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
                 >
                   {tx({ EN: "Send Us a Message", JP: "メッセージをお送りください" })}
                 </h2>
@@ -451,7 +451,7 @@ export default function ContactPage() {
               </Eyebrow>
               <h2
                 className="mt-3 font-serif-jp font-bold leading-[1.18] text-white"
-                style={{ fontSize: "clamp(1.75rem,3.5vw,2.25rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {tx({ EN: "Tokyo ↔ Hyderabad", JP: "東京 ↔ ハイデラバード" })}
               </h2>
@@ -663,13 +663,13 @@ export default function ContactPage() {
               </span>
               <h2
                 className="mt-6 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.75rem,3.5vw,2.25rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {tx({ EN: "Prefer to Read First?", JP: "まずは資料をお読みになりたいですか？" })}
               </h2>
               <p
                 className="mx-auto mt-3 font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.9rem,1.6vw,1.0625rem)" }}
+                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
               >
                 {tx({
                   EN: "Download our brochure for a complete overview of services, membership plans, and partnership models.",

@@ -217,13 +217,13 @@ export default function AboutPage() {
               <Eyebrow>{t("about.purpose.eyebrow")}</Eyebrow>
               <h2
                 className="mt-2 font-serif-jp font-bold leading-[1.2] text-ink"
-                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {t("about.purpose.title")}
               </h2>
               <p
                 className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
+                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
               >
                 {t("about.purpose.subtitle")}
               </p>
@@ -290,13 +290,13 @@ export default function AboutPage() {
               <Eyebrow>{t("about.locations.eyebrow")}</Eyebrow>
               <h2
                 className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {t("about.locations.title")}
               </h2>
               <p
                 className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
+                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
               >
                 {t("about.locations.subtitle")}
               </p>
@@ -338,7 +338,7 @@ export default function AboutPage() {
                         </span>
                         <h3
                           className="mt-0.5 font-serif-jp font-bold text-ink"
-                          style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+                          style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
                         >
                           {t("about.hyderabad.title")}
                         </h3>
@@ -389,13 +389,13 @@ export default function AboutPage() {
               <Eyebrow light>{tx({ EN: "India Footprint", JP: "インド拠点マップ" })}</Eyebrow>
               <h2
                 className="mt-2 font-serif-jp font-bold leading-[1.18] text-white"
-                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {tx({ EN: "One City. One Bridge.", JP: "一つの都市、一つの架け橋。" })}
               </h2>
               <p
                 className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-mist"
-                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
+                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
               >
                 {tx({
                   EN: "Hyderabad is our main base and the operational heart of J-Gate — where every Japan-India business touchpoint in the corridor comes together.",
@@ -417,7 +417,7 @@ export default function AboutPage() {
               <div className="glass-dark rounded-lg border border-white/10 p-5">
                 <h3
                   className="font-serif-jp font-bold text-white"
-                  style={{ fontSize: "clamp(1rem, 1.6vw, 1.125rem)" }}
+                  style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
                 >
                   {tx({ EN: "Our Base", JP: "私たちの拠点" })}
                 </h3>
@@ -458,13 +458,13 @@ export default function AboutPage() {
               <Eyebrow>{tx({ EN: "Mission & Vision", JP: "ミッション＆ビジョン" })}</Eyebrow>
               <h2
                 className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {tx({ EN: "What We Exist To Do", JP: "私たちの存在意義" })}
               </h2>
               <p
                 className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
+                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
               >
                 {tx({
                   EN: "Two statements — one for what we do today, one for what we are building toward.",
@@ -540,13 +540,13 @@ export default function AboutPage() {
               <Eyebrow>{tx({ EN: "Core Values", JP: "コアバリュー" })}</Eyebrow>
               <h2
                 className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {tx({ EN: "The Principles Behind Every Placement", JP: "すべての紹介の背景にある原則" })}
               </h2>
               <p
                 className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
+                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
               >
                 {tx({
                   EN: "Four principles guide every partnership, every consultation, every collaboration — without exception.",
@@ -599,7 +599,7 @@ export default function AboutPage() {
               </span>
               <h2
                 className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {tx({
                   EN: "See How the Bridge Translates Into Outcomes",
@@ -608,7 +608,7 @@ export default function AboutPage() {
               </h2>
               <p
                 className="mx-auto mt-3 font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
+                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
               >
                 {tx({
                   EN: "Our values are visible in every differentiator, every service, and every placement we deliver.",

@@ -116,7 +116,7 @@ function StatCard({
       >
         <div
           className="font-serif-jp font-bold leading-none text-crimson"
-          style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)" }}
+          style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
         >
           {count}
           <span className="text-saffron">{suffix}</span>
@@ -346,7 +346,7 @@ export default function HomePage() {
           <Reveal delay={140}>
             <h1
               className="mx-auto mt-4 max-w-4xl font-serif-jp font-black leading-[1.1] text-white"
-              style={{ fontSize: "clamp(1.75rem, 4vw, 2.5rem)" }}
+              style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
             >
               {t("hero.title1")}
               <br />
@@ -360,7 +360,7 @@ export default function HomePage() {
           <Reveal delay={200}>
             <p
               className="mt-4 font-serif-jp font-medium text-saffron/85"
-              style={{ fontSize: "clamp(0.875rem, 1.4vw, 1rem)", letterSpacing: "0.05em" }}
+              style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)", letterSpacing: "0.05em" }}
             >
               {t("hero.jptag")}
             </p>
@@ -370,7 +370,7 @@ export default function HomePage() {
           <Reveal delay={260}>
             <p
               className="mx-auto mt-4 max-w-[600px] font-inter font-light leading-relaxed text-mist"
-              style={{ fontSize: "clamp(0.875rem, 1.4vw, 1rem)" }}
+              style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
             >
               {t("hero.subtitle")}
             </p>
@@ -440,7 +440,7 @@ export default function HomePage() {
               <Eyebrow>{t("home.logos.eyebrow")}</Eyebrow>
               <h2
                 className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {t("home.logos.title")}
               </h2>
@@ -462,13 +462,13 @@ export default function HomePage() {
               <Eyebrow>{t("home.stats.eyebrow")}</Eyebrow>
               <h2
                 className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {t("home.stats.title")}
               </h2>
               <p
                 className="mx-auto mt-2 max-w-xl font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
+                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
               >
                 {t("home.stats.subtitle")}
               </p>
@@ -500,7 +500,7 @@ export default function HomePage() {
               <Eyebrow>{tx({ EN: "What's Included", JP: "提供内容" })}</Eyebrow>
               <h2
                 className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {tx({
                   EN: "Everything You Need to Operate from Day One",
@@ -509,7 +509,7 @@ export default function HomePage() {
               </h2>
               <p
                 className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
+                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
               >
                 {tx({
                   EN: "Six core capabilities bundled into every J-Gate membership — workspace, connectivity, and the operational support Japanese enterprises expect.",
@@ -552,7 +552,7 @@ export default function HomePage() {
               <Eyebrow light>{tx({ EN: "Why J-Gate Exists", JP: "J-Gateの存在意義" })}</Eyebrow>
               <h2
                 className="mt-3 font-serif-jp font-bold leading-[1.15] text-white"
-                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {tx({
                   EN: "Three Pillars. One Operating Engine.",
@@ -561,7 +561,7 @@ export default function HomePage() {
               </h2>
               <p
                 className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-mist"
-                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
+                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
               >
                 {t("about.purpose.subtitle")}
               </p>
@@ -589,7 +589,7 @@ export default function HomePage() {
                     </span>
                     <h3
                       className="mt-2 font-serif-jp font-bold leading-tight text-white"
-                      style={{ fontSize: "clamp(1rem, 1.6vw, 1.125rem)" }}
+                      style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
                     >
                       {p.title}
                     </h3>
@@ -618,13 +618,13 @@ export default function HomePage() {
               <Eyebrow>{t("about.locations.eyebrow")}</Eyebrow>
               <h2
                 className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {t("about.locations.title")}
               </h2>
               <p
                 className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
+                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
               >
                 {t("about.locations.subtitle")}
               </p>
@@ -660,7 +660,7 @@ export default function HomePage() {
                     </span>
                     <h3
                       className="mt-1 font-serif-jp font-bold text-ink"
-                      style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+                      style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
                     >
                       {t("about.hyderabad.title")}
                     </h3>
@@ -707,13 +707,13 @@ export default function HomePage() {
               <Eyebrow>{t("home.overview.eyebrow")}</Eyebrow>
               <h2
                 className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {t("home.overview.title")}
               </h2>
               <p
                 className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
+                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
               >
                 {t("home.overview.subtitle")}
               </p>
@@ -732,7 +732,7 @@ export default function HomePage() {
                   </div>
                   <h3
                     className="mt-4 font-serif-jp font-bold text-ink"
-                    style={{ fontSize: "clamp(1rem, 1.6vw, 1.125rem)" }}
+                    style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
                   >
                     {p.title}
                   </h3>
@@ -770,13 +770,13 @@ export default function HomePage() {
               </span>
               <h2
                 className="mt-4 font-serif-jp font-bold leading-[1.15] text-white"
-                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {t("home.cta.title")}
               </h2>
               <p
                 className="mx-auto mt-4 max-w-lg font-inter font-light leading-relaxed text-mist"
-                style={{ fontSize: "clamp(0.85rem, 1.4vw, 1rem)" }}
+                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
               >
                 {t("home.cta.subtitle")}
               </p>

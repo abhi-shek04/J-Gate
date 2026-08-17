@@ -48,7 +48,7 @@ export function PageHero({
           </h1>
           <p
             className="mx-auto mt-5 max-w-2xl font-inter font-light leading-relaxed text-mist"
-            style={{ fontSize: "clamp(1rem, 1.8vw, 1.125rem)" }}
+            style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
           >
             {t(subtitleKey)}
           </p>

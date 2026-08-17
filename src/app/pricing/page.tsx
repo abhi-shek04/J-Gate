@@ -198,7 +198,7 @@ export default function PricingPage() {
                   <Eyebrow>{tx({ EN: "Cost Comparison", JP: "コスト比較" })}</Eyebrow>
                   <p
                     className="mt-1 font-serif-jp font-bold leading-snug text-ink"
-                    style={{ fontSize: "clamp(1.0625rem,2vw,1.25rem)" }}
+                    style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
                   >
                     {tx({
                       EN: "Replace the typical annual expat cost with a fraction of the investment.",
@@ -280,7 +280,7 @@ export default function PricingPage() {
               </Eyebrow>
               <h2
                 className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.75rem,3.5vw,2.25rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {tx({
                   EN: "Choose the Plan That Matches Your India Stage",
@@ -289,7 +289,7 @@ export default function PricingPage() {
               </h2>
               <p
                 className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.9rem,1.5vw,1.0625rem)" }}
+                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
               >
                 {tx({
                   EN: "From a satellite workspace for established entities to flagship hands-on consulting — all anchored in our Hyderabad base at Cyber Gateway.",
@@ -487,7 +487,7 @@ export default function PricingPage() {
                   <Eyebrow>{tx({ EN: "Billing Notes", JP: "請求に関する注意事項" })}</Eyebrow>
                   <h3
                     className="mt-1 font-serif-jp font-bold text-ink"
-                    style={{ fontSize: "clamp(1.125rem,2vw,1.375rem)" }}
+                    style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
                   >
                     {tx({ EN: "Read Before You Subscribe", JP: "ご契約前の確認事項" })}
                   </h3>
@@ -579,13 +579,13 @@ export default function PricingPage() {
               </span>
               <h2
                 className="mt-6 font-serif-jp font-bold leading-[1.18] text-white"
-                style={{ fontSize: "clamp(1.75rem,3.5vw,2.25rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {tx({ EN: "Ready to Choose Your Plan?", JP: "プランをお選びですか？" })}
               </h2>
               <p
                 className="mx-auto mt-3 font-inter leading-relaxed text-mist"
-                style={{ fontSize: "clamp(0.9rem,1.5vw,1rem)" }}
+                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
               >
                 {tx({
                   EN: "Talk to our operations team — we'll help you select the right plan, scope any add-ons, and walk you through INR/JPY billing.",

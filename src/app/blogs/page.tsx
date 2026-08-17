@@ -270,7 +270,7 @@ export default function BlogsPage() {
                 <Eyebrow>{tx({ EN: "Field Notes", JP: "フィールドノート" })}</Eyebrow>
                 <h2
                   className="mt-3 font-serif-jp font-bold leading-[1.18] text-ink"
-                  style={{ fontSize: "clamp(1.75rem, 3.6vw, 2.375rem)" }}
+                  style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
                 >
                   {tx({
                     EN: "Career Guides, Visa Briefings & Engineering Insights",
@@ -279,7 +279,7 @@ export default function BlogsPage() {
                 </h2>
                 <p
                   className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-slate"
-                  style={{ fontSize: "clamp(0.95rem, 1.5vw, 1.0625rem)" }}
+                  style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
                 >
                   {tx({
                     EN: "Practical, deep-read articles written by our placement team, language sensei, and advisory council — distilled from real candidate journeys through the Japan-India corridor.",
@@ -355,7 +355,7 @@ export default function BlogsPage() {
                         </div>
                         <h3
                           className="mt-3 font-serif-jp font-bold leading-snug text-ink transition-colors group-hover:text-crimson"
-                          style={{ fontSize: "clamp(1.0625rem, 1.8vw, 1.1875rem)" }}
+                          style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
                         >
                           {tx(a.title)}
                         </h3>
@@ -424,13 +424,13 @@ export default function BlogsPage() {
                 <Eyebrow light>{tx({ EN: "Inside J-Gate", JP: "J-Gateの内側" })}</Eyebrow>
                 <h2
                   className="mt-3 font-serif-jp font-bold leading-[1.18] text-white"
-                  style={{ fontSize: "clamp(1.75rem, 3.6vw, 2.375rem)" }}
+                  style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
                 >
                   {t("blogs.gallery.title")}
                 </h2>
                 <p
                   className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-mist"
-                  style={{ fontSize: "clamp(0.95rem, 1.5vw, 1.0625rem)" }}
+                  style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
                 >
                   {t("blogs.gallery.subtitle")}
                 </p>
@@ -505,7 +505,7 @@ export default function BlogsPage() {
               </span>
               <h2
                 className="mt-6 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.25rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {tx({
                   EN: "Ready to Begin Your Own Japan-India Story?",
@@ -514,7 +514,7 @@ export default function BlogsPage() {
               </h2>
               <p
                 className="mx-auto mt-4 font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.95rem, 1.6vw, 1.0625rem)" }}
+                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
               >
                 {tx({
                   EN: "The candidates in our success stories all started with one step — a conversation. Begin yours today.",

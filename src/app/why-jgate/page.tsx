@@ -406,13 +406,13 @@ export default function WhyJGatePage() {
               <Eyebrow>{t("why.compare.eyebrow")}</Eyebrow>
               <h2
                 className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.625rem,3.6vw,2.25rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {t("why.compare.title")}
               </h2>
               <p
                 className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
               >
                 {t("why.compare.subtitle")}
               </p>
@@ -519,7 +519,7 @@ export default function WhyJGatePage() {
           <Reveal delay={200}>
             <p
               className="mx-auto mt-6 max-w-3xl text-center font-inter leading-relaxed text-slate"
-              style={{ fontSize: "clamp(0.9rem,1.5vw,1rem)" }}
+              style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
             >
               <span className="font-bold text-crimson">»</span>{" "}
               {t("why.compare.note")}
@@ -548,13 +548,13 @@ export default function WhyJGatePage() {
               <Eyebrow light>{t("why.pillars.eyebrow")}</Eyebrow>
               <h2
                 className="mt-4 font-serif-jp font-bold leading-[1.18] text-white"
-                style={{ fontSize: "clamp(1.75rem,4vw,2.5rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {t("why.pillars.title")}
               </h2>
               <p
                 className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-mist"
-                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
               >
                 {t("why.pillars.subtitle")}
               </p>
@@ -604,13 +604,13 @@ export default function WhyJGatePage() {
               <Eyebrow>{tx({ EN: "Corporate Testimonials", JP: "企業のお声" })}</Eyebrow>
               <h2
                 className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.75rem,3.8vw,2.25rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {tx({ EN: "Trusted by Companies Already on the Ground", JP: "現場で信頼される企業からのお声" })}
               </h2>
               <p
                 className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
               >
                 {tx({
                   EN: "Real outcomes from real members — across manufacturing, technology, and regional banking.",
@@ -648,13 +648,13 @@ export default function WhyJGatePage() {
               </span>
               <h2
                 className="mt-6 font-serif-jp font-bold leading-[1.15] text-white"
-                style={{ fontSize: "clamp(1.75rem,4vw,2.5rem)" }}
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
               >
                 {tx({ EN: "Ready to See the Difference?", JP: "違いを見に行きませんか？" })}
               </h2>
               <p
                 className="mx-auto mt-5 max-w-lg font-inter font-light leading-relaxed text-mist"
-                style={{ fontSize: "clamp(0.95rem,1.6vw,1.125rem)" }}
+                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
               >
                 {tx({
                   EN: "Download the brochure and see exactly how J-Gate delivers what consultants, coworking, and public orgs cannot.",

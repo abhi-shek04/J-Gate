@@ -100,8 +100,8 @@ function IndiaMap() {
 const MISSION = {
   title: { EN: "Our Mission", JP: "ミッション" },
   body: {
-    EN: "To make the India expansion 'right answer' accessible to Japanese enterprises — through a dedicated working hub, a resident Japan Desk, and end-to-end support from first curiosity to corporate entity establishment.",
-    JP: "専用ワーキングハブ、常駐ジャパンデスク、そして最初の関心から法人設立までのエンドツーエンド支援を通じ、日本企業にとってのインド進出の「正解」をアクセシブルにする。",
+    EN: "To provide Japanese companies entering India with a dedicated working hub — a professional workspace with resident Japan Desk support, complete infrastructure, and end-to-end business assistance from first curiosity to corporate entity establishment.",
+    JP: "インドに進出する日本企業に専用のワーキングハブを提供すること — 常駐ジャパンデスク、完全なインフラ、そして初期相談から法人設立までのエンドツーエンドのビジネス支援を備えたプロフェッショナルなワークスペース。",
   },
   tag: { EN: "What we do today", JP: "今日私たちが行うこと" },
 } as const;
@@ -109,8 +109,8 @@ const MISSION = {
 const VISION = {
   title: { EN: "Our Vision", JP: "ビジョン" },
   body: {
-    EN: "To become the definitive gateway for Japanese enterprises entering India — the first name called when a company decides to explore Hyderabad, or anywhere in India. One city, one bridge, every touchpoint operational.",
-    JP: "インドに進出する日本企業にとって決定的なゲートウェイになること — 企業がハイデラバード、あるいはインドのどこかを検討し始める時に最初に呼ばれる名前に。一つの都市、一つの架け橋、すべての接点を機能させて。",
+    EN: "To become the definitive workspace for Japanese enterprises in Hyderabad — the first name called when a company needs a professional base, Japan Desk support, or a complete India operations hub.",
+    JP: "ハイデラバードの日本企業にとって決定的なワークスペースになること — 企業がプロフェッショナルな拠点、ジャパンデスクサポート、または完全なインド運営ハブを必要とする時に最初に呼ばれる名前に。",
   },
   tag: { EN: "What we build toward", JP: "私たちが構築する未来" },
 } as const;
@@ -549,7 +549,7 @@ export default function AboutPage() {
                 style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
               >
                 {tx({
-                  EN: "Four principles guide every recruitment, every training, every partnership — without exception.",
+                  EN: "Four principles guide every partnership, every consultation, every collaboration — without exception.",
                   JP: "四つの原則が例外なく、すべての採用、研修、パートナーシップを導きます。",
                 })}
               </p>

@@ -70,13 +70,13 @@ const ARTICLES: Article[] = [
     photoId: "photo-blog-2",
     fallback: "grad-office-desks",
     initials: "JL",
-    tag: { EN: "JLPT Prep", JP: "JLPT対策" },
+    tag: { EN: "Business Culture", JP: "ビジネス文化" },
     tagColor: "bg-saffron/15 text-[#a06d00]",
     tagIcon: FileText,
     readTime: { EN: "7 min read", JP: "7分で読了" },
     title: {
-      EN: "JLPT N2 in 18 Months: A Realistic Roadmap",
-      JP: "18ヶ月でJLPT N2：現実的なロードマップ",
+      EN: "Understanding Indian Business Customs: A Guide",
+      JP: "インドビジネス習慣の理解：ガイド",
     },
     excerpt: {
       EN: "Our certified instructors break down the study path that actually works — from N5 foundations to N2 fluency.",
@@ -117,7 +117,7 @@ const ARTICLES: Article[] = [
       JP: "2026年ビザ最新情報：技術ビザ完全ガイド",
     },
     excerpt: {
-      EN: "The 2026 revision to Japan's Engineer visa — what changed, what Indian engineers need, and how J-Gate handles COE filing.",
+      EN: "Step-by-step roadmap for establishing your India operations at Cyber Gateway — from company registration to banking and GST.",
       JP: "2026年に改正された日本の技術ビザ — 何が変わり、インド人エンジニアは何を準備すべきか、J-GateのCOE申請対応。",
     },
     accent: "crimson",

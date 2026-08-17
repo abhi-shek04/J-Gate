@@ -318,6 +318,63 @@ export default function ServicesPage() {
       />
 
       {/* ───────────────────────────────────────────────────────────
+          Workspace Highlight — More Than a Desk. Your India Headquarters.
+          Navy bg + asanoha pattern + 6 amenity badges.
+         ─────────────────────────────────────────────────────────── */}
+      <section className="section-pad relative overflow-hidden bg-navy">
+        <div className="pattern-asanoha-navy absolute inset-0 opacity-60" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(135deg, rgba(188,26,44,0.10) 0%, transparent 50%, rgba(232,160,26,0.06) 100%)",
+          }}
+        />
+        <div className="container-jg relative">
+          <Reveal>
+            <div className="mx-auto max-w-3xl text-center">
+              <Eyebrow light>
+                {tx({ EN: "THE WORKSPACE", JP: "ワークスペース" })}
+              </Eyebrow>
+              <h2
+                className="mt-4 font-serif-jp font-bold leading-[1.2] text-white"
+                style={{ fontSize: "clamp(1.875rem,4vw,2.5rem)" }}
+              >
+                {tx({
+                  EN: "More Than a Desk. Your India Headquarters.",
+                  JP: "デスク以上。インドの本拠地。",
+                })}
+              </h2>
+              <p className="mx-auto mt-4 max-w-2xl font-inter text-[14px] leading-relaxed text-mist">
+                {tx({
+                  EN: "J-Gate at Cyber Gateway provides dedicated workspaces, private cabins, meeting rooms, a shared cafeteria, 24/7 access, and enterprise security — all designed for Japanese companies operating in India.",
+                  JP: "Cyber GatewayのJ-Gateは、専用ワークスペース、プライベートキャビン、会議室、共用カフェテリア、24時間アクセス、エンタープライズセキュリティを提供 — インドで事業を展開する日本企業のために設計されたすべて。",
+                })}
+              </p>
+            </div>
+          </Reveal>
+          {/* 6 amenity badges */}
+          <Reveal delay={120}>
+            <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+              {[
+                { icon: "🏢", label: tx({ EN: "Dedicated Desks", JP: "専用デスク" }) },
+                { icon: "📡", label: tx({ EN: "High-Speed Wi-Fi", JP: "高速Wi-Fi" }) },
+                { icon: "🤝", label: tx({ EN: "Meeting Rooms", JP: "会議室" }) },
+                { icon: "🍽", label: tx({ EN: "Cafeteria", JP: "カフェテリア" }) },
+                { icon: "🔑", label: tx({ EN: "24/7 Access", JP: "24時間アクセス" }) },
+                { icon: "🛡", label: tx({ EN: "Security", JP: "セキュリティ" }) },
+              ].map((a, i) => (
+                <div key={i} className="glass-dark rounded-lg p-3 text-center">
+                  <span className="text-2xl">{a.icon}</span>
+                  <p className="mt-1 font-inter text-[11px] font-medium text-mist">{a.label}</p>
+                </div>
+              ))}
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ───────────────────────────────────────────────────────────
           Section 1 — Business Expansion Services (Slide 4)
           5 numbered editorial cards, alternating photo sides.
          ─────────────────────────────────────────────────────────── */}

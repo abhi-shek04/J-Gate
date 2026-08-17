@@ -471,7 +471,7 @@ export default function PricingPage() {
 
       {/* ───────────────────────────────────────────────────────────
           Section 3 — Billing Notes (3 small cards)
-          1. Base fees only — registration + recruitment commissions charged separately
+          1. Base fees only — registration + staffing agency fees charged separately
           2. INR billed · JPY settlement also supported (rates fluctuate)
           3. All prices exclude India GST
          ─────────────────────────────────────────────────────────── */}
@@ -500,7 +500,7 @@ export default function PricingPage() {
                     icon: Receipt,
                     label: { EN: "Base fees only", JP: "基本料金のみ" } as Bilingual,
                     desc: {
-                      EN: "Prices shown are base monthly fees. Corporate registration agency fees and recruitment commissions are charged separately.",
+                      EN: "Prices shown are base monthly fees. Corporate registration agency fees and staffing agency fees are charged separately.",
                       JP: "記載価格は月額基本料金。法人登記代行手数料および人材紹介手数料は別途請求。",
                     } as Bilingual,
                   },

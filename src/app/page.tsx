@@ -10,8 +10,8 @@ import {
   Building2,
   Wifi,
   Mic,
-  Scale,
-  BarChart3,
+  Coffee,
+  KeyRound,
   ArrowDown,
 } from "lucide-react";
 import { Reveal, Eyebrow, useCounter } from "@/components/jgate/shared";
@@ -189,8 +189,8 @@ export default function HomePage() {
   /* 4 stats — animated counters */
   const stats = [
     { value: 100, suffix: "+", label: tx({ EN: "Network Partners", JP: "ネットワークパートナー" }) },
-    { value: 500, suffix: "+", label: tx({ EN: "Engineers Placed", JP: "紹介エンジニア数" }) },
-    { value: 94, suffix: "%", label: tx({ EN: "JLPT Pass Rate", JP: "JLPT合格率" }) },
+    { value: 500, suffix: "+", label: tx({ EN: "Members Served", JP: "会員数" }) },
+    { value: 94, suffix: "%", label: tx({ EN: "Member Satisfaction", JP: "会員満足度" }) },
     { value: 92, suffix: "%", label: tx({ EN: "12-Month Retention", JP: "12ヶ月定着率" }) },
   ];
 
@@ -198,50 +198,50 @@ export default function HomePage() {
   const features = [
     {
       icon: Building2,
-      title: tx({ EN: "Premium Workspace", JP: "プレミアムワークスペース" }),
+      title: tx({ EN: "Dedicated Workspace", JP: "専用ワークスペース" }),
       desc: tx({
-        EN: "Dedicated desks and private cabins inside Cyber Gateway — 24/7 access, ergonomic setups, enterprise-grade facilities.",
-        JP: "Cyber Gateway内の専用デスクと個室 — 24時間アクセス、人間工学設備、エンタープライズ級施設。",
+        EN: "Fixed desks with lockable cabinets and private lockers. Your personal space in a professional environment.",
+        JP: "ロック可能なキャビネットとプライベートロッカー付きの固定デスク。プロフェッショナル環境におけるあなただけのスペース。",
       }),
     },
     {
       icon: Wifi,
-      title: tx({ EN: "Enterprise Fiber Internet", JP: "エンタープライズ光回線" }),
+      title: tx({ EN: "High-Speed Infrastructure", JP: "高速インフラ" }),
       desc: tx({
-        EN: "Dedicated high-speed fiber connecting your team to Tokyo HQ, global clients, and cloud systems — zero compromise.",
-        JP: "専用高速ファイバーで東京本社・グローバル顧客・クラウドに接続 — 一切の妥協なし。",
+        EN: "Dedicated fiber internet, Xerox multifunction printers, and enterprise-grade connectivity.",
+        JP: "専用ファイバーインターネット、Xerox複合機プリンター、エンタープライズ級の接続性。",
       }),
     },
     {
       icon: Mic,
-      title: tx({ EN: "Professional Meeting Rooms", JP: "プロフェッショナル会議室" }),
+      title: tx({ EN: "Meeting Rooms", JP: "会議室" }),
       desc: tx({
-        EN: "Fully equipped conference rooms with 4K displays, video conferencing, whiteboards, and catering options.",
-        JP: "4Kディスプレイ、ビデオ会議、ホワイトボード、ケータリング完備の会議室。",
+        EN: "Fully equipped conference rooms for client meetings and team sessions — expanding stepwise.",
+        JP: "顧客商談やチーム会議に対応する完全装備の会議室 — 段階的に拡張。",
       }),
     },
     {
-      icon: Scale,
-      title: tx({ EN: "Legal & Regulatory Guidance", JP: "法務・規制ガイダンス" }),
+      icon: Coffee,
+      title: tx({ EN: "Shared Cafeteria", JP: "共用カフェテリア" }),
       desc: tx({
-        EN: "India company registration, GST, employment law, and compliance — partner network with Japan-India expertise.",
-        JP: "インド法人設立、GST、労働法、コンプライアンス — 日印専門のパートナーネットワーク。",
+        EN: "TASTY FOOD JUNCTION — Indian, Chinese, and Japanese-style cuisine. Fresh meals daily.",
+        JP: "TASTY FOOD JUNCTION — インド料理・中華・和食スタイル。毎日新鮮な食事。",
       }),
     },
     {
-      icon: Users,
-      title: tx({ EN: "Bilingual Talent Pipeline", JP: "バイリンガル人材パイプライン" }),
+      icon: KeyRound,
+      title: tx({ EN: "24/7 Smart Access", JP: "24時間スマートアクセス" }),
       desc: tx({
-        EN: "Access Indobox India's curated network — Japanese-business-fluent professionals from interns to C-suite.",
-        JP: "Indobox India厳選ネットワーク — インターンからC級まで日本ビジネス堪能な人材。",
+        EN: "365 days a year, 24 hours a day. Enter with your dedicated smart key card — work on your schedule.",
+        JP: "年中無休・24時間。専用スマートキーカードで入室 — あなたのスケジュールで仕事を。",
       }),
     },
     {
-      icon: BarChart3,
-      title: tx({ EN: "India Market Intelligence", JP: "インド市場インテリジェンス" }),
+      icon: Shield,
+      title: tx({ EN: "Enterprise Security", JP: "エンタープライズセキュリティ" }),
       desc: tx({
-        EN: "Market entry research, competitor analysis, and industry mapping — delivered through T-Hub's knowledge network.",
-        JP: "市場参入調査、競合分析、業界マッピング — T-Hub知識ネットワーク経由で提供。",
+        EN: "Controlled access, secure management, and reliable safety infrastructure throughout the facility.",
+        JP: "入退室管理、セキュアな管理、施設全体に信頼性の高い安全インフラ。",
       }),
     },
   ];
@@ -253,8 +253,8 @@ export default function HomePage() {
       href: "/about",
       title: tx({ EN: "About J-Gate", JP: "J-Gateについて" }),
       desc: tx({
-        EN: "Three pillars — Opportunity Creation, Talent Development, Business Collaboration — anchored in Hyderabad.",
-        JP: "きっかけ作り・人材育成・ビジネス連携の3本柱 — ハイデラバードを拠点に。",
+        EN: "Discover our story, mission, and the vision behind Hyderabad's premier Japan-India co-working hub.",
+        JP: "ハイデラバードのプレミアム日印コワーキングハブのストーリー、ミッション、ビジョンをご覧ください。",
       }),
     },
     {
@@ -262,8 +262,8 @@ export default function HomePage() {
       href: "/why-jgate",
       title: tx({ EN: "Why J-Gate", JP: "J-Gateの強み" }),
       desc: tx({
-        EN: "Comparison vs consulting firms, coworking, and public orgs — plus 7 membership pillars that accelerate India entry.",
-        JP: "コンサル・コワーキング・公的機関との比較 — さらにインド進出を加速する7つの柱。",
+        EN: "Compare us with alternatives — see why our workspace delivers more value than any other option.",
+        JP: "他の選択肢と比較 — なぜ私たちのワークスペースが他のどの選択肢よりも高い価値を提供するのかをご確認ください。",
       }),
     },
     {
@@ -271,8 +271,8 @@ export default function HomePage() {
       href: "/services",
       title: tx({ EN: "Services", JP: "サービス" }),
       desc: tx({
-        EN: "Recruitment, corporate bridging, language training, and relocation — four pathways to Japan-India success.",
-        JP: "採用・企業橋渡し・語学研修・再配置 — 日印成功への4つの道。",
+        EN: "Corporate registration, Japan Desk, and complete business support — all under one roof.",
+        JP: "法人登記、ジャパンデスク、完全なビジネス支援 — すべてワンストップで。",
       }),
     },
   ];

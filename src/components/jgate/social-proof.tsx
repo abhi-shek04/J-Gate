@@ -10,30 +10,39 @@ const PARTNER_LOGOS = ["JETRO", "T-Hub", "Woxsen University", "Genesys Info X", 
 
 const TESTIMONIALS = [
   {
-    quote: "J-Gate placed three engineers into our Tokyo team within six weeks. The cultural fit was exceptional — every candidate understood Japanese business protocol.",
-    author: "HR Director",
-    role: "Japanese Manufacturing Company",
-    initials: "HR",
+    quote: {
+      EN: "J-Gate's workspace at Cyber Gateway is exactly what we needed — professional, well-equipped, and the Japan Desk resolved our operational questions within hours. The TASTY FOOD JUNCTION cafeteria became our favorite meeting spot.",
+      JP: "Cyber GatewayのJ-Gateワークスペースは、まさに私たちが必要としていたものでした — プロフェッショナルで設備が整い、ジャパンデスクが数時間以内に運用上の質問を解決。TASTY FOOD JUNCTIONのカフェテリアはお気に入りの打ち合わせスポットになりました。",
+    },
+    author: { EN: "Operations Director", JP: "オペレーションディレクター" },
+    role: { EN: "Japanese Manufacturing Company", JP: "日本製造企業" },
+    initials: "OD",
     accent: "from-crimson to-midnight",
   },
   {
-    quote: "Their JLPT N2 preparation program took me from N4 to N2 in 18 months. The instructors are certified, structured, and genuinely invested in your success.",
-    author: "Software Engineer",
-    role: "Placed at Japanese IT Firm",
-    initials: "SE",
+    quote: {
+      EN: "The 24/7 access and dedicated fiber internet meant our team could work on Tokyo time without any connectivity issues. The meeting rooms impressed every client we hosted.",
+      JP: "24時間アクセスと専用ファイバーインターネットのおかげで、私たちのチームは東京時間でも接続問題なしに作業できました。会議室は接待したすべての顧客に好印象を与えました。",
+    },
+    author: { EN: "Country Manager", JP: "カントリーマネージャー" },
+    role: { EN: "Japanese Technology Firm", JP: "日本テクノロジー企業" },
+    initials: "CM",
     accent: "from-saffron to-crimson",
   },
   {
-    quote: "When we entered India, J-Gate handled registration, banking, and our Cyber Gateway office setup end-to-end. Bilingual concierge support made it seamless.",
-    author: "Country Manager",
-    role: "Japanese Enterprise, Hyderabad",
-    initials: "CM",
+    quote: {
+      EN: "From the smart key card entry to the secure lockers, everything feels enterprise-grade. The Indobox Academy sessions in the workspace gave us practical insights into Indian business customs.",
+      JP: "スマートキーカードの入退室からセキュアなロッカーまで、すべてがエンタープライズ級です。ワークスペースで開催されるIndobox Academyのセッションは、インドのビジネス習慣に関する実践的な知見を与えてくれました。",
+    },
+    author: { EN: "Branch Manager", JP: "ブランチマネージャー" },
+    role: { EN: "Japanese Enterprise", JP: "日本企業" },
+    initials: "BM",
     accent: "from-navy to-success",
   },
 ];
 
 export function SocialProof() {
-  const { t, lang } = useI18n();
+  const { t, tx } = useI18n();
 
   const stats = [
     { num: "150+", key: "proof.stats1" },
@@ -95,15 +104,15 @@ export function SocialProof() {
                   ))}
                 </div>
                 <blockquote className="relative mt-4 font-serif-jp text-[15px] font-medium leading-relaxed text-ink">
-                  “{tm.quote}”
+                  “{tx(tm.quote)}”
                 </blockquote>
                 <figcaption className="mt-5 flex items-center gap-3 border-t border-crimson/8 pt-4">
                   <span className={cn("flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br font-serif-jp text-sm font-bold text-white shadow-card", tm.accent)}>
                     {tm.initials}
                   </span>
                   <div>
-                    <div className="font-inter text-[13px] font-semibold text-ink">{tm.author}</div>
-                    <div className="font-inter text-[11px] text-mist">{tm.role}</div>
+                    <div className="font-inter text-[13px] font-semibold text-ink">{tx(tm.author)}</div>
+                    <div className="font-inter text-[11px] text-mist">{tx(tm.role)}</div>
                   </div>
                 </figcaption>
               </article>

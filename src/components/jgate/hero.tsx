@@ -39,7 +39,7 @@ export function Hero() {
 
   const badges = [
     { emoji: "🎯", text: t("hero.badge1") },
-    { emoji: " JLPT", text: t("hero.badge2") },
+    { emoji: "📊", text: t("hero.badge2") },
     { emoji: "🤝", text: t("hero.badge3") },
   ];
 

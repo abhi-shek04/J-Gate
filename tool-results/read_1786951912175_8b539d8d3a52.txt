@@ -1,0 +1,797 @@
+     1→"use client";
+     2→
+     3→import Link from "next/link";
+     4→import {
+     5→  Download,
+     6→  ArrowRight,
+     7→  BookOpen,
+     8→  Shield,
+     9→  Users,
+    10→  Building2,
+    11→  Wifi,
+    12→  Mic,
+    13→  Scale,
+    14→  BarChart3,
+    15→  ArrowDown,
+    16→} from "lucide-react";
+    17→import { Reveal, Eyebrow, useCounter } from "@/components/jgate/shared";
+    18→import { useI18n } from "@/lib/i18n";
+    19→import {
+    20→  ToriiWatermark,
+    21→  JapanFlag,
+    22→  IndiaFlag,
+    23→} from "@/components/jgate/icons";
+    24→import { LogoMarquee } from "@/components/jgate/logo-marquee";
+    25→import { Photo } from "@/components/jgate/photo";
+    26→
+    27→/* ============================================================
+    28→   J-Gate Home — v4.0 Compact Redesign
+    29→   Architecture (8 sections, single Hyderabad location):
+    30→     1. Hero (100dvh, midnight, Torii watermark, 18 particles, 2 glass badges, scroll cue)
+    31→     2. Trust Strip (2-row logo marquee — single instance)
+    32→     3. Stats (4 animated counters — compact crimson 32px max)
+    33→     4. Workspace Features (6 cards — what the co-working space provides)
+    34→     5. Core Pillars (3 navy glass cards)
+    35→     6. Hyderabad Location (single centered card — LIVE)
+    36→     7. Ecosystem Preview (3 editorial cards → /about, /why-jgate, /services)
+    37→     8. CTA Banner ("Ready to Bridge Your Future?")
+    38→   ============================================================ */
+    39→
+    40→/* 18 CSS particles drifting upward via jg-drift keyframe */
+    41→function Particles() {
+    42→  const particles = Array.from({ length: 18 }).map((_, i) => ({
+    43→    left: `${(i * 53 + 7) % 100}%`,
+    44→    size: 1.2 + ((i * 7) % 4) * 0.6,
+    45→    delay: `${(i * 1.4) % 22}s`,
+    46→    duration: `${18 + ((i * 5) % 12)}s`,
+    47→  }));
+    48→  return (
+    49→    <div className="absolute inset-0 overflow-hidden" aria-hidden>
+    50→      {particles.map((p, i) => (
+    51→        <span
+    52→          key={i}
+    53→          className="absolute bottom-0 rounded-full bg-white"
+    54→          style={{
+    55→            left: p.left,
+    56→            width: p.size,
+    57→            height: p.size,
+    58→            animation: `jg-drift ${p.duration} linear infinite`,
+    59→            animationDelay: p.delay,
+    60→          }}
+    61→        />
+    62→      ))}
+    63→    </div>
+    64→  );
+    65→}
+    66→
+    67→/* Floating glass location badge (hero) */
+    68→function GlassBadge({
+    69→  emoji,
+    70→  primary,
+    71→  secondary,
+    72→  accent,
+    73→}: {
+    74→  emoji: string;
+    75→  primary: string;
+    76→  secondary: string;
+    77→  accent: "saffron" | "crimson" | "slate";
+    78→}) {
+    79→  const accentClass =
+    80→    accent === "saffron"
+    81→      ? "text-saffron border-saffron/30"
+    82→      : accent === "crimson"
+    83→        ? "text-crimson border-crimson/30"
+    84→        : "text-mist border-white/15";
+    85→  return (
+    86→    <div className="glass-dark flex items-center gap-2.5 rounded-full px-4 py-2">
+    87→      <span className="font-serif-jp text-[18px] leading-none">{emoji}</span>
+    88→      <div className="flex flex-col leading-tight">
+    89→        <span className={`font-inter text-[12px] font-bold uppercase ${accentClass.split(" ")[0]}`} style={{ letterSpacing: "0.08em" }}>
+    90→          {primary}
+    91→        </span>
+    92→        <span className="font-inter text-[11px] text-mist">{secondary}</span>
+    93→      </div>
+    94→    </div>
+    95→  );
+    96→}
+    97→
+    98→/* Stat card with animated counter */
+    99→function StatCard({
+   100→  value,
+   101→  suffix,
+   102→  label,
+   103→  delay,
+   104→}: {
+   105→  value: number;
+   106→  suffix: string;
+   107→  label: string;
+   108→  delay: number;
+   109→}) {
+   110→  const { ref, count } = useCounter(value, 2200);
+   111→  return (
+   112→    <Reveal delay={delay}>
+   113→      <div
+   114→        ref={ref as React.RefObject<HTMLDivElement>}
+   115→        className="lift-card relative flex h-full flex-col items-center justify-center rounded-lg border-b-2 border-crimson bg-pearl p-4 text-center shadow-card sm:p-5"
+   116→      >
+   117→        <div
+   118→          className="font-serif-jp font-bold leading-none text-crimson"
+   119→          style={{ fontSize: "clamp(1.5rem, 2.5vw, 2rem)" }}
+   120→        >
+   121→          {count}
+   122→          <span className="text-saffron">{suffix}</span>
+   123→        </div>
+   124→        <div
+   125→          className="mt-2 font-inter text-[11px] font-semibold uppercase text-slate"
+   126→          style={{ letterSpacing: "0.08em" }}
+   127→        >
+   128→          {label}
+   129→        </div>
+   130→      </div>
+   131→    </Reveal>
+   132→  );
+   133→}
+   134→
+   135→/* Workspace feature card (compact) */
+   136→function FeatureCard({
+   137→  icon: Icon,
+   138→  title,
+   139→  desc,
+   140→  delay,
+   141→}: {
+   142→  icon: typeof Building2;
+   143→  title: string;
+   144→  desc: string;
+   145→  delay: number;
+   146→}) {
+   147→  return (
+   148→    <Reveal delay={delay}>
+   149→      <article className="lift-card group flex h-full flex-col rounded-lg border border-crimson/8 bg-pearl p-5 shadow-card">
+   150→        <div className="flex h-11 w-11 items-center justify-center rounded-md bg-gradient-to-br from-crimson/10 to-saffron/10 text-crimson transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+   151→          <Icon className="h-5 w-5" strokeWidth={1.5} />
+   152→        </div>
+   153→        <h3 className="mt-3 font-inter text-[15px] font-semibold leading-snug text-ink">
+   154→          {title}
+   155→        </h3>
+   156→        <p className="mt-2 font-inter text-[13px] leading-relaxed text-slate">
+   157→          {desc}
+   158→        </p>
+   159→      </article>
+   160→    </Reveal>
+   161→  );
+   162→}
+   163→
+   164→export default function HomePage() {
+   165→  const { t, tx } = useI18n();
+   166→
+   167→  /* 3 Pillars — navy section */
+   168→  const pillars = [
+   169→    {
+   170→      num: "01",
+   171→      kanji: "きっかけ作り",
+   172→      title: tx({ EN: "Opportunity Creation", JP: "きっかけ作り" }),
+   173→      body: t("about.pillar1.desc"),
+   174→    },
+   175→    {
+   176→      num: "02",
+   177→      kanji: "人材育成",
+   178→      title: tx({ EN: "Talent Development", JP: "人材育成" }),
+   179→      body: t("about.pillar2.desc"),
+   180→    },
+   181→    {
+   182→      num: "03",
+   183→      kanji: "ビジネス連携",
+   184→      title: tx({ EN: "Business Collaboration", JP: "ビジネス連携" }),
+   185→      body: t("about.pillar3.desc"),
+   186→    },
+   187→  ];
+   188→
+   189→  /* 4 stats — animated counters */
+   190→  const stats = [
+   191→    { value: 100, suffix: "+", label: tx({ EN: "Network Partners", JP: "ネットワークパートナー" }) },
+   192→    { value: 500, suffix: "+", label: tx({ EN: "Engineers Placed", JP: "紹介エンジニア数" }) },
+   193→    { value: 94, suffix: "%", label: tx({ EN: "JLPT Pass Rate", JP: "JLPT合格率" }) },
+   194→    { value: 92, suffix: "%", label: tx({ EN: "12-Month Retention", JP: "12ヶ月定着率" }) },
+   195→  ];
+   196→
+   197→  /* 6 Workspace Features — what the co-working space provides */
+   198→  const features = [
+   199→    {
+   200→      icon: Building2,
+   201→      title: tx({ EN: "Premium Workspace", JP: "プレミアムワークスペース" }),
+   202→      desc: tx({
+   203→        EN: "Dedicated desks and private cabins inside Cyber Gateway — 24/7 access, ergonomic setups, enterprise-grade facilities.",
+   204→        JP: "Cyber Gateway内の専用デスクと個室 — 24時間アクセス、人間工学設備、エンタープライズ級施設。",
+   205→      }),
+   206→    },
+   207→    {
+   208→      icon: Wifi,
+   209→      title: tx({ EN: "Enterprise Fiber Internet", JP: "エンタープライズ光回線" }),
+   210→      desc: tx({
+   211→        EN: "Dedicated high-speed fiber connecting your team to Tokyo HQ, global clients, and cloud systems — zero compromise.",
+   212→        JP: "専用高速ファイバーで東京本社・グローバル顧客・クラウドに接続 — 一切の妥協なし。",
+   213→      }),
+   214→    },
+   215→    {
+   216→      icon: Mic,
+   217→      title: tx({ EN: "Professional Meeting Rooms", JP: "プロフェッショナル会議室" }),
+   218→      desc: tx({
+   219→        EN: "Fully equipped conference rooms with 4K displays, video conferencing, whiteboards, and catering options.",
+   220→        JP: "4Kディスプレイ、ビデオ会議、ホワイトボード、ケータリング完備の会議室。",
+   221→      }),
+   222→    },
+   223→    {
+   224→      icon: Scale,
+   225→      title: tx({ EN: "Legal & Regulatory Guidance", JP: "法務・規制ガイダンス" }),
+   226→      desc: tx({
+   227→        EN: "India company registration, GST, employment law, and compliance — partner network with Japan-India expertise.",
+   228→        JP: "インド法人設立、GST、労働法、コンプライアンス — 日印専門のパートナーネットワーク。",
+   229→      }),
+   230→    },
+   231→    {
+   232→      icon: Users,
+   233→      title: tx({ EN: "Bilingual Talent Pipeline", JP: "バイリンガル人材パイプライン" }),
+   234→      desc: tx({
+   235→        EN: "Access Indobox India's curated network — Japanese-business-fluent professionals from interns to C-suite.",
+   236→        JP: "Indobox India厳選ネットワーク — インターンからC級まで日本ビジネス堪能な人材。",
+   237→      }),
+   238→    },
+   239→    {
+   240→      icon: BarChart3,
+   241→      title: tx({ EN: "India Market Intelligence", JP: "インド市場インテリジェンス" }),
+   242→      desc: tx({
+   243→        EN: "Market entry research, competitor analysis, and industry mapping — delivered through T-Hub's knowledge network.",
+   244→        JP: "市場参入調査、競合分析、業界マッピング — T-Hub知識ネットワーク経由で提供。",
+   245→      }),
+   246→    },
+   247→  ];
+   248→
+   249→  /* Ecosystem preview cards */
+   250→  const previews = [
+   251→    {
+   252→      icon: BookOpen,
+   253→      href: "/about",
+   254→      title: tx({ EN: "About J-Gate", JP: "J-Gateについて" }),
+   255→      desc: tx({
+   256→        EN: "Three pillars — Opportunity Creation, Talent Development, Business Collaboration — anchored in Hyderabad.",
+   257→        JP: "きっかけ作り・人材育成・ビジネス連携の3本柱 — ハイデラバードを拠点に。",
+   258→      }),
+   259→    },
+   260→    {
+   261→      icon: Shield,
+   262→      href: "/why-jgate",
+   263→      title: tx({ EN: "Why J-Gate", JP: "J-Gateの強み" }),
+   264→      desc: tx({
+   265→        EN: "Comparison vs consulting firms, coworking, and public orgs — plus 7 membership pillars that accelerate India entry.",
+   266→        JP: "コンサル・コワーキング・公的機関との比較 — さらにインド進出を加速する7つの柱。",
+   267→      }),
+   268→    },
+   269→    {
+   270→      icon: Users,
+   271→      href: "/services",
+   272→      title: tx({ EN: "Services", JP: "サービス" }),
+   273→      desc: tx({
+   274→        EN: "Recruitment, corporate bridging, language training, and relocation — four pathways to Japan-India success.",
+   275→        JP: "採用・企業橋渡し・語学研修・再配置 — 日印成功への4つの道。",
+   276→      }),
+   277→    },
+   278→  ];
+   279→
+   280→  return (
+   281→    <>
+   282→      {/* ════════════════════════════════════════════════════════════
+   283→          1. HERO — 100dvh, midnight, Torii watermark, 18 particles, 2 glass badges
+   284→         ════════════════════════════════════════════════════════════ */}
+   285→      <section className="relative flex min-h-[100dvh] items-center justify-center overflow-hidden bg-midnight">
+   286→        {/* Ambient gradient washes */}
+   287→        <div
+   288→          className="absolute inset-0"
+   289→          style={{
+   290→            background:
+   291→              "linear-gradient(180deg, rgba(188,26,44,0.08) 0%, rgba(188,26,44,0.02) 40%, transparent 70%), radial-gradient(ellipse at 70% 50%, rgba(188,26,44,0.12) 0%, transparent 65%), radial-gradient(ellipse at 20% 80%, rgba(232,160,26,0.06) 0%, transparent 50%)",
+   292→          }}
+   293→        />
+   294→        <ToriiWatermark
+   295→          className="torii-watermark"
+   296→          style={{ width: "70vw", maxWidth: "780px", right: "0", top: "8%", opacity: 0.045 }}
+   297→        />
+   298→        <Particles />
+   299→        {/* Skyline silhouette */}
+   300→        <div className="pointer-events-none absolute bottom-0 left-0 h-[30%] w-full opacity-50">
+   301→          <svg viewBox="0 0 1440 200" preserveAspectRatio="xMidYMax slice" className="h-full w-full" aria-hidden>
+   302→            <g fill="#0d1b2a">
+   303→              <rect x="0" y="160" width="80" height="40" /><rect x="80" y="135" width="60" height="65" />
+   304→              <rect x="150" y="40" width="64" height="160" /><rect x="214" y="90" width="44" height="110" />
+   305→              <rect x="258" y="135" width="70" height="65" /><rect x="340" y="130" width="120" height="70" />
+   306→              <rect x="470" y="110" width="52" height="90" /><rect x="522" y="60" width="58" height="140" />
+   307→              <rect x="580" y="135" width="48" height="65" /><rect x="628" y="20" width="70" height="180" />
+   308→              <rect x="698" y="95" width="50" height="105" /><rect x="748" y="135" width="64" height="65" />
+   309→              <rect x="820" y="120" width="80" height="80" /><rect x="910" y="80" width="56" height="120" />
+   310→              <rect x="966" y="40" width="60" height="160" /><rect x="1026" y="120" width="50" height="80" />
+   311→              <rect x="1076" y="70" width="64" height="130" /><rect x="1140" y="130" width="56" height="70" />
+   312→              <rect x="1196" y="50" width="58" height="150" /><rect x="1254" y="115" width="52" height="85" />
+   313→              <rect x="1306" y="90" width="60" height="110" /><rect x="1366" y="140" width="74" height="60" />
+   314→            </g>
+   315→          </svg>
+   316→        </div>
+   317→        <div
+   318→          className="pointer-events-none absolute bottom-0 left-0 h-[32%] w-full"
+   319→          style={{ background: "linear-gradient(180deg, transparent, #080f1a 90%)" }}
+   320→        />
+   321→
+   322→        <div className="container-jg relative z-10 pt-28 pb-32 text-center">
+   323→          {/* Eyebrow pill */}
+   324→          <Reveal>
+   325→            <span
+   326→              className="inline-flex items-center gap-2 rounded-full bg-crimson px-4 py-1.5 font-inter text-[12px] font-semibold text-white shadow-crimp"
+   327→              style={{ letterSpacing: "0.1em" }}
+   328→            >
+   329→              <JapanFlag className="h-3.5 w-5" />
+   330→              {tx({ EN: "HYDERABAD · CYBER GATEWAY", JP: "ハイデラバード・サイバーゲートウェイ" })}
+   331→              <IndiaFlag className="h-3.5 w-5" />
+   332→            </span>
+   333→          </Reveal>
+   334→
+   335→          {/* Pre-title */}
+   336→          <Reveal delay={80}>
+   337→            <p
+   338→              className="mt-6 font-inter text-[12px] font-semibold uppercase text-saffron"
+   339→              style={{ letterSpacing: "0.25em" }}
+   340→            >
+   341→              {t("hero.eyebrow")}
+   342→            </p>
+   343→          </Reveal>
+   344→
+   345→          {/* H1 — Noto Serif JP 900, clamp 1.75rem-2.5rem (max 40px) */}
+   346→          <Reveal delay={140}>
+   347→            <h1
+   348→              className="mx-auto mt-4 max-w-4xl font-serif-jp font-black leading-[1.1] text-white"
+   349→              style={{ fontSize: "clamp(1.75rem, 4vw, 2.5rem)" }}
+   350→            >
+   351→              {t("hero.title1")}
+   352→              <br />
+   353→              <span className="text-white">Working Hub for</span>
+   354→              <br />
+   355→              <span className="text-gradient-saffron">Japanese Companies</span>
+   356→            </h1>
+   357→          </Reveal>
+   358→
+   359→          {/* JP tagline */}
+   360→          <Reveal delay={200}>
+   361→            <p
+   362→              className="mt-4 font-serif-jp font-medium text-saffron/85"
+   363→              style={{ fontSize: "clamp(0.875rem, 1.4vw, 1rem)", letterSpacing: "0.05em" }}
+   364→            >
+   365→              {t("hero.jptag")}
+   366→            </p>
+   367→          </Reveal>
+   368→
+   369→          {/* Body subtitle — catchphrase */}
+   370→          <Reveal delay={260}>
+   371→            <p
+   372→              className="mx-auto mt-4 max-w-[600px] font-inter font-light leading-relaxed text-mist"
+   373→              style={{ fontSize: "clamp(0.875rem, 1.4vw, 1rem)" }}
+   374→            >
+   375→              {t("hero.subtitle")}
+   376→            </p>
+   377→          </Reveal>
+   378→
+   379→          {/* 2 CTAs */}
+   380→          <Reveal delay={320}>
+   381→            <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+   382→              <Link
+   383→                href="/auth/brochure"
+   384→                className="btn-shine flex items-center justify-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-6 py-3 font-inter text-[14px] font-semibold text-white shadow-[0_0_24px_rgba(188,26,44,0.45)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_32px_rgba(188,26,44,0.65)]"
+   385→              >
+   386→                <Download className="h-4 w-4" />
+   387→                {t("hero.cta1")}
+   388→              </Link>
+   389→              <Link
+   390→                href="/services"
+   391→                className="rounded-md border border-white/40 px-6 py-3 font-inter text-[14px] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-white/10"
+   392→              >
+   393→                {t("hero.cta2")}
+   394→                <ArrowRight className="ml-1.5 inline h-4 w-4" />
+   395→              </Link>
+   396→            </div>
+   397→          </Reveal>
+   398→
+   399→          {/* 2 floating glass badges — Hyderabad + Operator */}
+   400→          <Reveal delay={420}>
+   401→            <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+   402→              <GlassBadge
+   403→                emoji="📍"
+   404→                primary={tx({ EN: "Hyderabad", JP: "ハイデラバード" })}
+   405→                secondary={tx({ EN: "Main Base", JP: "主拠点" })}
+   406→                accent="saffron"
+   407→              />
+   408→              <GlassBadge
+   409→                emoji="🏛"
+   410→                primary={tx({ EN: "Indobox India Pvt. Ltd.", JP: "Indobox India Pvt. Ltd." })}
+   411→                secondary={tx({ EN: "Operator", JP: "運営" })}
+   412→                accent="slate"
+   413→              />
+   414→            </div>
+   415→          </Reveal>
+   416→        </div>
+   417→
+   418→        {/* Scroll cue */}
+   419→        <div className="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2">
+   420→          <span
+   421→            className="font-inter text-[10px] font-semibold uppercase text-mist"
+   422→            style={{ letterSpacing: "0.2em" }}
+   423→          >
+   424→            {t("hero.scroll")}
+   425→          </span>
+   426→          <div className="relative h-10 w-px overflow-hidden bg-white/15">
+   427→            <span className="animate-scroll-line absolute inset-0 block bg-crimson" />
+   428→          </div>
+   429→          <ArrowDown className="h-3 w-3 text-mist" />
+   430→        </div>
+   431→      </section>
+   432→
+   433→      {/* ════════════════════════════════════════════════════════════
+   434→          2. TRUST STRIP — 2-row logo marquee (single instance)
+   435→         ════════════════════════════════════════════════════════════ */}
+   436→      <section className="bg-ivory py-8">
+   437→        <div className="container-jg">
+   438→          <Reveal>
+   439→            <div className="mx-auto mb-6 max-w-3xl text-center">
+   440→              <Eyebrow>{t("home.logos.eyebrow")}</Eyebrow>
+   441→              <h2
+   442→                className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
+   443→                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+   444→              >
+   445→                {t("home.logos.title")}
+   446→              </h2>
+   447→            </div>
+   448→          </Reveal>
+   449→          <Reveal delay={100}>
+   450→            <LogoMarquee variant="light" />
+   451→          </Reveal>
+   452→        </div>
+   453→      </section>
+   454→
+   455→      {/* ════════════════════════════════════════════════════════════
+   456→          3. STATS — 4 animated counters (compact crimson max 32px)
+   457→         ════════════════════════════════════════════════════════════ */}
+   458→      <section className="section-pad bg-ivory">
+   459→        <div className="container-jg">
+   460→          <Reveal>
+   461→            <div className="mx-auto mb-8 max-w-3xl text-center">
+   462→              <Eyebrow>{t("home.stats.eyebrow")}</Eyebrow>
+   463→              <h2
+   464→                className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
+   465→                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+   466→              >
+   467→                {t("home.stats.title")}
+   468→              </h2>
+   469→              <p
+   470→                className="mx-auto mt-2 max-w-xl font-inter leading-relaxed text-slate"
+   471→                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
+   472→              >
+   473→                {t("home.stats.subtitle")}
+   474→              </p>
+   475→            </div>
+   476→          </Reveal>
+   477→
+   478→          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+   479→            {stats.map((s, i) => (
+   480→              <StatCard
+   481→                key={i}
+   482→                value={s.value}
+   483→                suffix={s.suffix}
+   484→                label={s.label}
+   485→                delay={i * 100}
+   486→              />
+   487→            ))}
+   488→          </div>
+   489→        </div>
+   490→      </section>
+   491→
+   492→      {/* ════════════════════════════════════════════════════════════
+   493→          4. WORKSPACE FEATURES — 6 cards (what the co-working space provides)
+   494→          Ivory-warm bg, compact cards (p-5, 15px titles, 13px body)
+   495→         ════════════════════════════════════════════════════════════ */}
+   496→      <section className="section-pad bg-ivory-warm">
+   497→        <div className="container-jg">
+   498→          <Reveal>
+   499→            <div className="mx-auto mb-8 max-w-3xl text-center">
+   500→              <Eyebrow>{tx({ EN: "What's Included", JP: "提供内容" })}</Eyebrow>
+   501→              <h2
+   502→                className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
+   503→                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+   504→              >
+   505→                {tx({
+   506→                  EN: "Everything You Need to Operate from Day One",
+   507→                  JP: "初日から稼働するために必要なすべて",
+   508→                })}
+   509→              </h2>
+   510→              <p
+   511→                className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate"
+   512→                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
+   513→              >
+   514→                {tx({
+   515→                  EN: "Six core capabilities bundled into every J-Gate membership — workspace, connectivity, and the operational support Japanese enterprises expect.",
+   516→                  JP: "J-Gateの全メンバーシップに含まれる6つのコア機能 — ワークスペース、接続性、そして日本企業が期待する運用サポート。",
+   517→                })}
+   518→              </p>
+   519→            </div>
+   520→          </Reveal>
+   521→
+   522→          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+   523→            {features.map((f, i) => (
+   524→              <FeatureCard
+   525→                key={i}
+   526→                icon={f.icon}
+   527→                title={f.title}
+   528→                desc={f.desc}
+   529→                delay={(i % 3) * 100}
+   530→              />
+   531→            ))}
+   532→          </div>
+   533→        </div>
+   534→      </section>
+   535→
+   536→      {/* ════════════════════════════════════════════════════════════
+   537→          5. CORE PILLARS — navy section, 3 glass cards
+   538→          Each card: faded number + JP kanji + EN title + body (compact)
+   539→         ════════════════════════════════════════════════════════════ */}
+   540→      <section className="section-pad relative overflow-hidden bg-navy">
+   541→        <div className="pattern-asanoha-navy absolute inset-0 opacity-60" />
+   542→        <div
+   543→          className="absolute inset-0"
+   544→          style={{
+   545→            background:
+   546→              "linear-gradient(135deg, rgba(188,26,44,0.10) 0%, transparent 50%, rgba(232,160,26,0.06) 100%)",
+   547→          }}
+   548→        />
+   549→        <div className="container-jg relative">
+   550→          <Reveal>
+   551→            <div className="mx-auto mb-10 max-w-3xl text-center">
+   552→              <Eyebrow light>{tx({ EN: "Why J-Gate Exists", JP: "J-Gateの存在意義" })}</Eyebrow>
+   553→              <h2
+   554→                className="mt-3 font-serif-jp font-bold leading-[1.15] text-white"
+   555→                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+   556→              >
+   557→                {tx({
+   558→                  EN: "Three Pillars. One Operating Engine.",
+   559→                  JP: "3つの柱、1つの運営エンジン。",
+   560→                })}
+   561→              </h2>
+   562→              <p
+   563→                className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-mist"
+   564→                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
+   565→              >
+   566→                {t("about.purpose.subtitle")}
+   567→              </p>
+   568→            </div>
+   569→          </Reveal>
+   570→
+   571→          <div className="grid gap-4 md:grid-cols-3">
+   572→            {pillars.map((p, i) => (
+   573→              <Reveal key={p.num} delay={i * 120}>
+   574→                <article className="glass-dark lift-card relative h-full overflow-hidden rounded-lg border border-white/10 p-5">
+   575→                  {/* Faded large numeral */}
+   576→                  <span
+   577→                    className="pointer-events-none absolute -top-4 right-4 font-serif-jp font-black leading-none text-crimson"
+   578→                    style={{ fontSize: "72px", opacity: 0.15 }}
+   579→                    aria-hidden
+   580→                  >
+   581→                    {p.num}
+   582→                  </span>
+   583→                  <div className="relative">
+   584→                    <span
+   585→                      className="block font-serif-jp text-[16px] font-bold text-saffron"
+   586→                      style={{ letterSpacing: "0.05em" }}
+   587→                    >
+   588→                      {p.kanji}
+   589→                    </span>
+   590→                    <h3
+   591→                      className="mt-2 font-serif-jp font-bold leading-tight text-white"
+   592→                      style={{ fontSize: "clamp(1rem, 1.6vw, 1.125rem)" }}
+   593→                    >
+   594→                      {p.title}
+   595→                    </h3>
+   596→                    <div className="mt-3 h-px w-10 bg-crimson/40" />
+   597→                    <p
+   598→                      className="mt-3 font-inter leading-relaxed text-mist"
+   599→                      style={{ fontSize: "13px" }}
+   600→                    >
+   601→                      {p.body}
+   602→                    </p>
+   603→                  </div>
+   604→                </article>
+   605→              </Reveal>
+   606→            ))}
+   607→          </div>
+   608→        </div>
+   609→      </section>
+   610→
+   611→      {/* ════════════════════════════════════════════════════════════
+   612→          6. HYDERABAD LOCATION — single centered card
+   613→         ════════════════════════════════════════════════════════════ */}
+   614→      <section className="section-pad bg-ivory-warm">
+   615→        <div className="container-jg">
+   616→          <Reveal>
+   617→            <div className="mx-auto mb-8 max-w-3xl text-center">
+   618→              <Eyebrow>{t("about.locations.eyebrow")}</Eyebrow>
+   619→              <h2
+   620→                className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
+   621→                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+   622→              >
+   623→                {t("about.locations.title")}
+   624→              </h2>
+   625→              <p
+   626→                className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate"
+   627→                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
+   628→              >
+   629→                {t("about.locations.subtitle")}
+   630→              </p>
+   631→            </div>
+   632→          </Reveal>
+   633→
+   634→          {/* Hyderabad card — single, centered, max-w-3xl */}
+   635→          <Reveal delay={100}>
+   636→            <article className="lift-card group mx-auto max-w-3xl overflow-hidden rounded-lg border border-saffron/20 bg-pearl shadow-card">
+   637→              <div className="relative">
+   638→                <Photo
+   639→                  id="photo-location-hyderabad"
+   640→                  alt="J-Gate Hyderabad main base — Cyber Gateway, Hitech City"
+   641→                  fallback="grad-office-main"
+   642→                  initials="HYD"
+   643→                  rounded="rounded-t-lg"
+   644→                  className="h-40 w-full"
+   645→                />
+   646→                <div className="absolute inset-0 rounded-t-lg bg-gradient-to-t from-midnight/60 via-transparent to-transparent" />
+   647→                <span className="absolute right-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-success px-3 py-1.5 font-inter text-[11px] font-bold uppercase text-white shadow-crimp" style={{ letterSpacing: "0.1em" }}>
+   648→                  <span className="h-2 w-2 rounded-full bg-white animate-pulse-soft" />
+   649→                  {tx({ EN: "LIVE", JP: "稼働中" })}
+   650→                </span>
+   651→              </div>
+   652→              <div className="p-5 sm:p-6">
+   653→                <div className="flex flex-wrap items-start justify-between gap-3">
+   654→                  <div>
+   655→                    <span
+   656→                      className="block font-inter text-[11px] font-bold uppercase text-saffron"
+   657→                      style={{ letterSpacing: "0.15em" }}
+   658→                    >
+   659→                      {t("about.hyderabad.tag")}
+   660→                    </span>
+   661→                    <h3
+   662→                      className="mt-1 font-serif-jp font-bold text-ink"
+   663→                      style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+   664→                    >
+   665→                      {t("about.hyderabad.title")}
+   666→                    </h3>
+   667→                  </div>
+   668→                  <span className="inline-flex items-center gap-1.5 rounded-md bg-saffron/15 px-2.5 py-1 font-inter text-[11px] font-bold uppercase text-saffron">
+   669→                    <Building2 className="h-3 w-3" />
+   670→                    {t("about.hyderabad.status")}
+   671→                  </span>
+   672→                </div>
+   673→                <p className="mt-3 font-serif-jp text-[13px] font-medium italic text-saffron/85">
+   674→                  {t("about.hyderabad.nick")}
+   675→                </p>
+   676→                <p className="mt-2 font-inter text-[13px] leading-relaxed text-slate">
+   677→                  {t("about.hyderabad.desc")}
+   678→                </p>
+   679→                <ul className="mt-4 space-y-2 border-t border-crimson/10 pt-4">
+   680→                  {[t("about.hyderabad.f1"), t("about.hyderabad.f2"), t("about.hyderabad.f3")].map((f, fi) => (
+   681→                    <li key={fi} className="flex items-start gap-2.5">
+   682→                      <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-saffron" />
+   683→                      <span className="font-inter text-[13px] text-ink">{f}</span>
+   684→                    </li>
+   685→                  ))}
+   686→                </ul>
+   687→                <Link
+   688→                  href="/contact"
+   689→                  className="mt-5 inline-flex items-center gap-1.5 font-inter text-[13px] font-semibold text-crimson transition-all hover:gap-2.5"
+   690→                >
+   691→                  {tx({ EN: "Visit Our Hyderabad Hub", JP: "ハイデラバード拠点を見る" })}
+   692→                  <ArrowRight className="h-3.5 w-3.5" />
+   693→                </Link>
+   694→              </div>
+   695→            </article>
+   696→          </Reveal>
+   697→        </div>
+   698→      </section>
+   699→
+   700→      {/* ════════════════════════════════════════════════════════════
+   701→          7. ECOSYSTEM PREVIEW — 3 editorial cards linking to /about, /why-jgate, /services
+   702→         ════════════════════════════════════════════════════════════ */}
+   703→      <section className="section-pad bg-ivory">
+   704→        <div className="container-jg">
+   705→          <Reveal>
+   706→            <div className="mx-auto max-w-3xl text-center">
+   707→              <Eyebrow>{t("home.overview.eyebrow")}</Eyebrow>
+   708→              <h2
+   709→                className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
+   710→                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+   711→              >
+   712→                {t("home.overview.title")}
+   713→              </h2>
+   714→              <p
+   715→                className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate"
+   716→                style={{ fontSize: "clamp(0.85rem, 1.4vw, 0.95rem)" }}
+   717→              >
+   718→                {t("home.overview.subtitle")}
+   719→              </p>
+   720→            </div>
+   721→          </Reveal>
+   722→
+   723→          <div className="mt-8 grid gap-4 md:grid-cols-3">
+   724→            {previews.map((p, i) => (
+   725→              <Reveal key={p.href} delay={i * 120}>
+   726→                <Link
+   727→                  href={p.href}
+   728→                  className="lift-card group flex h-full flex-col rounded-lg border border-crimson/8 bg-pearl p-5 shadow-card"
+   729→                >
+   730→                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-gradient-to-br from-crimson/10 to-saffron/10 text-crimson transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
+   731→                    <p.icon className="h-6 w-6" strokeWidth={1.5} />
+   732→                  </div>
+   733→                  <h3
+   734→                    className="mt-4 font-serif-jp font-bold text-ink"
+   735→                    style={{ fontSize: "clamp(1rem, 1.6vw, 1.125rem)" }}
+   736→                  >
+   737→                    {p.title}
+   738→                  </h3>
+   739→                  <p className="mt-2 flex-1 font-inter text-[13px] leading-relaxed text-slate">
+   740→                    {p.desc}
+   741→                  </p>
+   742→                  <span className="mt-4 inline-flex items-center gap-1.5 font-inter text-[13px] font-semibold text-crimson transition-all group-hover:gap-2.5">
+   743→                    {t("common.learnMore")}
+   744→                    <ArrowRight className="h-3.5 w-3.5" />
+   745→                  </span>
+   746→                </Link>
+   747→              </Reveal>
+   748→            ))}
+   749→          </div>
+   750→        </div>
+   751→      </section>
+   752→
+   753→      {/* ════════════════════════════════════════════════════════════
+   754→          8. CTA BANNER — "Ready to Bridge Your Future?" + Download Brochure
+   755→         ════════════════════════════════════════════════════════════ */}
+   756→      <section className="section-pad relative overflow-hidden bg-midnight">
+   757→        <div className="pattern-asanoha-dark absolute inset-0 opacity-60" />
+   758→        <div
+   759→          className="absolute inset-0"
+   760→          style={{
+   761→            background:
+   762→              "radial-gradient(ellipse at 50% 50%, rgba(188,26,44,0.12), transparent 60%)",
+   763→          }}
+   764→        />
+   765→        <div className="container-jg relative">
+   766→          <Reveal>
+   767→            <div className="mx-auto max-w-2xl text-center">
+   768→              <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-crimson/15 text-crimson">
+   769→                <Building2 className="h-6 w-6" strokeWidth={1.5} />
+   770→              </span>
+   771→              <h2
+   772→                className="mt-4 font-serif-jp font-bold leading-[1.15] text-white"
+   773→                style={{ fontSize: "clamp(1.125rem, 2vw, 1.5rem)" }}
+   774→              >
+   775→                {t("home.cta.title")}
+   776→              </h2>
+   777→              <p
+   778→                className="mx-auto mt-4 max-w-lg font-inter font-light leading-relaxed text-mist"
+   779→                style={{ fontSize: "clamp(0.85rem, 1.4vw, 1rem)" }}
+   780→              >
+   781→                {t("home.cta.subtitle")}
+   782→              </p>
+   783→              <Link
+   784→                href="/auth/brochure"
+   785→                className="btn-shine mt-6 inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-7 py-3 font-inter text-[14px] font-semibold text-white shadow-[0_0_24px_rgba(188,26,44,0.45)] transition-all hover:-translate-y-0.5"
+   786→              >
+   787→                <Download className="h-4 w-4" />
+   788→                {t("nav.brochure")}
+   789→              </Link>
+   790→            </div>
+   791→          </Reveal>
+   792→        </div>
+   793→      </section>
+   794→    </>
+   795→  );
+   796→}
+   797→

@@ -31,14 +31,14 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "J-Gate | Bridging Japan & India — Talent, Training, Business",
   description:
-    "J-Gate bridges global and Indian talent with Japan's enterprise opportunities through recruitment, language training, and bilateral business consulting. Operated by Indobox India Pvt. Ltd.",
+    "J-Gate bridges global and Indian talent with Japan's enterprise opportunities through dedicated workspaces, Japan Desk support, and bilateral business consulting. Operated by Indobox India Pvt. Ltd.",
   keywords: [
     "J-Gate",
     "Jゲート",
     "Japan India talent",
-    "Japan India recruitment",
-    "JLPT training",
-    "NAT preparation",
+    "Japan India coworking",
+    
+    
     "Japan India business",
     "Indobox India",
     "Cyber Gateway Hyderabad",

@@ -1225,3 +1225,26 @@ Stage Summary:
 - All 12 ecosystem partners now displayed in logo marquee with real logos where available.
 - 15/18 tiles use real logo images, 3 use styled text tiles.
 - All 9 routes 200, lint clean.
+
+---
+Task ID: TEAM-REBUILD
+Agent: Z.ai Code (main)
+Task: Rebuild Team page per client screenshots — order: Operations Team → Board of Advisory → Ecosystem Partners with logos.
+
+Work Log:
+- Analyzed both client screenshots (Screenshot 2026-08-17 163157.png + 163225.png) via VLM:
+  • Screenshot 1: Operations Team with 4 members + Japanese consultation CTA
+  • Screenshot 2: Board of Advisory (5 members) + Ecosystem Partners (12 with logos)
+- Rebuilt /team/page.tsx with exact order per screenshots:
+  1. PageHero
+  2. Operations Team (4 members): 2×2 grid of compact horizontal cards (80px rounded-square photos, name, JP name, role badge, phone/email/LinkedIn). Japanese consultation CTA below: "Feel free to consult about anything. Support is provided in Japanese." / "なんでもお気軽にご相談ください。日本語でご対応いたします。"
+  3. Board of Advisory (5 advisors): dark midnight section with gold top-border cards. 3+2+1 grid (6th slot is a summary card "5 Advisors"). Each card: 64px rounded-square photo + name + former title.
+  4. Ecosystem Partners (12 partners): clean white grid (4 cols). Each tile: logo image (where available) + partner name + category. All 12 from client list: Kodryx.ai, YANC, Daakia, Fingerprint Films, MXC, Hyderabad Japan Club, JETRO, T-Hub, Woxsen University, Genesys Info X, DMI, DATA INTELLIGENCE.
+  5. Closing CTA: Contact + Download Brochure buttons.
+
+Stage Summary:
+- VLM ratings: Operations Team 9/10, Advisory Board 8/10, Ecosystem Partners 8/10.
+- Section order matches client screenshots exactly.
+- All 12 ecosystem partners with logos (9 image logos + 3 styled text tiles).
+- Japanese consultation CTA present.
+- All routes 200, lint clean.

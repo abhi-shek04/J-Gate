@@ -1,0 +1,657 @@
+     1→"use client";
+     2→
+     3→import { Reveal, Eyebrow } from "@/components/jgate/shared";
+     4→import { PageHero } from "@/components/jgate/page-hero";
+     5→import { Photo } from "@/components/jgate/photo";
+     6→import { useI18n } from "@/lib/i18n";
+     7→import {
+     8→  ArrowRight,
+     9→  Sparkles,
+    10→  Award,
+    11→  Users,
+    12→  Cpu,
+    13→  FlaskConical,
+    14→  Briefcase,
+    15→  Building2,
+    16→  Lightbulb,
+    17→  Heart,
+    18→  Globe2,
+    19→  Phone,
+    20→  Mail,
+    21→  Linkedin,
+    22→  Quote as QuoteIcon,
+    23→  Network,
+    24→} from "lucide-react";
+    25→import Link from "next/link";
+    26→
+    27→/* ============================================================
+    28→   Team — v3.0 Definitive Redesign (THE MOST IMPORTANT PAGE)
+    29→   Architecture:
+    30→     1. PageHero — "Leadership & Team" / "The Minds Behind J-Gate"
+    31→     2. Operations Team (4 members) — HERO editorial cards,
+    32→        full-width split (45% photo / 55% content),
+    33→        ALTERNATING photo sides (left, right, left, right).
+    34→        Each: large photo, flag, role badge, name (Noto Serif JP),
+    35→        JP name, thin crimson divider, full bio, quote block,
+    36→        contact row.
+    37→     3. Advisory Board (navy dark) — 5 cards in 3+2 grid (bottom 2 centered),
+    38→        portrait 240×280, gold top-border (3px saffron),
+    39→        name + JP name + role (saffron) + former title (mist) + short bio.
+    40→     4. Ecosystem Partners — 12-tile clean grid,
+    41→        name (Inter 700 15px) + category (Inter 400 12px mist),
+    42→        white bg, shadow-sm, 12px radius, hover translateY(-4px).
+    43→     5. Closing CTA
+    44→   ============================================================ */
+    45→
+    46→type Bilingual = { EN: string; JP: string };
+    47→
+    48→/* ── Section 2 — J-Gate Operations Team (Slide 13) — REAL bios ── */
+    49→const OPS_TEAM = [
+    50→  {
+    51→    photoId: "photo-team-tanji",
+    52→    fallback: "grad-founder-tanji",
+    53→    initials: "DT",
+    54→    flag: "🇯🇵",
+    55→    name: "Daisuke TANJI",
+    56→    jpName: "丹治 大佑",
+    57→    role: { EN: "Director", JP: "ディレクター" } as Bilingual,
+    58→    roleAccent: "crimson" as const,
+    59→    bio: {
+    60→      EN: "Daisuke Tanji arrived in India in 2013 with a conviction that Japan and India, when properly connected, could build something extraordinary. Over the following decade, he immersed himself in Indian business while never losing his Japanese perspective — learning the rhythms, building the relationships, and developing the trust that now forms the foundation of everything J-Gate represents. As the Representative of Indobox India and the Director of J-Gate, he is the living bridge between both nations.",
+    61→      JP: "丹治大佑は2013年にインドへ渡り、日本とインドが正しく結ばれれば並外れたものを生み出せるとの確信を胸に活動を始めました。それからの10年間、彼は日本の視点を失うことなくインドビジネスに没頭 — リズムを学び、関係を築き、信頼を育てました。その信頼こそがJ-Gateのすべての基盤です。Indobox India代表でありJ-Gateのディレクターとして、彼は両国をつなぐ生きた架け橋です。",
+    62→    } as Bilingual,
+    63→    quote: {
+    64→      EN: "The 'right answer' to expanding into India — that is what we provide. Not information. Not introductions. A complete, operational home in India for your business.",
+    65→      JP: "インド進出の「正解」を私たちは提供します。情報でも紹介でもない。インドにおける完全で機能的なホームを、貴社のビジネスのために。",
+    66→    } as Bilingual,
+    67→    phone: "+91-9910360648",
+    68→    email: "contact@indobox.co.jp",
+    69→    linkedin: "#",
+    70→  },
+    71→  {
+    72→    photoId: "photo-team-hanaoka",
+    73→    fallback: "grad-team",
+    74→    initials: "MH",
+    75→    flag: "🇯🇵",
+    76→    name: "Mariko HANAOKA",
+    77→    jpName: "花岡 真理子",
+    78→    role: { EN: "Director", JP: "ディレクター" } as Bilingual,
+    79→    roleAccent: "saffron" as const,
+    80→    bio: {
+    81→      EN: "Mariko Hanaoka brings precision and warmth to J-Gate operations — overseeing client relationships, program delivery, and the Japan-facing side of every bilateral handoff. Her fluency in both Japanese corporate culture and India's business environment makes her the vital link between Tokyo-side expectations and Hyderabad-side reality. Every client relationship that flows through J-Gate benefits from her meticulous care and bilingual excellence.",
+    82→      JP: "花岡真理子はJ-Gate運営に precision と温かさをもたらします — 顧客関係、プログラム提供、両国間引き継ぎの日本側を統括。日本の企業文化とインドのビジネス環境双方への流暢さにより、東京側の期待とハイデラバード側の現実を結ぶ重要な架け橋です。J-Gateを流れるすべての顧客関係は、彼女の几帳面な配慮とバイリンガルの卓越さから恩恵を受けます。",
+    83→    } as Bilingual,
+    84→    quote: {
+    85→      EN: "Between Tokyo's expectations and Hyderabad's reality — that gap is where we do our most important work.",
+    86→      JP: "東京の期待とハイデラバードの現実の間 — その隙間こそが、私たちの最も重要な仕事の場です。",
+    87→    } as Bilingual,
+    88→    phone: "",
+    89→    email: "contact@indobox.co.jp",
+    90→    linkedin: "#",
+    91→  },
+    92→  {
+    93→    photoId: "photo-team-dheeraj",
+    94→    fallback: "grad-team",
+    95→    initials: "DY",
+    96→    flag: "🇮🇳",
+    97→    name: "Dheeraj YANNETI",
+    98→    jpName: "ディラジ・ヤンネティ",
+    99→    role: { EN: "Community Manager", JP: "コミュニティマネージャー" } as Bilingual,
+   100→    roleAccent: "crimson" as const,
+   101→    bio: {
+   102→      EN: "Dheeraj Yanneti is the daily heartbeat of J-Gate Hyderabad — the face every member sees, the voice that answers every question, and the cultural bridge that makes Japanese professionals feel genuinely at home in Hyderabad. Managing tenant relations, orchestrating networking events, and solving the small operational puzzles that make a workspace truly livable — Dheeraj owns it all with the attentiveness that defines J-Gate's Omotenashi standard.",
+   103→      JP: "ディラジ・ヤンネティはJ-Gateハイデラバードの日常の中核です — すべてのメンバーが出会う顔、すべての問いに答える声、日本のプロフェッショナルをハイデラバードで本当に我が家と感じさせる文化の架け橋。テナント関係の管理、ネットワーキングイベントの演出、ワークスペースを真に住みやすくする小さな運営のパズルを解く — すべてをJ-Gateのおもてなし基準を定義する attention で担います。",
+   104→    } as Bilingual,
+   105→    quote: {
+   106→      EN: "Omotenashi is not a service level — it is an attentiveness to the small things that make people feel seen.",
+   107→      JP: "おもてなしとはサービス水準ではなく — 人が「見られている」と感じる小さなことへの attention です。",
+   108→    } as Bilingual,
+   109→    phone: "+91-98498 11543",
+   110→    email: "",
+   111→    linkedin: "#",
+   112→  },
+   113→  {
+   114→    photoId: "photo-team-abhishek",
+   115→    fallback: "grad-team",
+   116→    initials: "AB",
+   117→    flag: "🇮🇳",
+   118→    name: "Abhishek BUDURU",
+   119→    jpName: "アブシェーク・ブドゥル",
+   120→    role: { EN: "Intern / Tech", JP: "インターン・技術" } as Bilingual,
+   121→    roleAccent: "saffron" as const,
+   122→    bio: {
+   123→      EN: "Abhishek Buduru powers the technical layer of J-Gate — maintaining the workspace infrastructure, digital systems, and operational tools that keep J-Gate running smoothly for every member. As the youngest member of the team, he brings a sharp technical mind and a commitment to making J-Gate's digital experience as premium as its physical one.",
+   124→      JP: "アブシェーク・ブドゥルはJ-Gateの技術レイヤーを支えます — ワークスペースインフラ、デジタルシステム、運営ツールを維持し、すべてのメンバーに向けてJ-Gateを円滑に稼働させます。チーム最年少メンバーとして、鋭い技術的思考と、J-Gateのデジタル体験を物理的体験と同等にプレミアムにするという commit をもたらします。",
+   125→    } as Bilingual,
+   126→    quote: {
+   127→      EN: "A premium workspace deserves a digital experience just as premium — that's the standard we build to.",
+   128→      JP: "プレミアムなワークスペースには、同じくプレミアムなデジタル体験がふさわしい — それが私たちの build する基準です。",
+   129→    } as Bilingual,
+   130→    phone: "",
+   131→    email: "",
+   132→    linkedin: "#",
+   133→  },
+   134→] as const;
+   135→
+   136→/* ── Section 3 — Board of Advisory (Slide 12) — 5 advisors ── */
+   137→const ADVISORS = [
+   138→  {
+   139→    photoId: "photo-advisory-mahankali",
+   140→    fallback: "grad-advisory-j",
+   141→    initials: "SM",
+   142→    name: "Srinivas Rao Mahankali",
+   143→    jpName: "スリニヴァス・ラオ・マハンカリ",
+   144→    role: { EN: "Former CEO, T-Hub", JP: "元CEO、T-Hub" } as Bilingual,
+   145→    formerTitle: { EN: "Former CEO", JP: "元CEO" } as Bilingual,
+   146→    bio: {
+   147→      EN: "Led T-Hub — India's largest startup hub — through its most critical growth phase, shaping the innovation ecosystem that J-Gate now plugs into.",
+   148→      JP: "インド最大のスタートアップハブT-Hubを最も重要な成長期に主導 — J-Gateが今接続するイノベーション生態系を形作りました。",
+   149→    } as Bilingual,
+   150→    icon: Award,
+   151→  },
+   152→  {
+   153→    photoId: "photo-advisory-jagirdar",
+   154→    fallback: "grad-advisory-s",
+   155→    initials: "SJ",
+   156→    name: "Sujit Jagirdar",
+   157→    jpName: "スジット・ジャギルダール",
+   158→    role: { EN: "Former CIO, T-Hub", JP: "元CIO、T-Hub" } as Bilingual,
+   159→    formerTitle: { EN: "Former CIO", JP: "元CIO" } as Bilingual,
+   160→    bio: {
+   161→      EN: "Oversaw digital infrastructure at India's largest startup hub — the institutional technology perspective that informs J-Gate's own systems.",
+   162→      JP: "インド最大のスタートアップハブでデジタルインフラを統括 — J-Gate自身のシステムを方向付ける機関的技術視点。",
+   163→    } as Bilingual,
+   164→    icon: Cpu,
+   165→  },
+   166→  {
+   167→    photoId: "photo-advisory-desai",
+   168→    fallback: "grad-advisory-j",
+   169→    initials: "UD",
+   170→    name: "Dr. Uday B. Desai",
+   171→    jpName: "ウダイ・B・デサイ博士",
+   172→    role: { EN: "Founding Director, IIT Hyderabad", JP: "初代ディレクター、IIT Hyderabad" } as Bilingual,
+   173→    formerTitle: { EN: "Founding Director", JP: "初代ディレクター" } as Bilingual,
+   174→    bio: {
+   175→      EN: "Founding Director of IIT Hyderabad — the academic gravitas that connects J-Gate to India's deepest engineering talent pipeline.",
+   176→      JP: "IIT Hyderabadの初代ディレクター — J-Gateをインドの最も深いエンジニアリング人材パイプラインに結ぶ学術的 gravitas。",
+   177→    } as Bilingual,
+   178→    icon: FlaskConical,
+   179→  },
+   180→  {
+   181→    photoId: "photo-advisory-sarikonda",
+   182→    fallback: "grad-advisory-s",
+   183→    initials: "VS",
+   184→    name: "Dr. Viinay Sarikonda",
+   185→    jpName: "ヴィイナイ・サリコンダ博士",
+   186→    role: { EN: "CEO, Genesys Info X · MoU Partner", JP: "CEO、Genesys Info X・MoUパートナー" } as Bilingual,
+   187→    formerTitle: { EN: "CEO · MoU Partner", JP: "CEO・MoUパートナー" } as Bilingual,
+   188→    bio: {
+   189→      EN: "CEO of Genesys Info X — the India-side operating partner under formal MoU, jointly responsible for J-Gate Hyderabad's daily operations.",
+   190→      JP: "Genesys Info XのCEO — 公式MoUに基づくインド側運営パートナー、J-Gateハイデラバードの日常運営を共同で担います。",
+   191→    } as Bilingual,
+   192→    icon: Briefcase,
+   193→  },
+   194→  {
+   195→    photoId: "photo-advisory-isogai",
+   196→    fallback: "grad-advisory-j",
+   197→    initials: "TI",
+   198→    name: "Tomio Isogai",
+   199→    jpName: "磯貝 富雄",
+   200→    role: { EN: "Indobox Advisor · Former MD, Sharp India", JP: "Indoboxアドバイザー・元シャープインドリア代表" } as Bilingual,
+   201→    formerTitle: { EN: "Former MD, Sharp India", JP: "元シャープインドリア代表" } as Bilingual,
+   202→    bio: {
+   203→      EN: "Former Managing Director of Sharp India — decades of operational leadership running a major Japanese enterprise on Indian soil, now channeled into Indobox Academy.",
+   204→      JP: "元シャープインドリア代表取締役 — インドで大手日本企業の経営を長年支えたリーダーシップを、現在はIndobox Academyに変換。",
+   205→    } as Bilingual,
+   206→    icon: Lightbulb,
+   207→  },
+   208→] as const;
+   209→
+   210→/* ── Section 4 — Ecosystem Partners — 12 partners ── */
+   211→const PARTNERS = [
+   212→  { name: "Kodryx.ai", tag: "DATA INTELLIGENCE", icon: Cpu },
+   213→  { name: "YANC", tag: "YOUNG MINDS NETWORKING", icon: Users },
+   214→  { name: "Daakia", tag: "BRIDGING DISTANCE", icon: Globe2 },
+   215→  { name: "Fingerprint Films", tag: "CREATIVE STUDIO", icon: Award },
+   216→  { name: "MXC", tag: "TECHNOLOGY PARTNER", icon: Briefcase },
+   217→  { name: "Hyderabad Japan Club", tag: "COMMUNITY", icon: Heart },
+   218→  { name: "JETRO", tag: "TRADE PROMOTION", icon: Network },
+   219→  { name: "T-Hub", tag: "INNOVATION HUB", icon: Building2 },
+   220→  { name: "Woxsen University", tag: "ACADEMIC PARTNER", icon: FlaskConical },
+   221→  { name: "Genesys Info X", tag: "MoU PARTNER", icon: Briefcase },
+   222→  { name: "DMI", tag: "DIGITAL MEDIA", icon: Cpu },
+   223→  { name: "DATA INTELLIGENCE", tag: "ANALYTICS", icon: Network },
+   224→] as const;
+   225→
+   226→const ROLE_ACCENT = {
+   227→  crimson: {
+   228→    bar: "from-crimson to-crimson-deep",
+   229→    text: "text-crimson",
+   230→    chipBg: "bg-crimson/10",
+   231→    divider: "bg-crimson/30",
+   232→  },
+   233→  saffron: {
+   234→    bar: "from-saffron to-[#c9881a]",
+   235→    text: "text-saffron",
+   236→    chipBg: "bg-saffron/10",
+   237→    divider: "bg-saffron/30",
+   238→  },
+   239→} as const;
+   240→
+   241→export default function TeamPage() {
+   242→  const { tx } = useI18n();
+   243→
+   244→  return (
+   245→    <>
+   246→      <PageHero
+   247→        eyebrowKey="team.eyebrow"
+   248→        titleNode={
+   249→          <>
+   250→            {tx({ EN: "Leadership &", JP: "J-Gateを" })}
+   251→            <br />
+   252→            <span className="text-gradient-saffron">
+   253→              {tx({ EN: "Team", JP: "支える人々" })}
+   254→            </span>
+   255→          </>
+   256→        }
+   257→        subtitleKey="team.title"
+   258→      />
+   259→
+   260→      {/* ───────────────────────────────────────────────────────────
+   261→          Section 1 — Hero header message band
+   262→         ─────────────────────────────────────────────────────────── */}
+   263→      <section className="relative overflow-hidden bg-navy py-14 sm:py-16">
+   264→        <div className="pattern-asanoha-navy absolute inset-0 opacity-50" />
+   265→        <div
+   266→          className="absolute inset-0"
+   267→          style={{
+   268→            background:
+   269→              "radial-gradient(ellipse at 50% 50%, rgba(232,160,26,0.10), transparent 65%)",
+   270→          }}
+   271→        />
+   272→        <div className="container-jg relative">
+   273→          <Reveal>
+   274→            <div className="mx-auto max-w-3xl text-center">
+   275→              <Sparkles className="mx-auto h-7 w-7 text-saffron" strokeWidth={1.5} />
+   276→              <p
+   277→                className="mt-4 font-serif-jp font-bold leading-[1.3] text-white"
+   278→                style={{ fontSize: "clamp(1.5rem,3.5vw,2.25rem)" }}
+   279→              >
+   280→                {tx({
+   281→                  EN: "Unlocking new possibilities for your business through collaboration with India.",
+   282→                  JP: "インドとの連携で、貴社のビジネスに新たな可能性を。",
+   283→                })}
+   284→              </p>
+   285→              <p
+   286→                className="mx-auto mt-3 font-sans-jp font-medium leading-relaxed text-saffron-light"
+   287→                style={{ fontSize: "clamp(0.95rem,1.6vw,1.125rem)" }}
+   288→              >
+   289→                {tx({
+   290→                  EN: "— The J-Gate Operations Team",
+   291→                  JP: "— J-Gate運営チームより",
+   292→                })}
+   293→              </p>
+   294→            </div>
+   295→          </Reveal>
+   296→        </div>
+   297→      </section>
+   298→
+   299→      {/* ───────────────────────────────────────────────────────────
+   300→          Section 2 — Operations Team (4 members) — HERO editorial cards
+   301→          Full-width split: 45% photo / 55% content.
+   302→          ALTERNATING photo sides (left, right, left, right).
+   303→         ─────────────────────────────────────────────────────────── */}
+   304→      <section className="section-pad bg-ivory">
+   305→        <div className="container-jg">
+   306→          <Reveal>
+   307→            <div className="mx-auto max-w-3xl text-center">
+   308→              <Eyebrow>
+   309→                {tx({ EN: "J-Gate Operations Team", JP: "J-Gate運営チーム" })}
+   310→              </Eyebrow>
+   311→              <h2
+   312→                className="mt-4 font-serif-jp font-bold leading-[1.2] text-ink"
+   313→                style={{ fontSize: "clamp(1.875rem,4vw,2.5rem)" }}
+   314→              >
+   315→                {tx({ EN: "Four People, One Operating Engine", JP: "4名の運営、ひとつのエンジン" })}
+   316→              </h2>
+   317→              <p className="mx-auto mt-3 max-w-2xl font-inter text-[14px] leading-relaxed text-slate">
+   318→                {tx({
+   319→                  EN: "A four-person operations team that owns every J-Gate client engagement end-to-end — from corporate establishment to daily operations.",
+   320→                  JP: "J-Gateのすべての顧客エンゲージメントをエンドツーエンドで担う4名の運営チーム — 法人設立から日常オペレーションまで。",
+   321→                })}
+   322→              </p>
+   323→            </div>
+   324→          </Reveal>
+   325→
+   326→          {/* Hero editorial cards — alternating photo sides */}
+   327→          <div className="mt-12 flex flex-col gap-8 lg:gap-12">
+   328→            {OPS_TEAM.map((m, i) => {
+   329→              const a = ROLE_ACCENT[m.roleAccent];
+   330→              const photoLeft = i % 2 === 0; // left, right, left, right
+   331→              return (
+   332→                <Reveal key={i} delay={i * 60} variant={photoLeft ? "left" : "right"}>
+   333→                  <article className="lift-card relative grid h-full overflow-hidden rounded-lg border border-slate-200 bg-pearl shadow-card lg:grid-cols-[45%_55%]">
+   334→                    {/* Top accent bar */}
+   335→                    <span className={`absolute inset-x-0 top-0 z-20 h-1.5 bg-gradient-to-r ${a.bar}`} />
+   336→
+   337→                    {/* Photo side — 45% */}
+   338→                    <div className={`relative overflow-hidden ${photoLeft ? "lg:order-1" : "lg:order-2"}`}>
+   339→                      <Photo
+   340→                        id={m.photoId}
+   341→                        alt={`${m.name}, ${tx(m.role)}`}
+   342→                        fallback={m.fallback}
+   343→                        initials={m.initials}
+   344→                        rounded="rounded-none"
+   345→                        className="h-72 w-full sm:h-80 lg:h-[480px]"
+   346→                      />
+   347→                      {/* Flag badge overlay on photo */}
+   348→                      <span className="absolute left-4 top-4 flex h-9 items-center gap-1.5 rounded-full bg-black/40 px-3 backdrop-blur-sm">
+   349→                        <span className="text-base" aria-hidden="true">{m.flag}</span>
+   350→                        <span className="font-inter text-[10px] font-semibold uppercase text-white" style={{ letterSpacing: "0.12em" }}>
+   351→                          {m.flag === "🇯🇵" ? "JP" : "IN"}
+   352→                        </span>
+   353→                      </span>
+   354→                    </div>
+   355→
+   356→                    {/* Content side — 55% */}
+   357→                    <div className={`relative flex flex-col justify-center p-6 sm:p-8 lg:p-10 ${photoLeft ? "lg:order-2" : "lg:order-1"}`}>
+   358→                      {/* Role badge */}
+   359→                      <span
+   360→                        className={`inline-flex w-fit items-center gap-1.5 rounded-full ${a.chipBg} ${a.text} px-3 py-1 font-inter text-[10px] font-bold uppercase`}
+   361→                        style={{ letterSpacing: "0.12em" }}
+   362→                      >
+   363→                        {tx(m.role)}
+   364→                      </span>
+   365→
+   366→                      {/* Name — Noto Serif JP, 40-48px */}
+   367→                      <h3
+   368→                        className="mt-4 font-serif-jp font-bold leading-[1.1] text-ink"
+   369→                        style={{ fontSize: "clamp(1.75rem, 3.6vw, 2.75rem)" }}
+   370→                      >
+   371→                        {m.name}
+   372→                      </h3>
+   373→                      <p className="mt-1 font-sans-jp text-[17px] font-semibold text-slate">
+   374→                        {m.jpName}
+   375→                      </p>
+   376→
+   377→                      {/* Thin crimson divider */}
+   378→                      <span className={`mt-4 block h-px w-16 ${a.divider}`} />
+   379→
+   380→                      {/* Full bio */}
+   381→                      <p className="mt-5 font-inter text-[15px] font-normal leading-[1.8] text-slate sm:text-[16px]">
+   382→                        {tx(m.bio)}
+   383→                      </p>
+   384→
+   385→                      {/* Quote block */}
+   386→                      <blockquote className="mt-6 border-l-[3px] border-crimson pl-5">
+   387→                        <QuoteIcon className="h-4 w-4 text-crimson opacity-50" strokeWidth={1.5} />
+   388→                        <p className="mt-2 font-serif-jp text-[14px] italic leading-relaxed text-ink sm:text-[15px]">
+   389→                          {tx(m.quote)}
+   390→                        </p>
+   391→                      </blockquote>
+   392→
+   393→                      {/* Contact row */}
+   394→                      <div className="mt-6 flex flex-wrap items-center gap-2">
+   395→                        {m.phone && (
+   396→                          <a
+   397→                            href={`tel:${m.phone.replace(/\s/g, "")}`}
+   398→                            className="flex items-center gap-1.5 rounded-md border border-slate-200 bg-ivory-warm/60 px-3 py-1.5 font-inter text-[12px] text-slate transition-colors hover:border-crimson/30 hover:bg-ivory-warm hover:text-crimson"
+   399→                          >
+   400→                            <Phone className="h-3.5 w-3.5" strokeWidth={1.5} />
+   401→                            {m.phone}
+   402→                          </a>
+   403→                        )}
+   404→                        {m.email && (
+   405→                          <a
+   406→                            href={`mailto:${m.email}`}
+   407→                            className="flex items-center gap-1.5 rounded-md border border-slate-200 bg-ivory-warm/60 px-3 py-1.5 font-inter text-[12px] text-slate transition-colors hover:border-crimson/30 hover:bg-ivory-warm hover:text-crimson"
+   408→                          >
+   409→                            <Mail className="h-3.5 w-3.5" strokeWidth={1.5} />
+   410→                            {m.email}
+   411→                          </a>
+   412→                        )}
+   413→                        {m.linkedin && (
+   414→                          <a
+   415→                            href={m.linkedin}
+   416→                            aria-label={`${m.name} LinkedIn`}
+   417→                            className="flex h-8 w-8 items-center justify-center rounded-md border border-slate-200 bg-ivory-warm/60 text-slate transition-colors hover:border-crimson/30 hover:bg-crimson/10 hover:text-crimson"
+   418→                          >
+   419→                            <Linkedin className="h-3.5 w-3.5" strokeWidth={1.5} />
+   420→                          </a>
+   421→                        )}
+   422→                      </div>
+   423→                    </div>
+   424→                  </article>
+   425→                </Reveal>
+   426→              );
+   427→            })}
+   428→          </div>
+   429→        </div>
+   430→      </section>
+   431→
+   432→      {/* ───────────────────────────────────────────────────────────
+   433→          Section 3 — Advisory Board (navy dark section)
+   434→          5 cards: 3 top + 2 bottom centered.
+   435→          Portrait 240×280, gold top-border (3px saffron),
+   436→          name + JP name + role (saffron) + former title (mist) + short bio.
+   437→         ─────────────────────────────────────────────────────────── */}
+   438→      <section className="section-pad relative overflow-hidden bg-midnight">
+   439→        <div className="pattern-asanoha-dark absolute inset-0 opacity-60" />
+   440→        <div
+   441→          className="absolute inset-0"
+   442→          style={{
+   443→            background:
+   444→              "radial-gradient(ellipse at 30% 30%, rgba(232,160,26,0.10), transparent 55%), radial-gradient(ellipse at 80% 80%, rgba(188,26,44,0.08), transparent 55%)",
+   445→          }}
+   446→        />
+   447→        <div className="container-jg relative">
+   448→          <Reveal>
+   449→            <div className="mx-auto max-w-3xl text-center">
+   450→              <Eyebrow light>
+   451→                {tx({ EN: "Board of Advisory", JP: "諮問委員会" })}
+   452→              </Eyebrow>
+   453→              <h2
+   454→                className="mt-4 font-serif-jp font-bold leading-[1.2] text-white"
+   455→                style={{ fontSize: "clamp(1.875rem,4vw,2.5rem)" }}
+   456→              >
+   457→                {tx({ EN: "Five Voices That Set the Standard", JP: "基準を定める5つの声" })}
+   458→              </h2>
+   459→              <p className="mx-auto mt-3 max-w-2xl font-inter text-[14px] leading-relaxed text-mist">
+   460→                {tx({
+   461→                  EN: "Former CEOs, CIOs, founding directors, and managing directors — institutional experience that shapes every J-Gate decision.",
+   462→                  JP: "元CEO、元CIO、初代ディレクター、代表取締役 — J-Gateの決定を形作る機関的経験。",
+   463→                })}
+   464→              </p>
+   465→            </div>
+   466→          </Reveal>
+   467→
+   468→          {/* 3 top + 2 bottom centered */}
+   469→          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+   470→            {/* Top 3 */}
+   471→            {ADVISORS.slice(0, 3).map((adv, i) => (
+   472→              <Reveal key={i} delay={i * 80}>
+   473→                <AdvisorCard advisor={adv} />
+   474→              </Reveal>
+   475→            ))}
+   476→          </div>
+   477→          <div className="mx-auto mt-5 grid max-w-4xl gap-5 sm:grid-cols-2 lg:grid-cols-2">
+   478→            {/* Bottom 2 — centered */}
+   479→            {ADVISORS.slice(3).map((adv, i) => (
+   480→              <Reveal key={i} delay={(i + 3) * 80}>
+   481→                <AdvisorCard advisor={adv} />
+   482→              </Reveal>
+   483→            ))}
+   484→          </div>
+   485→        </div>
+   486→      </section>
+   487→
+   488→      {/* ───────────────────────────────────────────────────────────
+   489→          Section 4 — Ecosystem Partners — 12-tile clean grid
+   490→          White bg, shadow-sm, 12px radius, hover translateY(-4px).
+   491→         ─────────────────────────────────────────────────────────── */}
+   492→      <section className="section-pad bg-ivory">
+   493→        <div className="container-jg">
+   494→          <Reveal>
+   495→            <div className="mx-auto max-w-3xl text-center">
+   496→              <Eyebrow>
+   497→                {tx({ EN: "Ecosystem Partners", JP: "エコシステムパートナー" })}
+   498→              </Eyebrow>
+   499→              <h2
+   500→                className="mt-4 font-serif-jp font-bold leading-[1.2] text-ink"
+   501→                style={{ fontSize: "clamp(1.875rem,4vw,2.5rem)" }}
+   502→              >
+   503→                {tx({ EN: "Twelve Partners, One Network", JP: "12のパートナー、ひとつのネットワーク" })}
+   504→              </h2>
+   505→              <p className="mx-auto mt-3 max-w-2xl font-inter text-[14px] leading-relaxed text-slate">
+   506→                {tx({
+   507→                  EN: "Specialised ecosystem partners — from data intelligence and creative studios to community organisations and trade bodies — each plugged into the J-Gate operating environment.",
+   508→                  JP: "データインテリジェンスやクリエイティブスタジオからコミュニティ組織・貿易機関まで — 12の専門パートナーがJ-Gate運営環境に接続。",
+   509→                })}
+   510→              </p>
+   511→            </div>
+   512→          </Reveal>
+   513→
+   514→          {/* 12-tile clean grid */}
+   515→          <div className="mt-10 grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
+   516→            {PARTNERS.map((p, i) => (
+   517→              <Reveal key={i} delay={i * 50}>
+   518→                <article
+   519→                  className="group flex h-full flex-col items-start gap-2 rounded-xl bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-card sm:p-5"
+   520→                  style={{ borderRadius: "12px" }}
+   521→                >
+   522→                  <span className="flex h-10 w-10 items-center justify-center rounded-md bg-slate-100 text-slate transition-colors group-hover:bg-crimson/10 group-hover:text-crimson">
+   523→                    <p.icon className="h-5 w-5" strokeWidth={1.5} />
+   524→                  </span>
+   525→                  <div className="min-w-0">
+   526→                    <h3
+   527→                      className="font-inter text-[15px] font-bold leading-tight text-ink"
+   528→                    >
+   529→                      {p.name}
+   530→                    </h3>
+   531→                    <p
+   532→                      className="mt-0.5 font-inter text-[12px] font-medium uppercase text-mist"
+   533→                      style={{ letterSpacing: "0.08em" }}
+   534→                    >
+   535→                      {p.tag}
+   536→                    </p>
+   537→                  </div>
+   538→                </article>
+   539→              </Reveal>
+   540→            ))}
+   541→          </div>
+   542→        </div>
+   543→      </section>
+   544→
+   545→      {/* ───────────────────────────────────────────────────────────
+   546→          Closing CTA
+   547→         ─────────────────────────────────────────────────────────── */}
+   548→      <section className="section-pad bg-ivory-warm">
+   549→        <div className="container-jg">
+   550→          <Reveal>
+   551→            <div className="mx-auto max-w-2xl text-center">
+   552→              <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-crimson/10 text-crimson">
+   553→                <Building2 className="h-6 w-6" strokeWidth={1.5} />
+   554→              </span>
+   555→              <h2
+   556→                className="mt-6 font-serif-jp font-bold leading-[1.2] text-ink"
+   557→                style={{ fontSize: "clamp(1.75rem,3.5vw,2.25rem)" }}
+   558→              >
+   559→                {tx({
+   560→                  EN: "Talk to the Team That Builds the Bridge",
+   561→                  JP: "架け橋を築くチームにご相談ください",
+   562→                })}
+   563→              </h2>
+   564→              <p className="mx-auto mt-3 font-inter text-[14px] leading-relaxed text-slate">
+   565→                {tx({
+   566→                  EN: "From corporate setup to talent development to daily operations — the same team you see above will own your engagement.",
+   567→                  JP: "法人設立から人材育成、日常オペレーションまで — 上記のチームがお客様のエンゲージメントを担当します。",
+   568→                })}
+   569→              </p>
+   570→              <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
+   571→                <Link
+   572→                  href="/contact"
+   573→                  className="btn-shine flex items-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-7 py-3.5 font-inter text-[14px] font-semibold text-white shadow-[0_0_20px_rgba(188,26,44,0.35)] transition-all hover:-translate-y-0.5"
+   574→                >
+   575→                  {tx({ EN: "Contact Us", JP: "お問い合わせ" })}
+   576→                  <ArrowRight className="h-4 w-4" />
+   577→                </Link>
+   578→                <Link
+   579→                  href="/services"
+   580→                  className="rounded-md border border-crimson/30 px-7 py-3.5 font-inter text-[14px] font-semibold text-crimson transition-all hover:-translate-y-0.5 hover:bg-crimson/5"
+   581→                >
+   582→                  {tx({ EN: "Explore Services", JP: "サービスを見る" })}
+   583→                </Link>
+   584→              </div>
+   585→            </div>
+   586→          </Reveal>
+   587→        </div>
+   588→      </section>
+   589→    </>
+   590→  );
+   591→}
+   592→
+   593→/* ============================================================
+   594→   AdvisorCard — single advisor portrait card
+   595→   ============================================================ */
+   596→function AdvisorCard({
+   597→  advisor,
+   598→}: {
+   599→  advisor: (typeof ADVISORS)[number];
+   600→}) {
+   601→  const { tx } = useI18n();
+   602→  return (
+   603→    <article className="lift-card glass-dark relative flex h-full flex-col overflow-hidden rounded-lg border border-saffron/20 p-6">
+   604→      {/* Gold top-border — 3px solid saffron */}
+   605→      <span
+   606→        className="absolute inset-x-0 top-0 h-[3px]"
+   607→        style={{ backgroundColor: "#e8a01a" }}
+   608→      />
+   609→
+   610→      {/* Portrait photo 240×280 — responsive aspect */}
+   611→      <div className="mx-auto w-full max-w-[240px]">
+   612→        <Photo
+   613→          id={advisor.photoId}
+   614→          alt={`${advisor.name}, ${tx(advisor.role)}`}
+   615→          fallback={advisor.fallback}
+   616→          initials={advisor.initials}
+   617→          rounded="rounded-md"
+   618→          className="h-[260px] w-full sm:h-[280px]"
+   619→        />
+   620→      </div>
+   621→
+   622→      {/* Name + JP name */}
+   623→      <div className="mt-5 text-center">
+   624→        <h3 className="font-serif-jp text-[17px] font-bold leading-tight text-white sm:text-[18px]">
+   625→          {advisor.name}
+   626→        </h3>
+   627→        <p className="mt-1 font-sans-jp text-[12px] font-medium text-mist">
+   628→          {advisor.jpName}
+   629→        </p>
+   630→      </div>
+   631→
+   632→      {/* Role (saffron) */}
+   633→      <p
+   634→        className="mt-3 text-center font-inter text-[12px] font-semibold leading-snug text-saffron"
+   635→        style={{ letterSpacing: "0.04em" }}
+   636→      >
+   637→        {tx(advisor.role)}
+   638→      </p>
+   639→
+   640→      {/* Former title (mist) */}
+   641→      <p className="mt-1 text-center font-inter text-[11px] uppercase text-mist" style={{ letterSpacing: "0.12em" }}>
+   642→        {tx(advisor.formerTitle)}
+   643→      </p>
+   644→
+   645→      {/* Short bio */}
+   646→      <p className="mt-4 font-inter text-[12.5px] leading-relaxed text-mist">
+   647→        {tx(advisor.bio)}
+   648→      </p>
+   649→
+   650→      {/* Credential icon at bottom */}
+   651→      <span className="mt-4 flex justify-center">
+   652→        <advisor.icon className="h-4 w-4 text-saffron opacity-60" strokeWidth={1.5} />
+   653→      </span>
+   654→    </article>
+   655→  );
+   656→}
+   657→

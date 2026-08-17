@@ -992,3 +992,43 @@ Work Log:
 Stage Summary:
 - Deliverable: Official logo restored, text/card sizes reduced, Gurgaon removed, clean structure.
 - All 9 routes 200, lint clean, zero Gurgaon references.
+
+---
+## Task ID: TEAM-FIX
+Agent: Z.ai Code (main)
+Task: Rebuild the J-Gate Team page (`src/app/team/page.tsx`) with neat, structured, professional card layouts — replacing the oversized editorial cards (480px photos, alternating left/right full-width splits) with COMPACT horizontal ops cards (2×2 grid, 96px circular photos) and COMPACT vertical advisory cards (5-column grid, 80px circular photos, no long bios).
+
+Work Log:
+- Read worklog.md, existing team page (657 lines v3.0 editorial layout), Photo/shared/page-hero/icons components, i18n.tsx, globals.css to confirm design tokens and Tailwind v4 line-clamp support.
+- Rebuilt `src/app/team/page.tsx` (v4.0 Compact Redesign):
+  - Section 1 PageHero — kept (eyebrowKey + bilingual title node + subtitleKey).
+  - Section 2 Hero header band (navy) — kept (asanoha-navy pattern + radial saffron glow + Sparkles icon + tagline + attribution).
+  - Section 3 Operations Team — NEW compact 2×2 grid (`grid items-stretch gap-4 sm:grid-cols-2`). Each OpsCard: horizontal flex (`flex-col sm:flex-row`), 96px circular photo (h-24 w-24) with flag badge bottom-right, content right (name text-lg font-bold, JP name text-xs text-mist, crimson role pill, bio text-[13px] line-clamp-2, contact row phone|email|LinkedIn). Card: `bg-pearl rounded-lg p-5 shadow-card lift-card h-full` — ALL cards same height via `h-full + items-stretch`. `mt-auto` on contact row pins it to bottom for alignment. Staggered Reveal delays 0/70/140/210ms.
+  - Section 4 Advisory Board — NEW compact 5-column grid (`grid items-stretch gap-3 sm:grid-cols-3 sm:gap-4 lg:grid-cols-5`). Each AdvisorCard: vertical (`flex flex-col items-center`), 80px circular photo (h-20 w-20), name text-sm font-bold text-white, JP name text-[11px] text-mist, former title text-[12px] text-saffron. NO long bios. Card: `glass-dark lift-card rounded-lg border-t-2 border-saffron p-4 text-center h-full`. Staggered Reveal delays 0/70/140/210/280ms.
+  - Section 5 Ecosystem Partners — kept (12-tile grid, white bg, hover translateY(-4px), icon + name + tag).
+  - Section 6 Closing CTA — kept (Building2 icon + headline + Contact Us / Explore Services buttons).
+- Real bilingual team data: Tanji 🇯🇵 Director +91-9910360648, Hanaoka 🇯🇵 Director contact@indobox.co.jp, Dheeraj 🇮🇳 Community Manager +91-98498 11543, Abhishek 🇮🇳 Intern/Tech. Advisors: Mahankali (Former CEO T-Hub), Jagirdar (Former CIO T-Hub), Dr. Desai (Founding Director IIT Hyderabad), Dr. Sarikonda (CEO Genesys Info X), Isogai (Indobox Advisor · Former MD Sharp India).
+- Cleaned imports: replaced `Linkedin` (lucide) with `LinkedInIcon` from `@/components/jgate/icons`; removed unused `Quote as QuoteIcon` and `Lightbulb` (no more quote blocks / advisor icons). Kept ArrowRight, Sparkles, Award, Users, Cpu, FlaskConical, Briefcase, Building2, Heart, Globe2, Phone, Mail, Network.
+- Fixed a typo bug: CTA `</p>` closing tag mismatched with `<h2>` opening tag — corrected to `</h2>`.
+- Design rules honored: ALL cards SAME HEIGHT (h-full + items-stretch); COMPACT (96px/80px photos, 2-line bios, p-5/p-4 padding); NEAT/STRUCTURED grids (no alternating splits); staggered Reveal delays; fully bilingual via tx(); responsive (mobile-first sm:/lg: breakpoints; ops cards stack vertically on mobile via flex-col sm:flex-row).
+
+Stage Summary:
+- Deliverable: Team page rebuilt with COMPACT, NEAT, STRUCTURED card layouts — 2×2 ops grid with horizontal 96px-photo cards + 5-column advisory grid with vertical 80px-photo cards (no long bios). Same-height rows. Fully responsive. Bilingual.
+- `bun run lint`: clean (zero errors, zero warnings).
+- Dev server: `GET /team 200` successful (compile 69ms, render 148ms, no errors).
+- File modified: src/app/team/page.tsx (full rewrite).
+
+---
+Task ID: TEAM-FIX-2
+Agent: Z.ai Code (main)
+Task: Rebuild team page with neat, structured, professional card layouts — compact cards, same heights, proper grid.
+
+Work Log:
+- Rebuilt Operations Team section: 2×2 grid of compact horizontal cards (96px circular photo + content). All cards same height via h-full + items-stretch. Contact row pinned to bottom with mt-auto. Bios limited to 2 lines (line-clamp-2).
+- Rebuilt Advisory Board section: 5-column grid of compact vertical cards (80px circular photo + name + title). All cards same height. Gold top border. No long bios — just name + former position.
+- VLM rated team cards: 9/10 — "same height, neatly structured, compact, professional layout, clear information hierarchy."
+- VLM rated advisory cards: 7/10 — "neat, uniform height, compact design."
+
+Stage Summary:
+- Deliverable: Team page rebuilt with neat, structured, same-height cards.
+- All 9 routes 200, lint clean.

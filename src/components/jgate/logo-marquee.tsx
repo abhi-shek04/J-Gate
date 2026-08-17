@@ -4,16 +4,16 @@ import { cn } from "@/lib/utils";
 
 /* ============================================================
    LogoMarquee — infinite scrolling partner logo wall
-   Two rows scrolling in opposite directions for visual depth.
-   Pauses on hover. Uses real logo images from /public/logos/.
+   Two rows: Enterprises + Ecosystem (all 12 partners)
    ============================================================ */
 
 type Logo = {
   name: string;
-  src: string;
+  src?: string;        // if present, use image; if absent, use styled text tile
+  category?: string;
 };
 
-// Japanese enterprises J-Gate places talent into
+// Row 1 — Industries We Support (Japanese enterprises)
 const ENTERPRISE_LOGOS: Logo[] = [
   { name: "Toyota", src: "/logos/toyota.png" },
   { name: "Sony", src: "/logos/sony.png" },
@@ -23,54 +23,88 @@ const ENTERPRISE_LOGOS: Logo[] = [
   { name: "Prodrone", src: "/logos/prodrone.jpg" },
 ];
 
-// Ecosystem partners
+// Row 2 — Ecosystem & Partners (ALL 12 from client list)
 const ECOSYSTEM_LOGOS: Logo[] = [
-  { name: "JETRO", src: "/logos/jetro.jpg" },
-  { name: "T-Hub", src: "/logos/thub.jpg" },
-  { name: "Woxsen University", src: "/logos/woxsen.jpg" },
-  { name: "Genesys Info X", src: "/logos/genesys-info-x.png" },
-  { name: "DMI", src: "/logos/dmi.jpg" },
-  { name: "Indobox India", src: "/logos/indobox.jpg" },
+  { name: "Kodryx.ai", src: "/logos/kodryx.jpg", category: "DATA INTELLIGENCE" },
+  { name: "YANC", category: "YOUNG MINDS NETWORKING" },
+  { name: "Daakia", src: "/logos/daakia.jpg", category: "BRIDGING DISTANCE" },
+  { name: "Fingerprint Films", category: "CREATIVE STUDIO" },
+  { name: "MXC", src: "/logos/mxc.png", category: "TECHNOLOGY PARTNER" },
+  { name: "Hyderabad Japan Club", src: "/logos/hyderabad-anime-club.jpg", category: "COMMUNITY" },
+  { name: "JETRO", src: "/logos/jetro.jpg", category: "TRADE PROMOTION" },
+  { name: "T-Hub", src: "/logos/thub.jpg", category: "INNOVATION HUB" },
+  { name: "Woxsen University", src: "/logos/woxsen.jpg", category: "ACADEMIC PARTNER" },
+  { name: "Genesys Info X", src: "/logos/genesys-info-x.png", category: "MoU PARTNER" },
+  { name: "DMI", src: "/logos/dmi.jpg", category: "DIGITAL MEDIA" },
+  { name: "DATA INTELLIGENCE", category: "ANALYTICS" },
 ];
 
 function LogoTile({ logo, className }: { logo: Logo; className?: string }) {
+  if (logo.src) {
+    return (
+      <div
+        className={cn(
+          "flex h-16 w-32 shrink-0 items-center justify-center rounded-lg border border-crimson/8 bg-pearl px-4 shadow-card transition-all hover:-translate-y-0.5 hover:shadow-hover",
+          className
+        )}
+      >
+        <img
+          src={logo.src}
+          alt={`${logo.name} logo`}
+          className="max-h-10 w-full max-w-[100px] object-contain"
+          loading="lazy"
+        />
+      </div>
+    );
+  }
+  // Styled text tile for partners without logo images
   return (
     <div
       className={cn(
-        "flex h-20 w-36 shrink-0 items-center justify-center rounded-lg border border-crimson/8 bg-pearl px-5 shadow-card transition-all hover:-translate-y-0.5 hover:shadow-hover",
+        "flex h-16 w-32 shrink-0 flex-col items-center justify-center rounded-lg border border-crimson/8 bg-pearl px-3 shadow-card transition-all hover:-translate-y-0.5 hover:shadow-hover",
         className
       )}
     >
-      <img
-        src={logo.src}
-        alt={`${logo.name} official logo`}
-        className="max-h-12 w-full max-w-[120px] object-contain"
-        loading="lazy"
-      />
+      <span className="font-serif-jp text-[13px] font-bold text-ink leading-tight text-center">
+        {logo.name}
+      </span>
+      {logo.category && (
+        <span className="mt-0.5 font-inter text-[8px] uppercase tracking-wide text-mist text-center leading-tight">
+          {logo.category}
+        </span>
+      )}
     </div>
   );
 }
 
 export function LogoMarquee({ variant = "light" }: { variant?: "light" | "dark" }) {
-  // Duplicate arrays for seamless infinite scroll
   const enterprises = [...ENTERPRISE_LOGOS, ...ENTERPRISE_LOGOS];
   const ecosystem = [...ECOSYSTEM_LOGOS, ...ECOSYSTEM_LOGOS];
 
   const labelClass = variant === "dark" ? "text-saffron" : "text-crimson";
-  const sectionBg = variant === "dark" ? "" : "";
+
+  const fadeStyle =
+    variant === "dark"
+      ? { background: "linear-gradient(to right, #080f1a, transparent)" }
+      : undefined;
+  const fadeStyleRight =
+    variant === "dark"
+      ? { background: "linear-gradient(to left, #080f1a, transparent)" }
+      : undefined;
+  const fadeClass = variant === "light" ? "bg-gradient-to-r from-ivory to-transparent" : "";
+  const fadeClassRight = variant === "light" ? "bg-gradient-to-l from-ivory to-transparent" : "";
 
   return (
-    <div className={sectionBg}>
-      {/* Row 1 — Japanese Enterprises (scroll left) */}
+    <div>
+      {/* Row 1 — Industries We Support */}
       <div className="mb-4">
         <p className={cn("mb-3 text-center font-inter text-[11px] font-semibold uppercase", labelClass)} style={{ letterSpacing: "0.15em" }}>
-          Japanese Enterprises We Serve
+          Industries We Support
         </p>
         <div className="marquee-track relative overflow-hidden">
-          {/* fade edges */}
-          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-ivory to-transparent" />
-          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-ivory to-transparent" />
-          <div className="flex w-max gap-4 animate-marquee">
+          <div className={cn("pointer-events-none absolute left-0 top-0 z-10 h-full w-24", fadeClass)} style={fadeStyle} />
+          <div className={cn("pointer-events-none absolute right-0 top-0 z-10 h-full w-24", fadeClassRight)} style={fadeStyleRight} />
+          <div className="flex w-max gap-3 animate-marquee">
             {enterprises.map((logo, i) => (
               <LogoTile key={`ent-${i}`} logo={logo} />
             ))}
@@ -78,15 +112,15 @@ export function LogoMarquee({ variant = "light" }: { variant?: "light" | "dark" 
         </div>
       </div>
 
-      {/* Row 2 — Ecosystem Partners (scroll right, reverse) */}
+      {/* Row 2 — Ecosystem & Partners (all 12) */}
       <div>
         <p className={cn("mb-3 text-center font-inter text-[11px] font-semibold uppercase", labelClass)} style={{ letterSpacing: "0.15em" }}>
-          Ecosystem & Partner Network
+          Ecosystem & Partners
         </p>
         <div className="marquee-track relative overflow-hidden">
-          <div className="pointer-events-none absolute left-0 top-0 z-10 h-full w-24 bg-gradient-to-r from-ivory to-transparent" />
-          <div className="pointer-events-none absolute right-0 top-0 z-10 h-full w-24 bg-gradient-to-l from-ivory to-transparent" />
-          <div className="flex w-max gap-4 animate-marquee" style={{ animationDirection: "reverse", animationDuration: "40s" }}>
+          <div className={cn("pointer-events-none absolute left-0 top-0 z-10 h-full w-24", fadeClass)} style={fadeStyle} />
+          <div className={cn("pointer-events-none absolute right-0 top-0 z-10 h-full w-24", fadeClassRight)} style={fadeStyleRight} />
+          <div className="flex w-max gap-3 animate-marquee" style={{ animationDirection: "reverse", animationDuration: "45s" }}>
             {ecosystem.map((logo, i) => (
               <LogoTile key={`eco-${i}`} logo={logo} />
             ))}

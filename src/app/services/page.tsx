@@ -633,7 +633,7 @@ export default function ServicesPage() {
       {/* ───────────────────────────────────────────────────────────
           Section 3 — Hybrid Operating Model (Slide 5)
           2-col split: Indobox (crimson) vs Genesys (saffron).
-          Center vertical divider with "×" symbol.
+          Center vertical divider.
           Below: Living Support Services (4 items).
          ─────────────────────────────────────────────────────────── */}
       <section className="section-pad bg-ivory-warm">
@@ -729,12 +729,6 @@ export default function ServicesPage() {
               </Reveal>
             </div>
 
-            {/* Center "×" symbol — absolute positioned, only visible on lg+ */}
-            <div className="pointer-events-none absolute left-1/2 top-1/2 z-10 hidden -translate-x-1/2 -translate-y-1/2 lg:block">
-              <span className="flex h-12 w-12 items-center justify-center rounded-full border border-slate-200 bg-ivory-warm font-serif-jp text-2xl font-bold text-slate shadow-card">
-                ×
-              </span>
-            </div>
           </div>
 
           {/* Living Support strip — 4 items with emoji icons */}

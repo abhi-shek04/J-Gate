@@ -1248,3 +1248,24 @@ Stage Summary:
 - All 12 ecosystem partners with logos (9 image logos + 3 styled text tiles).
 - Japanese consultation CTA present.
 - All routes 200, lint clean.
+
+---
+Task ID: TEAM-REBUILD-2
+Agent: Z.ai Code (main)
+Task: Rebuild Team page with professional line-wise structured layout matching client screenshots exactly.
+
+Work Log:
+- Rebuilt /team/page.tsx with exact layout per client screenshots:
+  • Section 1: Operations Team — 4 members in a horizontal row (2 cols mobile, 4 cols desktop). Each card: rounded-square photo top → name → JP name → role badge → phone → email. Clean vertical stack line-wise.
+  • Section 2: Board of Advisory — dark midnight bg, 2-column grid. Each row: rounded-square photo LEFT, name + JP name + title RIGHT. Gold top-border accent.
+  • Section 3: Ecosystem Partners — clean white bg, 4-column grid. Each tile: logo (or styled text) + partner name + category label.
+  • Section 4: Closing CTA — Contact + Download Brochure buttons.
+- Japanese consultation CTA: "Feel free to consult about anything. Support is provided in Japanese." / "なんでもお気軽にご相談ください。日本語でご対応いたします。"
+- All 5 advisory cards verified in DOM (VLM saw 3 due to viewport, but all 5 present).
+- All 12 ecosystem partners with logos (9 image + 3 text tiles).
+- VLM ratings: Ops Team 9/10, Ecosystem Partners 9/10, overall 7/10.
+
+Stage Summary:
+- Layout: line-wise structured, professional, attractive.
+- Section order: Ops Team → Advisory → Ecosystem → CTA (matches screenshots).
+- All routes 200, lint clean.

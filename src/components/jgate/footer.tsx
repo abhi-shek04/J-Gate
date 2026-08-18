@@ -1,32 +1,29 @@
 "use client";
 
+import Link from "next/link";
 import { JGateLogo, LinkedInIcon, XIcon, InstagramIcon, JapanFlag, IndiaFlag } from "./icons";
 import { useI18n } from "@/lib/i18n";
-import { useBrochure } from "@/lib/brochure-context";
-import { Download } from "lucide-react";
 
 const NAV_LINKS = [
-  { id: "home", key: "nav.home" },
-  { id: "about", key: "nav.about" },
-  { id: "why", key: "nav.why" },
-  { id: "services", key: "nav.services" },
-  { id: "pricing", key: "nav.pricing" },
-  { id: "blogs", key: "nav.blogs" },
-  { id: "contact", key: "nav.contact" },
+  { href: "/", key: "nav.home" },
+  { href: "/about", key: "nav.about" },
+  { href: "/why-jgate", key: "nav.why" },
+  { href: "/services", key: "nav.services" },
+  { href: "/pricing", key: "nav.pricing" },
+  { href: "/blogs", key: "nav.blogs" },
+  { href: "/contact", key: "nav.contact" },
 ] as const;
 
 const PARTNER_LINKS = ["JETRO", "T-Hub", "Woxsen University", "Genesys Info X", "DMI", "Kodryx AI"];
 
 const SOCIALS = [
-  { Icon: LinkedInIcon, label: "LinkedIn", href: "#" },
-  { Icon: XIcon, label: "X (Twitter)", href: "#" },
-  { Icon: InstagramIcon, label: "Instagram", href: "#" },
+  { Icon: LinkedInIcon, label: "LinkedIn" },
+  { Icon: XIcon, label: "X (Twitter)" },
+  { Icon: InstagramIcon, label: "Instagram" },
 ];
 
 export function Footer() {
   const { t, lang } = useI18n();
-  const { open: openBrochure } = useBrochure();
-  const go = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   return (
     <footer className="relative mt-auto overflow-hidden bg-[#04080f] text-white">
@@ -38,16 +35,18 @@ export function Footer() {
             <JGateLogo size="sm" />
             <p className="mt-4 font-inter text-sm leading-relaxed text-mist">{t("footer.tagline")}</p>
             <div className="mt-5 flex gap-2.5">
-              {SOCIALS.map(({ Icon, label, href }) => (
-                <a
+              {SOCIALS.map(({ Icon, label }) => (
+                <span
                   key={label}
-                  href={href}
-                  onClick={(e) => e.preventDefault()}
-                  aria-label={label}
-                  className="flex h-9 w-9 items-center justify-center rounded-md bg-white/[0.06] text-mist transition-all hover:-translate-y-0.5 hover:bg-crimson hover:text-white"
+                  role="button"
+                  aria-label={`${label} — coming soon`}
+                  className="group relative flex h-9 w-9 cursor-default items-center justify-center rounded-md bg-white/[0.06] text-mist transition-all hover:-translate-y-0.5 hover:bg-crimson hover:text-white"
                 >
                   <Icon className="h-4 w-4" />
-                </a>
+                  <span className="pointer-events-none absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-ink px-2 py-1 font-inter text-[10px] text-mist opacity-0 transition-opacity group-hover:opacity-100">
+                    {lang === "EN" ? "Coming soon" : "近日公開"}
+                  </span>
+                </span>
               ))}
             </div>
             <p className="mt-5 font-inter text-[12px] text-mist">
@@ -63,13 +62,10 @@ export function Footer() {
             </h3>
             <ul className="mt-5 space-y-2.5">
               {NAV_LINKS.map((l) => (
-                <li key={l.id}>
-                  <button
-                    onClick={() => go(l.id)}
-                    className="font-inter text-[14px] text-mist transition-colors hover:text-crimson"
-                  >
+                <li key={l.href}>
+                  <Link href={l.href} className="font-inter text-[14px] text-mist transition-colors hover:text-crimson">
                     {t(l.key)}
-                  </button>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -83,31 +79,27 @@ export function Footer() {
             <ul className="mt-5 space-y-2.5">
               {PARTNER_LINKS.map((p) => (
                 <li key={p}>
-                  <a href="#" onClick={(e) => e.preventDefault()} className="font-inter text-[14px] text-mist transition-colors hover:text-crimson">
-                    {p}
-                  </a>
+                  <span className="font-inter text-[14px] text-mist">{p}</span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Col 4 — Contact + CTA */}
+          {/* Col 4 — Contact */}
           <div>
             <h3 className="font-inter text-[11px] font-semibold uppercase text-saffron" style={{ letterSpacing: "0.15em" }}>
               {t("footer.contact")}
             </h3>
             <ul className="mt-5 space-y-3 font-inter text-[13px] text-mist">
-              <li className="flex items-start gap-2"><span>📍</span><span>Cyber Gateway, Hitech City, Hyderabad</span></li>
+              <li className="flex items-start gap-2"><span>📍</span><span>Cyber Gateway, Hitech City, Hyderabad, Telangana</span></li>
               <li className="flex items-start gap-2"><span>📧</span><a href="mailto:contact@indobox.co.jp" className="hover:text-crimson">contact@indobox.co.jp</a></li>
-              <li className="flex items-start gap-2"><span>📞</span><span>+91-9910360648 (Tanji)</span></li>
+              <li className="flex items-start gap-2"><span>📞</span><span>+91-9910360648 (Tanji, Director)</span></li>
+              <li className="flex items-start gap-2"><span>📞</span><span>+91-98498 11543 (Dheeraj, Community Manager)</span></li>
+              <li className="flex items-start gap-2"><span>🇯🇵</span><span>Support provided in Japanese</span></li>
             </ul>
-            <button
-              onClick={openBrochure}
-              className="mt-5 inline-flex items-center gap-1.5 rounded-md bg-crimson px-4 py-2.5 font-inter text-[13px] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-crimson-deep"
-            >
-              <Download className="h-3.5 w-3.5" />
-              {t("footer.bookTour")}
-            </button>
+            <Link href="/contact" className="mt-5 inline-flex items-center gap-1.5 rounded-md bg-crimson px-4 py-2.5 font-inter text-[13px] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-crimson-deep">
+              {t("nav.contact")}
+            </Link>
           </div>
         </div>
 
@@ -123,8 +115,8 @@ export function Footer() {
             {t("footer.crafted")}
           </p>
           <div className="flex gap-4">
-            <a href="#" onClick={(e) => e.preventDefault()} className="font-inter text-[12px] text-mist/70 hover:text-crimson">{t("footer.privacy")}</a>
-            <a href="#" onClick={(e) => e.preventDefault()} className="font-inter text-[12px] text-mist/70 hover:text-crimson">{t("footer.terms")}</a>
+            <span className="font-inter text-[12px] text-mist/70">{t("footer.privacy")}</span>
+            <span className="font-inter text-[12px] text-mist/70">{t("footer.terms")}</span>
           </div>
         </div>
       </div>

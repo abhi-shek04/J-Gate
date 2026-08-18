@@ -289,7 +289,7 @@ function PillarAccordion({
 /* ── Testimonials content — 3 real testimonials ── */
 const TESTIMONIALS = [
   {
-    name: "Hiroshi Yamamoto",
+    name: "Operations Director",
     role: { EN: "Country Manager, Mid-size Manufacturing", JP: "中堅製造業・カントリーマネージャー" },
     initials: "HY",
     fallback: "grad-testimonial",
@@ -299,7 +299,7 @@ const TESTIMONIALS = [
     },
   },
   {
-    name: "Priya Nair",
+    name: "Country Manager",
     role: { EN: "India Lead, Japanese Tech Enterprise", JP: "日本テック企業・インドリード" },
     initials: "PN",
     fallback: "grad-team",
@@ -309,7 +309,7 @@ const TESTIMONIALS = [
     },
   },
   {
-    name: "Kenji Watanabe",
+    name: "Branch Manager",
     role: { EN: "Director, Regional SME Bank", JP: "地方銀・ディレクター" },
     initials: "KW",
     fallback: "grad-advisory-j",

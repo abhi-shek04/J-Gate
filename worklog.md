@@ -1269,3 +1269,26 @@ Stage Summary:
 - Layout: line-wise structured, professional, attractive.
 - Section order: Ops Team → Advisory → Ecosystem → CTA (matches screenshots).
 - All routes 200, lint clean.
+
+---
+Task ID: FIX-DUP-1
+Agent: Z.ai Code (main)
+Task: Remove duplicate Download Brochure buttons, fix logo marquee placement, remove fake data.
+
+Work Log:
+- Reduced Download Brochure buttons from 5 to 2 visible:
+  • Navbar: 1 button (desktop) — kept
+  • Hero: 1 button — kept
+  • CTA banner: changed from "Download Brochure" → "Contact" (links to /contact)
+  • Footer: changed from "Download Brochure" → "Contact" (links to /contact)
+  • Mobile drawer: 1 button (only visible when menu open) — kept
+- Rewrote footer.tsx: replaced scroll buttons with Next.js <Link> routes, replaced broken social <a href="#"> with "Coming soon" tooltip spans, replaced Download Brochure with Contact link.
+- Removed fake testimonial names from why-jgate/page.tsx: "Hiroshi Yamamoto" → "Operations Director", "Priya Nair" → "Country Manager", "Kenji Watanabe" → "Branch Manager". Updated roles to be generic but professional.
+- Logo marquee: confirmed single instance on home page (section 2, right after hero). No duplicates found.
+- Cleaned unused imports from footer (useBrochure, Download).
+
+Stage Summary:
+- Download Brochure: now only 2 visible on home (navbar + hero). CTA banner and footer say "Contact" instead.
+- Footer: fully fixed with Link routes, coming-soon tooltips, contact info.
+- Fake testimonial names: removed, replaced with role-based attributions.
+- All routes 200, lint clean.

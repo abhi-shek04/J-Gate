@@ -781,11 +781,11 @@ export default function HomePage() {
                 {t("home.cta.subtitle")}
               </p>
               <Link
-                href="/auth/brochure"
+                href="/contact"
                 className="btn-shine mt-6 inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-7 py-3 font-inter text-[14px] font-semibold text-white shadow-[0_0_24px_rgba(188,26,44,0.45)] transition-all hover:-translate-y-0.5"
               >
-                <Download className="h-4 w-4" />
-                {t("nav.brochure")}
+                {t("nav.contact")}
+                <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </Reveal>

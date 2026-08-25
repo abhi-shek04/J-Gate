@@ -283,7 +283,7 @@ export default function AboutPage() {
           Section 2 — Strategic Location (Hyderabad only, centered)
           2-col: photo grid on left, content on right (within max-w-4xl)
          ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad bg-ivory-warm">
+      <section className="section-pad relative overflow-hidden bg-navy">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
@@ -451,7 +451,7 @@ export default function AboutPage() {
       {/* ════════════════════════════════════════════════════════════
           Section 4 — Mission & Vision — 2 side-by-side cards
          ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad bg-ivory-warm">
+      <section className="section-pad relative overflow-hidden bg-navy">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
@@ -590,7 +590,7 @@ export default function AboutPage() {
       {/* ════════════════════════════════════════════════════════════
           Closing CTA
          ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad bg-ivory-warm">
+      <section className="section-pad relative overflow-hidden bg-navy">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-2xl text-center">

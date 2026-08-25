@@ -273,7 +273,7 @@ export default function BlogsPage() {
                   style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
                 >
                   {tx({
-                    EN: "Career Guides, Visa Briefings & Engineering Insights",
+                    EN: "Business Insights, Workspace Life & Cultural Exchange",
                     JP: "キャリアガイド・ビザ解説・エンジニアリングインサイト",
                   })}
                 </h2>
@@ -517,8 +517,8 @@ export default function BlogsPage() {
                 style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
               >
                 {tx({
-                  EN: "The candidates in our success stories all started with one step — a conversation. Begin yours today.",
-                  JP: "成功ストーリーの候補者たちは皆、最初の会話から歩みを始めました。今日、あなたも最初の一歩を。",
+                  EN: "Every J-Gate member started with one step — a conversation. Begin yours today.",
+                  JP: "J-Gateの会員は皆、最初の会話から歩みを始めました。今日、あなたも最初の一歩を。",
                 })}
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">

@@ -431,29 +431,7 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          2. TRUST STRIP — 2-row logo marquee (single instance)
-         ════════════════════════════════════════════════════════════ */}
-      <section className="bg-ivory py-8">
-        <div className="container-jg">
-          <Reveal>
-            <div className="mx-auto mb-6 max-w-3xl text-center">
-              <Eyebrow>{t("home.logos.eyebrow")}</Eyebrow>
-              <h2
-                className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
-              >
-                {t("home.logos.title")}
-              </h2>
-            </div>
-          </Reveal>
-          <Reveal delay={100}>
-            <LogoMarquee variant="light" />
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════════════
-          3. STATS — 4 animated counters (compact crimson max 32px)
+          2. STATS — 4 animated counters (compact crimson max 32px)
          ════════════════════════════════════════════════════════════ */}
       <section className="section-pad bg-ivory">
         <div className="container-jg">
@@ -693,6 +671,28 @@ export default function HomePage() {
                 </Link>
               </div>
             </article>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════
+          6. LOGO MARQUEE — Social proof (moved from position 2 to here)
+         ════════════════════════════════════════════════════════════ */}
+      <section className="bg-navy py-12">
+        <div className="container-jg">
+          <Reveal>
+            <div className="mx-auto mb-6 max-w-3xl text-center">
+              <Eyebrow light>{t("home.logos.eyebrow")}</Eyebrow>
+              <h2
+                className="mt-2 font-serif-jp font-bold leading-[1.18] text-white"
+                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
+              >
+                {t("home.logos.title")}
+              </h2>
+            </div>
+          </Reveal>
+          <Reveal delay={100}>
+            <LogoMarquee variant="dark" />
           </Reveal>
         </div>
       </section>

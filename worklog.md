@@ -1292,3 +1292,29 @@ Stage Summary:
 - Footer: fully fixed with Link routes, coming-soon tooltips, contact info.
 - Fake testimonial names: removed, replaced with role-based attributions.
 - All routes 200, lint clean.
+
+---
+Task ID: LOGO-MOVE
+Agent: Z.ai Code (main)
+Task: Move logo marquee from position 2 (right after hero) to position 6 (after Hyderabad location, before ecosystem preview + CTA).
+
+Work Log:
+- Moved logo marquee section from position 2 to position 6 on home page.
+- New home page section order:
+  1. Hero
+  2. Stats
+  3. Workspace Features (6 cards)
+  4. Core Pillars (3 navy glass cards)
+  5. Hyderabad Location
+  6. Logo Marquee (moved here — dark navy background, social proof before CTA)
+  7. Ecosystem Preview (3 cards)
+  8. CTA Banner
+- Changed logo marquee background from bg-ivory (light) to bg-navy (dark) — looks more premium as social proof section.
+- Changed LogoMarquee variant from "light" to "dark" — edge fades now use midnight color, no ivory bleed.
+- VLM: "logo marquee clearly visible, highly professional on dark background, 9/10."
+- VLM confirmed: hero is now directly followed by stats (no logo marquee in between).
+
+Stage Summary:
+- Logo marquee moved to better position (after content, before CTA — standard premium pattern).
+- Hero → Stats → Features → Pillars → Location → Logos → Preview → CTA.
+- All routes 200, lint clean.

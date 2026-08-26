@@ -146,7 +146,7 @@
     -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4 {
-    font-family: var(--font-noto-serif-jp), Georgia, serif;
+    font-family: var(--font-noto-serif-jp), Georgia, "Hiragino Mincho ProN", "Yu Gothic", "Noto Serif JP", serif;
     letter-spacing: -0.01em;
   }
   /* Focus-visible for accessibility */
@@ -163,8 +163,8 @@
    Photo-First · Team-Showcased · Immersive
    ============================================================ */
 
-.font-serif-jp { font-family: var(--font-noto-serif-jp), Georgia, serif; }
-.font-sans-jp  { font-family: var(--font-noto-sans-jp), system-ui, sans-serif; }
+.font-serif-jp { font-family: var(--font-noto-serif-jp), Georgia, "Hiragino Mincho ProN", "Yu Gothic", "Noto Serif JP", serif; }
+.font-sans-jp  { font-family: var(--font-noto-sans-jp), "Hiragino Sans", "Yu Gothic", "Noto Sans JP", system-ui, sans-serif; }
 .font-inter    { font-family: var(--font-inter), system-ui, sans-serif; }
 
 /* ============================================================

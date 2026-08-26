@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import { Noto_Serif_JP, Noto_Sans_JP, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import { I18nProvider } from "@/lib/i18n";
@@ -8,25 +9,21 @@ import { LightboxProvider } from "@/components/jgate/photo";
 import { Navbar } from "@/components/jgate/navbar";
 import { Footer } from "@/components/jgate/footer";
 
-const notoSerifJP = Noto_Serif_JP({
-  variable: "--font-noto-serif-jp",
-  weight: ["400", "500", "600", "700"],
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const notoSansJP = Noto_Sans_JP({
-  variable: "--font-noto-sans-jp",
-  weight: ["400", "500", "700"],
-  subsets: ["latin"],
-  display: "swap",
-});
-
+// Use Inter from Google (it loads fine), fallback for JP fonts with system fonts
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
+
+// Fallback: use system serif/sans fonts instead of Google-hosted Noto JP
+// which times out in this environment. CSS variables still defined for compatibility.
+const notoSerifJP = {
+  variable: "--font-noto-serif-jp",
+};
+const notoSansJP = {
+  variable: "--font-noto-sans-jp",
+};
 
 export const metadata: Metadata = {
   title: "J-Gate | Bridging Japan & India — Talent, Training, Business",

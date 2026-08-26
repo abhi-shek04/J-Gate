@@ -1,0 +1,748 @@
+     1→"use client";
+     2→
+     3→import { useState } from "react";
+     4→import { Reveal, Eyebrow } from "@/components/jgate/shared";
+     5→import { PageHero } from "@/components/jgate/page-hero";
+     6→import { useI18n } from "@/lib/i18n";
+     7→import { Photo } from "@/components/jgate/photo";
+     8→import {
+     9→  ArrowRight,
+    10→  Building2,
+    11→  Wifi,
+    12→  MessageCircle,
+    13→  FileStack,
+    14→  Users,
+    15→  GraduationCap,
+    16→  Briefcase,
+    17→  ChevronDown,
+    18→  Check,
+    19→  Sparkles,
+    20→  Star,
+    21→  ArrowDown,
+    22→} from "lucide-react";
+    23→import Link from "next/link";
+    24→
+    25→/* ============================================================
+    26→   Why J-Gate — v3.0 Definitive Redesign
+    27→   Architecture:
+    28→     1. PageHero — "Why J-Gate" / "The Strategic Investment Advantage"
+    29→     2. Comparison Table — interactive, 5 cols × 9 rows. J-Gate highlighted.
+    30→     3. 7 Pillars — accordion with smooth height transition
+    31→     4. Stats strip — "2–4 Persons/company · 7 Pillars total · 100% JP-language support"
+    32→     5. Testimonials — 3 cards w/ 80px crimson quote marks + 5 saffron stars + circular photo
+    33→     6. Closing CTA
+    34→   ============================================================ */
+    35→
+    36→/* ── Comparison Table — full interactive 5-col × 9-row ── */
+    37→type CellType = "check" | "cross" | "good" | "warn" | "text";
+    38→
+    39→type Row = {
+    40→  labelKey: string;
+    41→  jgate: string;
+    42→  consult: string;
+    43→  cowork: string;
+    44→  publicOrg: string;
+    45→  jgateType?: CellType;
+    46→  consultType?: CellType;
+    47→  coworkType?: CellType;
+    48→  publicType?: CellType;
+    49→};
+    50→
+    51→const COMPARISON_ROWS: Row[] = [
+    52→  {
+    53→    labelKey: "why.row1.label",
+    54→    jgate: "why.row1.jgate",
+    55→    consult: "why.row1.consult",
+    56→    cowork: "why.row1.cowork",
+    57→    publicOrg: "why.row1.public",
+    58→  },
+    59→  {
+    60→    labelKey: "why.row2.label",
+    61→    jgate: "why.row2.jgate",
+    62→    consult: "why.row2.consult",
+    63→    cowork: "why.row2.cowork",
+    64→    publicOrg: "why.row2.public",
+    65→  },
+    66→  {
+    67→    labelKey: "why.row3.label",
+    68→    jgate: "why.row3.jgate",
+    69→    consult: "why.row3.consult",
+    70→    cowork: "why.row3.cowork",
+    71→    publicOrg: "why.row3.public",
+    72→    jgateType: "check",
+    73→    consultType: "cross",
+    74→    coworkType: "check",
+    75→    publicType: "cross",
+    76→  },
+    77→  {
+    78→    labelKey: "why.row4.label",
+    79→    jgate: "why.row4.jgate",
+    80→    consult: "why.row4.consult",
+    81→    cowork: "why.row4.cowork",
+    82→    publicOrg: "why.row4.public",
+    83→    jgateType: "check",
+    84→    consultType: "cross",
+    85→    coworkType: "cross",
+    86→    publicType: "cross",
+    87→  },
+    88→  {
+    89→    labelKey: "why.row5.label",
+    90→    jgate: "why.row5.jgate",
+    91→    consult: "why.row5.consult",
+    92→    cowork: "why.row5.cowork",
+    93→    publicOrg: "why.row5.public",
+    94→    jgateType: "check",
+    95→    consultType: "warn",
+    96→    coworkType: "cross",
+    97→    publicType: "warn",
+    98→  },
+    99→  {
+   100→    labelKey: "why.row6.label",
+   101→    jgate: "why.row6.jgate",
+   102→    consult: "why.row6.consult",
+   103→    cowork: "why.row6.cowork",
+   104→    publicOrg: "why.row6.public",
+   105→    jgateType: "check",
+   106→    consultType: "warn",
+   107→    coworkType: "cross",
+   108→    publicType: "warn",
+   109→  },
+   110→  {
+   111→    labelKey: "why.row7.label",
+   112→    jgate: "why.row7.jgate",
+   113→    consult: "why.row7.consult",
+   114→    cowork: "why.row7.cowork",
+   115→    publicOrg: "why.row7.public",
+   116→    jgateType: "check",
+   117→    consultType: "warn",
+   118→    coworkType: "cross",
+   119→    publicType: "cross",
+   120→  },
+   121→  {
+   122→    labelKey: "why.row8.label",
+   123→    jgate: "why.row8.jgate",
+   124→    consult: "why.row8.consult",
+   125→    cowork: "why.row8.cowork",
+   126→    publicOrg: "why.row8.public",
+   127→  },
+   128→  {
+   129→    labelKey: "why.row9.label",
+   130→    jgate: "why.row9.jgate",
+   131→    consult: "why.row9.consult",
+   132→    cowork: "why.row9.cowork",
+   133→    publicOrg: "why.row9.public",
+   134→    jgateType: "good",
+   135→    consultType: "warn",
+   136→    coworkType: "warn",
+   137→    publicType: "good",
+   138→  },
+   139→];
+   140→
+   141→/* Cell renderer — ✓ success green, ✗ crimson, △ saffron, ◎ success green */
+   142→function Cell({
+   143→  type,
+   144→  text,
+   145→  jgateHighlight,
+   146→}: {
+   147→  type: CellType;
+   148→  text: string;
+   149→  jgateHighlight?: boolean;
+   150→}) {
+   151→  // If no type → plain text
+   152→  if (!type) {
+   153→    return (
+   154→      <span
+   155→        className={`font-inter text-[13px] ${jgateHighlight ? "font-semibold text-ink" : "text-slate"}`}
+   156→      >
+   157→        {text}
+   158→      </span>
+   159→    );
+   160→  }
+   161→  // Symbol + text
+   162→  const symbol =
+   163→    type === "check" ? (
+   164→      <Check className="h-3.5 w-3.5 text-success" strokeWidth={2.5} />
+   165→    ) : type === "cross" ? (
+   166→      <span className="font-serif-jp text-[14px] font-bold text-mist leading-none">✗</span>
+   167→    ) : type === "good" ? (
+   168→      <span className="font-serif-jp text-[14px] font-bold text-success leading-none">◎</span>
+   169→    ) : (
+   170→      <span className="font-serif-jp text-[14px] font-bold text-saffron leading-none">△</span>
+   171→    );
+   172→  return (
+   173→    <div className="flex items-start gap-2">
+   174→      <span className="mt-0.5 shrink-0">{symbol}</span>
+   175→      <span
+   176→        className={`font-inter text-[13px] leading-relaxed ${
+   177→          jgateHighlight ? "font-semibold text-ink" : "text-slate"
+   178→        }`}
+   179→      >
+   180→        {text}
+   181→      </span>
+   182→    </div>
+   183→  );
+   184→}
+   185→
+   186→/* Legend strip above the table */
+   187→function Legend() {
+   188→  const { tx } = useI18n();
+   189→  const items = [
+   190→    { symbol: <Check className="h-3.5 w-3.5 text-success" strokeWidth={2.5} />, label: tx({ EN: "Fully Available", JP: "完全対応" }) },
+   191→    { symbol: <span className="font-serif-jp text-[14px] font-bold text-mist leading-none">✗</span>, label: tx({ EN: "Not Available", JP: "対応なし" }) },
+   192→    { symbol: <span className="font-serif-jp text-[14px] font-bold text-saffron leading-none">△</span>, label: tx({ EN: "Partial / Limited", JP: "部分的・限定" }) },
+   193→    { symbol: <span className="font-serif-jp text-[14px] font-bold text-success leading-none">◎</span>, label: tx({ EN: "Optimal Value", JP: "最適" }) },
+   194→  ];
+   195→  return (
+   196→    <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-6 font-inter text-[12px] text-slate">
+   197→      {items.map((it, i) => (
+   198→        <div key={i} className="flex items-center gap-2">
+   199→          <span className="inline-flex h-5 w-5 items-center justify-center">{it.symbol}</span>
+   200→          <span className="font-medium">{it.label}</span>
+   201→        </div>
+   202→      ))}
+   203→    </div>
+   204→  );
+   205→}
+   206→
+   207→/* Cost Savings visual — dramatic before/after layout to anchor the
+   208→   comparison table with a concrete financial argument. */
+   209→function CostSavings() {
+   210→  const { tx } = useI18n();
+   211→  return (
+   212→    <div className="mb-8 overflow-hidden rounded-lg border-2 border-crimson/40 bg-pearl shadow-card">
+   213→      <div className="grid gap-0 md:grid-cols-[1fr_auto_1fr]">
+   214→        {/* Before — typical expat cost */}
+   215→        <div className="relative p-6 sm:p-8">
+   216→          <span className="font-inter text-[11px] font-bold uppercase tracking-[0.15em] text-mist">
+   217→            {tx({ EN: "Typical India Expat Cost", JP: "一般的な駐在員コスト" })}
+   218→          </span>
+   219→          <p className="mt-2 font-serif-jp font-bold leading-tight text-slate" style={{ fontSize: "clamp(1.5rem,3.2vw,2rem)" }}>
+   220→            ¥15M<span className="text-mist">–</span>¥20M
+   221→          </p>
+   222→          <p className="mt-1 font-inter text-[12px] text-mist">
+   223→            {tx({ EN: "per year", JP: "年間" })}
+   224→          </p>
+   225→        </div>
+   226→
+   227→        {/* Arrow / divider */}
+   228→        <div className="flex items-center justify-center border-t border-crimson/15 md:border-l md:border-t-0 md:border-r border-crimson/15 px-4 py-3">
+   229→          <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-crimson/10 text-crimson">
+   230→            <ArrowDown className="h-4 w-4" strokeWidth={2.5} />
+   231→          </span>
+   232→        </div>
+   233→
+   234→        {/* After — J-Gate membership */}
+   235→        <div className="relative bg-crimson/[0.04] p-6 sm:p-8">
+   236→          <span className="font-inter text-[11px] font-bold uppercase tracking-[0.15em] text-crimson">
+   237→            {tx({ EN: "J-Gate Membership From", JP: "J-Gateメンバーシップ" })}
+   238→          </span>
+   239→          <p className="mt-2 font-serif-jp font-bold leading-tight text-crimson" style={{ fontSize: "clamp(1.5rem,3.2vw,2rem)" }}>
+   240→            ~¥324,000
+   241→          </p>
+   242→          <p className="mt-1 font-inter text-[12px] text-slate">
+   243→            {tx({ EN: "per year (15,000 INR/mo)", JP: "年間（15,000 INR/月）" })}
+   244→          </p>
+   245→        </div>
+   246→      </div>
+   247→
+   248→      {/* Savings highlight strip */}
+   249→      <div className="flex items-center justify-center gap-2 border-t border-crimson/20 bg-gradient-to-r from-crimson/5 via-crimson/10 to-crimson/5 px-6 py-3">
+   250→        <Sparkles className="h-4 w-4 text-saffron" strokeWidth={2} />
+   251→        <span className="font-inter text-[13px] font-semibold text-ink">
+   252→          {tx({ EN: "Savings: Up to", JP: "節約額：最大" })}{" "}
+   253→          <span className="text-crimson">¥19,676,000</span>{" "}
+   254→          {tx({ EN: "per year", JP: "/年" })}
+   255→        </span>
+   256→      </div>
+   257→    </div>
+   258→  );
+   259→}
+   260→
+   261→/* ── 7 Pillars — accordion with smooth height transition ── */
+   262→const SEVEN_PILLARS = [
+   263→  { num: "1", icon: Building2, titleKey: "why.p1.title", descKey: "why.p1.desc" },
+   264→  { num: "2", icon: Wifi, titleKey: "why.p2.title", descKey: "why.p2.desc" },
+   265→  { num: "3", icon: MessageCircle, titleKey: "why.p3.title", descKey: "why.p3.desc" },
+   266→  { num: "4", icon: FileStack, titleKey: "why.p4.title", descKey: "why.p4.desc" },
+   267→  { num: "5", icon: Users, titleKey: "why.p5.title", descKey: "why.p5.desc" },
+   268→  { num: "6", icon: GraduationCap, titleKey: "why.p6.title", descKey: "why.p6.desc" },
+   269→  { num: "7", icon: Briefcase, titleKey: "why.p7.title", descKey: "why.p7.desc" },
+   270→] as const;
+   271→
+   272→function PillarAccordion({
+   273→  pillar,
+   274→  isOpen,
+   275→  onToggle,
+   276→}: {
+   277→  pillar: (typeof SEVEN_PILLARS)[number];
+   278→  isOpen: boolean;
+   279→  onToggle: () => void;
+   280→}) {
+   281→  const { t } = useI18n();
+   282→  return (
+   283→    <div
+   284→      className={`overflow-hidden rounded-lg border bg-pearl shadow-card transition-all ${
+   285→        isOpen ? "border-crimson/30" : "border-crimson/8"
+   286→      }`}
+   287→    >
+   288→      <button
+   289→        type="button"
+   290→        onClick={onToggle}
+   291→        aria-expanded={isOpen}
+   292→        aria-controls={`pillar-panel-${pillar.num}`}
+   293→        className="relative flex w-full items-center gap-5 p-6 text-left transition-colors hover:bg-crimson/[0.02]"
+   294→      >
+   295→        {/* Faded large numeral */}
+   296→        <span
+   297→          className="pointer-events-none absolute -left-1 top-1/2 -translate-y-1/2 font-serif-jp font-black leading-none text-crimson"
+   298→          style={{ fontSize: "64px", opacity: 0.15 }}
+   299→          aria-hidden
+   300→        >
+   301→          {pillar.num}
+   302→        </span>
+   303→        {/* Icon badge */}
+   304→        <span className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-crimson/10 to-saffron/10 text-crimson">
+   305→          <pillar.icon className="h-6 w-6" strokeWidth={1.5} />
+   306→        </span>
+   307→        {/* Title */}
+   308→        <h3
+   309→          className="relative z-10 flex-1 font-inter font-bold text-ink"
+   310→          style={{ fontSize: "20px" }}
+   311→        >
+   312→          {t(pillar.titleKey)}
+   313→        </h3>
+   314→        {/* Chevron */}
+   315→        <ChevronDown
+   316→          className={`relative z-10 h-5 w-5 shrink-0 text-crimson transition-transform duration-300 ${
+   317→            isOpen ? "rotate-180" : ""
+   318→          }`}
+   319→        />
+   320→      </button>
+   321→      {/* Smooth height transition via grid-template-rows */}
+   322→      <div
+   323→        id={`pillar-panel-${pillar.num}`}
+   324→        className="grid transition-[grid-template-rows] duration-300 ease-out"
+   325→        style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
+   326→      >
+   327→        <div className="overflow-hidden">
+   328→          <div className="px-6 pb-6 pt-0">
+   329→            <div className="border-t border-crimson/10 pt-4">
+   330→              <p
+   331→                className="font-inter text-slate"
+   332→                style={{ fontSize: "16px", lineHeight: 1.65 }}
+   333→              >
+   334→                {t(pillar.descKey)}
+   335→              </p>
+   336→            </div>
+   337→          </div>
+   338→        </div>
+   339→      </div>
+   340→    </div>
+   341→  );
+   342→}
+   343→
+   344→/* ── Testimonials content — 3 real testimonials ── */
+   345→const TESTIMONIALS = [
+   346→  {
+   347→    name: "Hiroshi Yamamoto",
+   348→    role: { EN: "Country Manager, Mid-size Manufacturing", JP: "中堅製造業・カントリーマネージャー" },
+   349→    initials: "HY",
+   350→    fallback: "grad-testimonial",
+   351→    quote: {
+   352→      EN: "J-Gate gave us an operational India base within weeks, not years. The Japan Desk handled everything in our language — registration, banking, hiring. We could finally focus on the business, not the bureaucracy.",
+   353→      JP: "J-Gateは数年ではなく数週間で稼働するインド拠点を提供してくれました。ジャパンデスクが登録・銀行・採用まで日本語で対応。私たちはついにビジネスに集中できました。",
+   354→    },
+   355→  },
+   356→  {
+   357→    name: "Priya Nair",
+   358→    role: { EN: "India Lead, Japanese Tech Enterprise", JP: "日本テック企業・インドリード" },
+   359→    initials: "PN",
+   360→    fallback: "grad-team",
+   361→    quote: {
+   362→      EN: "The difference is the ecosystem. At J-Gate we met our T-Hub partners, our first Indian engineers, and the legal counsel who set up our entity — all in the same building. No other space offers that.",
+   363→      JP: "決定的に違うのはエコシステムです。J-GateではT-Hubパートナー、最初のインド人エンジニア、法人設立の法律顧問を同じ建物で出会えました。他の場所にはありません。",
+   364→    },
+   365→  },
+   366→  {
+   367→    name: "Kenji Watanabe",
+   368→    role: { EN: "Director, Regional SME Bank", JP: "地方銀・ディレクター" },
+   369→    initials: "KW",
+   370→    fallback: "grad-advisory-j",
+   371→    quote: {
+   372→      EN: "As a regional bank we couldn't justify a full India office. J-Gate's membership model let us establish a credible presence at a fraction of the typical cost — and the talent they placed has stayed with us for 18 months and counting.",
+   373→      JP: "地方銀としてインドオフィスは正当化できませんでした。J-Gateのメンバーシップで、通常コストの一部で信頼できる拠点を確立。紹介された人材は18ヶ月以上定着しています。",
+   374→    },
+   375→  },
+   376→];
+   377→
+   378→function TestimonialCard({
+   379→  t,
+   380→  delay,
+   381→}: {
+   382→  t: (typeof TESTIMONIALS)[number];
+   383→  delay: number;
+   384→}) {
+   385→  const { tx } = useI18n();
+   386→  return (
+   387→    <Reveal delay={delay}>
+   388→      <article className="lift-card relative flex h-full flex-col overflow-hidden rounded-lg border border-crimson/8 bg-pearl p-7 shadow-card">
+   389→        {/* Large crimson quote mark */}
+   390→        <span
+   391→          className="pointer-events-none absolute -top-3 right-3 font-serif-jp font-black leading-none text-crimson"
+   392→          style={{ fontSize: "80px", opacity: 0.1 }}
+   393→          aria-hidden
+   394→        >
+   395→          &ldquo;
+   396→        </span>
+   397→        {/* 5 saffron stars */}
+   398→        <div className="relative flex gap-0.5">
+   399→          {Array.from({ length: 5 }).map((_, i) => (
+   400→            <Star key={i} className="h-4 w-4 fill-saffron text-saffron" />
+   401→          ))}
+   402→        </div>
+   403→        {/* Quote body */}
+   404→        <p
+   405→          className="relative mt-4 flex-1 font-inter italic leading-relaxed text-slate"
+   406→          style={{ fontSize: "14px" }}
+   407→        >
+   408→          &ldquo;{tx(t.quote)}&rdquo;
+   409→        </p>
+   410→        {/* Author */}
+   411→        <div className="relative mt-5 flex items-center gap-3 border-t border-crimson/10 pt-5">
+   412→          <Photo
+   413→            id={`photo-testimonial-${t.initials.toLowerCase()}`}
+   414→            alt={`${t.name} portrait`}
+   415→            fallback={t.fallback}
+   416→            initials={t.initials}
+   417→            rounded="rounded-full"
+   418→            className="h-12 w-12 shrink-0"
+   419→          />
+   420→          <div className="flex flex-col">
+   421→            <span className="font-inter text-[14px] font-bold text-ink">{t.name}</span>
+   422→            <span className="font-inter text-[11px] text-mist">{tx(t.role)}</span>
+   423→          </div>
+   424→        </div>
+   425→      </article>
+   426→    </Reveal>
+   427→  );
+   428→}
+   429→
+   430→export default function WhyJGatePage() {
+   431→  const { t, tx } = useI18n();
+   432→  const [openPillar, setOpenPillar] = useState<number>(1); // first one open by default
+   433→
+   434→  return (
+   435→    <>
+   436→      <PageHero
+   437→        eyebrowKey="why.eyebrow"
+   438→        titleNode={
+   439→          <>
+   440→            {tx({ EN: "The Strategic", JP: "戦略的投資としての" })}
+   441→            <br />
+   442→            <span className="text-gradient-saffron">
+   443→              {tx({ EN: "Investment Advantage", JP: "優位性" })}
+   444→            </span>
+   445→          </>
+   446→        }
+   447→        subtitleKey="why.title"
+   448→      />
+   449→
+   450→      {/* ════════════════════════════════════════════════════════════
+   451→          Section 1 — Comparison Table
+   452→          Full interactive 5-col × 9-row table.
+   453→          J-Gate column: crimson left-border, pearl bg, "Recommended" badge.
+   454→          Legend row above table. Mobile: horizontal scroll with sticky first col.
+   455→          Summary statement below.
+   456→         ════════════════════════════════════════════════════════════ */}
+   457→      <section className="section-pad bg-ivory">
+   458→        <div className="container-jg">
+   459→          <Reveal>
+   460→            <div className="mx-auto max-w-3xl text-center">
+   461→              <Eyebrow>{t("why.compare.eyebrow")}</Eyebrow>
+   462→              <h2
+   463→                className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
+   464→                style={{ fontSize: "clamp(1.625rem,3.6vw,2.25rem)" }}
+   465→              >
+   466→                {t("why.compare.title")}
+   467→              </h2>
+   468→              <p
+   469→                className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate"
+   470→                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+   471→              >
+   472→                {t("why.compare.subtitle")}
+   473→              </p>
+   474→            </div>
+   475→          </Reveal>
+   476→
+   477→          {/* Legend */}
+   478→          <Reveal delay={80}>
+   479→            <div className="mt-8">
+   480→              <Legend />
+   481→            </div>
+   482→          </Reveal>
+   483→
+   484→          {/* Cost savings visual — before/after financial proof */}
+   485→          <Reveal delay={100}>
+   486→            <div className="mt-4">
+   487→              <CostSavings />
+   488→            </div>
+   489→          </Reveal>
+   490→
+   491→          {/* Table — horizontal scroll on mobile, sticky first col */}
+   492→          <Reveal delay={120}>
+   493→            <div className="relative overflow-x-auto rounded-lg border border-crimson/12 bg-pearl shadow-card">
+   494→              {/* Mobile swipe hint */}
+   495→              <div className="pointer-events-none absolute right-2 top-2 z-10 hidden rounded-md bg-midnight/85 px-2 py-1 font-inter text-[10px] font-semibold uppercase text-white sm:block lg:hidden" style={{ letterSpacing: "0.1em" }}>
+   496→                ← Swipe to compare →
+   497→              </div>
+   498→              <table className="w-full border-collapse">
+   499→                <thead>
+   500→                  <tr className="border-b border-crimson/15">
+   501→                    {/* Header cap */}
+   502→                    <th
+   503→                      className="sticky left-0 z-10 bg-pearl p-4 text-left align-bottom"
+   504→                      style={{ minWidth: 140 }}
+   505→                    >
+   506→                      <span
+   507→                        className="font-inter text-[10px] font-bold uppercase text-slate"
+   508→                        style={{ letterSpacing: "0.15em" }}
+   509→                      >
+   510→                        {t("why.compare.col.cap")}
+   511→                      </span>
+   512→                    </th>
+   513→                    {/* J-Gate column */}
+   514→                    <th className="border-l-4 border-crimson bg-crimson/[0.04] p-4 text-left align-bottom">
+   515→                      <div className="flex flex-col gap-1.5">
+   516→                        <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-crimson px-2 py-0.5 font-inter text-[10px] font-bold uppercase text-white" style={{ letterSpacing: "0.1em" }}>
+   517→                          <Check className="h-2.5 w-2.5" strokeWidth={3} />
+   518→                          {tx({ EN: "Recommended", JP: "おすすめ" })}
+   519→                        </span>
+   520→                        <span className="font-serif-jp text-[18px] font-bold text-ink">
+   521→                          {t("why.compare.col.jgate")}
+   522→                        </span>
+   523→                      </div>
+   524→                    </th>
+   525→                    {/* Other 3 columns */}
+   526→                    <th className="bg-pearl p-4 text-left align-bottom">
+   527→                      <span className="font-serif-jp text-[14px] font-bold text-slate">
+   528→                        {t("why.compare.col.consult")}
+   529→                      </span>
+   530→                    </th>
+   531→                    <th className="bg-pearl p-4 text-left align-bottom">
+   532→                      <span className="font-serif-jp text-[14px] font-bold text-slate">
+   533→                        {t("why.compare.col.cowork")}
+   534→                      </span>
+   535→                    </th>
+   536→                    <th className="bg-pearl p-4 text-left align-bottom">
+   537→                      <span className="font-serif-jp text-[14px] font-bold text-slate">
+   538→                        {t("why.compare.col.public")}
+   539→                      </span>
+   540→                    </th>
+   541→                  </tr>
+   542→                </thead>
+   543→                <tbody>
+   544→                  {COMPARISON_ROWS.map((row, ri) => (
+   545→                    <tr key={ri} className="border-t border-crimson/8 align-top">
+   546→                      {/* Sticky first col — label */}
+   547→                      <th
+   548→                        scope="row"
+   549→                        className="sticky left-0 z-10 bg-pearl p-4 text-left"
+   550→                      >
+   551→                        <span className="font-inter text-[12px] font-bold uppercase text-ink" style={{ letterSpacing: "0.05em" }}>
+   552→                          {t(row.labelKey)}
+   553→                        </span>
+   554→                      </th>
+   555→                      {/* J-Gate cell — highlighted */}
+   556→                      <td className="border-l-4 border-crimson bg-crimson/[0.04] p-4">
+   557→                        <Cell
+   558→                          type={row.jgateType ?? "text"}
+   559→                          text={t(row.jgate)}
+   560→                          jgateHighlight
+   561→                        />
+   562→                      </td>
+   563→                      {/* Other cells */}
+   564→                      <td className="bg-pearl p-4">
+   565→                        <Cell type={row.consultType ?? "text"} text={t(row.consult)} />
+   566→                      </td>
+   567→                      <td className="bg-pearl p-4">
+   568→                        <Cell type={row.coworkType ?? "text"} text={t(row.cowork)} />
+   569→                      </td>
+   570→                      <td className="bg-pearl p-4">
+   571→                        <Cell type={row.publicType ?? "text"} text={t(row.publicOrg)} />
+   572→                      </td>
+   573→                    </tr>
+   574→                  ))}
+   575→                </tbody>
+   576→              </table>
+   577→            </div>
+   578→          </Reveal>
+   579→
+   580→          {/* Summary statement */}
+   581→          <Reveal delay={200}>
+   582→            <p
+   583→              className="mx-auto mt-6 max-w-3xl text-center font-inter leading-relaxed text-slate"
+   584→              style={{ fontSize: "clamp(0.9rem,1.5vw,1rem)" }}
+   585→            >
+   586→              <span className="font-bold text-crimson">»</span>{" "}
+   587→              {t("why.compare.note")}
+   588→            </p>
+   589→          </Reveal>
+   590→        </div>
+   591→      </section>
+   592→
+   593→      {/* ════════════════════════════════════════════════════════════
+   594→          Section 2 — 7 Pillars (Accordion)
+   595→          Each: large number (64px crimson opacity 0.15), title (Inter 700 20px), body (Inter 400 16px slate)
+   596→          Expandable accordion with smooth height transition.
+   597→         ════════════════════════════════════════════════════════════ */}
+   598→      <section className="section-pad relative overflow-hidden bg-navy">
+   599→        <div className="pattern-asanoha-navy absolute inset-0 opacity-60" />
+   600→        <div
+   601→          className="absolute inset-0"
+   602→          style={{
+   603→            background:
+   604→              "linear-gradient(135deg, rgba(188,26,44,0.10) 0%, transparent 50%, rgba(232,160,26,0.06) 100%)",
+   605→          }}
+   606→        />
+   607→        <div className="container-jg relative">
+   608→          <Reveal>
+   609→            <div className="mx-auto max-w-3xl text-center">
+   610→              <Eyebrow light>{t("why.pillars.eyebrow")}</Eyebrow>
+   611→              <h2
+   612→                className="mt-4 font-serif-jp font-bold leading-[1.18] text-white"
+   613→                style={{ fontSize: "clamp(1.75rem,4vw,2.5rem)" }}
+   614→              >
+   615→                {t("why.pillars.title")}
+   616→              </h2>
+   617→              <p
+   618→                className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-mist"
+   619→                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+   620→              >
+   621→                {t("why.pillars.subtitle")}
+   622→              </p>
+   623→            </div>
+   624→          </Reveal>
+   625→
+   626→          <div className="mx-auto mt-10 grid max-w-3xl gap-3">
+   627→            {SEVEN_PILLARS.map((p, i) => (
+   628→              <Reveal key={p.num} delay={i * 60}>
+   629→                <PillarAccordion
+   630→                  pillar={p}
+   631→                  isOpen={openPillar === Number(p.num)}
+   632→                  onToggle={() =>
+   633→                    setOpenPillar(openPillar === Number(p.num) ? 0 : Number(p.num))
+   634→                  }
+   635→                />
+   636→              </Reveal>
+   637→            ))}
+   638→          </div>
+   639→
+   640→          {/* Stats strip */}
+   641→          <Reveal delay={200}>
+   642→            <div className="mx-auto mt-10 flex max-w-3xl flex-wrap items-center justify-center gap-x-8 gap-y-3 rounded-lg border border-white/10 bg-white/[0.03] px-6 py-4 text-center">
+   643→              {[
+   644→                tx({ EN: "2–4 Persons/company", JP: "1社2〜4名まで" }),
+   645→                tx({ EN: "7 Pillars total", JP: "合計7つの柱" }),
+   646→                tx({ EN: "100% JP-language support", JP: "100%日本語サポート" }),
+   647→              ].map((item, i) => (
+   648→                <div key={i} className="flex items-center gap-2">
+   649→                  <span className="h-1.5 w-1.5 rounded-full bg-crimson" />
+   650→                  <span className="font-inter text-[13px] font-semibold text-white">{item}</span>
+   651→                </div>
+   652→              ))}
+   653→            </div>
+   654→          </Reveal>
+   655→        </div>
+   656→      </section>
+   657→
+   658→      {/* ════════════════════════════════════════════════════════════
+   659→          Section 3 — Testimonials
+   660→          3 cards w/ large crimson quote marks (80px opacity 0.1), 5 saffron stars, circular photo placeholders
+   661→         ════════════════════════════════════════════════════════════ */}
+   662→      <section className="section-pad bg-ivory-warm">
+   663→        <div className="container-jg">
+   664→          <Reveal>
+   665→            <div className="mx-auto max-w-3xl text-center">
+   666→              <Eyebrow>{tx({ EN: "Corporate Testimonials", JP: "企業のお声" })}</Eyebrow>
+   667→              <h2
+   668→                className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
+   669→                style={{ fontSize: "clamp(1.75rem,3.8vw,2.25rem)" }}
+   670→              >
+   671→                {tx({ EN: "Trusted by Companies Already on the Ground", JP: "現場で信頼される企業からのお声" })}
+   672→              </h2>
+   673→              <p
+   674→                className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate"
+   675→                style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}
+   676→              >
+   677→                {tx({
+   678→                  EN: "Real outcomes from real members — across manufacturing, technology, and regional banking.",
+   679→                  JP: "製造・テクノロジー・地方銀行など、実際のメンバーからのリアルな成果。",
+   680→                })}
+   681→              </p>
+   682→            </div>
+   683→          </Reveal>
+   684→
+   685→          <div className="mt-10 grid gap-5 md:grid-cols-3">
+   686→            {TESTIMONIALS.map((tm, i) => (
+   687→              <TestimonialCard key={tm.name} t={tm} delay={i * 120} />
+   688→            ))}
+   689→          </div>
+   690→        </div>
+   691→      </section>
+   692→
+   693→      {/* ════════════════════════════════════════════════════════════
+   694→          Closing CTA
+   695→         ════════════════════════════════════════════════════════════ */}
+   696→      <section className="section-pad relative overflow-hidden bg-midnight">
+   697→        <div className="pattern-asanoha-dark absolute inset-0 opacity-60" />
+   698→        <div
+   699→          className="absolute inset-0"
+   700→          style={{
+   701→            background:
+   702→              "radial-gradient(ellipse at 50% 50%, rgba(188,26,44,0.12), transparent 60%)",
+   703→          }}
+   704→        />
+   705→        <div className="container-jg relative">
+   706→          <Reveal>
+   707→            <div className="mx-auto max-w-2xl text-center">
+   708→              <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-crimson/15 text-crimson">
+   709→                <Sparkles className="h-7 w-7" strokeWidth={1.5} />
+   710→              </span>
+   711→              <h2
+   712→                className="mt-6 font-serif-jp font-bold leading-[1.15] text-white"
+   713→                style={{ fontSize: "clamp(1.75rem,4vw,2.5rem)" }}
+   714→              >
+   715→                {tx({ EN: "Ready to See the Difference?", JP: "違いを見に行きませんか？" })}
+   716→              </h2>
+   717→              <p
+   718→                className="mx-auto mt-5 max-w-lg font-inter font-light leading-relaxed text-mist"
+   719→                style={{ fontSize: "clamp(0.95rem,1.6vw,1.125rem)" }}
+   720→              >
+   721→                {tx({
+   722→                  EN: "Download the brochure and see exactly how J-Gate delivers what consultants, coworking, and public orgs cannot.",
+   723→                  JP: "パンフレットをダウンロードして、コンサル・コワーキング・公的機関にはできないJ-Gateの提供価値をご確認ください。",
+   724→                })}
+   725→              </p>
+   726→              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+   727→                <Link
+   728→                  href="/auth/brochure"
+   729→                  className="btn-shine flex items-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-7 py-3.5 font-inter text-[14px] font-semibold text-white shadow-[0_0_24px_rgba(188,26,44,0.45)] transition-all hover:-translate-y-0.5"
+   730→                >
+   731→                  {t("nav.brochure")}
+   732→                  <ArrowRight className="h-4 w-4" />
+   733→                </Link>
+   734→                <Link
+   735→                  href="/contact"
+   736→                  className="rounded-md border border-white/30 px-7 py-3.5 font-inter text-[14px] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-white/10"
+   737→                >
+   738→                  {tx({ EN: "Talk to Us", JP: "お問い合わせ" })}
+   739→                </Link>
+   740→              </div>
+   741→            </div>
+   742→          </Reveal>
+   743→        </div>
+   744→      </section>
+   745→    </>
+   746→  );
+   747→}
+   748→

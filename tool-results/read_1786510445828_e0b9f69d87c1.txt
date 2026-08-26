@@ -1,0 +1,636 @@
+     1→"use client";
+     2→
+     3→import { Reveal, Eyebrow } from "@/components/jgate/shared";
+     4→import { PageHero } from "@/components/jgate/page-hero";
+     5→import { Photo } from "@/components/jgate/photo";
+     6→import { useI18n } from "@/lib/i18n";
+     7→import {
+     8→  Check,
+     9→  ArrowRight,
+    10→  ArrowDownRight,
+    11→  Star,
+    12→  Crown,
+    13→  Building2,
+    14→  AlertCircle,
+    15→  Banknote,
+    16→  Mail,
+    17→  Phone,
+    18→  Receipt,
+    19→  TrendingDown,
+    20→  ShieldCheck,
+    21→} from "lucide-react";
+    22→import Link from "next/link";
+    23→
+    24→/* ============================================================
+    25→   Pricing — REAL PDF content (Slide 9: Membership Fee Plans — Hyderabad)
+    26→   Premium editorial structure:
+    27→     1. PageHero — Membership Fee Plans — Hyderabad
+    28→     2. Cost Comparison Callout — Typical Expat Cost → J-Gate Membership
+    29→     3. 3 Plan Cards (Satellite/Standard/Advance) side-by-side equal height,
+    30→        photo slot at top (200px), Standard elevated + MOST POPULAR ribbon,
+    31→        Advance with FLAGSHIP badge.
+    32→     4. Billing Notes — 3 small cards (base fees / INR+JPY / GST excluded)
+    33→     5. Closing CTA — Ready to Choose Your Plan?
+    34→   ZERO context mixing per card.
+    35→   ============================================================ */
+    36→
+    37→type Bilingual = { EN: string; JP: string };
+    38→
+    39→type Plan = {
+    40→  id: "satellite" | "standard" | "advance";
+    41→  jpName: string;
+    42→  enName: string;
+    43→  priceINR: string;
+    44→  priceJPY: string;
+    45→  photoId: string;
+    46→  fallback: string;
+    47→  initials: string;
+    48→  accent: "slate" | "crimson" | "saffron";
+    49→  badge?: { text: Bilingual; icon: typeof Star; tone: "crimson" | "saffron" };
+    50→  target: Bilingual;
+    51→  features: Bilingual[];
+    52→  highlight?: boolean;
+    53→};
+    54→
+    55→const PLANS: Plan[] = [
+    56→  {
+    57→    id: "satellite",
+    58→    jpName: "サテライトプラン",
+    59→    enName: "Satellite Plan",
+    60→    priceINR: "15,000",
+    61→    priceJPY: "~¥27,000",
+    62→    photoId: "photo-plan-satellite",
+    63→    fallback: "grad-plan-hotdesk",
+    64→    initials: "S",
+    65→    accent: "slate",
+    66→    target: {
+    67→      EN: "Japanese companies with an existing India entity.",
+    68→      JP: "インドに既存法人を持つ日本企業向け。",
+    69→    },
+    70→    features: [
+    71→      { EN: "Workspace usage (unlimited, up to 2 people)", JP: "ワークスペース利用（無制限、最大2名）" },
+    72→      { EN: "Full infrastructure usage", JP: "インフラ設備の完全利用" },
+    73→      {
+    74→        EN: "Market development base for Hyderabad / Andhra Pradesh",
+    75→        JP: "ハイデラバード・アーンドラ・プラデーシュ州での市場開拓拠点",
+    76→      },
+    77→    ],
+    78→  },
+    79→  {
+    80→    id: "standard",
+    81→    jpName: "スタンダードプラン",
+    82→    enName: "Standard Plan",
+    83→    priceINR: "50,000",
+    84→    priceJPY: "~¥90,000",
+    85→    photoId: "photo-plan-standard",
+    86→    fallback: "grad-plan-dedicated",
+    87→    initials: "ST",
+    88→    accent: "crimson",
+    89→    badge: { text: { EN: "MOST POPULAR", JP: "最も人気" }, icon: Star, tone: "crimson" },
+    90→    highlight: true,
+    91→    target: {
+    92→      EN: "Japanese SMEs and startups entering India.",
+    93→      JP: "インド参入を検討する日本の中小企業・スタートアップ向け。",
+    94→    },
+    95→    features: [
+    96→      { EN: "Workspace (unlimited, up to 4 people)", JP: "ワークスペース利用（無制限、最大4名）" },
+    97→      { EN: "Full infrastructure usage", JP: "インフラ設備の完全利用" },
+    98→      { EN: "\"Yorozu\" Consultation in-person (何でも相談)", JP: "「よろず」相談（対面）" },
+    99→      { EN: "India study sessions", JP: "インド勉強会への参加" },
+   100→      { EN: "Initial network introductions", JP: "初期ネットワーク紹介" },
+   101→    ],
+   102→  },
+   103→  {
+   104→    id: "advance",
+   105→    jpName: "アドバンスプラン",
+   106→    enName: "Advance Plan",
+   107→    priceINR: "120,000",
+   108→    priceJPY: "~¥216,000",
+   109→    photoId: "photo-plan-advance",
+   110→    fallback: "grad-plan-cabin",
+   111→    initials: "A",
+   112→    accent: "saffron",
+   113→    badge: { text: { EN: "FLAGSHIP", JP: "フラッグシップ" }, icon: Crown, tone: "saffron" },
+   114→    target: {
+   115→      EN: "Enterprises, regional banks, local governments.",
+   116→      JP: "企業・地方銀行・自治体向け。",
+   117→    },
+   118→    features: [
+   119→      { EN: "Everything in Standard Plan", JP: "スタンダードプランのすべてを含む" },
+   120→      { EN: "Indobox early-phase hands-on consulting", JP: "Indoboxによる初期段階の実践コンサルティング" },
+   121→      { EN: "Business meeting accompaniment (1×/month)", JP: "商談同席（月1回まで）" },
+   122→      { EN: "Priority networking invitations", JP: "ネットワーキングイベントへの優先招待" },
+   123→      { EN: "Detailed partner introductions & matching", JP: "現地パートナーの詳細紹介・マッチング" },
+   124→    ],
+   125→  },
+   126→];
+   127→
+   128→const accentMap = {
+   129→  slate: {
+   130→    ring: "border-slate-200",
+   131→    bar: "from-slate-400 to-slate-500",
+   132→    text: "text-slate",
+   133→    chipBg: "bg-slate/10",
+   134→    checkBg: "bg-slate/10",
+   135→    priceColor: "text-ink",
+   136→    cta: "border-slate-300 text-slate hover:bg-slate/5 hover:border-slate-500",
+   137→    iconBg: "bg-slate/10",
+   138→    icon: Building2,
+   139→  },
+   140→  crimson: {
+   141→    ring: "border-crimson/40",
+   142→    bar: "from-crimson to-crimson-deep",
+   143→    text: "text-crimson",
+   144→    chipBg: "bg-crimson/10",
+   145→    checkBg: "bg-crimson/10",
+   146→    priceColor: "text-crimson-deep",
+   147→    cta: "bg-gradient-to-r from-crimson to-crimson-deep text-white shadow-[0_0_20px_rgba(188,26,44,0.35)] hover:-translate-y-0.5",
+   148→    iconBg: "bg-crimson/10",
+   149→    icon: Star,
+   150→  },
+   151→  saffron: {
+   152→    ring: "border-saffron/40",
+   153→    bar: "from-saffron to-[#c9881a]",
+   154→    text: "text-saffron",
+   155→    chipBg: "bg-saffron/10",
+   156→    checkBg: "bg-saffron/10",
+   157→    priceColor: "text-[#a06c0c]",
+   158→    cta: "border-2 border-saffron text-saffron hover:bg-saffron/5 hover:border-saffron/80",
+   159→    iconBg: "bg-saffron/10",
+   160→    icon: Crown,
+   161→  },
+   162→} as const;
+   163→
+   164→export default function PricingPage() {
+   165→  const { tx } = useI18n();
+   166→
+   167→  return (
+   168→    <>
+   169→      <PageHero
+   170→        eyebrowKey="pricing.eyebrow"
+   171→        titleNode={
+   172→          <>
+   173→            {tx({ EN: "Membership Fee Plans", JP: "「[ハイデラバード]" })}
+   174→            <br />
+   175→            <span className="text-gradient-saffron">
+   176→              {tx({ EN: "— Hyderabad", JP: "メンバーシップ料金プラン」" })}
+   177→            </span>
+   178→          </>
+   179→        }
+   180→        subtitleKey="pricing.subtitle"
+   181→      />
+   182→
+   183→      {/* ───────────────────────────────────────────────────────────
+   184→          Section 1 — Cost Comparison Callout
+   185→          Typical Annual Expat Cost (¥15M–¥20M per expat + setup)
+   186→                              ↓ Arrow showing cost reduction
+   187→          J-Gate Membership From: 15,000 INR/mo (~¥27,000)
+   188→         ─────────────────────────────────────────────────────────── */}
+   189→      <section className="section-pad bg-ivory">
+   190→        <div className="container-jg">
+   191→          <Reveal>
+   192→            <div className="mx-auto max-w-4xl rounded-lg border border-crimson/15 bg-pearl p-6 shadow-card sm:p-8">
+   193→              <div className="flex items-center gap-3">
+   194→                <span className="flex h-10 w-10 items-center justify-center rounded-md bg-gradient-to-br from-crimson to-crimson-deep text-white shadow-card">
+   195→                  <TrendingDown className="h-5 w-5" strokeWidth={1.5} />
+   196→                </span>
+   197→                <div>
+   198→                  <Eyebrow>{tx({ EN: "Cost Comparison", JP: "コスト比較" })}</Eyebrow>
+   199→                  <p
+   200→                    className="mt-1 font-serif-jp font-bold leading-snug text-ink"
+   201→                    style={{ fontSize: "clamp(1.0625rem,2vw,1.25rem)" }}
+   202→                  >
+   203→                    {tx({
+   204→                      EN: "Replace the typical annual expat cost with a fraction of the investment.",
+   205→                      JP: "従来型駐在員コストを、その数分の一の投資で代替。",
+   206→                    })}
+   207→                  </p>
+   208→                </div>
+   209→              </div>
+   210→
+   211→              {/* 2-tile cost comparison + center arrow */}
+   212→              <div className="mt-6 grid items-stretch gap-3 sm:grid-cols-[1fr_auto_1fr]">
+   213→                {/* Typical expat cost — strikethrough red */}
+   214→                <div className="relative rounded-lg border border-crimson/20 bg-crimson/[0.04] p-5">
+   215→                  <p
+   216→                    className="font-inter text-[10px] font-semibold uppercase text-mist"
+   217→                    style={{ letterSpacing: "0.12em" }}
+   218→                  >
+   219→                    {tx({ EN: "Typical Annual Expat Cost", JP: "従来型駐在員年間コスト" })}
+   220→                  </p>
+   221→                  <p className="mt-2 font-serif-jp text-2xl font-bold leading-tight text-ink line-through decoration-crimson decoration-2 sm:text-3xl">
+   222→                    ¥15M–¥20M
+   223→                  </p>
+   224→                  <p className="mt-1.5 font-inter text-[12px] text-slate">
+   225→                    {tx({ EN: "per expat + setup fees", JP: "駐在員1名＋設立費用" })}
+   226→                  </p>
+   227→                </div>
+   228→
+   229→                {/* Arrow — cost reduction */}
+   230→                <div className="flex flex-col items-center justify-center px-2 py-3 sm:py-0">
+   231→                  <span
+   232→                    className="flex h-10 w-10 items-center justify-center rounded-full bg-saffron/15 text-saffron shadow-card"
+   233→                    aria-hidden="true"
+   234→                  >
+   235→                    <ArrowDownRight className="h-5 w-5" strokeWidth={2.5} />
+   236→                  </span>
+   237→                  <span
+   238→                    className="mt-1.5 font-inter text-[10px] font-bold uppercase text-saffron"
+   239→                    style={{ letterSpacing: "0.14em" }}
+   240→                  >
+   241→                    {tx({ EN: "Save up to 99%", JP: "最大99%削減" })}
+   242→                  </span>
+   243→                </div>
+   244→
+   245→                {/* J-Gate membership — saffron-gradient highlight */}
+   246→                <div className="relative rounded-lg border border-saffron/40 bg-gradient-to-br from-saffron/[0.10] to-crimson/[0.04] p-5 shadow-gold">
+   247→                  <p
+   248→                    className="font-inter text-[10px] font-semibold uppercase text-saffron"
+   249→                    style={{ letterSpacing: "0.12em" }}
+   250→                  >
+   251→                    {tx({ EN: "J-Gate Membership From", JP: "J-Gateメンバーシップ" })}
+   252→                  </p>
+   253→                  <p className="mt-2 font-serif-jp text-2xl font-bold leading-tight text-crimson-deep sm:text-3xl">
+   254→                    15,000 INR
+   255→                    <span className="font-inter text-sm font-medium text-mist"> /mo</span>
+   256→                  </p>
+   257→                  <p className="mt-1.5 font-inter text-[12px] font-semibold text-saffron">
+   258→                    {tx({ EN: "~¥27,000/mo · excl. GST", JP: "月額約¥27,000 · GST別" })}
+   259→                  </p>
+   260→                </div>
+   261→              </div>
+   262→            </div>
+   263→          </Reveal>
+   264→        </div>
+   265→      </section>
+   266→
+   267→      {/* ───────────────────────────────────────────────────────────
+   268→          Section 2 — 3 Plan Cards (Slide 9)
+   269→          Side-by-side, equal height. Standard plan elevated + MOST POPULAR
+   270→          ribbon. Advance plan with FLAGSHIP badge. Photo at top (200px),
+   271→          then content (name, big INR price + JPY equivalent, target,
+   272→          checklist, CTA).
+   273→         ─────────────────────────────────────────────────────────── */}
+   274→      <section className="section-pad bg-ivory-warm">
+   275→        <div className="container-jg">
+   276→          <Reveal>
+   277→            <div className="mx-auto max-w-3xl text-center">
+   278→              <Eyebrow>
+   279→                {tx({ EN: "Three Plans, One Operating Base", JP: "3つのプラン、ひとつの拠点" })}
+   280→              </Eyebrow>
+   281→              <h2
+   282→                className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
+   283→                style={{ fontSize: "clamp(1.75rem,3.5vw,2.25rem)" }}
+   284→              >
+   285→                {tx({
+   286→                  EN: "Choose the Plan That Matches Your India Stage",
+   287→                  JP: "貴社のインド段階に合ったプランを",
+   288→                })}
+   289→              </h2>
+   290→              <p
+   291→                className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-slate"
+   292→                style={{ fontSize: "clamp(0.9rem,1.5vw,1.0625rem)" }}
+   293→              >
+   294→                {tx({
+   295→                  EN: "From a satellite workspace for established entities to flagship hands-on consulting — all anchored in our Hyderabad base at Cyber Gateway.",
+   296→                  JP: "既存法人向けのサテライト拠点から、フラッグシップの実践コンサルティングまで — すべてCyber Gatewayのハイデラバード拠点を拠点に。",
+   297→                })}
+   298→              </p>
+   299→            </div>
+   300→          </Reveal>
+   301→
+   302→          <div className="mt-10 grid gap-5 lg:grid-cols-3 lg:items-stretch">
+   303→            {PLANS.map((plan, i) => {
+   304→              const a = accentMap[plan.accent];
+   305→              const isHighlight = plan.highlight;
+   306→              const PlanIcon = a.icon;
+   307→              return (
+   308→                <Reveal key={plan.id} delay={i * 90} variant={i === 0 ? "left" : i === 2 ? "right" : "up"}>
+   309→                  <article
+   310→                    className={`lift-card relative flex h-full flex-col overflow-hidden rounded-lg border-2 bg-pearl shadow-card transition-all ${
+   311→                      a.ring
+   312→                    } ${isHighlight ? "lg:-translate-y-3 lg:shadow-[0_20px_60px_rgba(188,26,44,0.18)]" : ""}`}
+   313→                  >
+   314→                    {/* Top accent bar */}
+   315→                    <span className={`absolute inset-x-0 top-0 z-20 h-1.5 bg-gradient-to-r ${a.bar}`} />
+   316→
+   317→                    {/* MOST POPULAR ribbon — crimson diagonal ribbon for Standard */}
+   318→                    {plan.badge && plan.badge.tone === "crimson" && (
+   319→                      <div className="absolute right-0 top-0 z-30">
+   320→                        <div
+   321→                          className="relative inline-flex items-center gap-1.5 bg-gradient-to-r from-crimson to-crimson-deep px-4 py-1.5 font-inter text-[10px] font-bold uppercase text-white shadow-[0_4px_16px_rgba(188,26,44,0.35)]"
+   322→                          style={{ letterSpacing: "0.14em" }}
+   323→                        >
+   324→                          <Star className="h-3 w-3 fill-white" strokeWidth={0} />
+   325→                          {tx(plan.badge.text)}
+   326→                          <span
+   327→                            className="absolute bottom-0 right-0 h-3 w-3 bg-crimson-deep"
+   328→                            style={{
+   329→                              clipPath: "polygon(100% 0, 100% 100%, 0 100%)",
+   330→                            }}
+   331→                          />
+   332→                        </div>
+   333→                      </div>
+   334→                    )}
+   335→                    {/* FLAGSHIP badge — saffron pill for Advance */}
+   336→                    {plan.badge && plan.badge.tone === "saffron" && (
+   337→                      <div className="absolute left-4 top-4 z-30">
+   338→                        <span
+   339→                          className="inline-flex items-center gap-1.5 rounded-md bg-saffron/95 px-3 py-1.5 font-inter text-[10px] font-bold uppercase text-ink shadow-gold"
+   340→                          style={{ letterSpacing: "0.14em" }}
+   341→                        >
+   342→                          <Crown className="h-3 w-3" strokeWidth={2.5} />
+   343→                          {tx(plan.badge.text)}
+   344→                        </span>
+   345→                      </div>
+   346→                    )}
+   347→
+   348→                    {/* Photo slot — 200px */}
+   349→                    <div className="relative h-[200px] w-full overflow-hidden">
+   350→                      <Photo
+   351→                        id={plan.photoId}
+   352→                        alt={`${plan.enName} photo`}
+   353→                        fallback={plan.fallback}
+   354→                        initials={plan.initials}
+   355→                        rounded="rounded-none"
+   356→                        className="h-[200px] w-full"
+   357→                      />
+   358→                      {/* Gradient fade for photo → content transition */}
+   359→                      <div
+   360→                        className="pointer-events-none absolute inset-x-0 bottom-0 h-16"
+   361→                        style={{
+   362→                          background:
+   363→                            "linear-gradient(to top, rgba(250,250,250,0.95) 0%, transparent 100%)",
+   364→                        }}
+   365→                        aria-hidden="true"
+   366→                      />
+   367→                      {/* Floating price chip on photo bottom-left */}
+   368→                      <div className="absolute bottom-3 left-4">
+   369→                        <span
+   370→                          className={`inline-flex items-baseline gap-1 rounded-md bg-midnight/85 px-3 py-1.5 backdrop-blur-sm ${a.priceColor}`}
+   371→                          style={{ color: "white" }}
+   372→                        >
+   373→                          <span className="font-serif-jp text-base font-bold">
+   374→                            {plan.priceINR}
+   375→                          </span>
+   376→                          <span className="font-inter text-[10px] font-medium text-mist">
+   377→                            INR/mo
+   378→                          </span>
+   379→                        </span>
+   380→                      </div>
+   381→                    </div>
+   382→
+   383→                    {/* Content body */}
+   384→                    <div className="flex flex-1 flex-col p-6 sm:p-7">
+   385→                      {/* Plan name (EN + JP) */}
+   386→                      <div className="flex items-start gap-3">
+   387→                        <span
+   388→                          className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-md ${a.iconBg} ${a.text}`}
+   389→                        >
+   390→                          <PlanIcon className="h-5 w-5" strokeWidth={1.5} />
+   391→                        </span>
+   392→                        <div>
+   393→                          <h3 className="font-serif-jp text-lg font-bold leading-tight text-ink sm:text-xl">
+   394→                            {plan.enName}
+   395→                          </h3>
+   396→                          <p className="font-sans-jp text-[12.5px] font-medium text-mist">
+   397→                            {plan.jpName}
+   398→                          </p>
+   399→                        </div>
+   400→                      </div>
+   401→
+   402→                      {/* Big price */}
+   403→                      <div className="mt-5 border-t border-crimson/10 pt-4">
+   404→                        <div className="flex items-baseline gap-1.5">
+   405→                          <span className={`font-serif-jp text-4xl font-bold ${a.priceColor} sm:text-[2.75rem]`}>
+   406→                            {plan.priceINR}
+   407→                          </span>
+   408→                          <span className="font-inter text-[13px] font-semibold text-slate">INR</span>
+   409→                          <span className="font-inter text-[12px] text-mist">/mo</span>
+   410→                        </div>
+   411→                        <p className="mt-1.5 flex items-center gap-1.5 font-inter text-[12px] text-mist">
+   412→                          <span className="font-semibold text-slate">{plan.priceJPY}</span>
+   413→                          <span>·</span>
+   414→                          <span>{tx({ EN: "excl. GST", JP: "GST別" })}</span>
+   415→                        </p>
+   416→                      </div>
+   417→
+   418→                      {/* Target */}
+   419→                      <div className="mt-5 border-t border-crimson/10 pt-4">
+   420→                        <p
+   421→                          className="font-inter text-[10px] font-semibold uppercase text-mist"
+   422→                          style={{ letterSpacing: "0.12em" }}
+   423→                        >
+   424→                          {tx({ EN: "Target", JP: "対象" })}
+   425→                        </p>
+   426→                        <p className="mt-1.5 font-inter text-[13px] leading-relaxed text-slate">
+   427→                          {tx(plan.target)}
+   428→                        </p>
+   429→                      </div>
+   430→
+   431→                      {/* Clean checklist */}
+   432→                      <div className="mt-5 flex-1 border-t border-crimson/10 pt-4">
+   433→                        <p
+   434→                          className="font-inter text-[10px] font-semibold uppercase text-mist"
+   435→                          style={{ letterSpacing: "0.12em" }}
+   436→                        >
+   437→                          {tx({ EN: "Included", JP: "含まれる内容" })}
+   438→                        </p>
+   439→                        <ul className="mt-3 space-y-2.5">
+   440→                          {plan.features.map((f, fi) => (
+   441→                            <li key={fi} className="flex items-start gap-2.5">
+   442→                              <span
+   443→                                className={`mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${a.checkBg} ${a.text}`}
+   444→                              >
+   445→                                <Check className="h-3 w-3" strokeWidth={3} />
+   446→                              </span>
+   447→                              <span className="font-inter text-[12.5px] leading-snug text-slate">
+   448→                                {tx(f)}
+   449→                              </span>
+   450→                            </li>
+   451→                          ))}
+   452→                        </ul>
+   453→                      </div>
+   454→
+   455→                      {/* CTA */}
+   456→                      <Link
+   457→                        href="/contact"
+   458→                        className={`mt-6 inline-flex items-center justify-center gap-2 rounded-md border px-5 py-3 font-inter text-[13px] font-semibold transition-all ${a.cta}`}
+   459→                      >
+   460→                        {tx({ EN: "Contact Us", JP: "お問い合わせ" })}
+   461→                        <ArrowRight className="h-3.5 w-3.5" />
+   462→                      </Link>
+   463→                    </div>
+   464→                  </article>
+   465→                </Reveal>
+   466→              );
+   467→            })}
+   468→          </div>
+   469→        </div>
+   470→      </section>
+   471→
+   472→      {/* ───────────────────────────────────────────────────────────
+   473→          Section 3 — Billing Notes (3 small cards)
+   474→          1. Base fees only — registration + recruitment commissions charged separately
+   475→          2. INR billed · JPY settlement also supported (rates fluctuate)
+   476→          3. All prices exclude India GST
+   477→         ─────────────────────────────────────────────────────────── */}
+   478→      <section className="section-pad bg-ivory">
+   479→        <div className="container-jg">
+   480→          <Reveal>
+   481→            <div className="mx-auto max-w-4xl">
+   482→              <div className="mb-8 flex items-center gap-3">
+   483→                <span className="flex h-10 w-10 items-center justify-center rounded-md bg-crimson/10 text-crimson">
+   484→                  <AlertCircle className="h-5 w-5" strokeWidth={1.5} />
+   485→                </span>
+   486→                <div>
+   487→                  <Eyebrow>{tx({ EN: "Billing Notes", JP: "請求に関する注意事項" })}</Eyebrow>
+   488→                  <h3
+   489→                    className="mt-1 font-serif-jp font-bold text-ink"
+   490→                    style={{ fontSize: "clamp(1.125rem,2vw,1.375rem)" }}
+   491→                  >
+   492→                    {tx({ EN: "Read Before You Subscribe", JP: "ご契約前の確認事項" })}
+   493→                  </h3>
+   494→                </div>
+   495→              </div>
+   496→
+   497→              <div className="grid gap-3 sm:grid-cols-3">
+   498→                {[
+   499→                  {
+   500→                    icon: Receipt,
+   501→                    label: { EN: "Base fees only", JP: "基本料金のみ" } as Bilingual,
+   502→                    desc: {
+   503→                      EN: "Prices shown are base monthly fees. Corporate registration agency fees and recruitment commissions are charged separately.",
+   504→                      JP: "記載価格は月額基本料金。法人登記代行手数料および人材紹介手数料は別途請求。",
+   505→                    } as Bilingual,
+   506→                  },
+   507→                  {
+   508→                    icon: Banknote,
+   509→                    label: { EN: "INR billed · JPY supported", JP: "INR請求・JPY決済対応" } as Bilingual,
+   510→                    desc: {
+   511→                      EN: "All plans are billed in Indian Rupees (INR). Settlement in Japanese Yen (JPY) is supported — rates fluctuate based on FX conditions.",
+   512→                      JP: "全プランはインドルピー（INR）で請求。日本円（JPY）決済にも対応 — 為替状況により変動。",
+   513→                    } as Bilingual,
+   514→                  },
+   515→                  {
+   516→                    icon: AlertCircle,
+   517→                    label: { EN: "GST excluded", JP: "GST別" } as Bilingual,
+   518→                    desc: {
+   519→                      EN: "All listed prices are exclusive of India's Goods and Services Tax (GST), added to invoices as per applicable rates.",
+   520→                      JP: "記載価格はインドの物品サービス税（GST）を除外。適用税率に従い請求書に追加。",
+   521→                    } as Bilingual,
+   522→                  },
+   523→                ].map((n, i) => {
+   524→                  const NoteIcon = n.icon;
+   525→                  return (
+   526→                    <div
+   527→                      key={i}
+   528→                      className="lift-card rounded-lg border border-slate-200 bg-pearl p-5"
+   529→                    >
+   530→                      <span className="flex h-9 w-9 items-center justify-center rounded-md bg-saffron/15 text-saffron">
+   531→                        <NoteIcon className="h-4 w-4" strokeWidth={1.75} />
+   532→                      </span>
+   533→                      <p className="mt-3 font-serif-jp text-[14px] font-bold text-ink">
+   534→                        {tx(n.label)}
+   535→                      </p>
+   536→                      <p className="mt-2 font-inter text-[12px] leading-relaxed text-slate">
+   537→                        {tx(n.desc)}
+   538→                      </p>
+   539→                    </div>
+   540→                  );
+   541→                })}
+   542→              </div>
+   543→
+   544→              {/* Trust line */}
+   545→              <div className="mt-6 flex items-center gap-3 rounded-lg border border-crimson/15 bg-crimson/[0.03] p-4">
+   546→                <ShieldCheck className="h-5 w-5 shrink-0 text-crimson" strokeWidth={1.5} />
+   547→                <p className="font-inter text-[12.5px] leading-relaxed text-slate">
+   548→                  <span className="font-semibold text-ink">
+   549→                    {tx({ EN: "All plans include", JP: "全プラン共通" })}:{" "}
+   550→                  </span>
+   551→                  {tx({
+   552→                    EN: "Hyderabad Cyber Gateway workspace access, full infrastructure (Wi-Fi, meeting rooms, security, 24/7 smart-key), and resident Japanese-language support.",
+   553→                    JP: "ハイデラバード Cyber Gatewayのワークスペース利用、完全なインフラ（Wi-Fi・会議室・セキュリティ・24時間スマートキー）、駐在 日本語サポート。",
+   554→                  })}
+   555→                </p>
+   556→              </div>
+   557→            </div>
+   558→          </Reveal>
+   559→        </div>
+   560→      </section>
+   561→
+   562→      {/* ───────────────────────────────────────────────────────────
+   563→          Closing CTA — Ready to Choose Your Plan?
+   564→         ─────────────────────────────────────────────────────────── */}
+   565→      <section className="section-pad relative overflow-hidden bg-midnight">
+   566→        <div className="pattern-asanoha-dark absolute inset-0 opacity-60" />
+   567→        <div
+   568→          className="absolute inset-0"
+   569→          style={{
+   570→            background:
+   571→              "radial-gradient(ellipse at 50% 30%, rgba(232,160,26,0.10), transparent 60%)",
+   572→          }}
+   573→        />
+   574→        <div className="container-jg relative">
+   575→          <Reveal>
+   576→            <div className="mx-auto max-w-2xl text-center">
+   577→              <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-saffron/15 text-saffron">
+   578→                <Star className="h-6 w-6" strokeWidth={1.5} />
+   579→              </span>
+   580→              <h2
+   581→                className="mt-6 font-serif-jp font-bold leading-[1.18] text-white"
+   582→                style={{ fontSize: "clamp(1.75rem,3.5vw,2.25rem)" }}
+   583→              >
+   584→                {tx({ EN: "Ready to Choose Your Plan?", JP: "プランをお選びですか？" })}
+   585→              </h2>
+   586→              <p
+   587→                className="mx-auto mt-3 font-inter leading-relaxed text-mist"
+   588→                style={{ fontSize: "clamp(0.9rem,1.5vw,1rem)" }}
+   589→              >
+   590→                {tx({
+   591→                  EN: "Talk to our operations team — we'll help you select the right plan, scope any add-ons, and walk you through INR/JPY billing.",
+   592→                  JP: "運営チームにご相談ください — 最適なプランの選定、追加サービスのスコープ提示、INR/JPY請求の流れまでご案内。",
+   593→                })}
+   594→              </p>
+   595→
+   596→              <div className="mt-7 flex flex-col items-center justify-center gap-3 sm:flex-row">
+   597→                <Link
+   598→                  href="/contact"
+   599→                  className="btn-shine flex items-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-7 py-3.5 font-inter text-[14px] font-semibold text-white shadow-[0_0_20px_rgba(188,26,44,0.35)] transition-all hover:-translate-y-0.5"
+   600→                >
+   601→                  {tx({ EN: "Contact Us", JP: "お問い合わせ" })}
+   602→                  <ArrowRight className="h-4 w-4" />
+   603→                </Link>
+   604→                <Link
+   605→                  href="/services"
+   606→                  className="rounded-md border border-white/30 px-7 py-3.5 font-inter text-[14px] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-white/10"
+   607→                >
+   608→                  {tx({ EN: "Compare Services", JP: "サービスを見る" })}
+   609→                </Link>
+   610→              </div>
+   611→
+   612→              {/* Quick contact strip */}
+   613→              <div className="mt-8 flex flex-col items-center justify-center gap-4 border-t border-white/10 pt-6 sm:flex-row sm:gap-8">
+   614→                <a
+   615→                  href="mailto:contact@indobox.co.jp"
+   616→                  className="flex items-center gap-2 font-inter text-[13px] text-mist transition-colors hover:text-saffron"
+   617→                >
+   618→                  <Mail className="h-4 w-4 text-saffron" />
+   619→                  contact@indobox.co.jp
+   620→                </a>
+   621→                <a
+   622→                  href="tel:+919910360648"
+   623→                  className="flex items-center gap-2 font-inter text-[13px] text-mist transition-colors hover:text-saffron"
+   624→                >
+   625→                  <Phone className="h-4 w-4 text-saffron" />
+   626→                  +91-9910360648 (Tanji)
+   627→                </a>
+   628→              </div>
+   629→            </div>
+   630→          </Reveal>
+   631→        </div>
+   632→      </section>
+   633→    </>
+   634→  );
+   635→}
+   636→

@@ -19,8 +19,8 @@ const EVENTS = [
   {
     icon: "🎤",
     date: "Keynote Address",
-    title: "JETRO Keynote",
-    desc: "Mr. Naoto Nakadate, Senior Director of JETRO (Japan External Trade Organization), delivered the congratulatory keynote address — officially affirming Hyderabad's growing significance as a destination for Japanese investment.",
+    title: "Inaugural Addresses",
+    desc: "Distinguished guests delivered congratulatory keynote remarks — affirming Hyderabad's growing prominence as an ideal launchpad for Japanese enterprise expansion.",
   },
   {
     icon: "🤝",

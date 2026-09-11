@@ -16,6 +16,7 @@ const NAV_LINKS = [
   { href: "/services", key: "nav.services" },
   { href: "/team", key: "nav.team" },
   { href: "/pricing", key: "nav.pricing" },
+  { href: "/faq", key: "nav.faq" },
   { href: "/blogs", key: "nav.blogs" },
   { href: "/contact", key: "nav.contact" },
 ] as const;
@@ -56,32 +57,39 @@ export function Navbar() {
       )}
     >
       <nav
-        className="container-jg flex h-[76px] items-center justify-between"
+        className="container-jg flex h-[76px] items-center justify-between gap-2 xl:gap-4"
         aria-label="Primary"
       >
-        {/* Logo — official J-Gate logo */}
-        <Link href="/" className="group flex items-center" aria-label="J-Gate home">
-          <JGateLogo size="md" className="transition-opacity duration-300 group-hover:opacity-90" />
+        {/* Logo — official J-Gate logo with protected non-shrinking dimensions */}
+        <Link
+          href="/"
+          className="group flex items-center shrink-0 min-w-[130px]"
+          aria-label="J-Gate home"
+        >
+          <JGateLogo
+            size="md"
+            className="h-9 sm:h-10 w-auto shrink-0 transition-opacity duration-300 group-hover:opacity-90"
+          />
         </Link>
 
         {/* Desktop nav */}
-        <ul className="hidden items-center gap-1 lg:flex">
+        <ul className="hidden items-center gap-0.5 xl:gap-1.5 lg:flex flex-nowrap">
           {NAV_LINKS.map((link) => (
-            <li key={link.href}>
+            <li key={link.href} className="shrink-0">
               <Link
                 href={link.href}
                 className={cn(
-                  "relative px-3 py-2 font-inter text-[14px] font-medium transition-colors",
+                  "relative px-1.5 xl:px-2.5 py-1.5 font-inter text-[12.5px] xl:text-[13.5px] font-medium transition-colors whitespace-nowrap",
                   "text-white/70 hover:text-white",
-                  isActive(link.href) && "text-white"
+                  isActive(link.href) && "text-white font-semibold"
                 )}
                 style={{ letterSpacing: "0.01em" }}
               >
                 {t(link.key)}
                 <span
                   className={cn(
-                    "absolute bottom-1 left-3 h-px bg-crimson transition-all duration-300",
-                    isActive(link.href) ? "w-[calc(100%-1.5rem)]" : "w-0"
+                    "absolute bottom-0.5 left-1.5 xl:left-2.5 h-0.5 bg-crimson transition-all duration-300 rounded-full",
+                    isActive(link.href) ? "w-[calc(100%-0.75rem)] xl:w-[calc(100%-1.25rem)]" : "w-0"
                   )}
                 />
               </Link>
@@ -90,9 +98,9 @@ export function Navbar() {
         </ul>
 
         {/* Right controls */}
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2 xl:gap-2.5 shrink-0">
           {/* JP/EN language toggle — working pill switch */}
-          <div className="hidden items-center rounded-full border border-white/15 bg-white/5 p-0.5 sm:flex">
+          <div className="flex items-center rounded-full border border-white/15 bg-white/5 p-0.5 shrink-0">
             {(["JP", "EN"] as const).map((l) => (
               <button
                 key={l}
@@ -113,17 +121,17 @@ export function Navbar() {
           {/* Download Brochure CTA — routes to /auth/brochure */}
           <Link
             href="/auth/brochure"
-            className="btn-shine hidden items-center gap-1.5 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-4 py-2.5 font-inter text-[13px] font-semibold text-white shadow-[0_0_20px_rgba(188,26,44,0.4)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_28px_rgba(188,26,44,0.6)] lg:inline-flex"
+            className="btn-shine hidden items-center gap-1.5 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-3.5 xl:px-4 py-2 font-inter text-[12px] xl:text-[13px] font-semibold text-white shadow-[0_0_20px_rgba(188,26,44,0.4)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_28px_rgba(188,26,44,0.6)] shrink-0 lg:inline-flex"
           >
-            <Download className="h-3.5 w-3.5" />
-            {t("nav.brochure")}
+            <Download className="h-3.5 w-3.5 shrink-0" />
+            <span>{t("nav.brochure")}</span>
           </Link>
 
           {/* Hamburger */}
           <button
             onClick={() => setOpen((v) => !v)}
             className={cn(
-              "inline-flex h-10 w-10 items-center justify-center rounded-md transition-colors lg:hidden",
+              "inline-flex h-10 w-10 items-center justify-center rounded-md transition-colors lg:hidden shrink-0",
               "text-white hover:bg-white/10"
             )}
             aria-label={open ? "Close menu" : "Open menu"}

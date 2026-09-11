@@ -4,12 +4,11 @@ import { Reveal } from "./shared";
 import { PartnerLogo } from "./partner-logo";
 
 const PARTNERS = [
-  "JETRO",
   "T-Hub",
   "Woxsen University",
   "Genesys Info X",
-  "DMI",
   "Kodryx AI",
+  "MXC",
 ];
 
 export function TrustStrip() {

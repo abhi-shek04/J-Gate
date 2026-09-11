@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 
 const PHOTOS: PhotoItem[] = [
   { id: "photo-inauguration-main", alt: "J-Gate inauguration ceremony June 22 2026", label: "Official Inauguration — June 22, 2026", fallback: "grad-inauguration", initials: "IG" },
-  { id: "photo-inauguration-speech", alt: "JETRO Director keynote at J-Gate inauguration", label: "Mr. Naoto Nakadate, Senior Director, JETRO — Keynote", fallback: "grad-inauguration", initials: "JK" },
+  { id: "photo-inauguration-speech", alt: "Inaugural keynote at J-Gate inauguration", label: "Inaugural Keynote Address — June 22, 2026", fallback: "grad-inauguration", initials: "IK" },
   { id: "photo-inauguration-mochi", alt: "Daifuku Mochi Japanese hospitality at J-Gate", label: "Daifuku Mochi — Great Fortune 大福", fallback: "grad-inauguration", initials: "🍡" },
   { id: "photo-inauguration-guests", alt: "50 distinguished guests at J-Gate inauguration", label: "50+ Distinguished Guests", fallback: "grad-inauguration", initials: "50+" },
   { id: "photo-inauguration-mou", alt: "MoU signing Indobox Genesys Info X", label: "MoU Signing — Indobox × Genesys Info X", fallback: "grad-inauguration", initials: "MoU" },
@@ -14,8 +14,8 @@ const PHOTOS: PhotoItem[] = [
 
 const TIMELINE = [
   { icon: "📅", date: "June 22, 2026", title: "Doors Open", desc: "J-Gate officially inaugurated at Cyber Gateway, Hyderabad." },
-  { icon: "👥", date: "Launch Day", title: "50+ Distinguished Guests", desc: "Global business leaders, entrepreneurs, JETRO officials, university representatives, Japanese expatriates, and students — all present." },
-  { icon: "🎤", date: "Keynote", title: "JETRO Keynote", desc: "Mr. Naoto Nakadate, Senior Director of JETRO, delivers a congratulatory address — the Japanese government's vote of confidence in J-Gate's mission." },
+  { icon: "👥", date: "Launch Day", title: "50+ Distinguished Guests", desc: "Global business leaders, entrepreneurs, state officials, university representatives, Japanese expatriates, and students — all present." },
+  { icon: "🎤", date: "Keynote", title: "Inaugural Keynote", desc: "Distinguished guests deliver congratulatory addresses, affirming strong bilateral support for J-Gate's mission in Hyderabad." },
   { icon: "🍡", date: "Omotenashi", title: "Omotenashi Moment", desc: "Guests welcomed with Daifuku Mochi (大福餅 — \"Great Fortune\") and authentic Japanese green tea. The philosophy of wholehearted hospitality, made tangible." },
   { icon: "🤝", date: "Partnership", title: "MoU Signed", desc: "Mr. Daisuke Tanji and Mr. Viinay Sarikonda formalize the Indobox × Genesys Info X partnership — the operational backbone of J-Gate." },
   { icon: "🏛", date: "Council", title: "Advisory Council Inaugurated", desc: "Mr. Sujit Jagirdar and Mr. Srinivas Rao Mahankali (former CIO and CEO of T-Hub) join the Advisory Council and pledge their full support." },

@@ -51,8 +51,8 @@ const FEATURES = [
   },
   {
     icon: Landmark,
-    title: "JETRO & Government Interface",
-    desc: "Our alignment with JETRO — Japan's official trade promotion body — gives you access to government-backed support, diplomatic introductions, and trade facilitation resources.",
+    title: "Government & Industry Interface",
+    desc: "Our alignment with the Telangana State Government IT Promotion Department gives you access to institutional backing, industry incentives, and regulatory facilitation.",
   },
   {
     icon: Globe2,

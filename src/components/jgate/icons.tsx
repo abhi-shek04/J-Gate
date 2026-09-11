@@ -26,18 +26,18 @@ export function JGateLogo({
     <img
       src="/jgate-logo.png"
       alt="J-Gate logo"
-      className={`${h} w-auto object-contain ${className}`}
+      className={`${h} w-auto object-contain shrink-0 ${className}`}
       style={{ filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.18))" }}
     />
   );
 }
 
-/** Logo mark only (just the icon) — for small spaces, mobile, etc. */
+/** Logo mark only (just the interlocking rings emblem) — for small spaces, mobile, etc. */
 export function JGateMark({ className = "" }: { className?: string }) {
   return (
     <img
-      src="/jgate-logo.png"
-      alt="J-Gate"
+      src="/jgate-mark.png"
+      alt="J-Gate Mark"
       className={`object-contain ${className}`}
       style={{ filter: "drop-shadow(0 1px 2px rgba(0,0,0,0.08))" }}
     />

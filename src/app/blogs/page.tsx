@@ -1,545 +1,959 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
-  ArrowRight,
-  Clock,
-  Camera,
-  Bookmark,
-  TrendingUp,
-  Plane,
-  FileText,
-  Sparkles,
-  ArrowUpRight,
+  Building2,
+  MapPin,
+  Flag,
+  Users,
+  Eye,
+  UtensilsCrossed,
+  Trees,
+  Maximize2,
+  Coffee,
+  CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
+  X,
+  LayoutGrid,
+  Layers,
+  Sparkle,
+  Wifi,
+  Lock,
+  Compass,
 } from "lucide-react";
 import { Reveal, Eyebrow } from "@/components/jgate/shared";
 import { PageHero } from "@/components/jgate/page-hero";
-import { Photo, useLightbox, type PhotoItem } from "@/components/jgate/photo";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
 
 /* ============================================================
-   /blogs — Insights & Life at J-Gate
-   Dual-tabbed editorial magazine view:
-     • Industry Insights  — 6 article cards (large cover images + tag pill
-                              + number + read time + title + excerpt + Read More)
-     • Life & Culture     — 8-photo masonry grid with lightbox (hover label
-                              overlay + camera icon hint)
-   REAL content from spec. Premium editorial standard.
+   J-Gate Official Office & Facilities Gallery
+   Location: Cyber Gateway, Phase 2, Hitech City, Hyderabad
+   Understated, minimalist architectural portfolio layout.
    ============================================================ */
 
 type Bilingual = { EN: string; JP: string };
 
-type Article = {
-  key: string;
-  photoId: string;
-  fallback: string;
-  initials: string;
-  tag: Bilingual;
-  tagColor: string; // tailwind classes for tag pill
-  tagIcon: typeof Bookmark;
-  readTime: Bilingual;
+type RealPhotoItem = {
+  id: string;
+  src: string;
+  zone: "building" | "reception" | "workspace" | "meetings" | "dining";
+  zoneNumber: string;
+  alt: string;
   title: Bilingual;
-  excerpt: Bilingual;
-  accent: "crimson" | "saffron" | "success";
+  subtitle: Bilingual;
+  badge: Bilingual;
+  location: Bilingual;
+  specs: { label: Bilingual; val: Bilingual }[];
 };
 
-const ARTICLES: Article[] = [
+const ALL_REAL_PHOTOS: RealPhotoItem[] = [
+  // ZONE 1: BUILDING & COURTYARD
   {
-    key: "b1",
-    photoId: "photo-blog-1",
-    fallback: "grad-office-main",
-    initials: "JG",
-    tag: { EN: "Career Guide", JP: "キャリアガイド" },
-    tagColor: "bg-crimson/15 text-crimson",
-    tagIcon: Bookmark,
-    readTime: { EN: "5 min read", JP: "5分で読了" },
-    title: {
-      EN: "Why Indian Engineers Thrive in Japanese Enterprises",
-      JP: "インド人エンジニアが日本企業で活躍する理由",
+    id: "cg-facade",
+    src: "/gallery/cyber-gateway-facade.jpg",
+    zone: "building",
+    zoneNumber: "01",
+    alt: "Cyber Gateway building exterior in Hitech City, Hyderabad",
+    title: { EN: "Cyber Gateway Building Exterior", JP: "サイバーゲートウェイ 外観" },
+    subtitle: {
+      EN: "Commercial office building located in Phase 2 of Hitech City, Hyderabad.",
+      JP: "ハイデラバード・ハイテックシティ第2フェーズに位置するオフィスビル。",
     },
-    excerpt: {
-      EN: "Cultural alignment, technical depth, and the bridge that makes the difference. A data-backed look at placement retention.",
-      JP: "文化的適合、技術の深さ、そして違いを生む架け橋。定着率をデータで検証。",
-    },
-    accent: "crimson",
+    badge: { EN: "Cyber Gateway Phase 2", JP: "Phase 2" },
+    location: { EN: "Phase 2, Hitech City, Hyderabad", JP: "ハイデラバード・ハイテックシティ" },
+    specs: [
+      { label: { EN: "Location", JP: "所在地" }, val: { EN: "Hitech City, Hyderabad", JP: "ハイデラバード" } },
+      { label: { EN: "Transit", JP: "交通" }, val: { EN: "2 min to Metro Station", JP: "メトロ駅徒歩2分" } },
+      { label: { EN: "Power Backup", JP: "電源" }, val: { EN: "100% Dual DG Backup", JP: "発電機バックアップ" } },
+      { label: { EN: "Security", JP: "警備" }, val: { EN: "24/7 Security", JP: "24時間警備" } },
+    ],
   },
   {
-    key: "b2",
-    photoId: "photo-blog-2",
-    fallback: "grad-office-desks",
-    initials: "JL",
-    tag: { EN: "Business Culture", JP: "ビジネス文化" },
-    tagColor: "bg-saffron/15 text-[#a06d00]",
-    tagIcon: FileText,
-    readTime: { EN: "7 min read", JP: "7分で読了" },
-    title: {
-      EN: "Understanding Indian Business Customs: A Guide",
-      JP: "インドビジネス習慣の理解：ガイド",
+    id: "courtyard-fountain",
+    src: "/gallery/cyber-gateway-exterior.jpg",
+    zone: "building",
+    zoneNumber: "01",
+    alt: "Cyber Gateway central palm courtyard with water fountain",
+    title: { EN: "Central Courtyard & Fountain", JP: "中央中庭・噴水" },
+    subtitle: {
+      EN: "Landscaped open-air courtyard with fountain and palm trees within the building complex.",
+      JP: "敷地中央に位置する椰子の木と噴水のある共用中庭スペース。",
     },
-    excerpt: {
-      EN: "Our certified instructors break down the study path that actually works — from N5 foundations to N2 fluency.",
-      JP: "認定講師が実際に機能する学習パスを解説 — N5の基礎からN2の流暢さまで。",
+    badge: { EN: "Central Courtyard", JP: "共用中庭" },
+    location: { EN: "Cyber Gateway Central Courtyard", JP: "サイバーゲートウェイ中央部" },
+    specs: [
+      { label: { EN: "Type", JP: "種別" }, val: { EN: "Open-Air Courtyard", JP: "屋外中庭" } },
+      { label: { EN: "Feature", JP: "設備" }, val: { EN: "Water Fountain & Greenery", JP: "噴水・植栽" } },
+      { label: { EN: "Usage", JP: "用途" }, val: { EN: "Outdoor Break Area", JP: "休憩・散策" } },
+      { label: { EN: "Access", JP: "利用" }, val: { EN: "All Building Occupants", JP: "ビル入居者共用" } },
+    ],
+  },
+
+  // ZONE 2: ENTRANCE & RECEPTION
+  {
+    id: "reception-desk",
+    src: "/gallery/reception.jpg",
+    zone: "reception",
+    zoneNumber: "02",
+    alt: "J-Gate reception desk with world timezone clocks and flags",
+    title: { EN: "Front Reception Desk", JP: "受付フロント" },
+    subtitle: {
+      EN: "Reception desk equipped with international timezone clocks (Tokyo, London, New York, Delhi).",
+      JP: "東京・ロンドン・ニューヨーク・デリーの世界時計を設置した受付カウンター。",
     },
-    accent: "saffron",
+    badge: { EN: "Reception", JP: "受付" },
+    location: { EN: "J-Gate Entry Foyer, 2nd Floor", JP: "2階 エントランス" },
+    specs: [
+      { label: { EN: "Staff", JP: "スタッフ" }, val: { EN: "Japanese & English Support", JP: "日・英バイリンガル" } },
+      { label: { EN: "Timezones", JP: "世界時計" }, val: { EN: "Tokyo, London, NYC, Delhi", JP: "東京・ロンドン・NY・デリー" } },
+      { label: { EN: "Services", JP: "業務" }, val: { EN: "Visitor Reception & Mail", JP: "来客対応・郵便管理" } },
+      { label: { EN: "Access", JP: "入退館" }, val: { EN: "Smart Card Reader", JP: "ICカードリーダー" } },
+    ],
   },
   {
-    key: "b3",
-    photoId: "photo-blog-3",
-    fallback: "grad-office-meeting",
-    initials: "TT",
-    tag: { EN: "Tech in Tokyo", JP: "東京のテック" },
-    tagColor: "bg-success/15 text-success",
-    tagIcon: TrendingUp,
-    readTime: { EN: "6 min read", JP: "6分で読了" },
-    title: {
-      EN: "Tech in Tokyo: What Indian Engineers Need to Know",
-      JP: "東京のテック：インド人エンジニアが知るべきこと",
+    id: "acrylic-signage",
+    src: "/gallery/signage.jpg",
+    zone: "reception",
+    zoneNumber: "02",
+    alt: "J-Gate official acrylic company signboard at the office door",
+    title: { EN: "J-Gate Office Signboard", JP: "J-Gate オフィスサイン" },
+    subtitle: {
+      EN: "Acrylic brand plaque mounted at the office entrance doorway.",
+      JP: "オフィス入口壁面に設置されたJ-Gateアクリルサインプレート。",
     },
-    excerpt: {
-      EN: "From work culture to tech stacks — a practical guide for Indian engineers preparing for Tokyo placements.",
-      JP: "仕事の文化から技術スタックまで — 東京配置に向けるインド人エンジニアのための実践ガイド。",
-    },
-    accent: "success",
+    badge: { EN: "Official Signage", JP: "公式サイン" },
+    location: { EN: "Office Entrance Wall", JP: "オフィス入口壁面" },
+    specs: [
+      { label: { EN: "Type", JP: "仕様" }, val: { EN: "Acrylic Plaque", JP: "アクリルプレート" } },
+      { label: { EN: "Registration", JP: "登記" }, val: { EN: "Registered Office Address", JP: "法人登記可能住所" } },
+      { label: { EN: "Floor", JP: "階数" }, val: { EN: "2nd Floor, Wing-1", JP: "2階 Wing-1" } },
+      { label: { EN: "Door", JP: "施錠" }, val: { EN: "Electronic Access Lock", JP: "電子カード施錠" } },
+    ],
   },
   {
-    key: "b4",
-    photoId: "photo-blog-4",
-    fallback: "grad-office-cabin",
-    initials: "VU",
-    tag: { EN: "Visa Updates", JP: "ビザ最新情報" },
-    tagColor: "bg-crimson/15 text-crimson",
-    tagIcon: Plane,
-    readTime: { EN: "8 min read", JP: "8分で読了" },
-    title: {
-      EN: "Visa Updates 2026: The Engineer Visa Guide",
-      JP: "2026年ビザ最新情報：技術ビザ完全ガイド",
+    id: "wing1-entry",
+    src: "/gallery/entrance.jpg",
+    zone: "reception",
+    zoneNumber: "02",
+    alt: "Cyber Gateway Wing-1 office entrance glass door",
+    title: { EN: "Wing-1 Entrance Door", JP: "Wing-1 エントランスドア" },
+    subtitle: {
+      EN: "Secured glass entrance door at Wing-1 with partner and STPI affiliations.",
+      JP: "J-Gate、Indobox India、STPIの提携ロゴが掲示されたWing-1入口ドア。",
     },
-    excerpt: {
-      EN: "Step-by-step roadmap for establishing your India operations at Cyber Gateway — from company registration to banking and GST.",
-      JP: "2026年に改正された日本の技術ビザ — 何が変わり、インド人エンジニアは何を準備すべきか、J-GateのCOE申請対応。",
+    badge: { EN: "Wing-1 Entrance", JP: "Wing-1 入口" },
+    location: { EN: "Block B, Wing-1, 2nd Floor", JP: "Block B 2階 Wing-1" },
+    specs: [
+      { label: { EN: "Affiliation", JP: "提携" }, val: { EN: "STPI & Indobox Hub", JP: "STPI・Indobox" } },
+      { label: { EN: "Security", JP: "認証" }, val: { EN: "RFID Card Access", JP: "RFIDスマートカード" } },
+      { label: { EN: "Building", JP: "棟" }, val: { EN: "Block B, Phase 2", JP: "Block B" } },
+      { label: { EN: "Floor", JP: "階" }, val: { EN: "2nd Floor", JP: "2階" } },
+    ],
+  },
+
+  // ZONE 3: DEDICATED WORKSTATIONS
+  {
+    id: "workspace-hall",
+    src: "/gallery/workspace-wide.jpg",
+    zone: "workspace",
+    zoneNumber: "03",
+    alt: "J-Gate open workspace floor with 40+ dedicated workstations",
+    title: { EN: "Dedicated Workstation Floor", JP: "固定専用デスク 執務エリア" },
+    subtitle: {
+      EN: "Air-conditioned open floor equipped with 40+ dedicated desks and ergonomic high-back mesh chairs.",
+      JP: "40席以上の固定専用デスクと人間工学メッシュチェアを備えた冷暖房完備の執務エリア。",
     },
-    accent: "crimson",
+    badge: { EN: "40+ Dedicated Desks", JP: "40席以上 固定席" },
+    location: { EN: "Main Floor Workstation Area", JP: "メイン執務フロア" },
+    specs: [
+      { label: { EN: "Desks", JP: "席数" }, val: { EN: "40+ Assigned Desks", JP: "40席以上の固定席" } },
+      { label: { EN: "Seating", JP: "チェア" }, val: { EN: "High-Back Mesh Chairs", JP: "ハイバックメッシュ" } },
+      { label: { EN: "Internet", JP: "回線" }, val: { EN: "1 Gbps Dedicated Fiber", JP: "専用1Gbps光回線" } },
+      { label: { EN: "Climate", JP: "空調" }, val: { EN: "Central Air Conditioning", JP: "全館集中空調" } },
+    ],
   },
   {
-    key: "b5",
-    photoId: "photo-blog-5",
-    fallback: "grad-inauguration",
-    initials: "BC",
-    tag: { EN: "Business Culture", JP: "ビジネス文化" },
-    tagColor: "bg-saffron/15 text-[#a06d00]",
-    tagIcon: Sparkles,
-    readTime: { EN: "6 min read", JP: "6分で読了" },
-    title: {
-      EN: "Business Japanese: 報連相 (Hōrensō) for Engineers",
-      JP: "ビジネス日本語：エンジニアのための報連相（ほうれんそう）",
+    id: "desk-bilateral",
+    src: "/gallery/desk-flags.jpg",
+    zone: "workspace",
+    zoneNumber: "03",
+    alt: "Dedicated desk with Japan and India flags, lockable drawer unit",
+    title: { EN: "Dedicated Desk Setup", JP: "専用デスク・個別仕様" },
+    subtitle: {
+      EN: "Workstation equipped with personal lockable 3-tier drawer pedestal, power sockets, and partition board.",
+      JP: "個人用施錠3段キャビネット、電源タップ、パーティションパネルを備えた専用デスク。",
     },
-    excerpt: {
-      EN: "Hōkoku · Renraku · Sōdan — the three-pillar rhythm of Japanese corporate life that determines whether an engineer thrives.",
-      JP: "報告・連絡・相談 — 日本の企業生活を支える三本柱。エンジニアが活躍できるかを決めるリズム。",
-    },
-    accent: "saffron",
+    badge: { EN: "Lockable Pedestal", JP: "施錠ロッカー付" },
+    location: { EN: "Dedicated Desk Bays", JP: "専用デスク列" },
+    specs: [
+      { label: { EN: "Storage", JP: "収納" }, val: { EN: "3-Drawer Lockable Unit", JP: "鍵付き3段ワゴン" } },
+      { label: { EN: "Power", JP: "電源" }, val: { EN: "Multi-Pin Sockets", JP: "各席電源タップ" } },
+      { label: { EN: "Partition", JP: "パネル" }, val: { EN: "Acoustic Partition", JP: "吸音パネル" } },
+      { label: { EN: "Size", JP: "寸法" }, val: { EN: "1200 mm × 600 mm", JP: "1200×600mm" } },
+    ],
   },
   {
-    key: "b6",
-    photoId: "photo-blog-6",
-    fallback: "grad-event",
-    initials: "ST",
-    tag: { EN: "Engineering", JP: "エンジニアリング" },
-    tagColor: "bg-success/15 text-success",
-    tagIcon: TrendingUp,
-    readTime: { EN: "7 min read", JP: "7分で読了" },
-    title: {
-      EN: "From Hyderabad to Tokyo: A Success Story",
-      JP: "ハイデラバードから東京へ：ある成功ストーリー",
+    id: "workspace-clusters",
+    src: "/gallery/workspace-close.jpg",
+    zone: "workspace",
+    zoneNumber: "03",
+    alt: "Workstation clusters with presentation dais",
+    title: { EN: "Workstation Rows & Dais", JP: "デスク列＆プレゼンステージ" },
+    subtitle: {
+      EN: "Structured workstation rows with adjacent presentation dais and backdrop.",
+      JP: "整然と並ぶワークステーション列とプレゼンテーション用ステージ。",
     },
-    excerpt: {
-      EN: "How a 26-year-old ML engineer from Hitech City moved through J-Gate's pipeline to thrive at a Tokyo enterprise in 14 months.",
-      JP: "ハイテクシティの26歳MLエンジニアが、J-Gateのパイプラインを経て、14ヶ月で東京企業に着任し活躍するまでの軌跡。",
+    badge: { EN: "Workstation Rows", JP: "デスク列" },
+    location: { EN: "Central Workstation Bay", JP: "中央ワークステーション" },
+    specs: [
+      { label: { EN: "Layout", JP: "配置" }, val: { EN: "Linear Desk Pods", JP: "並列型配置" } },
+      { label: { EN: "Stage", JP: "ステージ" }, val: { EN: "Presentation Dais", JP: "プレゼンスペース" } },
+      { label: { EN: "Lighting", JP: "照明" }, val: { EN: "Diffused LED Panels", JP: "LED照明" } },
+      { label: { EN: "Cleaning", JP: "清掃" }, val: { EN: "Daily Housekeeping", JP: "日次清掃管理" } },
+    ],
+  },
+
+  // ZONE 4: MEETING ROOMS & BOARDROOM
+  {
+    id: "executive-boardroom",
+    src: "/gallery/boardroom.jpg",
+    zone: "meetings",
+    zoneNumber: "04",
+    alt: "16-seat International Executive Boardroom with multinational flags",
+    title: { EN: "16-Seat Boardroom", JP: "16名用 国際会議室" },
+    subtitle: {
+      EN: "Conference room with 16-seat table, executive leather chairs, 4K screen, and 8 international flags.",
+      JP: "16席のテーブル、レザーチェア、4Kモニター、国際旗を備えた大会議室。",
     },
-    accent: "success",
+    badge: { EN: "16-Seat Boardroom", JP: "16名会議室" },
+    location: { EN: "Conference Wing, 2nd Floor", JP: "2階 会議室エリア" },
+    specs: [
+      { label: { EN: "Capacity", JP: "定員" }, val: { EN: "16 Executive Seats", JP: "16席" } },
+      { label: { EN: "Display", JP: "映像" }, val: { EN: "4K Screen & Video Cam", JP: "4K大型モニター・カメラ" } },
+      { label: { EN: "Flags", JP: "国旗" }, val: { EN: "8 Multinational Flags", JP: "8カ国旗常設" } },
+      { label: { EN: "Walls", JP: "遮音" }, val: { EN: "Sound-Dampened Walls", JP: "遮音壁構造" } },
+    ],
+  },
+  {
+    id: "huddle-suite",
+    src: "/gallery/huddle-room.jpg",
+    zone: "meetings",
+    zoneNumber: "04",
+    alt: "4-person discussion meeting room with round white table and whiteboard",
+    title: { EN: "4-Seat Discussion Room", JP: "4名用 面談・討議室" },
+    subtitle: {
+      EN: "Private meeting room with round table, 4 mesh chairs, wall whiteboard, and power outlets.",
+      JP: "円形テーブル、メッシュチェア4脚、壁掛けホワイトボードを備えた個室面談室。",
+    },
+    badge: { EN: "4-Seat Discussion Room", JP: "4名面談室" },
+    location: { EN: "Meeting Room B", JP: "会議室B" },
+    specs: [
+      { label: { EN: "Capacity", JP: "定員" }, val: { EN: "4 Seats (Round Table)", JP: "4席（円形）" } },
+      { label: { EN: "Whiteboard", JP: "ボード" }, val: { EN: "Wall-Mounted Board", JP: "壁掛けホワイトボード" } },
+      { label: { EN: "Power", JP: "接続" }, val: { EN: "Center Power Hub", JP: "中央電源タップ" } },
+      { label: { EN: "Booking", JP: "利用" }, val: { EN: "Member Reservation", JP: "会員予約制" } },
+    ],
+  },
+
+  // ZONE 5: CAFETERIA & DINING
+  {
+    id: "tasty-food-junction",
+    src: "/gallery/cafeteria-bustle.jpg",
+    zone: "dining",
+    zoneNumber: "05",
+    alt: "Tasty Food Junction dining hall in building",
+    title: { EN: "Tasty Food Junction Dining Hall", JP: "Tasty Food Junction 食堂" },
+    subtitle: {
+      EN: "In-building cafeteria and dining hall serving hot meals daily for building occupants.",
+      JP: "サイバーゲートウェイ館内の食堂。日替わりの温かい食事を提供。",
+    },
+    badge: { EN: "In-Building Cafeteria", JP: "館内食堂" },
+    location: { EN: "Ground Floor Dining Hall", JP: "1階 食堂フロア" },
+    specs: [
+      { label: { EN: "Cuisine", JP: "料理" }, val: { EN: "Indian & Continental", JP: "インド料理・洋食" } },
+      { label: { EN: "Capacity", JP: "席数" }, val: { EN: "150+ Seats", JP: "150席以上" } },
+      { label: { EN: "Hygiene", JP: "衛生" }, val: { EN: "Daily Standard Audits", JP: "衛生管理基準" } },
+      { label: { EN: "Meals", JP: "提供" }, val: { EN: "Breakfast & Lunch", JP: "朝食・昼食" } },
+    ],
+  },
+  {
+    id: "tfj-entrance",
+    src: "/gallery/tasty-food-junction-entry.jpg",
+    zone: "dining",
+    zoneNumber: "05",
+    alt: "Tasty Food Junction entrance signboard",
+    title: { EN: "Tasty Food Junction Entrance", JP: "食堂エントランス" },
+    subtitle: {
+      EN: "Entrance to the building cafeteria with daily meal and beverage menu board.",
+      JP: "日替わりメニュー案内板を設置した食堂入口。",
+    },
+    badge: { EN: "Cafeteria Entry", JP: "食堂入口" },
+    location: { EN: "Dining Hall Entrance", JP: "食堂入口" },
+    specs: [
+      { label: { EN: "Options", JP: "メニュー" }, val: { EN: "Daily Meals & Tea", JP: "日替わり定食・お茶" } },
+      { label: { EN: "Payment", JP: "決済" }, val: { EN: "Digital / Cash", JP: "電子決済・現金" } },
+      { label: { EN: "Beverages", JP: "飲料" }, val: { EN: "Chai & Refreshments", JP: "チャイ・飲料" } },
+      { label: { EN: "Access", JP: "対象" }, val: { EN: "Building Occupants", JP: "ビル利用者共用" } },
+    ],
+  },
+  {
+    id: "inhouse-cafe",
+    src: "/gallery/cafeteria.jpg",
+    zone: "dining",
+    zoneNumber: "05",
+    alt: "In-office cafe and coffee pantry area",
+    title: { EN: "In-Office Coffee Pantry", JP: "所内コーヒーパントリー" },
+    subtitle: {
+      EN: "Pantry area within the office equipped with coffee machine, microwave, and seating.",
+      JP: "オフィス内に併設されたコーヒーマシン、電子レンジ、休憩テーブルのあるパントリー。",
+    },
+    badge: { EN: "Office Pantry", JP: "所内パントリー" },
+    location: { EN: "J-Gate Office Wing, 2nd Floor", JP: "2階 J-Gate所内" },
+    specs: [
+      { label: { EN: "Beverages", JP: "ドリンク" }, val: { EN: "Coffee & Green Tea", JP: "コーヒー・日本茶" } },
+      { label: { EN: "Appliances", JP: "家電" }, val: { EN: "Microwaves & Fridge", JP: "電子レンジ・冷蔵庫" } },
+      { label: { EN: "Seating", JP: "座席" }, val: { EN: "Casual Seating", JP: "休憩テーブル" } },
+      { label: { EN: "Floor", JP: "床材" }, val: { EN: "Wood Vinyl Planks", JP: "木目調フローリング" } },
+    ],
+  },
+  {
+    id: "ro-water-lounge",
+    src: "/gallery/cafeteria-lounge.jpg",
+    zone: "dining",
+    zoneNumber: "05",
+    alt: "Office refreshment lounge with RO drinking water dispenser",
+    title: { EN: "RO Purified Water Station & Lounge", JP: "RO浄水ステーション＆ラウンジ" },
+    subtitle: {
+      EN: "Break area equipped with multi-stage RO purified drinking water dispenser (hot and cold).",
+      JP: "冷水・温水が利用できる多段RO逆浸透膜浄水器を備えた休憩ラウンジ。",
+    },
+    badge: { EN: "RO Drinking Water", JP: "RO浄水設備" },
+    location: { EN: "Pantry Lounge Area", JP: "パントリーラウンジ" },
+    specs: [
+      { label: { EN: "Water", JP: "飲用水" }, val: { EN: "Multi-Stage RO Filtered", JP: "多段RO逆浸透膜浄水" } },
+      { label: { EN: "Dispenser", JP: "給水" }, val: { EN: "Cold & Hot Water Ready", JP: "冷水・温水完備" } },
+      { label: { EN: "Lighting", JP: "照明" }, val: { EN: "Ambient LED", JP: "LED照明" } },
+      { label: { EN: "Hygiene", JP: "清掃" }, val: { EN: "Daily Sanitized", JP: "日次除菌管理" } },
+    ],
   },
 ];
 
-const GALLERY: (PhotoItem & { gKey: string })[] = [
-  { id: "photo-blog-1", alt: "Main workspace at J-Gate Hyderabad",         label: "Main Workspace",        fallback: "grad-office-main",        initials: "JG", gKey: "blogs.g1" },
-  { id: "photo-blog-2", alt: "Dedicated desks at J-Gate",                  label: "Dedicated Desks",       fallback: "grad-office-desks",       initials: "DG", gKey: "blogs.g2" },
-  { id: "photo-blog-3", alt: "Canteen and lounge at J-Gate",               label: "Canteen & Lounge",     fallback: "grad-canteen-main",       initials: "CN", gKey: "blogs.g3" },
-  { id: "photo-blog-4", alt: "Conference room at J-Gate",                  label: "Conference Room",       fallback: "grad-office-meeting",     initials: "CR", gKey: "blogs.g4" },
-  { id: "photo-blog-5", alt: "Team celebrations at J-Gate",                 label: "Team Celebrations",     fallback: "grad-inauguration",       initials: "TC", gKey: "blogs.g5" },
-  { id: "photo-blog-6", alt: "Candidate workshops at J-Gate",              label: "Candidate Workshops",   fallback: "grad-event",              initials: "WS", gKey: "blogs.g6" },
-  { id: "photo-blog-7", alt: "Japanese tea lounge at J-Gate",             label: "Japanese Tea Lounge",   fallback: "grad-canteen-japanese",   initials: "🍵", gKey: "blogs.g7" },
-  { id: "photo-blog-8", alt: "Cultural events at J-Gate",                  label: "Cultural Events",       fallback: "grad-event",              initials: "CE", gKey: "blogs.g8" },
+/* ── 5 Office Zones Definition ── */
+type ZoneDef = {
+  id: "building" | "reception" | "workspace" | "meetings" | "dining";
+  num: string;
+  tag: Bilingual;
+  title: Bilingual;
+  lead: Bilingual;
+  icon: typeof Building2;
+  highlights: Bilingual[];
+  photoIds: string[];
+};
+
+const ZONES: ZoneDef[] = [
+  {
+    id: "building",
+    num: "01",
+    tag: { EN: "Building & Exterior", JP: "ビル外観・共用部" },
+    title: { EN: "Cyber Gateway Building & Courtyard", JP: "サイバーゲートウェイ ビル外観・中庭" },
+    lead: {
+      EN: "Located in Phase 2 of Hitech City, Hyderabad, Cyber Gateway is an established office building with 24/7 security, 100% generator backup, and a central courtyard garden.",
+      JP: "ハイデラバード・ハイテックシティ第2フェーズに位置するサイバーゲートウェイ。24時間警備、100%発電機バックアップ、中央共用中庭を備えたオフィスビル。",
+    },
+    icon: Building2,
+    highlights: [
+      { EN: "Located in Hitech City Phase 2, 2 min to Metro", JP: "ハイテックシティ第2フェーズ、メトロ駅徒歩2分" },
+      { EN: "100% generator power backup for uninterrupted power", JP: "100%発電機バックアップ電源完備" },
+      { EN: "Central open-air courtyard with fountain and palm trees", JP: "椰子の木と噴水がある中央共用中庭" },
+    ],
+    photoIds: ["cg-facade", "courtyard-fountain"],
+  },
+  {
+    id: "reception",
+    num: "02",
+    tag: { EN: "Entrance & Reception", JP: "オフィス入口・受付" },
+    title: { EN: "Reception & Wing-1 Entrance", JP: "受付＆Wing-1入口" },
+    lead: {
+      EN: "Secured Wing-1 entrance on the 2nd floor with smart card access, leading to the front reception desk with world timezone clocks and official J-Gate office signage.",
+      JP: "2階 Wing-1のスマートカード式入口から入館。世界主要都市の時計を備えた受付と公式オフィス看板を設置。",
+    },
+    icon: Users,
+    highlights: [
+      { EN: "World timezone clocks (Tokyo, London, NYC, Delhi)", JP: "東京・ロンドン・NY・デリーの世界時計" },
+      { EN: "Acrylic J-Gate signage for official office address", JP: "公式オフィス看板（法人登記可能）" },
+      { EN: "RFID smart keycard entry system for secure access", JP: "RFIDスマートカードによる入退館管理" },
+    ],
+    photoIds: ["reception-desk", "acrylic-signage", "wing1-entry"],
+  },
+  {
+    id: "workspace",
+    num: "03",
+    tag: { EN: "Dedicated Workstations", JP: "固定執務エリア" },
+    title: { EN: "40+ Dedicated Workstations Floor", JP: "40席規模 固定専用デスクフロア" },
+    lead: {
+      EN: "Air-conditioned open floor office configured with 40+ dedicated desks. Each desk is assigned with ergonomic mesh chairs, personal lockable drawer units, and 1 Gbps fiber internet.",
+      JP: "40席以上の固定専用デスクを備えた冷暖房完備の執務フロア。各席に人間工学メッシュチェア、鍵付き3段キャビネット、専用1Gbps光回線を配備。",
+    },
+    icon: Building2,
+    highlights: [
+      { EN: "40+ Dedicated desks with ergonomic high-back mesh chairs", JP: "40席以上の固定専用席・メッシュチェア完備" },
+      { EN: "Dedicated 1 Gbps fiber internet with LAN ports and WiFi", JP: "有線LANポートおよびWi-Fi対応の1Gbps専用回線" },
+      { EN: "Individual key-locked 3-drawer pedestal unit per desk", JP: "全席に個人用鍵付き3段キャビネット配備" },
+    ],
+    photoIds: ["workspace-hall", "desk-bilateral", "workspace-clusters"],
+  },
+  {
+    id: "meetings",
+    num: "04",
+    tag: { EN: "Meeting Rooms", JP: "会議室・面談室" },
+    title: { EN: "16-Seat Boardroom & 4-Seat Discussion Room", JP: "16名用 国際会議室＆4名用面談室" },
+    lead: {
+      EN: "Meeting rooms designed for executive meetings, video conferences, and private interviews. Fitted with national flags, 4K displays, and whiteboards.",
+      JP: "役員会議、オンライン会議、採用面接に対応する会議室。多国籍旗、4Kモニター、ホワイトボードを完備。",
+    },
+    icon: Flag,
+    highlights: [
+      { EN: "16-Seat Boardroom with 8 international flags and 4K screen", JP: "8カ国旗と4K画面を備えた16名用大会議室" },
+      { EN: "4-Seat discussion room with round table and whiteboard", JP: "少人数の面談や討議に適した4名用円卓個室" },
+      { EN: "Reservation coordination via member desk", JP: "事前・即時予約対応" },
+    ],
+    photoIds: ["executive-boardroom", "huddle-suite"],
+  },
+  {
+    id: "dining",
+    num: "05",
+    tag: { EN: "Cafeteria & Lounge", JP: "食堂・パントリー" },
+    title: { EN: "Tasty Food Junction, Coffee Pantry & RO Lounge", JP: "食堂・所内パントリー＆ROラウンジ" },
+    lead: {
+      EN: "Dining and refreshment facilities within the building. Includes the Tasty Food Junction cafeteria, in-office coffee pantry, and a break lounge with certified RO drinking water.",
+      JP: "館内食堂「Tasty Food Junction」、所内コーヒーパントリー、多段RO浄水器を備えた休憩ラウンジ。",
+    },
+    icon: UtensilsCrossed,
+    highlights: [
+      { EN: "In-building Tasty Food Junction cafeteria serving hot meals", JP: "温かい食事を提供する館内併設食堂" },
+      { EN: "In-office pantry with fresh coffee machine and microwave", JP: "コーヒーマシンや電子レンジを備えた所内パントリー" },
+      { EN: "Certified multi-stage RO purified hot & cold drinking water", JP: "冷水・温水が利用可能な多段RO逆浸透膜浄水器" },
+    ],
+    photoIds: ["tasty-food-junction", "inhouse-cafe", "ro-water-lounge", "tfj-entrance"],
+  },
 ];
 
-const accentBarMap = {
-  crimson: "from-crimson to-crimson-deep",
-  saffron: "from-saffron to-[#c9881a]",
-  success: "from-success to-[#0f5c46]",
-} as const;
+type GalleryViewMode = "zones" | "mosaic";
+type ZoneFilter = "all" | "building" | "reception" | "workspace" | "meetings" | "dining";
 
-export default function BlogsPage() {
-  const { t, tx } = useI18n();
-  const { open } = useLightbox();
-  const [tab, setTab] = useState<"insights" | "culture">("insights");
+export default function OfficeGalleryPage() {
+  const { tx } = useI18n();
+  const [viewMode, setViewMode] = useState<GalleryViewMode>("zones");
+  const [selectedZone, setSelectedZone] = useState<ZoneFilter>("all");
 
-  const openGallery = (i: number) => {
-    open(
-      GALLERY.map((g) => ({
-        id: g.id,
-        alt: g.alt,
-        label: t(g.gKey),
-        fallback: g.fallback,
-        initials: g.initials,
-      })),
-      i
-    );
+  // Custom Fullscreen Lightbox State for All Real Photos
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const activeLightboxPhoto = lightboxIndex !== null ? ALL_REAL_PHOTOS[lightboxIndex] : null;
+
+  // Keybindings for modal
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightboxIndex(null);
+      if (e.key === "ArrowRight")
+        setLightboxIndex((prev) => (prev !== null ? (prev + 1) % ALL_REAL_PHOTOS.length : 0));
+      if (e.key === "ArrowLeft")
+        setLightboxIndex((prev) =>
+          prev !== null ? (prev - 1 + ALL_REAL_PHOTOS.length) % ALL_REAL_PHOTOS.length : 0
+        );
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lightboxIndex]);
+
+  const openPhotoModal = (photoId: string) => {
+    const idx = ALL_REAL_PHOTOS.findIndex((p) => p.id === photoId);
+    if (idx !== -1) setLightboxIndex(idx);
   };
+
+  const MOSAIC_FILTERS: { id: ZoneFilter; label: Bilingual; count: number }[] = [
+    { id: "all", label: { EN: "All Photos (14)", JP: "全写真 (14枚)" }, count: ALL_REAL_PHOTOS.length },
+    {
+      id: "building",
+      label: { EN: "Building & Courtyard", JP: "外観・中庭" },
+      count: ALL_REAL_PHOTOS.filter((p) => p.zone === "building").length,
+    },
+    {
+      id: "reception",
+      label: { EN: "Reception & Entry", JP: "受付・入口" },
+      count: ALL_REAL_PHOTOS.filter((p) => p.zone === "reception").length,
+    },
+    {
+      id: "workspace",
+      label: { EN: "Workstations", JP: "固定執務席" },
+      count: ALL_REAL_PHOTOS.filter((p) => p.zone === "workspace").length,
+    },
+    {
+      id: "meetings",
+      label: { EN: "Meeting Rooms", JP: "会議室" },
+      count: ALL_REAL_PHOTOS.filter((p) => p.zone === "meetings").length,
+    },
+    {
+      id: "dining",
+      label: { EN: "Cafeteria & Lounge", JP: "食堂・パントリー" },
+      count: ALL_REAL_PHOTOS.filter((p) => p.zone === "dining").length,
+    },
+  ];
+
+  const mosaicPhotos = ALL_REAL_PHOTOS.filter(
+    (p) => selectedZone === "all" || p.zone === selectedZone
+  );
 
   return (
     <>
       <PageHero
-        eyebrowKey="blogs.eyebrow"
+        eyebrowKey="nav.blogs"
         titleNode={
           <>
-            {tx({ EN: "Insights & Life", JP: "インサイト&" })}
+            {tx({ EN: "Office & Facilities", JP: "オフィス写真・" })}
             <br />
             <span className="text-gradient-saffron">
-              {tx({ EN: "at J-Gate", JP: "J-Gateの日常" })}
+              {tx({ EN: "Cyber Gateway, Hyderabad", JP: "施設ギャラリー" })}
             </span>
           </>
         }
-        subtitleKey="blogs.subtitle"
+        subtitleKey="hero.subtitle"
       />
 
       {/* ───────────────────────────────────────────────────────────
-          Tab Switcher — pill toggle (Industry Insights | Life & Culture)
+          Main Office Gallery Section
          ─────────────────────────────────────────────────────────── */}
-      <section className="bg-ivory-warm pt-12 pb-2 md:pt-16">
+      <section className="section-pad bg-ivory-warm">
         <div className="container-jg">
+          {/* Header with View Mode Switcher */}
           <Reveal>
-            <div className="flex justify-center">
-              <div
-                role="tablist"
-                aria-label={tx({ EN: "Blogs sections", JP: "ブログのセクション" })}
-                className="inline-flex items-center rounded-full border border-crimson/15 bg-pearl p-1 shadow-card"
-              >
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-200/80">
+              <div>
+                <div className="inline-flex items-center gap-2 rounded-full border border-crimson/25 bg-crimson/10 px-3.5 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-crimson">
+                  <Building2 className="h-3.5 w-3.5" />
+                  {tx({ EN: "Office Photography", JP: "オフィス施設写真" })}
+                </div>
+                <h2
+                  className="mt-2 font-serif-jp font-bold text-ink leading-tight"
+                  style={{ fontSize: "clamp(1.75rem,3.2vw,2.3rem)" }}
+                >
+                  {tx({
+                    EN: "J-Gate Office Facilities",
+                    JP: "オフィス設備と環境のご案内",
+                  })}
+                </h2>
+                <p className="mt-1 font-inter text-[13.5px] text-slate max-w-2xl">
+                  {tx({
+                    EN: "Official photography of J-Gate workspaces, meeting rooms, and amenities at Cyber Gateway Phase 2, Hitech City, Hyderabad.",
+                    JP: "ハイデラバード・ハイテックシティ Phase 2のCyber Gateway内にあるオフィスの写真と設備仕様。",
+                  })}
+                </p>
+              </div>
+
+              {/* View Mode Toggle */}
+              <div className="flex items-center gap-1.5 rounded-2xl bg-white border border-slate-200 p-1.5 shadow-sm shrink-0">
                 <button
-                  role="tab"
-                  aria-selected={tab === "insights"}
-                  onClick={() => setTab("insights")}
+                  onClick={() => setViewMode("zones")}
                   className={cn(
-                    "rounded-full px-6 py-2.5 font-inter text-[13px] font-semibold transition-all sm:text-sm",
-                    tab === "insights"
-                      ? "bg-gradient-to-r from-crimson to-crimson-deep text-white shadow-crimp"
-                      : "text-slate hover:text-crimson"
+                    "flex items-center gap-1.5 rounded-xl px-4 py-2 font-inter text-[12.5px] font-semibold transition-all duration-300",
+                    viewMode === "zones"
+                      ? "bg-midnight text-white shadow-sm"
+                      : "text-slate hover:text-ink hover:bg-slate-50"
                   )}
                 >
-                  {t("blogs.tab1")}
+                  <Layers className="h-4 w-4 text-saffron" />
+                  {tx({ EN: "By Area", JP: "エリア別" })}
                 </button>
                 <button
-                  role="tab"
-                  aria-selected={tab === "culture"}
-                  onClick={() => setTab("culture")}
+                  onClick={() => setViewMode("mosaic")}
                   className={cn(
-                    "rounded-full px-6 py-2.5 font-inter text-[13px] font-semibold transition-all sm:text-sm",
-                    tab === "culture"
-                      ? "bg-gradient-to-r from-crimson to-crimson-deep text-white shadow-crimp"
-                      : "text-slate hover:text-crimson"
+                    "flex items-center gap-1.5 rounded-xl px-4 py-2 font-inter text-[12.5px] font-semibold transition-all duration-300",
+                    viewMode === "mosaic"
+                      ? "bg-midnight text-white shadow-sm"
+                      : "text-slate hover:text-ink hover:bg-slate-50"
                   )}
                 >
-                  {t("blogs.tab2")}
+                  <LayoutGrid className="h-4 w-4 text-crimson" />
+                  {tx({ EN: "Grid View (14)", JP: "写真一覧 (14枚)" })}
                 </button>
               </div>
             </div>
           </Reveal>
-        </div>
-      </section>
 
-      {/* ───────────────────────────────────────────────────────────
-          Tab 1 — Industry Insights (6 article cards, editorial magazine style)
-          Large cover image slot + tag pill + number + read time + title +
-          excerpt + Read More → link.
-         ─────────────────────────────────────────────────────────── */}
-      {tab === "insights" && (
-        <section className="section-pad bg-ivory-warm">
-          <div className="container-jg">
-            <Reveal>
-              <div className="mx-auto mb-10 max-w-3xl text-center">
-                <Eyebrow>{tx({ EN: "Field Notes", JP: "フィールドノート" })}</Eyebrow>
-                <h2
-                  className="mt-3 font-serif-jp font-bold leading-[1.18] text-ink"
-                  style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
-                >
-                  {tx({
-                    EN: "Business Insights, Workspace Life & Cultural Exchange",
-                    JP: "キャリアガイド・ビザ解説・エンジニアリングインサイト",
-                  })}
-                </h2>
-                <p
-                  className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-slate"
-                  style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
-                >
-                  {tx({
-                    EN: "Practical, deep-read articles written by our placement team, language sensei, and advisory council — distilled from real candidate journeys through the Japan-India corridor.",
-                    JP: "紹介チーム、語学講師、諮問評議会のメンバーが、日印回廊を通過する実際の候補者の軌跡から抽出した実践的な記事。",
-                  })}
-                </p>
+          {/* Clean Metrics Summary */}
+          <Reveal delay={40}>
+            <div className="my-8 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+              <div className="luxury-light-card card-sheen gold-hairline rounded-2xl border border-slate-200/90 bg-white p-5 text-center shadow-md hover:shadow-xl transition-all">
+                <span className="block font-serif-jp text-3xl font-bold text-crimson">40+</span>
+                <span className="mt-1 block font-inter text-[12px] font-semibold text-slate-700">
+                  {tx({ EN: "Dedicated Desks", JP: "固定専用デスク" })}
+                </span>
               </div>
-            </Reveal>
+              <div className="luxury-light-card card-sheen gold-hairline rounded-2xl border border-slate-200/90 bg-white p-5 text-center shadow-md hover:shadow-xl transition-all">
+                <span className="block font-serif-jp text-3xl font-bold text-saffron-dark">16 & 4-Pax</span>
+                <span className="mt-1 block font-inter text-[12px] font-semibold text-slate-700">
+                  {tx({ EN: "Boardroom & Meeting", JP: "国際会議室＆面談室" })}
+                </span>
+              </div>
+              <div className="luxury-light-card card-sheen gold-hairline rounded-2xl border border-slate-200/90 bg-white p-5 text-center shadow-md hover:shadow-xl transition-all">
+                <span className="block font-serif-jp text-3xl font-bold text-crimson">1 Gbps</span>
+                <span className="mt-1 block font-inter text-[12px] font-semibold text-slate-700">
+                  {tx({ EN: "Dedicated Fiber Line", JP: "専用光回線" })}
+                </span>
+              </div>
+              <div className="luxury-light-card card-sheen gold-hairline rounded-2xl border border-slate-200/90 bg-white p-5 text-center shadow-md hover:shadow-xl transition-all">
+                <span className="block font-serif-jp text-3xl font-bold text-emerald-600">24/7</span>
+                <span className="mt-1 block font-inter text-[12px] font-semibold text-slate-700">
+                  {tx({ EN: "Keycard Access", JP: "入退館管理・警備" })}
+                </span>
+              </div>
+            </div>
+          </Reveal>
 
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {ARTICLES.map((a, i) => {
-                const TagIcon = a.tagIcon;
+          {/* ══════════════════════════════════════════════════════════
+              MODE A: ZONE-BY-ZONE WALKTHROUGH (5 ZONES)
+             ══════════════════════════════════════════════════════════ */}
+          {viewMode === "zones" && (
+            <div className="space-y-12 mt-10">
+              {ZONES.map((zone, zIdx) => {
+                const ZoneIcon = zone.icon;
+                const zonePhotos = ALL_REAL_PHOTOS.filter((p) => p.zone === zone.id);
+
                 return (
-                  <Reveal key={a.key} delay={i * 90}>
-                    <article className="lift-card group flex h-full flex-col overflow-hidden rounded-lg border border-crimson/10 bg-pearl shadow-card">
-                      {/* Large cover image slot */}
-                      <div className="relative h-56 w-full overflow-hidden">
-                        <Photo
-                          id={a.photoId}
-                          alt={tx(a.title)}
-                          fallback={a.fallback}
-                          initials={a.initials}
-                          rounded="rounded-none"
-                          className="h-56 w-full"
-                        />
-                        {/* Top accent bar */}
-                        <span
-                          className={cn(
-                            "absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r",
-                            accentBarMap[a.accent]
-                          )}
-                        />
-                        {/* Tag pill — top-left */}
-                        <span
-                          className={cn(
-                            "absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-md bg-pearl px-2.5 py-1 font-inter text-[10px] font-bold uppercase shadow-card",
-                            a.tagColor
-                          )}
-                          style={{ letterSpacing: "0.1em" }}
-                        >
-                          <TagIcon className="h-3 w-3" />
-                          {tx(a.tag)}
-                        </span>
-                        {/* Large faded article number — top-right */}
-                        <span
-                          className="absolute right-3 top-3 font-serif-jp text-[2.75rem] font-bold leading-none text-white/30 drop-shadow-sm"
-                          aria-hidden="true"
-                        >
-                          {String(i + 1).padStart(2, "0")}
-                        </span>
-                        {/* Hover sheen */}
-                        <div
-                          className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                          style={{
-                            background:
-                              "linear-gradient(135deg, rgba(255,255,255,0.18) 0%, transparent 60%)",
-                          }}
-                          aria-hidden="true"
-                        />
+                  <Reveal key={zone.id} delay={zIdx * 50}>
+                    <div className="luxury-light-card card-sheen rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-9 shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
+                      {/* Zone Header Strip */}
+                      <div className="grid lg:grid-cols-12 gap-6 items-start pb-6 border-b border-slate-100">
+                        <div className="lg:col-span-8">
+                          <div className="flex items-center gap-3">
+                            <span className="font-serif-jp text-2xl sm:text-3xl font-bold text-crimson">
+                              {zone.num}
+                            </span>
+                            <div className="h-5 w-px bg-slate-200" />
+                            <span className="inline-flex items-center gap-1.5 rounded-lg bg-slate-100 px-2.5 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-slate-700">
+                              <ZoneIcon className="h-3.5 w-3.5 text-crimson" />
+                              {tx(zone.tag)}
+                            </span>
+                          </div>
+                          <h3 className="mt-2.5 font-serif-jp text-xl sm:text-2xl font-bold text-ink leading-snug">
+                            {tx(zone.title)}
+                          </h3>
+                          <p className="mt-2 font-inter text-[13px] leading-relaxed text-slate max-w-3xl">
+                            {tx(zone.lead)}
+                          </p>
+                        </div>
+
+                        {/* Key Highlights */}
+                        <div className="lg:col-span-4 rounded-2xl bg-slate-50 border border-slate-200/60 p-4 space-y-2">
+                          <h4 className="font-inter text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">
+                            {tx({ EN: "Facilities & Specs", JP: "主な設備" })}
+                          </h4>
+                          {zone.highlights.map((h, hIdx) => (
+                            <div
+                              key={hIdx}
+                              className="flex items-start gap-2 text-[12px] font-inter text-slate-700 leading-snug"
+                            >
+                              <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-success mt-0.5" />
+                              <span>{tx(h)}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
 
-                      {/* Card body */}
-                      <div className="flex flex-1 flex-col p-6">
-                        <div className="flex items-center gap-3 font-inter text-[12px] text-mist">
-                          <span className="flex items-center gap-1.5">
-                            <Clock className="h-3.5 w-3.5 text-saffron" />
-                            {tx(a.readTime)}
-                          </span>
-                          <span className="text-mist/40">·</span>
-                          <span className="flex items-center gap-1.5 font-medium uppercase text-mist" style={{ letterSpacing: "0.08em" }}>
-                            {tx(a.tag)}
-                          </span>
-                        </div>
-                        <h3
-                          className="mt-3 font-serif-jp font-bold leading-snug text-ink transition-colors group-hover:text-crimson"
-                          style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
-                        >
-                          {tx(a.title)}
-                        </h3>
-                        <p className="mt-2.5 flex-1 font-inter text-[13px] leading-relaxed text-slate">
-                          {tx(a.excerpt)}
-                        </p>
-                        <button
-                          className="mt-5 inline-flex items-center gap-1.5 font-inter text-[13px] font-semibold text-crimson transition-all hover:gap-2.5"
-                          aria-label={`${tx({ EN: "Read more about", JP: "続きを読む：" })} ${tx(a.title)}`}
-                        >
-                          {t("blogs.readmore")}
-                          <ArrowRight className="h-3.5 w-3.5" />
-                        </button>
+                      {/* Zone Photos Grid */}
+                      <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                        {zonePhotos.map((photo) => (
+                          <div
+                            key={photo.id}
+                            onClick={() => openPhotoModal(photo.id)}
+                            className="lift-card card-sheen group cursor-pointer rounded-2xl border border-slate-200/90 bg-white overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
+                          >
+                            {/* Photo Canvas */}
+                            <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-950">
+                              <img
+                                src={photo.src}
+                                alt={photo.alt}
+                                className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                                loading="lazy"
+                              />
+                              <div
+                                className="absolute inset-0 z-10 opacity-30 group-hover:opacity-10 transition-opacity duration-300"
+                                style={{
+                                  background:
+                                    "linear-gradient(to top, rgba(8,15,26,0.95) 0%, transparent 60%)",
+                                }}
+                              />
+
+                              {/* Top Floating Badge */}
+                              <span className="absolute top-3 left-3 z-20 inline-flex items-center gap-1 rounded-lg bg-black/70 backdrop-blur-md px-2.5 py-0.5 text-[10.5px] font-semibold text-saffron border border-white/10">
+                                {tx(photo.badge)}
+                              </span>
+
+                              {/* Click to Expand Icon */}
+                              <span className="absolute bottom-3 right-3 z-20 flex h-7 w-7 items-center justify-center rounded-full bg-crimson/90 text-white shadow-md group-hover:scale-110 transition-transform duration-200">
+                                <Maximize2 className="h-3.5 w-3.5" />
+                              </span>
+                            </div>
+
+                            {/* Photo Metadata Card */}
+                            <div className="p-4 bg-white flex-1 flex flex-col justify-between border-t border-slate-100">
+                              <div>
+                                <h4 className="font-serif-jp text-[14.5px] font-bold text-ink group-hover:text-crimson transition-colors leading-snug">
+                                  {tx(photo.title)}
+                                </h4>
+                                <p className="mt-1 font-inter text-[12px] text-slate line-clamp-2 leading-relaxed">
+                                  {tx(photo.subtitle)}
+                                </p>
+                              </div>
+
+                              {/* Specs */}
+                              <div className="mt-3 grid grid-cols-2 gap-1.5 pt-2.5 border-t border-slate-100">
+                                {photo.specs.slice(0, 2).map((sp, sIdx) => (
+                                  <div
+                                    key={sIdx}
+                                    className="bg-slate-50 rounded-lg p-2 text-[11px] font-inter"
+                                  >
+                                    <span className="block text-slate-400 font-medium uppercase text-[9.5px]">
+                                      {tx(sp.label)}
+                                    </span>
+                                    <span className="block font-bold text-ink truncate mt-0.5">
+                                      {tx(sp.val)}
+                                    </span>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                    </article>
+                    </div>
                   </Reveal>
                 );
               })}
             </div>
+          )}
 
-            {/* Newsletter CTA strip */}
-            <Reveal delay={120}>
-              <div className="mt-10 flex flex-col items-center justify-between gap-4 rounded-lg border border-crimson/10 bg-pearl p-6 shadow-card sm:flex-row sm:p-8">
-                <div>
-                  <h3 className="font-serif-jp text-lg font-bold text-ink">
-                    {tx({ EN: "Get new articles in your inbox", JP: "新着記事をメールでお届け" })}
-                  </h3>
-                  <p className="mt-1 font-inter text-[13px] text-slate">
-                    {tx({
-                      EN: "Bi-weekly insights on Japan-India careers, language, and business culture.",
-                      JP: "隔週で日印のキャリア・語学・ビジネス文化のインサイトをお届けします。",
-                    })}
-                  </p>
-                </div>
-                <Link
-                  href="/auth/brochure"
-                  className="btn-shine flex shrink-0 items-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-6 py-3 font-inter text-[13px] font-semibold text-white shadow-crimp transition-all hover:-translate-y-0.5"
-                >
-                  {tx({ EN: "Subscribe", JP: "登録する" })}
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
+          {/* ══════════════════════════════════════════════════════════
+              MODE B: FULL 14 PHOTOS GRID WITH FILTERS
+             ══════════════════════════════════════════════════════════ */}
+          {viewMode === "mosaic" && (
+            <div className="mt-8">
+              {/* Category Filter Pills */}
+              <div className="flex flex-wrap items-center justify-center gap-2 mb-8 max-w-4xl mx-auto">
+                {MOSAIC_FILTERS.map((cat) => {
+                  const isSelected = selectedZone === cat.id;
+                  return (
+                    <button
+                      key={cat.id}
+                      onClick={() => setSelectedZone(cat.id)}
+                      className={cn(
+                        "flex items-center gap-2 rounded-xl px-4 py-2 font-inter text-[12.5px] font-semibold transition-all duration-200 shadow-sm",
+                        isSelected
+                          ? "bg-crimson text-white shadow-md shadow-crimson/25 scale-105"
+                          : "bg-white text-slate hover:bg-white/90 hover:text-ink border border-slate-200"
+                      )}
+                    >
+                      <span>{tx(cat.label)}</span>
+                      <span
+                        className={cn(
+                          "rounded-full px-2 py-0.5 text-[10.5px] font-bold font-mono",
+                          isSelected ? "bg-white/20 text-white" : "bg-slate-100 text-slate-600"
+                        )}
+                      >
+                        {cat.count}
+                      </span>
+                    </button>
+                  );
+                })}
               </div>
-            </Reveal>
-          </div>
-        </section>
-      )}
 
-      {/* ───────────────────────────────────────────────────────────
-          Tab 2 — Life & Culture Gallery (8 photos, masonry, lightbox)
-          Hover: label overlay + camera icon hint.
-         ─────────────────────────────────────────────────────────── */}
-      {tab === "culture" && (
-        <section className="section-pad relative overflow-hidden bg-midnight">
-          <div className="pattern-asanoha-dark absolute inset-0 opacity-60" aria-hidden="true" />
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "radial-gradient(ellipse at 50% 0%, rgba(188,26,44,0.10), transparent 60%)",
-            }}
-            aria-hidden="true"
-          />
-          <div className="container-jg relative">
-            <Reveal>
-              <div className="mx-auto mb-10 max-w-3xl text-center">
-                <Eyebrow light>{tx({ EN: "Inside J-Gate", JP: "J-Gateの内側" })}</Eyebrow>
-                <h2
-                  className="mt-3 font-serif-jp font-bold leading-[1.18] text-white"
-                  style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
-                >
-                  {t("blogs.gallery.title")}
-                </h2>
-                <p
-                  className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-mist"
-                  style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
-                >
-                  {t("blogs.gallery.subtitle")}
-                </p>
-              </div>
-            </Reveal>
-
-            {/* Masonry grid — alternating tall/short for organic flow */}
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-              {GALLERY.map((g, i) => {
-                // Masonry-style alternating heights
-                const heights = ["h-72", "h-48", "h-56", "h-72", "h-48", "h-72", "h-56", "h-48"];
-                return (
-                  <Reveal key={g.id} delay={(i % 4) * 80}>
-                    <figure className="group relative cursor-pointer">
-                      <Photo
-                        id={g.id}
-                        alt={g.alt}
-                        fallback={g.fallback}
-                        initials={g.initials}
-                        rounded="rounded-lg"
-                        className={cn("w-full shadow-card", heights[i % heights.length])}
-                        onClick={() => openGallery(i)}
+              {/* Grid 3-Column */}
+              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+                {mosaicPhotos.map((photo, i) => (
+                  <Reveal key={photo.id} delay={(i % 3) * 40}>
+                    <div
+                      onClick={() => openPhotoModal(photo.id)}
+                      className="lift-card card-sheen group relative cursor-pointer overflow-hidden rounded-3xl border border-slate-200/90 bg-slate-900 shadow-md hover:shadow-2xl transition-all duration-500 h-80"
+                    >
+                      <img
+                        src={photo.src}
+                        alt={photo.alt}
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                        loading="lazy"
                       />
-                      {/* Hover label overlay — bottom gradient with label */}
-                      <figcaption
-                        className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-between rounded-b-lg p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                      {/* Dark Gradient Overlay */}
+                      <div
+                        className="absolute inset-0 z-10 transition-opacity duration-300"
                         style={{
                           background:
-                            "linear-gradient(to top, rgba(8,15,26,0.92) 0%, rgba(8,15,26,0.55) 50%, transparent 100%)",
+                            "linear-gradient(to top, rgba(8,15,26,0.94) 0%, rgba(8,15,26,0.35) 45%, transparent 75%)",
                         }}
-                      >
-                        <span className="font-inter text-[12px] font-semibold text-white">
-                          {t(g.gKey)}
+                      />
+
+                      {/* Top Badge */}
+                      <div className="absolute top-3 left-3 right-3 z-20 flex items-center justify-between">
+                        <span className="inline-flex items-center gap-1.5 rounded-lg bg-white/95 backdrop-blur-md px-2.5 py-1 font-inter text-[10.5px] font-bold uppercase text-ink shadow-sm border border-white/60">
+                          <span className="h-1.5 w-1.5 rounded-full bg-crimson" />
+                          {tx(photo.badge)}
                         </span>
-                        <ArrowUpRight className="h-4 w-4 text-saffron" />
-                      </figcaption>
-                      {/* Camera icon hint — top-right */}
-                      <span
-                        className="pointer-events-none absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/40 text-white opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:opacity-100 group-hover:scale-110"
-                        aria-hidden="true"
-                      >
-                        <Camera className="h-4 w-4" />
-                      </span>
-                    </figure>
+                        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity">
+                          <Maximize2 className="h-3.5 w-3.5" />
+                        </span>
+                      </div>
+
+                      {/* Bottom Info */}
+                      <div className="absolute bottom-0 inset-x-0 z-20 p-5">
+                        <span className="text-[10px] font-inter uppercase font-bold text-saffron tracking-wider">
+                          Zone {photo.zoneNumber} · {tx(photo.location)}
+                        </span>
+                        <h3 className="mt-1 font-serif-jp text-base font-bold text-white group-hover:text-saffron transition-colors leading-snug">
+                          {tx(photo.title)}
+                        </h3>
+                        <p className="mt-1 font-inter text-[11.5px] text-mist/90 line-clamp-2 leading-relaxed">
+                          {tx(photo.subtitle)}
+                        </p>
+                      </div>
+                    </div>
                   </Reveal>
-                );
-              })}
-            </div>
-
-            {/* Hint footer */}
-            <Reveal delay={120}>
-              <p className="mt-8 text-center font-inter text-[12px] text-mist">
-                {tx({
-                  EN: "Click any photo to view the full gallery · Use ← → to navigate · ESC to close",
-                  JP: "写真をクリックするとギャラリーが開きます · ← → で移動 · ESC で閉じる",
-                })}
-              </p>
-            </Reveal>
-          </div>
-        </section>
-      )}
-
-      {/* ───────────────────────────────────────────────────────────
-          Closing CTA
-         ─────────────────────────────────────────────────────────── */}
-      <section className="section-pad bg-ivory">
-        <div className="container-jg">
-          <Reveal>
-            <div className="mx-auto max-w-2xl text-center">
-              <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-saffron/15 text-saffron">
-                <Sparkles className="h-6 w-6" strokeWidth={1.5} />
-              </span>
-              <h2
-                className="mt-6 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
-              >
-                {tx({
-                  EN: "Ready to Begin Your Own Japan-India Story?",
-                  JP: "あなた自身の日印ストーリーを始めませんか？",
-                })}
-              </h2>
-              <p
-                className="mx-auto mt-4 font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
-              >
-                {tx({
-                  EN: "Every J-Gate member started with one step — a conversation. Begin yours today.",
-                  JP: "J-Gateの会員は皆、最初の会話から歩みを始めました。今日、あなたも最初の一歩を。",
-                })}
-              </p>
-              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                <Link
-                  href="/auth/brochure"
-                  className="btn-shine flex items-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-7 py-3.5 font-inter text-[14px] font-semibold text-white shadow-[0_0_20px_rgba(188,26,44,0.35)] transition-all hover:-translate-y-0.5"
-                >
-                  {tx({ EN: "Download Brochure", JP: "パンフレットをダウンロード" })}
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link
-                  href="/contact"
-                  className="rounded-md border border-crimson/30 px-7 py-3.5 font-inter text-[14px] font-semibold text-crimson transition-all hover:-translate-y-0.5 hover:bg-crimson/5"
-                >
-                  {tx({ EN: "Talk to Our Team", JP: "チームに相談する" })}
-                </Link>
+                ))}
               </div>
+            </div>
+          )}
+
+          {/* Subtle Location Footer */}
+          <Reveal delay={60}>
+            <div className="mt-12 rounded-2xl border border-slate-200/80 bg-white p-5 text-center shadow-sm max-w-3xl mx-auto flex items-center justify-center gap-3">
+              <MapPin className="h-4 w-4 text-crimson shrink-0" />
+              <p className="font-inter text-[13px] text-slate">
+                <strong>J-Gate Office:</strong> 2nd Floor, Block B, Wing-1, Cyber Gateway, Phase 2, Hitech City, Hyderabad, Telangana 500081
+              </p>
             </div>
           </Reveal>
         </div>
       </section>
+
+      {/* ═══════════════════════════════════════════════════════════════
+          FULLSCREEN LIGHTBOX MODAL (CLEAN & NON-SALESY)
+         ═══════════════════════════════════════════════════════════════ */}
+      {activeLightboxPhoto && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 sm:p-8 backdrop-blur-xl animate-in fade-in duration-200"
+          onClick={() => setLightboxIndex(null)}
+          role="dialog"
+          aria-modal="true"
+        >
+          {/* Modal Container */}
+          <div
+            className="relative flex flex-col lg:flex-row max-w-5xl w-full max-h-[90vh] bg-slate-900 rounded-3xl overflow-hidden border border-white/15 shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setLightboxIndex(null)}
+              className="absolute top-4 right-4 z-30 flex h-9 w-9 items-center justify-center rounded-full bg-black/70 text-white hover:bg-crimson hover:scale-110 transition-all"
+              aria-label="Close"
+            >
+              <X className="h-4 w-4" />
+            </button>
+
+            {/* Main Image View */}
+            <div className="relative lg:w-7/12 flex items-center justify-center bg-black/80 overflow-hidden">
+              <img
+                src={activeLightboxPhoto.src}
+                alt={activeLightboxPhoto.alt}
+                className="max-h-[55vh] lg:max-h-[80vh] w-full object-contain"
+              />
+
+              {/* Prev / Next Nav Buttons */}
+              <button
+                onClick={() =>
+                  setLightboxIndex(
+                    (lightboxIndex! - 1 + ALL_REAL_PHOTOS.length) % ALL_REAL_PHOTOS.length
+                  )
+                }
+                className="absolute left-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-black/60 text-white hover:bg-crimson hover:scale-110 transition-all"
+                aria-label="Previous photo"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <button
+                onClick={() =>
+                  setLightboxIndex((lightboxIndex! + 1) % ALL_REAL_PHOTOS.length)
+                }
+                className="absolute right-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-black/60 text-white hover:bg-crimson hover:scale-110 transition-all"
+                aria-label="Next photo"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+
+              {/* Photo Counter Overlay */}
+              <span className="absolute bottom-3 left-3 rounded-md bg-black/70 px-2.5 py-1 font-mono text-[11px] font-bold text-white border border-white/10">
+                {lightboxIndex! + 1} / {ALL_REAL_PHOTOS.length}
+              </span>
+            </div>
+
+            {/* Sidebar Details */}
+            <div className="lg:w-5/12 p-6 sm:p-7 flex flex-col justify-between overflow-y-auto bg-slate-900 border-t lg:border-t-0 lg:border-l border-white/10 text-white">
+              <div>
+                {/* Zone & Category Badge */}
+                <div className="flex items-center gap-2">
+                  <span className="inline-block rounded-full bg-crimson px-3 py-0.5 font-inter text-[10.5px] font-bold uppercase tracking-wider text-white">
+                    Zone {activeLightboxPhoto.zoneNumber}
+                  </span>
+                  <span className="inline-block rounded-full bg-white/10 px-3 py-0.5 font-inter text-[10.5px] font-medium text-saffron">
+                    {tx(activeLightboxPhoto.badge)}
+                  </span>
+                </div>
+
+                {/* Title & Location */}
+                <h3 className="mt-3.5 font-serif-jp text-lg sm:text-xl font-bold text-white leading-snug">
+                  {tx(activeLightboxPhoto.title)}
+                </h3>
+                <p className="mt-1 font-inter text-[11.5px] text-slate-400">
+                  📍 {tx(activeLightboxPhoto.location)}
+                </p>
+
+                {/* Factual Description */}
+                <p className="mt-3 font-inter text-[12.5px] leading-relaxed text-slate-300">
+                  {tx(activeLightboxPhoto.subtitle)}
+                </p>
+
+                {/* Technical Specs 2x2 Grid */}
+                <div className="mt-5 pt-4 border-t border-white/10">
+                  <h4 className="font-inter text-[10.5px] font-bold uppercase tracking-wider text-saffron mb-2.5">
+                    {tx({ EN: "Specifications", JP: "仕様" })}
+                  </h4>
+                  <div className="grid grid-cols-2 gap-2">
+                    {activeLightboxPhoto.specs.map((spec, i) => (
+                      <div
+                        key={i}
+                        className="rounded-xl bg-white/[0.05] border border-white/10 p-2"
+                      >
+                        <span className="block font-inter text-[9.5px] font-medium text-slate-400 uppercase">
+                          {tx(spec.label)}
+                        </span>
+                        <span className="block font-inter text-[12px] font-semibold text-white mt-0.5 truncate">
+                          {tx(spec.val)}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Hint */}
+              <div className="mt-5 pt-4 border-t border-white/10 text-center">
+                <span className="font-inter text-[11px] text-slate-400">
+                  {tx({ EN: "Use ← / → keys to navigate · ESC to close", JP: "左右キーで移動 · ESCで閉じる" })}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }

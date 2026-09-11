@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
@@ -25,6 +25,13 @@ const notoSansJP = {
   variable: "--font-noto-sans-jp",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#080f1a",
+};
+
 export const metadata: Metadata = {
   title: "J-Gate | Bridging Japan & India — Talent, Training, Business",
   description:
@@ -41,6 +48,17 @@ export const metadata: Metadata = {
     "Cyber Gateway Hyderabad",
   ],
   authors: [{ name: "Indobox India Private Limited" }],
+  icons: {
+    icon: [
+      { url: "/icon.png", sizes: "512x512", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon.ico" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
   openGraph: {
     title: "J-Gate | Bridging Japan & India",
     description: "Talent, training, and bilateral business consulting for the Japan-India corridor.",

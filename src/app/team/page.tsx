@@ -2,50 +2,184 @@
 
 import { Reveal, Eyebrow } from "@/components/jgate/shared";
 import { PageHero } from "@/components/jgate/page-hero";
-import { Photo } from "@/components/jgate/photo";
-import { LinkedInIcon } from "@/components/jgate/icons";
 import { useI18n } from "@/lib/i18n";
-import { Phone, Mail, MessageSquare, Download } from "lucide-react";
+import { Phone, Mail, MessageSquare, Sparkles, Languages } from "lucide-react";
 import Link from "next/link";
 
 /* ============================================================
-   /team — Professional line-wise structured layout
-   Order per client screenshots:
+   /team — Executive Leadership, Advisory Council & Core Team
+   Layout structured per client hand-sketch:
    1. PageHero
-   2. Operations Team (4 members — horizontal row of profile cards)
-   3. Board of Advisory (5 advisors — 2-col grid, photo left + info right)
-   4. Ecosystem Partners (12 partners — clean logo grid)
-   5. Closing CTA
+   2. Advisory Council (5 Advisors — 3 in Row 1, 2 in Row 2)
+   3. Architectural Divider
+   4. Operations / Organizing Team (4 Core Members in a row)
+   5. Japanese Consultation Reassurance Banner
+   6. Ecosystem Partners (12 Partners with verified logos)
+   7. Closing CTA
    ============================================================ */
 
-const OPS_TEAM = [
-  { id: "photo-team-tanji", name: "Daisuke TANJI", jpName: "丹治 大佑", role: "Director", flag: "🇯🇵", initials: "DT", fallback: "grad-founder-tanji", phone: "+91-9910360648" },
-  { id: "photo-team-hanaoka", name: "Mariko HANAOKA", jpName: "花岡 真理子", role: "Director", flag: "🇯🇵", initials: "MH", fallback: "grad-team" },
-  { id: "photo-team-dheeraj", name: "Dheeraj YANNETI", jpName: "ディラジ・ヤンネティ", role: "Community Manager", flag: "🇮🇳", initials: "DY", fallback: "grad-team", phone: "+91-98498 11543" },
-  { id: "photo-team-abhishek", name: "Abhishek BUDURU", jpName: "アブシェーク・ブドゥル", role: "Intern / Tech", flag: "🇮🇳", initials: "AB", fallback: "grad-team" },
+/* Advisory Council Data */
+const ADVISORY_ROW_1 = [
+  {
+    id: "mahankali",
+    name: "Srinivas Rao Mahankali (MSR)",
+    jpName: "スリニヴァス・ラオ・マハンカリ",
+    title: "Former CEO, T-Hub",
+    desc: "Spearheaded world's largest startup incubator. Decades of enterprise leadership across global IT corridors.",
+    image: "/advisory/mahankali.png",
+    badge: "T-HUB LEADERSHIP",
+  },
+  {
+    id: "jagirdar",
+    name: "Sujit Jagirdar",
+    jpName: "スジット・ジャギルダー",
+    title: "Former CIO, T-Hub",
+    desc: "Key strategist behind Telangana's innovation architecture and cross-border incubation alliances.",
+    image: "/advisory/jagirdar.png",
+    badge: "INNOVATION ARCHITECT",
+  },
+  {
+    id: "desai",
+    name: "Dr. Uday B. Desai",
+    jpName: "ウダイ・B・デサイ博士",
+    title: "Founding Director, IIT Hyderabad",
+    desc: "Pioneered Japan-India academic collaboration and deep-tech talent pipelines across semiconductor & AI.",
+    image: "/advisory/desai.png",
+    badge: "IIT FOUNDING DIRECTOR",
+  },
 ];
 
-const ADVISORS = [
-  { id: "photo-advisory-mahankali", name: "Srinivas Rao Mahankali", title: "Former CEO, T-Hub", initials: "SM", fallback: "grad-advisory-j" },
-  { id: "photo-advisory-jagirdar", name: "Sujit Jagirdar", title: "Former CIO, T-Hub", initials: "SJ", fallback: "grad-advisory-j" },
-  { id: "photo-advisory-desai", name: "Dr. Uday B. Desai", title: "Founding Director, IIT Hyderabad", initials: "UD", fallback: "grad-advisory-j" },
-  { id: "photo-advisory-sarikonda", name: "Dr. Viinay Sarikonda", title: "CEO, Genesys Info X", initials: "VS", fallback: "grad-advisory-s" },
-  { id: "photo-advisory-isogai", name: "Tomio Isogai", jpName: "磯貝 富雄", title: "Indobox Advisor · Former MD, Sharp India", initials: "TI", fallback: "grad-advisory-j" },
+const ADVISORY_ROW_2 = [
+  {
+    id: "sarikonda",
+    name: "Dr. Viinay Sarikonda",
+    jpName: "ヴィーナイ・サリコンダ博士",
+    title: "CEO, Genesys Info X",
+    desc: "Bilateral enterprise strategist driving digital transformation, MoU partnerships, and market entry for Japanese multinationals.",
+    image: "/advisory/sarikonda.png",
+    badge: "GENESYS INFO X",
+  },
+  {
+    id: "isogai",
+    name: "Tomio Isogai (磯貝 富雄)",
+    jpName: "元シャープ・インディア社長",
+    title: "Indobox Advisor · Former MD, Sharp India",
+    desc: "Over 35 years directing Japanese manufacturing & consumer electronics in India. Dean of Indo-Japan corporate harmony.",
+    image: "/advisory/isogai.png",
+    badge: "EX-SHARP INDIA MD",
+  },
 ];
 
-const ECOSYSTEM = [
-  { name: "Kodryx.ai", src: "/logos/kodryx.jpg", category: "DATA INTELLIGENCE" },
-  { name: "YANC", src: null, category: "YOUNG MINDS NETWORKING" },
-  { name: "Daakia", src: "/logos/daakia.jpg", category: "BRIDGING DISTANCE" },
-  { name: "Fingerprint Films", src: null, category: "CREATIVE STUDIO" },
-  { name: "MXC", src: "/logos/mxc.png", category: "TECHNOLOGY PARTNER" },
-  { name: "Hyderabad Japan Club", src: "/logos/hyderabad-anime-club.jpg", category: "COMMUNITY" },
-  { name: "JETRO", src: "/logos/jetro.jpg", category: "TRADE PROMOTION" },
-  { name: "T-Hub", src: "/logos/thub.jpg", category: "INNOVATION HUB" },
-  { name: "Woxsen University", src: "/logos/woxsen.jpg", category: "ACADEMIC PARTNER" },
-  { name: "Genesys Info X", src: "/logos/genesys-info-x.png", category: "MoU PARTNER" },
-  { name: "DMI", src: "/logos/dmi.jpg", category: "DIGITAL MEDIA" },
-  { name: "DATA INTELLIGENCE", src: null, category: "ANALYTICS" },
+type SpokenLanguage = {
+  EN: string;
+  JP: string;
+  highlight?: boolean;
+};
+
+type OpsMember = {
+  id: string;
+  name: string;
+  jpName: string;
+  role: string;
+  badge?: string;
+  flag: string;
+  country: string;
+  phone?: string;
+  email: string;
+  image: string;
+  desc: string;
+  languages: SpokenLanguage[];
+};
+
+/* Operations Team Data */
+const OPS_TEAM: OpsMember[] = [
+  {
+    id: "tanji",
+    name: "Daisuke TANJI",
+    jpName: "丹治 大佑",
+    role: "Director / CEO Indobox",
+    flag: "🇯🇵",
+    country: "Japan",
+    phone: "+91-9910360648",
+    email: "contact@indobox.co.jp",
+    image: "/team/tanji.png",
+    desc: "Directs J-Gate's bilateral bridge, connecting Indian engineering powerhouses with Japanese corporate headquarters.",
+    languages: [
+      { EN: "Japanese", JP: "日本語", highlight: true },
+      { EN: "English", JP: "英語" },
+      { EN: "Hindi", JP: "ヒンディー語" },
+    ],
+  },
+  {
+    id: "hanaoka",
+    name: "Mariko HANAOKA",
+    jpName: "花岡 真理子",
+    role: "Director / Language Lead",
+    flag: "🇯🇵",
+    country: "Japan",
+    email: "contact@indobox.co.jp",
+    image: "/team/hanaoka.png",
+    desc: "Native Japanese educator leading business Japanese, JLPT/NAT curriculum, and cultural orientation programs.",
+    languages: [
+      { EN: "Japanese", JP: "日本語", highlight: true },
+      { EN: "English", JP: "英語" },
+      { EN: "Tamil", JP: "タミル語" },
+      { EN: "Bengali", JP: "ベンガル語" },
+    ],
+  },
+  {
+    id: "dheeraj",
+    name: "Dheeraj YANNETI",
+    jpName: "ディラジ・ヤンネティ",
+    role: "Community Manager & Concierge Lead",
+    badge: "CONCIERGE LEAD",
+    flag: "🇮🇳",
+    country: "India",
+    phone: "+91-98498 11543",
+    email: "contact@indobox.co.jp",
+    image: "/team/dheeraj.png",
+    desc: "Manages day-to-day workspace operations, member admissions, bilingual concierge services, and enterprise client relations.",
+    languages: [
+      { EN: "Japanese", JP: "日本語", highlight: true },
+      { EN: "English", JP: "英語" },
+      { EN: "Telugu", JP: "テルグ語" },
+      { EN: "Hindi", JP: "ヒンディー語" },
+    ],
+  },
+  {
+    id: "abhishek",
+    name: "Abhishek BUDURU",
+    jpName: "アブシェーク・ブドゥル",
+    role: "Intern / Tech Operations",
+    flag: "🇮🇳",
+    country: "India",
+    email: "contact@indobox.co.jp",
+    image: "/team/abhishek.png",
+    desc: "Oversees smart access infrastructure, IT facility support, and technology integrations across the Hyderabad hub.",
+    languages: [
+      { EN: "Japanese (N3)", JP: "日本語 (N3)", highlight: true },
+      { EN: "English", JP: "英語" },
+      { EN: "Telugu", JP: "テルグ語" },
+      { EN: "Hindi", JP: "ヒンディー語" },
+    ],
+  },
+];
+
+/* Ecosystem Partner Data — Divided into 2 Rows for Side-Scrolling Marquee */
+const ECOSYSTEM_ROW_1 = [
+  { name: "T-Hub", src: "/logos/thub.png", category: "INNOVATION HUB", desc: "World's Largest Innovation Center" },
+  { name: "Woxsen University", src: "/logos/woxsen.png", category: "ACADEMIC PARTNER", desc: "Executive Talent & Research" },
+  { name: "Genesys Info X", src: "/logos/genesys-info-x.png", category: "MoU PARTNER", desc: "Global Digital Solutions" },
+  { name: "Kodryx.ai", src: "/logos/kodryx.png", category: "DATA INTELLIGENCE", desc: "Enterprise AI & Analytics" },
+  { name: "Daakia", src: "/logos/daakia.png", category: "COMMUNICATIONS", desc: "Bridging Distance with AI" },
+];
+
+const ECOSYSTEM_ROW_2 = [
+  { name: "MXC", src: "/logos/mxc.png", category: "TECH PLATFORMS", desc: "Next-Gen Software Solutions" },
+  { name: "Fingerprint Films", src: "/logos/fingerprint-films.png", category: "CREATIVE STUDIO", desc: "Brand Storytelling & Media" },
+  { name: "Hyderabad Anime Club", src: "/logos/hyderabad-anime-club.png", category: "COMMUNITY", desc: "Cultural & Community Network" },
+  { name: "YANC", src: "/logos/yanc.png", category: "NETWORKING", desc: "Young Minds Global Forum" },
+  { name: "Data Intelligence", src: "/logos/data-intelligence.png", category: "ANALYTICS", desc: "Market & Talent Intelligence" },
 ];
 
 export default function TeamPage() {
@@ -55,167 +189,488 @@ export default function TeamPage() {
     <>
       <PageHero
         eyebrowKey="team.eyebrow"
-        titleNode={tx({ EN: "Leadership & Team", JP: "リーダーシップ&チーム" })}
+        titleNode={tx({ EN: "Leadership & Advisory", JP: "リーダーシップ＆諮問委員会" })}
         subtitleKey="team.subtitle"
       />
 
-      {/* ═══════════════════════════════════════════
-          Section 1 — Operations Team
-          Horizontal row of 4 profile cards (photo top, info below)
-          + Japanese consultation CTA
-          ═══════════════════════════════════════════ */}
-      <section className="section-pad bg-ivory">
-        <div className="container-jg">
+      {/* ════════════════════════════════════════════════════════════
+          1. ADVISORY COUNCIL — 3+2 Luxury Executive Grid (Midnight Navy)
+         ════════════════════════════════════════════════════════════ */}
+      <section className="section-pad relative overflow-hidden bg-midnight text-white">
+        {/* Ambient subtle Japanese Asanoha lattice backdrop */}
+        <div className="pattern-asanoha-dark absolute inset-0 opacity-40" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at 50% 10%, rgba(232,160,26,0.12) 0%, transparent 65%), radial-gradient(ellipse at 80% 80%, rgba(188,26,44,0.08) 0%, transparent 50%)",
+          }}
+        />
+
+        <div className="container-jg relative z-10">
           <Reveal>
-            <div className="text-center">
-              <Eyebrow>{tx({ EN: "Operations Team", JP: "運営チーム" })}</Eyebrow>
-              <h2 className="mt-3 font-serif-jp font-bold text-ink" style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}>
-                {tx({ EN: "J-Gate Operations Team", JP: "J-Gate運営チーム" })}
+            <div className="mx-auto max-w-3xl text-center">
+              <span className="inline-flex items-center gap-2 rounded-full border border-saffron/30 bg-saffron/10 px-4 py-1.5 font-inter text-[12px] font-bold uppercase tracking-wider text-saffron">
+                <Sparkles className="h-3.5 w-3.5" />
+                {tx({ EN: "Strategic Guidance", JP: "戦略的ガイダンス" })}
+              </span>
+              <h2
+                className="mt-4 font-serif-jp font-bold leading-[1.18] text-white"
+                style={{ fontSize: "clamp(1.875rem, 3.8vw, 2.75rem)" }}
+              >
+                {tx({ EN: "Advisory Council", JP: "諮問委員会（アドバイザリー・カウンシル）" })}
               </h2>
-            </div>
-          </Reveal>
-
-          {/* 4 profile cards in a row */}
-          <div className="mt-8 grid grid-cols-2 gap-4 lg:grid-cols-4">
-            {OPS_TEAM.map((m, i) => (
-              <Reveal key={m.id} delay={i * 70}>
-                <article className="lift-card flex h-full flex-col items-center rounded-lg border border-slate-200 bg-pearl p-4 text-center shadow-card">
-                  {/* Photo — rounded square */}
-                  <div className="relative">
-                    <div className="w-20">
-                      <Photo id={m.id} alt={m.name} fallback={m.fallback} initials={m.initials} rounded="rounded-xl" className="h-20 w-20" />
-                    </div>
-                    <span className="absolute -bottom-1 -right-1 flex h-6 w-6 items-center justify-center rounded-full bg-pearl text-[11px] shadow-card">{m.flag}</span>
-                  </div>
-                  {/* Info — line-wise below photo */}
-                  <h3 className="mt-3 font-serif-jp text-[14px] font-bold text-ink">{m.name}</h3>
-                  <p className="font-sans-jp text-[10px] text-mist">{m.jpName}</p>
-                  <span className="mt-1.5 inline-flex rounded-full bg-crimson/10 px-2 py-0.5 font-inter text-[10px] font-semibold text-crimson">{m.role}</span>
-                  {m.phone && <p className="mt-1.5 font-inter text-[10px] text-slate">📞 {m.phone}</p>}
-                  <a href="mailto:contact@indobox.co.jp" className="mt-0.5 font-inter text-[10px] text-slate hover:text-crimson">📧 Email</a>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-
-          {/* Japanese consultation CTA */}
-          <Reveal delay={200}>
-            <div className="mt-8 flex justify-center">
-              <div className="flex items-center gap-3 rounded-lg border border-crimson/15 bg-crimson/5 px-6 py-3.5">
-                <MessageSquare className="h-4 w-4 shrink-0 text-crimson" />
-                <p className="font-inter text-[13px] text-slate">
-                  {tx({ EN: "Feel free to consult about anything. Support is provided in Japanese.", JP: "なんでもお気軽にご相談ください。日本語でご対応いたします。" })}
-                </p>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          Section 2 — Board of Advisory
-          Dark section, 2-column grid, photo left + info right
-          Gold accents
-          ═══════════════════════════════════════════ */}
-      <section className="section-pad relative overflow-hidden bg-midnight">
-        <div className="pattern-asanoha-dark absolute inset-0 opacity-60" />
-        <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse at 50% 20%, rgba(232,160,26,0.08), transparent 60%)" }} />
-        <div className="container-jg relative">
-          <Reveal>
-            <div className="text-center">
-              <Eyebrow light>{tx({ EN: "Board of Advisory", JP: "諮問委員会" })}</Eyebrow>
-              <h2 className="mt-3 font-serif-jp font-bold text-white" style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}>
-                {tx({ EN: "Five Voices That Set the Standard", JP: "基準を定める5つの声" })}
-              </h2>
-            </div>
-          </Reveal>
-
-          {/* 2-column grid: photo left, info right */}
-          <div className="mt-8 grid gap-3 sm:grid-cols-2">
-            {ADVISORS.map((adv, i) => (
-              <Reveal key={adv.id} delay={i * 60}>
-                <article className="border-t-2 border-saffron lift-card flex items-center gap-4 rounded-lg bg-white/[0.06] p-4 backdrop-blur-sm">
-                  {/* Photo — rounded square */}
-                  <div className="shrink-0">
-                    <Photo id={adv.id} alt={adv.name} fallback={adv.fallback} initials={adv.initials} rounded="rounded-xl" className="h-16 w-16" />
-                  </div>
-                  {/* Info — line-wise to the right */}
-                  <div className="min-w-0 flex-1">
-                    <h3 className="font-serif-jp text-[14px] font-bold text-white">{adv.name}</h3>
-                    {adv.jpName && <p className="font-sans-jp text-[11px] text-mist">{adv.jpName}</p>}
-                    <p className="mt-0.5 font-inter text-[12px] text-saffron">{adv.title}</p>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          Section 3 — Ecosystem Partners
-          Clean logo grid, 12 partners with categories
-          ═══════════════════════════════════════════ */}
-      <section className="section-pad bg-ivory">
-        <div className="container-jg">
-          <Reveal>
-            <div className="text-center">
-              <Eyebrow>{tx({ EN: "Ecosystem Partners", JP: "エコシステムパートナー" })}</Eyebrow>
-              <h2 className="mt-3 font-serif-jp font-bold text-ink" style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}>
-                {tx({ EN: "Our Partner Network", JP: "パートナーネットワーク" })}
-              </h2>
-            </div>
-          </Reveal>
-
-          {/* Logo grid — 2 cols on mobile, 3 on tablet, 4 on desktop */}
-          <div className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-            {ECOSYSTEM.map((p, i) => (
-              <Reveal key={i} delay={(i % 4) * 50}>
-                <div className="lift-card flex h-full flex-col items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white p-4 text-center shadow-card">
-                  {p.src ? (
-                    <div className="flex h-12 w-full items-center justify-center">
-                      <img src={p.src} alt={`${p.name} logo`} className="max-h-12 max-w-[100px] object-contain" loading="lazy" />
-                    </div>
-                  ) : (
-                    <div className="flex h-12 w-full items-center justify-center">
-                      <span className="font-serif-jp text-[13px] font-bold text-ink">{p.name}</span>
-                    </div>
-                  )}
-                  <span className="font-inter text-[12px] font-semibold text-ink">{p.name}</span>
-                  <span className="font-inter text-[8px] uppercase tracking-wide text-mist">{p.category}</span>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          Section 4 — Closing CTA
-          ═══════════════════════════════════════════ */}
-      <section className="section-pad relative overflow-hidden bg-navy">
-        <div className="pattern-asanoha-navy absolute inset-0 opacity-60" />
-        <div className="container-jg relative">
-          <Reveal>
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 className="font-serif-jp font-bold text-white" style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}>
-                {tx({ EN: "Connect With Our Team", JP: "チームと繋がる" })}
-              </h2>
-              <p className="mx-auto mt-2 max-w-sm font-inter text-mist" style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}>
-                {tx({ EN: "Reach out to discuss your India workspace needs — we respond within 24 hours.", JP: "インドのワークスペースについてお気軽にご相談ください — 24時間以内にご返信します。" })}
+              <p
+                className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-mist"
+                style={{ fontSize: "clamp(0.95rem, 1.4vw, 1.05rem)" }}
+              >
+                {tx({
+                  EN: "Visionary leaders from premier government innovation bodies, top engineering institutions, and cross-border enterprise directing the Japan-India corridor.",
+                  JP: "政府機関、トップアカデミア、そして日印二国間ビジネスを牽引してきた最高峰のリーダー陣が戦略を監修。",
+                })}
               </p>
-              <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                <Link href="/contact" className="btn-shine flex items-center gap-2 rounded-md bg-crimson px-5 py-2.5 font-inter text-[13px] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-crimson-deep">
-                  <Mail className="h-3.5 w-3.5" /> {tx({ EN: "Contact Us", JP: "お問い合わせ" })}
-                </Link>
-                <Link href="/auth/brochure" className="flex items-center gap-2 rounded-md border border-white/20 px-5 py-2.5 font-inter text-[13px] font-semibold text-white transition-all hover:bg-white/10">
-                  <Download className="h-3.5 w-3.5" /> {tx({ EN: "Download Brochure", JP: "パンフレット" })}
-                </Link>
+            </div>
+          </Reveal>
+
+          {/* Row 1 — 3 Advisors across */}
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {ADVISORY_ROW_1.map((adv, i) => (
+              <Reveal key={adv.id} delay={i * 90}>
+                <article className="luxury-glass-card card-sheen lift-card-dark group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-b from-white/[0.08] to-white/[0.03] p-6 sm:p-7 shadow-2xl backdrop-blur-xl transition-all duration-300 hover:border-saffron/60 hover:shadow-[0_0_36px_rgba(232,160,26,0.25)]">
+                  {/* Top gold accent line */}
+                  <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-saffron via-saffron-light to-transparent opacity-90" />
+
+                  {/* Header: Squircle Portrait + Executive Title */}
+                  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4.5">
+                    <div className="relative shrink-0">
+                      <div className="h-24 w-24 sm:h-28 sm:w-28 rounded-2xl overflow-hidden border-2 border-saffron/50 bg-navy/80 shadow-xl transition-transform duration-300 group-hover:scale-105 group-hover:border-saffron">
+                        <img
+                          src={adv.image}
+                          alt={adv.name}
+                          className="h-full w-full object-cover object-top"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                    <div className="min-w-0 flex-1 text-center sm:text-left">
+                      <span className="inline-block rounded-full border border-saffron/40 bg-saffron/15 px-3 py-0.5 font-inter text-[9.5px] font-bold uppercase tracking-wider text-saffron shadow-sm">
+                        {adv.badge}
+                      </span>
+                      <h3 className="mt-2 font-serif-jp text-[18px] font-bold leading-snug text-white group-hover:text-saffron-light transition-colors">
+                        {adv.name}
+                      </h3>
+                      <p className="font-sans-jp text-[12px] text-mist/90 mt-0.5">{adv.jpName}</p>
+                      <p className="mt-2 font-inter text-[13px] font-bold text-saffron">
+                        {adv.title}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Body Content */}
+                  <div className="mt-5 flex flex-1 flex-col border-t border-white/[0.1] pt-4">
+                    <p className="flex-1 font-inter text-[13px] leading-relaxed text-slate-300">
+                      {adv.desc}
+                    </p>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+
+          {/* Row 2 — 2 Advisors centered */}
+          <div className="mt-6 grid gap-6 md:grid-cols-2 lg:mx-auto lg:max-w-4xl">
+            {ADVISORY_ROW_2.map((adv, i) => (
+              <Reveal key={adv.id} delay={300 + i * 90}>
+                <article className="luxury-glass-card card-sheen lift-card-dark group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-b from-white/[0.08] to-white/[0.03] p-6 sm:p-7 shadow-2xl backdrop-blur-xl transition-all duration-300 hover:border-saffron/60 hover:shadow-[0_0_36px_rgba(232,160,26,0.25)]">
+                  {/* Top gold accent line */}
+                  <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-saffron via-saffron-light to-transparent opacity-90" />
+
+                  {/* Header: Squircle Portrait + Executive Title */}
+                  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4.5">
+                    <div className="relative shrink-0">
+                      <div className="h-24 w-24 sm:h-28 sm:w-28 rounded-2xl overflow-hidden border-2 border-saffron/50 bg-navy/80 shadow-xl transition-transform duration-300 group-hover:scale-105 group-hover:border-saffron">
+                        <img
+                          src={adv.image}
+                          alt={adv.name}
+                          className="h-full w-full object-cover object-top"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
+                    <div className="min-w-0 flex-1 text-center sm:text-left">
+                      <span className="inline-block rounded-full border border-saffron/40 bg-saffron/15 px-3 py-0.5 font-inter text-[9.5px] font-bold uppercase tracking-wider text-saffron shadow-sm">
+                        {adv.badge}
+                      </span>
+                      <h3 className="mt-2 font-serif-jp text-[18px] font-bold leading-snug text-white group-hover:text-saffron-light transition-colors">
+                        {adv.name}
+                      </h3>
+                      <p className="font-sans-jp text-[12px] text-mist/90 mt-0.5">{adv.jpName}</p>
+                      <p className="mt-2 font-inter text-[13px] font-bold text-saffron">
+                        {adv.title}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Body Content */}
+                  <div className="mt-5 flex flex-1 flex-col border-t border-white/[0.1] pt-4">
+                    <p className="flex-1 font-inter text-[13px] leading-relaxed text-slate-300">
+                      {adv.desc}
+                    </p>
+                  </div>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════
+          2. ARCHITECTURAL DIVIDER
+         ════════════════════════════════════════════════════════════ */}
+      <div className="relative h-14 overflow-hidden bg-ivory">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-crimson/40 to-transparent" />
+        <div className="flex h-full items-center justify-center">
+          <div className="flex items-center gap-3">
+            <span className="h-px w-20 bg-crimson/30" />
+            <span className="font-serif-jp text-[11.5px] font-bold uppercase tracking-widest text-crimson">
+              {tx({ EN: "OPERATIONS & EXECUTION · 運営体制", JP: "運営・執行体制 · OPERATIONS" })}
+            </span>
+            <span className="h-px w-20 bg-crimson/30" />
+          </div>
+        </div>
+      </div>
+
+      {/* ════════════════════════════════════════════════════════════
+          3. OPERATIONS TEAM — 4-Card Executive Grid (Warm Ivory)
+         ════════════════════════════════════════════════════════════ */}
+      <section className="section-pad bg-ivory">
+        <div className="container-jg">
+          <Reveal>
+            <div className="mx-auto max-w-3xl text-center">
+              <Eyebrow>{tx({ EN: "Operations & On-Ground Team", JP: "現地運営チーム" })}</Eyebrow>
+              <h2
+                className="mt-3 font-serif-jp font-bold text-ink"
+                style={{ fontSize: "clamp(1.875rem, 3.8vw, 2.75rem)" }}
+              >
+                {tx({ EN: "Organizing & Execution Team", JP: "J-Gate 運営チーム" })}
+              </h2>
+              <p
+                className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-slate"
+                style={{ fontSize: "clamp(0.95rem, 1.4vw, 1.05rem)" }}
+              >
+                {tx({
+                  EN: "Bilingual professionals based on-ground at Cyber Gateway, Hyderabad — ensuring flawless operations, bespoke member support, and executive conciergerie.",
+                  JP: "ハイデラバード・サイバーゲートウェイ現地に常駐するバイリンガルプロフェッショナル陣が、日々の快適な拠点運営と個別支援を徹底サポート。",
+                })}
+              </p>
+            </div>
+          </Reveal>
+
+          {/* 4 Profile Cards across */}
+          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {OPS_TEAM.map((m, i) => {
+              const isDheeraj = m.id === "dheeraj";
+              return (
+                <Reveal key={m.id} delay={i * 80}>
+                  <article
+                    id={isDheeraj ? "team-dheeraj" : undefined}
+                    className={`luxury-light-card card-sheen gold-hairline group flex h-full flex-col items-center rounded-3xl border bg-white p-6 sm:p-7 text-center shadow-card transition-all duration-300 hover:shadow-2xl ${
+                      isDheeraj
+                        ? "border-saffron ring-2 ring-saffron/30 hover:border-saffron shadow-lg shadow-saffron/10"
+                        : "border-slate-200/90 hover:border-crimson/40"
+                    }`}
+                  >
+                    {/* Modern Squircle Portrait with Crisp Country Badge */}
+                    <div className="relative w-full max-w-[190px]">
+                      <div
+                        className={`aspect-square w-full overflow-hidden rounded-2xl border-2 bg-slate-50 shadow-md transition-all duration-300 group-hover:scale-105 ${
+                          isDheeraj
+                            ? "border-saffron group-hover:border-saffron"
+                            : "border-slate-200/80 group-hover:border-crimson/50"
+                        }`}
+                      >
+                        <img
+                          src={m.image}
+                          alt={m.name}
+                          className="h-full w-full object-cover object-top transition-transform duration-500"
+                          loading="lazy"
+                        />
+                      </div>
+
+                      {/* Flag Tag */}
+                      <span className="absolute bottom-2.5 right-2.5 flex items-center gap-1 rounded-full bg-white/95 px-2.5 py-0.5 text-[11px] font-bold text-slate-700 shadow-md border border-slate-200/80 backdrop-blur-sm">
+                        <span>{m.flag}</span>
+                        <span className="text-[10px] tracking-wide uppercase font-inter">{m.country}</span>
+                      </span>
+
+                      {/* Spotlight Concierge Lead Badge for Dheeraj */}
+                      {isDheeraj && (
+                        <span className="absolute top-2.5 left-2.5 flex items-center gap-1 rounded-full bg-saffron px-2.5 py-0.5 text-[9.5px] font-bold text-ink shadow-md border border-saffron-dark/20 uppercase tracking-wider font-inter animate-pulse">
+                          <Sparkles className="h-3 w-3 text-ink" />
+                          <span>{m.badge}</span>
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Name & Titles */}
+                    <h3 className="mt-4 font-serif-jp text-[18px] font-bold leading-tight text-ink group-hover:text-crimson transition-colors">
+                      {m.name}
+                    </h3>
+                    <p className="mt-0.5 font-sans-jp text-[12px] font-semibold text-slate-500">
+                      {m.jpName}
+                    </p>
+                    <span
+                      className={`mt-2.5 inline-flex rounded-full px-3.5 py-1 font-inter text-[11px] font-bold shadow-sm ${
+                        isDheeraj
+                          ? "bg-saffron/20 text-saffron-dark border border-saffron/40"
+                          : "bg-crimson/10 text-crimson border border-crimson/20"
+                      }`}
+                    >
+                      {m.role}
+                    </span>
+
+                    {/* Spoken Languages Strip */}
+                    <div className="mt-3.5 w-full rounded-2xl bg-slate-50/90 border border-slate-200/70 p-2.5">
+                      <div className="flex items-center justify-center gap-1.5 font-inter text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">
+                        <Languages className="h-3 w-3 text-crimson" />
+                        <span>{tx({ EN: "Languages", JP: "対応言語" })}</span>
+                      </div>
+                      <div className="flex flex-wrap items-center justify-center gap-1.5">
+                        {m.languages.map((lang, li) => (
+                          <span
+                            key={li}
+                            className={`inline-flex items-center rounded-md px-2 py-0.5 font-inter text-[10.5px] font-semibold transition-colors ${
+                              lang.highlight
+                                ? "bg-crimson/10 text-crimson border border-crimson/25 font-bold"
+                                : "bg-white text-slate-700 border border-slate-200/90 shadow-2xs"
+                            }`}
+                          >
+                            {tx(lang)}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Short Bio */}
+                    <p className="mt-3.5 flex-1 font-inter text-[12.5px] leading-relaxed text-slate-600">
+                      {m.desc}
+                    </p>
+
+                    {/* Direct Contact Links */}
+                    <div className="mt-5 w-full space-y-2 border-t border-slate-100 pt-4 text-[12px]">
+                      {m.phone && (
+                        <a
+                          href={`tel:${m.phone.replace(/[^0-9+]/g, "")}`}
+                          className="flex items-center justify-center gap-2 rounded-xl bg-slate-50 py-2 px-3 font-inter font-medium text-slate-700 transition-colors hover:bg-crimson/10 hover:text-crimson border border-slate-200/60 shadow-sm"
+                        >
+                          <Phone className="h-3.5 w-3.5 text-crimson" />
+                          <span>{m.phone}</span>
+                        </a>
+                      )}
+                      <a
+                        href={`mailto:${m.email}`}
+                        className="flex items-center justify-center gap-2 rounded-xl bg-slate-50 py-2 px-3 font-inter font-medium text-slate-700 transition-colors hover:bg-crimson/10 hover:text-crimson border border-slate-200/60 shadow-sm"
+                      >
+                        <Mail className="h-3.5 w-3.5 text-crimson" />
+                        <span>{m.email}</span>
+                      </a>
+                    </div>
+                  </article>
+                </Reveal>
+              );
+            })}
+          </div>
+
+          {/* ══════════════════════════════════════════════════════════
+              Bilingual Concierge Speech Bubble — Pointing Directly up to Dheeraj
+             ══════════════════════════════════════════════════════════ */}
+          <Reveal delay={250}>
+            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
+              {/* Empty space for Columns 1 & 2 (Tanji & Hanaoka) on desktop */}
+              <div className="hidden lg:block lg:col-span-2" />
+
+              {/* Speech Bubble spanning under Column 3 (Dheeraj) & Column 4 (Abhishek) */}
+              <div className="sm:col-span-2 lg:col-span-2 relative">
+                <div className="relative rounded-[28px] sm:rounded-[36px] border-2 border-saffron bg-[#FFF9EE] p-6 sm:p-8 shadow-xl transition-all duration-300 hover:shadow-2xl">
+                  {/* Authentic Speech Bubble Pointer Tail pointing EXACTLY UP to Dheeraj (Col 3 center = 25% of 2-col span) */}
+                  <div className="absolute -top-[14px] left-1/2 sm:left-[25%] -translate-x-1/2 h-0 w-0 border-x-[13px] border-x-transparent border-b-[14px] border-b-saffron" />
+                  <div className="absolute -top-[11px] left-1/2 sm:left-[25%] -translate-x-1/2 h-0 w-0 border-x-[13px] border-x-transparent border-b-[14px] border-b-[#FFF9EE]" />
+
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                    <div className="space-y-2 flex-1">
+                      <div className="flex items-center gap-2">
+                        <span className="inline-block rounded-full bg-saffron/25 px-3 py-0.5 font-inter text-[10.5px] font-bold uppercase tracking-wider text-saffron-dark">
+                          BILINGUAL CONCIERGE · バイリンガル対応
+                        </span>
+                        <span className="inline-flex items-center gap-1 rounded-full bg-crimson/10 px-2.5 py-0.5 font-inter text-[10.5px] font-bold text-crimson">
+                          <Sparkles className="h-3 w-3" />
+                          <span>Dheeraj (Community Manager)</span>
+                        </span>
+                      </div>
+
+                      {/* Exact Japanese Header from User Image */}
+                      <h4 className="font-serif-jp text-[19px] sm:text-[23px] font-bold text-ink leading-tight tracking-tight">
+                        なんでもお気軽にご相談ください。
+                        <br />
+                        日本語でご対応致します。
+                      </h4>
+
+                      {/* Bilingual Description */}
+                      <p className="font-inter text-[13px] sm:text-[13.5px] leading-relaxed text-slate-700">
+                        {tx({
+                          EN: "Whether exploring hub memberships, enterprise private suites, company incorporation, or bilateral business partnerships — our team provides dedicated support in Japanese and English.",
+                          JP: "オフィス視察、現地法人設立、人材採用、市場調査など、経験豊富な現地スタッフが日本語・英語で迅速かつ丁寧に対応いたします。",
+                        })}
+                      </p>
+                    </div>
+
+                    {/* Direct Contact Buttons */}
+                    <div className="flex flex-wrap sm:flex-col shrink-0 gap-2.5 w-full sm:w-auto">
+                      <a
+                        href="tel:+919849811543"
+                        className="btn-shine inline-flex items-center justify-center gap-2 rounded-xl bg-crimson px-5 py-2.5 font-inter text-[12.5px] font-semibold text-white shadow-md hover:bg-crimson-deep transition-all"
+                      >
+                        <Phone className="h-3.5 w-3.5" />
+                        <span>+91-98498 11543</span>
+                      </a>
+                      <a
+                        href="https://wa.me/919849811543?text=Hello%20Dheeraj,%20I%20would%20like%20to%20inquire%20about%20J-Gate%20Hyderabad."
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 px-5 py-2.5 font-inter text-[12.5px] font-semibold text-white shadow-md transition-all"
+                      >
+                        <MessageSquare className="h-3.5 w-3.5" />
+                        <span>WhatsApp Dheeraj</span>
+                      </a>
+                      <Link
+                        href="/contact"
+                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-white hover:bg-slate-50 px-5 py-2 font-inter text-[12px] font-semibold text-slate-700 border border-slate-300 shadow-sm transition-all"
+                      >
+                        <Mail className="h-3.5 w-3.5 text-crimson" />
+                        <span>{tx({ EN: "Online Inquiry Desk →", JP: "Web相談・予約 →" })}</span>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </Reveal>
         </div>
       </section>
+
+      {/* ════════════════════════════════════════════════════════════
+          4. ECOSYSTEM PARTNERS — Infinite Side-Scrolling Company Marquee
+         ════════════════════════════════════════════════════════════ */}
+      <section className="section-pad relative overflow-hidden bg-ivory-warm">
+        <div className="container-jg mb-10">
+          <Reveal>
+            <div className="mx-auto max-w-3xl text-center">
+              <Eyebrow>{tx({ EN: "Bilateral Ecosystem", JP: "提携エコシステム" })}</Eyebrow>
+              <h2
+                className="mt-3 font-serif-jp font-bold text-ink"
+                style={{ fontSize: "clamp(1.875rem, 3.8vw, 2.75rem)" }}
+              >
+                {tx({ EN: "Our Ecosystem Partner Network", JP: "提携エコシステムネットワーク" })}
+              </h2>
+              <p
+                className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-slate"
+                style={{ fontSize: "clamp(0.95rem, 1.4vw, 1.05rem)" }}
+              >
+                {tx({
+                  EN: "Government trade organizations, premier incubators, universities, and enterprise enablers powering member success.",
+                  JP: "政府機関、アジア最大級のインキュベーション施設、トップ大学、そして先進テクノロジー企業との緊密な連携基盤。",
+                })}
+              </p>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* Dual Infinite Side-Scrolling Marquee Tracks with Edge Masking */}
+        <div className="space-y-4 sm:space-y-6">
+          {/* Row 1 — Continuous Flow (Leftward) */}
+          <div
+            className="marquee-track relative overflow-hidden py-1"
+            style={{
+              maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+              WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+            }}
+          >
+            <div
+              className="flex w-max gap-4 animate-marquee"
+              style={{ animationDuration: "38s" }}
+            >
+              {[...ECOSYSTEM_ROW_1, ...ECOSYSTEM_ROW_1, ...ECOSYSTEM_ROW_1, ...ECOSYSTEM_ROW_1].map((p, i) => (
+                <div
+                  key={`r1-${p.name}-${i}`}
+                  className="group flex h-28 w-64 sm:w-72 shrink-0 items-center gap-4 rounded-2xl border border-slate-200/90 bg-white p-4 shadow-card transition-all duration-300 hover:border-crimson/40 hover:shadow-xl hover:-translate-y-1"
+                >
+                  <div className="flex h-16 w-24 shrink-0 items-center justify-center rounded-xl bg-slate-50/90 p-2 border border-slate-100">
+                    <img
+                      src={p.src}
+                      alt={`${p.name} logo`}
+                      className="max-h-11 max-w-[85px] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <span className="block font-inter text-[13.5px] font-bold text-ink group-hover:text-crimson transition-colors truncate">
+                      {p.name}
+                    </span>
+                    <span className="mt-0.5 block font-inter text-[9px] font-bold uppercase tracking-wider text-crimson">
+                      {p.category}
+                    </span>
+                    <p className="mt-1 font-inter text-[11px] text-slate-500 line-clamp-1">
+                      {p.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Row 2 — Continuous Flow (Rightward) */}
+          <div
+            className="marquee-track relative overflow-hidden py-1"
+            style={{
+              maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+              WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
+            }}
+          >
+            <div
+              className="flex w-max gap-4 animate-marquee"
+              style={{ animationDirection: "reverse", animationDuration: "42s" }}
+            >
+              {[...ECOSYSTEM_ROW_2, ...ECOSYSTEM_ROW_2, ...ECOSYSTEM_ROW_2, ...ECOSYSTEM_ROW_2].map((p, i) => (
+                <div
+                  key={`r2-${p.name}-${i}`}
+                  className="group flex h-28 w-64 sm:w-72 shrink-0 items-center gap-4 rounded-2xl border border-slate-200/90 bg-white p-4 shadow-card transition-all duration-300 hover:border-crimson/40 hover:shadow-xl hover:-translate-y-1"
+                >
+                  <div className="flex h-16 w-24 shrink-0 items-center justify-center rounded-xl bg-slate-50/90 p-2 border border-slate-100">
+                    <img
+                      src={p.src}
+                      alt={`${p.name} logo`}
+                      className="max-h-11 max-w-[85px] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <span className="block font-inter text-[13.5px] font-bold text-ink group-hover:text-crimson transition-colors truncate">
+                      {p.name}
+                    </span>
+                    <span className="mt-0.5 block font-inter text-[9px] font-bold uppercase tracking-wider text-crimson">
+                      {p.category}
+                    </span>
+                    <p className="mt-1 font-inter text-[11px] text-slate-500 line-clamp-1">
+                      {p.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
     </>
   );
 }

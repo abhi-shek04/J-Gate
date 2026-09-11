@@ -61,7 +61,7 @@ const PLANS: Plan[] = [
       { text: "Japan-India business etiquette & culture workshops", included: true },
       { text: "Business address — Cyber Gateway, Hyderabad", included: true },
       { text: "Mail handling & courier management", included: true },
-      { text: "Access to JETRO coordination support", included: true },
+      { text: "Access to T-Hub co-innovation support", included: true },
       { text: "Member directory listing", included: true },
       { text: "Private cabin", included: false },
     ],
@@ -82,7 +82,7 @@ const PLANS: Plan[] = [
       { text: "Unlimited meeting room & conference room access", included: true },
       { text: "VIP partner network access (direct introductions, not referrals)", included: true },
       { text: "Monthly strategic advisory session with Advisory Council", included: true },
-      { text: "JETRO coordination & government liaison support", included: true },
+      { text: "Telangana Government liaison & innovation support", included: true },
       { text: "Full market entry consulting package (registration, HR, legal, finance)", included: true },
       { text: "Bilingual concierge support (English & Japanese)", included: true },
       { text: "Dedicated receptionist & administrative support", included: true },
@@ -113,8 +113,8 @@ export function Pricing() {
               Choose Your <span className="text-crimson">Base of Operations</span>
             </h2>
             <p className="mx-auto mt-4 max-w-2xl font-inter font-light text-mist" style={{ fontSize: "clamp(0.95rem,1.6vw,1.125rem)" }}>
-              Every membership includes access to our partner network, JETRO
-              coordination support, and J-Gate community events.
+              Every membership includes access to our partner network, innovation
+              ecosystem coordination, and J-Gate community events.
             </p>
           </div>
         </Reveal>

@@ -6,7 +6,7 @@ import { PartnerLogo } from "./partner-logo";
 import { StarIcon, QuoteMark } from "./icons";
 import { cn } from "@/lib/utils";
 
-const PARTNER_LOGOS = ["JETRO", "T-Hub", "Woxsen University", "Genesys Info X", "DMI", "Kodryx AI"];
+const PARTNER_LOGOS = ["T-Hub", "Woxsen University", "Genesys Info X", "Kodryx AI", "MXC"];
 
 const TESTIMONIALS = [
   {

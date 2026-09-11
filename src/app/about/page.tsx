@@ -3,155 +3,31 @@
 import { Reveal, Eyebrow } from "@/components/jgate/shared";
 import { PageHero } from "@/components/jgate/page-hero";
 import { useI18n } from "@/lib/i18n";
-import { Photo } from "@/components/jgate/photo";
 import {
   Target,
   Eye,
   ShieldCheck,
   Globe2,
-  Cpu,
   Handshake,
   Rocket,
   GraduationCap,
   HandHeart,
-  ArrowRight,
-  CheckCircle2,
   Building2,
-  CalendarClock,
   Sparkles,
 } from "lucide-react";
-import Link from "next/link";
 
 /* ============================================================
-   About J-Gate — v4.0 Compact Redesign
+   About J-Gate — Executive Corporate Profile
    Architecture:
-     1. PageHero — "About J-Gate" / "From India Entry Spark to Talent Development"
-     2. 3 Pillars detailed (large 01/02/03 + JP+EN heading + full paragraph + icon)
-     3. Strategic Location — Hyderabad (centered, 4 photo slots + content)
-     4. India Map SVG (HYD crimson pulsing + other cities)
-     5. Mission & Vision — 2 side-by-side cards
-     6. Core Values — 4-card grid
-     7. Closing CTA
+     1. PageHero — Corporate Identity & Mission
+     2. 3 Core Pillars Detailed (01/02/03 + EN/JP + full paragraph + icon)
+     3. Bilateral Strategic Alliance (Executive Handshake Photo + 4 Synergy Pillars)
+     4. Interactive Workspace Explorer (Cyber Gateway facilities tour)
+     5. Mission & Vision (2 structured executive cards)
+     6. Core Values (4 foundational principles)
    ============================================================ */
 
-/* ── India Map SVG — simplified outline with city dots ── */
-function IndiaMap() {
-  // Cities positioned in viewBox 0 0 360 420
-  const cities = [
-    { name: "New Delhi", x: 110, y: 90, isJGate: false },
-    { name: "Ahmedabad", x: 80, y: 175, isJGate: false },
-    { name: "Mumbai", x: 95, y: 240, isJGate: false },
-    { name: "Hyderabad", x: 165, y: 250, isJGate: true, color: "#bc1a2c" },
-    { name: "Bengaluru", x: 130, y: 320, isJGate: false },
-    { name: "Chennai", x: 195, y: 320, isJGate: false },
-  ];
-  return (
-    <svg viewBox="0 0 360 420" className="h-full w-full" role="img" aria-label="Map of India showing J-Gate location in Hyderabad">
-      {/* Simplified India outline */}
-      <path
-        d="M 130 30 L 170 25 L 200 50 L 230 55 L 250 80 L 245 110 L 260 130 L 250 160 L 270 175 L 280 200 L 270 230 L 290 270 L 285 310 L 260 340 L 235 360 L 210 380 L 180 385 L 160 370 L 145 350 L 130 320 L 115 290 L 100 260 L 90 220 L 80 190 L 75 160 L 85 130 L 95 100 L 110 70 Z"
-        fill="rgba(188,26,44,0.04)"
-        stroke="rgba(188,26,44,0.30)"
-        strokeWidth="1.2"
-        strokeLinejoin="round"
-      />
-      {/* City dots */}
-      {cities.map((c) => (
-        <g key={c.name}>
-          {c.isJGate ? (
-            <>
-              <circle cx={c.x} cy={c.y} r="10" fill={c.color} opacity="0.18">
-                <animate
-                  attributeName="r"
-                  values="6;14;6"
-                  dur="2.4s"
-                  repeatCount="indefinite"
-                />
-                <animate
-                  attributeName="opacity"
-                  values="0.35;0;0.35"
-                  dur="2.4s"
-                  repeatCount="indefinite"
-                />
-              </circle>
-              <circle cx={c.x} cy={c.y} r="5" fill={c.color} />
-            </>
-          ) : (
-            <circle cx={c.x} cy={c.y} r="2.8" fill="#8892a4" opacity="0.7" />
-          )}
-          <text
-            x={c.x + 8}
-            y={c.y + 4}
-            textAnchor="start"
-            fontFamily="Inter, sans-serif"
-            fontSize={c.isJGate ? "11" : "9"}
-            fontWeight={c.isJGate ? 700 : 500}
-            fill={c.isJGate ? c.color : "#8892a4"}
-          >
-            {c.name}
-          </text>
-        </g>
-      ))}
-    </svg>
-  );
-}
-
-/* ── Mission & Vision content ── */
-const MISSION = {
-  title: { EN: "Our Mission", JP: "ミッション" },
-  body: {
-    EN: "To provide Japanese companies entering India with a dedicated working hub — a professional workspace with resident Japan Desk support, complete infrastructure, and end-to-end business assistance from first curiosity to corporate entity establishment.",
-    JP: "インドに進出する日本企業に専用のワーキングハブを提供すること — 常駐ジャパンデスク、完全なインフラ、そして初期相談から法人設立までのエンドツーエンドのビジネス支援を備えたプロフェッショナルなワークスペース。",
-  },
-  tag: { EN: "What we do today", JP: "今日私たちが行うこと" },
-} as const;
-
-const VISION = {
-  title: { EN: "Our Vision", JP: "ビジョン" },
-  body: {
-    EN: "To become the definitive workspace for Japanese enterprises in Hyderabad — the first name called when a company needs a professional base, Japan Desk support, or a complete India operations hub.",
-    JP: "ハイデラバードの日本企業にとって決定的なワークスペースになること — 企業がプロフェッショナルな拠点、ジャパンデスクサポート、または完全なインド運営ハブを必要とする時に最初に呼ばれる名前に。",
-  },
-  tag: { EN: "What we build toward", JP: "私たちが構築する未来" },
-} as const;
-
-/* ── Core Values — 4-card grid ── */
-const VALUES = [
-  {
-    icon: ShieldCheck,
-    title: { EN: "Integrity", JP: "誠実さ" },
-    desc: {
-      EN: "Transparent, honest, long-term relationships — never transactional.",
-      JP: "透明で誠実な長期的関係 — 決して取引的ではない。",
-    },
-  },
-  {
-    icon: Globe2,
-    title: { EN: "Cultural Fluency", JP: "文化的流暢さ" },
-    desc: {
-      EN: "Deep mastery of both Japanese and Indian business cultures.",
-      JP: "日本とインドの両ビジネス文化の深い理解。",
-    },
-  },
-  {
-    icon: Cpu,
-    title: { EN: "Technical Excellence", JP: "技術的卓越" },
-    desc: {
-      EN: "Rigorous screening — only the top percentile of technical talent.",
-      JP: "厳格なスクリーニング — トップパーセンタイルの技術人材のみ。",
-    },
-  },
-  {
-    icon: Handshake,
-    title: { EN: "Long-Term Partnership", JP: "長期パートナーシップ" },
-    desc: {
-      EN: "We succeed only when our placements and partners succeed.",
-      JP: "紹介とパートナーが成功して初めて私たちも成功する。",
-    },
-  },
-] as const;
-
-/* ── 3 Pillars — detailed cards ── */
+/* ── 3 Core Pillars ── */
 const PILLARS = [
   {
     num: "01",
@@ -179,13 +55,67 @@ const PILLARS = [
   },
 ] as const;
 
-/* ── Hyderabad 4 photo slots ── */
-const HYD_PHOTOS = [
-  { id: "photo-about-hyd-1", label: "Workspace", fallback: "grad-office-main" },
-  { id: "photo-about-hyd-2", label: "Meeting Room", fallback: "grad-office-meeting" },
-  { id: "photo-about-hyd-3", label: "Reception", fallback: "grad-office-reception" },
-  { id: "photo-about-hyd-4", label: "Cafeteria", fallback: "grad-canteen-japanese" },
+/* ============================================================
+   Bilateral Strategic Alliance Highlights
+   Connecting Japanese Enterprise Excellence with India's Tech Prowess
+   ============================================================ */
+const BILATERAL_SYNERGIES = [
+  {
+    icon: Handshake,
+    badge: { EN: "Corporate Synergy", JP: "企業アライアンス" },
+    title: { EN: "Cultural & Strategic Alignment", JP: "商習慣と企業文化の高度な融合" },
+    desc: {
+      EN: "Harmonizing Japanese standards of meticulous quality, governance, and compliance with India's agile execution speed and massive market scale.",
+      JP: "日本の高い品質基準・ガバナンスと、インド現地のスピード感・圧倒的な開発推進力を高度に調和させます。",
+    },
+  },
+  {
+    icon: Building2,
+    badge: { EN: "Institutional Power", JP: "公的機関連携" },
+    title: { EN: "High-Level Ecosystem Integration", JP: "政府・主要機関との強固なネットワーク" },
+    desc: {
+      EN: "Direct institutional ties with T-Hub, Woxsen University, and state government industrial promotion bodies from Day 1.",
+      JP: "T-Hub、Woxsen大学、州政府機関との緊密なアライアンスにより、確実で安全な事業基盤を提供します。",
+    },
+  },
+  {
+    icon: ShieldCheck,
+    badge: { EN: "Resident Support", JP: "現地伴走体制" },
+    title: { EN: "On-the-Ground Resident Advisory", JP: "日本人ディレクターによる現地常駐支援" },
+    desc: {
+      EN: "Native Japanese leadership and bilingual Indian specialists on-site in Hyderabad, providing daily 'Yorozu' consultation, translation, and negotiation support.",
+      JP: "ハイデラバード現地に日本人ディレクターとバイリンガルスタッフが常駐し、日々の実務や商談を現場で強力に伴走支援します。",
+    },
+  },
+  {
+    icon: Rocket,
+    badge: { EN: "Turnkey Execution", JP: "即日稼働" },
+    title: { EN: "Fast-Track Entry & Talent Pipelines", JP: "迅速な法人設立と高度IT人材の確保" },
+    desc: {
+      EN: "Eliminating expansion friction with turnkey workspace infrastructure, official corporate registration (MCA/GST), and direct access to top engineering talent.",
+      JP: "法人登記、銀行口座開設、即日利用可能な執務環境、そして名門大学からのトップエンジニア採用を一気通貫で支援します。",
+    },
+  },
 ];
+
+/* ── Mission & Vision content ── */
+const MISSION = {
+  title: { EN: "Our Mission", JP: "ミッション" },
+  body: {
+    EN: "To provide Japanese companies entering India with a dedicated working hub — a professional workspace with resident Japan Desk support, complete infrastructure, and end-to-end business assistance from first curiosity to corporate entity establishment.",
+    JP: "インドに進出する日本企業に専用のワーキングハブを提供すること — 常駐ジャパンデスク、完全なインフラ、そして初期相談から法人設立までのエンドツーエンドのビジネス支援を備えたプロフェッショナルなワークスペース。",
+  },
+  tag: { EN: "What we do today", JP: "今日私たちが行うこと" },
+} as const;
+
+const VISION = {
+  title: { EN: "Our Vision", JP: "ビジョン" },
+  body: {
+    EN: "To be the premier physical and operational bridge between the Japanese and Indian business ecosystems, accelerating bilateral innovation, human capital exchange, and market success.",
+    JP: "日本とインドのビジネスエコシステムをつなぐ最高の物理的・運営的架け橋となり、二国間のイノベーション、人材交流、そして市場での成功を加速させること。",
+  },
+  tag: { EN: "What we are building toward", JP: "私たちが目指す未来" },
+} as const;
 
 export default function AboutPage() {
   const { t, tx } = useI18n();
@@ -208,7 +138,6 @@ export default function AboutPage() {
 
       {/* ════════════════════════════════════════════════════════════
           Section 1 — 3 Pillars Detailed
-          Each pillar: large number (01/02/03) + JP+EN heading + full paragraph + icon
          ════════════════════════════════════════════════════════════ */}
       <section className="section-pad bg-ivory">
         <div className="container-jg">
@@ -217,58 +146,57 @@ export default function AboutPage() {
               <Eyebrow>{t("about.purpose.eyebrow")}</Eyebrow>
               <h2
                 className="mt-2 font-serif-jp font-bold leading-[1.2] text-ink"
-                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
+                style={{ fontSize: "clamp(1.625rem,3vw,2.25rem)" }}
               >
                 {t("about.purpose.title")}
               </h2>
               <p
                 className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
+                style={{ fontSize: "clamp(0.9rem,1.3vw,1.05rem)" }}
               >
                 {t("about.purpose.subtitle")}
               </p>
             </div>
           </Reveal>
 
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
             {PILLARS.map((p, i) => (
               <Reveal key={p.num} delay={i * 100}>
-                <article className="lift-card group relative h-full overflow-hidden rounded-lg border border-crimson/12 bg-pearl p-7 shadow-card">
+                <article className="luxury-light-card card-sheen gold-hairline group relative h-full overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-7.5 shadow-card hover:shadow-2xl hover:border-crimson/35 transition-all duration-300">
                   {/* Faded large numeral */}
                   <span
-                    className="pointer-events-none absolute -top-6 right-2 font-serif-jp font-black leading-none text-crimson"
-                    style={{ fontSize: "120px", opacity: 0.08 }}
+                    className="pointer-events-none absolute -top-6 right-2 font-serif-jp font-black leading-none text-crimson/10 select-none transition-transform duration-500 group-hover:scale-110"
+                    style={{ fontSize: "120px" }}
                     aria-hidden
                   >
                     {p.num}
                   </span>
-                  <div className="relative">
+                  <div className="relative z-10">
                     {/* Icon badge */}
-                    <div className="flex h-14 w-14 items-center justify-center rounded-lg bg-gradient-to-br from-crimson to-crimson-deep text-white shadow-card transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3">
-                      <p.icon className="h-7 w-7" strokeWidth={1.5} />
+                    <div className="icon-pod h-14 w-14 shrink-0">
+                      <p.icon className="h-7 w-7" strokeWidth={1.75} />
                     </div>
                     {/* Tag + JP accent label */}
                     <div className="mt-5 flex items-center gap-2">
                       <span
-                        className="font-inter text-[11px] font-bold uppercase text-crimson"
-                        style={{ letterSpacing: "0.15em" }}
+                        className="font-inter text-[11px] font-bold uppercase tracking-wider text-crimson"
                       >
                         {t(p.tagKey)}
                       </span>
-                      <span className="text-mist">·</span>
-                      <span className="font-serif-jp text-[13px] font-medium text-slate">
+                      <span className="text-slate-300">·</span>
+                      <span className="font-serif-jp text-[13px] font-bold text-saffron-deep">
                         {t(p.jpKey)}
                       </span>
                     </div>
                     {/* Title */}
                     <h3
-                      className="mt-2 font-serif-jp font-bold leading-tight text-ink"
-                      style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
+                      className="mt-2 font-serif-jp font-bold leading-tight text-ink group-hover:text-crimson transition-colors"
+                      style={{ fontSize: "clamp(1.1rem,1.6vw,1.3rem)" }}
                     >
                       {t(p.titleKey)}
                     </h3>
                     {/* Full paragraph */}
-                    <p className="mt-3 font-inter text-[14px] leading-relaxed text-slate">
+                    <p className="mt-3 font-inter text-[13.5px] leading-relaxed text-slate-600">
                       {t(p.descKey)}
                     </p>
                   </div>
@@ -280,191 +208,175 @@ export default function AboutPage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          Section 2 — Strategic Location (Hyderabad only, centered)
-          2-col: photo grid on left, content on right (within max-w-4xl)
+          Section 2 — Japan–India Bilateral Alliance & Executive Partnership
          ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad relative overflow-hidden bg-navy">
-        <div className="container-jg">
-          <Reveal>
-            <div className="mx-auto max-w-3xl text-center">
-              <Eyebrow>{t("about.locations.eyebrow")}</Eyebrow>
-              <h2
-                className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
-              >
-                {t("about.locations.title")}
-              </h2>
-              <p
-                className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
-              >
-                {t("about.locations.subtitle")}
-              </p>
-            </div>
-          </Reveal>
-
-          {/* Hyderabad — centered max-w-4xl, 2-col: photo grid on left, content on right */}
-          <Reveal delay={120}>
-            <article className="lift-card mx-auto mt-8 max-w-4xl overflow-hidden rounded-lg border border-saffron/20 bg-pearl shadow-card">
-              <span className="block h-1 bg-gradient-to-r from-saffron to-[#c9881a]" />
-              <div className="grid lg:grid-cols-2">
-                {/* Photo grid: 4 slots */}
-                <div className="grid grid-cols-2 gap-1 p-1">
-                  {HYD_PHOTOS.map((ph) => (
-                    <Photo
-                      key={ph.id}
-                      id={ph.id}
-                      alt={`${ph.label} — J-Gate Hyderabad`}
-                      fallback={ph.fallback}
-                      initials="HYD"
-                      rounded="rounded-sm"
-                      className="aspect-[4/3] w-full"
-                    />
-                  ))}
-                </div>
-                {/* Content */}
-                <div className="p-5 sm:p-6 lg:p-7">
-                  <div className="flex flex-wrap items-start justify-between gap-3">
-                    <div className="flex items-center gap-3">
-                      <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-saffron/15 text-saffron">
-                        <Building2 className="h-5 w-5" strokeWidth={1.5} />
-                      </span>
-                      <div>
-                        <span
-                          className="block font-inter text-[11px] font-bold uppercase text-saffron"
-                          style={{ letterSpacing: "0.15em" }}
-                        >
-                          {t("about.hyderabad.tag")}
-                        </span>
-                        <h3
-                          className="mt-0.5 font-serif-jp font-bold text-ink"
-                          style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
-                        >
-                          {t("about.hyderabad.title")}
-                        </h3>
-                      </div>
-                    </div>
-                    <span className="inline-flex items-center gap-1.5 rounded-md bg-success/15 px-2.5 py-1 font-inter text-[11px] font-bold uppercase text-success">
-                      <CalendarClock className="h-3 w-3" />
-                      {t("about.hyderabad.status")}
-                    </span>
-                  </div>
-                  <p className="mt-4 font-serif-jp text-[13px] font-medium italic text-saffron/85">
-                    {t("about.hyderabad.nick")}
-                  </p>
-                  <p className="mt-2 font-inter text-[13px] leading-relaxed text-slate">
-                    {t("about.hyderabad.desc")}
-                  </p>
-                  <ul className="mt-4 space-y-2 border-t border-crimson/10 pt-4">
-                    {[t("about.hyderabad.f1"), t("about.hyderabad.f2"), t("about.hyderabad.f3")].map((f, fi) => (
-                      <li key={fi} className="flex items-start gap-2.5">
-                        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-saffron" strokeWidth={2} />
-                        <span className="font-inter text-[13px] text-ink">{f}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </article>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════════════
-          Section 3 — India Map SVG
-          Hyderabad (crimson pulsing) + other cities
-         ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad relative overflow-hidden bg-midnight">
-        <div className="pattern-asanoha-dark absolute inset-0 opacity-60" />
+      <section className="section-pad relative overflow-hidden bg-midnight text-white">
+        <div className="pattern-asanoha-dark absolute inset-0 opacity-50 pointer-events-none" />
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse at 50% 50%, rgba(188,26,44,0.10), transparent 60%)",
+              "radial-gradient(ellipse at 50% 30%, rgba(188,26,44,0.18) 0%, rgba(232,160,26,0.08) 50%, transparent 80%)",
           }}
         />
-        <div className="container-jg relative">
+
+        <div className="container-jg relative z-10">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
-              <Eyebrow light>{tx({ EN: "India Footprint", JP: "インド拠点マップ" })}</Eyebrow>
+              <span className="inline-flex items-center gap-2 rounded-full border border-saffron/30 bg-saffron/10 px-4 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-saffron">
+                <Sparkles className="h-3.5 w-3.5" />
+                {tx({ EN: "Bilateral Alliance & Trust", JP: "日印の信頼と共創" })}
+              </span>
               <h2
-                className="mt-2 font-serif-jp font-bold leading-[1.18] text-white"
-                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
-              >
-                {tx({ EN: "One City. One Bridge.", JP: "一つの都市、一つの架け橋。" })}
-              </h2>
-              <p
-                className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-mist"
-                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
+                className="mt-3 font-serif-jp font-bold text-white"
+                style={{ fontSize: "clamp(1.875rem, 3.8vw, 2.75rem)" }}
               >
                 {tx({
-                  EN: "Hyderabad is our main base and the operational heart of J-Gate — where every Japan-India business touchpoint in the corridor comes together.",
-                  JP: "ハイデラバードはJ-Gateの主拠点であり運営の中心 — 回廊のすべての日本ビジネス接点が集まる場所。",
+                  EN: "Bridging Two Nations. Empowering Global Enterprises.",
+                  JP: "日印の架け橋となり、企業のグローバル展開を加速する",
+                })}
+              </h2>
+              <p className="mt-2.5 font-inter text-[13.5px] leading-relaxed text-mist max-w-2xl mx-auto">
+                {tx({
+                  EN: "J-Gate unites Japanese corporate precision, governance, and trust with India's vibrant technological power, vast talent pool, and rapid market execution.",
+                  JP: "日本の卓越した品質・ガバナンスと、インドの高度な技術力・豊富な人材・ダイナミックな市場推進力をシームレスに融合します。",
                 })}
               </p>
             </div>
           </Reveal>
 
-          <div className="mt-10 grid gap-8 lg:grid-cols-5 lg:items-center">
-            {/* Map */}
-            <Reveal variant="left" delay={120} className="lg:col-span-3">
-              <div className="mx-auto max-w-md rounded-lg border border-white/10 bg-white/[0.02] p-6">
-                <IndiaMap />
-              </div>
-            </Reveal>
-            {/* Legend + Hyderabad summary */}
-            <Reveal variant="right" delay={200} className="lg:col-span-2">
-              <div className="glass-dark rounded-lg border border-white/10 p-5">
-                <h3
-                  className="font-serif-jp font-bold text-white"
-                  style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
-                >
-                  {tx({ EN: "Our Base", JP: "私たちの拠点" })}
-                </h3>
-                <p className="mt-2 font-inter text-[13px] leading-relaxed text-mist">
-                  {tx({
-                    EN: "Anchored in Hyderabad — India's rising tech capital and home to one of the country's largest Japanese business communities.",
-                    JP: "ハイデラバードに根ざす — イドの台頭するテック首都であり、国内最大級の日本ビジネスコミュニティの拠点。",
-                  })}
-                </p>
-                <ul className="mt-4 space-y-3">
-                  <li className="flex items-center gap-3">
-                    <span className="h-3 w-3 rounded-full bg-crimson shadow-[0_0_12px_rgba(188,26,44,0.6)]" />
-                    <span className="font-inter text-[13px] text-white">
-                      <strong className="font-bold">Hyderabad</strong>
-                      <span className="ml-2 text-mist">{tx({ EN: "Main Base · LIVE", JP: "主拠点・稼働中" })}</span>
-                    </span>
-                  </li>
-                  <li className="flex items-center gap-3">
-                    <span className="h-3 w-3 rounded-full bg-mist/50" />
-                    <span className="font-inter text-[13px] text-mist">
-                      {tx({ EN: "Other major cities", JP: "その他主要都市" })}
-                    </span>
-                  </li>
-                </ul>
-              </div>
-            </Reveal>
+          {/* 2-Column Luxury Bento Grid */}
+          <div className="mt-12 grid lg:grid-cols-12 gap-8 items-center max-w-6xl mx-auto">
+            {/* Left: Framed Strategic Photographic Feature Card */}
+            <div className="lg:col-span-5">
+              <Reveal variant="scale">
+                <div className="luxury-glass-card group relative overflow-hidden rounded-3xl border border-white/20 bg-white/[0.04] p-3 sm:p-4 shadow-2xl backdrop-blur-xl">
+                  {/* Image Frame with glowing border */}
+                  <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-black/40">
+                    <img
+                      src="/japan-india-handshake.jpg"
+                      alt="Japanese and Indian business leaders shaking hands in front of Japan and India national flags"
+                      className="w-full aspect-[4/3] sm:aspect-[1/1] lg:aspect-[4/3] object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+
+                    {/* Gradient Overlay for Text Readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
+
+                    {/* Floating Top Badge */}
+                    <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-midnight/90 border border-white/15 px-3 py-1 text-[10.5px] font-bold text-white shadow-lg backdrop-blur-md">
+                        <span className="text-[13px]">🇯🇵</span>
+                        <span>Japan</span>
+                        <span className="text-saffron font-bold">↔</span>
+                        <span className="text-[13px]">🇮🇳</span>
+                        <span>India</span>
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-crimson/90 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-md">
+                        <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
+                        {tx({ EN: "LIVE CORRIDOR", JP: "常時連携" })}
+                      </span>
+                    </div>
+
+                    {/* Bottom Caption Overlay */}
+                    <div className="absolute bottom-4 left-4 right-4 text-white">
+                      <p className="font-serif-jp text-[14px] sm:text-[15px] font-bold leading-snug text-white drop-shadow-md">
+                        {tx({
+                          EN: "Executive Partnership & Strategic Mutual Trust",
+                          JP: "確固たる信頼と共創に基づく日印エグゼクティブ・アライアンス",
+                        })}
+                      </p>
+                      <p className="mt-1 font-inter text-[11px] text-mist/90 line-clamp-2">
+                        {tx({
+                          EN: "Deepening business, technological, and cultural ties between Japanese enterprises and India's fastest-growing innovation ecosystem.",
+                          JP: "日本企業とインド急成長イノベーションエコシステムを結ぶ、強固なビジネス・技術・人材の連携基盤。",
+                        })}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Micro Trust Strip under photo */}
+                  <div className="mt-3 pt-3 border-t border-white/10 grid grid-cols-3 gap-2 text-center text-white">
+                    <div className="rounded-xl bg-white/[0.04] p-2 border border-white/5">
+                      <span className="block font-inter text-[9.5px] font-bold text-saffron uppercase tracking-wider">
+                        {tx({ EN: "Turnkey", JP: "即日稼働" })}
+                      </span>
+                      <span className="block font-inter text-[11.5px] font-semibold text-white mt-0.5">
+                        Cyber Gateway
+                      </span>
+                    </div>
+                    <div className="rounded-xl bg-white/[0.04] p-2 border border-white/5">
+                      <span className="block font-inter text-[9.5px] font-bold text-saffron uppercase tracking-wider">
+                        {tx({ EN: "Advisory", JP: "支援体制" })}
+                      </span>
+                      <span className="block font-inter text-[11.5px] font-semibold text-white mt-0.5">
+                        Japan Desk
+                      </span>
+                    </div>
+                    <div className="rounded-xl bg-white/[0.04] p-2 border border-white/5">
+                      <span className="block font-inter text-[9.5px] font-bold text-saffron uppercase tracking-wider">
+                        {tx({ EN: "Network", JP: "提携基盤" })}
+                      </span>
+                      <span className="block font-inter text-[11.5px] font-semibold text-crimson-light mt-0.5">
+                        T-Hub & State Gov
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+
+            {/* Right: 4 Strategic Value Pillars */}
+            <div className="lg:col-span-7 space-y-3 sm:space-y-3.5">
+              {BILATERAL_SYNERGIES.map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <Reveal key={idx} delay={idx * 70}>
+                    <div className="luxury-glass-card group rounded-2xl border border-white/15 bg-white/[0.03] p-4 sm:p-5 transition-all duration-300 hover:bg-white/[0.07] hover:border-white/30 hover:-translate-y-0.5 shadow-lg">
+                      <div className="flex items-start gap-4">
+                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-crimson/30 to-crimson-deep/40 text-saffron border border-crimson/40 mt-0.5 group-hover:scale-105 transition-transform">
+                          <Icon className="h-5 w-5" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2">
+                            <span className="inline-block rounded-full bg-saffron/15 border border-saffron/25 px-2 py-0.5 font-inter text-[9.5px] font-bold uppercase tracking-wider text-saffron">
+                              {tx(item.badge)}
+                            </span>
+                          </div>
+                          <h4 className="mt-1.5 font-serif-jp text-[15.5px] sm:text-[17px] font-bold text-white group-hover:text-saffron transition-colors leading-snug">
+                            {tx(item.title)}
+                          </h4>
+                          <p className="mt-1.5 font-inter text-[12.5px] sm:text-[13px] leading-relaxed text-mist/90">
+                            {tx(item.desc)}
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </Reveal>
+                );
+              })}
+            </div>
           </div>
         </div>
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          Section 4 — Mission & Vision — 2 side-by-side cards
+          Section 3 — Mission & Vision — 2 side-by-side cards
          ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad relative overflow-hidden bg-navy">
+      <section className="section-pad relative overflow-hidden bg-ivory-warm border-t border-slate-200/70">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
               <Eyebrow>{tx({ EN: "Mission & Vision", JP: "ミッション＆ビジョン" })}</Eyebrow>
               <h2
                 className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
+                style={{ fontSize: "clamp(1.625rem,3vw,2.25rem)" }}
               >
                 {tx({ EN: "What We Exist To Do", JP: "私たちの存在意義" })}
               </h2>
               <p
                 className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
+                style={{ fontSize: "clamp(0.9rem,1.3vw,1.05rem)" }}
               >
                 {tx({
                   EN: "Two statements — one for what we do today, one for what we are building toward.",
@@ -477,23 +389,22 @@ export default function AboutPage() {
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {/* Mission — crimson accent */}
             <Reveal delay={100}>
-              <article className="lift-card relative h-full overflow-hidden rounded-lg border border-crimson/15 bg-pearl p-8 shadow-card">
-                <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-crimson to-crimson-deep" />
-                <div className="flex items-center gap-3">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-md bg-crimson/10 text-crimson">
-                    <Target className="h-6 w-6" strokeWidth={1.5} />
-                  </span>
-                  <h3 className="font-serif-jp text-xl font-bold text-ink">
+              <article className="luxury-light-card card-sheen relative h-full overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-8 sm:p-9 shadow-xl hover:shadow-2xl transition-all duration-300">
+                <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-crimson to-crimson-deep" />
+                <div className="flex items-center gap-4">
+                  <div className="icon-pod h-13 w-13 shrink-0">
+                    <Target className="h-6 w-6" strokeWidth={1.75} />
+                  </div>
+                  <h3 className="font-serif-jp text-2xl font-bold text-ink">
                     {tx(MISSION.title)}
                   </h3>
                 </div>
-                <p className="mt-5 font-inter text-[15px] leading-relaxed text-slate">
+                <p className="mt-5 font-inter text-[15px] leading-relaxed text-slate-600">
                   {tx(MISSION.body)}
                 </p>
-                <div className="mt-6 flex items-center gap-2 border-t border-crimson/10 pt-5">
+                <div className="mt-6 flex items-center gap-2 border-t border-slate-100 pt-5">
                   <span
-                    className="font-inter text-[11px] font-semibold uppercase text-crimson"
-                    style={{ letterSpacing: "0.15em" }}
+                    className="inline-block rounded-full bg-crimson/10 border border-crimson/25 px-3.5 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-crimson"
                   >
                     {tx(MISSION.tag)}
                   </span>
@@ -503,23 +414,22 @@ export default function AboutPage() {
 
             {/* Vision — saffron accent */}
             <Reveal delay={200}>
-              <article className="lift-card relative h-full overflow-hidden rounded-lg border border-saffron/20 bg-pearl p-8 shadow-card">
-                <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-saffron to-[#c9881a]" />
-                <div className="flex items-center gap-3">
-                  <span className="flex h-12 w-12 items-center justify-center rounded-md bg-saffron/15 text-saffron">
-                    <Eye className="h-6 w-6" strokeWidth={1.5} />
-                  </span>
-                  <h3 className="font-serif-jp text-xl font-bold text-ink">
+              <article className="luxury-light-card card-sheen relative h-full overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-8 sm:p-9 shadow-xl hover:shadow-2xl transition-all duration-300">
+                <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-saffron to-[#c9881a]" />
+                <div className="flex items-center gap-4">
+                  <div className="icon-pod h-13 w-13 shrink-0 !bg-saffron/15 !border-saffron/30 !text-saffron-dark">
+                    <Eye className="h-6 w-6" strokeWidth={1.75} />
+                  </div>
+                  <h3 className="font-serif-jp text-2xl font-bold text-ink">
                     {tx(VISION.title)}
                   </h3>
                 </div>
-                <p className="mt-5 font-inter text-[15px] leading-relaxed text-slate">
+                <p className="mt-5 font-inter text-[15px] leading-relaxed text-slate-600">
                   {tx(VISION.body)}
                 </p>
-                <div className="mt-6 flex items-center gap-2 border-t border-saffron/15 pt-5">
+                <div className="mt-6 flex items-center gap-2 border-t border-slate-100 pt-5">
                   <span
-                    className="font-inter text-[11px] font-semibold uppercase text-saffron"
-                    style={{ letterSpacing: "0.15em" }}
+                    className="inline-block rounded-full bg-saffron/15 border border-saffron/30 px-3.5 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-saffron-dark"
                   >
                     {tx(VISION.tag)}
                   </span>
@@ -530,110 +440,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ════════════════════════════════════════════════════════════
-          Section 5 — Core Values — 4-card grid
-         ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad bg-ivory">
-        <div className="container-jg">
-          <Reveal>
-            <div className="mx-auto max-w-3xl text-center">
-              <Eyebrow>{tx({ EN: "Core Values", JP: "コアバリュー" })}</Eyebrow>
-              <h2
-                className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
-              >
-                {tx({ EN: "The Principles Behind Every Placement", JP: "すべての紹介の背景にある原則" })}
-              </h2>
-              <p
-                className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
-              >
-                {tx({
-                  EN: "Four principles guide every partnership, every consultation, every collaboration — without exception.",
-                  JP: "四つの原則が例外なく、すべての採用、研修、パートナーシップを導きます。",
-                })}
-              </p>
-            </div>
-          </Reveal>
-
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {VALUES.map((v, i) => (
-              <Reveal key={i} delay={i * 100}>
-                <article className="lift-card group relative h-full overflow-hidden rounded-lg border border-crimson/8 bg-pearl p-7 shadow-card">
-                  <span
-                    className={`absolute inset-y-0 left-0 w-1 ${
-                      i % 2 === 0
-                        ? "bg-gradient-to-b from-crimson to-crimson-deep"
-                        : "bg-gradient-to-b from-saffron to-[#c9881a]"
-                    }`}
-                  />
-                  <div
-                    className={`flex h-14 w-14 items-center justify-center rounded-lg bg-gradient-to-br ${
-                      i % 2 === 0 ? "from-crimson/10 to-saffron/5" : "from-saffron/10 to-crimson/5"
-                    } text-crimson transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-3`}
-                  >
-                    <v.icon className="h-7 w-7" strokeWidth={1.5} />
-                  </div>
-                  <h3 className="mt-5 font-serif-jp text-lg font-bold text-ink">
-                    {tx(v.title)}
-                  </h3>
-                  <p className="mt-2.5 font-inter text-[13px] leading-relaxed text-slate">
-                    {tx(v.desc)}
-                  </p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════════════
-          Closing CTA
-         ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad relative overflow-hidden bg-navy">
-        <div className="container-jg">
-          <Reveal>
-            <div className="mx-auto max-w-2xl text-center">
-              <span className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-crimson/10 text-crimson">
-                <Sparkles className="h-6 w-6" strokeWidth={1.5} />
-              </span>
-              <h2
-                className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
-                style={{ fontSize: "clamp(1.25rem,2.2vw,1.5rem)" }}
-              >
-                {tx({
-                  EN: "See How the Bridge Translates Into Outcomes",
-                  JP: "架け橋がどう成果に変換されるかを見る",
-                })}
-              </h2>
-              <p
-                className="mx-auto mt-3 font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
-              >
-                {tx({
-                  EN: "Our values are visible in every differentiator, every service, and every placement we deliver.",
-                  JP: "私たちの価値観は、すべての差別化要素、サービス、そして紹介に現れています。",
-                })}
-              </p>
-              <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                <Link
-                  href="/why-jgate"
-                  className="btn-shine flex items-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-7 py-3.5 font-inter text-[14px] font-semibold text-white shadow-[0_0_20px_rgba(188,26,44,0.35)] transition-all hover:-translate-y-0.5"
-                >
-                  {tx({ EN: "Why J-Gate", JP: "J-Gateの強み" })}
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
-                <Link
-                  href="/services"
-                  className="rounded-md border border-crimson/30 px-7 py-3.5 font-inter text-[14px] font-semibold text-crimson transition-all hover:-translate-y-0.5 hover:bg-crimson/5"
-                >
-                  {tx({ EN: "Explore Services", JP: "サービスを見る" })}
-                </Link>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
     </>
   );
 }

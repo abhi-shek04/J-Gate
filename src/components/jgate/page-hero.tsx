@@ -42,13 +42,13 @@ export function PageHero({
           </span>
           <h1
             className="mx-auto mt-6 font-serif-jp font-bold leading-[1.1] text-white"
-            style={{ fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)" }}
+            style={{ fontSize: "clamp(1.875rem,4vw,3rem)" }}
           >
             {titleNode}
           </h1>
           <p
             className="mx-auto mt-5 max-w-2xl font-inter font-light leading-relaxed text-mist"
-            style={{ fontSize: "clamp(0.875rem,1.4vw,1rem)" }}
+            style={{ fontSize: "clamp(0.9rem,1.3vw,1.05rem)" }}
           >
             {t(subtitleKey)}
           </p>

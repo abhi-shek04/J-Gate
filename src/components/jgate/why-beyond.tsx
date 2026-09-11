@@ -20,8 +20,8 @@ const FEATURES = [
   },
   {
     icon: "🏛",
-    title: "JETRO Coordination Support",
-    desc: "Our strategic alignment with JETRO — Japan's official trade promotion body — gives members government-backed support, diplomatic introductions, and resources otherwise available only through formal channels.",
+    title: "Government & Innovation Interface",
+    desc: "Our strategic alignment with the Telangana State Government IT promotion cell and T-Hub gives members institutional backing, policy support, and high-level enterprise introductions.",
   },
   {
     icon: "🎌",

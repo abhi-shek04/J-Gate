@@ -18,7 +18,7 @@ const FOUNDERS = [
       "Mr. Daisuke Tanji is the architect of J-Gate and the driving force behind Indobox India Private Limited — a business consultancy and market entry firm dedicated specifically to the India-Japan business corridor.",
       "Having arrived in India in August 2013, Mr. Tanji has spent over a decade immersed in the Indian business environment while maintaining his deep roots in Japanese corporate culture, language, and values. This rare dual perspective forms the foundation of everything J-Gate represents.",
       "A connector by nature and a strategist by discipline, Mr. Tanji identified a critical gap in the India-Japan business ecosystem: Japanese companies wanting to enter India lacked not just infrastructure, but a culturally intelligent partner who understood their working style, their risk tolerance, and their timeline. J-Gate is his answer to that gap.",
-      "His inauguration of J-Gate on June 22, 2026 — attended by JETRO's Senior Director, two former heads of T-Hub, and 50+ business leaders — represents the culmination of years of relationship-building, market research, and institutional trust-building across both nations.",
+      "His inauguration of J-Gate on June 22, 2026 — attended by former leadership of T-Hub, university heads, and 50+ bilateral business leaders — represents the culmination of years of relationship-building, market research, and institutional trust-building across both nations.",
     ],
     span: "lg:col-span-3",
   },

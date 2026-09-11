@@ -36,11 +36,22 @@ model BrochureLead {
   fullName     String
   organization String
   email        String
-  phone        String
+  phone        String?  @default("")
   questions    String?
-  consent      Boolean  @default(false)
+  consent      Boolean  @default(true)
   authMethod   String   @default("manual") // "google" | "manual"
   sourceIp     String?
-  brochureDownloaded Boolean @default(false)
+  brochureDownloaded Boolean @default(true)
   createdAt    DateTime @default(now())
+}
+
+model ContactInquiry {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  subject   String?
+  message   String
+  lang      String   @default("JP")
+  sourceIp  String?
+  createdAt DateTime @default(now())
 }

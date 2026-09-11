@@ -13,7 +13,7 @@ const DIFFERENTIATORS = [
   {
     icon: Network,
     title: "A Network You Cannot Build Alone",
-    copy: "From JETRO to T-Hub, from Woxsen University to Genesys Info X — your membership connects you instantly to an ecosystem that would take years to build independently.",
+    copy: "From T-Hub to IIT Hyderabad, from Woxsen University to Genesys Info X — your membership connects you instantly to an ecosystem that would take years to build independently.",
     accent: "text-saffron",
   },
   {
@@ -28,7 +28,7 @@ export function Difference() {
   return (
     <section id="difference" className="section-pad bg-ivory">
       <div className="container-jg">
-        <Reveal align="center">
+        <Reveal>
           <div className="mx-auto max-w-3xl text-center">
             <Eyebrow>The J-Gate Difference</Eyebrow>
             <h2

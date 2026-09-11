@@ -21,14 +21,23 @@ type Dictionary = Record<string, { EN: string; JP: string }>;
 export const translations: Dictionary = {
   // Nav
   "nav.home": { EN: "Home", JP: "ホーム" },
-  "nav.about": { EN: "About", JP: "私たちについて" },
-  "nav.why": { EN: "Why J-Gate", JP: "J-Gateの強み" },
+  "nav.about": { EN: "About", JP: "概要" },
+  "nav.why": { EN: "Why J-Gate", JP: "特長" },
   "nav.services": { EN: "Services", JP: "サービス" },
   "nav.team": { EN: "Team", JP: "チーム" },
-  "nav.pricing": { EN: "Pricing", JP: "料金プラン" },
-  "nav.blogs": { EN: "Blogs & Culture", JP: "ブログ&カルチャー" },
-  "nav.contact": { EN: "Contact", JP: "お問い合わせ" },
-  "nav.brochure": { EN: "Download Brochure", JP: "パンフレットダウンロード" },
+  "nav.pricing": { EN: "Pricing", JP: "料金" },
+  "nav.faq": { EN: "FAQ", JP: "FAQ" },
+  "nav.blogs": { EN: "Office", JP: "オフィス" },
+  "nav.contact": { EN: "Contact", JP: "お問合せ" },
+  "nav.brochure": { EN: "Brochure", JP: "資料請求" },
+
+  // FAQ Page
+  "faq.eyebrow": { EN: "Knowledge Base & FAQs", JP: "ナレッジベース・よくある質問" },
+  "faq.title": { EN: "Frequently Asked Questions", JP: "よくあるご質問" },
+  "faq.subtitle": {
+    EN: "Clear, authoritative answers regarding workspace options, resident Japan Desk operations, Indian incorporation, talent acquisition, and bilateral growth.",
+    JP: "オフィス施設、常駐ジャパンデスク、現地法人設立、IT人材採用、日印ビジネス連携に関するよくあるご質問と回答を掲載しています。",
+  },
 
   // Hero — REAL PDF content (Slide 1: Cover Page)
   "hero.eyebrow": { EN: "Japan × India Talent & Business Bridge", JP: "日本×インド 人材・ビジネスの架け橋" },
@@ -51,12 +60,9 @@ export const translations: Dictionary = {
   "hero.operator": { EN: "Operated by Indobox India Pvt. Ltd.", JP: "Indobox India Pvt. Ltd. が運営" },
 
   // Home page sections
-  "home.stats.eyebrow": { EN: "J-Gate in Numbers", JP: "J-Gateの数字" },
-  "home.stats.title": { EN: "A Track Record Built on Trust", JP: "信頼で築いた実績" },
-  "home.stats.subtitle": { EN: "Real outcomes across the Japan-India bilateral corridor.", JP: "日印両国回廊における実際の成果。" },
-  "home.logos.eyebrow": { EN: "Trusted By", JP: "信頼のパートナー" },
-  "home.logos.title": { EN: "Enterprise & Ecosystem Partners", JP: "企業&エコシステムパートナー" },
-  "home.logos.subtitle": { EN: "Japanese enterprises we place talent into, and the ecosystem that powers the corridor.", JP: "人材を紹介する日本企業と、回廊を支えるエコシステム。" },
+  "home.logos.eyebrow": { EN: "Bilateral Ecosystem", JP: "提携エコシステム" },
+  "home.logos.title": { EN: "Our Innovation & Ecosystem Network", JP: "日印イノベーション＆提携エコシステム" },
+  "home.logos.subtitle": { EN: "Premier incubators, universities, and enterprise enablers accelerating bilateral growth across the Japan–India corridor.", JP: "アジア最大級のインキュベーション施設、トップ大学、先進テクノロジー企業が日印回廊における成長を力強く支援します。" },
   "home.overview.eyebrow": { EN: "Executive Overview", JP: "エグゼクティブ概要" },
   "home.overview.title": { EN: "Explore the J-Gate Ecosystem", JP: "J-Gateエコシステムを探る" },
   "home.overview.subtitle": { EN: "Each dimension of J-Gate is a dedicated experience. Dive deeper into what matters to you.", JP: "J-Gateの各側面は専用の体験です。あなたにとって重要なものを深く掘り下げてください。" },

@@ -3,8 +3,6 @@
 import { PageHero } from "@/components/jgate/page-hero";
 import { ComparisonTable } from "@/components/jgate/comparison-table";
 import { PillarsDetail } from "@/components/jgate/pillars-detail";
-import { TestimonialsSection } from "@/components/jgate/testimonials-section";
-import { WhyCTA } from "@/components/jgate/why-cta";
 import { useI18n } from "@/lib/i18n";
 
 export default function WhyJGatePage() {
@@ -18,8 +16,6 @@ export default function WhyJGatePage() {
       />
       <ComparisonTable />
       <PillarsDetail />
-      <TestimonialsSection />
-      <WhyCTA />
     </>
   );
 }

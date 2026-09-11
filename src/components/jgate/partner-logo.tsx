@@ -9,16 +9,18 @@ import { cn } from "@/lib/utils";
    ============================================================ */
 
 const LOGO_MAP: Record<string, { src: string; type: "image" | "text" }> = {
-  "JETRO": { src: "/logos/jetro.jpg", type: "image" },
-  "T-Hub": { src: "/logos/thub.jpg", type: "image" },
-  "Woxsen University": { src: "/logos/woxsen.jpg", type: "image" },
+  // Ecosystem Partners (Innovation hubs, academia, platforms)
+  "T-Hub": { src: "/logos/thub.png", type: "image" },
+  "Woxsen University": { src: "/logos/woxsen.png", type: "image" },
   "Genesys Info X": { src: "/logos/genesys-info-x.png", type: "image" },
-  "DMI": { src: "/logos/dmi.jpg", type: "image" },
-  "Indobox India": { src: "/logos/indobox.jpg", type: "image" },
-  // Small/local companies — styled text tiles
-  "MXC": { src: "", type: "text" },
-  "Kodryx AI": { src: "", type: "text" },
-  "Hyderabad Anime Club": { src: "", type: "text" },
+  // Ecosystem Partners (client brochure)
+  "MXC": { src: "/logos/mxc.png", type: "image" },
+  "Kodryx AI": { src: "/logos/kodryx.png", type: "image" },
+  "Hyderabad Anime Club": { src: "/logos/hyderabad-anime-club.png", type: "image" },
+  "Daakia": { src: "/logos/daakia.png", type: "image" },
+  "Fingerprint Films": { src: "/logos/fingerprint-films.png", type: "image" },
+  "YANC": { src: "/logos/yanc.png", type: "image" },
+  "Data Intelligence": { src: "/logos/data-intelligence.png", type: "image" },
 };
 
 export function PartnerLogo({

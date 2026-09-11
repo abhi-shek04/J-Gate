@@ -71,7 +71,7 @@ const PLANS: Plan[] = [
       { text: "1hr/month strategic business consultation", included: true },
       { text: "All community events + bilateral networking dinners", included: true },
       { text: "Japan-India business culture workshops", included: true },
-      { text: "JETRO coordination support", included: true },
+      { text: "T-Hub co-innovation coordination", included: true },
       { text: "Member directory listing", included: true },
       { text: "Private cabin", included: false },
     ],
@@ -101,7 +101,7 @@ const PLANS: Plan[] = [
       { text: "Priority event hosting rights", included: true },
       { text: "Custom branding inside J-Gate premises", included: true },
       { text: "Complete Indobox talent sourcing access", included: true },
-      { text: "JETRO & government liaison", included: true },
+      { text: "Telangana State government liaison", included: true },
     ],
   },
 ];

@@ -6,15 +6,6 @@ import { PartnerLogo } from "./partner-logo";
 
 const STRATEGIC = [
   {
-    id: "photo-partner-jetro",
-    name: "JETRO",
-    fullName: "Japan External Trade Organization",
-    badge: "Keynote Partner · Inauguration",
-    fallback: "grad-partner",
-    initials: "JE",
-    desc: "Japan's official government trade promotion body. JETRO's Senior Director, Mr. Naoto Nakadate, personally delivered the keynote at J-Gate's inauguration — the clearest possible signal of J-Gate's institutional significance to Japan's international business agenda. Members receive access to JETRO's complete trade support resources.",
-  },
-  {
     id: "photo-partner-genesys",
     name: "Genesys Info X",
     fullName: "MoU Partner · Co-Founding Institution",
@@ -45,19 +36,25 @@ const STRATEGIC = [
 
 const COMMUNITY = [
   "MXC",
-  "DMI",
   "Kodryx AI",
   "Hyderabad Anime Club",
+  "Daakia",
+  "Fingerprint Films",
+  "YANC",
+  "Data Intelligence",
 ];
 
 const COMMUNITY_DESCS: Record<string, string> = {
   "MXC": "Technology & Innovation Community",
-  "DMI": "Digital Media Industry Partner",
   "Kodryx AI": "AI & Deep-Tech Ecosystem",
   "Hyderabad Anime Club": "Japan-India Cultural Bridge",
+  "Daakia": "Bridging Distance with AI",
+  "Fingerprint Films": "Creative Studio & Brand Media",
+  "YANC": "Young Minds Networking & Life Skills",
+  "Data Intelligence": "Market & Talent Analytics",
 };
 
-const MARQUEE = ["JETRO", "T-Hub", "Woxsen University", "Genesys Info X", "DMI", "MXC", "Kodryx AI", "Hyderabad Anime Club"];
+const MARQUEE = ["T-Hub", "Woxsen University", "Genesys Info X", "MXC", "Kodryx AI", "Hyderabad Anime Club", "Daakia", "Fingerprint Films", "YANC", "Data Intelligence"];
 
 export function Partners() {
   const marquee = [...MARQUEE, ...MARQUEE];
@@ -83,16 +80,16 @@ export function Partners() {
           </div>
         </Reveal>
 
-        {/* 2×2 strategic partner cards with real logos */}
-        <div className="mt-14 grid gap-6 md:grid-cols-2">
+        {/* Strategic partner cards with real logos */}
+        <div className="mt-14 grid gap-6 md:grid-cols-3">
           {STRATEGIC.map((p, i) => (
-            <Reveal key={p.id} delay={(i % 2) * 120}>
+            <Reveal key={p.id} delay={(i % 3) * 120}>
               <article className="glass-dark lift-card flex h-full overflow-hidden rounded-lg">
                 {/* Real logo card */}
                 <div className="w-32 shrink-0 bg-white sm:w-40">
                   <div className="flex h-full min-h-[140px] items-center justify-center p-5">
                     <img
-                      src={p.name === "JETRO" ? "/logos/jetro.jpg" : p.name === "T-Hub" ? "/logos/thub.jpg" : p.name === "Woxsen University" ? "/logos/woxsen.jpg" : "/logos/genesys-info-x.png"}
+                      src={p.name === "T-Hub" ? "/logos/thub.png" : p.name === "Woxsen University" ? "/logos/woxsen.png" : "/logos/genesys-info-x.png"}
                       alt={`${p.name} official logo`}
                       className="max-h-20 w-full max-w-[120px] object-contain"
                       loading="lazy"

@@ -3,12 +3,7 @@
 import { Reveal, Eyebrow } from "./shared";
 import { StarIcon, QuoteMark } from "./icons";
 import { useI18n } from "@/lib/i18n";
-
-/* ============================================================
-   TestimonialsSection — Full-width editorial testimonial cards
-   Navy bg + asanoha-navy pattern. 3 cards stacked vertically,
-   each split into quote side (65%) + author side (340px).
-   ============================================================ */
+import { MessageSquareQuote, CheckCircle2 } from "lucide-react";
 
 type Testimonial = {
   quote: { EN: string; JP: string };
@@ -50,14 +45,14 @@ const TESTIMONIALS: Testimonial[] = [
     initials: "KW",
     name: "K. Watanabe",
     role: { EN: "Branch Director", JP: "支店長" },
-    company: { EN: "Regional Japanese Bank", JP: "地方銀" },
+    company: { EN: "Regional Japanese Bank", JP: "地方銀行" },
     gradient: "from-navy to-success",
   },
 ];
 
 function Stars() {
   return (
-    <div className="flex gap-0.5" aria-label="5 out of 5 stars">
+    <div className="flex gap-1" aria-label="5 out of 5 stars">
       {Array.from({ length: 5 }).map((_, i) => (
         <StarIcon key={i} className="h-4 w-4 text-saffron" />
       ))}
@@ -67,107 +62,88 @@ function Stars() {
 
 export function TestimonialsSection() {
   const { tx } = useI18n();
+
   return (
     <section
       id="why-testimonials"
-      className="section-pad relative overflow-hidden bg-navy"
+      className="section-pad relative overflow-hidden bg-navy text-white"
       aria-label="Corporate testimonials"
     >
       <div className="pattern-asanoha-navy absolute inset-0 opacity-60" />
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "radial-gradient(ellipse at 25% 20%, rgba(232,160,26,0.08), transparent 55%), radial-gradient(ellipse at 80% 80%, rgba(188,26,44,0.06), transparent 55%)",
+            "radial-gradient(ellipse at 25% 20%, rgba(232,160,26,0.12), transparent 55%), radial-gradient(ellipse at 80% 80%, rgba(188,26,44,0.10), transparent 55%)",
         }}
       />
-      <div className="container-jg relative">
+      <div className="container-jg relative z-10">
         {/* Header */}
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
-            <Eyebrow light>CORPORATE TESTIMONIALS</Eyebrow>
+            <span className="inline-flex items-center gap-2 rounded-full border border-saffron/30 bg-saffron/10 px-4 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-saffron">
+              <MessageSquareQuote className="h-3.5 w-3.5" />
+              {tx({ EN: "Corporate Testimonials", JP: "利用企業の声" })}
+            </span>
             <h2
-              className="mt-4 font-serif-jp font-bold leading-[1.18] text-white"
-              style={{ fontSize: "clamp(1.25rem, 2.2vw, 1.5rem)" }}
+              className="mt-3 font-serif-jp font-bold leading-[1.18] text-white"
+              style={{ fontSize: "clamp(1.875rem, 3.8vw, 2.75rem)" }}
             >
-              Heard from J-Gate Members
+              {tx({ EN: "Heard from J-Gate Members", JP: "入居企業からのメッセージ" })}
             </h2>
             <p
               className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-mist"
-              style={{ fontSize: "clamp(0.875rem, 1.4vw, 1rem)" }}
+              style={{ fontSize: "clamp(0.95rem, 1.4vw, 1.05rem)" }}
             >
-              Three corporate voices — manufacturing, software, and banking.
-              Each found something different at J-Gate, but all found the same
-              thing: an operational base that works.
+              {tx({
+                EN: "Three corporate voices — manufacturing, software, and banking. Each found something different at J-Gate, but all found the same thing: an operational base that works.",
+                JP: "製造業、ITソフトウェア、金融機関 — 多彩な業界のリーダー陣が、J-Gateを起点に確かなインド事業基盤を築いています。",
+              })}
             </p>
           </div>
         </Reveal>
 
-        {/* Glass container holding 3 stacked cards */}
-        <Reveal delay={100}>
-          <div className="glass-dark mt-12 rounded-2xl border border-white/10 p-5 sm:p-8">
-            <div className="space-y-6">
-              {TESTIMONIALS.map((t, i) => (
-                <article
-                  key={t.name}
-                  className={`relative overflow-hidden rounded-xl border border-white/8 bg-white/[0.03] p-6 sm:p-8 ${
-                    i > 0 ? "mt-6" : ""
-                  }`}
-                >
-                  <div className="flex flex-col gap-6 md:flex-row md:gap-10">
-                    {/* LEFT — quote side (65%) */}
-                    <div className="relative md:w-[65%]">
-                      <QuoteMark className="pointer-events-none absolute -top-2 -left-2 h-16 w-16 text-crimson/[0.12]" />
-                      <div className="relative">
-                        <Stars />
-                        <blockquote
-                          className="mt-4 font-serif-jp italic leading-relaxed text-white"
-                          style={{ fontSize: "clamp(1rem, 1.6vw, 1.125rem)" }}
-                        >
-                          “{tx(t.quote)}”
-                        </blockquote>
-                        <div className="mt-5 flex items-center gap-2">
-                          <span className="h-px w-6 bg-saffron/60" />
-                          <span
-                            className="font-inter text-[11px] font-semibold uppercase text-saffron"
-                            style={{ letterSpacing: "0.12em" }}
-                          >
-                            {tx(t.role)}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
+        {/* 3 Executive Testimonial Cards in Responsive Luxury Layout */}
+        <div className="mt-12 grid gap-6 md:grid-cols-3">
+          {TESTIMONIALS.map((t, i) => (
+            <Reveal key={t.name} delay={i * 100} variant="scale">
+              <article className="luxury-glass-card lift-card-dark group flex h-full flex-col justify-between rounded-2xl border border-white/12 p-7 shadow-2xl">
+                <div>
+                  <div className="flex items-center justify-between">
+                    <Stars />
+                    <QuoteMark className="h-8 w-8 text-saffron/30" />
+                  </div>
 
-                    {/* RIGHT — author side (340px) */}
-                    <div className="md:w-[340px] md:shrink-0">
-                      <div className="flex h-full flex-col items-start justify-center gap-3 border-t border-white/8 pt-5 md:border-l md:border-t-0 md:pl-8 md:pt-0">
-                        {/* Avatar */}
-                        <div
-                          className={`flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br ${t.gradient} font-serif-jp text-[18px] font-bold text-white shadow-card`}
-                          aria-hidden="true"
-                        >
-                          {t.initials}
-                        </div>
-                        <div>
-                          <div className="font-inter text-[15px] font-bold text-white">
-                            {t.name}
-                          </div>
-                          <div className="mt-0.5 font-inter text-[12px] text-mist">
-                            {tx(t.company)}
-                          </div>
-                        </div>
-                        <span className="inline-flex items-center gap-1.5 rounded-full border border-saffron/30 bg-saffron/10 px-2.5 py-0.5 font-inter text-[10px] font-semibold uppercase text-saffron-light">
-                          <span className="inline-block h-1.5 w-1.5 rounded-full bg-success" />
-                          {tx({ EN: "J-Gate Member", JP: "J-Gate会員" })}
-                        </span>
-                      </div>
+                  <blockquote
+                    className="mt-5 font-serif-jp italic leading-relaxed text-white/95 text-[15px] sm:text-[16px]"
+                  >
+                    “{tx(t.quote)}”
+                  </blockquote>
+                </div>
+
+                <div className="mt-8 border-t border-white/10 pt-5 flex items-center gap-3.5">
+                  {/* Monogram Avatar */}
+                  <div
+                    className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br ${t.gradient} font-serif-jp text-[15px] font-bold text-white shadow-md`}
+                  >
+                    {t.initials}
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <div className="font-inter text-[14px] font-bold text-white truncate">
+                      {t.name}
+                    </div>
+                    <div className="font-inter text-[11.5px] text-saffron truncate">
+                      {tx(t.role)}
+                    </div>
+                    <div className="font-inter text-[11px] text-mist truncate mt-0.5">
+                      {tx(t.company)}
                     </div>
                   </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </Reveal>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );

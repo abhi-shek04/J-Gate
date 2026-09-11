@@ -1,53 +1,36 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { X, CheckCircle2, Download, Shield, AlertCircle, Loader2 } from "lucide-react";
+import { X, CheckCircle2, Download, AlertCircle, Loader2 } from "lucide-react";
 import { useBrochure } from "@/lib/brochure-context";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
 /* ============================================================
-   BrochureModal — Gated brochure download flow
-   1. Continue with Google (OAuth UI — populates form)
-   2. Manual lead capture form with validation
-   3. On submit → /api/brochure/submit → DB + admin email
-   4. Success screen with PDF download
+   BrochureModal — Streamlined Lead Capture
+   Fields: Name, Organization, E-Mail, Questions
+   - On submit → /api/brochure/submit → DB + admin email
+   - Auto-triggers brochure download
    ============================================================ */
 
 type FormState = {
   fullName: string;
   organization: string;
   email: string;
-  phone: string;
   questions: string;
-  consent: boolean;
 };
 
 type Errors = Partial<Record<keyof FormState | "form", string>>;
 
-const COUNTRY_CODES = [
-  { code: "+81", label: "🇯🇵 JP +81" },
-  { code: "+91", label: "🇮🇳 IN +91" },
-  { code: "+1", label: "🇺🇸 US +1" },
-  { code: "+44", label: "🇬🇧 UK +44" },
-  { code: "+65", label: "🇸🇬 SG +65" },
-  { code: "+61", label: "🇦🇺 AU +61" },
-  { code: "+49", label: "🇩🇪 DE +49" },
-  { code: "+33", label: "🇫🇷 FR +33" },
-];
-
 export function BrochureModal() {
   const { isOpen, close } = useBrochure();
-  const { t } = useI18n();
+  const { tx } = useI18n();
   const [form, setForm] = useState<FormState>({
     fullName: "",
     organization: "",
     email: "",
-    phone: "",
     questions: "",
-    consent: false,
   });
-  const [countryCode, setCountryCode] = useState("+81");
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [downloadUrl, setDownloadUrl] = useState("");
@@ -76,30 +59,17 @@ export function BrochureModal() {
 
   const validate = (): boolean => {
     const e: Errors = {};
-    if (!form.fullName.trim()) e.fullName = t("brochure.errName");
-    if (!form.organization.trim()) e.organization = t("brochure.errOrg");
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) e.email = t("brochure.errEmail");
-    if (!form.phone.trim()) e.phone = t("brochure.errPhone");
-    if (!form.consent) e.consent = t("brochure.errConsent");
+    if (!form.fullName.trim()) {
+      e.fullName = tx({ EN: "Name is required", JP: "氏名を入力してください" });
+    }
+    if (!form.organization.trim()) {
+      e.organization = tx({ EN: "Organization is required", JP: "会社名・組織名を入力してください" });
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.trim())) {
+      e.email = tx({ EN: "Valid business email is required", JP: "有効なメールアドレスを入力してください" });
+    }
     setErrors(e);
     return Object.keys(e).length === 0;
-  };
-
-  const handleGoogle = () => {
-    // Google OAuth UI — in production this triggers real OAuth flow.
-    // Here we prefill the form with mock Google profile data so the
-    // user can complete registration. Real OAuth requires GOOGLE_CLIENT_ID.
-    setStatus("submitting");
-    setTimeout(() => {
-      setForm((f) => ({
-        ...f,
-        fullName: f.fullName || "Google User",
-        email: f.email || "user@gmail.com",
-        consent: true,
-      }));
-      setStatus("idle");
-      setErrors({});
-    }, 900);
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -112,8 +82,10 @@ export function BrochureModal() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          ...form,
-          phone: `${countryCode} ${form.phone}`,
+          fullName: form.fullName.trim(),
+          organization: form.organization.trim(),
+          email: form.email.trim(),
+          questions: form.questions.trim(),
           authMethod: "manual",
         }),
       });
@@ -122,37 +94,39 @@ export function BrochureModal() {
         if (data.errors) {
           setErrors(data.errors);
         } else {
-          setErrors({ form: t("brochure.error") });
+          setErrors({ form: tx({ EN: "Submission failed. Please try again.", JP: "送信に失敗しました。もう一度お試しください。" }) });
         }
         setStatus("error");
         return;
       }
-      setDownloadUrl(data.downloadUrl || "/J-Gate-Brochure.pdf");
+      const url = data.downloadUrl || "/J-Gate-Brochure.pdf";
+      setDownloadUrl(url);
       setStatus("success");
-      // Trigger download
+
+      // Auto-trigger download
       setTimeout(() => {
         const a = document.createElement("a");
-        a.href = data.downloadUrl || "/J-Gate-Brochure.pdf";
+        a.href = url;
         a.download = "J-Gate-Brochure.pdf";
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
       }, 400);
     } catch {
-      setErrors({ form: t("brochure.error") });
+      setErrors({ form: tx({ EN: "Network error. Please try again.", JP: "通信エラーが発生しました。もう一度お試しください。" }) });
       setStatus("error");
     }
   };
 
   const reset = () => {
-    setForm({ fullName: "", organization: "", email: "", phone: "", questions: "", consent: false });
+    setForm({ fullName: "", organization: "", email: "", questions: "" });
     setErrors({});
     setStatus("idle");
   };
 
   const inputClass =
-    "w-full rounded-md border bg-white/[0.05] px-4 py-3 font-inter text-sm text-white placeholder-white/35 outline-none transition-colors focus:border-saffron";
-  const labelClass = "mb-1.5 block font-inter text-[11px] font-semibold uppercase text-mist";
+    "w-full rounded-md border bg-white/[0.05] px-4 py-3 font-inter text-base sm:text-sm text-white placeholder-white/35 outline-none transition-colors focus:border-crimson";
+  const labelClass = "mb-1.5 block font-inter text-[11.5px] font-semibold uppercase tracking-wider text-mist";
 
   return (
     <div
@@ -180,40 +154,48 @@ export function BrochureModal() {
           <X className="h-5 w-5" />
         </button>
 
-        {/* Header */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-crimson/20 via-navy to-navy p-7">
-          <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-saffron/10 blur-2xl" />
-          <div className="relative">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-saffron/15 px-3 py-1 font-inter text-[11px] font-bold uppercase text-saffron" style={{ letterSpacing: "0.08em" }}>
-              <Download className="h-3 w-3" /> Brochure
-            </span>
-            <h2 className="mt-3 font-serif-jp text-2xl font-bold text-white">
-              {status === "success" ? t("brochure.success.title") : t("brochure.title")}
-            </h2>
-            <p className="mt-1.5 font-inter text-[13px] leading-relaxed text-mist">
-              {status === "success" ? t("brochure.success.body") : t("brochure.subtitle")}
-            </p>
-          </div>
+        {/* Header (Clean, no yellow badge) */}
+        <div className="relative overflow-hidden bg-gradient-to-br from-crimson/20 via-navy to-navy p-7 pb-6">
+          <h2 className="font-serif-jp text-2xl font-bold text-white">
+            {status === "success"
+              ? tx({ EN: "Your Download Has Started", JP: "ダウンロードを開始しました" })
+              : tx({ EN: "Download Official Brochure", JP: "公式パンフレットのダウンロード" })}
+          </h2>
+          <p className="mt-1.5 font-inter text-[13px] leading-relaxed text-mist">
+            {status === "success"
+              ? tx({
+                  EN: "Thank you for your interest. If the download did not start automatically, please use the button below.",
+                  JP: "ご登録ありがとうございます。ダウンロードが自動的に始まらない場合は、下のボタンを押してください。",
+                })
+              : tx({
+                  EN: "Please provide your details below to download the comprehensive J-Gate India Expansion brochure.",
+                  JP: "下記の必要事項をご入力いただくと、J-Gateインド進出支援パンフレット（PDF）をダウンロードいただけます。",
+                })}
+          </p>
         </div>
 
         {/* Body */}
-        <div className="max-h-[60vh] overflow-y-auto p-7">
+        <div className="p-7 pt-4">
           {status === "success" ? (
             /* Success screen */
             <div className="flex flex-col items-center py-6 text-center">
-              <div className="flex h-20 w-20 items-center justify-center rounded-full bg-success/15 text-success">
+              <div className="flex h-20 w-20 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-400">
                 <CheckCircle2 className="h-12 w-12" strokeWidth={1.5} />
               </div>
               <p className="mt-5 max-w-xs font-inter text-[14px] leading-relaxed text-mist">
-                {t("brochure.success.body")}
+                {tx({
+                  EN: "Your download has started. Our bilingual directors are also available for private consultation.",
+                  JP: "資料のダウンロードを開始しました。ご不明点や現地進出のご相談はいつでもお気軽にお問い合わせください。",
+                })}
               </p>
               <div className="mt-6 flex w-full flex-col gap-2.5 sm:flex-row">
                 <a
-                  href={downloadUrl}
+                  href={downloadUrl || "/J-Gate-Brochure.pdf"}
                   download="J-Gate-Brochure.pdf"
                   className="btn-shine flex flex-1 items-center justify-center gap-2 rounded-md bg-crimson px-5 py-3 font-inter text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-crimson-deep"
                 >
-                  <Download className="h-4 w-4" /> {t("brochure.success.downloadAgain")}
+                  <Download className="h-4 w-4" />
+                  {tx({ EN: "Download Again", JP: "再ダウンロード" })}
                 </a>
                 <button
                   onClick={() => {
@@ -222,169 +204,106 @@ export function BrochureModal() {
                   }}
                   className="flex-1 rounded-md border border-white/20 px-5 py-3 font-inter text-sm font-semibold text-white transition-colors hover:bg-white/10"
                 >
-                  {t("brochure.success.close")}
+                  {tx({ EN: "Close", JP: "閉じる" })}
                 </button>
               </div>
             </div>
           ) : (
-            <>
-              {/* Google OAuth button */}
-              <button
-                onClick={handleGoogle}
-                disabled={status === "submitting"}
-                className="flex w-full items-center justify-center gap-3 rounded-md border border-white/15 bg-white px-5 py-3 font-inter text-sm font-semibold text-ink transition-all hover:-translate-y-0.5 hover:bg-pearl disabled:opacity-50"
-              >
-                {status === "submitting" ? (
-                  <Loader2 className="h-4 w-4 animate-spin" />
-                ) : (
-                  <GoogleIcon className="h-5 w-5" />
-                )}
-                {t("brochure.google")}
-              </button>
+            /* Streamlined 4-Field Form: Name, Organization, E-Mail, Questions */
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {errors.form && (
+                <div className="flex items-center gap-2 rounded-md border border-crimson/30 bg-crimson/10 px-3 py-2 font-inter text-[12px] text-crimson">
+                  <AlertCircle className="h-4 w-4 shrink-0" />
+                  {errors.form}
+                </div>
+              )}
 
-              {/* Divider */}
-              <div className="my-5 flex items-center gap-3">
-                <span className="h-px flex-1 bg-white/10" />
-                <span className="font-inter text-[11px] uppercase text-mist" style={{ letterSpacing: "0.1em" }}>
-                  {t("brochure.divider")}
-                </span>
-                <span className="h-px flex-1 bg-white/10" />
+              {/* 1. Name */}
+              <div>
+                <label htmlFor="br-name" className={labelClass}>
+                  {tx({ EN: "Name", JP: "氏名" })} <span className="text-crimson">*</span>
+                </label>
+                <input
+                  id="br-name"
+                  value={form.fullName}
+                  onChange={(e) => setForm({ ...form, fullName: e.target.value })}
+                  placeholder={tx({ EN: "Your full name", JP: "山田 太郎" })}
+                  className={cn(inputClass, errors.fullName ? "border-crimson" : "border-white/12")}
+                />
+                {errors.fullName && <p className="mt-1 font-inter text-[11px] text-crimson">{errors.fullName}</p>}
               </div>
 
-              {/* Manual form */}
-              <form onSubmit={handleSubmit} className="space-y-4">
-                {errors.form && (
-                  <div className="flex items-center gap-2 rounded-md border border-crimson/30 bg-crimson/10 px-3 py-2 font-inter text-[12px] text-crimson">
-                    <AlertCircle className="h-4 w-4 shrink-0" />
-                    {errors.form}
-                  </div>
-                )}
-
-                <div>
-                  <label htmlFor="br-name" className={labelClass}>{t("brochure.name")} *</label>
-                  <input
-                    id="br-name"
-                    value={form.fullName}
-                    onChange={(e) => setForm({ ...form, fullName: e.target.value })}
-                    placeholder={t("brochure.namePh")}
-                    className={cn(inputClass, errors.fullName ? "border-crimson" : "border-white/12")}
-                  />
-                  {errors.fullName && <p className="mt-1 font-inter text-[11px] text-crimson">{errors.fullName}</p>}
-                </div>
-
-                <div>
-                  <label htmlFor="br-org" className={labelClass}>{t("brochure.org")} *</label>
-                  <input
-                    id="br-org"
-                    value={form.organization}
-                    onChange={(e) => setForm({ ...form, organization: e.target.value })}
-                    placeholder={t("brochure.orgPh")}
-                    className={cn(inputClass, errors.organization ? "border-crimson" : "border-white/12")}
-                  />
-                  {errors.organization && <p className="mt-1 font-inter text-[11px] text-crimson">{errors.organization}</p>}
-                </div>
-
-                <div>
-                  <label htmlFor="br-email" className={labelClass}>{t("brochure.email")} *</label>
-                  <input
-                    id="br-email"
-                    type="email"
-                    value={form.email}
-                    onChange={(e) => setForm({ ...form, email: e.target.value })}
-                    placeholder={t("brochure.emailPh")}
-                    className={cn(inputClass, errors.email ? "border-crimson" : "border-white/12")}
-                  />
-                  {errors.email && <p className="mt-1 font-inter text-[11px] text-crimson">{errors.email}</p>}
-                </div>
-
-                <div>
-                  <label htmlFor="br-phone" className={labelClass}>{t("brochure.phone")} *</label>
-                  <div className="flex gap-2">
-                    <select
-                      value={countryCode}
-                      onChange={(e) => setCountryCode(e.target.value)}
-                      className={cn(inputClass, "w-36 shrink-0 appearance-none")}
-                    >
-                      {COUNTRY_CODES.map((c) => (
-                        <option key={c.code} value={c.code} className="bg-navy">
-                          {c.label}
-                        </option>
-                      ))}
-                    </select>
-                    <input
-                      id="br-phone"
-                      value={form.phone}
-                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                      placeholder={t("brochure.phonePh")}
-                      className={cn(inputClass, "flex-1", errors.phone ? "border-crimson" : "border-white/12")}
-                    />
-                  </div>
-                  {errors.phone && <p className="mt-1 font-inter text-[11px] text-crimson">{errors.phone}</p>}
-                </div>
-
-                <div>
-                  <label htmlFor="br-questions" className={labelClass}>{t("brochure.questions")}</label>
-                  <textarea
-                    id="br-questions"
-                    rows={3}
-                    value={form.questions}
-                    onChange={(e) => setForm({ ...form, questions: e.target.value })}
-                    placeholder={t("brochure.questionsPh")}
-                    className={cn(inputClass, "resize-none")}
-                  />
-                </div>
-
-                {/* Consent */}
-                <label className="flex cursor-pointer items-start gap-2.5">
-                  <input
-                    type="checkbox"
-                    checked={form.consent}
-                    onChange={(e) => setForm({ ...form, consent: e.target.checked })}
-                    className="mt-0.5 h-4 w-4 shrink-0 cursor-pointer accent-crimson"
-                  />
-                  <span className="font-inter text-[12px] leading-relaxed text-mist">
-                    {t("brochure.consent")}
-                  </span>
+              {/* 2. Organization */}
+              <div>
+                <label htmlFor="br-org" className={labelClass}>
+                  {tx({ EN: "Organization", JP: "会社名・組織名" })} <span className="text-crimson">*</span>
                 </label>
-                {errors.consent && <p className="font-inter text-[11px] text-crimson">{errors.consent}</p>}
+                <input
+                  id="br-org"
+                  value={form.organization}
+                  onChange={(e) => setForm({ ...form, organization: e.target.value })}
+                  placeholder={tx({ EN: "Company or organization name", JP: "株式会社インフォボックス" })}
+                  className={cn(inputClass, errors.organization ? "border-crimson" : "border-white/12")}
+                />
+                {errors.organization && <p className="mt-1 font-inter text-[11px] text-crimson">{errors.organization}</p>}
+              </div>
 
-                <button
-                  type="submit"
-                  disabled={status === "submitting"}
-                  className="btn-shine flex w-full items-center justify-center gap-2 rounded-md bg-crimson px-5 py-3.5 font-inter text-sm font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-crimson-deep disabled:opacity-60"
-                >
-                  {status === "submitting" ? (
-                    <>
-                      <Loader2 className="h-4 w-4 animate-spin" /> {t("brochure.submitting")}
-                    </>
-                  ) : (
-                    <>
-                      <Download className="h-4 w-4" /> {t("brochure.submit")}
-                    </>
-                  )}
-                </button>
+              {/* 3. E-Mail */}
+              <div>
+                <label htmlFor="br-email" className={labelClass}>
+                  {tx({ EN: "E-Mail", JP: "メールアドレス" })} <span className="text-crimson">*</span>
+                </label>
+                <input
+                  id="br-email"
+                  type="email"
+                  value={form.email}
+                  onChange={(e) => setForm({ ...form, email: e.target.value })}
+                  placeholder={tx({ EN: "name@company.com", JP: "yamada@company.co.jp" })}
+                  className={cn(inputClass, errors.email ? "border-crimson" : "border-white/12")}
+                />
+                {errors.email && <p className="mt-1 font-inter text-[11px] text-crimson">{errors.email}</p>}
+              </div>
 
-                <p className="flex items-center justify-center gap-1.5 pt-1 font-inter text-[11px] text-mist/60">
-                  <Shield className="h-3 w-3" />
-                  Your data is encrypted and never shared.
-                </p>
-              </form>
-            </>
+              {/* 4. Questions */}
+              <div>
+                <label htmlFor="br-questions" className={labelClass}>
+                  {tx({ EN: "Questions", JP: "ご質問・ご要望" })}
+                </label>
+                <textarea
+                  id="br-questions"
+                  rows={3}
+                  value={form.questions}
+                  onChange={(e) => setForm({ ...form, questions: e.target.value })}
+                  placeholder={tx({
+                    EN: "Any specific questions or inquiries (optional)...",
+                    JP: "進出時期、関心のある支援内容など（任意）...",
+                  })}
+                  className={cn(inputClass, "resize-none")}
+                />
+              </div>
+
+              {/* Submit CTA */}
+              <button
+                type="submit"
+                disabled={status === "submitting"}
+                className="btn-shine mt-2 flex w-full items-center justify-center gap-2 rounded-md bg-crimson hover:bg-crimson-deep px-5 py-3.5 font-inter text-sm font-semibold text-white shadow-md transition-all hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
+              >
+                {status === "submitting" ? (
+                  <>
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                    <span>{tx({ EN: "Submitting...", JP: "送信中..." })}</span>
+                  </>
+                ) : (
+                  <>
+                    <Download className="h-4 w-4" />
+                    <span>{tx({ EN: "Download Brochure", JP: "パンフレットをダウンロード" })}</span>
+                  </>
+                )}
+              </button>
+            </form>
           )}
         </div>
       </div>
     </div>
-  );
-}
-
-/* Google "G" logo SVG */
-function GoogleIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 48 48" className={className} aria-hidden>
-      <path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8c-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C12.955 4 4 12.955 4 24s8.955 20 20 20s20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z" />
-      <path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4C16.318 4 9.656 8.337 6.306 14.691z" />
-      <path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0 1 24 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z" />
-      <path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 0 1-4.087 5.571l.003-.002l6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z" />
-    </svg>
   );
 }

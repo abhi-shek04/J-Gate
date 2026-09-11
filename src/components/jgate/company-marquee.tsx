@@ -23,23 +23,26 @@ type CompanyName = {
   jp?: string;
 };
 
-const ENTERPRISE_NAMES: CompanyName[] = [
-  { text: "Toyota" },
-  { text: "Sony" },
-  { text: "Hitachi" },
-  { text: "NTT" },
-  { text: "Mitsubishi" },
-  { text: "Prodrone" },
-];
-
-const ECOSYSTEM_NAMES: CompanyName[] = [
-  { text: "JETRO" },
+// Row 1 — Ecosystem Partners (5 members)
+const ECOSYSTEM_ROW_1_NAMES: CompanyName[] = [
   { text: "T-Hub" },
   { text: "Woxsen" },
   { text: "Genesys Info X" },
-  { text: "DMI" },
-  { text: "Indobox India" },
+  { text: "Kodryx.ai" },
+  { text: "Daakia" },
 ];
+
+// Row 2 — Ecosystem Partners (5 members)
+const ECOSYSTEM_ROW_2_NAMES: CompanyName[] = [
+  { text: "MXC" },
+  { text: "Fingerprint Films" },
+  { text: "Hyderabad Anime Club" },
+  { text: "YANC" },
+  { text: "Data Intelligence" },
+];
+
+const STRATEGIC_NAMES = ECOSYSTEM_ROW_1_NAMES;
+const ECOSYSTEM_NAMES = ECOSYSTEM_ROW_2_NAMES;
 
 function NameRow({
   names,
@@ -138,15 +141,15 @@ export function CompanyMarquee({
           </div>
         )}
 
-        {/* Row 1 — Enterprises (scroll left) */}
+        {/* Row 1 — Ecosystem Partners (scroll left) */}
         <NameRow
-          names={ENTERPRISE_NAMES}
+          names={STRATEGIC_NAMES}
           direction="left"
           duration="38s"
           bgFrom="from-navy"
         />
 
-        {/* Row 2 — Ecosystem partners (scroll right) */}
+        {/* Row 2 — Ecosystem Partners (scroll right) */}
         <NameRow
           names={ECOSYSTEM_NAMES}
           direction="right"
@@ -158,4 +161,4 @@ export function CompanyMarquee({
   );
 }
 
-export { ENTERPRISE_NAMES, ECOSYSTEM_NAMES };
+export { STRATEGIC_NAMES, ECOSYSTEM_NAMES };

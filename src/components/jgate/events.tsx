@@ -18,7 +18,7 @@ const NEWS = [
     tagColor: "bg-crimson/10 text-crimson",
     title: "J-Gate Opens at Cyber Gateway, Hyderabad",
     date: "June 22, 2026 · Hyderabad",
-    excerpt: "A landmark ceremony that brought together JETRO, T-Hub alumni, university students, Japanese business travelers, and Hyderabad's most influential entrepreneurs — marking the official launch of India's most significant Japan-business hub.",
+    excerpt: "A landmark ceremony that brought together tech leaders, T-Hub alumni, university students, Japanese business travelers, and Hyderabad's most influential entrepreneurs — marking the official launch of India's most significant Japan-business hub.",
   },
   {
     tag: "PARTNERSHIP",

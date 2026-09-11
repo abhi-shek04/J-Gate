@@ -1,15 +1,10 @@
 "use client";
 
-import { Check, X, TriangleAlert, CircleDot } from "lucide-react";
+import { Check, X, TriangleAlert, CircleDot, Sparkles, Award, ShieldCheck, ArrowRight } from "lucide-react";
 import { Reveal, Eyebrow } from "./shared";
 import { useI18n } from "@/lib/i18n";
 import type { ReactNode } from "react";
-
-/* ============================================================
-   ComparisonTable — J-Gate vs Alternatives (premium editorial)
-   5 columns × 8 rows, J-Gate highlighted column with crimson
-   border + ★ RECOMMENDED badge. Horizontal scroll on mobile.
-   ============================================================ */
+import Link from "next/link";
 
 type Indicator = "check" | "cross" | "warn" | "optimal" | "text";
 
@@ -28,7 +23,7 @@ type Row = {
 const ROWS: Row[] = [
   {
     label: { EN: "Target Audience", JP: "対象顧客" },
-    jgate: { EN: "Mid-size, SMEs, Startups & Regional Banks", JP: "中堅・中小・スタートアップ・地方銀" },
+    jgate: { EN: "Mid-size, SMEs, Startups & Regional Banks", JP: "中堅・中小・スタートアップ・地方銀行" },
     consult: { EN: "Large enterprises only", JP: "大企業のみ" },
     cowork: { EN: "Local companies & freelancers", JP: "現地企業・フリーランス" },
     publicOrg: { EN: "General / All", JP: "一般・全対象" },
@@ -83,10 +78,10 @@ const ROWS: Row[] = [
   },
   {
     label: { EN: "Japanese Language", JP: "日本語対応" },
-    jgate: { EN: "Fully supported", JP: "完全対応" },
+    jgate: { EN: "Fully supported (Native on-ground)", JP: "完全対応（現地常駐）" },
     consult: { EN: "High cost", JP: "高コスト" },
     cowork: { EN: "None", JP: "なし" },
-    publicOrg: { EN: "Limited", JP: "限定" },
+    publicOrg: { EN: "Limited", JP: "限定的" },
     jgateType: "check",
     consultType: "warn",
     coworkType: "cross",
@@ -104,8 +99,8 @@ const ROWS: Row[] = [
     publicType: "cross",
   },
   {
-    label: { EN: "Network", JP: "ネットワーク" },
-    jgate: { EN: "T-Hub, IIT Hyderabad, JETRO, Woxsen", JP: "T-Hub・IITハイデラバード・JETRO・Woxsen" },
+    label: { EN: "Network & Alliances", JP: "提携ネットワーク" },
+    jgate: { EN: "T-Hub, IIT Hyderabad, Woxsen, Genesys", JP: "T-Hub・IITハイデラバード・Woxsen・Genesys" },
     consult: { EN: "Govt agencies & large firms", JP: "政府機関・大企業" },
     cowork: { EN: "General users", JP: "一般利用者" },
     publicOrg: { EN: "Govt agencies", JP: "政府機関" },
@@ -116,44 +111,41 @@ const ROWS: Row[] = [
   },
 ];
 
-const LEGEND: { color: string; label: { EN: string; JP: string } }[] = [
+const LEGEND = [
   { color: "bg-success", label: { EN: "Fully Available", JP: "完全対応" } },
   { color: "bg-crimson", label: { EN: "Not Available", JP: "非対応" } },
   { color: "bg-saffron", label: { EN: "Partial", JP: "一部対応" } },
-  { color: "bg-sky-500", label: { EN: "Optimal", JP: "最適" } },
+  { color: "bg-sky-500", label: { EN: "Optimal Cost", JP: "最適コスト" } },
 ];
 
 function IndicatorIcon({ type }: { type: Indicator }) {
   if (type === "text") return null;
-  const map: Record<
-    Exclude<Indicator, "text">,
-    { icon: ReactNode; ring: string; text: string }
-  > = {
+  const map: Record<Exclude<Indicator, "text">, { icon: ReactNode; ring: string; text: string }> = {
     check: {
-      icon: <Check className="h-3 w-3" strokeWidth={3} />,
-      ring: "bg-success/15",
+      icon: <Check className="h-3.5 w-3.5" strokeWidth={3} />,
+      ring: "bg-success/15 border border-success/30",
       text: "text-success",
     },
     cross: {
-      icon: <X className="h-3 w-3" strokeWidth={3} />,
-      ring: "bg-crimson/12",
+      icon: <X className="h-3.5 w-3.5" strokeWidth={3} />,
+      ring: "bg-crimson/15 border border-crimson/30",
       text: "text-crimson",
     },
     warn: {
-      icon: <TriangleAlert className="h-3 w-3" strokeWidth={2.5} />,
-      ring: "bg-saffron/15",
+      icon: <TriangleAlert className="h-3.5 w-3.5" strokeWidth={2.5} />,
+      ring: "bg-saffron/15 border border-saffron/30",
       text: "text-saffron",
     },
     optimal: {
       icon: <CircleDot className="h-3.5 w-3.5" strokeWidth={2.5} />,
-      ring: "bg-sky-500/15",
+      ring: "bg-sky-500/15 border border-sky-500/30",
       text: "text-sky-600",
     },
   };
   const cfg = map[type];
   return (
     <span
-      className={`inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full ${cfg.ring} ${cfg.text}`}
+      className={`inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full ${cfg.ring} ${cfg.text}`}
       aria-hidden="true"
     >
       {cfg.icon}
@@ -172,12 +164,12 @@ function Cell({
 }) {
   return (
     <div
-      className={`flex items-start gap-2 px-4 py-3.5 font-inter text-[12.5px] leading-snug ${
-        highlight ? "text-ink" : "text-slate"
+      className={`flex items-start gap-2.5 px-5 py-4 font-inter text-[13px] leading-snug ${
+        highlight ? "text-ink font-semibold" : "text-slate"
       }`}
     >
       {type !== "text" && <IndicatorIcon type={type} />}
-      <span className={highlight ? "font-semibold" : ""}>{text}</span>
+      <span className={highlight ? "font-bold text-ink" : ""}>{text}</span>
     </div>
   );
 }
@@ -188,27 +180,31 @@ export function ComparisonTable() {
   return (
     <section
       id="why-comparison"
-      className="section-pad bg-ivory"
+      className="section-pad bg-ivory-warm relative overflow-hidden"
       aria-label="J-Gate side-by-side comparison"
     >
-      <div className="container-jg">
+      <div className="container-jg relative z-10">
         {/* Header */}
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
-            <Eyebrow>SIDE-BY-SIDE COMPARISON</Eyebrow>
+            <span className="inline-flex items-center gap-2 rounded-full border border-crimson/30 bg-crimson/10 px-4 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-crimson">
+              <Award className="h-3.5 w-3.5" />
+              {tx({ EN: "Side-by-Side Comparison", JP: "比較対照表" })}
+            </span>
             <h2
-              className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
-              style={{ fontSize: "clamp(1.25rem, 2.2vw, 1.5rem)" }}
+              className="mt-3 font-serif-jp font-bold leading-[1.18] text-ink"
+              style={{ fontSize: "clamp(1.875rem, 3.8vw, 2.75rem)" }}
             >
-              J-Gate vs The Alternatives
+              {tx({ EN: "J-Gate vs The Alternatives", JP: "J-Gateと他選択肢の徹底比較" })}
             </h2>
             <p
               className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-slate"
-              style={{ fontSize: "clamp(0.875rem, 1.4vw, 1rem)" }}
+              style={{ fontSize: "clamp(0.95rem, 1.4vw, 1.05rem)" }}
             >
-              A direct comparison across the four paths Japanese enterprises
-              consider when entering India — cost, support, network, and overall
-              value.
+              {tx({
+                EN: "A direct comparison across the four paths Japanese enterprises consider when entering India — cost, support, network, and overall value.",
+                JP: "インド進出を検討する日本企業が直面する4つの選択肢を、コスト・伴走体制・人脈・投資対効果の視点から徹底比較。",
+              })}
             </p>
           </div>
         </Reveal>
@@ -219,8 +215,7 @@ export function ComparisonTable() {
             {LEGEND.map((l) => (
               <span
                 key={l.label.EN}
-                className="inline-flex items-center gap-2 font-inter text-[11px] text-slate"
-                style={{ letterSpacing: "0.05em" }}
+                className="inline-flex items-center gap-2 font-inter text-[12px] font-medium text-slate"
               >
                 <span className={`inline-block h-2.5 w-2.5 rounded-full ${l.color}`} />
                 {tx(l.label)}
@@ -229,50 +224,48 @@ export function ComparisonTable() {
           </div>
         </Reveal>
 
-        {/* Table — horizontal scroll on mobile */}
-        <Reveal delay={120}>
-          <div
-            className="mt-8 overflow-x-auto pb-3"
-            style={{ scrollbarWidth: "thin" }}
-          >
-            <div className="min-w-[880px] overflow-hidden rounded-xl border border-slate/15 bg-pearl shadow-card">
+        {/* Table Container with Luxury Glass Card Styling */}
+        <Reveal delay={120} variant="scale">
+          <div className="mt-10 overflow-x-auto pb-4" style={{ scrollbarWidth: "thin" }}>
+            <div className="min-w-[920px] overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-2xl">
               {/* Header row */}
-              <div className="grid grid-cols-[170px_minmax(190px,1.15fr)_1fr_1fr_1fr]">
-                <div className="border-b border-slate/10 bg-ivory-warm px-4 py-4">
+              <div className="grid grid-cols-[180px_minmax(210px,1.2fr)_1fr_1fr_1fr]">
+                <div className="border-b border-slate-200/80 bg-slate-50/90 px-5 py-5 flex items-center">
                   <span
-                    className="font-inter text-[10px] font-semibold uppercase text-slate"
-                    style={{ letterSpacing: "0.14em" }}
+                    className="font-inter text-[11px] font-bold uppercase tracking-wider text-slate-500"
                   >
                     {tx({ EN: "Criteria", JP: "比較項目" })}
                   </span>
                 </div>
-                {/* J-Gate highlighted column header */}
-                <div className="relative border-b border-crimson/30 bg-crimson px-4 py-4 text-white">
+
+                {/* J-Gate Highlighted Column Header */}
+                <div className="relative border-b border-crimson/40 bg-gradient-to-br from-crimson to-crimson-deep px-5 py-5 text-white shadow-lg">
                   <span
-                    className="absolute right-3 top-3 rounded-full bg-white/15 px-2 py-0.5 font-inter text-[9px] font-bold uppercase text-saffron-light"
-                    style={{ letterSpacing: "0.1em" }}
+                    className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-white/20 backdrop-blur-sm px-2.5 py-0.5 font-inter text-[10px] font-bold uppercase text-white shadow-sm"
                   >
-                    ★ Recommended
+                    <Sparkles className="h-3 w-3 text-saffron" />
+                    Recommended
                   </span>
-                  <span className="font-serif-jp text-[15px] font-bold tracking-tight">
+                  <span className="font-serif-jp text-lg font-bold tracking-tight block">
                     J-Gate
                   </span>
-                  <p className="mt-0.5 font-inter text-[10px] text-white/70">
+                  <p className="font-sans-jp text-[11.5px] text-white/80 font-normal mt-0.5">
                     ジェーゲート
                   </p>
                 </div>
-                <div className="border-b border-slate/10 bg-ivory-warm px-4 py-4">
-                  <span className="font-inter text-[12px] font-semibold text-ink">
+
+                <div className="border-b border-slate-200/80 bg-slate-50/90 px-5 py-5 flex items-center">
+                  <span className="font-inter text-[13px] font-bold text-ink">
                     {tx({ EN: "Major Consulting", JP: "大手コンサル" })}
                   </span>
                 </div>
-                <div className="border-b border-slate/10 bg-ivory-warm px-4 py-4">
-                  <span className="font-inter text-[12px] font-semibold text-ink">
+                <div className="border-b border-slate-200/80 bg-slate-50/90 px-5 py-5 flex items-center">
+                  <span className="font-inter text-[13px] font-bold text-ink">
                     {tx({ EN: "Local Coworking", JP: "現地コワーキング" })}
                   </span>
                 </div>
-                <div className="border-b border-slate/10 bg-ivory-warm px-4 py-4">
-                  <span className="font-inter text-[12px] font-semibold text-ink">
+                <div className="border-b border-slate-200/80 bg-slate-50/90 px-5 py-5 flex items-center">
+                  <span className="font-inter text-[13px] font-bold text-ink">
                     {tx({ EN: "Public Orgs", JP: "公的機関" })}
                   </span>
                 </div>
@@ -284,37 +277,35 @@ export function ComparisonTable() {
                 return (
                   <div
                     key={row.label.EN}
-                    className="grid grid-cols-[170px_minmax(190px,1.15fr)_1fr_1fr_1fr] border-t border-slate/8"
+                    className="grid grid-cols-[180px_minmax(210px,1.2fr)_1fr_1fr_1fr] border-t border-slate-100 transition-colors hover:bg-slate-50/50"
                   >
                     {/* Criteria label */}
                     <div
-                      className={`px-4 py-3.5 ${
-                        zebra ? "bg-ivory-warm/60" : "bg-pearl"
+                      className={`px-5 py-4 flex items-center ${
+                        zebra ? "bg-slate-50/60" : "bg-white"
                       }`}
                     >
-                      <span className="font-inter text-[12px] font-semibold text-ink">
+                      <span className="font-inter text-[12.5px] font-bold text-ink">
                         {tx(row.label)}
                       </span>
                     </div>
-                    {/* J-Gate highlighted cell — left/right crimson border */}
+
+                    {/* J-Gate highlighted cell */}
                     <div
-                      className={`relative border-x-2 border-crimson ${
-                        zebra ? "bg-crimson/[0.04]" : "bg-crimson/[0.025]"
+                      className={`relative border-x-2 border-crimson/60 ${
+                        zebra ? "bg-crimson/[0.05]" : "bg-crimson/[0.03]"
                       }`}
                     >
-                      <Cell
-                        text={tx(row.jgate)}
-                        type={row.jgateType}
-                        highlight
-                      />
+                      <Cell text={tx(row.jgate)} type={row.jgateType} highlight />
                     </div>
-                    <div className={zebra ? "bg-ivory-warm/60" : "bg-pearl"}>
+
+                    <div className={`flex items-center ${zebra ? "bg-slate-50/60" : "bg-white"}`}>
                       <Cell text={tx(row.consult)} type={row.consultType} />
                     </div>
-                    <div className={zebra ? "bg-ivory-warm/60" : "bg-pearl"}>
+                    <div className={`flex items-center ${zebra ? "bg-slate-50/60" : "bg-white"}`}>
                       <Cell text={tx(row.cowork)} type={row.coworkType} />
                     </div>
-                    <div className={zebra ? "bg-ivory-warm/60" : "bg-pearl"}>
+                    <div className={`flex items-center ${zebra ? "bg-slate-50/60" : "bg-white"}`}>
                       <Cell text={tx(row.publicOrg)} type={row.publicType} />
                     </div>
                   </div>
@@ -324,25 +315,35 @@ export function ComparisonTable() {
           </div>
         </Reveal>
 
-        {/* Verdict banner */}
-        <Reveal delay={160}>
-          <div className="mx-auto mt-8 max-w-4xl rounded-lg border-l-4 border-crimson bg-pearl px-6 py-5 shadow-card">
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-              <span
-                className="font-inter text-[10px] font-bold uppercase text-crimson"
-                style={{ letterSpacing: "0.18em" }}
+        {/* Verdict Banner */}
+        <Reveal delay={160} variant="scale">
+          <div className="mx-auto mt-10 max-w-4xl overflow-hidden rounded-2xl border-2 border-crimson/40 bg-gradient-to-r from-red-50/90 via-white to-amber-50/80 p-6 sm:p-8 shadow-xl">
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-crimson text-white shadow-crimp">
+                <ShieldCheck className="h-6 w-6" />
+              </div>
+              <div className="flex-1">
+                <span
+                  className="font-inter text-[11px] font-bold uppercase tracking-wider text-crimson block"
+                >
+                  {tx({ EN: "The Definitive Verdict · 総合評価", JP: "結論 · THE VERDICT" })}
+                </span>
+                <p
+                  className="mt-1 font-serif-jp text-ink font-bold leading-relaxed text-[15px] sm:text-[17px]"
+                >
+                  {tx({
+                    EN: "J-Gate is the only option that combines a physical base, resident Japanese expertise, hands-on operational support, and direct hiring — at a cost-justifiable investment level.",
+                    JP: "J-Gateは、専用拠点・常駐日本語専門家・実務オペレーション・直接採用支援をワンストップで兼ね備え、かつ投資対効果が圧倒的に高い唯一の選択肢です。",
+                  })}
+                </p>
+              </div>
+              <Link
+                href="/pricing"
+                className="btn-shine shrink-0 inline-flex items-center gap-1.5 rounded-xl bg-crimson px-5 py-2.5 font-inter text-[13px] font-semibold text-white shadow-md hover:bg-crimson-deep transition-all"
               >
-                {tx({ EN: "Verdict", JP: "結論" })}
-              </span>
-              <p
-                className="font-serif-jp text-ink leading-relaxed"
-                style={{ fontSize: "clamp(0.875rem, 1.4vw, 1rem)" }}
-              >
-                {tx({
-                  EN: "J-Gate is the only option that combines a physical base, resident Japanese expertise, hands-on operational support, and direct hiring — at a cost-justifiable investment level.",
-                  JP: "J-Gateは、物理拠点・常駐日本語専門家・実務サポート・直接採用をすべて兼ね備え、かつ投資対効果が妥当な唯一の選択肢です。",
-                })}
-              </p>
+                {tx({ EN: "View Plans", JP: "料金を見る" })}
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
         </Reveal>

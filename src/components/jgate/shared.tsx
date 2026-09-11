@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 import { useI18n } from "@/lib/i18n";
 
 /* ============================================================
-   Reveal — fade-in-up on scroll using IntersectionObserver
+   Reveal — fade-in-up/left/right/scale on scroll using IntersectionObserver
    ============================================================ */
 export function Reveal({
   children,
@@ -17,8 +17,8 @@ export function Reveal({
   children: ReactNode;
   className?: string;
   delay?: number;
-  variant?: "up" | "left" | "right";
-  as?: keyof JSX.IntrinsicElements;
+  variant?: "up" | "left" | "right" | "scale" | "fade";
+  as?: React.ElementType;
 }) {
   const ref = useRef<HTMLElement | null>(null);
   const [visible, setVisible] = useState(false);
@@ -34,17 +34,50 @@ export function Reveal({
           }
         });
       },
-      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -30px 0px" }
     );
     observer.observe(node);
     return () => observer.disconnect();
   }, []);
-  const variantClass = variant === "left" ? "reveal-left" : variant === "right" ? "reveal-right" : "reveal";
+
+  const variantClass =
+    variant === "left"
+      ? "reveal-left"
+      : variant === "right"
+      ? "reveal-right"
+      : "reveal";
+
   const Component = Tag as any;
+
+  const getInitialTransform = () => {
+    if (visible) return "translate3d(0, 0, 0) scale(1)";
+    switch (variant) {
+      case "up":
+        return "translate3d(0, 24px, 0)";
+      case "left":
+        return "translate3d(-32px, 0, 0)";
+      case "right":
+        return "translate3d(32px, 0, 0)";
+      case "scale":
+        return "translate3d(0, 16px, 0) scale(0.96)";
+      case "fade":
+        return "translate3d(0, 0, 0)";
+      default:
+        return "translate3d(0, 24px, 0)";
+    }
+  };
+
   return (
     <Component
       ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
+      style={{
+        transitionDelay: `${delay}ms`,
+        transitionDuration: "750ms",
+        transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
+        transform: getInitialTransform(),
+        opacity: visible ? 1 : 0,
+        willChange: "transform, opacity",
+      }}
       className={cn(variantClass, visible && "is-visible", className)}
     >
       {children}

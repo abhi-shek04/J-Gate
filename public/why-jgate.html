@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why J-Gate · The Strategic Investment Advantage | J-Gate (ジェーゲート)</title>
+  
+  <!-- Google Fonts import -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400;500&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      /* SURFACES */
+      --ink:        #08080E;   /* true page canvas */
+      --void:       #0F0F18;   /* panel / card background */
+      --shell:      #161622;   /* elevated card / table row */
+      --rim:        #1E1E2E;   /* hover state surface */
+
+      /* ACCENTS */
+      --gold:       #B8924A;   /* primary premium accent */
+      --gold-dim:   rgba(184,146,74,0.18);  /* border fills, subtle tints */
+      --gold-line:  rgba(184,146,74,0.35);  /* hairline borders */
+      --vermillion: #C8392B;   /* J-Gate brand red — max 3 appearances */
+      --jade:       #2D7A5F;   /* success / "Fully Available" indicator */
+      --steel:      #3D4A5C;   /* "Partial" / neutral state */
+
+      /* TEXT */
+      --ivory:      #F0EDE6;   /* primary text */
+      --silver:     #9A98A4;   /* secondary / body copy */
+      --mist:       #5C5A68;   /* tertiary / metadata / disabled */
+      --on-red:     #F0EDE6;   /* text on vermillion */
+
+      /* TYPOGRAPHY */
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+      --font-mono:    'Space Mono', 'Courier New', monospace;
+
+      /* SPACING (8px base) */
+      --s1: 8px;   --s2: 16px;  --s3: 24px;  --s4: 32px;
+      --s5: 48px;  --s6: 64px;  --s7: 80px;  --s8: 120px;
+
+      /* MOTION */
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-expo:  cubic-bezier(0.7, 0, 0.84, 0);
+      --ease-spring:   cubic-bezier(0.34, 1.56, 0.64, 1);
+      --dur-fast:  0.2s;
+      --dur-base:  0.4s;
+      --dur-slow:  0.7s;
+      --dur-crawl: 1.2s;
+    }
+
+    /* BASE RESETS */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--ink);
+      color: var(--ivory);
+      font-family: var(--font-body);
+      font-weight: 300;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    ::selection {
+      background: var(--gold);
+      color: var(--ink);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* 1. PRECISION GRID OVERLAY */
+    .grid-armature {
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(184,146,74,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(184,146,74,0.03) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* 2. LEFT SPINE */
+    .left-spine {
+      position: fixed;
+      left: 72px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: linear-gradient(
+        180deg,
+        transparent 0%,
+        var(--gold-line) 15%,
+        var(--gold-line) 85%,
+        transparent 100%
+      );
+      z-index: 10;
+      pointer-events: none;
+    }
+
+    /* CONTAINER SYSTEM */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding-left: calc(72px + var(--s4));
+      padding-right: var(--s4);
+      position: relative;
+      z-index: 2;
+    }
+
+    /* SECTION EYEBROW */
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      margin-bottom: var(--s2);
+    }
+    .eyebrow-bar {
+      width: 2px;
+      height: 16px;
+      background-color: var(--gold);
+      display: inline-block;
+    }
+
+    /* SECTION WATERMARKS */
+    .watermark-coord {
+      position: absolute;
+      bottom: var(--s2);
+      right: var(--s4);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--mist);
+      opacity: 0.35;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* ============================================================
+       TOP TICKER STRIP
+       ============================================================ */
+    .top-ticker {
+      height: 40px;
+      background: var(--void);
+      border-bottom: 1px solid var(--gold-line);
+      overflow: hidden;
+      position: relative;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+    }
+    .ticker-inner {
+      display: flex;
+      width: max-content;
+      animation: tickerMarquee 40s linear infinite;
+    }
+    .ticker-content {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.18em;
+      white-space: nowrap;
+      padding-right: 40px;
+    }
+    @keyframes tickerMarquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ============================================================
+       SECTION 1: HERO
+       ============================================================ */
+    .hero-section {
+      min-height: calc(100vh - 40px);
+      display: flex;
+      align-items: center;
+      padding-top: var(--s6);
+      padding-bottom: var(--s7);
+      border-bottom: 1px solid var(--gold-dim);
+      position: relative;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: var(--s6);
+      align-items: center;
+      width: 100%;
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: 96px;
+      font-weight: 300;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: var(--ivory);
+      margin-bottom: var(--s4);
+    }
+    .hero-title-line {
+      display: block;
+    }
+    .hero-title-underline {
+      position: relative;
+      display: inline-block;
+    }
+    .hero-title-underline::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 6px;
+      height: 2px;
+      background: var(--gold);
+      width: 0;
+      transition: width 0.8s var(--ease-out-expo) 0.4s;
+    }
+    .in-view .hero-title-underline::after {
+      width: 100%;
+    }
+
+    .hero-sub {
+      font-family: var(--font-body);
+      font-size: 17px;
+      font-weight: 300;
+      color: var(--silver);
+      max-width: 600px;
+      line-height: 1.7;
+      margin-bottom: var(--s5);
+    }
+
+    .ghost-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 28px;
+      background: transparent;
+      border: 1px solid var(--gold-line);
+      border-radius: 2px;
+      color: var(--ivory);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: all var(--dur-base) var(--ease-out-expo);
+      cursor: pointer;
+    }
+    .ghost-btn:hover {
+      border-color: var(--gold);
+      background: rgba(184,146,74,0.08);
+      transform: translateY(-2px);
+    }
+
+    /* Animated SVG Comparison Meter */
+    .hero-meter-card {
+      background: var(--void);
+      border: 0.5px solid var(--gold-line);
+      border-radius: 2px;
+      padding: var(--s4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .meter-label {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--mist);
+      letter-spacing: 0.2em;
+      margin-bottom: var(--s3);
+      text-transform: uppercase;
+      align-self: flex-start;
+    }
+    .meter-bars-wrap {
+      display: flex;
+      align-items: flex-end;
+      gap: 48px;
+      height: 180px;
+      padding-bottom: var(--s2);
+      width: 100%;
+      justify-content: center;
+    }
+    .meter-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      height: 100%;
+      justify-content: flex-end;
+    }
+    .meter-track {
+      width: 4px;
+      height: 140px;
+      background: var(--shell);
+      border-radius: 2px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+    .meter-fill-jgate {
+      width: 100%;
+      height: 0%;
+      background: var(--gold);
+      transition: height 1.2s var(--ease-out-expo) 0.5s;
+    }
+    .in-view .meter-fill-jgate {
+      height: 100%;
+    }
+    .meter-fill-alt {
+      width: 100%;
+      height: 0%;
+      background: var(--steel);
+      transition: height 1.0s var(--ease-out-expo) 0.7s;
+    }
+    .in-view .meter-fill-alt {
+      height: 35%;
+    }
+    .meter-name {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+    }
+    .meter-val {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* ============================================================
+       SECTION 2: COMPARISON TABLE
+       ============================================================ */
+    .section-pad {
+      padding: var(--s8) 0;
+      border-bottom: 1px solid var(--gold-dim);
+      position: relative;
+    }
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: 56px;
+      font-weight: 300;
+      color: var(--ivory);
+      line-height: 1.1;
+      margin-bottom: var(--s2);
+    }
+    .section-sub {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: var(--silver);
+      max-width: 680px;
+      line-height: 1.7;
+    }
+
+    /* Legend */
+    .table-legend {
+      display: flex;
+      justify-content: flex-end;
+      gap: 16px;
+      margin-bottom: var(--s3);
+      flex-wrap: wrap;
+    }
+    .legend-chip {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      padding: 4px 10px;
+      border-radius: 2px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .chip-full {
+      color: var(--jade);
+      background: rgba(45,122,95,0.12);
+      border: 1px solid rgba(45,122,95,0.3);
+    }
+    .chip-partial {
+      color: var(--gold);
+      background: var(--gold-dim);
+      border: 1px solid var(--gold-line);
+    }
+    .chip-none {
+      color: var(--mist);
+      border: 1px solid var(--mist);
+    }
+
+    /* Table Architecture */
+    .table-responsive {
+      overflow-x: auto;
+      border-radius: 2px;
+      border: 0.5px solid var(--gold-line);
+      background: var(--void);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    }
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 880px;
+      text-align: left;
+    }
+    .comp-table thead tr {
+      background: var(--ink);
+      border-bottom: 2px solid var(--gold-line);
+      height: 72px;
+    }
+    .comp-table th {
+      padding: 0 var(--s3);
+      vertical-align: middle;
+    }
+    .th-criteria {
+      width: 22%;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--mist);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+    .th-jgate {
+      width: 26%;
+      box-shadow: inset 1px 0 0 var(--gold);
+      background: var(--shell);
+      position: relative;
+    }
+    .recommended-badge {
+      display: inline-block;
+      background: var(--vermillion);
+      color: var(--on-red);
+      font-family: var(--font-mono);
+      font-size: 9px;
+      padding: 3px 10px;
+      border-radius: 2px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .col-title-jgate {
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ivory);
+    }
+    .th-alt {
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--silver);
+      text-align: center;
+      width: 17.33%;
+    }
+
+    /* Rows */
+    .comp-table tbody tr {
+      height: 64px;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+      transition: background 0.2s ease;
+    }
+    .comp-table tbody tr:nth-child(odd) {
+      background: var(--void);
+    }
+    .comp-table tbody tr:nth-child(even) {
+      background: var(--shell);
+    }
+    .comp-table tbody tr:hover {
+      background: var(--rim);
+    }
+    .comp-table tbody tr:hover .td-jgate {
+      background: rgba(184,146,74,0.06);
+    }
+
+    .comp-table td {
+      padding: 14px var(--s3);
+      vertical-align: middle;
+    }
+    .td-criteria {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--silver);
+    }
+    .td-jgate {
+      box-shadow: inset 1px 0 0 var(--gold);
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--ivory);
+    }
+    .td-jgate .sub-text {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--gold);
+      margin-top: 3px;
+    }
+    .td-alt {
+      text-align: center;
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: var(--silver);
+    }
+    .cell-content-center {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      justify-content: center;
+    }
+    .cell-content-left {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    /* Verdict Row */
+    .tr-verdict {
+      background: rgba(184,146,74,0.06) !important;
+      border-top: 2px solid var(--gold-line) !important;
+    }
+    .td-verdict {
+      padding: var(--s4) !important;
+    }
+    .verdict-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--s4);
+      flex-wrap: wrap;
+    }
+    .verdict-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .verdict-text {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--ivory);
+      line-height: 1.7;
+      max-width: 800px;
+    }
+    .verdict-cta {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--gold);
+      padding-bottom: 2px;
+      white-space: nowrap;
+      transition: color 0.2s ease;
+    }
+    .verdict-cta:hover {
+      color: var(--ivory);
+      border-color: var(--ivory);
+    }
+
+    /* ============================================================
+       SECTION 3: 7 CORE VALUE PILLARS
+       ============================================================ */
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: var(--void);
+      border-top: 1px solid var(--gold-line);
+      border-bottom: 1px solid var(--gold-line);
+      border-radius: 2px;
+      margin: var(--s5) 0;
+    }
+    .stat-box {
+      padding: var(--s4);
+      border-right: 1px solid var(--gold-line);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .stat-box:last-child {
+      border-right: none;
+    }
+    .stat-num {
+      font-family: var(--font-display);
+      font-size: 48px;
+      font-weight: 300;
+      color: var(--ivory);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .stat-sub {
+      font-family: var(--font-body);
+      font-size: 12px;
+      color: var(--silver);
+      margin-top: 2px;
+    }
+
+    /* Pillar Layout: 4 top, 3 bottom centered */
+    .pillar-row-top {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    .pillar-row-bottom {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .pillar-card {
+      background: var(--void);
+      border: 0.5px solid var(--gold-line);
+      border-radius: 2px;
+      padding: 32px 28px 28px;
+      position: relative;
+      overflow: hidden;
+      min-height: 250px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.35s var(--ease-out-expo);
+    }
+    .pillar-card:hover {
+      border-color: rgba(184,146,74,0.6);
+      transform: translateY(-6px);
+      box-shadow: inset 0 0 0 1px rgba(184,146,74,0.15), 0 20px 40px rgba(0,0,0,0.4);
+    }
+    /* Corner triangle */
+    .pillar-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      border-top: 32px solid var(--gold-dim);
+      border-left: 32px solid transparent;
+      transition: border-width 0.3s ease;
+      z-index: 2;
+    }
+    .pillar-card:hover::before {
+      border-top-width: 48px;
+      border-left-width: 48px;
+    }
+    .pillar-num {
+      position: absolute;
+      top: -8px;
+      left: 16px;
+      font-family: var(--font-display);
+      font-size: 72px;
+      font-weight: 200;
+      color: rgba(184,146,74,0.12);
+      transition: color 0.35s ease;
+      user-select: none;
+      pointer-events: none;
+      line-height: 1;
+    }
+    .pillar-card:hover .pillar-num {
+      color: rgba(184,146,74,0.22);
+    }
+    .pillar-jp {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      position: relative;
+      z-index: 1;
+    }
+    .pillar-icon-wrap {
+      margin-top: 16px;
+      width: 40px;
+      height: 40px;
+      position: relative;
+      z-index: 1;
+    }
+    .pillar-icon-wrap svg {
+      width: 40px;
+      height: 40px;
+      stroke: var(--gold);
+      stroke-width: 1.2;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-opacity: 0.75;
+      transition: stroke-opacity 0.35s ease;
+    }
+    .pillar-card:hover .pillar-icon-wrap svg {
+      stroke-opacity: 1.0;
+    }
+    .pillar-title {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--ivory);
+      margin-top: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .pillar-desc {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--silver);
+      line-height: 1.7;
+      margin-top: 8px;
+      position: relative;
+      z-index: 1;
+    }
+    .pillar-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .pillar-chip {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      border: 0.5px solid var(--gold-line);
+      border-radius: 2px;
+      padding: 4px 8px;
+    }
+
+    /* ============================================================
+       SECTION 4: SMART INVESTMENT ESTIMATOR
+       ============================================================ */
+    .calc-container {
+      background: var(--void);
+      border: 0.5px solid var(--gold-line);
+      border-radius: 2px;
+      padding: 48px;
+      display: grid;
+      grid-template-columns: 48% 52%;
+      gap: 48px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+      margin-top: var(--s5);
+    }
+    .calc-left {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .calc-step-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--gold);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    /* Plan Radio Cards */
+    .plan-card {
+      background: var(--shell);
+      border: 0.5px solid transparent;
+      border-radius: 2px;
+      padding: 16px 20px;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin-bottom: 10px;
+    }
+    .plan-card:hover {
+      background: var(--rim);
+      border-color: rgba(184,146,74,0.3);
+    }
+    .plan-card.active {
+      border-color: var(--gold);
+      background: rgba(184,146,74,0.08);
+    }
+    .plan-card.active::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--gold);
+    }
+    .plan-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .plan-title {
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--ivory);
+      font-weight: 500;
+    }
+    .plan-price {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--gold);
+    }
+    .plan-sub {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--silver);
+    }
+
+    /* Team Size Segmented Control */
+    .team-segmented {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+    }
+    .team-chip {
+      font-family: var(--font-body);
+      font-size: 12px;
+      text-align: center;
+      padding: 10px 4px;
+      border: 0.5px solid var(--gold-line);
+      border-radius: 2px;
+      background: transparent;
+      color: var(--silver);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .team-chip.active {
+      background: var(--gold);
+      color: var(--ink);
+      font-weight: 500;
+      border-color: var(--gold);
+    }
+
+    /* Feature lines */
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .feature-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--silver);
+      line-height: 1.6;
+    }
+    .check-svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--gold);
+      stroke-width: 1.5;
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    /* Calc Right */
+    .calc-right {
+      border-left: 1px solid var(--gold-line);
+      padding-left: 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .savings-badge-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .savings-badge {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: 2px solid var(--gold);
+      background: rgba(184,146,74,0.06);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .savings-num {
+      font-family: var(--font-display);
+      font-size: 40px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .savings-sub {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      color: var(--mist);
+      letter-spacing: 0.15em;
+      margin-top: 4px;
+    }
+
+    .breakdown-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .breakdown-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding-bottom: 12px;
+      border-bottom: 1px solid rgba(184,146,74,0.2);
+    }
+    .breakdown-row:last-child {
+      border-bottom: none;
+    }
+    .bd-label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--silver);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .bd-sub {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      margin-top: 2px;
+    }
+    .bd-val {
+      font-family: var(--font-display);
+      font-weight: 300;
+      line-height: 1;
+      text-align: right;
+    }
+    .val-jgate {
+      font-size: 32px;
+      color: var(--ivory);
+    }
+    .val-market {
+      font-size: 32px;
+      color: var(--mist);
+      text-decoration: line-through;
+    }
+    .val-saving {
+      font-size: 40px;
+      color: var(--jade);
+    }
+
+    .calc-cta-btn {
+      width: 100%;
+      height: 48px;
+      background: var(--vermillion);
+      color: var(--on-red);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 2px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+    }
+    .calc-cta-btn:hover {
+      background: #a82d22;
+      transform: scale(1.01);
+    }
+
+    /* ============================================================
+       CONTACT / CLOSING STRIP
+       ============================================================ */
+    .closing-strip {
+      background: var(--void);
+      border-top: 1px solid var(--gold-line);
+      padding: var(--s6) 0;
+      position: relative;
+    }
+    .closing-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--s4);
+    }
+    .closing-title {
+      font-family: var(--font-display);
+      font-size: 26px;
+      color: var(--ivory);
+      font-weight: 300;
+      margin-top: 4px;
+    }
+    .closing-contact {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--silver);
+      margin-top: 4px;
+    }
+
+    /* REVEAL ANIMATIONS */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s var(--ease-out-expo), transform 0.6s var(--ease-out-expo);
+    }
+    .in-view[data-reveal], [data-reveal].in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ACCESSIBILITY & FOCUS RINGS */
+    a:focus-visible, button:focus-visible, input:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 3px;
+    }
+
+    /* RESPONSIVE STYLES */
+    @media (max-width: 1200px) {
+      .container {
+        padding-left: var(--s4);
+      }
+      .left-spine {
+        display: none;
+      }
+      .pillar-row-top {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .pillar-row-bottom {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-meter-card {
+        display: none;
+      }
+      .hero-title {
+        font-size: 52px;
+      }
+      .section-heading {
+        font-size: 40px;
+      }
+      .stat-strip {
+        grid-template-columns: 1fr;
+      }
+      .stat-box {
+        border-right: none;
+        border-bottom: 1px solid var(--gold-line);
+      }
+      .stat-box:last-child {
+        border-bottom: none;
+      }
+      .pillar-row-top, .pillar-row-bottom {
+        grid-template-columns: 1fr;
+      }
+      .calc-container {
+        grid-template-columns: 1fr;
+        padding: 24px;
+        gap: 32px;
+      }
+      .calc-right {
+        border-left: none;
+        border-top: 1px solid var(--gold-line);
+        padding-left: 0;
+        padding-top: 32px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .top-ticker {
+        display: none;
+      }
+      .hero-title {
+        font-size: 40px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      .ticker-inner {
+        animation: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Static Grid Armature -->
+  <div class="grid-armature" aria-hidden="true"></div>
+
+  <!-- Left Spine Line -->
+  <div class="left-spine" aria-hidden="true"></div>
+
+  <!-- Top Ticker Strip -->
+  <header class="top-ticker" aria-label="J-Gate Announcements">
+    <div class="ticker-inner">
+      <div class="ticker-content">
+        J-GATE · HYDERABAD OPERATIONS HUB · INDOBOX INDIA · ジェーゲート · THE JAPAN-INDIA CORRIDOR · 2-4 PERSONS PER COMPANY · 7 CORE PILLARS · FROM ¥90,000 /MO · CYBER GATEWAY · LAUNCHED JUNE 2026 ·
+      </div>
+      <div class="ticker-content" aria-hidden="true">
+        J-GATE · HYDERABAD OPERATIONS HUB · INDOBOX INDIA · ジェーゲート · THE JAPAN-INDIA CORRIDOR · 2-4 PERSONS PER COMPANY · 7 CORE PILLARS · FROM ¥90,000 /MO · CYBER GATEWAY · LAUNCHED JUNE 2026 ·
+      </div>
+    </div>
+  </header>
+
+  <!-- SECTION 1: HERO -->
+  <section class="hero-section" data-reveal>
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">
+            <span class="eyebrow-bar"></span>
+            <span>WHY J-GATE · THE STRATEGIC ADVANTAGE</span>
+          </div>
+
+          <h1 class="hero-title">
+            <span class="hero-title-line">The Strategic</span>
+            <span class="hero-title-line">Investment</span>
+            <span class="hero-title-line hero-title-underline">Advantage.</span>
+          </h1>
+
+          <p class="hero-sub">
+            “The only option that combines a physical base, resident Japanese expertise, and direct hiring — at a cost-justifiable investment level.”
+          </p>
+
+          <div style="display: flex; gap: 16px; flex-wrap: wrap;">
+            <a href="#why-comparison" class="ghost-btn">
+              <span style="width: 2px; height: 12px; background: var(--gold); display: inline-block;"></span>
+              <span>DISCOVER THE DIFFERENCE ↓</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Hero Right: SVG Comparison Meter -->
+        <div class="hero-meter-card">
+          <div class="meter-label">STRATEGIC FIT INDEX</div>
+          <div class="meter-bars-wrap">
+            <div class="meter-col">
+              <span class="meter-val" style="color: var(--gold);">100%</span>
+              <div class="meter-track">
+                <div class="meter-fill-jgate"></div>
+              </div>
+              <span class="meter-name" style="color: var(--ivory); font-weight: 700;">J-GATE</span>
+            </div>
+            <div class="meter-col">
+              <span class="meter-val" style="color: var(--mist);">35%</span>
+              <div class="meter-track">
+                <div class="meter-fill-alt"></div>
+              </div>
+              <span class="meter-name" style="color: var(--mist);">ALTERNATIVES</span>
+            </div>
+          </div>
+          <div style="width: 100%; border-top: 1px solid var(--gold-line); padding-top: 10px; margin-top: 8px; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; color: var(--silver);">
+            <span>OPS + RESIDENT + NETWORK</span>
+            <span style="color: var(--gold);">TURNKEY</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="watermark-coord">N17°26' E78°29' · HYDERABAD_CORRIDOR</div>
+  </section>
+
+  <!-- SECTION 2: COMPARISON TABLE -->
+  <section id="why-comparison" class="section-pad" data-reveal>
+    <div class="container">
+      <div style="display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
+        <div>
+          <div class="eyebrow">
+            <span class="eyebrow-bar"></span>
+            <span>SIDE-BY-SIDE COMPARISON · 比較表</span>
+          </div>
+          <h2 class="section-heading">J-Gate vs The Alternatives</h2>
+          <p class="section-sub">
+            A direct comparison across the four paths Japanese enterprises consider when entering India — cost, support, network, and overall value.
+          </p>
+        </div>
+
+        <div class="table-legend">
+          <span class="legend-chip chip-full">
+            <svg width="10" height="10" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="var(--jade)"/></svg>
+            FULLY AVAILABLE
+          </span>
+          <span class="legend-chip chip-partial">
+            <svg width="10" height="10" viewBox="0 0 16 16"><path d="M8 2A6 6 0 0 1 8 14" fill="var(--gold)"/><circle cx="8" cy="8" r="6" fill="none" stroke="var(--gold)" stroke-width="1.5"/></svg>
+            PARTIAL
+          </span>
+          <span class="legend-chip chip-none">
+            <svg width="10" height="10" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="var(--mist)" stroke-width="1.5"/></svg>
+            NOT AVAILABLE
+          </span>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th class="th-criteria">Criteria</th>
+              <th class="th-jgate">
+                <span class="recommended-badge">RECOMMENDED · 推奨</span>
+                <div class="col-title-jgate">J-Gate <span style="font-size: 11px; color: var(--silver); font-weight: 400;">ジェーゲート</span></div>
+              </th>
+              <th class="th-alt">Major Consulting</th>
+              <th class="th-alt">Local Coworking</th>
+              <th class="th-alt">Public Orgs</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Row 1 -->
+            <tr>
+              <td class="td-criteria">Target Audience</td>
+              <td class="td-jgate">
+                <div class="cell-content-left">
+                  <svg width="14" height="14" viewBox="0 0 16 16" style="margin-top: 2px;"><circle cx="8" cy="8" r="6" fill="var(--jade)"/></svg>
+                  <div>Mid-size, SMEs, Startups<br>& Regional Banks</div>
+                </div>
+              </td>
+              <td class="td-alt">
+                <div class="cell-content-center">
+                  <svg width="12" height="12" viewBox="0 0 16 16"><path d="M8 2A6 6 0 0 1 8 14" fill="var(--gold)"/><circle cx="8" cy="8" r="6" fill="none" stroke="var(--gold)" stroke-width="1.5"/></svg>
+                  <span>Large enterprises only</span>
+                </div>
+              </td>
+              <td class="td-alt">
+                <div class="cell-content-center">
+                  <svg width="12" height="12" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="var(--mist)" stroke-width="1.5"/></svg>
+                  <span>Local companies & freelancers</span>
+                </div>
+              </td>
+              <td class="td-alt">
+                <div class="cell-content-center">
+                  <svg width="12" height="12" viewBox="0 0 16 16"><path d="M8 2A6 6 0 0 1 8 14" fill="var(--gold)"/><circle cx="8" cy="8" r="6" fill="none" stroke="var(--gold)" stroke-width="1.5"/></svg>
+                  <span>General / All</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row 2 -->
+            <tr>
+              <td class="td-criteria">Monthly Cost</td>
+              <td class="td-jgate">
+                <div class="cell-content-left">
+                  <svg width="14" height="14" viewBox="0 0 16 16" style="margin-top: 2px;"><circle cx="8" cy="8" r="6" fill="var(--jade)"/></svg>
+                  <div>From ₹50,000<div class="sub-text">~¥90,000 /mo</div></div>
+                </div>
+              </td>
+              <td class="td-alt">
+                <div class="cell-content-center">
+                  <svg width="12" height="12" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="var(--mist)" stroke-width="1.5"/></svg>
+                  <span>¥500K – ¥1M+</span>
+                </div>
+              </td>
+              <td class="td-alt">
+                <div class="cell-content-center">
+                  <svg width="12" height="12" viewBox="0 0 16 16"><path d="M8 2A6 6 0 0 1 8 14" fill="var(--gold)"/><circle cx="8" cy="8" r="6" fill="none" stroke="var(--gold)" stroke-width="1.5"/></svg>
+                  <span>₹10K – ₹60K</span>
+                </div>
+              </td>
+              <td class="td-alt">
+                <div class="cell-content-center">
+                  <svg width="12" height="12" viewBox="0 0 16 16"><path d="M8 2A6 6 0 0 1 8 14" fill="var(--gold)"/><circle cx="8" cy="8" r="6" fill="none" stroke="var(--gold)" stroke-width="1.5"/></svg>
+                  <span>Free – Low cost</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row 3 -->
+            <tr>
+              <td class="td-criteria">Physical Base</td>
+              <td class="td-jgate">
+                <div class="cell-content-left">
+                  <svg width="14" height="14" viewBox="0 0 16 16" style="margin-top: 2px;"><circle cx="8" cy="8" r="6" fill="var(--jade)"/></svg>
+                  <div>Cyber Gateway, Hyderabad<div class="sub-text">Dedicated workspace</div></div>
+                </div>
+              </td>
+              <td class="td-alt">
+                <div class="cell-content-center">
+                  <svg width="12" height="12" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="var(--mist)" stroke-width="1.5"/></svg>
+                  <span>None — separate contract</span>
+                </div>
+              </td>
+              <td class="td-alt">
+                <div class="cell-content-center">
+                  <svg width="12" height="12" viewBox="0 0 16 16"><path d="M8 2A6 6 0 0 1 8 14" fill="var(--gold)"/><circle cx="8" cy="8" r="6" fill="none" stroke="var(--gold)" stroke-width="1.5"/></svg>
+                  <span>Shared space only</span>
+                </div>
+              </td>
+              <td class="td-alt">
+                <div class="cell-content-center">
+                  <svg width="12" height="12" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="var(--mist)" stroke-width="1.5"/></svg>
+                  <span>None</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row 4 -->
+            <tr>
+              <td class="td-criteria">Resident Japanese Expert</td>
+              <td class="td-jgate">
+                <div class="cell-content-left">
+                  <svg width="14" height="14" viewBox="0 0 16 16" style="margin-top: 2px;"><circle cx="8" cy="8" r="6" fill="var(--jade)"/></svg>
+                  <div>Japan Desk<div class="sub-text">100% Japanese, on-site</div></div>
+                </div>
+              </td>
+              <td class="td-alt">
+                <div class="cell-content-center">
+                  <svg width="12" height="12" viewBox="0 0 16 16"><path d="M8 2A6 6 0 0 1 8 14" fill="var(--gold)"/><circle cx="8" cy="8" r="6" fill="none" stroke="var(--gold)" stroke-width="1.5"/></svg>
+                  <span>Dispatched per occasion</span>
+                </div>
+              </td>
+              <td class="td-alt">
+                <div class="cell-content-center">
+                  <svg width="12" height="12" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="var(--mist)" stroke-width="1.5"/></svg>
+                  <span>None</span>
+                </div>
+              </td>
+              <td class="td-alt">
+                <div class="cell-content-center">
+                  <svg width="12" height="12" viewBox="0 0 16 16"><path d="M8 2A6 6 0 0 1 8 14" fill="var(--gold)"/><circle cx="8" cy="8" r="6" fill="none" stroke="var(--gold)" stroke-width="1.5"/></svg>
+                  <span>Local staff only</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row 5 -->
+            <tr>
+              <td class="td-criteria">Hands-on Support</td>
+              <td class="td-jgate">
+                <div class="cell-content-left">
+                  <svg width="14" height="14" viewBox="0 0 16 16" style="margin-top: 2px;"><circle cx="8" cy="8" r="6" fill="var(--jade)"/></svg>
+                  <div>Covers actual operations</div>
+                </div>
+              </td>
+              <td class="td-alt">
+                <div class="cell-content-center">
+                  <svg width="12" height="12" viewBox="0 0 16 16"><path d="M8 2A6 6 0 0 1 8 14" fill="var(--gold)"/><circle cx="8" cy="8" r="6" fill="none" stroke="var(--gold)" stroke-width="1.5"/></svg>
+                  <span>Mainly advisory</span>
+                </div>
+              </td>
+              <td class="td-alt">
+                <div class="cell-content-center">
+                  <svg width="12" height="12" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="var(--mist)" stroke-width="1.5"/></svg>
+                  <span>No business support</span>
+                </div>
+              </td>
+              <td class="td-alt">
+                <div class="cell-content-center">
+                  <svg width="12" height="12" viewBox="0 0 16 16"><path d="M8 2A6 6 0 0 1 8 14" fill="var(--gold)"/><circle cx="8" cy="8" r="6" fill="none" stroke="var(--gold)" stroke-width="1.5"/></svg>
+                  <span>Info and advice only</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row 6 -->
+            <tr>
+              <td class="td-criteria">Japanese Language</td>
+              <td class="td-jgate">
+                <div class="cell-content-left">
+                  <svg width="14" height="14" viewBox="0 0 16 16" style="margin-top: 2px;"><circle cx="8" cy="8" r="6" fill="var(--jade)"/></svg>
+                  <div>Fully supported<div class="sub-text">Native on-ground</div></div>
+                </div>
+              </td>
+              <td class="td-alt">
+                <div class="cell-content-center">
+                  <svg width="12" height="12" viewBox="0 0 16 16"><path d="M8 2A6 6 0 0 1 8 14" fill="var(--gold)"/><circle cx="8" cy="8" r="6" fill="none" stroke="var(--gold)" stroke-width="1.5"/></svg>
+                  <span>High cost</span>
+                </div>
+              </td>
+              <td class="td-alt">
+                <div class="cell-content-center">
+                  <svg width="12" height="12" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="var(--mist)" stroke-width="1.5"/></svg>
+                  <span>None</span>
+                </div>
+              </td>
+              <td class="td-alt">
+                <div class="cell-content-center">
+                  <svg width="12" height="12" viewBox="0 0 16 16"><path d="M8 2A6 6 0 0 1 8 14" fill="var(--gold)"/><circle cx="8" cy="8" r="6" fill="none" stroke="var(--gold)" stroke-width="1.5"/></svg>
+                  <span>Limited</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row 7 -->
+            <tr>
+              <td class="td-criteria">Hiring Support</td>
+              <td class="td-jgate">
+                <div class="cell-content-left">
+                  <svg width="14" height="14" viewBox="0 0 16 16" style="margin-top: 2px;"><circle cx="8" cy="8" r="6" fill="var(--jade)"/></svg>
+                  <div>Full IndiGate partnership</div>
+                </div>
+              </td>
+              <td class="td-alt">
+                <div class="cell-content-center">
+                  <svg width="12" height="12" viewBox="0 0 16 16"><path d="M8 2A6 6 0 0 1 8 14" fill="var(--gold)"/><circle cx="8" cy="8" r="6" fill="none" stroke="var(--gold)" stroke-width="1.5"/></svg>
+                  <span>Referral only — expensive</span>
+                </div>
+              </td>
+              <td class="td-alt">
+                <div class="cell-content-center">
+                  <svg width="12" height="12" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="var(--mist)" stroke-width="1.5"/></svg>
+                  <span>None</span>
+                </div>
+              </td>
+              <td class="td-alt">
+                <div class="cell-content-center">
+                  <svg width="12" height="12" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="var(--mist)" stroke-width="1.5"/></svg>
+                  <span>None</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- Row 8 -->
+            <tr>
+              <td class="td-criteria">Network & Alliances</td>
+              <td class="td-jgate">
+                <div class="cell-content-left">
+                  <svg width="14" height="14" viewBox="0 0 16 16" style="margin-top: 2px;"><circle cx="8" cy="8" r="6" fill="var(--jade)"/></svg>
+                  <div>T-Hub, IIT Hyd, JETRO,<br>Woxsen</div>
+                </div>
+              </td>
+              <td class="td-alt">
+                <div class="cell-content-center">
+                  <svg width="12" height="12" viewBox="0 0 16 16"><path d="M8 2A6 6 0 0 1 8 14" fill="var(--gold)"/><circle cx="8" cy="8" r="6" fill="none" stroke="var(--gold)" stroke-width="1.5"/></svg>
+                  <span>Govt agencies & large firms</span>
+                </div>
+              </td>
+              <td class="td-alt">
+                <div class="cell-content-center">
+                  <svg width="12" height="12" viewBox="0 0 16 16"><path d="M8 2A6 6 0 0 1 8 14" fill="var(--gold)"/><circle cx="8" cy="8" r="6" fill="none" stroke="var(--gold)" stroke-width="1.5"/></svg>
+                  <span>General users</span>
+                </div>
+              </td>
+              <td class="td-alt">
+                <div class="cell-content-center">
+                  <svg width="12" height="12" viewBox="0 0 16 16"><path d="M8 2A6 6 0 0 1 8 14" fill="var(--gold)"/><circle cx="8" cy="8" r="6" fill="none" stroke="var(--gold)" stroke-width="1.5"/></svg>
+                  <span>Govt agencies</span>
+                </div>
+              </td>
+            </tr>
+
+            <!-- VERDICT ROW -->
+            <tr class="tr-verdict">
+              <td colspan="5" class="td-verdict">
+                <div class="verdict-flex">
+                  <div>
+                    <div class="verdict-label">▌ THE DEFINITIVE VERDICT · 総合評価</div>
+                    <p class="verdict-text">
+                      “J-Gate is the only option that combines a physical base, resident Japanese expertise, hands-on operational support, and direct hiring — at a cost-justifiable investment level.”
+                    </p>
+                  </div>
+                  <div>
+                    <a href="#why-estimator" class="verdict-cta">View Plans →</a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="watermark-coord">N17°26' E78°29' · MATRIX_TABLE_01</div>
+  </section>
+
+  <!-- SECTION 3: 7 CORE VALUE PILLARS -->
+  <section id="why-pillars" class="section-pad" data-reveal>
+    <div class="container">
+      <div class="eyebrow">
+        <span class="eyebrow-bar"></span>
+        <span>7 CORE VALUE PILLARS · 価値提案</span>
+      </div>
+      <h2 class="section-heading">Value Proposition of J-Gate</h2>
+      <p class="section-sub">
+        Seven pillars accelerating Japanese business in India — the complete membership value that turns a workspace into a strategic launchpad.
+      </p>
+
+      <!-- Stat Bar -->
+      <div class="stat-strip" id="stat-strip">
+        <div class="stat-box">
+          <div class="stat-num" id="stat-persons">2–4</div>
+          <div class="stat-label">PERSONS PER COMPANY</div>
+          <div class="stat-sub">Dedicated desk pods</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num" id="stat-pillars">7</div>
+          <div class="stat-label">CORE VALUE PILLARS</div>
+          <div class="stat-sub">Turnkey bilateral corridor</div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-num" id="stat-bilingual">100%</div>
+          <div class="stat-label">BILINGUAL SUPPORT</div>
+          <div class="stat-sub">Native on-site Japan Desk</div>
+        </div>
+      </div>
+
+      <!-- 7 Pillars Grid -->
+      <div class="pillar-row-top">
+        <!-- 01 -->
+        <article class="pillar-card" data-reveal>
+          <span class="pillar-num">01</span>
+          <div>
+            <div class="pillar-jp">ワークスペース</div>
+            <div class="pillar-icon-wrap">
+              <svg viewBox="0 0 40 40">
+                <rect x="6" y="8" width="28" height="18" rx="1"/>
+                <line x1="20" y1="26" x2="20" y2="32"/>
+                <line x1="14" y1="32" x2="26" y2="32"/>
+                <line x1="6" y1="22" x2="34" y2="22"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">Workspace Access</h3>
+            <p class="pillar-desc">
+              Dedicated desk space for 2–4 persons per company — your personal workspace in a shared professional environment.
+            </p>
+          </div>
+          <div class="pillar-chips">
+            <span class="pillar-chip">DEDICATED DESK</span>
+            <span class="pillar-chip">2–4 PERSONS</span>
+          </div>
+        </article>
+
+        <!-- 02 -->
+        <article class="pillar-card" data-reveal>
+          <span class="pillar-num">02</span>
+          <div>
+            <div class="pillar-jp">インフラ</div>
+            <div class="pillar-icon-wrap">
+              <svg viewBox="0 0 40 40">
+                <rect x="8" y="10" width="24" height="22" rx="1"/>
+                <line x1="8" y1="17" x2="32" y2="17"/>
+                <line x1="8" y1="24" x2="32" y2="24"/>
+                <circle cx="12" cy="13.5" r="1" fill="var(--gold)"/>
+                <circle cx="12" cy="20.5" r="1" fill="var(--gold)"/>
+                <circle cx="12" cy="27.5" r="1" fill="var(--gold)"/>
+                <path d="M14 6 C17 3, 23 3, 26 6"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">Infrastructure</h3>
+            <p class="pillar-desc">
+              Cabinets, high-speed Wi-Fi, meeting rooms, canteen, and 24/7 secure access — all standard, all included.
+            </p>
+          </div>
+          <div class="pillar-chips">
+            <span class="pillar-chip">WI-FI</span>
+            <span class="pillar-chip">MEETING ROOMS</span>
+            <span class="pillar-chip">24/7 ACCESS</span>
+          </div>
+        </article>
+
+        <!-- 03 -->
+        <article class="pillar-card" data-reveal>
+          <span class="pillar-num">03</span>
+          <div>
+            <div class="pillar-jp">ジャパンデスク</div>
+            <div class="pillar-icon-wrap">
+              <svg viewBox="0 0 40 40">
+                <path d="M7 10 C7 7, 33 7, 33 10 L33 24 C33 27, 22 27, 18 27 L10 33 L12 27 L7 27 Z"/>
+                <rect x="16" y="12" width="8" height="9" stroke-width="1.1"/>
+                <line x1="16" y1="16.5" x2="24" y2="16.5" stroke-width="1.1"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">Japan Desk</h3>
+            <p class="pillar-desc">
+              A Japanese-speaking expert available daily on-site — legal, HR, cultural, and operational questions answered in Japanese (何でも相談).
+            </p>
+          </div>
+          <div class="pillar-chips">
+            <span class="pillar-chip">100% JAPANESE</span>
+            <span class="pillar-chip">DAILY ON-SITE</span>
+            <span class="pillar-chip">MULTI-TOPIC</span>
+          </div>
+        </article>
+
+        <!-- 04 -->
+        <article class="pillar-card" data-reveal>
+          <span class="pillar-num">04</span>
+          <div>
+            <div class="pillar-jp">会社設立</div>
+            <div class="pillar-icon-wrap">
+              <svg viewBox="0 0 40 40">
+                <path d="M10 8 L24 8 L30 14 L30 32 L10 32 Z"/>
+                <polyline points="24,8 24,14 30,14"/>
+                <circle cx="20" cy="23" r="3.5"/>
+                <line x1="20" y1="17.5" x2="20" y2="19"/>
+                <line x1="20" y1="27" x2="20" y2="28.5"/>
+                <line x1="14.5" y1="23" x2="16" y2="23"/>
+                <line x1="24" y1="23" x2="25.5" y2="23"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">Company Setup</h3>
+            <p class="pillar-desc">
+              Step-by-step guidance from workspace registration to full corporate entity establishment — end-to-end.
+            </p>
+          </div>
+          <div class="pillar-chips">
+            <span class="pillar-chip">STEP-BY-STEP</span>
+            <span class="pillar-chip">END-TO-END</span>
+          </div>
+        </article>
+      </div>
+
+      <!-- Bottom 3 cards centered -->
+      <div class="pillar-row-bottom">
+        <!-- 05 -->
+        <article class="pillar-card" data-reveal>
+          <span class="pillar-num">05</span>
+          <div>
+            <div class="pillar-jp">ネットワーク</div>
+            <div class="pillar-icon-wrap">
+              <svg viewBox="0 0 40 40">
+                <circle cx="20" cy="11" r="4"/>
+                <circle cx="11" cy="27" r="4"/>
+                <circle cx="29" cy="27" r="4"/>
+                <line x1="17" y1="14" x2="13.5" y2="23.5"/>
+                <line x1="23" y1="14" x2="26.5" y2="23.5"/>
+                <line x1="15" y1="27" x2="25" y2="27"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">Networking Events</h3>
+            <p class="pillar-desc">
+              Direct access to T-Hub, IIT Hyderabad, JETRO officials, and the broader local ecosystem — in the same building.
+            </p>
+          </div>
+          <div class="pillar-chips">
+            <span class="pillar-chip">T-HUB</span>
+            <span class="pillar-chip">IIT HYDERABAD</span>
+            <span class="pillar-chip">JETRO</span>
+          </div>
+        </article>
+
+        <!-- 06 -->
+        <article class="pillar-card" data-reveal>
+          <span class="pillar-num">06</span>
+          <div>
+            <div class="pillar-jp">勉強会</div>
+            <div class="pillar-icon-wrap">
+              <svg viewBox="0 0 40 40">
+                <path d="M20 12 C16 9, 8 10, 8 10 L8 28 C8 28, 16 27, 20 30 C24 27, 32 28, 32 28 L32 10 C32 10, 24 9, 20 12 Z"/>
+                <line x1="20" y1="12" x2="20" y2="30"/>
+                <polyline points="20,12 24,16 20,20"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">Study Sessions</h3>
+            <p class="pillar-desc">
+              Ongoing India market seminars held at the workspace — not one-off sessions, but continuous learning.
+            </p>
+          </div>
+          <div class="pillar-chips">
+            <span class="pillar-chip">INDIA MARKET</span>
+            <span class="pillar-chip">ONGOING</span>
+          </div>
+        </article>
+
+        <!-- 07 -->
+        <article class="pillar-card" data-reveal>
+          <span class="pillar-num">07</span>
+          <div>
+            <div class="pillar-jp">人材採用</div>
+            <div class="pillar-icon-wrap">
+              <svg viewBox="0 0 40 40">
+                <circle cx="17" cy="13" r="5"/>
+                <path d="M8 29 C8 23, 13 21, 17 21 C21 21, 26 23, 26 29"/>
+                <polyline points="25,18 28,21 34,15" stroke="var(--jade)" stroke-width="1.8"/>
+              </svg>
+            </div>
+            <h3 class="pillar-title">Talent & Services</h3>
+            <p class="pillar-desc">
+              Payroll, hiring, translation, and meal delivery — arranged through the workspace as a single point of contact.
+            </p>
+          </div>
+          <div class="pillar-chips">
+            <span class="pillar-chip">HIRING</span>
+            <span class="pillar-chip">PAYROLL</span>
+            <span class="pillar-chip">TRANSLATION</span>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div class="watermark-coord">N17°26' E78°29' · PILLARS_ARCHITECTURE</div>
+  </section>
+
+  <!-- SECTION 4: SMART INVESTMENT ESTIMATOR -->
+  <section id="why-estimator" class="section-pad" data-reveal>
+    <div class="container">
+      <div class="eyebrow">
+        <span class="eyebrow-bar"></span>
+        <span>SMART INVESTMENT ESTIMATOR · ROI 計算機</span>
+      </div>
+      <h2 class="section-heading">Calculate Your Membership & Savings</h2>
+      <p class="section-sub">
+        Eliminate hefty capex, lengthy commercial leases, and setup delays with J-Gate's turnkey infrastructure.
+      </p>
+
+      <div class="calc-container">
+        <!-- Left: Controls -->
+        <div class="calc-left">
+          <!-- Step 1 -->
+          <div>
+            <div class="calc-step-label">01 · SELECT PLAN LEVEL</div>
+            <div id="plan-options">
+              <div class="plan-card" data-plan="satellite">
+                <div class="plan-top-row">
+                  <span class="plan-title">Satellite Plan</span>
+                  <span class="plan-price">₹15,000/mo <span style="font-size: 10px; color: var(--silver);">[~¥27,000]</span></span>
+                </div>
+                <div class="plan-sub">Entry-level presence — solo rep or initial setup</div>
+              </div>
+
+              <div class="plan-card active" data-plan="standard">
+                <div class="plan-top-row">
+                  <span class="plan-title">Standard Plan</span>
+                  <span class="plan-price">₹50,000/mo <span style="font-size: 10px; color: var(--silver);">[~¥90,000]</span></span>
+                </div>
+                <div class="plan-sub">Core team workspace — most popular option</div>
+              </div>
+
+              <div class="plan-card" data-plan="advance">
+                <div class="plan-top-row">
+                  <span class="plan-title">Advance Plan</span>
+                  <span class="plan-price">₹120,000/mo <span style="font-size: 10px; color: var(--silver);">[~¥216,000]</span></span>
+                </div>
+                <div class="plan-sub">Full entity operations hub — maximum support</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div>
+            <div class="calc-step-label">02 · ESTIMATED TEAM SIZE</div>
+            <div class="team-segmented" id="team-options">
+              <div class="team-chip" data-seats="1">1 SEAT</div>
+              <div class="team-chip active" data-seats="3">3 PEOPLE</div>
+              <div class="team-chip" data-seats="5">5 SEATS</div>
+              <div class="team-chip" data-seats="15">15+ SEATS</div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div>
+            <div class="calc-step-label">03 · INCLUDED FEATURES</div>
+            <div class="feature-list">
+              <div class="feature-line">
+                <svg class="check-svg" viewBox="0 0 14 14"><rect x="0.5" y="0.5" width="13" height="13" rx="1.5" stroke="var(--gold)" stroke-width="1"/><polyline points="3.5,7 5.5,9.5 10.5,4" stroke="var(--gold)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>High-speed 1Gbps fiber internet & Xerox printing</span>
+              </div>
+              <div class="feature-line">
+                <svg class="check-svg" viewBox="0 0 14 14"><rect x="0.5" y="0.5" width="13" height="13" rx="1.5" stroke="var(--gold)" stroke-width="1"/><polyline points="3.5,7 5.5,9.5 10.5,4" stroke="var(--gold)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>Resident bilingual Japan Desk consultation included</span>
+              </div>
+              <div class="feature-line">
+                <svg class="check-svg" viewBox="0 0 14 14"><rect x="0.5" y="0.5" width="13" height="13" rx="1.5" stroke="var(--gold)" stroke-width="1"/><polyline points="3.5,7 5.5,9.5 10.5,4" stroke="var(--gold)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>24/7 smart keycard access to Cyber Gateway</span>
+              </div>
+              <div class="feature-line">
+                <svg class="check-svg" viewBox="0 0 14 14"><rect x="0.5" y="0.5" width="13" height="13" rx="1.5" stroke="var(--gold)" stroke-width="1"/><polyline points="3.5,7 5.5,9.5 10.5,4" stroke="var(--gold)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span>All meeting rooms & canteen access included</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Live Output Display -->
+        <div class="calc-right">
+          <!-- Savings Badge -->
+          <div class="savings-badge-wrap">
+            <div class="savings-badge">
+              <span class="savings-num" id="out-pct">~81%</span>
+              <span class="savings-sub">SAVINGS</span>
+            </div>
+          </div>
+
+          <!-- Breakdown List -->
+          <div class="breakdown-list">
+            <!-- Row 1 -->
+            <div class="breakdown-row">
+              <div>
+                <div class="bd-label">Estimated J-Gate Base Fee</div>
+                <div class="bd-sub" style="color: var(--gold);" id="out-jpy">90,000 JPY APPROX</div>
+              </div>
+              <div class="bd-val val-jgate">
+                <span id="out-jgate">₹50,000</span> <span style="font-size: 12px; font-family: var(--font-body); color: var(--mist);">/mo + GST</span>
+              </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="breakdown-row">
+              <div>
+                <div class="bd-label">Standalone Lease (Market Rate)</div>
+                <div class="bd-sub" style="color: var(--mist);">COMMERCIAL LEASE + STAFF + SETUP</div>
+              </div>
+              <div class="bd-val val-market">
+                <span id="out-market">₹260,000</span>
+              </div>
+            </div>
+
+            <!-- Row 3 -->
+            <div class="breakdown-row">
+              <div>
+                <div class="bd-label" style="color: var(--jade); font-weight: 700;">Monthly Net Saving</div>
+                <div class="bd-sub" style="color: var(--jade);">COST ELIMINATED MONTHLY</div>
+              </div>
+              <div class="bd-val val-saving">
+                <span id="out-saving">₹210,000</span>+
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="calc-cta-btn" onclick="alert('Thank you! Our Japan Desk director will contact you within 24 hours.')">
+            <span>REQUEST CUSTOM PROPOSAL →</span>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="watermark-coord">N17°26' E78°29' · ESTIMATOR_CALC_02</div>
+  </section>
+
+  <!-- CLOSING STRIP / CONTACT -->
+  <footer class="closing-strip">
+    <div class="container">
+      <div class="closing-flex">
+        <div>
+          <div class="eyebrow" style="margin-bottom: 4px;">
+            <span class="eyebrow-bar"></span>
+            <span>DIRECT OPERATIONS DESK · 現地直通窓口</span>
+          </div>
+          <div class="closing-title">Cyber Gateway, HITEC City, Hyderabad · Telangana, India</div>
+          <div class="closing-contact">contact@indobox.co.jp · +91-9910360648 (Director Tanji)</div>
+        </div>
+
+        <div style="display: flex; gap: 12px;">
+          <a href="#why-estimator" class="ghost-btn" style="background: var(--gold); color: var(--ink); font-weight: 700;">
+            SCHEDULE HUB TOUR
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT: Scroll Animations, Calculator & Numbers -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Intersection Observer for Reveal
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+          }
+        });
+      }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -60px 0px'
+      });
+
+      document.querySelectorAll('[data-reveal], .hero-section, #why-comparison, #why-pillars, #why-estimator').forEach(el => {
+        revealObserver.observe(el);
+      });
+
+      // 2. Stat Bar Number Count Up
+      let statsAnimated = false;
+      const statStrip = document.getElementById('stat-strip');
+      if (statStrip) {
+        const statObserver = new IntersectionObserver((entries) => {
+          if (entries[0].isIntersecting && !statsAnimated) {
+            statsAnimated = true;
+            animateValue('stat-persons', 0, 4, 1000, val => '2–' + val);
+            animateValue('stat-pillars', 0, 7, 1000, val => val);
+            animateValue('stat-bilingual', 0, 100, 1000, val => val + '%');
+          }
+        }, { threshold: 0.3 });
+        statObserver.observe(statStrip);
+      }
+
+      function animateValue(id, start, end, duration, formatFn) {
+        const obj = document.getElementById(id);
+        if (!obj) return;
+        const startTime = performance.now();
+        function update(now) {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+          const current = Math.round(start + (end - start) * ease);
+          obj.textContent = formatFn(current);
+          if (progress < 1) requestAnimationFrame(update);
+        }
+        requestAnimationFrame(update);
+      }
+
+      // 3. Calculator State & Smooth Counter
+      const planData = {
+        satellite: { jGate: 15000, jpy: '27,000 JPY APPROX', market: 120000, saving: 105000, pct: 87 },
+        standard:  { jGate: 50000, jpy: '90,000 JPY APPROX', market: 260000, saving: 210000, pct: 81 },
+        advance:   { jGate: 120000, jpy: '216,000 JPY APPROX', market: 480000, saving: 360000, pct: 75 }
+      };
+
+      let currentPlan = 'standard';
+      let currentValues = {
+        jGate: 50000,
+        market: 260000,
+        saving: 210000,
+        pct: 81
+      };
+
+      const outJGate = document.getElementById('out-jgate');
+      const outJpy = document.getElementById('out-jpy');
+      const outMarket = document.getElementById('out-market');
+      const outSaving = document.getElementById('out-saving');
+      const outPct = document.getElementById('out-pct');
+
+      // Plan click handlers
+      document.querySelectorAll('.plan-card').forEach(card => {
+        card.addEventListener('click', () => {
+          document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('active'));
+          card.classList.add('active');
+          const planKey = card.getAttribute('data-plan');
+          if (planKey && planKey !== currentPlan) {
+            currentPlan = planKey;
+            updateCalculator(planData[planKey]);
+          }
+        });
+      });
+
+      // Team chip handlers
+      document.querySelectorAll('.team-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+          document.querySelectorAll('.team-chip').forEach(c => c.classList.remove('active'));
+          chip.classList.add('active');
+        });
+      });
+
+      function updateCalculator(target) {
+        outJpy.textContent = target.jpy;
+        const duration = 800;
+        const startTime = performance.now();
+        const startValues = { ...currentValues };
+
+        function step(now) {
+          const elapsed = now - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          const ease = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+
+          currentValues.jGate = Math.round(startValues.jGate + (target.jGate - startValues.jGate) * ease);
+          currentValues.market = Math.round(startValues.market + (target.market - startValues.market) * ease);
+          currentValues.saving = Math.round(startValues.saving + (target.saving - startValues.saving) * ease);
+          currentValues.pct = Math.round(startValues.pct + (target.pct - startValues.pct) * ease);
+
+          outJGate.textContent = '₹' + currentValues.jGate.toLocaleString();
+          outMarket.textContent = '₹' + currentValues.market.toLocaleString();
+          outSaving.textContent = '₹' + currentValues.saving.toLocaleString();
+          outPct.textContent = '~' + currentValues.pct + '%';
+
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          }
+        }
+        requestAnimationFrame(step);
+      }
+    });
+  </script>
+</body>
+</html>

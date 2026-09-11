@@ -19,8 +19,8 @@ const FAQS = [
     a: "J-Gate operates fully in English and Japanese. Our staff, advisory council, and partner network are bilingual. All formal documents can be provided in both languages.",
   },
   {
-    q: "How does the JETRO partnership benefit members?",
-    a: "JETRO — Japan's government-backed trade promotion organization — provides members with access to official trade facilitation resources, government introductions, bilateral business program participation, and Japan-side market intelligence. JETRO's Senior Director personally keynoted J-Gate's inauguration.",
+    q: "How does the T-Hub and Telangana ecosystem partnership benefit members?",
+    a: "T-Hub — the world's largest innovation hub — provides members with access to startup scouting, corporate pilot programs, deep-tech research talent, and strategic integration with the proactive Telangana State Government IT promotion cell.",
   },
   {
     q: "Can J-Gate help with company registration in India?",

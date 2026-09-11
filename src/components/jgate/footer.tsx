@@ -9,12 +9,14 @@ const NAV_LINKS = [
   { href: "/about", key: "nav.about" },
   { href: "/why-jgate", key: "nav.why" },
   { href: "/services", key: "nav.services" },
+  { href: "/team", key: "nav.team" },
   { href: "/pricing", key: "nav.pricing" },
+  { href: "/faq", key: "nav.faq" },
   { href: "/blogs", key: "nav.blogs" },
   { href: "/contact", key: "nav.contact" },
 ] as const;
 
-const PARTNER_LINKS = ["JETRO", "T-Hub", "Woxsen University", "Genesys Info X", "DMI", "Kodryx AI"];
+const PARTNER_LINKS = ["T-Hub", "Woxsen University", "Genesys Info X", "Kodryx AI", "MXC"];
 
 const SOCIALS = [
   { Icon: LinkedInIcon, label: "LinkedIn" },
@@ -26,7 +28,7 @@ export function Footer() {
   const { t, lang } = useI18n();
 
   return (
-    <footer className="relative mt-auto overflow-hidden bg-[#04080f] text-white">
+    <footer className="relative mt-auto overflow-hidden border-t border-white/10 bg-[#04080f] text-white">
       <div className="relative h-px w-full bg-gradient-to-r from-transparent via-crimson/40 to-transparent" />
       <div className="container-jg relative py-16">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
@@ -39,8 +41,9 @@ export function Footer() {
                 <span
                   key={label}
                   role="button"
+                  aria-disabled="true"
                   aria-label={`${label} — coming soon`}
-                  className="group relative flex h-9 w-9 cursor-default items-center justify-center rounded-md bg-white/[0.06] text-mist transition-all hover:-translate-y-0.5 hover:bg-crimson hover:text-white"
+                  className="group relative flex h-9 w-9 cursor-not-allowed items-center justify-center rounded-md bg-white/[0.06] text-mist opacity-50 transition-all hover:bg-white/10"
                 >
                   <Icon className="h-4 w-4" />
                   <span className="pointer-events-none absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-ink px-2 py-1 font-inter text-[10px] text-mist opacity-0 transition-opacity group-hover:opacity-100">
@@ -97,7 +100,7 @@ export function Footer() {
               <li className="flex items-start gap-2"><span>📞</span><span>+91-98498 11543 (Dheeraj, Community Manager)</span></li>
               <li className="flex items-start gap-2"><span>🇯🇵</span><span>Support provided in Japanese</span></li>
             </ul>
-            <Link href="/contact" className="mt-5 inline-flex items-center gap-1.5 rounded-md bg-crimson px-4 py-2.5 font-inter text-[13px] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-crimson-deep">
+            <Link href="/contact" className="btn-shine mt-5 inline-flex items-center gap-1.5 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-4 py-2.5 font-inter text-[13px] font-semibold text-white shadow-[0_0_16px_rgba(188,26,44,0.4)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(188,26,44,0.6)]">
               {t("nav.contact")}
             </Link>
           </div>
@@ -115,8 +118,8 @@ export function Footer() {
             {t("footer.crafted")}
           </p>
           <div className="flex gap-4">
-            <span className="font-inter text-[12px] text-mist/70">{t("footer.privacy")}</span>
-            <span className="font-inter text-[12px] text-mist/70">{t("footer.terms")}</span>
+            <Link href="#" className="font-inter text-[12px] text-mist/70 transition-colors hover:text-mist">{t("footer.privacy")}</Link>
+            <Link href="#" className="font-inter text-[12px] text-mist/70 transition-colors hover:text-mist">{t("footer.terms")}</Link>
           </div>
         </div>
       </div>

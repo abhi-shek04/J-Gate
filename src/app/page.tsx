@@ -22,6 +22,7 @@ import {
   Mail,
   MessageCircle,
   Clock,
+  Download,
 } from "lucide-react";
 import { Reveal, Eyebrow } from "@/components/jgate/shared";
 import { useI18n } from "@/lib/i18n";
@@ -228,20 +229,44 @@ export default function HomePage() {
 
   const locationAdvantages = [
     {
-      title: "1. Asia's Leading Tech & Innovation District",
-      desc: "Cyber Gateway in Hitech City is home to Microsoft, Google, Amazon, Apple, and NTT DATA — placing your business inside India's most prestigious tech cluster.",
+      title: {
+        EN: "1. Asia's Leading Tech & Innovation District",
+        JP: "1. アジア屈指のハイテク・イノベーション集積地",
+      },
+      desc: {
+        EN: "Cyber Gateway in Hitech City is home to Microsoft, Google, Amazon, Apple, and NTT DATA — placing your business inside India's most prestigious tech cluster.",
+        JP: "HITEC CityのCyber Gateway周辺にはMicrosoft、Google、Amazon、Apple、NTT DATAが集結。インド屈指のプレステージエリアに拠点を構えられます。",
+      },
     },
     {
-      title: "2. Strategic Cost & Quality-of-Life Advantages",
-      desc: "30–40% lower commercial operational costs compared to Bengaluru or Mumbai, paired with world-class metro connectivity and modern international infrastructure.",
+      title: {
+        EN: "2. Strategic Cost & Quality-of-Life Advantages",
+        JP: "2. 優れたコスト効率と快適な事業・生活環境",
+      },
+      desc: {
+        EN: "30–40% lower commercial operational costs compared to Bengaluru or Mumbai, paired with world-class metro connectivity and modern international infrastructure.",
+        JP: "バンガロールやムンバイと比較してオフィス運営コストを30〜40%抑制。整然とした都市インフラと最寄りメトロ駅徒歩2分の高い利便性を誇ります。",
+      },
     },
     {
-      title: "3. Proactive Telangana State Government Policy",
-      desc: "Telangana is ranked #1 in India for Ease of Doing Business, offering fast-track approvals, IT sector subsidies, and robust bilateral trade support.",
+      title: {
+        EN: "3. Proactive Telangana State Government Policy",
+        JP: "3. テランガナ州政府の手厚い外国企業優遇策",
+      },
+      desc: {
+        EN: "Telangana is ranked #1 in India for Ease of Doing Business, offering fast-track approvals, IT sector subsidies, and robust bilateral trade support.",
+        JP: "テランガナ州はインドの「ビジネスのしやすさ（Ease of Doing Business）」で常に首位級。迅速な許認可、IT補助金、日印二国間貿易の推進体制が整っています。",
+      },
     },
     {
-      title: "4. Abundant Top-Tier Engineering Talent",
-      desc: "Direct access to IIT Hyderabad, IIIT Hyderabad, and top engineering universities producing over 100,000 skilled tech graduates annually.",
+      title: {
+        EN: "4. Abundant Top-Tier Engineering Talent",
+        JP: "4. 名門工科大学が輩出する豊富なトップIT人材",
+      },
+      desc: {
+        EN: "Direct access to IIT Hyderabad, IIIT Hyderabad, and top engineering universities producing over 100,000 skilled tech graduates annually.",
+        JP: "IITハイデラバード、IIITなどインド最高峰の教育機関から毎年10万人以上の工学系・情報系人材が卒業。優秀なITエンジニアを直接採用可能です。",
+      },
     },
   ];
 
@@ -344,9 +369,29 @@ export default function HomePage() {
             </p>
           </Reveal>
 
+          {/* Primary Action CTAs */}
+          <Reveal delay={300}>
+            <div className="mt-7 sm:mt-9 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-xl mx-auto">
+              <Link
+                href="/auth/brochure"
+                className="btn-shine w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-6 sm:px-8 py-3.5 sm:py-4 font-inter text-[13.5px] sm:text-[14.5px] font-bold text-white shadow-xl shadow-crimson/35 hover:-translate-y-0.5 hover:shadow-crimson/50 transition-all"
+              >
+                <Download className="h-4 w-4 shrink-0" />
+                <span>{tx({ EN: "Download Official Brochure (PDF)", JP: "公式パンフレット（PDF）資料請求" })}</span>
+              </Link>
+              <Link
+                href="/contact"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/[0.06] hover:bg-white/10 px-6 sm:px-8 py-3.5 sm:py-4 font-inter text-[13.5px] sm:text-[14.5px] font-bold text-white hover:border-white/35 transition-all"
+              >
+                <span>{tx({ EN: "Executive Consultation Desk", JP: "現地視察・個別相談はこちら" })}</span>
+                <ArrowRight className="h-4 w-4 shrink-0" />
+              </Link>
+            </div>
+          </Reveal>
+
           {/* 2 floating glass badges — Hyderabad + Operator */}
-          <Reveal delay={320}>
-            <div className="mt-6 sm:mt-7 flex flex-wrap items-center justify-center gap-3">
+          <Reveal delay={360}>
+            <div className="mt-5 sm:mt-6 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
               <GlassBadge
                 emoji="📍"
                 primary={tx({ EN: "Hyderabad", JP: "ハイデラバード" })}
@@ -617,10 +662,10 @@ export default function HomePage() {
                       </div>
                       <div>
                         <h4 className="font-serif-jp text-[13.5px] sm:text-[14px] font-bold text-ink group-hover:text-crimson transition-colors">
-                          {item.title}
+                          {tx(item.title)}
                         </h4>
                         <p className="mt-0.5 font-inter text-[12px] sm:text-[12.5px] text-slate-600 leading-relaxed">
-                          {item.desc}
+                          {tx(item.desc)}
                         </p>
                       </div>
                     </div>

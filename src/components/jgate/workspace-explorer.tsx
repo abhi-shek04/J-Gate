@@ -135,7 +135,7 @@ export function WorkspaceExplorer() {
   const activeSpace = SPACES.find((s) => s.id === activeTab) || SPACES[0];
 
   return (
-    <section className="section-pad relative overflow-hidden bg-ivory">
+    <section className="section-pad relative overflow-hidden bg-ivory-warm border-t border-slate-200/60">
       <div className="container-jg">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">

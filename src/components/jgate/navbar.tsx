@@ -154,6 +154,7 @@ export function Navbar() {
             <li key={link.href}>
               <Link
                 href={link.href}
+                onClick={() => setOpen(false)}
                 style={{ transitionDelay: open ? `${i * 40}ms` : "0ms" }}
                 className={cn(
                   "flex w-full items-center justify-between border-b border-white/8 py-4 text-left font-serif-jp text-xl font-medium transition-all",
@@ -187,7 +188,8 @@ export function Navbar() {
           </div>
           <Link
             href="/auth/brochure"
-            className="btn-shine flex items-center justify-center gap-1.5 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3.5 font-inter text-sm font-semibold text-white shadow-[0_0_20px_rgba(188,26,44,0.4)]"
+            onClick={() => setOpen(false)}
+            className="btn-shine flex items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3.5 font-inter text-sm font-semibold text-white shadow-[0_0_20px_rgba(188,26,44,0.4)]"
           >
             <Download className="h-4 w-4" />
             {t("nav.brochure")}

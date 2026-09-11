@@ -349,7 +349,7 @@ export default function PricingPage() {
       {/* ───────────────────────────────────────────────────────────
           2. Executive ROI Benchmark Strip & Interactive Controls
          ─────────────────────────────────────────────────────────── */}
-      <section className="relative -mt-9 z-20 container-jg">
+      <section className="relative mt-1 sm:-mt-9 z-20 container-jg">
         <Reveal>
           <div className="rounded-xl sm:rounded-2xl border border-slate-200/90 bg-white/95 p-3.5 sm:p-5 shadow-[0_16px_40px_-12px_rgba(8,15,26,0.08)] backdrop-blur-md">
             <div className="flex flex-col xl:flex-row items-center justify-between gap-4">

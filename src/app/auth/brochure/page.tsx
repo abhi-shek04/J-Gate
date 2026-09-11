@@ -11,6 +11,9 @@ import {
   ArrowLeft,
   Lock,
   FileText,
+  ExternalLink,
+  Copy,
+  Check,
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
@@ -22,7 +25,11 @@ import Link from "next/link";
    Streamlined layout with:
      • 4 fields: Name, Organization, E-Mail, Questions
      • Submit → POST /api/brochure/submit → DB + admin email
-     • Success state with auto-download PDF
+     • Reliable multi-device download:
+       - Direct streaming download (/api/brochure/download)
+       - Preview in browser (/J-Gate-Brochure.pdf)
+       - Copy download link
+       - Immediate access bypass
    ============================================================ */
 
 type FormState = {
@@ -44,9 +51,8 @@ export default function BrochureAuthPage() {
   });
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [downloadUrl, setDownloadUrl] = useState("");
+  const [downloadUrl, setDownloadUrl] = useState<string>("/api/brochure/download");
 
-  // Scroll to top on mount
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, []);
@@ -93,19 +99,22 @@ export default function BrochureAuthPage() {
         setStatus("error");
         return;
       }
-      const url = data.downloadUrl || "/J-Gate-Brochure.pdf";
+      const url = data.downloadUrl || "/api/brochure/download";
       setDownloadUrl(url);
       setStatus("success");
 
-      // Trigger auto-download
-      setTimeout(() => {
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "J-Gate-Brochure.pdf";
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-      }, 400);
+      // Auto-trigger download reliably on both PC and mobile viewports
+      try {
+        const iframe = document.createElement("iframe");
+        iframe.style.display = "none";
+        iframe.src = "/api/brochure/download";
+        document.body.appendChild(iframe);
+        setTimeout(() => {
+          if (document.body.contains(iframe)) document.body.removeChild(iframe);
+        }, 60000);
+      } catch {
+        window.location.assign("/api/brochure/download");
+      }
     } catch {
       setErrors({ form: tx({ EN: "Network error. Please try again.", JP: "通信エラーが発生しました。もう一度お試しください。" }) });
       setStatus("error");
@@ -124,9 +133,9 @@ export default function BrochureAuthPage() {
   };
 
   const inputClass =
-    "w-full rounded-md border bg-white/[0.04] px-4 py-3 font-inter text-base sm:text-sm text-white placeholder-white/35 outline-none transition-colors focus:border-crimson";
+    "w-full rounded-xl border bg-white/[0.05] px-3.5 py-2.5 sm:px-4 sm:py-3 font-inter text-base sm:text-sm text-white placeholder-white/35 outline-none transition-all duration-200 focus:border-crimson focus:bg-white/[0.08]";
   const labelClass =
-    "mb-1.5 block font-inter text-[11.5px] font-semibold uppercase tracking-wider text-mist";
+    "mb-1 sm:mb-1.5 block font-inter text-[11px] sm:text-[11.5px] font-semibold uppercase tracking-wider text-mist";
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-midnight">
@@ -145,9 +154,9 @@ export default function BrochureAuthPage() {
         <ToriiWatermark className="h-[600px] w-[600px] text-white" />
       </div>
 
-      <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-4 py-12 sm:px-6 sm:py-16">
+      <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-3.5 py-10 sm:px-6 sm:py-16">
         {/* Back link */}
-        <div className="mb-6 w-full max-w-lg">
+        <div className="mb-4 sm:mb-6 w-full max-w-lg">
           <Link
             href="/"
             className="inline-flex items-center gap-1.5 font-inter text-[12px] font-medium text-mist transition-colors hover:text-white"
@@ -159,13 +168,13 @@ export default function BrochureAuthPage() {
 
         {/* Auth card */}
         <div
-          className="relative w-full max-w-lg overflow-hidden rounded-2xl border border-white/10 bg-navy shadow-2xl"
+          className="relative w-full max-w-lg overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-navy shadow-2xl"
           style={{ animation: "jg-modal-in 0.4s cubic-bezier(0.4,0,0.2,1)" }}
         >
           <style>{`@keyframes jg-modal-in { from { opacity:0; transform: translateY(24px) scale(0.97) } to { opacity:1; transform: translateY(0) scale(1) } }`}</style>
 
-          {/* Header (Clean, no yellow badge) */}
-          <div className="relative overflow-hidden bg-gradient-to-br from-crimson/20 via-navy to-navy p-7 sm:p-8">
+          {/* Header */}
+          <div className="relative overflow-hidden bg-gradient-to-br from-crimson/20 via-navy to-navy p-5 sm:p-8">
             <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-saffron/10 blur-3xl" aria-hidden="true" />
             <div className="absolute -left-8 -bottom-8 h-32 w-32 rounded-full bg-crimson/15 blur-3xl" aria-hidden="true" />
             <div className="relative">
@@ -174,16 +183,16 @@ export default function BrochureAuthPage() {
                 <JGateLogo variant="light" />
               </div>
 
-              <h1 className="mt-5 font-serif-jp text-2xl font-bold leading-snug text-white sm:text-[1.75rem]">
+              <h1 className="mt-4 sm:mt-5 font-serif-jp text-xl sm:text-2xl font-bold leading-snug text-white">
                 {status === "success"
                   ? tx({ EN: "Your Download Has Started", JP: "ダウンロードを開始しました" })
                   : tx({ EN: "Download Official Brochure", JP: "公式パンフレットのダウンロード" })}
               </h1>
-              <p className="mt-2 font-inter text-[13px] leading-relaxed text-mist">
+              <p className="mt-1.5 sm:mt-2 font-inter text-[12.5px] sm:text-[13px] leading-relaxed text-mist">
                 {status === "success"
                   ? tx({
-                      EN: "Thank you for your interest. If the download did not start automatically, please use the button below.",
-                      JP: "ご登録ありがとうございます。ダウンロードが自動的に始まらない場合は、下のボタンを押してください。",
+                      EN: "Thank you for your interest. If the download did not start automatically, please use the direct download or browser preview options below.",
+                      JP: "ご登録ありがとうございます。ダウンロードが自動的に始まらない場合は、下のボタンから直接ダウンロードまたはブラウザで閲覧いただけます。",
                     })
                   : tx({
                       EN: "Please provide your details below to download the comprehensive J-Gate India Expansion brochure.",
@@ -193,7 +202,7 @@ export default function BrochureAuthPage() {
 
               {/* Trust row */}
               {status !== "success" && (
-                <div className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 font-inter text-[11px] text-mist/80">
+                <div className="mt-3.5 sm:mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 font-inter text-[10.5px] sm:text-[11px] text-mist/80">
                   <span className="flex items-center gap-1.5">
                     <Lock className="h-3 w-3 text-crimson" />
                     {tx({ EN: "Encrypted", JP: "暗号化済み" })}
@@ -204,7 +213,7 @@ export default function BrochureAuthPage() {
                   </span>
                   <span className="flex items-center gap-1.5">
                     <FileText className="h-3 w-3 text-crimson" />
-                    {tx({ EN: "Official PDF", JP: "公式PDF資料" })}
+                    {tx({ EN: "Official PDF (55MB)", JP: "公式PDF（55MB）" })}
                   </span>
                 </div>
               )}
@@ -212,7 +221,7 @@ export default function BrochureAuthPage() {
           </div>
 
           {/* Body */}
-          <div className="p-7 sm:p-8">
+          <div className="p-5 sm:p-8 pt-4 sm:pt-6">
             {status === "success" ? (
               <SuccessState
                 downloadUrl={downloadUrl}
@@ -222,11 +231,11 @@ export default function BrochureAuthPage() {
               />
             ) : (
               /* Streamlined 4-Field Form: Name, Organization, E-Mail, Questions */
-              <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+              <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4" noValidate>
                 {errors.form && (
                   <div
                     role="alert"
-                    className="flex items-start gap-2 rounded-md border border-crimson/40 bg-crimson/10 px-3 py-2.5 font-inter text-[12px] text-crimson"
+                    className="flex items-start gap-2 rounded-xl border border-crimson/40 bg-crimson/10 px-3 py-2.5 font-inter text-[12px] text-crimson"
                   >
                     <AlertCircle className="h-4 w-4 shrink-0" />
                     <span>{errors.form}</span>
@@ -300,16 +309,16 @@ export default function BrochureAuthPage() {
                 {/* 4. Questions */}
                 <div>
                   <label htmlFor="br-questions" className={labelClass}>
-                    {tx({ EN: "Questions", JP: "ご質問・ご要望" })}
+                    {tx({ EN: "Questions / Requests", JP: "ご質問・ご要望（任意）" })}
                   </label>
                   <textarea
                     id="br-questions"
-                    rows={3}
+                    rows={2}
                     value={form.questions}
                     onChange={(e) => setForm({ ...form, questions: e.target.value })}
                     placeholder={tx({
-                      EN: "Any specific questions or inquiries (optional)...",
-                      JP: "進出時期、関心のある支援内容など（任意）...",
+                      EN: "Tell us about your team size, expansion timeline, or questions...",
+                      JP: "進出時期、希望席数、法人設立やIT人材採用のご質問など...",
                     })}
                     className={cn(inputClass, "resize-none border-white/12")}
                   />
@@ -319,26 +328,41 @@ export default function BrochureAuthPage() {
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="btn-shine mt-2 flex w-full items-center justify-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3.5 font-inter text-sm font-semibold text-white shadow-crimp transition-all hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70 cursor-pointer"
+                  className="btn-shine mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3 sm:py-3.5 font-inter text-sm font-semibold text-white shadow-xl shadow-crimson/30 hover:shadow-crimson/50 transition-all hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
                 >
                   {status === "submitting" ? (
                     <>
                       <Loader2 className="h-4 w-4 animate-spin" />
-                      <span>{tx({ EN: "Submitting...", JP: "送信中..." })}</span>
+                      <span>{tx({ EN: "Processing...", JP: "処理中..." })}</span>
                     </>
                   ) : (
                     <>
                       <Download className="h-4 w-4" />
-                      <span>{tx({ EN: "Download Brochure", JP: "パンフレットをダウンロード" })}</span>
+                      <span>{tx({ EN: "Download Official Brochure", JP: "公式パンフレットをダウンロード" })}</span>
                     </>
                   )}
                 </button>
 
-                <p className="flex items-center justify-center gap-1.5 pt-1 text-center font-inter text-[11px] text-mist/60">
-                  <Shield className="h-3 w-3" />
+                {/* Direct Access Bypass */}
+                <div className="mt-3.5 pt-3 border-t border-white/10 flex flex-wrap items-center justify-between gap-2 text-[11px] text-mist/70">
+                  <span>{tx({ EN: "Already submitted or need direct access?", JP: "即時閲覧または再ダウンロード希望の方：" })}</span>
+                  <div className="flex items-center gap-2 font-medium">
+                    <a href="/api/brochure/download" className="text-saffron hover:underline inline-flex items-center gap-1">
+                      <Download className="h-3 w-3" />
+                      {tx({ EN: "Direct Download", JP: "直接DL" })}
+                    </a>
+                    <span>·</span>
+                    <a href="/J-Gate-Brochure.pdf" target="_blank" rel="noopener noreferrer" className="text-mist hover:text-white inline-flex items-center gap-1">
+                      <ExternalLink className="h-3 w-3" />
+                      {tx({ EN: "Preview Online", JP: "ブラウザで開く" })}
+                    </a>
+                  </div>
+                </div>
+
+                <p className="pt-1 text-center font-inter text-[11px] text-mist/60">
                   {tx({
-                    EN: "Your data is encrypted and never shared with third parties.",
-                    JP: "お客様のデータは暗号化され、第三者に共有されることはありません。",
+                    EN: "Your data is encrypted and handled in strict confidentiality.",
+                    JP: "お客様のデータは暗号化され、厳格に秘密保持されます。",
                   })}
                 </p>
               </form>
@@ -347,17 +371,17 @@ export default function BrochureAuthPage() {
 
           {/* Footer bar */}
           {status !== "success" && (
-            <div className="border-t border-white/8 bg-midnight/60 px-7 py-4 sm:px-8">
+            <div className="border-t border-white/8 bg-midnight/60 px-5 py-3.5 sm:px-8">
               <p className="text-center font-inter text-[11px] text-mist/70">
                 {tx({
-                  EN: "Prefer a direct briefing? Contact our directors directly at",
+                  EN: "Prefer a direct briefing? Connect directly with our resident directors at",
                   JP: "直接の個別相談をご希望ですか？日本人ディレクター直通：",
                 })}{" "}
                 <Link
                   href="/contact"
                   className="font-medium text-white underline underline-offset-2 hover:text-saffron"
                 >
-                  {tx({ EN: "Contact Page", JP: "お問い合わせ窓口" })}
+                  {tx({ EN: "Executive Japan Desk", JP: "公式窓口・現地デスク" })}
                 </Link>
               </p>
             </div>
@@ -369,7 +393,7 @@ export default function BrochureAuthPage() {
 }
 
 /* ============================================================
-   Success State — centered checkmark + download + nav links
+   Success State — centered checkmark + download + preview + copy
    ============================================================ */
 function SuccessState({
   downloadUrl,
@@ -382,51 +406,88 @@ function SuccessState({
   t: (k: string) => string;
   tx: (e: { EN: string; JP: string }) => string;
 }) {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopyLink = async () => {
+    try {
+      const fullUrl = `${window.location.origin}/api/brochure/download`;
+      await navigator.clipboard.writeText(fullUrl);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2200);
+    } catch {
+      // Fallback
+    }
+  };
+
   return (
-    <div className="flex flex-col items-center py-4 text-center">
+    <div className="flex flex-col items-center py-2 text-center">
       <div className="relative">
         <div
           className="absolute inset-0 -m-4 rounded-full bg-emerald-500/20 blur-2xl"
           aria-hidden="true"
         />
-        <div className="relative flex h-20 w-20 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-400">
-          <CheckCircle2 className="h-12 w-12" strokeWidth={1.5} />
+        <div className="relative flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-2xl bg-emerald-500/15 text-emerald-400 border border-emerald-400/30 shadow-xl shadow-emerald-500/15">
+          <CheckCircle2 className="h-10 w-10 sm:h-12 sm:w-12" strokeWidth={1.5} />
         </div>
       </div>
 
-      <h2 className="mt-6 font-serif-jp text-xl font-bold text-white">
+      <h2 className="mt-4 sm:mt-5 font-serif-jp text-lg sm:text-xl font-bold text-white">
         {tx({
           EN: "Thank you! Your download has started.",
           JP: "ありがとうございます！ダウンロードを開始しました。",
         })}
       </h2>
-      <p className="mt-2 max-w-xs font-inter text-[13px] leading-relaxed text-mist">
+      <p className="mt-1.5 max-w-xs font-inter text-[12.5px] sm:text-[13px] leading-relaxed text-mist">
         {tx({
-          EN: "If your download did not start automatically, please click the button below.",
-          JP: "ダウンロードが自動で開始されない場合は、下のボタンを押してください。",
+          EN: "If your browser did not automatically save the file, please use the direct download or browser preview options below.",
+          JP: "自動的に保存されない場合は、下のボタンから直接ダウンロードまたはプレビューをご利用ください。",
         })}
       </p>
 
-      <div className="mt-6 flex w-full flex-col gap-2.5">
+      {/* Action Buttons */}
+      <div className="mt-5 sm:mt-6 flex w-full flex-col gap-2.5">
+        {/* Primary Download Button */}
         <a
-          href={downloadUrl || "/J-Gate-Brochure.pdf"}
-          download="J-Gate-Brochure.pdf"
-          className="btn-shine flex items-center justify-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3 font-inter text-sm font-semibold text-white shadow-crimp transition-all hover:-translate-y-0.5"
+          href="/api/brochure/download"
+          className="btn-shine flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3.5 font-inter text-[13.5px] sm:text-sm font-semibold text-white shadow-xl shadow-crimson/30 hover:shadow-crimson/50 transition-all hover:-translate-y-0.5"
         >
-          <Download className="h-4 w-4" />
-          {tx({ EN: "Download Again", JP: "再ダウンロード" })}
+          <Download className="h-4.5 w-4.5" />
+          {tx({ EN: "Save / Download PDF Brochure (55MB)", JP: "公式PDF資料をダウンロード (55MB)" })}
         </a>
-        <div className="flex flex-col gap-2 sm:flex-row">
+
+        {/* Secondary Options: Preview & Copy Link */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          <a
+            href="/J-Gate-Brochure.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/[0.06] px-4 py-2.5 font-inter text-[12px] font-semibold text-white hover:bg-white/10 transition-colors"
+          >
+            <ExternalLink className="h-3.5 w-3.5 text-saffron" />
+            {tx({ EN: "Preview in Browser", JP: "ブラウザで開く（プレビュー）" })}
+          </a>
+          <button
+            type="button"
+            onClick={handleCopyLink}
+            className="flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/[0.06] px-4 py-2.5 font-inter text-[12px] font-semibold text-white hover:bg-white/10 transition-colors cursor-pointer"
+          >
+            {copied ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5 text-slate-300" />}
+            {copied ? tx({ EN: "Link Copied!", JP: "リンクをコピーしました" }) : tx({ EN: "Copy Download Link", JP: "ダウンロードURLをコピー" })}
+          </button>
+        </div>
+
+        {/* Navigation row */}
+        <div className="flex flex-col gap-2 sm:flex-row pt-2">
           <button
             onClick={onReset}
-            className="flex flex-1 items-center justify-center gap-2 rounded-md border border-white/15 px-5 py-3 font-inter text-[13px] font-semibold text-white transition-all hover:bg-white/10 cursor-pointer"
+            className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-white/15 px-4 py-2.5 font-inter text-[12px] font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all cursor-pointer"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
-            {tx({ EN: "Register another", JP: "別の内容で登録" })}
+            {tx({ EN: "Submit another inquiry", JP: "別の内容で登録" })}
           </button>
           <Link
             href="/"
-            className="flex flex-1 items-center justify-center gap-2 rounded-md border border-white/15 px-5 py-3 font-inter text-[13px] font-semibold text-white transition-all hover:bg-white/10"
+            className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-white/15 px-4 py-2.5 font-inter text-[12px] font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all"
           >
             {tx({ EN: "Back to Home", JP: "ホームに戻る" })}
             <ArrowRight className="h-3.5 w-3.5" />

@@ -78,7 +78,7 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({
       ok: true,
       leadId,
-      downloadUrl: "/J-Gate-Brochure.pdf",
+      downloadUrl: "/api/brochure/download",
       message: "Lead saved and admin notified",
     });
   } catch (err) {

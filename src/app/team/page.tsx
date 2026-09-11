@@ -2,6 +2,7 @@
 
 import { Reveal, Eyebrow } from "@/components/jgate/shared";
 import { PageHero } from "@/components/jgate/page-hero";
+import { LogoMarquee } from "@/components/jgate/logo-marquee";
 import { useI18n } from "@/lib/i18n";
 import { Phone, Mail, MessageSquare, Sparkles, Languages } from "lucide-react";
 import Link from "next/link";
@@ -163,23 +164,6 @@ const OPS_TEAM: OpsMember[] = [
       { EN: "Hindi", JP: "ヒンディー語" },
     ],
   },
-];
-
-/* Ecosystem Partner Data — Divided into 2 Rows for Side-Scrolling Marquee */
-const ECOSYSTEM_ROW_1 = [
-  { name: "T-Hub", src: "/logos/thub.png", category: "INNOVATION HUB", desc: "World's Largest Innovation Center" },
-  { name: "Woxsen University", src: "/logos/woxsen.png", category: "ACADEMIC PARTNER", desc: "Executive Talent & Research" },
-  { name: "Genesys Info X", src: "/logos/genesys-info-x.png", category: "MoU PARTNER", desc: "Global Digital Solutions" },
-  { name: "Kodryx.ai", src: "/logos/kodryx.png", category: "DATA INTELLIGENCE", desc: "Enterprise AI & Analytics" },
-  { name: "Daakia", src: "/logos/daakia.png", category: "COMMUNICATIONS", desc: "Bridging Distance with AI" },
-];
-
-const ECOSYSTEM_ROW_2 = [
-  { name: "MXC", src: "/logos/mxc.png", category: "TECH PLATFORMS", desc: "Next-Gen Software Solutions" },
-  { name: "Fingerprint Films", src: "/logos/fingerprint-films.png", category: "CREATIVE STUDIO", desc: "Brand Storytelling & Media" },
-  { name: "Hyderabad Anime Club", src: "/logos/hyderabad-anime-club.png", category: "COMMUNITY", desc: "Cultural & Community Network" },
-  { name: "YANC", src: "/logos/yanc.png", category: "NETWORKING", desc: "Young Minds Global Forum" },
-  { name: "Data Intelligence", src: "/logos/data-intelligence.png", category: "ANALYTICS", desc: "Market & Talent Intelligence" },
 ];
 
 export default function TeamPage() {
@@ -586,89 +570,7 @@ export default function TeamPage() {
         </div>
 
         {/* Dual Infinite Side-Scrolling Marquee Tracks with Edge Masking */}
-        <div className="space-y-4 sm:space-y-6">
-          {/* Row 1 — Continuous Flow (Leftward) */}
-          <div
-            className="marquee-track relative overflow-hidden py-1"
-            style={{
-              maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-              WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-            }}
-          >
-            <div
-              className="flex w-max gap-4 animate-marquee"
-              style={{ animationDuration: "38s" }}
-            >
-              {[...ECOSYSTEM_ROW_1, ...ECOSYSTEM_ROW_1, ...ECOSYSTEM_ROW_1, ...ECOSYSTEM_ROW_1].map((p, i) => (
-                <div
-                  key={`r1-${p.name}-${i}`}
-                  className="group flex h-24 sm:h-28 w-60 sm:w-72 shrink-0 items-center gap-3 sm:gap-4 rounded-xl sm:rounded-2xl border border-slate-200/90 bg-white p-3 sm:p-4 shadow-card transition-all duration-300 hover:border-crimson/40 hover:shadow-xl hover:-translate-y-1"
-                >
-                  <div className="flex h-14 w-20 sm:h-16 sm:w-24 shrink-0 items-center justify-center rounded-xl bg-slate-50/90 p-1.5 sm:p-2 border border-slate-100">
-                    <img
-                      src={p.src}
-                      alt={`${p.name} logo`}
-                      className="max-h-9 sm:max-h-11 max-w-[70px] sm:max-w-[85px] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <span className="block font-inter text-[12.5px] sm:text-[13.5px] font-bold text-ink group-hover:text-crimson transition-colors truncate">
-                      {p.name}
-                    </span>
-                    <span className="mt-0.5 block font-inter text-[8.5px] sm:text-[9px] font-bold uppercase tracking-wider text-crimson">
-                      {p.category}
-                    </span>
-                    <p className="mt-0.5 sm:mt-1 font-inter text-[10.5px] sm:text-[11px] text-slate-500 line-clamp-1">
-                      {p.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Row 2 — Continuous Flow (Rightward) */}
-          <div
-            className="marquee-track relative overflow-hidden py-1"
-            style={{
-              maskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-              WebkitMaskImage: "linear-gradient(to right, transparent, black 10%, black 90%, transparent)",
-            }}
-          >
-            <div
-              className="flex w-max gap-4 animate-marquee"
-              style={{ animationDirection: "reverse", animationDuration: "42s" }}
-            >
-              {[...ECOSYSTEM_ROW_2, ...ECOSYSTEM_ROW_2, ...ECOSYSTEM_ROW_2, ...ECOSYSTEM_ROW_2].map((p, i) => (
-                <div
-                  key={`r2-${p.name}-${i}`}
-                  className="group flex h-24 sm:h-28 w-60 sm:w-72 shrink-0 items-center gap-3 sm:gap-4 rounded-xl sm:rounded-2xl border border-slate-200/90 bg-white p-3 sm:p-4 shadow-card transition-all duration-300 hover:border-crimson/40 hover:shadow-xl hover:-translate-y-1"
-                >
-                  <div className="flex h-14 w-20 sm:h-16 sm:w-24 shrink-0 items-center justify-center rounded-xl bg-slate-50/90 p-1.5 sm:p-2 border border-slate-100">
-                    <img
-                      src={p.src}
-                      alt={`${p.name} logo`}
-                      className="max-h-9 sm:max-h-11 max-w-[70px] sm:max-w-[85px] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-105"
-                      loading="lazy"
-                    />
-                  </div>
-                  <div className="min-w-0 flex-1">
-                    <span className="block font-inter text-[12.5px] sm:text-[13.5px] font-bold text-ink group-hover:text-crimson transition-colors truncate">
-                      {p.name}
-                    </span>
-                    <span className="mt-0.5 block font-inter text-[8.5px] sm:text-[9px] font-bold uppercase tracking-wider text-crimson">
-                      {p.category}
-                    </span>
-                    <p className="mt-0.5 sm:mt-1 font-inter text-[10.5px] sm:text-[11px] text-slate-500 line-clamp-1">
-                      {p.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <LogoMarquee variant="light" />
       </section>
 
     </>

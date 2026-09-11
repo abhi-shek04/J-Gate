@@ -159,7 +159,7 @@ export function WorkspaceExplorer() {
         </Reveal>
 
         {/* Tab Buttons */}
-        <div className="mt-6 sm:mt-10 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5 max-w-4xl mx-auto">
+        <div className="mt-6 sm:mt-10 flex items-center justify-start sm:justify-center gap-2 sm:gap-2.5 max-w-4xl mx-auto overflow-x-auto no-scrollbar py-1 px-1 sm:flex-wrap">
           {SPACES.map((space) => {
             const Icon = space.icon;
             const isActive = activeTab === space.id;
@@ -167,7 +167,7 @@ export function WorkspaceExplorer() {
               <button
                 key={space.id}
                 onClick={() => setActiveTab(space.id)}
-                className={`flex items-center gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl px-3 py-1.5 sm:px-4 sm:py-2.5 font-inter text-[12px] sm:text-[13px] font-semibold transition-all duration-300 ${
+                className={`shrink-0 flex items-center gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl px-3.5 py-2 sm:px-4 sm:py-2.5 font-inter text-[12px] sm:text-[13px] font-semibold transition-all duration-300 ${
                   isActive
                     ? "bg-gradient-to-r from-crimson to-crimson-deep text-white shadow-md sm:shadow-lg shadow-crimson/25 scale-[1.02] sm:scale-105"
                     : "bg-white text-slate hover:bg-white/80 hover:text-ink border border-slate-200/80 shadow-xs"

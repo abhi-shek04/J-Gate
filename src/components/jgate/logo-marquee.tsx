@@ -38,7 +38,7 @@ function PartnerCard({ logo, variant = "light" }: { logo: Logo; variant?: "light
   return (
     <div
       className={cn(
-        "group flex h-20 sm:h-22 w-64 sm:w-72 shrink-0 items-center gap-3.5 rounded-2xl border p-3 sm:p-3.5 transition-all duration-300 hover:-translate-y-1",
+        "group flex h-14 sm:h-20 w-44 sm:w-68 shrink-0 items-center gap-2.5 sm:gap-3.5 rounded-xl sm:rounded-2xl border p-2 sm:p-3.5 transition-all duration-300 hover:-translate-y-1",
         isDark
           ? "border-white/10 bg-white/[0.04] backdrop-blur-sm hover:border-saffron/40 hover:bg-white/[0.07] hover:shadow-[0_8px_24px_rgba(0,0,0,0.35)]"
           : "border-slate-200/90 bg-white shadow-card hover:border-crimson/40 hover:shadow-xl"
@@ -46,21 +46,21 @@ function PartnerCard({ logo, variant = "light" }: { logo: Logo; variant?: "light
     >
       <div
         className={cn(
-          "flex h-14 w-20 sm:w-22 shrink-0 items-center justify-center rounded-xl p-2 transition-colors",
+          "flex h-10 w-13 sm:h-14 sm:w-22 shrink-0 items-center justify-center rounded-lg sm:rounded-xl p-1 sm:p-2 transition-colors",
           isDark ? "bg-white" : "border border-slate-100 bg-slate-50/90"
         )}
       >
         <img
           src={logo.src}
           alt={`${logo.name} logo`}
-          className="max-h-10 max-w-[75px] sm:max-w-[80px] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-105"
+          className="max-h-7 sm:max-h-10 max-w-[48px] sm:max-w-[78px] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-105"
           loading="lazy"
         />
       </div>
       <div className="min-w-0 flex-1">
         <span
           className={cn(
-            "block font-inter text-[13px] font-bold truncate transition-colors",
+            "block font-inter text-[11px] sm:text-[13px] font-bold truncate leading-tight transition-colors",
             isDark ? "text-white group-hover:text-saffron" : "text-ink group-hover:text-crimson"
           )}
         >
@@ -68,7 +68,7 @@ function PartnerCard({ logo, variant = "light" }: { logo: Logo; variant?: "light
         </span>
         <span
           className={cn(
-            "mt-0.5 block font-inter text-[8.5px] font-bold uppercase tracking-wider truncate",
+            "mt-0.5 block font-inter text-[7.5px] sm:text-[8.5px] font-bold uppercase tracking-wider truncate",
             isDark ? "text-saffron" : "text-crimson"
           )}
         >
@@ -77,7 +77,7 @@ function PartnerCard({ logo, variant = "light" }: { logo: Logo; variant?: "light
         {logo.desc && (
           <p
             className={cn(
-              "mt-0.5 font-inter text-[10.5px] line-clamp-1",
+              "hidden sm:block mt-0.5 font-inter text-[10.5px] line-clamp-1",
               isDark ? "text-mist" : "text-slate-500"
             )}
           >
@@ -99,11 +99,11 @@ export function LogoMarquee({ variant = "light" }: { variant?: "light" | "dark" 
   };
 
   return (
-    <div className="space-y-4 sm:space-y-5">
+    <div className="space-y-2.5 sm:space-y-4">
       {/* Row 1 — Continuous Flow (Leftward) */}
-      <div className="marquee-track relative overflow-hidden py-1" style={maskStyle}>
+      <div className="marquee-track relative overflow-hidden py-0.5 sm:py-1" style={maskStyle}>
         <div
-          className="flex w-max gap-4 animate-marquee"
+          className="flex w-max gap-2.5 sm:gap-4 animate-marquee"
           style={{ animationDuration: "36s" }}
         >
           {row1.map((logo, i) => (
@@ -113,9 +113,9 @@ export function LogoMarquee({ variant = "light" }: { variant?: "light" | "dark" 
       </div>
 
       {/* Row 2 — Continuous Flow (Rightward) */}
-      <div className="marquee-track relative overflow-hidden py-1" style={maskStyle}>
+      <div className="marquee-track relative overflow-hidden py-0.5 sm:py-1" style={maskStyle}>
         <div
-          className="flex w-max gap-4 animate-marquee"
+          className="flex w-max gap-2.5 sm:gap-4 animate-marquee"
           style={{ animationDirection: "reverse", animationDuration: "40s" }}
         >
           {row2.map((logo, i) => (

@@ -18,6 +18,10 @@ import {
   FileText,
   Globe2,
   Sparkles,
+  Phone,
+  Mail,
+  MessageCircle,
+  Clock,
 } from "lucide-react";
 import { Reveal, Eyebrow } from "@/components/jgate/shared";
 import { useI18n } from "@/lib/i18n";
@@ -551,28 +555,28 @@ export default function HomePage() {
                   </div>
 
                   {/* Connectivity Quick Strip */}
-                  <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-slate-100 grid grid-cols-3 gap-2 sm:gap-2.5 text-center">
-                    <div className="bg-slate-50 rounded-lg sm:rounded-xl p-2 sm:p-2.5 border border-slate-200/60 shadow-sm transition-transform duration-200 hover:scale-105">
-                      <span className="block font-inter text-[9px] sm:text-[9.5px] font-semibold text-slate-400 uppercase tracking-wider">
+                  <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-slate-100 grid grid-cols-3 gap-1.5 sm:gap-2.5 text-center">
+                    <div className="bg-slate-50 rounded-lg sm:rounded-xl p-1.5 sm:p-2.5 border border-slate-200/60 shadow-sm transition-transform duration-200 hover:scale-105">
+                      <span className="block font-inter text-[8.5px] sm:text-[9.5px] font-semibold text-slate-400 uppercase tracking-wider">
                         {tx({ EN: "Metro", JP: "メトロ" })}
                       </span>
-                      <span className="block font-inter text-[11px] sm:text-[12px] font-bold text-ink truncate mt-0.5">
+                      <span className="block font-inter text-[10.5px] sm:text-[12px] font-bold text-ink truncate mt-0.5">
                         {tx({ EN: "2 Min Walk", JP: "徒歩2分" })}
                       </span>
                     </div>
-                    <div className="bg-slate-50 rounded-lg sm:rounded-xl p-2 sm:p-2.5 border border-slate-200/60 shadow-sm transition-transform duration-200 hover:scale-105">
-                      <span className="block font-inter text-[9px] sm:text-[9.5px] font-semibold text-slate-400 uppercase tracking-wider">
+                    <div className="bg-slate-50 rounded-lg sm:rounded-xl p-1.5 sm:p-2.5 border border-slate-200/60 shadow-sm transition-transform duration-200 hover:scale-105">
+                      <span className="block font-inter text-[8.5px] sm:text-[9.5px] font-semibold text-slate-400 uppercase tracking-wider">
                         {tx({ EN: "Airport", JP: "空港" })}
                       </span>
-                      <span className="block font-inter text-[11px] sm:text-[12px] font-bold text-ink truncate mt-0.5">
+                      <span className="block font-inter text-[10.5px] sm:text-[12px] font-bold text-ink truncate mt-0.5">
                         {tx({ EN: "35 Min Drive", JP: "車で35分" })}
                       </span>
                     </div>
-                    <div className="bg-slate-50 rounded-lg sm:rounded-xl p-2 sm:p-2.5 border border-slate-200/60 shadow-sm transition-transform duration-200 hover:scale-105">
-                      <span className="block font-inter text-[9px] sm:text-[9.5px] font-semibold text-slate-400 uppercase tracking-wider">
+                    <div className="bg-slate-50 rounded-lg sm:rounded-xl p-1.5 sm:p-2.5 border border-slate-200/60 shadow-sm transition-transform duration-200 hover:scale-105">
+                      <span className="block font-inter text-[8.5px] sm:text-[9.5px] font-semibold text-slate-400 uppercase tracking-wider">
                         {tx({ EN: "District", JP: "地区" })}
                       </span>
-                      <span className="block font-inter text-[11px] sm:text-[12px] font-bold text-crimson truncate mt-0.5">
+                      <span className="block font-inter text-[10.5px] sm:text-[12px] font-bold text-crimson truncate mt-0.5">
                         {tx({ EN: "Hitech City", JP: "IT特区" })}
                       </span>
                     </div>
@@ -650,20 +654,19 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════
           7. ECOSYSTEM MARQUEE — Bilateral Innovation Network
          ════════════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden border-t border-slate-200/60 bg-ivory py-16">
+      <section className="relative overflow-hidden border-t border-slate-200/60 bg-ivory py-10 sm:py-16">
         <div className="container-jg">
           <Reveal>
-            <div className="mx-auto mb-10 max-w-3xl text-center">
+            <div className="mx-auto mb-6 sm:mb-10 max-w-3xl text-center">
               <Eyebrow>{t("home.logos.eyebrow")}</Eyebrow>
               <h2
-                className="mt-3 font-serif-jp font-bold text-ink"
-                style={{ fontSize: "clamp(1.875rem, 3.8vw, 2.5rem)" }}
+                className="mt-2.5 sm:mt-3 font-serif-jp font-bold text-ink"
+                style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)" }}
               >
                 {t("home.logos.title")}
               </h2>
               <p
-                className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-slate"
-                style={{ fontSize: "clamp(0.95rem, 1.4vw, 1.05rem)" }}
+                className="mx-auto mt-2 sm:mt-3 max-w-2xl font-inter leading-relaxed text-slate text-[13px] sm:text-[15px]"
               >
                 {t("home.logos.subtitle")}
               </p>
@@ -672,6 +675,218 @@ export default function HomePage() {
           <Reveal delay={100}>
             <LogoMarquee variant="light" />
           </Reveal>
+        </div>
+      </section>
+
+      {/* ════════════════════════════════════════════════════════════
+          8. EXECUTIVE CONTACT & CONSULTATION DESK
+          Seamless direct reach for decision-makers before footer
+         ════════════════════════════════════════════════════════════ */}
+      <section className="relative overflow-hidden bg-[#080F1A] text-white py-12 sm:py-16 lg:py-20 border-t border-white/10">
+        {/* Subtle decorative glow accents */}
+        <div className="pointer-events-none absolute -top-32 right-1/4 h-80 w-80 rounded-full bg-saffron/10 blur-3xl" />
+        <div className="pointer-events-none absolute -bottom-32 left-1/4 h-80 w-80 rounded-full bg-crimson/10 blur-3xl" />
+
+        <div className="container-jg relative z-10">
+          <Reveal>
+            <div className="mx-auto mb-8 sm:mb-12 max-w-3xl text-center">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-saffron/40 bg-saffron/10 px-3.5 py-1 font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-saffron">
+                <Sparkles className="h-3 w-3" />
+                {tx({ EN: "Executive Japan Desk", JP: "現地デスク・個別相談" })}
+              </span>
+              <h2
+                className="mt-3 font-serif-jp font-bold text-white leading-tight"
+                style={{ fontSize: "clamp(1.65rem, 3.2vw, 2.5rem)" }}
+              >
+                {tx({
+                  EN: "Connect with Resident Leadership in Hyderabad",
+                  JP: "ハイデラバード常駐日本人スタッフへの直接相談",
+                })}
+              </h2>
+              <p className="mt-2.5 font-inter text-[13px] sm:text-[14.5px] leading-relaxed text-mist max-w-2xl mx-auto">
+                {tx({
+                  EN: "Schedule a private facility walkthrough at Cyber Gateway, inquire about dedicated office suites, or discuss your India entry roadmap in Japanese.",
+                  JP: "Cyber Gatewayオフィスの現地見学、専用オフィスSuiteの空室状況、法人設立やエンジニア採用のご相談など、すべて日本語で丁寧に対応いたします。",
+                })}
+              </p>
+            </div>
+          </Reveal>
+
+          {/* Executive Contact Cards Grid */}
+          <div className="mx-auto max-w-5xl grid lg:grid-cols-12 gap-5 sm:gap-7 items-stretch">
+            
+            {/* Left: Direct Leadership & Channels (7 cols) */}
+            <div className="lg:col-span-7">
+              <Reveal variant="left">
+                <div className="luxury-glass-card card-sheen gold-hairline relative h-full rounded-2xl sm:rounded-3xl border border-white/15 bg-white/[0.04] p-5 sm:p-7 backdrop-blur-xl flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between border-b border-white/10 pb-3 sm:pb-4">
+                      <div className="flex items-center gap-2.5">
+                        <div className="icon-pod h-9 w-9 shrink-0 !bg-saffron/15 !border-saffron/30 !text-saffron">
+                          <Phone className="h-4.5 w-4.5" strokeWidth={1.8} />
+                        </div>
+                        <div>
+                          <span className="font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-saffron">
+                            {tx({ EN: "Resident Executive Lines", JP: "常駐担当者 直通窓口" })}
+                          </span>
+                          <h4 className="font-serif-jp text-[14px] sm:text-[15.5px] font-bold text-white">
+                            {tx({ EN: "Direct Phone & WhatsApp", JP: "お電話・WhatsApp直通" })}
+                          </h4>
+                        </div>
+                      </div>
+                      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 px-2 py-0.5 text-[10px] font-bold text-emerald-400 uppercase tracking-wider">
+                        <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                        {tx({ EN: "Active", JP: "受付中" })}
+                      </span>
+                    </div>
+
+                    {/* Leaders Quick Strip */}
+                    <div className="mt-4 space-y-3">
+                      {/* Tanji */}
+                      <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3 sm:p-3.5 hover:border-saffron/40 transition-colors">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <span className="font-serif-jp text-[13.5px] sm:text-[14px] font-bold text-white">
+                              {tx({ EN: "Daisuke Tanji", JP: "丹治 大介（ディレクター）" })}
+                            </span>
+                            <p className="font-inter text-[11px] text-mist/70">
+                              {tx({ EN: "Director · Japanese Support", JP: "日本語対応・現地代表" })}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="mt-2.5 grid grid-cols-2 gap-2">
+                          <a
+                            href="tel:+919910360648"
+                            className="flex items-center justify-center gap-1.5 rounded-lg border border-white/15 bg-white/[0.06] px-2.5 py-1.5 font-mono text-[11px] sm:text-[12px] font-bold text-white hover:border-saffron/60 hover:text-saffron transition-colors"
+                          >
+                            <Phone className="h-3 w-3 text-saffron" />
+                            +91-9910360648
+                          </a>
+                          <a
+                            href="https://wa.me/919910360648?text=Hello%20Tanji-san%2C%20I%20am%20inquiring%20about%20J-Gate."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center gap-1.5 rounded-lg border border-emerald-400/30 bg-emerald-500/20 px-2.5 py-1.5 font-inter text-[11px] sm:text-[12px] font-bold text-emerald-300 hover:bg-emerald-500/30 transition-colors"
+                          >
+                            <MessageCircle className="h-3 w-3 text-emerald-400" />
+                            {tx({ EN: "WhatsApp Chat", JP: "WhatsApp" })}
+                          </a>
+                        </div>
+                      </div>
+
+                      {/* Dheeraj */}
+                      <div className="rounded-xl border border-white/10 bg-white/[0.03] p-3 sm:p-3.5 hover:border-crimson/40 transition-colors">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <span className="font-serif-jp text-[13.5px] sm:text-[14px] font-bold text-white">
+                              {tx({ EN: "Dheeraj Yanneti", JP: "ディラジ・ヤネティ" })}
+                            </span>
+                            <p className="font-inter text-[11px] text-mist/70">
+                              {tx({ EN: "Community & Facility Manager", JP: "コミュニティ＆施設運営" })}
+                            </p>
+                          </div>
+                        </div>
+                        <div className="mt-2.5 grid grid-cols-2 gap-2">
+                          <a
+                            href="tel:+919849811543"
+                            className="flex items-center justify-center gap-1.5 rounded-lg border border-white/15 bg-white/[0.06] px-2.5 py-1.5 font-mono text-[11px] sm:text-[12px] font-bold text-white hover:border-crimson/60 hover:text-crimson-light transition-colors"
+                          >
+                            <Phone className="h-3 w-3 text-crimson-light" />
+                            +91-98498 11543
+                          </a>
+                          <a
+                            href="https://wa.me/919849811543?text=Hello%20Dheeraj%2C%20I%20am%20inquiring%20about%20J-Gate."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center justify-center gap-1.5 rounded-lg border border-emerald-400/30 bg-emerald-500/20 px-2.5 py-1.5 font-inter text-[11px] sm:text-[12px] font-bold text-emerald-300 hover:bg-emerald-500/30 transition-colors"
+                          >
+                            <MessageCircle className="h-3 w-3 text-emerald-400" />
+                            {tx({ EN: "WhatsApp Chat", JP: "WhatsApp" })}
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Trust Footer */}
+                  <div className="mt-4 pt-3.5 border-t border-white/10 flex flex-wrap items-center justify-between gap-2 text-[11px] text-mist/80">
+                    <span className="flex items-center gap-1.5">
+                      <Clock className="h-3.5 w-3.5 text-saffron" />
+                      {tx({ EN: "24-hour response SLA guarantee", JP: "24時間以内迅速返信保証" })}
+                    </span>
+                    <span className="flex items-center gap-1.5">
+                      <ShieldCheck className="h-3.5 w-3.5 text-emerald-400" />
+                      {tx({ EN: "Confidentiality & NDA guaranteed", JP: "秘密保持（NDA）対応" })}
+                    </span>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+
+            {/* Right: Quick Action / Online Console Trigger (5 cols) */}
+            <div className="lg:col-span-5">
+              <Reveal variant="right" delay={80}>
+                <div className="luxury-glass-card card-sheen gold-hairline relative h-full rounded-2xl sm:rounded-3xl border border-saffron/30 bg-gradient-to-b from-[#101929] to-[#080d1a] p-5 sm:p-7 shadow-2xl flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center gap-2">
+                      <div className="icon-pod h-8 w-8 shrink-0 !bg-crimson/20 !border-crimson/40 !text-crimson-light">
+                        <MapPin className="h-4 w-4" />
+                      </div>
+                      <div>
+                        <span className="font-inter text-[10px] font-bold uppercase tracking-wider text-saffron">
+                          {tx({ EN: "Cyber Gateway · HITEC City", JP: "現地施設のご案内" })}
+                        </span>
+                        <h4 className="font-serif-jp text-[14.5px] font-bold text-white">
+                          {tx({ EN: "Private Tour & Consultation", JP: "現地視察・オフィス個別相談" })}
+                        </h4>
+                      </div>
+                    </div>
+
+                    <p className="mt-3.5 font-inter text-[12px] sm:text-[13px] text-mist leading-relaxed">
+                      {tx({
+                        EN: "Visit our executive workspace in Hyderabad's premier IT hub. Experience the acoustically treated boardrooms, cafeteria, and secure private suites firsthand.",
+                        JP: "ハイデラバード中心部のCyber Gatewayにて、防音会議室、専用オフィス、カフェテリアなどの最新設備を実際にご見学いただけます。",
+                      })}
+                    </p>
+
+                    {/* Quick Official Email */}
+                    <div className="mt-4 rounded-xl border border-white/10 bg-white/[0.04] p-3">
+                      <span className="block font-inter text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                        {tx({ EN: "Official Correspondence", JP: "公式メール窓口" })}
+                      </span>
+                      <a
+                        href="mailto:contact@indobox.co.jp"
+                        className="mt-0.5 block font-serif-jp text-[14px] sm:text-[15px] font-bold text-saffron hover:underline"
+                      >
+                        contact@indobox.co.jp
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Actions */}
+                  <div className="mt-5 space-y-2.5">
+                    <Link
+                      href="/contact"
+                      className="btn-shine flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-4 py-3 font-inter text-[13px] sm:text-[14px] font-bold text-white shadow-lg shadow-crimson/30 hover:shadow-crimson/50 hover:-translate-y-0.5 transition-all"
+                    >
+                      {tx({ EN: "Open Full Inquiry Console", JP: "お問い合わせフォームを開く" })}
+                      <ArrowRight className="h-4 w-4" />
+                    </Link>
+                    <a
+                      href="https://wa.me/919910360648?text=Hello%20Tanji-san%2C%20I%20would%20like%20to%20schedule%20a%20private%20tour%20of%20J-Gate."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex w-full items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/[0.06] px-4 py-2.5 font-inter text-[12.5px] font-semibold text-slate-200 hover:bg-white/10 hover:text-white transition-colors"
+                    >
+                      <MessageCircle className="h-4 w-4 text-emerald-400" />
+                      {tx({ EN: "Schedule Visit via WhatsApp", JP: "WhatsAppで視察予約" })}
+                    </a>
+                  </div>
+                </div>
+              </Reveal>
+            </div>
+
+          </div>
         </div>
       </section>
 

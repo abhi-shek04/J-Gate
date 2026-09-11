@@ -366,7 +366,7 @@ export default function FAQPage() {
         <div className="container-jg max-w-5xl">
           {/* Category Filter Pills */}
           <Reveal>
-            <div className="flex flex-wrap items-center justify-center gap-2">
+            <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
               {CATEGORIES.map((cat) => {
                 const Icon = cat.icon;
                 const isSelected = selectedCategory === cat.id;
@@ -380,17 +380,17 @@ export default function FAQPage() {
                     key={cat.id}
                     onClick={() => setSelectedCategory(cat.id)}
                     className={cn(
-                      "group inline-flex items-center gap-2 rounded-full px-4 py-2 font-inter text-[12.5px] font-semibold transition-all duration-200",
+                      "group inline-flex items-center gap-1.5 sm:gap-2 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 font-inter text-[11.5px] sm:text-[12.5px] font-semibold transition-all duration-200",
                       isSelected
                         ? "bg-crimson text-white shadow-md shadow-crimson/25 ring-2 ring-crimson/20"
                         : "border border-slate-200 bg-white text-slate-700 hover:border-crimson/40 hover:bg-slate-50"
                     )}
                   >
-                    <Icon className={cn("h-3.5 w-3.5", isSelected ? "text-white" : "text-slate-500 group-hover:text-crimson")} />
+                    <Icon className={cn("h-3 w-3 sm:h-3.5 sm:w-3.5", isSelected ? "text-white" : "text-slate-500 group-hover:text-crimson")} />
                     <span>{tx(cat.label)}</span>
                     <span
                       className={cn(
-                        "rounded-full px-1.5 py-0.2 text-[10.5px] font-bold",
+                        "rounded-full px-1.5 py-0.2 text-[10px] sm:text-[10.5px] font-bold",
                         isSelected ? "bg-white/20 text-white" : "bg-slate-100 text-slate-600"
                       )}
                     >
@@ -403,7 +403,7 @@ export default function FAQPage() {
           </Reveal>
 
           {/* Results Summary Bar + Expand/Collapse Buttons */}
-          <div className="mt-8 flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-3 font-inter text-[12.5px] text-slate-600">
+          <div className="mt-5 sm:mt-8 flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 border-b border-slate-200 pb-2.5 sm:pb-3 font-inter text-[11.5px] sm:text-[12.5px] text-slate-600">
             <div>
               {tx({
                 EN: `Showing ${filteredList.length} of ${FAQ_LIST.length} questions`,
@@ -428,14 +428,14 @@ export default function FAQPage() {
           </div>
 
           {/* FAQ Accordion List */}
-          <div className="mt-6 space-y-4">
+          <div className="mt-4 sm:mt-6 space-y-2.5 sm:space-y-4">
             {filteredList.length === 0 ? (
-              <div className="rounded-3xl border border-dashed border-slate-300 bg-white py-16 text-center">
-                <HelpCircle className="mx-auto h-12 w-12 text-slate-300" />
-                <h3 className="mt-4 font-serif-jp text-lg font-bold text-ink">
+              <div className="rounded-2xl sm:rounded-3xl border border-dashed border-slate-300 bg-white py-12 sm:py-16 text-center">
+                <HelpCircle className="mx-auto h-10 w-10 sm:h-12 sm:w-12 text-slate-300" />
+                <h3 className="mt-3 sm:mt-4 font-serif-jp text-base sm:text-lg font-bold text-ink">
                   {tx({ EN: "No matching questions found", JP: "該当する質問が見つかりませんでした" })}
                 </h3>
-                <p className="mx-auto mt-2 max-w-md font-inter text-[13.5px] text-slate-600">
+                <p className="mx-auto mt-2 max-w-md font-inter text-[12.5px] sm:text-[13.5px] text-slate-600 px-4">
                   {tx({
                     EN: "Try using different keywords, or reach out to our resident Japan Desk for immediate personal consultation.",
                     JP: "キーワードを変更して再検索いただくか、常駐ジャパンデスクまで直接お問い合わせください。",
@@ -445,7 +445,7 @@ export default function FAQPage() {
                   onClick={() => {
                     setSelectedCategory("all");
                   }}
-                  className="mt-5 inline-flex items-center gap-2 rounded-xl bg-slate-100 px-5 py-2.5 font-inter text-[13px] font-semibold text-slate-800 hover:bg-slate-200 transition-colors"
+                  className="mt-4 sm:mt-5 inline-flex items-center gap-2 rounded-xl bg-slate-100 px-4 py-2 sm:px-5 sm:py-2.5 font-inter text-[12px] sm:text-[13px] font-semibold text-slate-800 hover:bg-slate-200 transition-colors"
                 >
                   {tx({ EN: "View All Questions", JP: "すべての質問を表示" })}
                 </button>
@@ -457,7 +457,7 @@ export default function FAQPage() {
                   <Reveal key={item.id} delay={idx * 30}>
                     <div
                       className={cn(
-                        "group overflow-hidden rounded-2xl border bg-white transition-all duration-300 shadow-sm",
+                        "group overflow-hidden rounded-xl sm:rounded-2xl border bg-white transition-all duration-300 shadow-sm",
                         isOpen
                           ? "border-crimson/50 shadow-md ring-1 ring-crimson/15"
                           : "border-slate-200/90 hover:border-slate-300 hover:shadow"
@@ -465,11 +465,11 @@ export default function FAQPage() {
                     >
                       <button
                         onClick={() => toggleItem(item.id)}
-                        className="flex w-full items-start justify-between gap-4 p-5 text-left transition-colors sm:p-6"
+                        className="flex w-full items-start justify-between gap-3 sm:gap-4 p-3.5 sm:p-5 lg:p-6 text-left transition-colors"
                         aria-expanded={isOpen}
                       >
-                        <div className="flex-1 space-y-1.5">
-                          <span className="inline-flex items-center gap-1.5 rounded-md bg-slate-100 px-2.5 py-0.5 font-inter text-[11px] font-bold text-slate-600 uppercase tracking-wide">
+                        <div className="flex-1 space-y-1 sm:space-y-1.5">
+                          <span className="inline-flex items-center gap-1 rounded-md bg-slate-100 px-2 py-0.5 font-inter text-[10px] sm:text-[11px] font-bold text-slate-600 uppercase tracking-wide">
                             {tx(item.categoryLabel)}
                           </span>
                           <h3
@@ -477,7 +477,7 @@ export default function FAQPage() {
                               "font-serif-jp font-bold leading-snug transition-colors",
                               isOpen ? "text-crimson" : "text-ink group-hover:text-crimson"
                             )}
-                            style={{ fontSize: "clamp(1rem, 1.4vw, 1.15rem)" }}
+                            style={{ fontSize: "clamp(0.95rem, 1.3vw, 1.15rem)" }}
                           >
                             {tx(item.q)}
                           </h3>
@@ -485,32 +485,32 @@ export default function FAQPage() {
 
                         <div
                           className={cn(
-                            "flex h-9 w-9 shrink-0 items-center justify-center rounded-full transition-transform duration-300",
+                            "flex h-8 w-8 sm:h-9 sm:w-9 shrink-0 items-center justify-center rounded-full transition-transform duration-300",
                             isOpen
                               ? "bg-crimson text-white rotate-180 shadow-sm shadow-crimson/30"
                               : "bg-slate-100 text-slate-600 group-hover:bg-slate-200"
                           )}
                         >
-                          <ChevronDown className="h-4 w-4" />
+                          <ChevronDown className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                         </div>
                       </button>
 
                       {isOpen && (
-                        <div className="border-t border-slate-100 bg-gradient-to-b from-slate-50/40 to-white px-5 pb-6 pt-4 sm:px-6 animate-in fade-in-50 duration-200">
-                          <p className="font-inter text-[14px] leading-relaxed text-slate-700">
+                        <div className="border-t border-slate-100 bg-gradient-to-b from-slate-50/40 to-white px-3.5 pb-4 pt-3 sm:px-6 sm:pb-6 sm:pt-4 animate-in fade-in-50 duration-200">
+                          <p className="font-inter text-[12.5px] sm:text-[14px] leading-relaxed text-slate-700">
                             {tx(item.a)}
                           </p>
 
                           {/* Optional highlight checkpoints */}
                           {item.highlights && item.highlights.length > 0 && (
-                            <div className="mt-4 grid gap-2 sm:grid-cols-3 pt-3 border-t border-slate-100">
+                            <div className="mt-3 sm:mt-4 grid gap-1.5 sm:gap-2 sm:grid-cols-3 pt-2.5 sm:pt-3 border-t border-slate-100">
                               {item.highlights.map((h, hIdx) => (
                                 <div
                                   key={hIdx}
-                                  className="flex items-center gap-2 rounded-lg bg-ivory/80 px-3 py-2 border border-slate-200/60"
+                                  className="flex items-center gap-2 rounded-lg bg-ivory/80 px-2.5 py-1.5 sm:px-3 sm:py-2 border border-slate-200/60"
                                 >
                                   <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-crimson" />
-                                  <span className="font-inter text-[11.5px] font-medium text-slate-700 leading-tight">
+                                  <span className="font-inter text-[11px] sm:text-[11.5px] font-medium text-slate-700 leading-tight">
                                     {tx(h)}
                                   </span>
                                 </div>

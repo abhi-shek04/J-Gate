@@ -118,16 +118,16 @@ function FeatureCard({
 }) {
   return (
     <Reveal delay={delay} variant="scale">
-      <article className="luxury-light-card card-sheen group relative flex h-full flex-col rounded-2xl p-6 bg-white border border-slate-200/90 shadow-card hover:shadow-2xl hover:border-crimson/35 transition-all duration-300">
+      <article className="luxury-light-card card-sheen group relative flex h-full flex-col rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 bg-white border border-slate-200/90 shadow-card hover:shadow-2xl hover:border-crimson/35 transition-all duration-300">
         {/* Top subtle hairline accent */}
         <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-crimson/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-        <div className="icon-pod h-12 w-12 shrink-0">
-          <Icon className="h-6 w-6" strokeWidth={1.75} />
+        <div className="icon-pod h-10 w-10 sm:h-12 sm:w-12 shrink-0">
+          <Icon className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.75} />
         </div>
-        <h3 className="mt-4 font-serif-jp text-[16px] font-bold leading-snug text-ink group-hover:text-crimson transition-colors">
+        <h3 className="mt-3 sm:mt-4 font-serif-jp text-[15px] sm:text-[16px] font-bold leading-snug text-ink group-hover:text-crimson transition-colors">
           {title}
         </h3>
-        <p className="mt-2 text-[13px] leading-relaxed text-slate-600">
+        <p className="mt-1.5 sm:mt-2 text-[12.5px] sm:text-[13px] leading-relaxed text-slate-600">
           {desc}
         </p>
       </article>
@@ -246,7 +246,7 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════
           1. HERO — Compact & Elegant, midnight, Torii watermark, particles, 2 glass badges
          ════════════════════════════════════════════════════════════ */}
-      <section className="relative flex min-h-[75vh] sm:min-h-[82vh] items-center justify-center overflow-hidden bg-midnight py-14 sm:py-18">
+      <section className="relative flex min-h-[68vh] sm:min-h-[80vh] items-center justify-center overflow-hidden bg-midnight py-10 sm:py-16">
         {/* Ambient gradient washes */}
         <div
           className="absolute inset-0"
@@ -284,11 +284,11 @@ export default function HomePage() {
           style={{ background: "linear-gradient(180deg, transparent, #080f1a 90%)" }}
         />
 
-        <div className="container-jg relative z-10 pt-16 pb-12 sm:pt-20 sm:pb-16 text-center">
+        <div className="container-jg relative z-10 pt-12 pb-8 sm:pt-18 sm:pb-14 text-center">
           {/* Eyebrow pill */}
           <Reveal>
             <span
-              className="inline-flex items-center gap-2 rounded-full bg-crimson px-4 py-1.5 font-inter text-[12px] font-semibold text-white shadow-crimp"
+              className="inline-flex items-center gap-2 rounded-full bg-crimson px-3.5 py-1 sm:px-4 sm:py-1.5 font-inter text-[11px] sm:text-[12px] font-semibold text-white shadow-crimp"
               style={{ letterSpacing: "0.1em" }}
             >
               <JapanFlag className="h-3.5 w-5" />
@@ -456,34 +456,32 @@ export default function HomePage() {
             </div>
           </Reveal>
 
-          <div className="grid gap-6 md:grid-cols-3">
+          <div className="grid gap-4 sm:gap-6 md:grid-cols-3">
             {advantagePillars.map((p, i) => (
               <Reveal key={p.num} delay={i * 120} variant="scale">
-                <article className="luxury-light-card card-sheen gold-hairline group relative h-full overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-7 shadow-card hover:shadow-2xl hover:border-crimson/35 transition-all duration-300">
+                <article className="luxury-light-card card-sheen gold-hairline group relative h-full overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-4 sm:p-6 lg:p-7 shadow-card hover:shadow-2xl hover:border-crimson/35 transition-all duration-300">
                   <span
-                    className="pointer-events-none absolute -top-5 right-4 font-serif-jp font-black leading-none text-slate-100/80 transition-all duration-500 group-hover:scale-110 group-hover:text-crimson/10"
-                    style={{ fontSize: "88px" }}
+                    className="pointer-events-none absolute -top-3 sm:-top-5 right-3 sm:right-4 font-serif-jp font-black leading-none text-slate-100/80 text-[52px] sm:text-[72px] lg:text-[88px] transition-all duration-500 group-hover:scale-110 group-hover:text-crimson/10"
                     aria-hidden
                   >
                     {p.num}
                   </span>
                   <div className="relative z-10">
                     <span
-                      className="inline-flex items-center gap-1.5 rounded-full bg-crimson/[0.08] border border-crimson/25 px-3 py-1 font-serif-jp text-[12.5px] font-bold text-crimson tracking-wider shadow-sm"
+                      className="inline-flex items-center gap-1.5 rounded-full bg-crimson/[0.08] border border-crimson/25 px-2.5 py-0.5 sm:px-3 sm:py-1 font-serif-jp text-[11.5px] sm:text-[12.5px] font-bold text-crimson tracking-wider shadow-sm"
                     >
                       <span className="h-1.5 w-1.5 rounded-full bg-crimson" />
                       {p.kanji}
                     </span>
                     <h3
-                      className="mt-4 font-serif-jp font-bold leading-tight text-ink group-hover:text-crimson transition-colors"
-                      style={{ fontSize: "clamp(1.15rem, 1.7vw, 1.35rem)" }}
+                      className="mt-3 sm:mt-4 font-serif-jp font-bold leading-tight text-ink group-hover:text-crimson transition-colors"
+                      style={{ fontSize: "clamp(1.05rem, 1.6vw, 1.3rem)" }}
                     >
                       {p.title}
                     </h3>
-                    <div className="mt-3.5 h-[2px] w-14 bg-gradient-to-r from-crimson to-saffron rounded-full" />
+                    <div className="mt-2.5 sm:mt-3.5 h-[2px] w-12 sm:w-14 bg-gradient-to-r from-crimson to-saffron rounded-full" />
                     <p
-                      className="mt-4 font-inter leading-relaxed text-slate-600"
-                      style={{ fontSize: "14px" }}
+                      className="mt-2.5 sm:mt-4 font-inter leading-relaxed text-slate-600 text-[12.5px] sm:text-[14px]"
                     >
                       {p.body}
                     </p>
@@ -529,52 +527,52 @@ export default function HomePage() {
             {/* Left: India Map Graphic with Highlight Badge */}
             <div className="lg:col-span-5">
               <Reveal variant="scale">
-                <div className="luxury-light-card card-sheen gold-hairline group relative overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-6 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-crimson/30">
+                <div className="luxury-light-card card-sheen gold-hairline group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-4 sm:p-6 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-crimson/30">
                   {/* Floating Live Badge with radar beacon */}
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-crimson/10 border border-crimson/25 px-3 py-1 text-[11px] font-bold text-crimson uppercase tracking-wider">
-                      <MapPin className="h-3.5 w-3.5" />
+                  <div className="flex items-center justify-between mb-3 sm:mb-4">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-crimson/10 border border-crimson/25 px-2.5 py-0.5 sm:px-3 sm:py-1 text-[10.5px] sm:text-[11px] font-bold text-crimson uppercase tracking-wider">
+                      <MapPin className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                       {tx({ EN: "Flagship Hub", JP: "旗艦拠点" })}
                     </span>
-                    <span className="inline-flex items-center gap-2 rounded-full bg-success px-3 py-1 font-inter text-[10.5px] font-bold uppercase text-white shadow-sm">
-                      <span className="radar-beacon h-2 w-2 rounded-full bg-white text-emerald-300" />
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-success px-2.5 py-0.5 sm:px-3 sm:py-1 font-inter text-[10px] sm:text-[10.5px] font-bold uppercase text-white shadow-sm">
+                      <span className="radar-beacon h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-white text-emerald-300" />
                       {tx({ EN: "LIVE · Cyber Gateway", JP: "稼働中 · Cyber Gateway" })}
                     </span>
                   </div>
 
                   {/* The Map Graphic */}
-                  <div className="relative flex items-center justify-center p-3 rounded-2xl bg-slate-50/80 border border-slate-100 shadow-inner">
+                  <div className="relative flex items-center justify-center p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-slate-50/80 border border-slate-100 shadow-inner">
                     <img
                       src="/india-map-hyderabad.png"
                       alt="Map of India highlighting Hyderabad location along with New Delhi, Mumbai, Bengaluru, Chennai, and Ahmedabad"
-                      className="w-full max-h-[360px] object-contain transition-transform duration-700 group-hover:scale-105"
+                      className="w-full max-h-[300px] sm:max-h-[360px] object-contain transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
 
                   {/* Connectivity Quick Strip */}
-                  <div className="mt-4 pt-4 border-t border-slate-100 grid grid-cols-3 gap-2.5 text-center">
-                    <div className="bg-slate-50 rounded-xl p-2.5 border border-slate-200/60 shadow-sm transition-transform duration-200 hover:scale-105">
-                      <span className="block font-inter text-[9.5px] font-semibold text-slate-400 uppercase tracking-wider">
+                  <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-slate-100 grid grid-cols-3 gap-2 sm:gap-2.5 text-center">
+                    <div className="bg-slate-50 rounded-lg sm:rounded-xl p-2 sm:p-2.5 border border-slate-200/60 shadow-sm transition-transform duration-200 hover:scale-105">
+                      <span className="block font-inter text-[9px] sm:text-[9.5px] font-semibold text-slate-400 uppercase tracking-wider">
                         {tx({ EN: "Metro", JP: "メトロ" })}
                       </span>
-                      <span className="block font-inter text-[12px] font-bold text-ink truncate mt-0.5">
+                      <span className="block font-inter text-[11px] sm:text-[12px] font-bold text-ink truncate mt-0.5">
                         {tx({ EN: "2 Min Walk", JP: "徒歩2分" })}
                       </span>
                     </div>
-                    <div className="bg-slate-50 rounded-xl p-2.5 border border-slate-200/60 shadow-sm transition-transform duration-200 hover:scale-105">
-                      <span className="block font-inter text-[9.5px] font-semibold text-slate-400 uppercase tracking-wider">
+                    <div className="bg-slate-50 rounded-lg sm:rounded-xl p-2 sm:p-2.5 border border-slate-200/60 shadow-sm transition-transform duration-200 hover:scale-105">
+                      <span className="block font-inter text-[9px] sm:text-[9.5px] font-semibold text-slate-400 uppercase tracking-wider">
                         {tx({ EN: "Airport", JP: "空港" })}
                       </span>
-                      <span className="block font-inter text-[12px] font-bold text-ink truncate mt-0.5">
+                      <span className="block font-inter text-[11px] sm:text-[12px] font-bold text-ink truncate mt-0.5">
                         {tx({ EN: "35 Min Drive", JP: "車で35分" })}
                       </span>
                     </div>
-                    <div className="bg-slate-50 rounded-xl p-2.5 border border-slate-200/60 shadow-sm transition-transform duration-200 hover:scale-105">
-                      <span className="block font-inter text-[9.5px] font-semibold text-slate-400 uppercase tracking-wider">
+                    <div className="bg-slate-50 rounded-lg sm:rounded-xl p-2 sm:p-2.5 border border-slate-200/60 shadow-sm transition-transform duration-200 hover:scale-105">
+                      <span className="block font-inter text-[9px] sm:text-[9.5px] font-semibold text-slate-400 uppercase tracking-wider">
                         {tx({ EN: "District", JP: "地区" })}
                       </span>
-                      <span className="block font-inter text-[12px] font-bold text-crimson truncate mt-0.5">
+                      <span className="block font-inter text-[11px] sm:text-[12px] font-bold text-crimson truncate mt-0.5">
                         {tx({ EN: "Hitech City", JP: "IT特区" })}
                       </span>
                     </div>
@@ -584,19 +582,19 @@ export default function HomePage() {
             </div>
 
             {/* Right: Strategic Location Value Pillars */}
-            <div className="lg:col-span-7 space-y-4">
+            <div className="lg:col-span-7 space-y-3 sm:space-y-4">
               <Reveal delay={80}>
                 <div>
-                  <span className="font-inter text-[11.5px] font-bold uppercase tracking-wider text-crimson">
+                  <span className="font-inter text-[11px] sm:text-[11.5px] font-bold uppercase tracking-wider text-crimson">
                     {tx({ EN: "Cyber Gateway, Phase 2, Hitech City", JP: "サイバーゲートウェイ Phase 2・ハイテックシティ" })}
                   </span>
-                  <h3 className="mt-1.5 font-serif-jp text-2xl sm:text-3xl font-bold text-ink leading-tight">
+                  <h3 className="mt-1 sm:mt-1.5 font-serif-jp text-xl sm:text-2xl lg:text-3xl font-bold text-ink leading-tight">
                     {tx({
                       EN: "At the Center of India's Silicon Corridor",
                       JP: "インドのシリコン回廊の中心に位置する拠点",
                     })}
                   </h3>
-                  <p className="mt-2.5 font-inter text-[13.5px] leading-relaxed text-slate">
+                  <p className="mt-2 sm:mt-2.5 font-inter text-[13px] sm:text-[13.5px] leading-relaxed text-slate">
                     {tx({
                       EN: "Hyderabad has emerged as the preferred investment destination for global technology leaders. With lower overheads than Bengaluru or Mumbai, proactive government policies, and an abundant technical talent pool, it offers the ideal gateway for Japanese companies entering India.",
                       JP: "ハイデラバードは、世界的なIT企業が集結する最注目のビジネス都市です。バンガロールやムンバイと比較して安定したコスト水準、政府の手厚い優遇策、豊富な工学系人材により、日本企業のインド進出に最適な環境を提供します。",
@@ -606,18 +604,18 @@ export default function HomePage() {
               </Reveal>
 
               {/* 4 Feature Checkpoints */}
-              <div className="space-y-3 pt-2">
+              <div className="space-y-2.5 sm:space-y-3 pt-1 sm:pt-2">
                 {locationAdvantages.map((item, idx) => (
                   <Reveal key={idx} delay={100 + idx * 40}>
-                    <div className="group flex items-start gap-3.5 rounded-2xl bg-white p-3.5 border border-slate-200/80 shadow-sm transition-all duration-300 hover:shadow-md hover:border-crimson/30">
-                      <div className="icon-pod h-7 w-7 shrink-0 mt-0.5">
-                        <CheckCircle2 className="h-4 w-4" />
+                    <div className="group flex items-start gap-2.5 sm:gap-3.5 rounded-xl sm:rounded-2xl bg-white p-2.5 sm:p-3.5 border border-slate-200/80 shadow-sm transition-all duration-300 hover:shadow-md hover:border-crimson/30">
+                      <div className="icon-pod h-6 w-6 sm:h-7 sm:w-7 shrink-0 mt-0.5">
+                        <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                       </div>
                       <div>
-                        <h4 className="font-serif-jp text-[14px] font-bold text-ink group-hover:text-crimson transition-colors">
+                        <h4 className="font-serif-jp text-[13.5px] sm:text-[14px] font-bold text-ink group-hover:text-crimson transition-colors">
                           {item.title}
                         </h4>
-                        <p className="mt-0.5 font-inter text-[12.5px] text-slate-600 leading-relaxed">
+                        <p className="mt-0.5 font-inter text-[12px] sm:text-[12.5px] text-slate-600 leading-relaxed">
                           {item.desc}
                         </p>
                       </div>
@@ -628,17 +626,17 @@ export default function HomePage() {
 
               {/* Action Buttons */}
               <Reveal delay={280}>
-                <div className="pt-2 flex flex-wrap items-center gap-3">
+                <div className="pt-2 flex flex-wrap items-center gap-2.5 sm:gap-3">
                   <Link
                     href="/blogs"
-                    className="btn-shine inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-6 py-3.5 font-inter text-[13.5px] font-semibold text-white shadow-lg shadow-crimson/25 hover:-translate-y-0.5 hover:shadow-crimson/40 transition-all"
+                    className="btn-shine inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-4 py-2.5 sm:px-6 sm:py-3.5 font-inter text-[12.5px] sm:text-[13.5px] font-semibold text-white shadow-lg shadow-crimson/25 hover:-translate-y-0.5 hover:shadow-crimson/40 transition-all"
                   >
                     {tx({ EN: "View Office Gallery & Photos", JP: "オフィス施設写真を見る" })}
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                   <Link
                     href="/pricing"
-                    className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-6 py-3.5 font-inter text-[13.5px] font-semibold text-slate-700 hover:bg-slate-50 hover:border-slate-400 transition-all shadow-sm"
+                    className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2.5 sm:px-6 sm:py-3.5 font-inter text-[12.5px] sm:text-[13.5px] font-semibold text-slate-700 hover:bg-slate-50 hover:border-slate-400 transition-all shadow-sm"
                   >
                     {tx({ EN: "View Membership Plans", JP: "料金プランを見る" })}
                   </Link>

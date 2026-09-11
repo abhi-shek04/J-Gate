@@ -20,7 +20,7 @@ export function PageHero({
 }) {
   const { t } = useI18n();
   return (
-    <section className="relative flex min-h-[44vh] items-center justify-center overflow-hidden bg-midnight pt-20 pb-12">
+    <section className="relative flex min-h-[30vh] sm:min-h-[38vh] lg:min-h-[44vh] items-center justify-center overflow-hidden bg-midnight pt-14 pb-8 sm:pt-20 sm:pb-12">
       <div className="pattern-asanoha-dark absolute inset-0 opacity-60" />
       <div
         className="absolute inset-0"
@@ -35,20 +35,20 @@ export function PageHero({
       />
       <div className="container-jg relative z-10 text-center">
         <Reveal>
-          <span className="inline-flex items-center gap-2 rounded-md bg-crimson px-4 py-1.5 font-inter text-[12px] font-medium text-white shadow-crimp" style={{ letterSpacing: "0.1em" }}>
-            <JapanFlag className="h-3.5 w-5" />
+          <span className="inline-flex items-center gap-1.5 sm:gap-2 rounded-md bg-crimson px-3 py-1 sm:px-4 sm:py-1.5 font-inter text-[11px] sm:text-[12px] font-medium text-white shadow-crimp" style={{ letterSpacing: "0.1em" }}>
+            <JapanFlag className="h-3 w-4 sm:h-3.5 sm:w-5" />
             {t(eyebrowKey)}
-            <IndiaFlag className="h-3.5 w-5" />
+            <IndiaFlag className="h-3 w-4 sm:h-3.5 sm:w-5" />
           </span>
           <h1
-            className="mx-auto mt-6 font-serif-jp font-bold leading-[1.1] text-white"
-            style={{ fontSize: "clamp(1.875rem,4vw,3rem)" }}
+            className="mx-auto mt-3.5 sm:mt-6 font-serif-jp font-bold leading-[1.1] text-white"
+            style={{ fontSize: "clamp(1.65rem,3.8vw,3rem)" }}
           >
             {titleNode}
           </h1>
           <p
-            className="mx-auto mt-5 max-w-2xl font-inter font-light leading-relaxed text-mist"
-            style={{ fontSize: "clamp(0.9rem,1.3vw,1.05rem)" }}
+            className="mx-auto mt-2.5 sm:mt-5 max-w-2xl font-inter font-light leading-relaxed text-mist"
+            style={{ fontSize: "clamp(0.85rem,1.2vw,1.05rem)" }}
           >
             {t(subtitleKey)}
           </p>

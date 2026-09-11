@@ -153,31 +153,31 @@ export default function ContactPage() {
             </div>
           </Reveal>
 
-          <div className="mx-auto mt-10 grid max-w-4xl gap-6 md:grid-cols-2">
+          <div className="mx-auto mt-6 sm:mt-10 grid max-w-4xl gap-4 sm:gap-6 md:grid-cols-2">
             {/* Email card — crimson accent */}
             <Reveal variant="left">
-              <article className="luxury-light-card card-sheen gold-hairline relative h-full overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-xl hover:shadow-2xl hover:border-crimson/40 transition-all duration-300">
-                <div className="flex items-center gap-4.5">
-                  <div className="icon-pod h-13 w-13 shrink-0">
-                    <Mail className="h-6 w-6" strokeWidth={1.75} />
+              <article className="luxury-light-card card-sheen gold-hairline relative h-full overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-4 sm:p-7 lg:p-8 shadow-xl hover:shadow-2xl hover:border-crimson/40 transition-all duration-300">
+                <div className="flex items-center gap-3 sm:gap-4.5">
+                  <div className="icon-pod h-10 w-10 sm:h-13 sm:w-13 shrink-0">
+                    <Mail className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.75} />
                   </div>
                   <div>
                     <span
-                      className="font-inter text-[11px] font-bold uppercase tracking-wider text-crimson"
+                      className="font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-crimson"
                     >
                       {tx({ EN: "Official Email", JP: "公式メール窓口" })}
                     </span>
                     <a
                       href="mailto:contact@indobox.co.jp"
-                      className="mt-1 block break-all font-serif-jp text-[17px] font-bold text-ink transition-colors hover:text-crimson sm:text-[18px]"
+                      className="mt-0.5 sm:mt-1 block break-all font-serif-jp text-[15px] sm:text-[17px] font-bold text-ink transition-colors hover:text-crimson lg:text-[18px]"
                     >
                       contact@indobox.co.jp
                     </a>
                   </div>
                 </div>
                 {/* Japanese support note */}
-                <p className="mt-6 flex items-start gap-2.5 rounded-2xl border border-crimson/15 bg-crimson/[0.04] p-3.5 font-inter text-[13px] leading-relaxed text-slate-700">
-                  <MessageCircle className="mt-0.5 h-4 w-4 shrink-0 text-crimson" />
+                <p className="mt-4 sm:mt-6 flex items-start gap-2 sm:gap-2.5 rounded-xl sm:rounded-2xl border border-crimson/15 bg-crimson/[0.04] p-2.5 sm:p-3.5 font-inter text-[12px] sm:text-[13px] leading-relaxed text-slate-700">
+                  <MessageCircle className="mt-0.5 h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 text-crimson" />
                   {tx({
                     EN: "Feel free to consult about anything; support is provided in Japanese.",
                     JP: "何でもご相談ください — 常駐日本人スタッフが日本語で丁寧に対応いたします。",
@@ -188,27 +188,27 @@ export default function ContactPage() {
 
             {/* Phone card — saffron accent */}
             <Reveal variant="right" delay={80}>
-              <article className="luxury-light-card card-sheen gold-hairline relative h-full overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-7 sm:p-8 shadow-xl hover:shadow-2xl hover:border-saffron/40 transition-all duration-300">
-                <div className="flex items-center gap-4.5">
-                  <div className="icon-pod h-13 w-13 shrink-0 !bg-saffron/15 !border-saffron/30 !text-saffron-dark">
-                    <Phone className="h-6 w-6" strokeWidth={1.75} />
+              <article className="luxury-light-card card-sheen gold-hairline relative h-full overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-4 sm:p-7 lg:p-8 shadow-xl hover:shadow-2xl hover:border-saffron/40 transition-all duration-300">
+                <div className="flex items-center gap-3 sm:gap-4.5">
+                  <div className="icon-pod h-10 w-10 sm:h-13 sm:w-13 shrink-0 !bg-saffron/15 !border-saffron/30 !text-saffron-dark">
+                    <Phone className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.75} />
                   </div>
                   <div>
                     <span
-                      className="font-inter text-[11px] font-bold uppercase tracking-wider text-saffron-dark"
+                      className="font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-saffron-dark"
                     >
                       {tx({ EN: "Direct Phone", JP: "直通電話" })}
                     </span>
                     <a
                       href="tel:+919910360648"
-                      className="mt-1 block font-serif-jp text-[17px] font-bold text-ink transition-colors hover:text-saffron-dark sm:text-[18px]"
+                      className="mt-0.5 sm:mt-1 block font-serif-jp text-[15px] sm:text-[17px] font-bold text-ink transition-colors hover:text-saffron-dark lg:text-[18px]"
                     >
                       +91-9910360648
                     </a>
                   </div>
                 </div>
                 {/* Direct lines — Tanji + Dheeraj */}
-                <ul className="mt-5 space-y-2.5">
+                <ul className="mt-3.5 sm:mt-5 space-y-2 sm:space-y-2.5">
                   {[
                     {
                       label: { EN: "Tanji (Director)", JP: "丹治（ディレクター）" } as Bilingual,
@@ -221,12 +221,12 @@ export default function ContactPage() {
                   ].map((sl, i) => (
                     <li
                       key={i}
-                      className="flex items-center justify-between gap-2 rounded-xl border border-slate-200/80 bg-slate-50 px-3.5 py-2.5 shadow-sm"
+                      className="flex items-center justify-between gap-2 rounded-lg sm:rounded-xl border border-slate-200/80 bg-slate-50 px-2.5 py-2 sm:px-3.5 sm:py-2.5 shadow-sm"
                     >
-                      <span className="font-inter text-[12px] font-semibold text-slate-700">{tx(sl.label)}</span>
+                      <span className="font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700">{tx(sl.label)}</span>
                       <a
                         href={`tel:${sl.value.replace(/[^0-9+]/g, "")}`}
-                        className="font-mono text-[12px] font-bold text-crimson hover:underline"
+                        className="font-mono text-[11px] sm:text-[12px] font-bold text-crimson hover:underline"
                       >
                         {sl.value}
                       </a>
@@ -248,15 +248,15 @@ export default function ContactPage() {
         <div className="container-jg">
           <div className="mx-auto max-w-3xl">
             <Reveal>
-              <div className="mb-6 text-center">
+              <div className="mb-4 sm:mb-6 text-center">
                 <Eyebrow>{tx({ EN: "Direct Inquiry", JP: "直接お問い合わせ" })}</Eyebrow>
                 <h2
-                  className="mt-3 font-serif-jp font-bold leading-[1.2] text-ink"
-                  style={{ fontSize: "clamp(1.625rem,3vw,2.25rem)" }}
+                  className="mt-2.5 sm:mt-3 font-serif-jp font-bold leading-[1.2] text-ink"
+                  style={{ fontSize: "clamp(1.5rem,2.8vw,2.25rem)" }}
                 >
                   {tx({ EN: "Send Us a Message", JP: "メッセージをお送りください" })}
                 </h2>
-                <p className="mt-2 font-inter text-[13px] text-slate">
+                <p className="mt-1.5 sm:mt-2 font-inter text-[12px] sm:text-[13px] text-slate">
                   {tx({
                     EN: "We respond to every inquiry within 24 hours — in Japanese.",
                     JP: "すべてのお問い合わせに24時間以内に日本語でご返信します。",
@@ -266,7 +266,7 @@ export default function ContactPage() {
             </Reveal>
 
             <Reveal delay={80}>
-              <div className="luxury-glass-card card-sheen gold-hairline relative overflow-hidden rounded-3xl border border-white/15 bg-midnight/90 p-7 sm:p-9 shadow-2xl backdrop-blur-xl">
+              <div className="luxury-glass-card card-sheen gold-hairline relative overflow-hidden rounded-2xl sm:rounded-3xl border border-white/15 bg-midnight/90 p-4 sm:p-7 lg:p-9 shadow-2xl backdrop-blur-xl">
                 {sent ? (
                   <div className="flex flex-col items-center py-10 text-center">
                     <span className="flex h-16 w-16 items-center justify-center rounded-full bg-success/15 text-success">

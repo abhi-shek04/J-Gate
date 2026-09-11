@@ -125,12 +125,12 @@ export function BrochureModal() {
   };
 
   const inputClass =
-    "w-full rounded-md border bg-white/[0.05] px-4 py-3 font-inter text-base sm:text-sm text-white placeholder-white/35 outline-none transition-colors focus:border-crimson";
-  const labelClass = "mb-1.5 block font-inter text-[11.5px] font-semibold uppercase tracking-wider text-mist";
+    "w-full rounded-md border bg-white/[0.05] px-3.5 py-2.5 sm:px-4 sm:py-3 font-inter text-base sm:text-sm text-white placeholder-white/35 outline-none transition-colors focus:border-crimson";
+  const labelClass = "mb-1 sm:mb-1.5 block font-inter text-[11px] sm:text-[11.5px] font-semibold uppercase tracking-wider text-mist";
 
   return (
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center overflow-y-auto bg-midnight/80 p-4 backdrop-blur-md"
+      className="fixed inset-0 z-[9999] flex items-center justify-center overflow-y-auto bg-midnight/80 p-3 sm:p-4 backdrop-blur-md"
       onClick={(e) => {
         if (e.target === e.currentTarget && status !== "submitting") close();
       }}
@@ -139,7 +139,7 @@ export function BrochureModal() {
       aria-label="Download Brochure"
     >
       <div
-        className="relative my-8 w-full max-w-lg overflow-hidden rounded-2xl border border-white/10 bg-navy shadow-2xl"
+        className="relative my-4 sm:my-8 w-full max-w-lg overflow-hidden rounded-xl sm:rounded-2xl border border-white/10 bg-navy shadow-2xl"
         style={{ animation: "jg-modal-in 0.3s cubic-bezier(0.4,0,0.2,1)" }}
       >
         <style>{`@keyframes jg-modal-in { from { opacity:0; transform: translateY(20px) scale(0.97) } to { opacity:1; transform: translateY(0) scale(1) } }`}</style>
@@ -149,19 +149,19 @@ export function BrochureModal() {
           onClick={() => status !== "submitting" && close()}
           disabled={status === "submitting"}
           aria-label="Close"
-          className="absolute right-4 top-4 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-white/8 text-white/70 transition-colors hover:bg-white/15 hover:text-white disabled:opacity-40"
+          className="absolute right-3.5 top-3.5 sm:right-4 sm:top-4 z-10 flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-white/8 text-white/70 transition-colors hover:bg-white/15 hover:text-white disabled:opacity-40"
         >
-          <X className="h-5 w-5" />
+          <X className="h-4.5 w-4.5 sm:h-5 sm:w-5" />
         </button>
 
         {/* Header (Clean, no yellow badge) */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-crimson/20 via-navy to-navy p-7 pb-6">
-          <h2 className="font-serif-jp text-2xl font-bold text-white">
+        <div className="relative overflow-hidden bg-gradient-to-br from-crimson/20 via-navy to-navy p-4 sm:p-7 pb-3.5 sm:pb-6">
+          <h2 className="font-serif-jp text-lg sm:text-2xl font-bold text-white">
             {status === "success"
               ? tx({ EN: "Your Download Has Started", JP: "ダウンロードを開始しました" })
               : tx({ EN: "Download Official Brochure", JP: "公式パンフレットのダウンロード" })}
           </h2>
-          <p className="mt-1.5 font-inter text-[13px] leading-relaxed text-mist">
+          <p className="mt-1 sm:mt-1.5 font-inter text-[12px] sm:text-[13px] leading-relaxed text-mist">
             {status === "success"
               ? tx({
                   EN: "Thank you for your interest. If the download did not start automatically, please use the button below.",
@@ -175,7 +175,7 @@ export function BrochureModal() {
         </div>
 
         {/* Body */}
-        <div className="p-7 pt-4">
+        <div className="p-4 sm:p-7 pt-3 sm:pt-4">
           {status === "success" ? (
             /* Success screen */
             <div className="flex flex-col items-center py-6 text-center">
@@ -210,7 +210,7 @@ export function BrochureModal() {
             </div>
           ) : (
             /* Streamlined 4-Field Form: Name, Organization, E-Mail, Questions */
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
               {errors.form && (
                 <div className="flex items-center gap-2 rounded-md border border-crimson/30 bg-crimson/10 px-3 py-2 font-inter text-[12px] text-crimson">
                   <AlertCircle className="h-4 w-4 shrink-0" />
@@ -271,7 +271,7 @@ export function BrochureModal() {
                 </label>
                 <textarea
                   id="br-questions"
-                  rows={3}
+                  rows={2}
                   value={form.questions}
                   onChange={(e) => setForm({ ...form, questions: e.target.value })}
                   placeholder={tx({
@@ -286,7 +286,7 @@ export function BrochureModal() {
               <button
                 type="submit"
                 disabled={status === "submitting"}
-                className="btn-shine mt-2 flex w-full items-center justify-center gap-2 rounded-md bg-crimson hover:bg-crimson-deep px-5 py-3.5 font-inter text-sm font-semibold text-white shadow-md transition-all hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
+                className="btn-shine mt-1 sm:mt-2 flex w-full items-center justify-center gap-2 rounded-md bg-crimson hover:bg-crimson-deep px-5 py-3 sm:py-3.5 font-inter text-sm font-semibold text-white shadow-md transition-all hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
               >
                 {status === "submitting" ? (
                   <>

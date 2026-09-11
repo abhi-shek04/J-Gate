@@ -189,50 +189,49 @@ export function PillarsDetail() {
         </Reveal>
 
         {/* 7 Pillars Bento Grid (Modern Luxury Cards) */}
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-7 sm:mt-10 lg:mt-12 grid gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {PILLARS.map((p, i) => {
             const Icon = p.icon;
             return (
               <Reveal key={p.num} delay={i * 80} variant="scale">
-                <article className="luxury-light-card card-sheen gold-hairline group relative flex h-full flex-col justify-between overflow-hidden rounded-3xl border border-slate-200/90 bg-white p-7.5 shadow-card transition-all duration-300 hover:border-crimson/40 hover:shadow-2xl">
+                <article className="luxury-light-card card-sheen gold-hairline group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-4 sm:p-6 lg:p-7.5 shadow-card transition-all duration-300 hover:border-crimson/40 hover:shadow-2xl">
                   {/* Faded Ghost Numeral Watermark */}
                   <span
                     aria-hidden="true"
-                    className="pointer-events-none absolute -top-5 right-4 select-none font-serif-jp font-black text-slate-100/80 transition-all duration-500 group-hover:scale-110 group-hover:text-crimson/10"
-                    style={{ fontSize: "88px" }}
+                    className="pointer-events-none absolute -top-3 sm:-top-5 right-3 sm:right-4 select-none font-serif-jp font-black text-slate-100/80 transition-all duration-500 group-hover:scale-110 group-hover:text-crimson/10 text-[56px] sm:text-[72px] lg:text-[88px]"
                   >
                     {p.num}
                   </span>
 
                   <div className="relative z-10">
                     <div className="flex items-center justify-between">
-                      <div className="icon-pod h-12 w-12 shrink-0">
-                        <Icon className="h-6 w-6" strokeWidth={1.75} />
+                      <div className="icon-pod h-10 w-10 sm:h-12 sm:w-12 shrink-0">
+                        <Icon className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.75} />
                       </div>
-                      <span className="inline-flex items-center gap-1 rounded-full bg-crimson/10 px-2.5 py-0.5 font-inter text-[10.5px] font-bold uppercase tracking-wider text-crimson">
+                      <span className="inline-flex items-center gap-1 rounded-full bg-crimson/10 px-2 py-0.5 sm:px-2.5 font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-crimson">
                         Pillar {p.num}
                       </span>
                     </div>
 
-                    <div className="mt-5">
-                      <span className="font-serif-jp text-[13.5px] font-bold text-saffron-deep tracking-wide block">
+                    <div className="mt-3.5 sm:mt-5">
+                      <span className="font-serif-jp text-[12.5px] sm:text-[13.5px] font-bold text-saffron-deep tracking-wide block">
                         {p.jp}
                       </span>
-                      <h3 className="mt-1.5 font-serif-jp text-[19px] font-bold text-ink group-hover:text-crimson transition-colors">
+                      <h3 className="mt-1 sm:mt-1.5 font-serif-jp text-[17px] sm:text-[19px] font-bold text-ink group-hover:text-crimson transition-colors">
                         {tx(p.en)}
                       </h3>
-                      <p className="mt-3 font-inter text-[13.5px] leading-relaxed text-slate-600">
+                      <p className="mt-2 sm:mt-3 font-inter text-[12.5px] sm:text-[13.5px] leading-relaxed text-slate-600">
                         {tx(p.desc)}
                       </p>
                     </div>
                   </div>
 
                   {/* Tag Chips */}
-                  <div className="relative z-10 mt-6 flex flex-wrap gap-2 border-t border-slate-100 pt-4">
+                  <div className="relative z-10 mt-4 sm:mt-6 flex flex-wrap gap-1.5 sm:gap-2 border-t border-slate-100 pt-3 sm:pt-4">
                     {p.tags.map((tag) => (
                       <span
                         key={tag.text.EN}
-                        className={`inline-flex items-center rounded-full border px-3 py-1 font-inter text-[10.5px] font-bold uppercase tracking-wider shadow-sm ${
+                        className={`inline-flex items-center rounded-full border px-2.5 py-0.5 sm:px-3 sm:py-1 font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider shadow-sm ${
                           TAG_TONES[tag.tone]
                         }`}
                       >
@@ -248,25 +247,25 @@ export function PillarsDetail() {
 
         {/* Stats Milestone Strip */}
         <Reveal delay={140} variant="scale">
-          <div className="luxury-light-card card-sheen gold-hairline mt-12 grid grid-cols-1 divide-y divide-slate-100 overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-2xl sm:grid-cols-3 sm:divide-x sm:divide-y-0">
+          <div className="luxury-light-card card-sheen gold-hairline mt-7 sm:mt-10 lg:mt-12 grid grid-cols-1 divide-y divide-slate-100 overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white shadow-2xl sm:grid-cols-3 sm:divide-x sm:divide-y-0">
             {STATS.map((s) => (
               <div
                 key={s.label.EN}
-                className="flex flex-col items-center justify-center p-8 text-center transition-colors hover:bg-slate-50/70"
+                className="flex flex-col items-center justify-center p-4 sm:p-6 lg:p-8 text-center transition-colors hover:bg-slate-50/70"
               >
                 <div className="flex items-baseline gap-1.5">
                   <span
                     className="font-serif-jp font-black text-crimson drop-shadow-sm"
-                    style={{ fontSize: "clamp(2.25rem, 3.8vw, 3rem)" }}
+                    style={{ fontSize: "clamp(1.85rem, 3.4vw, 3rem)" }}
                   >
                     {s.value}
                   </span>
-                  <span className="font-inter text-xs font-bold text-saffron-deep uppercase tracking-wider">
+                  <span className="font-inter text-[11px] sm:text-xs font-bold text-saffron-deep uppercase tracking-wider">
                     {s.unit}
                   </span>
                 </div>
                 <span
-                  className="mt-2.5 font-inter text-[12.5px] font-bold uppercase tracking-wider text-slate-600"
+                  className="mt-1.5 sm:mt-2.5 font-inter text-[11.5px] sm:text-[12.5px] font-bold uppercase tracking-wider text-slate-600"
                 >
                   {tx(s.label)}
                 </span>

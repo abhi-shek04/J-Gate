@@ -352,8 +352,8 @@ export default function ServicesPage() {
          ─────────────────────────────────────────────────────────── */}
       <section className="relative -mt-9 z-20 container-jg">
         <Reveal>
-          <div className="rounded-2xl border border-slate-200/90 bg-white/95 text-ink p-5 sm:p-6 shadow-[0_16px_40px_-12px_rgba(8,15,26,0.08)] backdrop-blur-md">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 divide-y sm:divide-y-0 sm:divide-x divide-slate-200/80">
+          <div className="rounded-xl sm:rounded-2xl border border-slate-200/90 bg-white/95 text-ink p-3.5 sm:p-6 shadow-[0_16px_40px_-12px_rgba(8,15,26,0.08)] backdrop-blur-md">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 sm:divide-x divide-slate-200/80">
               {[
                 {
                   icon: Building2,
@@ -386,18 +386,18 @@ export default function ServicesPage() {
               ].map((pod, i) => {
                 const Icon = pod.icon;
                 return (
-                  <div key={i} className={`flex items-start gap-3.5 ${i > 0 ? "pt-3 sm:pt-0 sm:pl-5" : ""}`}>
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-slate-100 border border-slate-200/80 text-ink shadow-xs">
-                      <Icon className="h-5 w-5 text-crimson" />
+                  <div key={i} className={`flex items-start gap-2.5 sm:gap-3.5 ${i > 0 ? "sm:pl-4 lg:pl-5" : ""}`}>
+                    <div className="flex h-9 w-9 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-lg sm:rounded-xl bg-slate-100 border border-slate-200/80 text-ink shadow-2xs">
+                      <Icon className="h-4.5 w-4.5 sm:h-5 sm:w-5 text-crimson" />
                     </div>
                     <div>
-                      <span className={`inline-flex items-center px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase tracking-wider border ${pod.accent} mb-1`}>
+                      <span className={`inline-flex items-center px-1.5 sm:px-2 py-0.5 rounded text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider border ${pod.accent} mb-0.5 sm:mb-1`}>
                         {pod.badge}
                       </span>
-                      <h4 className="font-serif-jp text-[14.5px] font-bold text-ink leading-tight">
+                      <h4 className="font-serif-jp text-[13px] sm:text-[14.5px] font-bold text-ink leading-tight">
                         {pod.title}
                       </h4>
-                      <p className="font-inter text-[12px] text-slate-500 mt-0.5 leading-snug">
+                      <p className="font-inter text-[11px] sm:text-[12px] text-slate-500 mt-0.5 leading-snug">
                         {pod.desc}
                       </p>
                     </div>
@@ -412,23 +412,23 @@ export default function ServicesPage() {
       {/* ───────────────────────────────────────────────────────────
           3. Core Services (Simple, Clean, Professional Text Layout)
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-14 sm:py-20 bg-ivory-warm">
+      <section className="py-10 sm:py-16 md:py-20 bg-ivory-warm">
         <div className="container-jg max-w-5xl">
           <Reveal>
-            <div className="text-center max-w-2xl mx-auto mb-10">
+            <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
               <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3.5 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-slate-600 shadow-xs">
                 {tx({ EN: "Core Services", JP: "支援サービス" })}
               </span>
               <h2
                 className="mt-3 font-serif-jp font-bold text-ink"
-                style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.35rem)" }}
+                style={{ fontSize: "clamp(1.6rem, 3.2vw, 2.35rem)" }}
               >
                 {tx({
                   EN: "Everything Required to Launch & Scale in India",
                   JP: "インド事業の立ち上げから成長に必要なすべて",
                 })}
               </h2>
-              <p className="mt-2 font-inter text-[13.5px] leading-relaxed text-slate-600">
+              <p className="mt-2 font-inter text-[13px] sm:text-[13.5px] leading-relaxed text-slate-600">
                 {tx({
                   EN: "A structured, reliable operational foundation combining turnkey office workspace, statutory corporate legal setup, resident Japanese executive advisory, and qualified local talent recruitment.",
                   JP: "公式登記住所・法人設立から、専用オフィス環境、日本人による日常よろず相談、優秀な現地人材の採用まで、インド進出に必要なすべてを一貫して支援します。",
@@ -438,12 +438,12 @@ export default function ServicesPage() {
           </Reveal>
 
           {/* Clean, Simple 4-Card Grid (No Tabs, No Complex Grids, Clear Text) */}
-          <div className="grid md:grid-cols-2 gap-5 sm:gap-6">
+          <div className="grid md:grid-cols-2 gap-4 sm:gap-6">
             {CORE_SERVICES.map((srv, idx) => {
               const Icon = srv.icon;
               return (
                 <Reveal key={srv.id} delay={idx * 40} variant="up">
-                  <div className="h-full rounded-2xl border border-slate-200/90 bg-white p-6 sm:p-7 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-md transition-all duration-200 flex flex-col justify-between">
+                  <div className="h-full rounded-xl sm:rounded-2xl border border-slate-200/90 bg-white p-4 sm:p-6 md:p-7 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-md transition-all duration-200 flex flex-col justify-between">
                     <div>
                       {/* Top Header */}
                       <div className="flex items-center justify-between gap-3 pb-3.5 border-b border-slate-100">
@@ -559,7 +559,7 @@ export default function ServicesPage() {
           5. INDUSTRIAL-LEVEL BILATERAL GOVERNANCE ARCHITECTURE
              (Indobox × Genesys Info X — Luminous Light Mode Console)
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-16 sm:py-24 bg-ivory-warm text-ink relative overflow-hidden border-t border-slate-200/70">
+      <section className="py-10 sm:py-16 md:py-24 bg-ivory-warm text-ink relative overflow-hidden border-t border-slate-200/70">
         {/* Subtle ambient lighting */}
         <div
           className="pointer-events-none absolute inset-0 opacity-40"
@@ -571,21 +571,21 @@ export default function ServicesPage() {
 
         <div className="container-jg relative z-10">
           <Reveal>
-            <div className="mx-auto max-w-3xl text-center mb-12">
-              <span className="inline-flex items-center gap-2 rounded-full border border-amber-900/15 bg-amber-50/90 px-4 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-amber-900 shadow-xs">
+            <div className="mx-auto max-w-3xl text-center mb-8 sm:mb-12">
+              <span className="inline-flex items-center gap-2 rounded-full border border-amber-900/15 bg-amber-50/90 px-3.5 py-0.5 sm:px-4 sm:py-1 font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-amber-900 shadow-xs">
                 <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                 {tx({ EN: "Bilateral Co-Operating Model", JP: "日印共同運営アーキテクチャ" })}
               </span>
               <h2
-                className="mt-4 font-serif-jp font-bold text-ink tracking-tight"
-                style={{ fontSize: "clamp(1.875rem, 3.6vw, 2.75rem)" }}
+                className="mt-3 sm:mt-4 font-serif-jp font-bold text-ink tracking-tight"
+                style={{ fontSize: "clamp(1.65rem, 3.6vw, 2.75rem)" }}
               >
                 {tx({
                   EN: "Two Specialized Operators, One Unified Engine",
                   JP: "二つの専門運営主体、ひとつの統合エンジン",
                 })}
               </h2>
-              <p className="mx-auto mt-3 max-w-2xl font-inter text-[14px] leading-relaxed text-slate-600">
+              <p className="mx-auto mt-2 sm:mt-3 max-w-2xl font-inter text-[13px] sm:text-[14px] leading-relaxed text-slate-600">
                 {tx({
                   EN: "J-Gate is powered by an intentional bilateral alliance between Indobox India Pvt. Ltd. and Genesys Info X — uniting Japanese corporate governance with Tier-1 Indian physical office infrastructure to guarantee frictionless expansion.",
                   JP: "J-Gateは、日本企業ガバナンスを担うIndoboxと、Cyber Gatewayのオフィス施設・物理インフラを担うGenesys Info Xの戦略的共同事業です。役割分担を一元化し、進出に伴うあらゆる摩擦をゼロにします。",
@@ -595,34 +595,34 @@ export default function ServicesPage() {
           </Reveal>
 
           {/* Master Collaborative Vitrine: Museum-Grade Logo Pedestals & Joint Hub Medallion */}
-          <div className="max-w-5xl mx-auto mb-12">
+          <div className="max-w-5xl mx-auto mb-8 sm:mb-12">
             <Reveal>
-              <div className="rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-9 shadow-[0_12px_36px_-12px_rgba(8,15,26,0.08)]">
-                <div className="grid md:grid-cols-11 items-center gap-6 sm:gap-8">
+              <div className="rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-4 sm:p-6 lg:p-9 shadow-[0_12px_36px_-12px_rgba(8,15,26,0.08)]">
+                <div className="grid md:grid-cols-11 items-center gap-4 sm:gap-6 lg:gap-8">
                   {/* Left Pedestal: Indobox India Pvt. Ltd. */}
-                  <div className="md:col-span-5 rounded-2xl border border-crimson/20 bg-gradient-to-b from-rose-50/40 via-white to-slate-50/50 p-6 text-center relative overflow-hidden group hover:border-crimson/50 hover:shadow-md transition-all duration-300">
+                  <div className="md:col-span-5 rounded-xl sm:rounded-2xl border border-crimson/20 bg-gradient-to-b from-rose-50/40 via-white to-slate-50/50 p-4 sm:p-6 text-center relative overflow-hidden group hover:border-crimson/50 hover:shadow-md transition-all duration-300">
                     <span className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson to-crimson-deep" />
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-crimson/10 border border-crimson/20 text-crimson text-[11px] font-bold font-inter mb-4">
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-crimson/10 border border-crimson/20 text-crimson text-[10.5px] sm:text-[11px] font-bold font-inter mb-3 sm:mb-4">
                       <span>🇯🇵</span>
                       <span>{tx({ EN: "Japan Governance & Strategy", JP: "日本側ガバナンス・戦略統括" })}</span>
                     </div>
 
                     {/* Logo Showcase Box */}
-                    <div className="h-20 sm:h-24 w-full rounded-xl bg-white border border-slate-200/80 p-4 flex items-center justify-center shadow-xs mb-4 group-hover:scale-[1.02] transition-transform">
+                    <div className="h-16 sm:h-20 md:h-24 w-full rounded-xl bg-white border border-slate-200/80 p-3 sm:p-4 flex items-center justify-center shadow-xs mb-3 sm:mb-4 group-hover:scale-[1.02] transition-transform">
                       <Image
                         src="/logos/indobox.png"
                         alt="Indobox Logo"
                         width={280}
                         height={70}
-                        className="h-11 sm:h-12 w-auto object-contain"
+                        className="h-9 sm:h-11 md:h-12 w-auto object-contain"
                       />
                     </div>
 
-                    <h3 className="font-serif-jp text-lg font-bold text-ink">Indobox India Pvt. Ltd.</h3>
-                    <p className="font-mono text-[11px] text-slate-500 mt-0.5">
+                    <h3 className="font-serif-jp text-base sm:text-lg font-bold text-ink">Indobox India Pvt. Ltd.</h3>
+                    <p className="font-mono text-[10px] sm:text-[11px] text-slate-500 mt-0.5">
                       {tx({ EN: "Tokyo HQ & Cyber Gateway Corridor", JP: "東京本社 ＆ Cyber Gateway常駐デスク" })}
                     </p>
-                    <p className="text-[12.5px] text-slate-600 font-inter mt-2.5 leading-relaxed">
+                    <p className="text-[12px] sm:text-[12.5px] text-slate-600 font-inter mt-2 sm:mt-2.5 leading-relaxed">
                       {tx({
                         EN: "Japanese director leadership, resident Japan Desk, cross-cultural arbitration, tenant care, and Indobox Academy curriculum.",
                         JP: "日本人取締役常駐・日々のよろず相談・商習慣調整・日本本社報告支援・Indobox Academy企業文化研修。",
@@ -631,43 +631,43 @@ export default function ServicesPage() {
                   </div>
 
                   {/* Center Bilateral Fusion Medallion */}
-                  <div className="md:col-span-1 flex flex-col items-center justify-center my-3 md:my-0">
+                  <div className="md:col-span-1 flex flex-col items-center justify-center my-2 md:my-0">
                     <div className="relative flex items-center justify-center">
-                      <div className="w-13 h-13 rounded-full bg-gradient-to-br from-crimson via-amber-400 to-saffron p-[2px] shadow-md">
-                        <div className="w-full h-full rounded-full bg-white flex items-center justify-center font-bold text-lg text-ink">
+                      <div className="w-10 h-10 sm:w-13 sm:h-13 rounded-full bg-gradient-to-br from-crimson via-amber-400 to-saffron p-[2px] shadow-md">
+                        <div className="w-full h-full rounded-full bg-white flex items-center justify-center font-bold text-base sm:text-lg text-ink">
                           ×
                         </div>
                       </div>
                     </div>
-                    <span className="text-[9.5px] font-mono font-bold tracking-widest text-slate-500 uppercase mt-2 text-center">
+                    <span className="text-[9px] sm:text-[9.5px] font-mono font-bold tracking-widest text-slate-500 uppercase mt-1.5 sm:mt-2 text-center">
                       JOINT SLA
                     </span>
                   </div>
 
                   {/* Right Pedestal: Genesys Info X */}
-                  <div className="md:col-span-5 rounded-2xl border border-saffron/25 bg-gradient-to-b from-amber-50/40 via-white to-slate-50/50 p-6 text-center relative overflow-hidden group hover:border-saffron/50 hover:shadow-md transition-all duration-300">
+                  <div className="md:col-span-5 rounded-xl sm:rounded-2xl border border-saffron/25 bg-gradient-to-b from-amber-50/40 via-white to-slate-50/50 p-4 sm:p-6 text-center relative overflow-hidden group hover:border-saffron/50 hover:shadow-md transition-all duration-300">
                     <span className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-saffron to-[#c9881a]" />
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 border border-amber-300/60 text-amber-900 text-[11px] font-bold font-inter mb-4">
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-amber-100 border border-amber-300/60 text-amber-900 text-[10.5px] sm:text-[11px] font-bold font-inter mb-3 sm:mb-4">
                       <span>🇮🇳</span>
                       <span>{tx({ EN: "India Infrastructure Backbone", JP: "インド現地インフラ・施設管理" })}</span>
                     </div>
 
                     {/* Logo Showcase Box */}
-                    <div className="h-20 sm:h-24 w-full rounded-xl bg-white border border-slate-200/80 p-4 flex items-center justify-center shadow-xs mb-4 group-hover:scale-[1.02] transition-transform">
+                    <div className="h-16 sm:h-20 md:h-24 w-full rounded-xl bg-white border border-slate-200/80 p-3 sm:p-4 flex items-center justify-center shadow-xs mb-3 sm:mb-4 group-hover:scale-[1.02] transition-transform">
                       <Image
                         src="/logos/genesys-info-x.png"
                         alt="Genesys Info X Logo"
                         width={280}
                         height={70}
-                        className="h-14 sm:h-16 w-auto object-contain"
+                        className="h-11 sm:h-14 md:h-16 w-auto object-contain"
                       />
                     </div>
 
-                    <h3 className="font-serif-jp text-lg font-bold text-ink">Genesys Info X</h3>
-                    <p className="font-mono text-[11px] text-slate-500 mt-0.5">
+                    <h3 className="font-serif-jp text-base sm:text-lg font-bold text-ink">Genesys Info X</h3>
+                    <p className="font-mono text-[10px] sm:text-[11px] text-slate-500 mt-0.5">
                       {tx({ EN: "Cyber Gateway Tier-3 Facility Operator", JP: "Cyber Gateway Tier-3物理施設運営主体" })}
                     </p>
-                    <p className="text-[12.5px] text-slate-600 font-inter mt-2.5 leading-relaxed">
+                    <p className="text-[12px] sm:text-[12.5px] text-slate-600 font-inter mt-2 sm:mt-2.5 leading-relaxed">
                       {tx({
                         EN: "Turnkey workspace suites, high-speed fiber connectivity, 100% UPS & generator power backup, 24/7 biometric security, and facilities care.",
                         JP: "Cyber Gateway物理空間提供・高速光回線・無停電電源装置・24時間生体認証警備・日常施設清掃管理。",
@@ -677,7 +677,7 @@ export default function ServicesPage() {
                 </div>
 
                 {/* Single-Window Accountability Guarantee Bar */}
-                <div className="mt-8 pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left rounded-2xl bg-emerald-50/70 border border-emerald-200/80 p-4 sm:p-5">
+                <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-center sm:text-left rounded-xl sm:rounded-2xl bg-emerald-50/70 border border-emerald-200/80 p-3.5 sm:p-5">
                   <div className="flex items-center gap-3">
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-100 text-emerald-800 border border-emerald-200">
                       <ShieldCheck className="h-5 w-5" />
@@ -708,51 +708,51 @@ export default function ServicesPage() {
           </div>
 
           {/* Unified Dual-Engine Operations Console: 6 Competencies Each (Light Mode) */}
-          <div className="grid gap-6 lg:grid-cols-2 max-w-5xl mx-auto">
+          <div className="grid gap-4 sm:gap-6 lg:grid-cols-2 max-w-5xl mx-auto">
             {/* Indobox Operational Engine (Left Column) */}
             <Reveal variant="left">
-              <div className="h-full rounded-2xl border border-slate-200/90 border-t-4 border-t-crimson bg-white p-6 sm:p-7 shadow-xs">
-                <div className="flex items-center justify-between pb-5 border-b border-slate-100">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-crimson/10 text-crimson border border-crimson/20">
-                      <Handshake className="h-5 w-5" />
+              <div className="h-full rounded-xl sm:rounded-2xl border border-slate-200/90 border-t-4 border-t-crimson bg-white p-4 sm:p-6 md:p-7 shadow-xs">
+                <div className="flex items-center justify-between pb-3.5 sm:pb-5 border-b border-slate-100">
+                  <div className="flex items-center gap-2.5 sm:gap-3">
+                    <span className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-crimson/10 text-crimson border border-crimson/20">
+                      <Handshake className="h-4.5 w-4.5 sm:h-5 sm:w-5" />
                     </span>
                     <div>
-                      <span className="font-mono text-[10.5px] font-bold uppercase tracking-wider text-crimson block">
+                      <span className="font-mono text-[9.5px] sm:text-[10.5px] font-bold uppercase tracking-wider text-crimson block">
                         JAPAN ENGINE · INDOBOX
                       </span>
-                      <h4 className="font-serif-jp text-lg font-bold text-ink">
+                      <h4 className="font-serif-jp text-base sm:text-lg font-bold text-ink">
                         {tx({ EN: "Governance & Advisory Competencies", JP: "日本企業ガバナンス・伴走支援領域" })}
                       </h4>
                     </div>
                   </div>
-                  <span className="font-mono text-[11px] text-slate-600 bg-slate-100 px-2.5 py-1 rounded border border-slate-200/70 font-semibold">
+                  <span className="font-mono text-[10px] sm:text-[11px] text-slate-600 bg-slate-100 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded border border-slate-200/70 font-semibold">
                     6 SLA LANES
                   </span>
                 </div>
 
-                <div className="mt-5 space-y-3.5">
+                <div className="mt-4 sm:mt-5 space-y-2.5 sm:space-y-3.5">
                   {INDOBOX_COMPETENCIES.map((item, idx) => {
                     const ItemIcon = item.icon;
                     return (
                       <div
                         key={idx}
-                        className="rounded-xl border border-slate-200/70 bg-slate-50/60 p-3.5 hover:border-crimson/40 hover:bg-white hover:shadow-xs transition-all"
+                        className="rounded-xl border border-slate-200/70 bg-slate-50/60 p-2.5 sm:p-3.5 hover:border-crimson/40 hover:bg-white hover:shadow-xs transition-all"
                       >
                         <div className="flex items-center justify-between gap-2 mb-1">
-                          <div className="flex items-center gap-2.5">
-                            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-crimson/10 text-crimson">
-                              <ItemIcon className="h-4 w-4" />
+                          <div className="flex items-center gap-2 sm:gap-2.5">
+                            <span className="flex h-6 w-6 sm:h-7 sm:w-7 shrink-0 items-center justify-center rounded-lg bg-crimson/10 text-crimson">
+                              <ItemIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                             </span>
-                            <span className="font-serif-jp text-[13.5px] font-bold text-ink">
+                            <span className="font-serif-jp text-[12.5px] sm:text-[13.5px] font-bold text-ink">
                               {tx(item.title)}
                             </span>
                           </div>
-                          <span className="font-mono text-[9.5px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-crimson/10 text-crimson border border-crimson/20 shrink-0">
+                          <span className="font-mono text-[9px] sm:text-[9.5px] font-bold uppercase tracking-wider px-1.5 sm:px-2 py-0.5 rounded bg-crimson/10 text-crimson border border-crimson/20 shrink-0">
                             {tx(item.tag)}
                           </span>
                         </div>
-                        <p className="font-inter text-[12px] text-slate-600 leading-relaxed pl-9">
+                        <p className="font-inter text-[11.5px] sm:text-[12px] text-slate-600 leading-relaxed pl-8 sm:pl-9">
                           {tx(item.detail)}
                         </p>
                       </div>
@@ -764,48 +764,48 @@ export default function ServicesPage() {
 
             {/* Genesys Operational Engine (Right Column) */}
             <Reveal variant="right" delay={80}>
-              <div className="h-full rounded-2xl border border-slate-200/90 border-t-4 border-t-saffron bg-white p-6 sm:p-7 shadow-xs">
-                <div className="flex items-center justify-between pb-5 border-b border-slate-100">
-                  <div className="flex items-center gap-3">
-                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 text-amber-900 border border-amber-300/60">
-                      <Building2 className="h-5 w-5" />
+              <div className="h-full rounded-xl sm:rounded-2xl border border-slate-200/90 border-t-4 border-t-saffron bg-white p-4 sm:p-6 md:p-7 shadow-xs">
+                <div className="flex items-center justify-between pb-3.5 sm:pb-5 border-b border-slate-100">
+                  <div className="flex items-center gap-2.5 sm:gap-3">
+                    <span className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-amber-100 text-amber-900 border border-amber-300/60">
+                      <Building2 className="h-4.5 w-4.5 sm:h-5 sm:w-5" />
                     </span>
                     <div>
-                      <span className="font-mono text-[10.5px] font-bold uppercase tracking-wider text-saffron-deep block">
+                      <span className="font-mono text-[9.5px] sm:text-[10.5px] font-bold uppercase tracking-wider text-saffron-deep block">
                         INDIA ENGINE · GENESYS INFO X
                       </span>
-                      <h4 className="font-serif-jp text-lg font-bold text-ink">
+                      <h4 className="font-serif-jp text-base sm:text-lg font-bold text-ink">
                         {tx({ EN: "Facilities & Operations Competencies", JP: "執務施設管理・セキュリティ・保全体制" })}
                       </h4>
                     </div>
                   </div>
-                  <span className="font-mono text-[11px] text-slate-600 bg-slate-100 px-2.5 py-1 rounded border border-slate-200/70 font-semibold">
+                  <span className="font-mono text-[10px] sm:text-[11px] text-slate-600 bg-slate-100 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded border border-slate-200/70 font-semibold">
                     6 SLA LANES
                   </span>
                 </div>
 
-                <div className="mt-5 space-y-3.5">
+                <div className="mt-4 sm:mt-5 space-y-2.5 sm:space-y-3.5">
                   {GENESYS_COMPETENCIES.map((item, idx) => {
                     const ItemIcon = item.icon;
                     return (
                       <div
                         key={idx}
-                        className="rounded-xl border border-slate-200/70 bg-slate-50/60 p-3.5 hover:border-saffron/40 hover:bg-white hover:shadow-xs transition-all"
+                        className="rounded-xl border border-slate-200/70 bg-slate-50/60 p-2.5 sm:p-3.5 hover:border-saffron/40 hover:bg-white hover:shadow-xs transition-all"
                       >
                         <div className="flex items-center justify-between gap-2 mb-1">
-                          <div className="flex items-center gap-2.5">
-                            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-amber-100 text-amber-900">
-                              <ItemIcon className="h-4 w-4" />
+                          <div className="flex items-center gap-2 sm:gap-2.5">
+                            <span className="flex h-6 w-6 sm:h-7 sm:w-7 shrink-0 items-center justify-center rounded-lg bg-amber-100 text-amber-900">
+                              <ItemIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                             </span>
-                            <span className="font-serif-jp text-[13.5px] font-bold text-ink">
+                            <span className="font-serif-jp text-[12.5px] sm:text-[13.5px] font-bold text-ink">
                               {tx(item.title)}
                             </span>
                           </div>
-                          <span className="font-mono text-[9.5px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-200 shrink-0">
+                          <span className="font-mono text-[9px] sm:text-[9.5px] font-bold uppercase tracking-wider px-1.5 sm:px-2 py-0.5 rounded bg-amber-100 text-amber-900 border border-amber-200 shrink-0">
                             {tx(item.tag)}
                           </span>
                         </div>
-                        <p className="font-inter text-[12px] text-slate-600 leading-relaxed pl-9">
+                        <p className="font-inter text-[11.5px] sm:text-[12px] text-slate-600 leading-relaxed pl-8 sm:pl-9">
                           {tx(item.detail)}
                         </p>
                       </div>

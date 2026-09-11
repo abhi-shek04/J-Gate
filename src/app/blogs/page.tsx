@@ -585,28 +585,28 @@ export default function OfficeGalleryPage() {
 
           {/* Clean Metrics Summary */}
           <Reveal delay={40}>
-            <div className="my-8 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
-              <div className="luxury-light-card card-sheen gold-hairline rounded-2xl border border-slate-200/90 bg-white p-5 text-center shadow-md hover:shadow-xl transition-all">
-                <span className="block font-serif-jp text-3xl font-bold text-crimson">40+</span>
-                <span className="mt-1 block font-inter text-[12px] font-semibold text-slate-700">
+            <div className="my-5 sm:my-8 grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 max-w-5xl mx-auto">
+              <div className="luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 bg-white p-3 sm:p-5 text-center shadow-md hover:shadow-xl transition-all">
+                <span className="block font-serif-jp text-2xl sm:text-3xl font-bold text-crimson">40+</span>
+                <span className="mt-0.5 sm:mt-1 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700">
                   {tx({ EN: "Dedicated Desks", JP: "固定専用デスク" })}
                 </span>
               </div>
-              <div className="luxury-light-card card-sheen gold-hairline rounded-2xl border border-slate-200/90 bg-white p-5 text-center shadow-md hover:shadow-xl transition-all">
-                <span className="block font-serif-jp text-3xl font-bold text-saffron-dark">16 & 4-Pax</span>
-                <span className="mt-1 block font-inter text-[12px] font-semibold text-slate-700">
+              <div className="luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 bg-white p-3 sm:p-5 text-center shadow-md hover:shadow-xl transition-all">
+                <span className="block font-serif-jp text-2xl sm:text-3xl font-bold text-saffron-dark">16 & 4-Pax</span>
+                <span className="mt-0.5 sm:mt-1 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700">
                   {tx({ EN: "Boardroom & Meeting", JP: "国際会議室＆面談室" })}
                 </span>
               </div>
-              <div className="luxury-light-card card-sheen gold-hairline rounded-2xl border border-slate-200/90 bg-white p-5 text-center shadow-md hover:shadow-xl transition-all">
-                <span className="block font-serif-jp text-3xl font-bold text-crimson">1 Gbps</span>
-                <span className="mt-1 block font-inter text-[12px] font-semibold text-slate-700">
+              <div className="luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 bg-white p-3 sm:p-5 text-center shadow-md hover:shadow-xl transition-all">
+                <span className="block font-serif-jp text-2xl sm:text-3xl font-bold text-crimson">1 Gbps</span>
+                <span className="mt-0.5 sm:mt-1 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700">
                   {tx({ EN: "Dedicated Fiber Line", JP: "専用光回線" })}
                 </span>
               </div>
-              <div className="luxury-light-card card-sheen gold-hairline rounded-2xl border border-slate-200/90 bg-white p-5 text-center shadow-md hover:shadow-xl transition-all">
-                <span className="block font-serif-jp text-3xl font-bold text-emerald-600">24/7</span>
-                <span className="mt-1 block font-inter text-[12px] font-semibold text-slate-700">
+              <div className="luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 bg-white p-3 sm:p-5 text-center shadow-md hover:shadow-xl transition-all">
+                <span className="block font-serif-jp text-2xl sm:text-3xl font-bold text-emerald-600">24/7</span>
+                <span className="mt-0.5 sm:mt-1 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700">
                   {tx({ EN: "Keycard Access", JP: "入退館管理・警備" })}
                 </span>
               </div>
@@ -617,44 +617,44 @@ export default function OfficeGalleryPage() {
               MODE A: ZONE-BY-ZONE WALKTHROUGH (5 ZONES)
              ══════════════════════════════════════════════════════════ */}
           {viewMode === "zones" && (
-            <div className="space-y-12 mt-10">
+            <div className="space-y-6 sm:space-y-12 mt-6 sm:mt-10">
               {ZONES.map((zone, zIdx) => {
                 const ZoneIcon = zone.icon;
                 const zonePhotos = ALL_REAL_PHOTOS.filter((p) => p.zone === zone.id);
 
                 return (
                   <Reveal key={zone.id} delay={zIdx * 50}>
-                    <div className="luxury-light-card card-sheen rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-9 shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
+                    <div className="luxury-light-card card-sheen rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-4 sm:p-7 lg:p-9 shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
                       {/* Zone Header Strip */}
-                      <div className="grid lg:grid-cols-12 gap-6 items-start pb-6 border-b border-slate-100">
+                      <div className="grid lg:grid-cols-12 gap-4 sm:gap-6 items-start pb-4 sm:pb-6 border-b border-slate-100">
                         <div className="lg:col-span-8">
-                          <div className="flex items-center gap-3">
-                            <span className="font-serif-jp text-2xl sm:text-3xl font-bold text-crimson">
+                          <div className="flex items-center gap-2.5 sm:gap-3">
+                            <span className="font-serif-jp text-xl sm:text-3xl font-bold text-crimson">
                               {zone.num}
                             </span>
-                            <div className="h-5 w-px bg-slate-200" />
-                            <span className="inline-flex items-center gap-1.5 rounded-lg bg-slate-100 px-2.5 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-slate-700">
-                              <ZoneIcon className="h-3.5 w-3.5 text-crimson" />
+                            <div className="h-4 sm:h-5 w-px bg-slate-200" />
+                            <span className="inline-flex items-center gap-1.5 rounded-lg bg-slate-100 px-2 sm:px-2.5 py-0.5 sm:py-1 font-inter text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-700">
+                              <ZoneIcon className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-crimson" />
                               {tx(zone.tag)}
                             </span>
                           </div>
-                          <h3 className="mt-2.5 font-serif-jp text-xl sm:text-2xl font-bold text-ink leading-snug">
+                          <h3 className="mt-2 sm:mt-2.5 font-serif-jp text-lg sm:text-2xl font-bold text-ink leading-snug">
                             {tx(zone.title)}
                           </h3>
-                          <p className="mt-2 font-inter text-[13px] leading-relaxed text-slate max-w-3xl">
+                          <p className="mt-1.5 sm:mt-2 font-inter text-[12px] sm:text-[13px] leading-relaxed text-slate max-w-3xl">
                             {tx(zone.lead)}
                           </p>
                         </div>
 
                         {/* Key Highlights */}
-                        <div className="lg:col-span-4 rounded-2xl bg-slate-50 border border-slate-200/60 p-4 space-y-2">
-                          <h4 className="font-inter text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1.5">
+                        <div className="lg:col-span-4 rounded-xl sm:rounded-2xl bg-slate-50 border border-slate-200/60 p-3 sm:p-4 space-y-1.5 sm:space-y-2">
+                          <h4 className="font-inter text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1 sm:mb-1.5">
                             {tx({ EN: "Facilities & Specs", JP: "主な設備" })}
                           </h4>
                           {zone.highlights.map((h, hIdx) => (
                             <div
                               key={hIdx}
-                              className="flex items-start gap-2 text-[12px] font-inter text-slate-700 leading-snug"
+                              className="flex items-start gap-1.5 sm:gap-2 text-[11.5px] sm:text-[12px] font-inter text-slate-700 leading-snug"
                             >
                               <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-success mt-0.5" />
                               <span>{tx(h)}</span>
@@ -664,7 +664,7 @@ export default function OfficeGalleryPage() {
                       </div>
 
                       {/* Zone Photos Grid */}
-                      <div className="mt-6 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+                      <div className="mt-4 sm:mt-6 grid gap-3 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
                         {zonePhotos.map((photo) => (
                           <div
                             key={photo.id}
@@ -771,12 +771,12 @@ export default function OfficeGalleryPage() {
               </div>
 
               {/* Grid 3-Column */}
-              <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              <div className="grid gap-3 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
                 {mosaicPhotos.map((photo, i) => (
                   <Reveal key={photo.id} delay={(i % 3) * 40}>
                     <div
                       onClick={() => openPhotoModal(photo.id)}
-                      className="lift-card card-sheen group relative cursor-pointer overflow-hidden rounded-3xl border border-slate-200/90 bg-slate-900 shadow-md hover:shadow-2xl transition-all duration-500 h-80"
+                      className="lift-card card-sheen group relative cursor-pointer overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-slate-900 shadow-md hover:shadow-2xl transition-all duration-500 h-64 sm:h-80"
                     >
                       <img
                         src={photo.src}
@@ -794,25 +794,25 @@ export default function OfficeGalleryPage() {
                       />
 
                       {/* Top Badge */}
-                      <div className="absolute top-3 left-3 right-3 z-20 flex items-center justify-between">
-                        <span className="inline-flex items-center gap-1.5 rounded-lg bg-white/95 backdrop-blur-md px-2.5 py-1 font-inter text-[10.5px] font-bold uppercase text-ink shadow-sm border border-white/60">
+                      <div className="absolute top-2.5 left-2.5 right-2.5 sm:top-3 sm:left-3 sm:right-3 z-20 flex items-center justify-between">
+                        <span className="inline-flex items-center gap-1 sm:gap-1.5 rounded-lg bg-white/95 backdrop-blur-md px-2 py-0.5 sm:px-2.5 sm:py-1 font-inter text-[9.5px] sm:text-[10.5px] font-bold uppercase text-ink shadow-sm border border-white/60">
                           <span className="h-1.5 w-1.5 rounded-full bg-crimson" />
                           {tx(photo.badge)}
                         </span>
-                        <span className="flex h-7 w-7 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity">
-                          <Maximize2 className="h-3.5 w-3.5" />
+                        <span className="flex h-6 w-6 sm:h-7 sm:w-7 items-center justify-center rounded-full bg-black/50 text-white backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity">
+                          <Maximize2 className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                         </span>
                       </div>
 
                       {/* Bottom Info */}
-                      <div className="absolute bottom-0 inset-x-0 z-20 p-5">
-                        <span className="text-[10px] font-inter uppercase font-bold text-saffron tracking-wider">
+                      <div className="absolute bottom-0 inset-x-0 z-20 p-3.5 sm:p-5">
+                        <span className="text-[9.5px] sm:text-[10px] font-inter uppercase font-bold text-saffron tracking-wider">
                           Zone {photo.zoneNumber} · {tx(photo.location)}
                         </span>
-                        <h3 className="mt-1 font-serif-jp text-base font-bold text-white group-hover:text-saffron transition-colors leading-snug">
+                        <h3 className="mt-0.5 sm:mt-1 font-serif-jp text-sm sm:text-base font-bold text-white group-hover:text-saffron transition-colors leading-snug">
                           {tx(photo.title)}
                         </h3>
-                        <p className="mt-1 font-inter text-[11.5px] text-mist/90 line-clamp-2 leading-relaxed">
+                        <p className="mt-0.5 sm:mt-1 font-inter text-[11px] sm:text-[11.5px] text-mist/90 line-clamp-2 leading-relaxed">
                           {tx(photo.subtitle)}
                         </p>
                       </div>
@@ -825,9 +825,9 @@ export default function OfficeGalleryPage() {
 
           {/* Subtle Location Footer */}
           <Reveal delay={60}>
-            <div className="mt-12 rounded-2xl border border-slate-200/80 bg-white p-5 text-center shadow-sm max-w-3xl mx-auto flex items-center justify-center gap-3">
+            <div className="mt-8 sm:mt-12 rounded-xl sm:rounded-2xl border border-slate-200/80 bg-white p-3.5 sm:p-5 text-center shadow-sm max-w-3xl mx-auto flex items-center justify-center gap-2.5 sm:gap-3">
               <MapPin className="h-4 w-4 text-crimson shrink-0" />
-              <p className="font-inter text-[13px] text-slate">
+              <p className="font-inter text-[12px] sm:text-[13px] text-slate">
                 <strong>J-Gate Office:</strong> 2nd Floor, Block B, Wing-1, Cyber Gateway, Phase 2, Hitech City, Hyderabad, Telangana 500081
               </p>
             </div>

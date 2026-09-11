@@ -159,7 +159,7 @@ export function WorkspaceExplorer() {
         </Reveal>
 
         {/* Tab Buttons */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-2.5 max-w-4xl mx-auto">
+        <div className="mt-6 sm:mt-10 flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5 max-w-4xl mx-auto">
           {SPACES.map((space) => {
             const Icon = space.icon;
             const isActive = activeTab === space.id;
@@ -167,13 +167,13 @@ export function WorkspaceExplorer() {
               <button
                 key={space.id}
                 onClick={() => setActiveTab(space.id)}
-                className={`flex items-center gap-2 rounded-xl px-4 py-2.5 font-inter text-[13px] font-semibold transition-all duration-300 ${
+                className={`flex items-center gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl px-3 py-1.5 sm:px-4 sm:py-2.5 font-inter text-[12px] sm:text-[13px] font-semibold transition-all duration-300 ${
                   isActive
-                    ? "bg-gradient-to-r from-crimson to-crimson-deep text-white shadow-lg shadow-crimson/25 scale-105"
-                    : "bg-white text-slate hover:bg-white/80 hover:text-ink border border-slate-200/80 shadow-sm"
+                    ? "bg-gradient-to-r from-crimson to-crimson-deep text-white shadow-md sm:shadow-lg shadow-crimson/25 scale-[1.02] sm:scale-105"
+                    : "bg-white text-slate hover:bg-white/80 hover:text-ink border border-slate-200/80 shadow-xs"
                 }`}
               >
-                <Icon className={`h-4 w-4 ${isActive ? "text-white" : "text-crimson"}`} />
+                <Icon className={`h-3.5 w-3.5 sm:h-4 sm:w-4 ${isActive ? "text-white" : "text-crimson"}`} />
                 <span>{tx(space.title)}</span>
               </button>
             );
@@ -181,25 +181,25 @@ export function WorkspaceExplorer() {
         </div>
 
         {/* Active Space Bento Preview Card */}
-        <div className="mt-8 max-w-5xl mx-auto">
+        <div className="mt-6 sm:mt-8 max-w-5xl mx-auto">
           <Reveal key={activeSpace.id} variant="scale">
-            <div className="luxury-light-card overflow-hidden rounded-3xl border border-slate-200/90 bg-white shadow-xl p-6 sm:p-8">
-              <div className="grid lg:grid-cols-12 gap-8 items-center">
+            <div className="luxury-light-card overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white shadow-xl p-4 sm:p-6 lg:p-8">
+              <div className="grid lg:grid-cols-12 gap-5 sm:gap-8 items-center">
                 {/* Left: Photo with floating overlay badge */}
                 <div className="lg:col-span-6 relative">
-                  <div className="overflow-hidden rounded-2xl border-2 border-slate-100 shadow-md">
+                  <div className="overflow-hidden rounded-xl sm:rounded-2xl border-2 border-slate-100 shadow-md">
                     <Photo
                       id={activeSpace.photoId}
                       src={activeSpace.src}
                       alt={tx(activeSpace.title)}
                       fallback={activeSpace.fallback}
                       initials="JG"
-                      rounded="rounded-2xl"
+                      rounded="rounded-xl sm:rounded-2xl"
                       className="aspect-[4/3] w-full object-cover transition-transform duration-700 hover:scale-105"
                     />
                   </div>
                   {/* Floating Tag */}
-                  <span className="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-midnight/90 px-3.5 py-1 text-[11px] font-bold uppercase tracking-wider text-saffron backdrop-blur-md shadow-lg border border-white/10">
+                  <span className="absolute top-3 left-3 sm:top-4 sm:left-4 inline-flex items-center gap-1.5 rounded-full bg-midnight/90 px-2.5 py-0.5 sm:px-3.5 sm:py-1 text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-saffron backdrop-blur-md shadow-lg border border-white/10">
                     <Sparkles className="h-3 w-3 text-saffron" />
                     {tx(activeSpace.tag)}
                   </span>
@@ -208,24 +208,24 @@ export function WorkspaceExplorer() {
                 {/* Right: Details & Specs Grid */}
                 <div className="lg:col-span-6 flex flex-col justify-between">
                   <div>
-                    <h3 className="font-serif-jp text-2xl sm:text-3xl font-bold text-ink leading-tight">
+                    <h3 className="font-serif-jp text-xl sm:text-2xl lg:text-3xl font-bold text-ink leading-tight">
                       {tx(activeSpace.headline)}
                     </h3>
-                    <p className="mt-3 font-inter text-[13.5px] leading-relaxed text-slate">
+                    <p className="mt-2 sm:mt-3 font-inter text-[12.5px] sm:text-[13.5px] leading-relaxed text-slate">
                       {tx(activeSpace.desc)}
                     </p>
 
                     {/* Specs 2x2 Grid */}
-                    <div className="mt-6 grid grid-cols-2 gap-3">
+                    <div className="mt-4 sm:mt-6 grid grid-cols-2 gap-2 sm:gap-3">
                       {activeSpace.specs.map((spec, i) => (
                         <div
                           key={i}
-                          className="rounded-xl bg-slate-50 p-3 border border-slate-200/60"
+                          className="rounded-lg sm:rounded-xl bg-slate-50 p-2 sm:p-3 border border-slate-200/60"
                         >
-                          <span className="block font-inter text-[10.5px] font-bold uppercase tracking-wider text-slate-500">
+                          <span className="block font-inter text-[9.5px] sm:text-[10.5px] font-bold uppercase tracking-wider text-slate-500">
                             {tx(spec.label)}
                           </span>
-                          <span className="mt-0.5 block font-inter text-[13px] font-bold text-ink truncate">
+                          <span className="mt-0.5 block font-inter text-[12px] sm:text-[13px] font-bold text-ink truncate">
                             {tx(spec.val)}
                           </span>
                         </div>
@@ -233,10 +233,10 @@ export function WorkspaceExplorer() {
                     </div>
 
                     {/* Feature Checkpoints */}
-                    <ul className="mt-5 space-y-2 border-t border-slate-100 pt-4">
+                    <ul className="mt-4 sm:mt-5 space-y-1.5 sm:space-y-2 border-t border-slate-100 pt-3 sm:pt-4">
                       {activeSpace.features.map((feat, i) => (
-                        <li key={i} className="flex items-start gap-2.5 text-[12.5px] font-inter text-slate-700">
-                          <CheckCircle2 className="h-4 w-4 shrink-0 text-crimson mt-0.5" />
+                        <li key={i} className="flex items-start gap-2 sm:gap-2.5 text-[12px] sm:text-[12.5px] font-inter text-slate-700">
+                          <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 text-crimson mt-0.5" />
                           <span>{tx(feat)}</span>
                         </li>
                       ))}

@@ -84,8 +84,8 @@ export function BilateralCorridorVisualizer() {
   const { tx } = useI18n();
 
   return (
-    <section className="relative overflow-hidden py-14 sm:py-16 bg-[#080d1a] text-white border-y border-white/10">
-      {/* ── Background: Japan-India Flags Handshake Image (Clearly & V場ly Visible) ── */}
+    <section className="relative overflow-hidden py-10 sm:py-14 lg:py-16 bg-[#080d1a] text-white border-y border-white/10">
+      {/* ── Background: Japan-India Flags Handshake Image (Clearly & Visibly Visible) ── */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/japan-india-handshake-flag.jpg"
@@ -103,20 +103,20 @@ export function BilateralCorridorVisualizer() {
         {/* ── Section Header (Compact, High-Contrast with subtle text shadow) ── */}
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center gap-1.5 rounded-full border border-saffron/50 bg-[#080d1a]/85 px-4 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-saffron shadow-lg backdrop-blur-md">
-              <Sparkles className="h-3.5 w-3.5 text-saffron" />
+            <span className="inline-flex items-center gap-1.5 rounded-full border border-saffron/50 bg-[#080d1a]/85 px-3.5 py-0.5 sm:px-4 sm:py-1 font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-saffron shadow-lg backdrop-blur-md">
+              <Sparkles className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-saffron" />
               {tx({ EN: "Simple 4-Step Process", JP: "安心の4ステップ進出" })}
             </span>
             <h2
               className="mt-2.5 font-serif-jp font-bold text-white leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]"
-              style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.35rem)" }}
+              style={{ fontSize: "clamp(1.5rem, 3.2vw, 2.35rem)" }}
             >
               {tx({
                 EN: "How to Launch Your Business in India",
                 JP: "インド進出を成功に導く4つのステップ",
               })}
             </h2>
-            <p className="mt-2 font-inter text-[13px] sm:text-[14px] leading-relaxed text-slate-100 max-w-2xl mx-auto drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
+            <p className="mt-1.5 sm:mt-2 font-inter text-[12.5px] sm:text-[14px] leading-relaxed text-slate-100 max-w-2xl mx-auto drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
               {tx({
                 EN: "From initial feasibility study to GTM strategy, company setup, and live operations — full executive support at Cyber Gateway, Hyderabad.",
                 JP: "フィージビリティ調査からGTM戦略策定、法人設立・採用、そして本格稼働まで — ハイデラバード現地から一貫して伴走します。",
@@ -126,43 +126,43 @@ export function BilateralCorridorVisualizer() {
         </Reveal>
 
         {/* ── 4 Step Cards Grid (Luxury Frosted Glass Cards with high contrast & sheen) ── */}
-        <div className="mt-9 grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-6 sm:mt-9 grid gap-3.5 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {STEPS.map((s, idx) => {
             const Icon = s.icon;
             return (
               <Reveal key={s.step} delay={idx * 70}>
-                <div className="luxury-glass-card card-sheen lift-card-dark group relative flex h-full flex-col justify-between rounded-3xl border border-white/20 bg-[#080d1a]/85 p-6 backdrop-blur-xl transition-all duration-300 hover:border-saffron/60 hover:bg-[#080d1a]/95 shadow-2xl">
+                <div className="luxury-glass-card card-sheen lift-card-dark group relative flex h-full flex-col justify-between rounded-2xl sm:rounded-3xl border border-white/20 bg-[#080d1a]/85 p-4 sm:p-5 lg:p-6 backdrop-blur-xl transition-all duration-300 hover:border-saffron/60 hover:bg-[#080d1a]/95 shadow-2xl">
                   {/* Top: Icon + Number */}
                   <div>
                     <div className="flex items-center justify-between">
-                      <div className="flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br from-crimson to-crimson-deep text-white shadow-lg shadow-crimson/35 group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300">
-                        <Icon className="h-5 w-5" strokeWidth={1.8} />
+                      <div className="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl sm:rounded-2xl bg-gradient-to-br from-crimson to-crimson-deep text-white shadow-lg shadow-crimson/35 group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300">
+                        <Icon className="h-4.5 w-4.5 sm:h-5 sm:w-5" strokeWidth={1.8} />
                       </div>
-                      <span className="font-mono text-2xl font-black text-white/30 group-hover:text-saffron transition-colors">
+                      <span className="font-mono text-xl sm:text-2xl font-black text-white/30 group-hover:text-saffron transition-colors">
                         {s.step}
                       </span>
                     </div>
 
                     {/* Step Tag */}
-                    <span className="mt-4 inline-block rounded-full bg-saffron/15 border border-saffron/35 px-3 py-0.5 font-inter text-[10.5px] font-bold uppercase tracking-wider text-saffron shadow-sm">
+                    <span className="mt-3 sm:mt-4 inline-block rounded-full bg-saffron/15 border border-saffron/35 px-2.5 py-0.5 font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-saffron shadow-sm">
                       {tx(s.tag)}
                     </span>
 
                     {/* Title */}
-                    <h3 className="mt-2.5 font-serif-jp text-[16px] font-bold text-white group-hover:text-saffron transition-colors leading-snug">
+                    <h3 className="mt-2 font-serif-jp text-[14.5px] sm:text-[16px] font-bold text-white group-hover:text-saffron transition-colors leading-snug">
                       {tx(s.title)}
                     </h3>
 
                     {/* Description */}
-                    <p className="mt-2 font-inter text-[12.5px] leading-relaxed text-slate-200">
+                    <p className="mt-1.5 font-inter text-[12px] sm:text-[12.5px] leading-relaxed text-slate-200">
                       {tx(s.desc)}
                     </p>
                   </div>
 
                   {/* Bullet Points */}
-                  <ul className="mt-5 space-y-2 border-t border-white/15 pt-3.5">
+                  <ul className="mt-4 sm:mt-5 space-y-1.5 sm:space-y-2 border-t border-white/15 pt-3 sm:pt-3.5">
                     {s.points.map((pt, pi) => (
-                      <li key={pi} className="flex items-start gap-2.5 text-[12px] font-inter text-slate-100">
+                      <li key={pi} className="flex items-start gap-2 sm:gap-2.5 text-[11.5px] sm:text-[12px] font-inter text-slate-100">
                         <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-success mt-0.5 drop-shadow-[0_0_6px_rgba(26,147,111,0.5)]" />
                         <span>{tx(pt)}</span>
                       </li>
@@ -176,14 +176,14 @@ export function BilateralCorridorVisualizer() {
 
         {/* ── Bottom 3-Item Highlights Strip (Compact, High Contrast) ── */}
         <Reveal delay={180}>
-          <div className="mt-7 rounded-2xl border border-white/20 bg-[#080d1a]/85 px-4 py-3.5 backdrop-blur-md shadow-2xl">
-            <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 sm:divide-x sm:divide-white/15 text-center">
+          <div className="mt-5 sm:mt-7 rounded-xl sm:rounded-2xl border border-white/20 bg-[#080d1a]/85 px-3 py-3 sm:px-4 sm:py-3.5 backdrop-blur-md shadow-2xl">
+            <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3 sm:divide-x sm:divide-white/15 text-center">
               <div className="px-2">
-                <span className="inline-flex items-center gap-1.5 font-inter text-[11px] font-bold uppercase tracking-wider text-saffron">
+                <span className="inline-flex items-center gap-1.5 font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-saffron">
                   <Zap className="h-3 w-3" />
                   {tx({ EN: "Fast Setup", JP: "初期費用ゼロ" })}
                 </span>
-                <span className="mt-0.5 block font-inter text-[12.5px] sm:text-[13px] font-semibold text-white">
+                <span className="mt-0.5 block font-inter text-[12px] sm:text-[13px] font-semibold text-white">
                   {tx({
                     EN: "No Setup Cost · Start Working on Day 1",
                     JP: "内装工事不要 · 初日からすぐに稼働可能",
@@ -191,11 +191,11 @@ export function BilateralCorridorVisualizer() {
                 </span>
               </div>
               <div className="px-2">
-                <span className="inline-flex items-center gap-1.5 font-inter text-[11px] font-bold uppercase tracking-wider text-saffron">
+                <span className="inline-flex items-center gap-1.5 font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-saffron">
                   <Users2 className="h-3 w-3" />
                   {tx({ EN: "Japanese Support", JP: "安心の現地支援" })}
                 </span>
-                <span className="mt-0.5 block font-inter text-[12.5px] sm:text-[13px] font-semibold text-white">
+                <span className="mt-0.5 block font-inter text-[12px] sm:text-[13px] font-semibold text-white">
                   {tx({
                     EN: "Bilingual Staff On-Site in Hyderabad",
                     JP: "日本人ディレクター常駐 · 日本語で相談",
@@ -203,11 +203,11 @@ export function BilateralCorridorVisualizer() {
                 </span>
               </div>
               <div className="px-2">
-                <span className="inline-flex items-center gap-1.5 font-inter text-[11px] font-bold uppercase tracking-wider text-saffron">
+                <span className="inline-flex items-center gap-1.5 font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-saffron">
                   <MapPin className="h-3 w-3" />
                   {tx({ EN: "Prime Location", JP: "最高の立地" })}
                 </span>
-                <span className="mt-0.5 block font-inter text-[12.5px] sm:text-[13px] font-semibold text-white">
+                <span className="mt-0.5 block font-inter text-[12px] sm:text-[13px] font-semibold text-white">
                   {tx({
                     EN: "Cyber Gateway, Hitech City, Hyderabad",
                     JP: "ハイデラバードIT特区 · Cyber Gateway",

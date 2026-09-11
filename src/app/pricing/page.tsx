@@ -351,7 +351,7 @@ export default function PricingPage() {
          ─────────────────────────────────────────────────────────── */}
       <section className="relative -mt-9 z-20 container-jg">
         <Reveal>
-          <div className="rounded-2xl border border-slate-200/90 bg-white/95 p-4 sm:p-5 shadow-[0_16px_40px_-12px_rgba(8,15,26,0.08)] backdrop-blur-md">
+          <div className="rounded-xl sm:rounded-2xl border border-slate-200/90 bg-white/95 p-3.5 sm:p-5 shadow-[0_16px_40px_-12px_rgba(8,15,26,0.08)] backdrop-blur-md">
             <div className="flex flex-col xl:flex-row items-center justify-between gap-4">
               {/* ROI Benchmark Metric */}
               <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5 text-center sm:text-left">
@@ -438,7 +438,7 @@ export default function PricingPage() {
       {/* ───────────────────────────────────────────────────────────
           3. Three Executive Plan Cards
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-14 sm:py-20 bg-ivory-warm relative overflow-hidden">
+      <section className="py-8 sm:py-14 lg:py-20 bg-ivory-warm relative overflow-hidden">
         {/* Ambient subtle warm lighting */}
         <div
           className="pointer-events-none absolute inset-0 opacity-35"
@@ -450,21 +450,21 @@ export default function PricingPage() {
 
         <div className="container-jg relative z-10">
           <Reveal>
-            <div className="mx-auto max-w-3xl text-center mb-8">
+            <div className="mx-auto max-w-3xl text-center mb-6 sm:mb-8">
               <span className="inline-flex items-center gap-1.5 rounded-full border border-crimson/30 bg-crimson/10 px-3.5 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-crimson">
                 <Briefcase className="h-3.5 w-3.5" />
                 {tx({ EN: "Transparent Operating Memberships", JP: "透明で明瞭なメンバーシップ体系" })}
               </span>
               <h2
                 className="mt-3 font-serif-jp font-bold text-ink"
-                style={{ fontSize: "clamp(1.875rem, 3.6vw, 2.625rem)" }}
+                style={{ fontSize: "clamp(1.6rem, 3.2vw, 2.625rem)" }}
               >
                 {tx({
                   EN: "Choose Your India Expansion Tier",
                   JP: "進出段階に合わせて選べる3つのプラン",
                 })}
               </h2>
-              <p className="mx-auto mt-2.5 max-w-2xl font-inter text-[13.5px] leading-relaxed text-slate">
+              <p className="mx-auto mt-2 max-w-2xl font-inter text-[12.5px] sm:text-[13.5px] leading-relaxed text-slate">
                 {tx({
                   EN: "All tiers include full Cyber Gateway workspace infrastructure, 1Gbps connectivity, and on-site Japanese leadership guidance.",
                   JP: "すべてのプランにサイバーゲートウェイのオフィス利用、1Gbps光回線、常駐日本人ディレクターによるサポートが含まれています。",
@@ -472,7 +472,7 @@ export default function PricingPage() {
               </p>
 
               {/* Interactive Team Size Quick Selector */}
-              <div className="mt-6 inline-flex flex-wrap items-center justify-center gap-1.5 bg-white/90 p-1.5 rounded-2xl border border-slate-200/80 shadow-xs">
+              <div className="mt-5 sm:mt-6 inline-flex flex-wrap items-center justify-center gap-1.5 bg-white/90 p-1.5 rounded-2xl border border-slate-200/80 shadow-xs">
                 <span className="text-[11px] font-inter font-semibold text-slate-400 px-2.5">
                   {tx({ EN: "Filter by Team:", JP: "チーム規模で絞り込み:" })}
                 </span>
@@ -500,7 +500,7 @@ export default function PricingPage() {
           </Reveal>
 
           {/* Grid of 3 Balanced Cards — Strict Equal Height & Baseline */}
-          <div className="grid gap-7 lg:grid-cols-3 items-stretch">
+          <div className="grid gap-4 sm:gap-6 lg:gap-7 lg:grid-cols-3 items-stretch">
             {PLANS.map((plan, i) => {
               const Icon = plan.icon;
               const displayINR = isAnnual ? plan.priceINRAnnual : plan.priceINRMonthly;
@@ -510,39 +510,39 @@ export default function PricingPage() {
               return (
                 <Reveal key={plan.id} delay={i * 80} variant="up">
                   <div
-                    className={`group relative flex h-full flex-col justify-between rounded-2xl bg-white border border-slate-200/90 border-t-4 ${
+                    className={`group relative flex h-full flex-col justify-between rounded-xl sm:rounded-2xl bg-white border border-slate-200/90 border-t-4 ${
                       plan.accentBorder
-                    } shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_22px_44px_-14px_rgba(8,15,26,0.12)] hover:-translate-y-1.5 transition-all duration-300 p-6 sm:p-7.5 ${
+                    } shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_22px_44px_-14px_rgba(8,15,26,0.12)] hover:-translate-y-1.5 transition-all duration-300 p-4 sm:p-6 lg:p-7.5 ${
                       isSelected ? "ring-2 ring-crimson/50 shadow-lg" : ""
                     }`}
                   >
                     {/* Top Content Area */}
                     <div>
                       {/* Plan Header */}
-                      <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-5">
-                        <div className="flex items-center gap-3">
-                          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-slate-50 border border-slate-200/80 text-ink group-hover:border-crimson/40 transition-colors">
-                            <Icon className="h-5 w-5 text-crimson" />
+                      <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-3.5 sm:pb-5">
+                        <div className="flex items-center gap-2.5 sm:gap-3">
+                          <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-slate-50 border border-slate-200/80 text-ink group-hover:border-crimson/40 transition-colors">
+                            <Icon className="h-4.5 w-4.5 sm:h-5 sm:w-5 text-crimson" />
                           </div>
                           <div>
-                            <h3 className="font-serif-jp text-xl font-bold text-ink group-hover:text-crimson transition-colors">
+                            <h3 className="font-serif-jp text-lg sm:text-xl font-bold text-ink group-hover:text-crimson transition-colors">
                               {plan.enName}
                             </h3>
-                            <span className="text-[12px] font-medium text-slate-500 font-sans-jp block leading-tight">
+                            <span className="text-[11.5px] sm:text-[12px] font-medium text-slate-500 font-sans-jp block leading-tight">
                               {plan.jpName}
                             </span>
                           </div>
                         </div>
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100/90 px-3 py-1 font-inter text-[11px] font-bold text-slate-700 shrink-0 border border-slate-200/60">
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100/90 px-2.5 py-0.5 sm:px-3 sm:py-1 font-inter text-[10.5px] sm:text-[11px] font-bold text-slate-700 shrink-0 border border-slate-200/60">
                           <Users className="h-3 w-3 text-crimson" />
                           {tx(plan.capacity)}
                         </span>
                       </div>
 
                       {/* Pricing Display */}
-                      <div className="mt-5 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100/60 border border-slate-200/80 p-4.5">
+                      <div className="mt-3.5 sm:mt-5 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100/60 border border-slate-200/80 p-3 sm:p-4.5">
                         <div className="flex items-baseline gap-1.5">
-                          <span className="font-serif-jp text-3xl sm:text-4xl font-black text-ink tracking-tight">
+                          <span className="font-serif-jp text-2xl sm:text-3xl lg:text-4xl font-black text-ink tracking-tight">
                             {currency === "INR"
                               ? `₹${displayINR.toLocaleString()}`
                               : `¥${displayJPY.toLocaleString()}`}
@@ -551,7 +551,7 @@ export default function PricingPage() {
                             {currency === "INR" ? "/ month" : "/月 目安"}
                           </span>
                         </div>
-                        <div className="mt-1.5 flex items-center justify-between text-[11px] font-inter">
+                        <div className="mt-1 flex items-center justify-between text-[11px] font-inter">
                           <span className="text-slate-500 font-medium">
                             {currency === "INR"
                               ? `Approx. ¥${displayJPY.toLocaleString()} /月`
@@ -570,24 +570,24 @@ export default function PricingPage() {
                       </div>
 
                       {/* Tagline & Target Callout */}
-                      <div className="mt-4.5">
-                        <p className="font-inter text-[12px] font-bold text-slate-900 leading-snug">
+                      <div className="mt-3.5 sm:mt-4.5">
+                        <p className="font-inter text-[11.5px] sm:text-[12px] font-bold text-slate-900 leading-snug">
                           {tx(plan.tagline)}
                         </p>
-                        <div className="mt-2 rounded-xl bg-slate-50 p-3 border border-slate-200/60">
-                          <span className="font-inter text-[10.5px] font-bold uppercase tracking-wider text-slate-400 block mb-0.5">
+                        <div className="mt-2 rounded-lg sm:rounded-xl bg-slate-50 p-2.5 sm:p-3 border border-slate-200/60">
+                          <span className="font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-slate-400 block mb-0.5">
                             {tx({ EN: "Designed For", JP: "対象企業" })}
                           </span>
-                          <p className="font-inter text-[12px] leading-relaxed text-slate-700">
+                          <p className="font-inter text-[11.5px] sm:text-[12px] leading-relaxed text-slate-700">
                             {tx(plan.target)}
                           </p>
                         </div>
                       </div>
 
                       {/* Quick 3-Specs Strip */}
-                      <div className="mt-3.5 grid grid-cols-3 gap-1.5 rounded-xl bg-slate-100/60 p-2 text-center text-[10.5px] font-inter border border-slate-200/50">
+                      <div className="mt-3 sm:mt-3.5 grid grid-cols-3 gap-1 rounded-lg sm:rounded-xl bg-slate-100/60 p-2 text-center text-[10px] sm:text-[10.5px] font-inter border border-slate-200/50">
                         <div>
-                          <span className="text-slate-400 block uppercase font-bold text-[9.5px]">
+                          <span className="text-slate-400 block uppercase font-bold text-[9px] sm:text-[9.5px]">
                             {tx({ EN: "Contract", JP: "契約期間" })}
                           </span>
                           <span className="font-semibold text-slate-700 mt-0.5 block truncate">
@@ -595,7 +595,7 @@ export default function PricingPage() {
                           </span>
                         </div>
                         <div className="border-x border-slate-200/70">
-                          <span className="text-slate-400 block uppercase font-bold text-[9.5px]">
+                          <span className="text-slate-400 block uppercase font-bold text-[9px] sm:text-[9.5px]">
                             {tx({ EN: "Access", JP: "利用時間" })}
                           </span>
                           <span className="font-semibold text-slate-700 mt-0.5 block truncate">
@@ -603,7 +603,7 @@ export default function PricingPage() {
                           </span>
                         </div>
                         <div>
-                          <span className="text-slate-400 block uppercase font-bold text-[9.5px]">
+                          <span className="text-slate-400 block uppercase font-bold text-[9px] sm:text-[9.5px]">
                             {tx({ EN: "Japan Desk", JP: "相談支援" })}
                           </span>
                           <span className="font-semibold text-slate-700 mt-0.5 block truncate">
@@ -613,21 +613,21 @@ export default function PricingPage() {
                       </div>
 
                       {/* Feature Deliverables Checklist */}
-                      <div className="mt-5 border-t border-slate-100 pt-4.5">
-                        <div className="font-inter text-[10.5px] font-bold uppercase tracking-wider text-slate-400 mb-3">
+                      <div className="mt-4 sm:mt-5 border-t border-slate-100 pt-3.5 sm:pt-4.5">
+                        <div className="font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-slate-400 mb-2 sm:mb-3">
                           {tx({ EN: "Included Deliverables", JP: "プランに含まれる主な内容" })}
                         </div>
-                        <ul className="space-y-3">
+                        <ul className="space-y-2 sm:space-y-2.5">
                           {plan.features.map((feat, fi) => (
-                            <li key={fi} className="flex items-start gap-2.5 text-[12.5px] font-inter text-slate-700">
+                            <li key={fi} className="flex items-start gap-2 sm:gap-2.5 text-[12px] sm:text-[12.5px] font-inter text-slate-700">
                               <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 shadow-xs">
                                 <Check className="h-2.5 w-2.5 stroke-[3]" />
                               </span>
                               <div className="min-w-0 flex-1 leading-snug">
-                                <span className="font-bold text-slate-900 block">
+                                <span className="font-bold text-slate-900 block text-[12px] sm:text-[12.5px]">
                                   {tx(feat.title)}
                                 </span>
-                                <span className="text-[11.5px] text-slate-500 block">
+                                <span className="text-[11px] sm:text-[11.5px] text-slate-500 block">
                                   {tx(feat.desc)}
                                 </span>
                               </div>
@@ -638,15 +638,15 @@ export default function PricingPage() {
                     </div>
 
                     {/* Bottom Action CTA */}
-                    <div className="mt-7 pt-4 border-t border-slate-100">
+                    <div className="mt-5 sm:mt-7 pt-3.5 sm:pt-4 border-t border-slate-100">
                       <Link
                         href={`/contact?plan=${plan.id}`}
-                        className="group/btn relative w-full inline-flex items-center justify-center gap-2 rounded-xl py-3.5 font-inter text-[13.5px] font-semibold text-white bg-[#0a1120] hover:bg-crimson shadow-md hover:shadow-lg transition-all duration-300"
+                        className="group/btn relative w-full inline-flex items-center justify-center gap-2 rounded-xl py-2.5 sm:py-3.5 font-inter text-[13px] sm:text-[13.5px] font-semibold text-white bg-[#0a1120] hover:bg-crimson shadow-md hover:shadow-lg transition-all duration-300"
                       >
                         <span>{tx({ EN: `Select ${plan.enName}`, JP: `${plan.jpName}を問い合わせる` })}</span>
                         <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
                       </Link>
-                      <div className="mt-2.5 flex items-center justify-center gap-1.5 font-inter text-[11px] text-slate-400">
+                      <div className="mt-2 sm:mt-2.5 flex items-center justify-center gap-1.5 font-inter text-[10.5px] sm:text-[11px] text-slate-400">
                         <Clock className="h-3 w-3" />
                         <span>{tx({ EN: "Free initial consultation · Rapid move-in", JP: "初回相談無料 · 最短即日利用可" })}</span>
                       </div>
@@ -751,23 +751,23 @@ export default function PricingPage() {
       {/* ───────────────────────────────────────────────────────────
           4. Billing Notes & Transparent Guarantees
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-14 bg-ivory border-t border-slate-200/60">
+      <section className="py-8 sm:py-12 lg:py-14 bg-ivory border-t border-slate-200/60">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-4xl">
-              <div className="mb-7 flex items-center gap-3">
-                <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-crimson/10 text-crimson">
-                  <AlertCircle className="h-5 w-5" />
+              <div className="mb-5 sm:mb-7 flex items-center gap-3">
+                <span className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-crimson/10 text-crimson">
+                  <AlertCircle className="h-4.5 w-4.5 sm:h-5 sm:w-5" />
                 </span>
                 <div>
                   <Eyebrow>{tx({ EN: "Transparent Terms", JP: "ご契約前の確認事項" })}</Eyebrow>
-                  <h3 className="font-serif-jp text-xl sm:text-2xl font-bold text-ink">
+                  <h3 className="font-serif-jp text-lg sm:text-2xl font-bold text-ink">
                     {tx({ EN: "Billing Terms & Invoicing Policies", JP: "請求・決済および契約条件" })}
                   </h3>
                 </div>
               </div>
 
-              <div className="grid gap-4 sm:grid-cols-3">
+              <div className="grid gap-3 sm:gap-4 sm:grid-cols-3">
                 {[
                   {
                     icon: Receipt,
@@ -798,15 +798,15 @@ export default function PricingPage() {
                   return (
                     <div
                       key={idx}
-                      className="rounded-2xl border border-slate-200/90 bg-white p-5 shadow-xs hover:shadow-md transition-shadow"
+                      className="rounded-xl sm:rounded-2xl border border-slate-200/90 bg-white p-3.5 sm:p-5 shadow-xs hover:shadow-md transition-shadow"
                     >
-                      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-saffron/15 text-saffron-deep mb-3">
-                        <Icon className="h-4 w-4" />
+                      <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg bg-saffron/15 text-saffron-deep mb-2.5 sm:mb-3">
+                        <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                       </div>
-                      <h4 className="font-serif-jp text-[14.5px] font-bold text-ink">
+                      <h4 className="font-serif-jp text-[13.5px] sm:text-[14.5px] font-bold text-ink">
                         {tx(note.title)}
                       </h4>
-                      <p className="mt-1.5 font-inter text-[12px] leading-relaxed text-slate-600">
+                      <p className="mt-1 sm:mt-1.5 font-inter text-[11.5px] sm:text-[12px] leading-relaxed text-slate-600">
                         {tx(note.desc)}
                       </p>
                     </div>
@@ -815,9 +815,9 @@ export default function PricingPage() {
               </div>
 
               {/* Guarantees Strip */}
-              <div className="mt-5 rounded-2xl border border-emerald-200/90 bg-emerald-50/60 p-4 sm:p-5 flex items-start sm:items-center gap-3.5">
-                <CheckCircle2 className="h-5 w-5 shrink-0 text-emerald-600 mt-0.5 sm:mt-0" />
-                <p className="font-inter text-[12.5px] leading-relaxed text-slate-700">
+              <div className="mt-4 sm:mt-5 rounded-xl sm:rounded-2xl border border-emerald-200/90 bg-emerald-50/60 p-3.5 sm:p-5 flex items-start sm:items-center gap-3">
+                <CheckCircle2 className="h-4.5 w-4.5 sm:h-5 sm:w-5 shrink-0 text-emerald-600 mt-0.5 sm:mt-0" />
+                <p className="font-inter text-[11.5px] sm:text-[12.5px] leading-relaxed text-slate-700">
                   <span className="font-bold text-ink">
                     {tx({ EN: "Universal Plan Guarantee: ", JP: "全プラン共通の安心保証: " })}
                   </span>

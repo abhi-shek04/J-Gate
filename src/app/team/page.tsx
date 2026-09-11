@@ -233,17 +233,17 @@ export default function TeamPage() {
           </Reveal>
 
           {/* Row 1 — 3 Advisors across */}
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mt-7 sm:mt-10 lg:mt-12 grid gap-4 sm:gap-6 md:grid-cols-3">
             {ADVISORY_ROW_1.map((adv, i) => (
               <Reveal key={adv.id} delay={i * 90}>
-                <article className="luxury-glass-card card-sheen lift-card-dark group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-b from-white/[0.08] to-white/[0.03] p-6 sm:p-7 shadow-2xl backdrop-blur-xl transition-all duration-300 hover:border-saffron/60 hover:shadow-[0_0_36px_rgba(232,160,26,0.25)]">
+                <article className="luxury-glass-card card-sheen lift-card-dark group relative flex h-full flex-col overflow-hidden rounded-2xl sm:rounded-3xl border border-white/15 bg-gradient-to-b from-white/[0.08] to-white/[0.03] p-4 sm:p-6 lg:p-7 shadow-2xl backdrop-blur-xl transition-all duration-300 hover:border-saffron/60 hover:shadow-[0_0_36px_rgba(232,160,26,0.25)]">
                   {/* Top gold accent line */}
                   <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-saffron via-saffron-light to-transparent opacity-90" />
 
                   {/* Header: Squircle Portrait + Executive Title */}
-                  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4.5">
+                  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3.5 sm:gap-4.5">
                     <div className="relative shrink-0">
-                      <div className="h-24 w-24 sm:h-28 sm:w-28 rounded-2xl overflow-hidden border-2 border-saffron/50 bg-navy/80 shadow-xl transition-transform duration-300 group-hover:scale-105 group-hover:border-saffron">
+                      <div className="h-20 w-20 sm:h-28 sm:w-28 rounded-xl sm:rounded-2xl overflow-hidden border-2 border-saffron/50 bg-navy/80 shadow-xl transition-transform duration-300 group-hover:scale-105 group-hover:border-saffron">
                         <img
                           src={adv.image}
                           alt={adv.name}
@@ -253,22 +253,22 @@ export default function TeamPage() {
                       </div>
                     </div>
                     <div className="min-w-0 flex-1 text-center sm:text-left">
-                      <span className="inline-block rounded-full border border-saffron/40 bg-saffron/15 px-3 py-0.5 font-inter text-[9.5px] font-bold uppercase tracking-wider text-saffron shadow-sm">
+                      <span className="inline-block rounded-full border border-saffron/40 bg-saffron/15 px-2.5 py-0.5 font-inter text-[9px] sm:text-[9.5px] font-bold uppercase tracking-wider text-saffron shadow-sm">
                         {adv.badge}
                       </span>
-                      <h3 className="mt-2 font-serif-jp text-[18px] font-bold leading-snug text-white group-hover:text-saffron-light transition-colors">
+                      <h3 className="mt-1.5 sm:mt-2 font-serif-jp text-[16px] sm:text-[18px] font-bold leading-snug text-white group-hover:text-saffron-light transition-colors">
                         {adv.name}
                       </h3>
-                      <p className="font-sans-jp text-[12px] text-mist/90 mt-0.5">{adv.jpName}</p>
-                      <p className="mt-2 font-inter text-[13px] font-bold text-saffron">
+                      <p className="font-sans-jp text-[11.5px] sm:text-[12px] text-mist/90 mt-0.5">{adv.jpName}</p>
+                      <p className="mt-1.5 sm:mt-2 font-inter text-[12px] sm:text-[13px] font-bold text-saffron">
                         {adv.title}
                       </p>
                     </div>
                   </div>
 
                   {/* Body Content */}
-                  <div className="mt-5 flex flex-1 flex-col border-t border-white/[0.1] pt-4">
-                    <p className="flex-1 font-inter text-[13px] leading-relaxed text-slate-300">
+                  <div className="mt-3.5 sm:mt-5 flex flex-1 flex-col border-t border-white/[0.1] pt-3 sm:pt-4">
+                    <p className="flex-1 font-inter text-[12px] sm:text-[13px] leading-relaxed text-slate-300">
                       {adv.desc}
                     </p>
                   </div>
@@ -278,17 +278,17 @@ export default function TeamPage() {
           </div>
 
           {/* Row 2 — 2 Advisors centered */}
-          <div className="mt-6 grid gap-6 md:grid-cols-2 lg:mx-auto lg:max-w-4xl">
+          <div className="mt-4 sm:mt-6 grid gap-4 sm:gap-6 md:grid-cols-2 lg:mx-auto lg:max-w-4xl">
             {ADVISORY_ROW_2.map((adv, i) => (
               <Reveal key={adv.id} delay={300 + i * 90}>
-                <article className="luxury-glass-card card-sheen lift-card-dark group relative flex h-full flex-col overflow-hidden rounded-3xl border border-white/15 bg-gradient-to-b from-white/[0.08] to-white/[0.03] p-6 sm:p-7 shadow-2xl backdrop-blur-xl transition-all duration-300 hover:border-saffron/60 hover:shadow-[0_0_36px_rgba(232,160,26,0.25)]">
+                <article className="luxury-glass-card card-sheen lift-card-dark group relative flex h-full flex-col overflow-hidden rounded-2xl sm:rounded-3xl border border-white/15 bg-gradient-to-b from-white/[0.08] to-white/[0.03] p-4 sm:p-6 lg:p-7 shadow-2xl backdrop-blur-xl transition-all duration-300 hover:border-saffron/60 hover:shadow-[0_0_36px_rgba(232,160,26,0.25)]">
                   {/* Top gold accent line */}
                   <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-saffron via-saffron-light to-transparent opacity-90" />
 
                   {/* Header: Squircle Portrait + Executive Title */}
-                  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4.5">
+                  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3.5 sm:gap-4.5">
                     <div className="relative shrink-0">
-                      <div className="h-24 w-24 sm:h-28 sm:w-28 rounded-2xl overflow-hidden border-2 border-saffron/50 bg-navy/80 shadow-xl transition-transform duration-300 group-hover:scale-105 group-hover:border-saffron">
+                      <div className="h-20 w-20 sm:h-28 sm:w-28 rounded-xl sm:rounded-2xl overflow-hidden border-2 border-saffron/50 bg-navy/80 shadow-xl transition-transform duration-300 group-hover:scale-105 group-hover:border-saffron">
                         <img
                           src={adv.image}
                           alt={adv.name}
@@ -298,22 +298,22 @@ export default function TeamPage() {
                       </div>
                     </div>
                     <div className="min-w-0 flex-1 text-center sm:text-left">
-                      <span className="inline-block rounded-full border border-saffron/40 bg-saffron/15 px-3 py-0.5 font-inter text-[9.5px] font-bold uppercase tracking-wider text-saffron shadow-sm">
+                      <span className="inline-block rounded-full border border-saffron/40 bg-saffron/15 px-2.5 py-0.5 font-inter text-[9px] sm:text-[9.5px] font-bold uppercase tracking-wider text-saffron shadow-sm">
                         {adv.badge}
                       </span>
-                      <h3 className="mt-2 font-serif-jp text-[18px] font-bold leading-snug text-white group-hover:text-saffron-light transition-colors">
+                      <h3 className="mt-1.5 sm:mt-2 font-serif-jp text-[16px] sm:text-[18px] font-bold leading-snug text-white group-hover:text-saffron-light transition-colors">
                         {adv.name}
                       </h3>
-                      <p className="font-sans-jp text-[12px] text-mist/90 mt-0.5">{adv.jpName}</p>
-                      <p className="mt-2 font-inter text-[13px] font-bold text-saffron">
+                      <p className="font-sans-jp text-[11.5px] sm:text-[12px] text-mist/90 mt-0.5">{adv.jpName}</p>
+                      <p className="mt-1.5 sm:mt-2 font-inter text-[12px] sm:text-[13px] font-bold text-saffron">
                         {adv.title}
                       </p>
                     </div>
                   </div>
 
                   {/* Body Content */}
-                  <div className="mt-5 flex flex-1 flex-col border-t border-white/[0.1] pt-4">
-                    <p className="flex-1 font-inter text-[13px] leading-relaxed text-slate-300">
+                  <div className="mt-3.5 sm:mt-5 flex flex-1 flex-col border-t border-white/[0.1] pt-3 sm:pt-4">
+                    <p className="flex-1 font-inter text-[12px] sm:text-[13px] leading-relaxed text-slate-300">
                       {adv.desc}
                     </p>
                   </div>
@@ -367,21 +367,21 @@ export default function TeamPage() {
           </Reveal>
 
           {/* 4 Profile Cards across */}
-          <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-7 sm:mt-10 lg:mt-12 grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {OPS_TEAM.map((m, i) => {
               const isDheeraj = m.id === "dheeraj";
               return (
                 <Reveal key={m.id} delay={i * 80}>
                   <article
                     id={isDheeraj ? "team-dheeraj" : undefined}
-                    className={`luxury-light-card card-sheen gold-hairline group flex h-full flex-col items-center rounded-3xl border bg-white p-6 sm:p-7 text-center shadow-card transition-all duration-300 hover:shadow-2xl ${
+                    className={`luxury-light-card card-sheen gold-hairline group flex h-full flex-col items-center rounded-2xl sm:rounded-3xl border bg-white p-4 sm:p-6 lg:p-7 text-center shadow-card transition-all duration-300 hover:shadow-2xl ${
                       isDheeraj
                         ? "border-saffron ring-2 ring-saffron/30 hover:border-saffron shadow-lg shadow-saffron/10"
                         : "border-slate-200/90 hover:border-crimson/40"
                     }`}
                   >
                     {/* Modern Squircle Portrait with Crisp Country Badge */}
-                    <div className="relative w-full max-w-[190px]">
+                    <div className="relative w-full max-w-[140px] sm:max-w-[190px]">
                       <div
                         className={`aspect-square w-full overflow-hidden rounded-2xl border-2 bg-slate-50 shadow-md transition-all duration-300 group-hover:scale-105 ${
                           isDheeraj
@@ -398,29 +398,29 @@ export default function TeamPage() {
                       </div>
 
                       {/* Flag Tag */}
-                      <span className="absolute bottom-2.5 right-2.5 flex items-center gap-1 rounded-full bg-white/95 px-2.5 py-0.5 text-[11px] font-bold text-slate-700 shadow-md border border-slate-200/80 backdrop-blur-sm">
+                      <span className="absolute bottom-2 right-2 sm:bottom-2.5 sm:right-2.5 flex items-center gap-1 rounded-full bg-white/95 px-2 py-0.5 sm:px-2.5 text-[10px] sm:text-[11px] font-bold text-slate-700 shadow-md border border-slate-200/80 backdrop-blur-sm">
                         <span>{m.flag}</span>
-                        <span className="text-[10px] tracking-wide uppercase font-inter">{m.country}</span>
+                        <span className="text-[9px] sm:text-[10px] tracking-wide uppercase font-inter">{m.country}</span>
                       </span>
 
                       {/* Spotlight Concierge Lead Badge for Dheeraj */}
                       {isDheeraj && (
-                        <span className="absolute top-2.5 left-2.5 flex items-center gap-1 rounded-full bg-saffron px-2.5 py-0.5 text-[9.5px] font-bold text-ink shadow-md border border-saffron-dark/20 uppercase tracking-wider font-inter animate-pulse">
-                          <Sparkles className="h-3 w-3 text-ink" />
+                        <span className="absolute top-2 left-2 sm:top-2.5 sm:left-2.5 flex items-center gap-1 rounded-full bg-saffron px-2 py-0.5 sm:px-2.5 text-[9px] sm:text-[9.5px] font-bold text-ink shadow-md border border-saffron-dark/20 uppercase tracking-wider font-inter animate-pulse">
+                          <Sparkles className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-ink" />
                           <span>{m.badge}</span>
                         </span>
                       )}
                     </div>
 
                     {/* Name & Titles */}
-                    <h3 className="mt-4 font-serif-jp text-[18px] font-bold leading-tight text-ink group-hover:text-crimson transition-colors">
+                    <h3 className="mt-3 sm:mt-4 font-serif-jp text-[16px] sm:text-[18px] font-bold leading-tight text-ink group-hover:text-crimson transition-colors">
                       {m.name}
                     </h3>
-                    <p className="mt-0.5 font-sans-jp text-[12px] font-semibold text-slate-500">
+                    <p className="mt-0.5 font-sans-jp text-[11.5px] sm:text-[12px] font-semibold text-slate-500">
                       {m.jpName}
                     </p>
                     <span
-                      className={`mt-2.5 inline-flex rounded-full px-3.5 py-1 font-inter text-[11px] font-bold shadow-sm ${
+                      className={`mt-2 sm:mt-2.5 inline-flex rounded-full px-3 py-0.5 sm:px-3.5 sm:py-1 font-inter text-[10.5px] sm:text-[11px] font-bold shadow-sm ${
                         isDheeraj
                           ? "bg-saffron/20 text-saffron-dark border border-saffron/40"
                           : "bg-crimson/10 text-crimson border border-crimson/20"
@@ -430,16 +430,16 @@ export default function TeamPage() {
                     </span>
 
                     {/* Spoken Languages Strip */}
-                    <div className="mt-3.5 w-full rounded-2xl bg-slate-50/90 border border-slate-200/70 p-2.5">
-                      <div className="flex items-center justify-center gap-1.5 font-inter text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1.5">
+                    <div className="mt-2.5 sm:mt-3.5 w-full rounded-xl sm:rounded-2xl bg-slate-50/90 border border-slate-200/70 p-2 sm:p-2.5">
+                      <div className="flex items-center justify-center gap-1.5 font-inter text-[9.5px] sm:text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1 sm:mb-1.5">
                         <Languages className="h-3 w-3 text-crimson" />
                         <span>{tx({ EN: "Languages", JP: "対応言語" })}</span>
                       </div>
-                      <div className="flex flex-wrap items-center justify-center gap-1.5">
+                      <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-1.5">
                         {m.languages.map((lang, li) => (
                           <span
                             key={li}
-                            className={`inline-flex items-center rounded-md px-2 py-0.5 font-inter text-[10.5px] font-semibold transition-colors ${
+                            className={`inline-flex items-center rounded-md px-1.5 py-0.5 sm:px-2 font-inter text-[10px] sm:text-[10.5px] font-semibold transition-colors ${
                               lang.highlight
                                 ? "bg-crimson/10 text-crimson border border-crimson/25 font-bold"
                                 : "bg-white text-slate-700 border border-slate-200/90 shadow-2xs"
@@ -452,16 +452,16 @@ export default function TeamPage() {
                     </div>
 
                     {/* Short Bio */}
-                    <p className="mt-3.5 flex-1 font-inter text-[12.5px] leading-relaxed text-slate-600">
+                    <p className="mt-2.5 sm:mt-3.5 flex-1 font-inter text-[12px] sm:text-[12.5px] leading-relaxed text-slate-600">
                       {m.desc}
                     </p>
 
                     {/* Direct Contact Links */}
-                    <div className="mt-5 w-full space-y-2 border-t border-slate-100 pt-4 text-[12px]">
+                    <div className="mt-3.5 sm:mt-5 w-full space-y-1.5 sm:space-y-2 border-t border-slate-100 pt-3 sm:pt-4 text-[11.5px] sm:text-[12px]">
                       {m.phone && (
                         <a
                           href={`tel:${m.phone.replace(/[^0-9+]/g, "")}`}
-                          className="flex items-center justify-center gap-2 rounded-xl bg-slate-50 py-2 px-3 font-inter font-medium text-slate-700 transition-colors hover:bg-crimson/10 hover:text-crimson border border-slate-200/60 shadow-sm"
+                          className="flex items-center justify-center gap-2 rounded-xl bg-slate-50 py-1.5 sm:py-2 px-2.5 sm:px-3 font-inter font-medium text-slate-700 transition-colors hover:bg-crimson/10 hover:text-crimson border border-slate-200/60 shadow-sm"
                         >
                           <Phone className="h-3.5 w-3.5 text-crimson" />
                           <span>{m.phone}</span>
@@ -469,7 +469,7 @@ export default function TeamPage() {
                       )}
                       <a
                         href={`mailto:${m.email}`}
-                        className="flex items-center justify-center gap-2 rounded-xl bg-slate-50 py-2 px-3 font-inter font-medium text-slate-700 transition-colors hover:bg-crimson/10 hover:text-crimson border border-slate-200/60 shadow-sm"
+                        className="flex items-center justify-center gap-2 rounded-xl bg-slate-50 py-1.5 sm:py-2 px-2.5 sm:px-3 font-inter font-medium text-slate-700 transition-colors hover:bg-crimson/10 hover:text-crimson border border-slate-200/60 shadow-sm"
                       >
                         <Mail className="h-3.5 w-3.5 text-crimson" />
                         <span>{m.email}</span>
@@ -485,38 +485,38 @@ export default function TeamPage() {
               Bilingual Concierge Speech Bubble — Pointing Directly up to Dheeraj
              ══════════════════════════════════════════════════════════ */}
           <Reveal delay={250}>
-            <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 items-start">
+            <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-start">
               {/* Empty space for Columns 1 & 2 (Tanji & Hanaoka) on desktop */}
               <div className="hidden lg:block lg:col-span-2" />
 
               {/* Speech Bubble spanning under Column 3 (Dheeraj) & Column 4 (Abhishek) */}
               <div className="sm:col-span-2 lg:col-span-2 relative">
-                <div className="relative rounded-[28px] sm:rounded-[36px] border-2 border-saffron bg-[#FFF9EE] p-6 sm:p-8 shadow-xl transition-all duration-300 hover:shadow-2xl">
+                <div className="relative rounded-2xl sm:rounded-[36px] border-2 border-saffron bg-[#FFF9EE] p-4 sm:p-6 lg:p-8 shadow-xl transition-all duration-300 hover:shadow-2xl">
                   {/* Authentic Speech Bubble Pointer Tail pointing EXACTLY UP to Dheeraj (Col 3 center = 25% of 2-col span) */}
                   <div className="absolute -top-[14px] left-1/2 sm:left-[25%] -translate-x-1/2 h-0 w-0 border-x-[13px] border-x-transparent border-b-[14px] border-b-saffron" />
                   <div className="absolute -top-[11px] left-1/2 sm:left-[25%] -translate-x-1/2 h-0 w-0 border-x-[13px] border-x-transparent border-b-[14px] border-b-[#FFF9EE]" />
 
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6">
                     <div className="space-y-2 flex-1">
-                      <div className="flex items-center gap-2">
-                        <span className="inline-block rounded-full bg-saffron/25 px-3 py-0.5 font-inter text-[10.5px] font-bold uppercase tracking-wider text-saffron-dark">
+                      <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
+                        <span className="inline-block rounded-full bg-saffron/25 px-2.5 py-0.5 font-inter text-[9.5px] sm:text-[10.5px] font-bold uppercase tracking-wider text-saffron-dark">
                           BILINGUAL CONCIERGE · バイリンガル対応
                         </span>
-                        <span className="inline-flex items-center gap-1 rounded-full bg-crimson/10 px-2.5 py-0.5 font-inter text-[10.5px] font-bold text-crimson">
+                        <span className="inline-flex items-center gap-1 rounded-full bg-crimson/10 px-2 py-0.5 font-inter text-[9.5px] sm:text-[10.5px] font-bold text-crimson">
                           <Sparkles className="h-3 w-3" />
                           <span>Dheeraj (Community Manager)</span>
                         </span>
                       </div>
 
                       {/* Exact Japanese Header from User Image */}
-                      <h4 className="font-serif-jp text-[19px] sm:text-[23px] font-bold text-ink leading-tight tracking-tight">
+                      <h4 className="font-serif-jp text-[17px] sm:text-[21px] lg:text-[23px] font-bold text-ink leading-tight tracking-tight">
                         なんでもお気軽にご相談ください。
                         <br />
                         日本語でご対応致します。
                       </h4>
 
                       {/* Bilingual Description */}
-                      <p className="font-inter text-[13px] sm:text-[13.5px] leading-relaxed text-slate-700">
+                      <p className="font-inter text-[12px] sm:text-[13px] lg:text-[13.5px] leading-relaxed text-slate-700">
                         {tx({
                           EN: "Whether exploring hub memberships, enterprise private suites, company incorporation, or bilateral business partnerships — our team provides dedicated support in Japanese and English.",
                           JP: "オフィス視察、現地法人設立、人材採用、市場調査など、経験豊富な現地スタッフが日本語・英語で迅速かつ丁寧に対応いたします。",
@@ -525,10 +525,10 @@ export default function TeamPage() {
                     </div>
 
                     {/* Direct Contact Buttons */}
-                    <div className="flex flex-wrap sm:flex-col shrink-0 gap-2.5 w-full sm:w-auto">
+                    <div className="flex flex-wrap sm:flex-col shrink-0 gap-2 sm:gap-2.5 w-full sm:w-auto">
                       <a
                         href="tel:+919849811543"
-                        className="btn-shine inline-flex items-center justify-center gap-2 rounded-xl bg-crimson px-5 py-2.5 font-inter text-[12.5px] font-semibold text-white shadow-md hover:bg-crimson-deep transition-all"
+                        className="btn-shine inline-flex items-center justify-center gap-2 rounded-xl bg-crimson px-4 py-2 sm:px-5 sm:py-2.5 font-inter text-[12px] sm:text-[12.5px] font-semibold text-white shadow-md hover:bg-crimson-deep transition-all"
                       >
                         <Phone className="h-3.5 w-3.5" />
                         <span>+91-98498 11543</span>
@@ -537,14 +537,14 @@ export default function TeamPage() {
                         href="https://wa.me/919849811543?text=Hello%20Dheeraj,%20I%20would%20like%20to%20inquire%20about%20J-Gate%20Hyderabad."
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 px-5 py-2.5 font-inter text-[12.5px] font-semibold text-white shadow-md transition-all"
+                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 px-4 py-2 sm:px-5 sm:py-2.5 font-inter text-[12px] sm:text-[12.5px] font-semibold text-white shadow-md transition-all"
                       >
                         <MessageSquare className="h-3.5 w-3.5" />
                         <span>WhatsApp Dheeraj</span>
                       </a>
                       <Link
                         href="/contact"
-                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-white hover:bg-slate-50 px-5 py-2 font-inter text-[12px] font-semibold text-slate-700 border border-slate-300 shadow-sm transition-all"
+                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-white hover:bg-slate-50 px-4 py-1.5 sm:px-5 sm:py-2 font-inter text-[11.5px] sm:text-[12px] font-semibold text-slate-700 border border-slate-300 shadow-sm transition-all"
                       >
                         <Mail className="h-3.5 w-3.5 text-crimson" />
                         <span>{tx({ EN: "Online Inquiry Desk →", JP: "Web相談・予約 →" })}</span>
@@ -602,24 +602,24 @@ export default function TeamPage() {
               {[...ECOSYSTEM_ROW_1, ...ECOSYSTEM_ROW_1, ...ECOSYSTEM_ROW_1, ...ECOSYSTEM_ROW_1].map((p, i) => (
                 <div
                   key={`r1-${p.name}-${i}`}
-                  className="group flex h-28 w-64 sm:w-72 shrink-0 items-center gap-4 rounded-2xl border border-slate-200/90 bg-white p-4 shadow-card transition-all duration-300 hover:border-crimson/40 hover:shadow-xl hover:-translate-y-1"
+                  className="group flex h-24 sm:h-28 w-60 sm:w-72 shrink-0 items-center gap-3 sm:gap-4 rounded-xl sm:rounded-2xl border border-slate-200/90 bg-white p-3 sm:p-4 shadow-card transition-all duration-300 hover:border-crimson/40 hover:shadow-xl hover:-translate-y-1"
                 >
-                  <div className="flex h-16 w-24 shrink-0 items-center justify-center rounded-xl bg-slate-50/90 p-2 border border-slate-100">
+                  <div className="flex h-14 w-20 sm:h-16 sm:w-24 shrink-0 items-center justify-center rounded-xl bg-slate-50/90 p-1.5 sm:p-2 border border-slate-100">
                     <img
                       src={p.src}
                       alt={`${p.name} logo`}
-                      className="max-h-11 max-w-[85px] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                      className="max-h-9 sm:max-h-11 max-w-[70px] sm:max-w-[85px] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <span className="block font-inter text-[13.5px] font-bold text-ink group-hover:text-crimson transition-colors truncate">
+                    <span className="block font-inter text-[12.5px] sm:text-[13.5px] font-bold text-ink group-hover:text-crimson transition-colors truncate">
                       {p.name}
                     </span>
-                    <span className="mt-0.5 block font-inter text-[9px] font-bold uppercase tracking-wider text-crimson">
+                    <span className="mt-0.5 block font-inter text-[8.5px] sm:text-[9px] font-bold uppercase tracking-wider text-crimson">
                       {p.category}
                     </span>
-                    <p className="mt-1 font-inter text-[11px] text-slate-500 line-clamp-1">
+                    <p className="mt-0.5 sm:mt-1 font-inter text-[10.5px] sm:text-[11px] text-slate-500 line-clamp-1">
                       {p.desc}
                     </p>
                   </div>
@@ -643,24 +643,24 @@ export default function TeamPage() {
               {[...ECOSYSTEM_ROW_2, ...ECOSYSTEM_ROW_2, ...ECOSYSTEM_ROW_2, ...ECOSYSTEM_ROW_2].map((p, i) => (
                 <div
                   key={`r2-${p.name}-${i}`}
-                  className="group flex h-28 w-64 sm:w-72 shrink-0 items-center gap-4 rounded-2xl border border-slate-200/90 bg-white p-4 shadow-card transition-all duration-300 hover:border-crimson/40 hover:shadow-xl hover:-translate-y-1"
+                  className="group flex h-24 sm:h-28 w-60 sm:w-72 shrink-0 items-center gap-3 sm:gap-4 rounded-xl sm:rounded-2xl border border-slate-200/90 bg-white p-3 sm:p-4 shadow-card transition-all duration-300 hover:border-crimson/40 hover:shadow-xl hover:-translate-y-1"
                 >
-                  <div className="flex h-16 w-24 shrink-0 items-center justify-center rounded-xl bg-slate-50/90 p-2 border border-slate-100">
+                  <div className="flex h-14 w-20 sm:h-16 sm:w-24 shrink-0 items-center justify-center rounded-xl bg-slate-50/90 p-1.5 sm:p-2 border border-slate-100">
                     <img
                       src={p.src}
                       alt={`${p.name} logo`}
-                      className="max-h-11 max-w-[85px] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                      className="max-h-9 sm:max-h-11 max-w-[70px] sm:max-w-[85px] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
                   <div className="min-w-0 flex-1">
-                    <span className="block font-inter text-[13.5px] font-bold text-ink group-hover:text-crimson transition-colors truncate">
+                    <span className="block font-inter text-[12.5px] sm:text-[13.5px] font-bold text-ink group-hover:text-crimson transition-colors truncate">
                       {p.name}
                     </span>
-                    <span className="mt-0.5 block font-inter text-[9px] font-bold uppercase tracking-wider text-crimson">
+                    <span className="mt-0.5 block font-inter text-[8.5px] sm:text-[9px] font-bold uppercase tracking-wider text-crimson">
                       {p.category}
                     </span>
-                    <p className="mt-1 font-inter text-[11px] text-slate-500 line-clamp-1">
+                    <p className="mt-0.5 sm:mt-1 font-inter text-[10.5px] sm:text-[11px] text-slate-500 line-clamp-1">
                       {p.desc}
                     </p>
                   </div>

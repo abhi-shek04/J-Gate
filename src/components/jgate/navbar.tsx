@@ -22,21 +22,24 @@ const NAV_LINKS = [
 ] as const;
 
 export function Navbar() {
-  const scrolled = useScrolled(80);
+  const scrolled = useScrolled(60);
   const [open, setOpen] = useState(false);
   const { lang, setLang, t } = useI18n();
   const pathname = usePathname();
 
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "";
+    if (open) {
+      document.body.classList.add("overflow-hidden");
+    } else {
+      document.body.classList.remove("overflow-hidden");
+    }
     return () => {
-      document.body.style.overflow = "";
+      document.body.classList.remove("overflow-hidden");
     };
   }, [open]);
 
   // Close mobile menu on route change
   useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setOpen(false);
   }, [pathname]);
 
@@ -53,7 +56,9 @@ export function Navbar() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled || isAuthPage ? "glass-frost" : "bg-transparent"
+        scrolled || isAuthPage || open
+          ? "glass-frost bg-[#080f1a]/95 shadow-xl border-b border-white/10"
+          : "bg-transparent"
       )}
     >
       <nav
@@ -109,7 +114,7 @@ export function Navbar() {
                 className={cn(
                   "rounded-full px-2.5 py-1 font-inter text-[11px] font-bold transition-all",
                   lang === l
-                    ? "bg-crimson text-white shadow-sm"
+                    ? "bg-crimson text-white shadow-xs"
                     : "text-white/60 hover:text-white"
                 )}
               >
@@ -127,17 +132,19 @@ export function Navbar() {
             <span>{t("nav.brochure")}</span>
           </Link>
 
-          {/* Hamburger */}
+          {/* Hamburger Menu Toggle Button */}
           <button
             onClick={() => setOpen((v) => !v)}
             className={cn(
-              "inline-flex h-10 w-10 items-center justify-center rounded-md transition-colors lg:hidden shrink-0",
-              "text-white hover:bg-white/10"
+              "inline-flex h-10 w-10 items-center justify-center rounded-xl border transition-all duration-200 lg:hidden shrink-0 active:scale-95",
+              open
+                ? "bg-crimson/20 border-crimson/50 text-white shadow-xs"
+                : "bg-white/10 border-white/20 text-white hover:bg-white/20"
             )}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
           >
-            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {open ? <X className="h-5 w-5 text-white" /> : <Menu className="h-5 w-5 text-white" />}
           </button>
         </div>
       </nav>
@@ -145,40 +152,45 @@ export function Navbar() {
       {/* Mobile full-screen drawer */}
       <div
         className={cn(
-          "fixed inset-0 top-[76px] z-40 overflow-y-auto bg-midnight/97 backdrop-blur-xl transition-all duration-300 lg:hidden",
-          open ? "visible opacity-100" : "invisible opacity-0"
+          "fixed inset-x-0 top-[76px] bottom-0 z-40 overflow-y-auto bg-[#080f1a]/98 backdrop-blur-2xl transition-all duration-300 lg:hidden flex flex-col justify-between",
+          open ? "visible opacity-100 translate-y-0" : "invisible opacity-0 -translate-y-2 pointer-events-none"
         )}
       >
-        <ul className="container-jg flex flex-col gap-1 py-8">
-          {NAV_LINKS.map((link, i) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                onClick={() => setOpen(false)}
-                style={{ transitionDelay: open ? `${i * 40}ms` : "0ms" }}
-                className={cn(
-                  "flex w-full items-center justify-between border-b border-white/8 py-4 text-left font-serif-jp text-xl font-medium transition-all",
-                  isActive(link.href) ? "text-crimson" : "text-white/85 hover:text-white",
-                  open ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0"
-                )}
-              >
-                {t(link.key)}
-              </Link>
-            </li>
-          ))}
+        <ul className="container-jg flex flex-col gap-1 py-4">
+          {NAV_LINKS.map((link) => {
+            const active = isActive(link.href);
+            return (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  onClick={() => setOpen(false)}
+                  className={cn(
+                    "flex w-full items-center justify-between rounded-xl px-4 py-3 font-serif-jp text-[15.5px] font-medium transition-all duration-200 border",
+                    active
+                      ? "bg-crimson/15 border-crimson/40 text-white font-bold"
+                      : "border-transparent text-white/80 hover:bg-white/5 hover:text-white"
+                  )}
+                >
+                  <span>{t(link.key)}</span>
+                  <span className={cn("h-2 w-2 rounded-full", active ? "bg-crimson" : "bg-white/20")} />
+                </Link>
+              </li>
+            );
+          })}
         </ul>
-        <div className="container-jg flex flex-col gap-4 pb-12 pt-2">
+
+        <div className="container-jg flex flex-col gap-3 pb-8 pt-3 border-t border-white/10 bg-[#080f1a]/95 shrink-0">
           {/* Mobile lang toggle */}
-          <div className="flex items-center justify-center gap-2">
-            <span className="font-inter text-xs text-mist">Language:</span>
-            <div className="flex items-center rounded-full border border-white/15 bg-white/5 p-0.5">
+          <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-3">
+            <span className="font-inter text-xs font-medium text-mist">Language / 言語</span>
+            <div className="flex items-center rounded-full border border-white/15 bg-white/10 p-0.5">
               {(["JP", "EN"] as const).map((l) => (
                 <button
                   key={l}
                   onClick={() => setLang(l)}
                   className={cn(
                     "rounded-full px-3 py-1 font-inter text-[11px] font-bold transition-all",
-                    lang === l ? "bg-crimson text-white" : "text-white/60"
+                    lang === l ? "bg-crimson text-white shadow-xs" : "text-white/60 hover:text-white"
                   )}
                 >
                   {l}
@@ -189,10 +201,10 @@ export function Navbar() {
           <Link
             href="/auth/brochure"
             onClick={() => setOpen(false)}
-            className="btn-shine flex items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3.5 font-inter text-sm font-semibold text-white shadow-[0_0_20px_rgba(188,26,44,0.4)]"
+            className="btn-shine flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3.5 font-inter text-sm font-bold text-white shadow-lg shadow-crimson/40"
           >
             <Download className="h-4 w-4" />
-            {t("nav.brochure")}
+            <span>{t("nav.brochure")}</span>
           </Link>
         </div>
       </div>

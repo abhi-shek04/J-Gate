@@ -101,7 +101,7 @@ export function Pricing() {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
   return (
-    <section id="membership" className="section-pad bg-ivory">
+    <section id="membership" className="py-8 sm:py-12 bg-ivory">
       <div className="container-jg">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">

@@ -438,7 +438,7 @@ export default function PricingPage() {
       {/* ───────────────────────────────────────────────────────────
           3. Three Executive Plan Cards
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-8 sm:py-14 lg:py-20 bg-ivory-warm relative overflow-hidden">
+      <section className="py-6 sm:py-10 lg:py-12 bg-ivory-warm relative overflow-hidden">
         {/* Ambient subtle warm lighting */}
         <div
           className="pointer-events-none absolute inset-0 opacity-35"
@@ -450,21 +450,21 @@ export default function PricingPage() {
 
         <div className="container-jg relative z-10">
           <Reveal>
-            <div className="mx-auto max-w-3xl text-center mb-6 sm:mb-8">
+            <div className="mx-auto max-w-3xl text-center mb-5 sm:mb-7">
               <span className="inline-flex items-center gap-1.5 rounded-full border border-crimson/30 bg-crimson/10 px-3.5 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-crimson">
                 <Briefcase className="h-3.5 w-3.5" />
                 {tx({ EN: "Transparent Operating Memberships", JP: "透明で明瞭なメンバーシップ体系" })}
               </span>
               <h2
-                className="mt-3 font-serif-jp font-bold text-ink"
-                style={{ fontSize: "clamp(1.6rem, 3.2vw, 2.625rem)" }}
+                className="mt-2.5 font-serif-jp font-bold text-ink"
+                style={{ fontSize: "clamp(1.5rem, 2.8vw, 2.25rem)" }}
               >
                 {tx({
                   EN: "Choose Your India Expansion Tier",
                   JP: "進出段階に合わせて選べる3つのプラン",
                 })}
               </h2>
-              <p className="mx-auto mt-2 max-w-2xl font-inter text-[12.5px] sm:text-[13.5px] leading-relaxed text-slate">
+              <p className="mx-auto mt-1.5 max-w-2xl font-inter text-[12px] sm:text-[13px] leading-relaxed text-slate">
                 {tx({
                   EN: "All tiers include full Cyber Gateway workspace infrastructure, 1Gbps connectivity, and on-site Japanese leadership guidance.",
                   JP: "すべてのプランにサイバーゲートウェイのオフィス利用、1Gbps光回線、常駐日本人ディレクターによるサポートが含まれています。",
@@ -472,7 +472,7 @@ export default function PricingPage() {
               </p>
 
               {/* Interactive Team Size Quick Selector */}
-              <div className="mt-5 sm:mt-6 inline-flex flex-wrap items-center justify-center gap-1.5 bg-white/90 p-1.5 rounded-2xl border border-slate-200/80 shadow-xs">
+              <div className="mt-4 sm:mt-5 inline-flex flex-wrap items-center justify-center gap-1.5 bg-white/90 p-1.5 rounded-2xl border border-slate-200/80 shadow-xs">
                 <span className="text-[11px] font-inter font-semibold text-slate-400 px-2.5">
                   {tx({ EN: "Filter by Team:", JP: "チーム規模で絞り込み:" })}
                 </span>
@@ -500,7 +500,7 @@ export default function PricingPage() {
           </Reveal>
 
           {/* Grid of 3 Balanced Cards — Strict Equal Height & Baseline */}
-          <div className="grid gap-4 sm:gap-6 lg:gap-7 lg:grid-cols-3 items-stretch">
+          <div className="grid gap-4 sm:gap-5 lg:gap-6 lg:grid-cols-3 items-stretch">
             {PLANS.map((plan, i) => {
               const Icon = plan.icon;
               const displayINR = isAnnual ? plan.priceINRAnnual : plan.priceINRMonthly;
@@ -512,7 +512,7 @@ export default function PricingPage() {
                   <div
                     className={`group relative flex h-full flex-col justify-between rounded-xl sm:rounded-2xl bg-white border border-slate-200/90 border-t-4 ${
                       plan.accentBorder
-                    } shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_22px_44px_-14px_rgba(8,15,26,0.12)] hover:-translate-y-1.5 transition-all duration-300 p-4 sm:p-6 lg:p-7.5 ${
+                    } shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_22px_44px_-14px_rgba(8,15,26,0.12)] hover:-translate-y-1 transition-all duration-300 p-4 sm:p-5 lg:p-6 ${
                       isSelected ? "ring-2 ring-crimson/50 shadow-lg" : ""
                     }`}
                   >

@@ -74,7 +74,7 @@ export function InteractiveFAQ() {
   );
 
   return (
-    <section className="section-pad relative overflow-hidden bg-ivory">
+    <section className="py-8 sm:py-12 relative overflow-hidden bg-ivory">
       <div className="container-jg">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">

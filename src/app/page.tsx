@@ -89,21 +89,21 @@ function GlassBadge({
         ? "text-crimson border-crimson/30"
         : "text-mist border-white/15";
   return (
-    <div className="glass-dark flex items-center gap-2.5 rounded-full px-4 py-2 border transition-all duration-300 hover:scale-105">
+    <div className="glass-dark flex items-center gap-2 sm:gap-2.5 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 border transition-all duration-300 hover:scale-105 max-w-[92vw] sm:max-w-none">
       {imageSrc ? (
         <img
           src={imageSrc}
           alt="Indobox"
-          className="h-5 w-5 object-contain"
+          className="h-4 w-4 sm:h-5 sm:w-5 object-contain shrink-0"
         />
       ) : (
-        <span className="font-serif-jp text-[18px] leading-none">{emoji}</span>
+        <span className="font-serif-jp text-[16px] sm:text-[18px] leading-none shrink-0">{emoji}</span>
       )}
-      <div className="flex flex-col leading-tight text-left">
-        <span className={`font-inter text-[12px] font-bold uppercase ${accentClass.split(" ")[0]}`} style={{ letterSpacing: "0.08em" }}>
+      <div className="flex flex-col leading-tight text-left min-w-0">
+        <span className={`font-inter text-[11px] sm:text-[12px] font-bold uppercase truncate ${accentClass.split(" ")[0]}`} style={{ letterSpacing: "0.06em" }}>
           {primary}
         </span>
-        <span className="font-inter text-[11px] text-mist">{secondary}</span>
+        <span className="font-inter text-[10px] sm:text-[11px] text-mist truncate">{secondary}</span>
       </div>
     </div>
   );
@@ -313,7 +313,7 @@ export default function HomePage() {
           style={{ background: "linear-gradient(180deg, transparent, #080f1a 90%)" }}
         />
 
-        <div className="container-jg relative z-10 pt-12 pb-8 sm:pt-18 sm:pb-14 text-center">
+        <div className="container-jg relative z-10 pt-10 pb-20 sm:pt-16 sm:pb-16 text-center">
           {/* Eyebrow pill */}
           <Reveal>
             <span
@@ -391,7 +391,7 @@ export default function HomePage() {
 
           {/* 2 floating glass badges — Hyderabad + Operator */}
           <Reveal delay={360}>
-            <div className="mt-5 sm:mt-6 flex flex-wrap items-center justify-center gap-2.5 sm:gap-3">
+            <div className="mt-4 sm:mt-6 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
               <GlassBadge
                 emoji="📍"
                 primary={tx({ EN: "Hyderabad", JP: "ハイデラバード" })}
@@ -409,14 +409,14 @@ export default function HomePage() {
         </div>
 
         {/* Scroll cue */}
-        <div className="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-1.5 opacity-80 hover:opacity-100 transition-opacity">
+        <div className="absolute bottom-2.5 sm:bottom-4 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-1 opacity-80 hover:opacity-100 transition-opacity">
           <span
-            className="font-inter text-[10px] font-semibold uppercase text-mist"
+            className="font-inter text-[9.5px] sm:text-[10px] font-semibold uppercase text-mist"
             style={{ letterSpacing: "0.2em" }}
           >
             {t("hero.scroll")}
           </span>
-          <div className="relative h-8 w-px overflow-hidden bg-white/15">
+          <div className="relative h-6 w-px overflow-hidden bg-white/15">
             <span className="animate-scroll-line absolute inset-0 block bg-crimson" />
           </div>
           <ArrowDown className="h-3 w-3 text-mist" />

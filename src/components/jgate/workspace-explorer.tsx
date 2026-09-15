@@ -169,8 +169,8 @@ export function WorkspaceExplorer() {
                 onClick={() => setActiveTab(space.id)}
                 className={`shrink-0 flex items-center gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl px-3.5 py-2 sm:px-4 sm:py-2.5 font-inter text-[12px] sm:text-[13px] font-semibold transition-all duration-300 ${
                   isActive
-                    ? "bg-gradient-to-r from-crimson to-crimson-deep text-white shadow-md sm:shadow-lg shadow-crimson/25 scale-[1.02] sm:scale-105"
-                    : "bg-white text-slate hover:bg-white/80 hover:text-ink border border-slate-200/80 shadow-xs"
+                    ? "bg-gradient-to-r from-crimson to-crimson-deep text-white shadow-md sm:shadow-lg shadow-crimson/25 scale-[1.02] sm:scale-105 tab-active-glow"
+                    : "bg-white text-slate hover:bg-white/80 hover:text-ink border border-slate-200/80 shadow-xs hover:border-slate-300"
                 }`}
               >
                 <Icon className={`h-3.5 w-3.5 sm:h-4 sm:w-4 ${isActive ? "text-white" : "text-crimson"}`} />
@@ -183,7 +183,7 @@ export function WorkspaceExplorer() {
         {/* Active Space Bento Preview Card */}
         <div className="mt-6 sm:mt-8 max-w-5xl mx-auto">
           <Reveal key={activeSpace.id} variant="scale">
-            <div className="luxury-light-card overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white shadow-xl p-4 sm:p-6 lg:p-8">
+            <div className="luxury-light-card card-sheen gold-hairline overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white shadow-xl p-4 sm:p-6 lg:p-8 hover:shadow-2xl transition-all duration-300">
               <div className="grid lg:grid-cols-12 gap-5 sm:gap-8 items-center">
                 {/* Left: Photo with floating overlay badge */}
                 <div className="lg:col-span-6 relative">
@@ -220,9 +220,9 @@ export function WorkspaceExplorer() {
                       {activeSpace.specs.map((spec, i) => (
                         <div
                           key={i}
-                          className="rounded-lg sm:rounded-xl bg-slate-50 p-2 sm:p-3 border border-slate-200/60"
+                          className="rounded-lg sm:rounded-xl bg-slate-50 p-2 sm:p-3 border border-slate-200/60 transition-all duration-200 hover:border-crimson/30 hover:bg-slate-50/80 hover:shadow-xs group/spec"
                         >
-                          <span className="block font-inter text-[9.5px] sm:text-[10.5px] font-bold uppercase tracking-wider text-slate-500">
+                          <span className="block font-inter text-[9.5px] sm:text-[10.5px] font-bold uppercase tracking-wider text-slate-500 group-hover/spec:text-crimson transition-colors">
                             {tx(spec.label)}
                           </span>
                           <span className="mt-0.5 block font-inter text-[12px] sm:text-[13px] font-bold text-ink truncate">

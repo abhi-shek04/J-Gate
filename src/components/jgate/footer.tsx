@@ -1,6 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import {
+  MapPin,
+  Mail,
+  Phone,
+  MessageCircle,
+  ArrowRight,
+} from "lucide-react";
 import { JGateLogo, LinkedInIcon, XIcon, InstagramIcon, JapanFlag, IndiaFlag } from "./icons";
 import { useI18n } from "@/lib/i18n";
 
@@ -93,15 +100,87 @@ export function Footer() {
             <h3 className="font-inter text-[10.5px] sm:text-[11px] font-semibold uppercase text-saffron tracking-wider">
               {t("footer.contact")}
             </h3>
-            <ul className="mt-3.5 sm:mt-5 space-y-2.5 font-inter text-[12.5px] sm:text-[13px] text-mist">
-              <li className="flex items-start gap-2"><span>📍</span><span>Cyber Gateway, Hitech City, Hyderabad, Telangana</span></li>
-              <li className="flex items-start gap-2"><span>📧</span><a href="mailto:contact@indobox.co.jp" className="hover:text-crimson transition-colors">contact@indobox.co.jp</a></li>
-              <li className="flex items-start gap-2"><span>📞</span><a href="tel:+919910360648" className="hover:text-white transition-colors">+91-9910360648 (Tanji)</a></li>
-              <li className="flex items-start gap-2"><span>📞</span><a href="tel:+919849811543" className="hover:text-white transition-colors">+91-98498 11543 (Dheeraj)</a></li>
-              <li className="flex items-start gap-2"><span>🇯🇵</span><span className="text-white/80">Support provided in Japanese</span></li>
-            </ul>
-            <Link href="/contact" className="btn-shine mt-4 inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-crimson to-crimson-deep px-4 py-2 font-inter text-[12.5px] sm:text-[13px] font-semibold text-white shadow-[0_0_16px_rgba(188,26,44,0.4)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(188,26,44,0.6)]">
-              {t("nav.contact")}
+            
+            <div className="mt-3.5 sm:mt-5 space-y-3 font-inter text-[12px] sm:text-[12.5px] text-mist">
+              {/* Location */}
+              <div className="flex items-start gap-2 text-slate-300">
+                <MapPin className="h-4 w-4 text-crimson shrink-0 mt-0.5" />
+                <span>Cyber Gateway, Phase 2, Hitech City, Hyderabad</span>
+              </div>
+
+              {/* Email */}
+              <div className="flex items-center gap-2">
+                <Mail className="h-4 w-4 text-saffron shrink-0" />
+                <a
+                  href="mailto:contact@indobox.co.jp"
+                  className="text-white/90 hover:text-crimson transition-colors underline-offset-2 hover:underline"
+                >
+                  contact@indobox.co.jp
+                </a>
+              </div>
+
+              {/* Direct Leadership Lines */}
+              <div className="pt-2 border-t border-white/10 space-y-2">
+                <span className="block text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                  {lang === "EN" ? "Resident Leadership Lines" : "現地常駐ホットライン"}
+                </span>
+
+                {/* Tanji */}
+                <div className="rounded-lg bg-white/[0.04] border border-white/10 p-2 text-[11px]">
+                  <div className="flex items-center justify-between">
+                    <span className="font-semibold text-white">Daisuke Tanji</span>
+                    <span className="text-[10px] text-saffron font-medium">JP Support</span>
+                  </div>
+                  <div className="mt-1 flex items-center gap-2 text-slate-300">
+                    <a href="tel:+919910360648" className="hover:text-white transition-colors flex items-center gap-1">
+                      <Phone className="h-3 w-3 text-emerald-400" />
+                      <span>+91-9910360648</span>
+                    </a>
+                    <span className="text-white/20">|</span>
+                    <a
+                      href="https://wa.me/919910360648?text=Hello%20Tanji-san%2C%20I%20am%20inquiring%20about%20J-Gate."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-0.5 font-medium"
+                    >
+                      <MessageCircle className="h-3 w-3" />
+                      <span>WhatsApp</span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* Dheeraj */}
+                <div className="rounded-lg bg-white/[0.04] border border-white/10 p-2 text-[11px]">
+                  <div className="flex items-center justify-between">
+                    <span className="font-semibold text-white">Dheeraj Yanneti</span>
+                    <span className="text-[10px] text-slate-400 font-medium">Community</span>
+                  </div>
+                  <div className="mt-1 flex items-center gap-2 text-slate-300">
+                    <a href="tel:+919849811543" className="hover:text-white transition-colors flex items-center gap-1">
+                      <Phone className="h-3 w-3 text-emerald-400" />
+                      <span>+91-98498 11543</span>
+                    </a>
+                    <span className="text-white/20">|</span>
+                    <a
+                      href="https://wa.me/919849811543?text=Hello%20Dheeraj%2C%20I%20am%20inquiring%20about%20J-Gate."
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-0.5 font-medium"
+                    >
+                      <MessageCircle className="h-3 w-3" />
+                      <span>WhatsApp</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <Link
+              href="/contact"
+              className="btn-shine mt-4 inline-flex items-center gap-1.5 rounded-lg bg-gradient-to-r from-crimson to-crimson-deep px-4 py-2 font-inter text-[12.5px] sm:text-[13px] font-semibold text-white shadow-[0_0_16px_rgba(188,26,44,0.4)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_24px_rgba(188,26,44,0.6)]"
+            >
+              <span>{t("nav.contact")}</span>
+              <ArrowRight className="h-3.5 w-3.5" />
             </Link>
           </div>
         </div>

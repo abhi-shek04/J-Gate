@@ -109,32 +109,51 @@ function GlassBadge({
   );
 }
 
-/* Workspace feature card with high-craft icon pod & sheen */
+/* Workspace feature card with high-craft icon pod, numerical indexing & sheen */
 function FeatureCard({
   icon: Icon,
   title,
   desc,
   delay,
+  index,
 }: {
   icon: typeof Building2;
   title: string;
   desc: string;
   delay: number;
+  index: number;
 }) {
+  const indexFormatted = String(index + 1).padStart(2, "0");
   return (
     <Reveal delay={delay} variant="scale">
-      <article className="luxury-light-card card-sheen group relative flex h-full flex-col rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 bg-white border border-slate-200/90 shadow-card hover:shadow-2xl hover:border-crimson/35 transition-all duration-300">
+      <article className="luxury-light-card card-sheen smooth-lift group relative flex h-full flex-col justify-between rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 bg-white border border-slate-200/90 shadow-card hover:shadow-2xl hover:border-crimson/35 transition-all duration-300">
         {/* Top subtle hairline accent */}
-        <span className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-crimson/30 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-        <div className="icon-pod h-10 w-10 sm:h-12 sm:w-12 shrink-0">
-          <Icon className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.75} />
+        <span className="absolute inset-x-0 top-0 h-[2.5px] bg-gradient-to-r from-crimson via-saffron to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+        
+        <div>
+          <div className="flex items-center justify-between">
+            <div className="icon-pod h-10 w-10 sm:h-11 sm:w-11 shrink-0">
+              <Icon className="h-5 w-5 sm:h-5.5 sm:w-5.5" strokeWidth={1.75} />
+            </div>
+            <span className="font-mono text-[11px] sm:text-[12px] font-bold text-slate-400 group-hover:text-crimson transition-colors px-2 py-0.5 rounded-full bg-slate-50 border border-slate-200/60">
+              {indexFormatted}
+            </span>
+          </div>
+          <h3 className="mt-3.5 sm:mt-4 font-serif-jp text-[15px] sm:text-[16px] font-bold leading-snug text-ink group-hover:text-crimson transition-colors">
+            {title}
+          </h3>
+          <p className="mt-2 text-[12.5px] sm:text-[13px] leading-relaxed text-slate-600">
+            {desc}
+          </p>
         </div>
-        <h3 className="mt-3 sm:mt-4 font-serif-jp text-[15px] sm:text-[16px] font-bold leading-snug text-ink group-hover:text-crimson transition-colors">
-          {title}
-        </h3>
-        <p className="mt-1.5 sm:mt-2 text-[12.5px] sm:text-[13px] leading-relaxed text-slate-600">
-          {desc}
-        </p>
+
+        <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] sm:text-[11.5px] font-inter text-slate-500 font-medium">
+          <span className="inline-flex items-center gap-1 text-crimson font-semibold group-hover:translate-x-0.5 transition-transform">
+            <span>Cyber Gateway Core</span>
+            <ArrowRight className="h-3 w-3" />
+          </span>
+          <span className="text-slate-400">100% Turnkey</span>
+        </div>
       </article>
     </Reveal>
   );
@@ -229,9 +248,10 @@ export default function HomePage() {
 
   const locationAdvantages = [
     {
+      num: "01",
       title: {
-        EN: "1. Asia's Leading Tech & Innovation District",
-        JP: "1. アジア屈指のハイテク・イノベーション集積地",
+        EN: "Asia's Leading Tech & Innovation District",
+        JP: "アジア屈指のハイテク・イノベーション集積地",
       },
       desc: {
         EN: "Cyber Gateway in Hitech City is home to Microsoft, Google, Amazon, Apple, and NTT DATA — placing your business inside India's most prestigious tech cluster.",
@@ -239,9 +259,10 @@ export default function HomePage() {
       },
     },
     {
+      num: "02",
       title: {
-        EN: "2. Strategic Cost & Quality-of-Life Advantages",
-        JP: "2. 優れたコスト効率と快適な事業・生活環境",
+        EN: "Strategic Cost & Quality-of-Life Advantages",
+        JP: "優れたコスト効率と快適な事業・生活環境",
       },
       desc: {
         EN: "30–40% lower commercial operational costs compared to Bengaluru or Mumbai, paired with world-class metro connectivity and modern international infrastructure.",
@@ -249,9 +270,10 @@ export default function HomePage() {
       },
     },
     {
+      num: "03",
       title: {
-        EN: "3. Proactive Telangana State Government Policy",
-        JP: "3. テランガナ州政府の手厚い外国企業優遇策",
+        EN: "Proactive Telangana State Government Policy",
+        JP: "テランガナ州政府の手厚い外国企業優遇策",
       },
       desc: {
         EN: "Telangana is ranked #1 in India for Ease of Doing Business, offering fast-track approvals, IT sector subsidies, and robust bilateral trade support.",
@@ -259,9 +281,10 @@ export default function HomePage() {
       },
     },
     {
+      num: "04",
       title: {
-        EN: "4. Abundant Top-Tier Engineering Talent",
-        JP: "4. 名門工科大学が輩出する豊富なトップIT人材",
+        EN: "Abundant Top-Tier Engineering Talent",
+        JP: "名門工科大学が輩出する豊富なトップIT人材",
       },
       desc: {
         EN: "Direct access to IIT Hyderabad, IIIT Hyderabad, and top engineering universities producing over 100,000 skilled tech graduates annually.",
@@ -465,6 +488,7 @@ export default function HomePage() {
                 title={f.title}
                 desc={f.desc}
                 delay={(i % 3) * 100}
+                index={i}
               />
             ))}
           </div>
@@ -545,7 +569,7 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════
           6. HYDERABAD LOCATION — 2-Column Strategic Map & Details
          ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad bg-ivory border-t border-slate-200/60">
+      <section className="section-pad bg-ivory-warm border-t border-slate-200/70">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto mb-10 max-w-3xl text-center">
@@ -652,16 +676,16 @@ export default function HomePage() {
                 </div>
               </Reveal>
 
-              {/* 4 Feature Checkpoints */}
+              {/* 4 Feature Checkpoints with Numbered Luxury Pods */}
               <div className="space-y-2.5 sm:space-y-3 pt-1 sm:pt-2">
                 {locationAdvantages.map((item, idx) => (
                   <Reveal key={idx} delay={100 + idx * 40}>
-                    <div className="group flex items-start gap-2.5 sm:gap-3.5 rounded-xl sm:rounded-2xl bg-white p-2.5 sm:p-3.5 border border-slate-200/80 shadow-sm transition-all duration-300 hover:shadow-md hover:border-crimson/30">
-                      <div className="icon-pod h-6 w-6 sm:h-7 sm:w-7 shrink-0 mt-0.5">
-                        <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                    <div className="group flex items-start gap-3 sm:gap-4 rounded-xl sm:rounded-2xl bg-white p-3 sm:p-4 border border-slate-200/90 shadow-sm transition-all duration-300 hover:shadow-md hover:border-crimson/35 smooth-lift">
+                      <div className="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-lg bg-crimson/10 border border-crimson/25 text-crimson font-mono font-bold text-[11px] sm:text-[12px] group-hover:bg-crimson group-hover:text-white transition-colors mt-0.5">
+                        {item.num}
                       </div>
-                      <div>
-                        <h4 className="font-serif-jp text-[13.5px] sm:text-[14px] font-bold text-ink group-hover:text-crimson transition-colors">
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-serif-jp text-[13.5px] sm:text-[14.5px] font-bold text-ink group-hover:text-crimson transition-colors">
                           {tx(item.title)}
                         </h4>
                         <p className="mt-0.5 font-inter text-[12px] sm:text-[12.5px] text-slate-600 leading-relaxed">
@@ -723,8 +747,89 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ════════════════════════════════════════════════════════════
+          8. EXECUTIVE CLOSING CTA — Ready to Scale in India
+         ════════════════════════════════════════════════════════════ */}
+      <section className="relative overflow-hidden bg-midnight py-14 sm:py-20 text-white border-t border-white/10">
+        {/* Ambient radial glow */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse at 50% 0%, rgba(184, 41, 46, 0.22) 0%, rgba(13, 27, 42, 0.85) 65%, #0D1B2A 100%)",
+          }}
+        />
 
+        <div className="container-jg relative z-10 max-w-4xl text-center">
+          <Reveal>
+            <span className="inline-flex items-center gap-2 rounded-full border border-saffron/30 bg-saffron/10 px-3.5 py-1 text-[11px] sm:text-[12px] font-bold uppercase tracking-wider text-saffron">
+              <Sparkles className="h-3.5 w-3.5 text-saffron" />
+              {tx({
+                EN: "Immediate Move-In · Dedicated Japanese Support",
+                JP: "即日入居可能 · 日本語フルサポート完備",
+              })}
+            </span>
+            <h2
+              className="mt-4 font-serif-jp font-bold leading-tight text-white"
+              style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" }}
+            >
+              {tx({
+                EN: "Launch Your India Operations with Confidence",
+                JP: "確かな安心とスピードで、インド事業の第一歩を",
+              })}
+            </h2>
+            <p
+              className="mx-auto mt-3.5 max-w-2xl font-inter leading-relaxed text-slate-300 text-[13.5px] sm:text-[15.5px]"
+            >
+              {tx({
+                EN: "Schedule a private executive walkthrough of our Cyber Gateway facility or request our comprehensive enterprise expansion prospectus today.",
+                JP: "サイバーゲートウェイ現地のプライベート視察や、インド進出支援の詳細資料のご請求を日本語で承っております。",
+              })}
+            </p>
+          </Reveal>
 
+          {/* Action Triggers */}
+          <Reveal delay={150}>
+            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+              <Link
+                href="/auth/brochure"
+                className="btn-shine w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-6 sm:px-8 py-3.5 sm:py-4 font-inter text-[13.5px] sm:text-[14.5px] font-bold text-white shadow-xl shadow-crimson/30 hover:-translate-y-0.5 hover:shadow-crimson/50 transition-all cursor-pointer"
+              >
+                <Download className="h-4 w-4 shrink-0" />
+                <span>{tx({
+                  EN: "Download Official Brochure (PDF)",
+                  JP: "公式パンフレット無料ダウンロード",
+                })}</span>
+              </Link>
+              <Link
+                href="/contact"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/[0.08] hover:bg-white/15 px-6 sm:px-8 py-3.5 sm:py-4 font-inter text-[13.5px] sm:text-[14.5px] font-bold text-white hover:border-white/40 transition-all backdrop-blur-sm"
+              >
+                <span>{tx({ EN: "Executive Consultation Desk", JP: "現地視察・個別相談はこちら" })}</span>
+                <ArrowRight className="h-4 w-4 shrink-0" />
+              </Link>
+            </div>
+          </Reveal>
+
+          {/* Trust Guarantees Strip */}
+          <Reveal delay={250}>
+            <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-[11.5px] sm:text-[12.5px] text-slate-300 font-inter">
+              <span className="inline-flex items-center gap-1.5">
+                <ShieldCheck className="h-4 w-4 text-emerald-400" />
+                {tx({ EN: "Strict Confidentiality & NDA", JP: "秘密保持・NDA完全対応" })}
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <Clock className="h-4 w-4 text-saffron" />
+                {tx({ EN: "24-Hour Executive Response", JP: "24時間以内の迅速回答" })}
+              </span>
+              <span className="inline-flex items-center gap-1.5">
+                <MapPin className="h-4 w-4 text-crimson" />
+                {tx({ EN: "Cyber Gateway, Hitech City, Hyderabad", JP: "ハイデラバード IT特区 Cyber Gateway" })}
+              </span>
+            </div>
+          </Reveal>
+        </div>
+      </section>
     </>
   );
 }

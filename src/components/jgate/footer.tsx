@@ -8,7 +8,7 @@ import {
   MessageCircle,
   ArrowRight,
 } from "lucide-react";
-import { JGateLogo, LinkedInIcon, XIcon, InstagramIcon, JapanFlag, IndiaFlag } from "./icons";
+import { JGateLogo, LinkedInIcon, XIcon, InstagramIcon } from "./icons";
 import { useI18n } from "@/lib/i18n";
 
 const NAV_LINKS = [
@@ -190,23 +190,6 @@ export function Footer() {
           <p className="font-inter text-[11px] sm:text-[12px] text-mist/70">
             © 2026 J-Gate | Indobox India Private Limited. {t("footer.rights")}
           </p>
-          <div className="flex items-center gap-2 font-inter text-[11px] sm:text-[12px] text-mist/70">
-            <span className="inline-flex items-center gap-1.5">
-              <JapanFlag className="h-3 w-4 rounded-[2px]" />
-              <span className="font-semibold text-white/90">Tokyo</span>
-            </span>
-            <span className="text-mist/40">↔</span>
-            <span className="inline-flex items-center gap-1.5">
-              <IndiaFlag className="h-3 w-4 rounded-[2px]" />
-              <span className="font-semibold text-white/90">Hyderabad</span>
-            </span>
-            <span className="text-mist/30">|</span>
-            <span className="text-slate-300">
-              {lang === "EN"
-                ? "Japan–India Bilateral Business Corridor"
-                : "日印ビジネス・イノベーション連携推進拠点"}
-            </span>
-          </div>
           <div className="flex gap-4">
             <Link href="#" className="font-inter text-[12px] text-mist/70 transition-colors hover:text-mist">{t("footer.privacy")}</Link>
             <Link href="#" className="font-inter text-[12px] text-mist/70 transition-colors hover:text-mist">{t("footer.terms")}</Link>

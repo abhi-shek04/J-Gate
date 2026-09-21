@@ -71,12 +71,14 @@ function Particles() {
 /* Floating glass location badge (hero) */
 function GlassBadge({
   icon: Icon,
+  flag,
   imageSrc,
   primary,
   secondary,
   accent,
 }: {
   icon?: React.ComponentType<{ className?: string }>;
+  flag?: React.ReactNode;
   imageSrc?: string;
   primary: string;
   secondary: string;
@@ -96,6 +98,8 @@ function GlassBadge({
           alt="Indobox"
           className="h-4 w-4 sm:h-5 sm:w-5 object-contain shrink-0"
         />
+      ) : flag ? (
+        <span className="shrink-0">{flag}</span>
       ) : Icon ? (
         <Icon className={`h-4 w-4 sm:h-4.5 sm:w-4.5 shrink-0 ${accentClass.split(" ")[0]}`} />
       ) : null}
@@ -145,14 +149,6 @@ function FeatureCard({
           <p className="mt-2 text-[12.5px] sm:text-[13px] leading-relaxed text-slate-600">
             {desc}
           </p>
-        </div>
-
-        <div className="mt-4 pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] sm:text-[11.5px] font-inter text-slate-500 font-medium">
-          <span className="inline-flex items-center gap-1 text-crimson font-semibold group-hover:translate-x-0.5 transition-transform">
-            <span>Cyber Gateway Core</span>
-            <ArrowRight className="h-3 w-3" />
-          </span>
-          <span className="text-slate-400">100% Turnkey</span>
         </div>
       </article>
     </Reveal>
@@ -343,9 +339,8 @@ export default function HomePage() {
               className="inline-flex items-center gap-2 rounded-full bg-crimson px-3.5 py-1 sm:px-4 sm:py-1.5 font-inter text-[11px] sm:text-[12px] font-semibold text-white shadow-crimp"
               style={{ letterSpacing: "0.1em" }}
             >
-              <JapanFlag className="h-3.5 w-5" />
-              {tx({ EN: "HYDERABAD · CYBER GATEWAY", JP: "ハイデラバード・サイバーゲートウェイ" })}
-              <IndiaFlag className="h-3.5 w-5" />
+              <IndiaFlag className="h-3.5 w-5 rounded-[2px]" />
+              <span>{tx({ EN: "HYDERABAD · CYBER GATEWAY", JP: "ハイデラバード・サイバーゲートウェイ" })}</span>
             </span>
           </Reveal>
 
@@ -412,13 +407,13 @@ export default function HomePage() {
             </div>
           </Reveal>
 
-          {/* 2 floating glass badges — Hyderabad + Operator */}
+          {/* 2 floating glass badges — Location + Operator */}
           <Reveal delay={360}>
             <div className="mt-4 sm:mt-6 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
               <GlassBadge
-                icon={MapPin}
-                primary={tx({ EN: "Hyderabad", JP: "ハイデラバード" })}
-                secondary={tx({ EN: "Main Base", JP: "主拠点" })}
+                flag={<IndiaFlag className="h-3.5 w-5 rounded-[2px] shadow-xs" />}
+                primary={tx({ EN: "Telangana State", JP: "テランガナ州" })}
+                secondary={tx({ EN: "Hyderabad · Cyber Gateway", JP: "ハイデラバード・サイバーゲートウェイ" })}
                 accent="saffron"
               />
               <GlassBadge
@@ -743,90 +738,6 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={100}>
             <LogoMarquee variant="light" />
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════════════
-          8. EXECUTIVE CLOSING CTA — Ready to Scale in India
-         ════════════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden bg-midnight py-14 sm:py-20 text-white border-t border-white/10">
-        {/* Ambient radial glow */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse at 50% 0%, rgba(184, 41, 46, 0.22) 0%, rgba(13, 27, 42, 0.85) 65%, #0D1B2A 100%)",
-          }}
-        />
-
-        <div className="container-jg relative z-10 max-w-4xl text-center">
-          <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full border border-saffron/30 bg-saffron/10 px-3.5 py-1 text-[11px] sm:text-[12px] font-bold uppercase tracking-wider text-saffron">
-              <Sparkles className="h-3.5 w-3.5 text-saffron" />
-              {tx({
-                EN: "Immediate Move-In · Dedicated Japanese Support",
-                JP: "即日入居可能 · 日本語フルサポート完備",
-              })}
-            </span>
-            <h2
-              className="mt-4 font-serif-jp font-bold leading-tight text-white"
-              style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.75rem)" }}
-            >
-              {tx({
-                EN: "Launch Your India Operations with Confidence",
-                JP: "確かな安心とスピードで、インド事業の第一歩を",
-              })}
-            </h2>
-            <p
-              className="mx-auto mt-3.5 max-w-2xl font-inter leading-relaxed text-slate-300 text-[13.5px] sm:text-[15.5px]"
-            >
-              {tx({
-                EN: "Schedule a private executive walkthrough of our Cyber Gateway facility or request our comprehensive enterprise expansion prospectus today.",
-                JP: "サイバーゲートウェイ現地のプライベート視察や、インド進出支援の詳細資料のご請求を日本語で承っております。",
-              })}
-            </p>
-          </Reveal>
-
-          {/* Action Triggers */}
-          <Reveal delay={150}>
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-              <Link
-                href="/auth/brochure"
-                className="btn-shine w-full sm:w-auto inline-flex items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-6 sm:px-8 py-3.5 sm:py-4 font-inter text-[13.5px] sm:text-[14.5px] font-bold text-white shadow-xl shadow-crimson/30 hover:-translate-y-0.5 hover:shadow-crimson/50 transition-all cursor-pointer"
-              >
-                <Download className="h-4 w-4 shrink-0" />
-                <span>{tx({
-                  EN: "Download Official Brochure (PDF)",
-                  JP: "公式パンフレット無料ダウンロード",
-                })}</span>
-              </Link>
-              <Link
-                href="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/[0.08] hover:bg-white/15 px-6 sm:px-8 py-3.5 sm:py-4 font-inter text-[13.5px] sm:text-[14.5px] font-bold text-white hover:border-white/40 transition-all backdrop-blur-sm"
-              >
-                <span>{tx({ EN: "Executive Consultation Desk", JP: "現地視察・個別相談はこちら" })}</span>
-                <ArrowRight className="h-4 w-4 shrink-0" />
-              </Link>
-            </div>
-          </Reveal>
-
-          {/* Trust Guarantees Strip */}
-          <Reveal delay={250}>
-            <div className="mt-8 sm:mt-10 pt-6 sm:pt-8 border-t border-white/10 flex flex-wrap items-center justify-center gap-4 sm:gap-8 text-[11.5px] sm:text-[12.5px] text-slate-300 font-inter">
-              <span className="inline-flex items-center gap-1.5">
-                <ShieldCheck className="h-4 w-4 text-emerald-400" />
-                {tx({ EN: "Strict Confidentiality & NDA", JP: "秘密保持・NDA完全対応" })}
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <Clock className="h-4 w-4 text-saffron" />
-                {tx({ EN: "24-Hour Executive Response", JP: "24時間以内の迅速回答" })}
-              </span>
-              <span className="inline-flex items-center gap-1.5">
-                <MapPin className="h-4 w-4 text-crimson" />
-                {tx({ EN: "Cyber Gateway, Hitech City, Hyderabad", JP: "ハイデラバード IT特区 Cyber Gateway" })}
-              </span>
-            </div>
           </Reveal>
         </div>
       </section>

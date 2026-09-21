@@ -51,6 +51,9 @@ export function Navbar() {
 
   // On auth page, navbar is transparent over dark content
   const isAuthPage = pathname === "/auth/brochure";
+  // Homepage hero is light mode — navbar needs dark text when not scrolled
+  const isHomePage = pathname === "/";
+  const useLightNav = isHomePage && !scrolled && !open;
 
   return (
     <header
@@ -58,7 +61,9 @@ export function Navbar() {
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         scrolled || isAuthPage || open
           ? "glass-frost bg-[#080f1a]/95 shadow-xl border-b border-white/10"
-          : "bg-transparent"
+          : useLightNav
+            ? "bg-transparent"
+            : "bg-transparent"
       )}
     >
       <nav
@@ -85,8 +90,10 @@ export function Navbar() {
                 href={link.href}
                 className={cn(
                   "relative px-1.5 xl:px-2.5 py-1.5 font-inter text-[12.5px] xl:text-[13.5px] font-medium transition-colors whitespace-nowrap",
-                  "text-white/70 hover:text-white",
-                  isActive(link.href) && "text-white font-semibold"
+                  useLightNav
+                    ? "text-ink/70 hover:text-ink"
+                    : "text-white/70 hover:text-white",
+                  isActive(link.href) && (useLightNav ? "text-ink font-semibold" : "text-white font-semibold")
                 )}
                 style={{ letterSpacing: "0.01em" }}
               >
@@ -105,7 +112,12 @@ export function Navbar() {
         {/* Right controls */}
         <div className="flex items-center gap-2 xl:gap-2.5 shrink-0">
           {/* JP/EN language toggle — working pill switch */}
-          <div className="flex items-center rounded-full border border-white/15 bg-white/5 p-0.5 shrink-0">
+          <div className={cn(
+            "flex items-center rounded-full border p-0.5 shrink-0 transition-colors",
+            useLightNav
+              ? "border-slate-300 bg-slate-100/60"
+              : "border-white/15 bg-white/5"
+          )}>
             {(["JP", "EN"] as const).map((l) => (
               <button
                 key={l}
@@ -115,7 +127,9 @@ export function Navbar() {
                   "rounded-full px-2.5 py-1 font-inter text-[11px] font-bold transition-all",
                   lang === l
                     ? "bg-crimson text-white shadow-xs"
-                    : "text-white/60 hover:text-white"
+                    : useLightNav
+                      ? "text-ink/60 hover:text-ink"
+                      : "text-white/60 hover:text-white"
                 )}
               >
                 {l}
@@ -139,12 +153,14 @@ export function Navbar() {
               "inline-flex h-10 w-10 items-center justify-center rounded-xl border transition-all duration-200 lg:hidden shrink-0 active:scale-95",
               open
                 ? "bg-crimson/20 border-crimson/50 text-white shadow-xs"
-                : "bg-white/10 border-white/20 text-white hover:bg-white/20"
+                : useLightNav
+                  ? "bg-ink/5 border-slate-300 text-ink hover:bg-ink/10"
+                  : "bg-white/10 border-white/20 text-white hover:bg-white/20"
             )}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
           >
-            {open ? <X className="h-5 w-5 text-white" /> : <Menu className="h-5 w-5 text-white" />}
+            {open ? <X className="h-5 w-5 text-white" /> : <Menu className={cn("h-5 w-5", useLightNav ? "text-ink" : "text-white")} />}
           </button>
         </div>
       </nav>

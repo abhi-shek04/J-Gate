@@ -40,24 +40,26 @@ import { WorkspaceExplorer } from "@/components/jgate/workspace-explorer";
    J-Gate Home — Executive Corporate Homepage
    ============================================================ */
 
-/* 18 CSS particles drifting upward via jg-drift keyframe */
+/* 14 subtle particles drifting upward — light-mode crimson/saffron tones */
 function Particles() {
-  const particles = Array.from({ length: 18 }).map((_, i) => ({
+  const particles = Array.from({ length: 14 }).map((_, i) => ({
     left: `${(i * 53 + 7) % 100}%`,
-    size: 1.2 + ((i * 7) % 4) * 0.6,
-    delay: `${(i * 1.4) % 22}s`,
-    duration: `${18 + ((i * 5) % 12)}s`,
+    size: 1.5 + ((i * 7) % 4) * 0.5,
+    delay: `${(i * 1.6) % 20}s`,
+    duration: `${20 + ((i * 5) % 12)}s`,
+    color: i % 3 === 0 ? "rgba(188, 26, 44, 0.18)" : i % 3 === 1 ? "rgba(232, 160, 26, 0.15)" : "rgba(74, 78, 105, 0.10)",
   }));
   return (
     <div className="absolute inset-0 overflow-hidden" aria-hidden>
       {particles.map((p, i) => (
         <span
           key={i}
-          className="absolute bottom-0 rounded-full bg-white"
+          className="absolute bottom-0 rounded-full"
           style={{
             left: p.left,
             width: `${p.size}px`,
             height: `${p.size}px`,
+            backgroundColor: p.color,
             animation: `jg-drift ${p.duration} linear infinite`,
             animationDelay: p.delay,
           }}
@@ -67,7 +69,7 @@ function Particles() {
   );
 }
 
-/* Floating glass location badge (hero) */
+/* Floating glass location badge (hero) — light mode */
 function GlassBadge({
   icon: Icon,
   flag,
@@ -85,12 +87,12 @@ function GlassBadge({
 }) {
   const accentClass =
     accent === "saffron"
-      ? "text-saffron border-saffron/30"
+      ? "text-saffron border-saffron/20"
       : accent === "crimson"
-        ? "text-crimson border-crimson/30"
-        : "text-mist border-white/15";
+        ? "text-crimson border-crimson/20"
+        : "text-slate border-slate-300";
   return (
-    <div className="glass-dark flex items-center gap-2 sm:gap-2.5 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 border transition-all duration-300 hover:scale-105 max-w-[92vw] sm:max-w-none">
+    <div className="glass-light flex items-center gap-2 sm:gap-2.5 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 border border-slate-200/80 shadow-card transition-all duration-300 hover:scale-105 hover:shadow-lg max-w-[92vw] sm:max-w-none">
       {imageSrc ? (
         <img
           src={imageSrc}
@@ -106,7 +108,7 @@ function GlassBadge({
         <span className={`font-inter text-[11px] sm:text-[12px] font-bold uppercase truncate ${accentClass.split(" ")[0]}`} style={{ letterSpacing: "0.06em" }}>
           {primary}
         </span>
-        <span className="font-inter text-[10px] sm:text-[11px] text-mist truncate">{secondary}</span>
+        <span className="font-inter text-[10px] sm:text-[11px] text-slate truncate">{secondary}</span>
       </div>
     </div>
   );
@@ -291,27 +293,29 @@ export default function HomePage() {
   return (
     <>
       {/* ════════════════════════════════════════════════════════════
-          1. HERO — Compact & Elegant, midnight, Torii watermark, particles, 2 glass badges
+          1. HERO — Light, Elegant, ivory/white, Torii watermark, subtle particles, 2 glass badges
          ════════════════════════════════════════════════════════════ */}
-      <section className="relative flex min-h-[68vh] sm:min-h-[80vh] items-center justify-center overflow-hidden bg-midnight py-10 sm:py-16">
-        {/* Ambient gradient washes */}
+      <section className="relative flex min-h-[68vh] sm:min-h-[80vh] items-center justify-center overflow-hidden bg-ivory py-10 sm:py-16 border-b border-slate-200/60">
+        {/* Ambient warm gradient washes — light mode */}
         <div
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(180deg, rgba(188,26,44,0.08) 0%, rgba(188,26,44,0.02) 40%, transparent 70%), radial-gradient(ellipse at 70% 50%, rgba(188,26,44,0.12) 0%, transparent 65%), radial-gradient(ellipse at 20% 80%, rgba(232,160,26,0.06) 0%, transparent 50%)",
+              "linear-gradient(180deg, rgba(188,26,44,0.04) 0%, rgba(188,26,44,0.015) 40%, transparent 70%), radial-gradient(ellipse at 70% 50%, rgba(188,26,44,0.06) 0%, transparent 65%), radial-gradient(ellipse at 20% 80%, rgba(232,160,26,0.04) 0%, transparent 50%)",
           }}
         />
+        {/* Subtle asanoha texture overlay */}
+        <div className="absolute inset-0 pattern-asanoha-light opacity-40" />
         <ToriiWatermark
           className="torii-watermark"
-          style={{ width: "70vw", maxWidth: "780px", right: "0", top: "8%", opacity: 0.045 }}
+          style={{ width: "70vw", maxWidth: "780px", right: "0", top: "8%", opacity: 0.03 }}
         />
         <Particles />
 
-        {/* Skyline silhouette */}
-        <div className="pointer-events-none absolute bottom-0 left-0 h-[30%] w-full opacity-50">
+        {/* Skyline silhouette — warm ivory tones */}
+        <div className="pointer-events-none absolute bottom-0 left-0 h-[30%] w-full opacity-30">
           <svg viewBox="0 0 1440 200" preserveAspectRatio="xMidYMax slice" className="h-full w-full" aria-hidden>
-            <g fill="#0d1b2a">
+            <g fill="rgba(188, 26, 44, 0.06)">
               <rect x="0" y="160" width="80" height="40" /><rect x="80" y="135" width="60" height="65" />
               <rect x="150" y="40" width="64" height="160" /><rect x="214" y="90" width="44" height="110" />
               <rect x="258" y="135" width="70" height="65" /><rect x="340" y="130" width="120" height="70" />
@@ -328,7 +332,7 @@ export default function HomePage() {
         </div>
         <div
           className="pointer-events-none absolute bottom-0 left-0 h-[32%] w-full"
-          style={{ background: "linear-gradient(180deg, transparent, #080f1a 90%)" }}
+          style={{ background: "linear-gradient(180deg, transparent, #f5f0e8 90%)" }}
         />
 
         <div className="container-jg relative z-10 pt-10 pb-20 sm:pt-16 sm:pb-16 text-center">
@@ -346,7 +350,7 @@ export default function HomePage() {
           {/* Pre-title */}
           <Reveal delay={80}>
             <p
-              className="mt-5 font-inter text-[12px] font-semibold uppercase text-saffron"
+              className="mt-5 font-inter text-[12px] font-semibold uppercase text-crimson"
               style={{ letterSpacing: "0.25em" }}
             >
               {t("hero.eyebrow")}
@@ -356,20 +360,20 @@ export default function HomePage() {
           {/* H1 — Noto Serif JP 900 */}
           <Reveal delay={140}>
             <h1
-              className="mx-auto mt-3 max-w-4xl font-serif-jp font-black leading-[1.18] text-white"
+              className="mx-auto mt-3 max-w-4xl font-serif-jp font-black leading-[1.18] text-ink"
               style={{ fontSize: "clamp(1.9rem, 4.2vw, 3.1rem)" }}
             >
               {t("hero.title1")}
               <br />
-              <span className="text-white">Working Hub for </span>
-              <span className="text-gradient-saffron">Japanese Companies</span>
+              <span className="text-ink">Working Hub for </span>
+              <span className="text-gradient-crimson">Japanese Companies</span>
             </h1>
           </Reveal>
 
           {/* JP tagline */}
           <Reveal delay={200}>
             <p
-              className="mt-3 font-serif-jp font-medium text-saffron/85"
+              className="mt-3 font-serif-jp font-medium text-crimson/75"
               style={{ fontSize: "clamp(0.9rem, 1.35vw, 1.05rem)", letterSpacing: "0.05em" }}
             >
               {t("hero.jptag")}
@@ -379,7 +383,7 @@ export default function HomePage() {
           {/* Body subtitle — catchphrase */}
           <Reveal delay={260}>
             <p
-              className="mx-auto mt-3.5 max-w-[620px] font-inter font-light leading-relaxed text-mist"
+              className="mx-auto mt-3.5 max-w-[620px] font-inter font-light leading-relaxed text-slate"
               style={{ fontSize: "clamp(0.9rem, 1.25vw, 1.02rem)" }}
             >
               {t("hero.subtitle")}
@@ -406,17 +410,17 @@ export default function HomePage() {
         </div>
 
         {/* Scroll cue */}
-        <div className="absolute bottom-2.5 sm:bottom-4 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-1 opacity-80 hover:opacity-100 transition-opacity">
+        <div className="absolute bottom-2.5 sm:bottom-4 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-1 opacity-60 hover:opacity-100 transition-opacity">
           <span
-            className="font-inter text-[9.5px] sm:text-[10px] font-semibold uppercase text-mist"
+            className="font-inter text-[9.5px] sm:text-[10px] font-semibold uppercase text-slate"
             style={{ letterSpacing: "0.2em" }}
           >
             {t("hero.scroll")}
           </span>
-          <div className="relative h-6 w-px overflow-hidden bg-white/15">
+          <div className="relative h-6 w-px overflow-hidden bg-slate-300">
             <span className="animate-scroll-line absolute inset-0 block bg-crimson" />
           </div>
-          <ArrowDown className="h-3 w-3 text-mist" />
+          <ArrowDown className="h-3 w-3 text-slate" />
         </div>
       </section>
 

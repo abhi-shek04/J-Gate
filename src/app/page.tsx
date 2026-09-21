@@ -22,7 +22,6 @@ import {
   Mail,
   MessageCircle,
   Clock,
-  Download,
 } from "lucide-react";
 import { Reveal, Eyebrow } from "@/components/jgate/shared";
 import { useI18n } from "@/lib/i18n";
@@ -387,29 +386,9 @@ export default function HomePage() {
             </p>
           </Reveal>
 
-          {/* Primary Action CTAs */}
-          <Reveal delay={300}>
-            <div className="mt-7 sm:mt-9 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 max-w-xl mx-auto">
-              <Link
-                href="/auth/brochure"
-                className="btn-shine w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-6 sm:px-8 py-3.5 sm:py-4 font-inter text-[13.5px] sm:text-[14.5px] font-bold text-white shadow-xl shadow-crimson/35 hover:-translate-y-0.5 hover:shadow-crimson/50 transition-all"
-              >
-                <Download className="h-4 w-4 shrink-0" />
-                <span>{tx({ EN: "Download Official Brochure (PDF)", JP: "公式パンフレット（PDF）資料請求" })}</span>
-              </Link>
-              <Link
-                href="/contact"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/[0.06] hover:bg-white/10 px-6 sm:px-8 py-3.5 sm:py-4 font-inter text-[13.5px] sm:text-[14.5px] font-bold text-white hover:border-white/35 transition-all"
-              >
-                <span>{tx({ EN: "Executive Consultation Desk", JP: "現地視察・個別相談はこちら" })}</span>
-                <ArrowRight className="h-4 w-4 shrink-0" />
-              </Link>
-            </div>
-          </Reveal>
-
           {/* 2 floating glass badges — Location + Operator */}
-          <Reveal delay={360}>
-            <div className="mt-4 sm:mt-6 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+          <Reveal delay={300}>
+            <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
               <GlassBadge
                 flag={<IndiaFlag className="h-3.5 w-5 rounded-[2px] shadow-xs" />}
                 primary={tx({ EN: "Telangana State", JP: "テランガナ州" })}

@@ -44,8 +44,8 @@ export const translations: Dictionary = {
   "hero.title1": { EN: "Birth of a Dedicated", JP: "Birth of a Dedicated" },
   "hero.title2": { EN: "Working Hub for Japanese Companies", JP: "Working Hub for Japanese Companies" },
   "hero.subtitle": {
-    EN: "A premium co-working hub at Cyber Gateway, Hyderabad. Dedicated desks, private cabins, Japan Desk, and complete business infrastructure — everything your company needs to operate in India from Day 1.",
-    JP: "Cyber Gateway、ハイデラバードのプレミアムコワーキングハブ。専用デスク、プライベートキャビン、ジャパンデスク、完全なビジネスインフラ — 1日目からインドで事業を運営するために必要なすべて。",
+    EN: "A dedicated co-working space at Cyber Gateway, Hyderabad for Japanese businesses. Dedicated desks, private cabins, resident Japan Desk support, and full office infrastructure to start operations smoothly in India.",
+    JP: "ハイデラバード・サイバーゲートウェイにある日本企業向けのコワーキングスペース。専用デスク、個室キャビン、日本人常駐サポート、オフィス設備を備え、インドでの事業開始を支援します。",
   },
   "hero.jptag": { EN: "「日本企業専用のワーキングハブ誕生」", JP: "「日本企業専用のワーキングハブ誕生」" },
   "hero.entag": { EN: "Birth of a Dedicated Working Hub for Japanese Companies in Hyderabad", JP: "Birth of a Dedicated Working Hub for Japanese Companies in Hyderabad" },
@@ -62,7 +62,7 @@ export const translations: Dictionary = {
   // Home page sections
   "home.logos.eyebrow": { EN: "Bilateral Ecosystem", JP: "提携エコシステム" },
   "home.logos.title": { EN: "Our Innovation & Ecosystem Network", JP: "日印イノベーション＆提携エコシステム" },
-  "home.logos.subtitle": { EN: "Premier incubators, universities, and enterprise enablers accelerating bilateral growth across the Japan–India corridor.", JP: "アジア最大級のインキュベーション施設、トップ大学、先進テクノロジー企業が日印回廊における成長を力強く支援します。" },
+  "home.logos.subtitle": { EN: "Partner institutions, universities, and enterprise enablers collaborating across the Japan–India corridor.", JP: "日印ビジネス回廊を支える提携インキュベーション施設、大学、パートナー企業。" },
   "home.overview.eyebrow": { EN: "Executive Overview", JP: "エグゼクティブ概要" },
   "home.overview.title": { EN: "Explore the J-Gate Ecosystem", JP: "J-Gateエコシステムを探る" },
   "home.overview.subtitle": { EN: "Each dimension of J-Gate is a dedicated experience. Dive deeper into what matters to you.", JP: "J-Gateの各側面は専用の体験です。あなたにとって重要なものを深く掘り下げてください。" },

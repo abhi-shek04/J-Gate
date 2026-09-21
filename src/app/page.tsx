@@ -105,7 +105,7 @@ function GlassBadge({
         <Icon className={`h-4 w-4 sm:h-4.5 sm:w-4.5 shrink-0 ${accentClass.split(" ")[0]}`} />
       ) : null}
       <div className="flex flex-col leading-tight text-left min-w-0">
-        <span className={`font-inter text-[11px] sm:text-[12px] font-bold uppercase truncate ${accentClass.split(" ")[0]}`} style={{ letterSpacing: "0.06em" }}>
+        <span className={`font-inter text-[11px] sm:text-[12px] font-bold truncate ${accentClass.split(" ")[0]}`} style={{ letterSpacing: "0.02em" }}>
           {primary}
         </span>
         <span className="font-inter text-[10px] sm:text-[11px] text-slate truncate">{secondary}</span>
@@ -159,15 +159,15 @@ function FeatureCard({
 export default function HomePage() {
   const { t, tx } = useI18n();
 
-  /* 3 Strategic Advantage Pillars (replaces duplicate About pillars) */
+  /* 3 Strategic Advantage Pillars — Simple, professional, grounded */
   const advantagePillars = [
     {
       num: "01",
       kanji: "基盤",
       title: tx({ EN: "Turnkey Operational Infrastructure", JP: "即日稼働の事業基盤" }),
       body: tx({
-        EN: "Reserve dedicated workspace at Cyber Gateway, Hyderabad from day one. Move in immediately with 1Gbps fiber, meeting rooms, lockable cabinets, registered corporate office address, and 24/7 keycard access without upfront capital expense.",
-        JP: "サイバーゲートウェイ（ハイデラバード）の専用ワークスペースを即座に確保。敷金・内装費用不要で、専用デスク、1Gbps光回線、会議室、法人登記住所、24時間セキュリティを完備。",
+        EN: "Dedicated office space at Cyber Gateway, Hyderabad. Move in with high-speed internet, meeting rooms, lockable storage, registered address, and 24/7 security access without upfront renovation costs.",
+        JP: "Cyber Gateway（ハイデラバード）のオフィス環境を確保。高速光回線、会議室、施錠キャビネット、法人登記住所、24時間セキュリティを完備。",
       }),
     },
     {
@@ -175,8 +175,8 @@ export default function HomePage() {
       kanji: "伴走",
       title: tx({ EN: "Resident Executive Japanese Advisory", JP: "現地常駐の日本人伴走体制" }),
       body: tx({
-        EN: "Experienced Japanese directors work in the exact same facility daily — assisting with 'Yorozu' business questions, legal and accounting partner introductions, local hiring, and cross-cultural contract negotiations in Japanese.",
-        JP: "日本人ディレクターが現地拠点に毎日常駐。日々の業務上の疑問（よろず相談）、現地会計・法務専門家の紹介、人材採用、現地企業との商談同席まで日本語で強力に伴走支援。",
+        EN: "Resident Japanese directors assist with everyday business questions, local partner introductions (accounting/legal), talent recruiting, and communication support in Japanese.",
+        JP: "現地拠点に日本人ディレクターが常駐。日々の業務相談、現地会計・法務専門家の紹介、人材採用、商談サポートを日本語で対応。",
       }),
     },
     {
@@ -184,64 +184,63 @@ export default function HomePage() {
       kanji: "共創",
       title: tx({ EN: "Direct Institutional & Tech Ecosystem", JP: "政府・主要機関直結のエコシステム" }),
       body: tx({
-        EN: "Institutional alliances with Telangana State Government, T-Hub (India's largest innovation hub), and premier engineering universities — enabling rapid access to verified local partners and top-tier tech talent.",
-        JP: "テランガナ州政府、インド最大のインキュベーション機関T-Hub、名門大学との強固なアライアンス。信頼性の高い現地企業や優秀なエンジニアに初日から直接アクセス可能。",
+        EN: "Partnerships with Telangana State Government, T-Hub innovation hub, and premier tech universities provide direct access to verified partners and technical talent.",
+        JP: "テランガナ州政府、イノベーション機関T-Hub、主要大学とのネットワークにより、信頼できる現地企業やIT人材へのアクセスを支援。",
       }),
     },
   ];
 
-  /* 6 Turnkey Business Solutions (distinct from physical facilities) */
+  /* 6 Turnkey Business Solutions — Clear, grounded, non-hyperbolic */
   const features = [
     {
       icon: FileText,
       title: tx({ EN: "Corporate Registration & MCA", JP: "法人設立登記・公式登録住所" }),
       desc: tx({
-        EN: "Official registered office footprint at Cyber Gateway, Hyderabad — handling MCA entity incorporation, PAN/TAN, and GST tax registration.",
-        JP: "Cyber Gatewayの公式登記住所を提供。MCA法人設立、PAN/TAN、GST税務登録まで完全サポート。",
+        EN: "Registered office address at Cyber Gateway, Hyderabad, with support for MCA incorporation, PAN/TAN, and GST registration.",
+        JP: "Cyber Gatewayでの登記住所提供と、法人設立、PAN/TAN、GST登録手続きをサポート。",
       }),
     },
     {
       icon: ShieldCheck,
       title: tx({ EN: "Statutory Governance & Compliance", JP: "法務・法定ガバナンス支援" }),
       desc: tx({
-        EN: "Guidance on resident director compliance under Section 149(3) of the Companies Act, secretarial audits, and annual ROC filings.",
-        JP: "インド会社法に基づく居住取締役要件、会社秘書役監査、ROC年次報告など厳格な法定コンプライアンスを支援。",
+        EN: "Guidance on resident director compliance, corporate secretarial processes, and annual statutory filings under Indian company law.",
+        JP: "インド会社法に基づく居住取締役要件、会社秘書役監査、ROC年次報告手続きを支援。",
       }),
     },
     {
       icon: Landmark,
       title: tx({ EN: "Corporate Banking & Remittances", JP: "法人銀行口座・国際送金支援" }),
       desc: tx({
-        EN: "Expedited account opening with top Indian and international tier-1 banks, FDI regulatory reporting, and seamless cross-border capital inflows.",
-        JP: "主要銀行での法人口座開設、外資規制（FDI）対応、円滑な国際送金体制を迅速に構築。",
+        EN: "Assistance with corporate bank account opening with leading banks, FDI reporting, and foreign remittances.",
+        JP: "主要銀行での法人口座開設、外資規制（FDI）対応、円滑な国際送金手続きをサポート。",
       }),
     },
     {
       icon: Sparkles,
       title: tx({ EN: "On-Site Japanese Advisory", JP: "常駐日本人による日常相談" }),
       desc: tx({
-        EN: "Japanese directors in Hyderabad assisting daily with vendor vetting, partner contracts, government filings, and business meetings in Japanese.",
-        JP: "現地常駐の日本人役員が日々の業務相談（よろず相談）、現地契約書レビュー、商談同席を日本語で対応。",
+        EN: "Resident Japanese team in Hyderabad available daily for business queries, partner contracts, and meeting support in Japanese.",
+        JP: "現地常駐の日本人スタッフが、日々の業務相談や現地パートナーとのやり取りを日本語でサポート。",
       }),
     },
     {
       icon: Users,
       title: tx({ EN: "Curated Tech Talent Pipelines", JP: "高度ITエンジニア・バイリンガル採用" }),
       desc: tx({
-        EN: "Direct sourcing from premier Hyderabad tech institutes and Indobox Academy — recruiting vetted software developers fluent in Japanese work standards.",
-        JP: "Indobox Academyや名門工科大学と直結。日本の品質基準を理解したトップITエンジニアを厳選採用。",
+        EN: "Hiring support for skilled software engineers and bilingual professionals through local tech institutions and university networks.",
+        JP: "提携工科大学や研修機関を通じて、スキルを持つエンジニアやバイリンガル人材の採用を支援。",
       }),
     },
     {
       icon: Handshake,
       title: tx({ EN: "Telangana State & T-Hub Ecosystem Matching", JP: "テランガナ州政府・T-Hubとの連携" }),
       desc: tx({
-        EN: "Direct institutional ties with Telangana State Government and T-Hub — fast-tracking partnerships, supplier vetting, and JV deals.",
-        JP: "テランガナ州政府、T-Hubとの提携網を活用し、信頼できる現地サプライヤーやJV提携先を開拓。",
+        EN: "Connecting your business with Telangana State Government initiatives, T-Hub programs, and vetted local partners.",
+        JP: "テランガナ州政府の支援制度やT-Hub、信頼できる現地提携先の紹介・マッチングを実施。",
       }),
     },
   ];
-
 
   const locationAdvantages = [
     {
@@ -251,8 +250,8 @@ export default function HomePage() {
         JP: "アジア屈指のハイテク・イノベーション集積地",
       },
       desc: {
-        EN: "Cyber Gateway in Hitech City is home to Microsoft, Google, Amazon, Apple, and NTT DATA — placing your business inside India's most prestigious tech cluster.",
-        JP: "HITEC CityのCyber Gateway周辺にはMicrosoft、Google、Amazon、Apple、NTT DATAが集結。インド屈指のプレステージエリアに拠点を構えられます。",
+        EN: "Cyber Gateway in Hitech City is located near major global technology firms, offering a recognized business address in Hyderabad.",
+        JP: "HITEC CityのCyber Gateway周辺には主要なグローバルIT企業が集結し、認知度の高いビジネス拠点を確保できます。",
       },
     },
     {
@@ -262,8 +261,8 @@ export default function HomePage() {
         JP: "優れたコスト効率と快適な事業・生活環境",
       },
       desc: {
-        EN: "30–40% lower commercial operational costs compared to Bengaluru or Mumbai, paired with world-class metro connectivity and modern international infrastructure.",
-        JP: "バンガロールやムンバイと比較してオフィス運営コストを30〜40%抑制。整然とした都市インフラと最寄りメトロ駅徒歩2分の高い利便性を誇ります。",
+        EN: "Competitive office overheads compared to Mumbai or Bengaluru, paired with direct metro connectivity and established commercial infrastructure.",
+        JP: "ムンバイやバンガロールと比較してオフィス運営コストを抑えられ、最寄りメトロ駅徒歩2分の利便性を備えています。",
       },
     },
     {
@@ -273,8 +272,8 @@ export default function HomePage() {
         JP: "テランガナ州政府の手厚い外国企業優遇策",
       },
       desc: {
-        EN: "Telangana is ranked #1 in India for Ease of Doing Business, offering fast-track approvals, IT sector subsidies, and robust bilateral trade support.",
-        JP: "テランガナ州はインドの「ビジネスのしやすさ（Ease of Doing Business）」で常に首位級。迅速な許認可、IT補助金、日印二国間貿易の推進体制が整っています。",
+        EN: "Telangana offers streamlined business approval processes, proactive IT industry policies, and bilateral investment support.",
+        JP: "テランガナ州は手続きの迅速化やIT支援策が整っており、外国企業の進出を積極的に支援しています。",
       },
     },
     {
@@ -284,8 +283,8 @@ export default function HomePage() {
         JP: "名門工科大学が輩出する豊富なトップIT人材",
       },
       desc: {
-        EN: "Direct access to IIT Hyderabad, IIIT Hyderabad, and top engineering universities producing over 100,000 skilled tech graduates annually.",
-        JP: "IITハイデラバード、IIITなどインド最高峰の教育機関から毎年10万人以上の工学系・情報系人材が卒業。優秀なITエンジニアを直接採用可能です。",
+        EN: "Direct access to engineering graduates and experienced software developers from premier institutes across Hyderabad.",
+        JP: "IITハイデラバードをはじめとする名門大学から、毎年多くの工学・IT系人材が輩出されています。",
       },
     },
   ];
@@ -451,8 +450,8 @@ export default function HomePage() {
                 style={{ fontSize: "clamp(0.9rem, 1.3vw, 1.05rem)" }}
               >
                 {tx({
-                  EN: "Beyond physical workspace — corporate incorporation, nominee directorship, corporate banking, talent acquisition, and institutional integration delivered by our resident team.",
-                  JP: "デスクの提供にとどまらず、法人設立登記・名義人ディレクター・銀行口座・高度IT採用・公的機関連携まで一気通貫で伴走支援します。",
+                  EN: "Comprehensive operational support including company registration, statutory compliance, corporate banking, local hiring, and institutional connections in Hyderabad.",
+                  JP: "デスクの提供に加え、法人設立登記、コンプライアンス管理、法人口座開設、現地採用、公的機関との連携まで包括的にサポートします。",
                 })}
               </p>
             </div>
@@ -500,8 +499,8 @@ export default function HomePage() {
                 style={{ fontSize: "clamp(0.9rem, 1.3vw, 1.05rem)" }}
               >
                 {tx({
-                  EN: "Eliminating expansion friction through turnkey infrastructure, on-site Japanese leadership, and direct access to India's top innovation ecosystems.",
-                  JP: "即日稼働のインフラ、現地常駐の日本人支援、そしてインド屈指のイノベーションエコシステムへの直結により、進出に伴う摩擦をゼロにします。",
+                  EN: "Turnkey workspace infrastructure, on-site Japanese advisory, and direct connections to Hyderabad's business ecosystem.",
+                  JP: "即日稼働のオフィス設備、現地常駐の日本人サポート、そして現地のビジネスネットワークを通じて円滑な立ち上げを支援します。",
                 })}
               </p>
             </div>
@@ -566,8 +565,8 @@ export default function HomePage() {
                 style={{ fontSize: "clamp(0.9rem, 1.3vw, 1.05rem)" }}
               >
                 {tx({
-                  EN: "Centrally positioned in India's leading technology corridor, J-Gate at Cyber Gateway provides Japanese enterprises with immediate access to top talent, robust infrastructure, and bilateral business networks.",
-                  JP: "インドを代表するIT特区の中心に位置するCyber GatewayのJ-Gate。優秀な工学人材、強固なインフラ、日印ビジネスネットワークへの迅速なアクセスを提供します。",
+                  EN: "Located in Hitech City, Cyber Gateway provides practical access to tech talent, office infrastructure, and bilateral business networks.",
+                  JP: "ハイデラバードのIT集積地に位置するCyber GatewayのJ-Gate。技術人材、オフィス環境、日印のビジネスネットワークへのアクセスを提供します。",
                 })}
               </p>
             </div>
@@ -647,8 +646,8 @@ export default function HomePage() {
                   </h3>
                   <p className="mt-2 sm:mt-2.5 font-inter text-[13px] sm:text-[13.5px] leading-relaxed text-slate">
                     {tx({
-                      EN: "Hyderabad has emerged as the preferred investment destination for global technology leaders. With lower overheads than Bengaluru or Mumbai, proactive government policies, and an abundant technical talent pool, it offers the ideal gateway for Japanese companies entering India.",
-                      JP: "ハイデラバードは、世界的なIT企業が集結する最注目のビジネス都市です。バンガロールやムンバイと比較して安定したコスト水準、政府の手厚い優遇策、豊富な工学系人材により、日本企業のインド進出に最適な環境を提供します。",
+                      EN: "Hyderabad is a major IT and business hub with modern commercial infrastructure and active government support. J-Gate at Cyber Gateway provides Japanese businesses with a fully equipped workspace and local advisory to operate with confidence.",
+                      JP: "ハイデラバードは、整った都市インフラ、比較的抑えられた運営コスト、手厚い州政府支援が揃ったインド有数のIT都市です。Cyber GatewayのJ-Gateは、日本企業が安心して事業を進められるオフィス環境と伴走支援を提供します。",
                     })}
                   </p>
                 </div>

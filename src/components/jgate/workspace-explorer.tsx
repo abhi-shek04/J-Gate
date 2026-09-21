@@ -23,12 +23,12 @@ const SPACES = [
     src: "/gallery/workspace-wide.jpg",
     fallback: "grad-office-desks",
     headline: {
-      EN: "Your Reserved Base in Hyderabad's Cyber Gateway",
-      JP: "サイバーゲートウェイに確保された貴社専用ベース",
+      EN: "Dedicated Desks at Cyber Gateway",
+      JP: "Cyber Gatewayの専用固定デスク",
     },
     desc: {
-      EN: "Fixed desks with lockable executive cabinets, high-comfort ergonomic seating, power pods, and permanent station assignments for your team.",
-      JP: "鍵付きエグゼクティブキャビネット、人間工学チェア、各席電源、固定座席を完備した快適な専用デスク。",
+      EN: "Fixed desks equipped with lockable storage, ergonomic chairs, power outlets, and 24/7 keycard access for your team.",
+      JP: "施錠キャビネット、オフィスチェア、電源、24時間アクセスを備えた固定デスク環境。",
     },
     specs: [
       { label: { EN: "Capacity", JP: "利用人数" }, val: { EN: "1 to 20+ Desks", JP: "1席〜20席以上" } },
@@ -51,12 +51,12 @@ const SPACES = [
     src: "/gallery/reception.jpg",
     fallback: "grad-founder-tanji",
     headline: {
-      EN: "Native Japanese Coordination on the Ground",
-      JP: "現地常駐のネイティブ日本人による安心サポート",
+      EN: "Resident Japanese Team in Hyderabad",
+      JP: "ハイデラバード常駐の日本人サポート体制",
     },
     desc: {
-      EN: "On-site Japanese directors providing daily consultation ('Yorozu' advice), vendor introductions, interpretation support, and cultural bridge services.",
-      JP: "現地常駐の日本人ディレクターによる日々の「よろず相談」、現地パートナー紹介、通訳・翻訳支援、商談同席サポート。",
+      EN: "On-site Japanese directors providing daily consultation, partner introductions, meeting coordination, and operational support in Japanese.",
+      JP: "現地常駐の日本人ディレクターによる日々の業務相談、現地専門家紹介、商談同席サポート。",
     },
     specs: [
       { label: { EN: "Staffing", JP: "体制" }, val: { EN: "Native Japanese & Bilingual", JP: "日本人＆バイリンガル常駐" } },
@@ -79,12 +79,12 @@ const SPACES = [
     src: "/gallery/boardroom.jpg",
     fallback: "grad-office-meeting",
     headline: {
-      EN: "Enterprise Conference Suites for High-Stakes Deals",
-      JP: "重要な商談や役員会議に対応するカンファレンス設備",
+      EN: "Equipped Meeting & Conference Rooms",
+      JP: "充実した設備の会議室・カンファレンスルーム",
     },
     desc: {
-      EN: "Acoustically treated conference rooms equipped with 4K interactive displays, video conferencing hardware, and high-speed presentation tools.",
-      JP: "防音設計の会議室。4Kインタラクティブディスプレイ、高品質ビデオ会議システム、ホワイトボードを完備。",
+      EN: "Meeting rooms equipped with video conferencing screens, high-speed connectivity, and presentation facilities.",
+      JP: "ビデオ会議スクリーン、高速通信、プレゼンテーション設備を備えた防音設計の会議室。",
     },
     specs: [
       { label: { EN: "Room Types", JP: "部屋タイプ" }, val: { EN: "4-Pax / 10-Pax Boardroom", JP: "4名用 / 10名用ボードルーム" } },
@@ -107,12 +107,12 @@ const SPACES = [
     src: "/gallery/cafeteria.jpg",
     fallback: "grad-canteen-japanese",
     headline: {
-      EN: "TASTY FOOD JUNCTION — Curated Global & Japanese-Style Dining",
-      JP: "TASTY FOOD JUNCTION — 多彩な料理とくつろぎの空間",
+      EN: "TASTY FOOD JUNCTION — Dining & Refreshment Lounge",
+      JP: "TASTY FOOD JUNCTION — 食堂＆リフレッシュラウンジ",
     },
     desc: {
-      EN: "Our shared dining lounge serving freshly prepared Indian dishes, continental selections, and Japanese-friendly meals daily.",
-      JP: "館内併設のカフェテリア。新鮮なインド料理、中華、そして日本人の口に合う優しいテイストのメニューを毎日提供。",
+      EN: "Shared dining lounge providing daily fresh meals, beverages, and casual seating for lunch breaks and informal discussions.",
+      JP: "日替わりの温かい食事や軽食、休憩・打ち合わせに使える共有ラウンジスペース。",
     },
     specs: [
       { label: { EN: "Cuisine", JP: "料理ジャンル" }, val: { EN: "Indian, Continental, JP-Style", JP: "インド・洋食・和風スタイル" } },

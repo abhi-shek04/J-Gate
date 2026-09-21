@@ -70,13 +70,13 @@ function Particles() {
 
 /* Floating glass location badge (hero) */
 function GlassBadge({
-  emoji,
+  icon: Icon,
   imageSrc,
   primary,
   secondary,
   accent,
 }: {
-  emoji?: string;
+  icon?: React.ComponentType<{ className?: string }>;
   imageSrc?: string;
   primary: string;
   secondary: string;
@@ -96,9 +96,9 @@ function GlassBadge({
           alt="Indobox"
           className="h-4 w-4 sm:h-5 sm:w-5 object-contain shrink-0"
         />
-      ) : (
-        <span className="font-serif-jp text-[16px] sm:text-[18px] leading-none shrink-0">{emoji}</span>
-      )}
+      ) : Icon ? (
+        <Icon className={`h-4 w-4 sm:h-4.5 sm:w-4.5 shrink-0 ${accentClass.split(" ")[0]}`} />
+      ) : null}
       <div className="flex flex-col leading-tight text-left min-w-0">
         <span className={`font-inter text-[11px] sm:text-[12px] font-bold uppercase truncate ${accentClass.split(" ")[0]}`} style={{ letterSpacing: "0.06em" }}>
           {primary}
@@ -416,7 +416,7 @@ export default function HomePage() {
           <Reveal delay={360}>
             <div className="mt-4 sm:mt-6 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
               <GlassBadge
-                emoji="📍"
+                icon={MapPin}
                 primary={tx({ EN: "Hyderabad", JP: "ハイデラバード" })}
                 secondary={tx({ EN: "Main Base", JP: "主拠点" })}
                 accent="saffron"

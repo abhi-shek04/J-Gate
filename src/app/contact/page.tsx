@@ -16,6 +16,9 @@ import {
   Check,
   MapPin,
   Building2,
+  FileText,
+  Users,
+  Handshake,
   Sparkles,
   ExternalLink,
 } from "lucide-react";
@@ -46,22 +49,26 @@ type FormErrors = Partial<Record<keyof ContactForm, string>>;
 const TOPIC_CHIPS = [
   {
     id: "workspace",
-    label: { EN: "🏢 Workspace & Desks", JP: "🏢 オフィス・デスク" },
+    icon: Building2,
+    label: { EN: "Workspace & Dedicated Desks", JP: "オフィス・専用デスク" },
     subject: { EN: "Workspace & Satellite Desk Inquiry", JP: "オフィス・サテライトデスクについてのお問い合わせ" },
   },
   {
     id: "incorporation",
-    label: { EN: "📝 Entity Incorporation", JP: "📝 法人設立・登記" },
+    icon: FileText,
+    label: { EN: "Entity Incorporation & Banking", JP: "法人設立・口座開設" },
     subject: { EN: "India Legal Entity Incorporation & Banking", JP: "インド法人設立・口座開設のご相談" },
   },
   {
     id: "talent",
-    label: { EN: "👥 IT Talent Recruitment", JP: "👥 ITエンジニア・人材採用" },
+    icon: Users,
+    label: { EN: "Tech Talent & Bilingual Staffing", JP: "ITエンジニア・人材採用" },
     subject: { EN: "IT Talent & Bilingual Team Staffing", JP: "ITエンジニア・バイリンガル人材採用について" },
   },
   {
     id: "tour",
-    label: { EN: "🤝 Delegation & Site Tour", JP: "🤝 現地視察・提携相談" },
+    icon: Handshake,
+    label: { EN: "Delegation & Private Facility Tour", JP: "現地視察・施設見学" },
     subject: { EN: "Hyderabad Delegation Visit & Private Tour", JP: "ハイデラバード現地視察・オフィス見学のお申し込み" },
   },
 ];
@@ -469,19 +476,21 @@ export default function ContactPage() {
                     <div className="mt-3.5 flex flex-wrap gap-1.5 sm:gap-2">
                       {TOPIC_CHIPS.map((chip) => {
                         const isSelected = activeChip === chip.id;
+                        const ChipIcon = chip.icon;
                         return (
                           <button
                             key={chip.id}
                             type="button"
                             onClick={() => handleChipSelect(chip)}
                             className={cn(
-                              "rounded-lg px-2.5 py-1.5 font-inter text-[11px] sm:text-[12px] font-medium transition-all duration-200 border",
+                              "inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 font-inter text-[11px] sm:text-[12px] font-medium transition-all duration-200 border",
                               isSelected
                                 ? "bg-saffron text-slate-950 font-bold border-saffron shadow-md shadow-saffron/20 scale-[1.02]"
                                 : "bg-white/[0.05] border-white/12 text-slate-300 hover:bg-white/[0.1] hover:text-white hover:border-white/25"
                             )}
                           >
-                            {tx(chip.label)}
+                            <ChipIcon className="h-3.5 w-3.5 shrink-0" />
+                            <span>{tx(chip.label)}</span>
                           </button>
                         );
                       })}

@@ -430,7 +430,7 @@ export const translations: Dictionary = {
   "footer.network": { EN: "Our Network", JP: "ネットワーク" },
   "footer.contact": { EN: "Contact", JP: "お問い合わせ" },
   "footer.rights": { EN: "All rights reserved.", JP: "All rights reserved." },
-  "footer.crafted": { EN: "Crafted with purpose in Hyderabad", JP: "ハイデラバードで制作" },
+  "footer.crafted": { EN: "Japan–India Bilateral Business Corridor", JP: "日印ビジネス・イノベーション連携推進拠点" },
   "footer.privacy": { EN: "Privacy Policy", JP: "プライバシーポリシー" },
   "footer.terms": { EN: "Terms", JP: "利用規約" },
   "footer.bookTour": { EN: "Download Brochure", JP: "パンフレットダウンロード" },

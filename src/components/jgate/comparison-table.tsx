@@ -165,11 +165,11 @@ function Cell({
   return (
     <div
       className={`flex items-start gap-2.5 px-5 py-4 font-inter text-[13px] leading-snug ${
-        highlight ? "text-ink font-semibold" : "text-slate"
+        highlight ? "text-ink dark:text-white font-semibold" : "text-slate dark:text-slate-300"
       }`}
     >
       {type !== "text" && <IndicatorIcon type={type} />}
-      <span className={highlight ? "font-bold text-ink" : ""}>{text}</span>
+      <span className={highlight ? "font-bold text-ink dark:text-white" : ""}>{text}</span>
     </div>
   );
 }
@@ -180,25 +180,25 @@ export function ComparisonTable() {
   return (
     <section
       id="why-comparison"
-      className="section-pad bg-ivory-warm relative overflow-hidden"
+      className="section-pad bg-ivory-warm dark:bg-[#080d17] relative overflow-hidden"
       aria-label="J-Gate side-by-side comparison"
     >
       <div className="container-jg relative z-10">
         {/* Header */}
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-crimson/30 bg-crimson/10 px-4 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-crimson">
+            <span className="inline-flex items-center gap-2 rounded-full border border-crimson/30 dark:border-crimson/40 bg-crimson/10 dark:bg-crimson/20 px-4 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-crimson dark:text-rose-400">
               <Award className="h-3.5 w-3.5" />
               {tx({ EN: "Side-by-Side Comparison", JP: "比較対照表" })}
             </span>
             <h2
-              className="mt-3 font-serif-jp font-bold leading-[1.18] text-ink"
+              className="mt-3 font-serif-jp font-bold leading-[1.18] text-ink dark:text-white"
               style={{ fontSize: "clamp(1.875rem, 3.8vw, 2.75rem)" }}
             >
               {tx({ EN: "J-Gate vs The Alternatives", JP: "J-Gateと他選択肢の徹底比較" })}
             </h2>
             <p
-              className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-slate"
+              className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300"
               style={{ fontSize: "clamp(0.95rem, 1.4vw, 1.05rem)" }}
             >
               {tx({
@@ -215,7 +215,7 @@ export function ComparisonTable() {
             {LEGEND.map((l) => (
               <span
                 key={l.label.EN}
-                className="inline-flex items-center gap-2 font-inter text-[12px] font-medium text-slate"
+                className="inline-flex items-center gap-2 font-inter text-[12px] font-medium text-slate dark:text-slate-300"
               >
                 <span className={`inline-block h-2.5 w-2.5 rounded-full ${l.color}`} />
                 {tx(l.label)}
@@ -227,12 +227,12 @@ export function ComparisonTable() {
         {/* Table Container with Luxury Glass Card Styling */}
         <Reveal delay={120} variant="scale">
           <div className="mt-10 overflow-x-auto pb-4" style={{ scrollbarWidth: "thin" }}>
-            <div className="min-w-[920px] overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-2xl">
+            <div className="min-w-[920px] overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] shadow-2xl">
               {/* Header row */}
               <div className="grid grid-cols-[180px_minmax(210px,1.2fr)_1fr_1fr_1fr]">
-                <div className="border-b border-slate-200/80 bg-slate-50/90 px-5 py-5 flex items-center">
+                <div className="border-b border-slate-200/80 dark:border-white/10 bg-slate-50/90 dark:bg-white/5 px-5 py-5 flex items-center">
                   <span
-                    className="font-inter text-[11px] font-bold uppercase tracking-wider text-slate-500"
+                    className="font-inter text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400"
                   >
                     {tx({ EN: "Criteria", JP: "比較項目" })}
                   </span>
@@ -254,18 +254,18 @@ export function ComparisonTable() {
                   </p>
                 </div>
 
-                <div className="border-b border-slate-200/80 bg-slate-50/90 px-5 py-5 flex items-center">
-                  <span className="font-inter text-[13px] font-bold text-ink">
+                <div className="border-b border-slate-200/80 dark:border-white/10 bg-slate-50/90 dark:bg-white/5 px-5 py-5 flex items-center">
+                  <span className="font-inter text-[13px] font-bold text-ink dark:text-white">
                     {tx({ EN: "Major Consulting", JP: "大手コンサル" })}
                   </span>
                 </div>
-                <div className="border-b border-slate-200/80 bg-slate-50/90 px-5 py-5 flex items-center">
-                  <span className="font-inter text-[13px] font-bold text-ink">
+                <div className="border-b border-slate-200/80 dark:border-white/10 bg-slate-50/90 dark:bg-white/5 px-5 py-5 flex items-center">
+                  <span className="font-inter text-[13px] font-bold text-ink dark:text-white">
                     {tx({ EN: "Local Coworking", JP: "現地コワーキング" })}
                   </span>
                 </div>
-                <div className="border-b border-slate-200/80 bg-slate-50/90 px-5 py-5 flex items-center">
-                  <span className="font-inter text-[13px] font-bold text-ink">
+                <div className="border-b border-slate-200/80 dark:border-white/10 bg-slate-50/90 dark:bg-white/5 px-5 py-5 flex items-center">
+                  <span className="font-inter text-[13px] font-bold text-ink dark:text-white">
                     {tx({ EN: "Public Orgs", JP: "公的機関" })}
                   </span>
                 </div>
@@ -277,15 +277,15 @@ export function ComparisonTable() {
                 return (
                   <div
                     key={row.label.EN}
-                    className="grid grid-cols-[180px_minmax(210px,1.2fr)_1fr_1fr_1fr] border-t border-slate-100 transition-colors hover:bg-slate-50/50"
+                    className="grid grid-cols-[180px_minmax(210px,1.2fr)_1fr_1fr_1fr] border-t border-slate-100 dark:border-white/10 transition-colors hover:bg-slate-50/50 dark:hover:bg-white/5"
                   >
                     {/* Criteria label */}
                     <div
                       className={`px-5 py-4 flex items-center ${
-                        zebra ? "bg-slate-50/60" : "bg-white"
+                        zebra ? "bg-slate-50/60 dark:bg-white/[0.03]" : "bg-white dark:bg-transparent"
                       }`}
                     >
-                      <span className="font-inter text-[12.5px] font-bold text-ink">
+                      <span className="font-inter text-[12.5px] font-bold text-ink dark:text-white">
                         {tx(row.label)}
                       </span>
                     </div>
@@ -293,19 +293,19 @@ export function ComparisonTable() {
                     {/* J-Gate highlighted cell */}
                     <div
                       className={`relative border-x-2 border-crimson/60 ${
-                        zebra ? "bg-crimson/[0.05]" : "bg-crimson/[0.03]"
+                        zebra ? "bg-crimson/[0.05] dark:bg-crimson/10" : "bg-crimson/[0.03] dark:bg-crimson/[0.07]"
                       }`}
                     >
                       <Cell text={tx(row.jgate)} type={row.jgateType} highlight />
                     </div>
 
-                    <div className={`flex items-center ${zebra ? "bg-slate-50/60" : "bg-white"}`}>
+                    <div className={`flex items-center ${zebra ? "bg-slate-50/60 dark:bg-white/[0.03]" : "bg-white dark:bg-transparent"}`}>
                       <Cell text={tx(row.consult)} type={row.consultType} />
                     </div>
-                    <div className={`flex items-center ${zebra ? "bg-slate-50/60" : "bg-white"}`}>
+                    <div className={`flex items-center ${zebra ? "bg-slate-50/60 dark:bg-white/[0.03]" : "bg-white dark:bg-transparent"}`}>
                       <Cell text={tx(row.cowork)} type={row.coworkType} />
                     </div>
-                    <div className={`flex items-center ${zebra ? "bg-slate-50/60" : "bg-white"}`}>
+                    <div className={`flex items-center ${zebra ? "bg-slate-50/60 dark:bg-white/[0.03]" : "bg-white dark:bg-transparent"}`}>
                       <Cell text={tx(row.publicOrg)} type={row.publicType} />
                     </div>
                   </div>
@@ -317,19 +317,19 @@ export function ComparisonTable() {
 
         {/* Verdict Banner */}
         <Reveal delay={160} variant="scale">
-          <div className="mx-auto mt-10 max-w-4xl overflow-hidden rounded-2xl border-2 border-crimson/40 bg-gradient-to-r from-red-50/90 via-white to-amber-50/80 p-6 sm:p-8 shadow-xl">
+          <div className="mx-auto mt-10 max-w-4xl overflow-hidden rounded-2xl border-2 border-crimson/40 dark:border-crimson/60 bg-gradient-to-r from-red-50/90 via-white to-amber-50/80 dark:from-rose-950/40 dark:via-[#101a2c] dark:to-amber-950/30 p-6 sm:p-8 shadow-xl">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-crimson text-white shadow-crimp">
                 <ShieldCheck className="h-6 w-6" />
               </div>
               <div className="flex-1">
                 <span
-                  className="font-inter text-[11px] font-bold uppercase tracking-wider text-crimson block"
+                  className="font-inter text-[11px] font-bold uppercase tracking-wider text-crimson dark:text-rose-400 block"
                 >
                   {tx({ EN: "The Definitive Verdict · 総合評価", JP: "結論 · THE VERDICT" })}
                 </span>
                 <p
-                  className="mt-1 font-serif-jp text-ink font-bold leading-relaxed text-[15px] sm:text-[17px]"
+                  className="mt-1 font-serif-jp text-ink dark:text-white font-bold leading-relaxed text-[15px] sm:text-[17px]"
                 >
                   {tx({
                     EN: "J-Gate is the only option that combines a physical base, resident Japanese expertise, hands-on operational support, and direct hiring — at a cost-justifiable investment level.",
@@ -339,7 +339,7 @@ export function ComparisonTable() {
               </div>
               <Link
                 href="/pricing"
-                className="btn-shine shrink-0 inline-flex items-center gap-1.5 rounded-xl bg-crimson px-5 py-2.5 font-inter text-[13px] font-semibold text-white shadow-md hover:bg-crimson-deep transition-all"
+                className="btn-shine shrink-0 inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-2.5 font-inter text-[13px] font-semibold text-white shadow-md shadow-crimson/30 hover:opacity-95 transition-all"
               >
                 {tx({ EN: "View Plans", JP: "料金を見る" })}
                 <ArrowRight className="h-4 w-4" />

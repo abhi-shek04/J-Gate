@@ -67,28 +67,28 @@ const FAQ_ITEMS = [
 export function InteractiveFAQ() {
   const { tx } = useI18n();
   const [filter, setFilter] = useState<"all" | "workspace" | "japandesk" | "incorporation">("all");
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const filteredItems = FAQ_ITEMS.filter(
     (item) => filter === "all" || item.category === filter
   );
 
   return (
-    <section className="py-8 sm:py-12 relative overflow-hidden bg-ivory">
+    <section className="py-8 sm:py-12 relative overflow-hidden bg-ivory dark:bg-[#0b111e] transition-colors">
       <div className="container-jg">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-crimson/30 bg-crimson/10 px-4 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-crimson">
+            <span className="inline-flex items-center gap-2 rounded-full border border-crimson/30 bg-crimson/10 px-4 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-crimson dark:text-rose-400">
               <HelpCircle className="h-3.5 w-3.5" />
               {tx({ EN: "Frequently Asked Questions", JP: "よくあるご質問" })}
             </span>
             <h2
-              className="mt-3 font-serif-jp font-bold text-ink"
+              className="mt-3 font-serif-jp font-bold text-ink dark:text-white"
               style={{ fontSize: "clamp(1.875rem, 3.8vw, 2.75rem)" }}
             >
               {tx({ EN: "Everything You Need to Know", JP: "疑問や不安を解消するQ&A" })}
             </h2>
-            <p className="mt-2 font-inter text-[13.5px] text-slate">
+            <p className="mt-2 font-inter text-[13.5px] text-slate dark:text-slate-300">
               {tx({
                 EN: "Common questions regarding hub facilities, Japan Desk consultation, leases, and incorporation support.",
                 JP: "入居手続き、ジャパンデスクの支援内容、法人登記、施設利用に関する主なご質問にお答えします。",
@@ -107,10 +107,10 @@ export function InteractiveFAQ() {
             <button
               key={cat.id}
               onClick={() => setFilter(cat.id as any)}
-              className={`rounded-full px-4 py-1.5 font-inter text-[12px] font-bold transition-all duration-300 ${
+              className={`rounded-full px-4 py-1.5 font-inter text-[12px] font-bold transition-all duration-300 cursor-pointer ${
                 filter === cat.id
                   ? "bg-crimson text-white shadow-md shadow-crimson/20"
-                  : "bg-white text-slate hover:bg-slate-100 border border-slate-200/80"
+                  : "bg-white dark:bg-[#132038] text-slate dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-[#182846] border border-slate-200/80 dark:border-white/12"
               }`}
             >
               {tx(cat.label)}
@@ -124,22 +124,22 @@ export function InteractiveFAQ() {
             return (
               <Reveal key={i} delay={i * 60}>
                 <div
-                  className={`overflow-hidden rounded-2xl border transition-all duration-300 bg-white ${
+                  className={`overflow-hidden rounded-2xl border transition-all duration-300 bg-white dark:bg-[#101a2c] ${
                     isOpen
-                      ? "border-crimson/40 shadow-xl"
-                      : "border-slate-200/80 shadow-sm hover:border-slate-300"
+                      ? "border-crimson/40 dark:border-rose-500/50 shadow-xl"
+                      : "border-slate-200/80 dark:border-white/10 shadow-sm hover:border-slate-300 dark:hover:border-white/20"
                   }`}
                 >
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : i)}
-                    className="flex w-full items-center justify-between p-5 text-left transition-colors"
+                    className="flex w-full items-center justify-between p-5 text-left transition-colors cursor-pointer"
                   >
-                    <span className="font-serif-jp text-[15.5px] sm:text-[17px] font-bold text-ink pr-4 leading-snug">
+                    <span className="font-serif-jp text-[15.5px] sm:text-[17px] font-bold text-ink dark:text-white pr-4 leading-snug">
                       {tx(item.q)}
                     </span>
                     <span
                       className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-transform duration-300 ${
-                        isOpen ? "bg-crimson text-white rotate-180" : "bg-slate-100 text-slate-600"
+                        isOpen ? "bg-crimson text-white rotate-180" : "bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300"
                       }`}
                     >
                       <ChevronDown className="h-4 w-4" />
@@ -147,8 +147,8 @@ export function InteractiveFAQ() {
                   </button>
 
                   {isOpen && (
-                    <div className="border-t border-slate-100 px-5 pb-5 pt-3 animate-in fade-in duration-300">
-                      <p className="font-inter text-[13.5px] leading-relaxed text-slate-700">
+                    <div className="border-t border-slate-100 dark:border-white/10 px-5 pb-5 pt-3 animate-in fade-in duration-300">
+                      <p className="font-inter text-[13.5px] leading-relaxed text-slate-700 dark:text-slate-300">
                         {tx(item.a)}
                       </p>
                     </div>

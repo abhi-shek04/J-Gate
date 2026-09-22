@@ -50,19 +50,19 @@ function FaqItem({
   onToggle: () => void;
 }) {
   return (
-    <div className="border-b border-crimson/10">
+    <div className="border-b border-crimson/10 dark:border-white/10">
       <button
         onClick={onToggle}
         aria-expanded={isOpen}
         className="flex w-full items-center justify-between gap-4 py-5 text-left"
       >
-        <span className="font-serif-jp text-[16px] font-semibold text-ink sm:text-[17px]">
+        <span className="font-serif-jp text-[16px] font-semibold text-ink dark:text-white sm:text-[17px]">
           {faq.q}
         </span>
         <span
           className={cn(
             "flex h-8 w-8 shrink-0 items-center justify-center rounded-md transition-colors",
-            isOpen ? "bg-crimson text-white" : "bg-ivory text-crimson"
+            isOpen ? "bg-crimson text-white" : "bg-ivory dark:bg-white/10 text-crimson dark:text-rose-400"
           )}
         >
           {isOpen ? <Minus className="h-4 w-4" strokeWidth={2} /> : <Plus className="h-4 w-4" strokeWidth={2} />}
@@ -73,7 +73,7 @@ function FaqItem({
         style={{ gridTemplateRows: isOpen ? "1fr" : "0fr" }}
       >
         <div className="overflow-hidden">
-          <p className="pb-5 font-inter text-[14px] leading-relaxed text-slate">
+          <p className="pb-5 font-inter text-[14px] leading-relaxed text-slate dark:text-slate-300">
             {faq.a}
           </p>
         </div>
@@ -83,25 +83,25 @@ function FaqItem({
 }
 
 export function Faq() {
-  const [open, setOpen] = useState<number | null>(0);
+  const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="section-pad bg-ivory-warm">
+    <section id="faq" className="section-pad bg-ivory-warm dark:bg-[#080d17] transition-colors">
       <div className="container-jg">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
             <Eyebrow>Frequently Asked</Eyebrow>
             <h2
-              className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
+              className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink dark:text-white"
               style={{ fontSize: "clamp(1.875rem, 4vw, 2.5rem)" }}
             >
-              Questions About <span className="text-crimson">J-Gate</span>
+              Questions About <span className="text-crimson dark:text-rose-400">J-Gate</span>
             </h2>
           </div>
         </Reveal>
 
         <Reveal delay={100}>
-          <div className="mx-auto mt-12 max-w-3xl rounded-lg bg-pearl p-6 shadow-card sm:p-8">
+          <div className="mx-auto mt-12 max-w-3xl rounded-2xl bg-white dark:bg-[#101a2c] p-6 shadow-card border border-slate-200/90 dark:border-white/10 sm:p-8">
             {FAQS.map((faq, i) => (
               <FaqItem
                 key={i}

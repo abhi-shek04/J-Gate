@@ -69,7 +69,7 @@ function Particles() {
   );
 }
 
-/* Floating glass location badge (hero) — light mode */
+/* Floating glass location badge (hero) */
 function GlassBadge({
   icon: Icon,
   flag,
@@ -89,10 +89,10 @@ function GlassBadge({
     accent === "saffron"
       ? "text-saffron border-saffron/20"
       : accent === "crimson"
-        ? "text-crimson border-crimson/20"
-        : "text-slate border-slate-300";
+        ? "text-crimson dark:text-rose-400 border-crimson/20 dark:border-rose-400/30"
+        : "text-slate dark:text-slate-300 border-slate-300 dark:border-white/20";
   return (
-    <div className="glass-light flex items-center gap-2 sm:gap-2.5 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 border border-slate-200/80 shadow-card transition-all duration-300 hover:scale-105 hover:shadow-lg max-w-[92vw] sm:max-w-none">
+    <div className="flex items-center gap-2 sm:gap-2.5 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 border border-slate-200/80 dark:border-white/10 bg-white/90 dark:bg-[#101a2c]/90 backdrop-blur-md shadow-card transition-all duration-300 hover:scale-105 hover:shadow-lg max-w-[92vw] sm:max-w-none">
       {imageSrc ? (
         <img
           src={imageSrc}
@@ -108,7 +108,7 @@ function GlassBadge({
         <span className={`font-inter text-[11px] sm:text-[12px] font-bold truncate ${accentClass.split(" ")[0]}`} style={{ letterSpacing: "0.02em" }}>
           {primary}
         </span>
-        <span className="font-inter text-[10px] sm:text-[11px] text-slate truncate">{secondary}</span>
+        <span className="font-inter text-[10px] sm:text-[11px] text-slate dark:text-slate-300 truncate">{secondary}</span>
       </div>
     </div>
   );
@@ -131,7 +131,7 @@ function FeatureCard({
   const indexFormatted = String(index + 1).padStart(2, "0");
   return (
     <Reveal delay={delay} variant="scale">
-      <article className="luxury-light-card card-sheen smooth-lift group relative flex h-full flex-col justify-between rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 bg-white border border-slate-200/90 shadow-card hover:shadow-2xl hover:border-crimson/35 transition-all duration-300">
+      <article className="luxury-light-card card-sheen smooth-lift group relative flex h-full flex-col justify-between rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 bg-white dark:bg-[#101a2c] border border-slate-200/90 dark:border-white/10 shadow-card dark:shadow-2xl hover:shadow-2xl hover:border-crimson/35 transition-all duration-300">
         {/* Top subtle hairline accent */}
         <span className="absolute inset-x-0 top-0 h-[2.5px] bg-gradient-to-r from-crimson via-saffron to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
         
@@ -140,14 +140,14 @@ function FeatureCard({
             <div className="icon-pod h-10 w-10 sm:h-11 sm:w-11 shrink-0">
               <Icon className="h-5 w-5 sm:h-5.5 sm:w-5.5" strokeWidth={1.75} />
             </div>
-            <span className="font-mono text-[11px] sm:text-[12px] font-bold text-slate-400 group-hover:text-crimson transition-colors px-2 py-0.5 rounded-full bg-slate-50 border border-slate-200/60">
+            <span className="font-mono text-[11px] sm:text-[12px] font-bold text-slate-400 group-hover:text-crimson transition-colors px-2 py-0.5 rounded-full bg-slate-50 dark:bg-white/5 border border-slate-200/60 dark:border-white/10">
               {indexFormatted}
             </span>
           </div>
-          <h3 className="mt-3.5 sm:mt-4 font-serif-jp text-[15px] sm:text-[16px] font-bold leading-snug text-ink group-hover:text-crimson transition-colors">
+          <h3 className="mt-3.5 sm:mt-4 font-serif-jp text-[15px] sm:text-[16px] font-bold leading-snug text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400 transition-colors">
             {title}
           </h3>
-          <p className="mt-2 text-[12.5px] sm:text-[13px] leading-relaxed text-slate-600">
+          <p className="mt-2 text-[12.5px] sm:text-[13px] leading-relaxed text-slate-600 dark:text-slate-300">
             {desc}
           </p>
         </div>
@@ -438,13 +438,13 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════
           4. TURNKEY BUSINESS SOLUTIONS — 6 Enterprise Capabilities
          ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad bg-ivory border-t border-slate-200/60">
+      <section className="section-pad bg-ivory dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto mb-8 max-w-3xl text-center">
               <Eyebrow>{tx({ EN: "Turnkey Operating Capabilities", JP: "包括的な進出支援サービス" })}</Eyebrow>
               <h2
-                className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
+                className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink dark:text-white"
                 style={{ fontSize: "clamp(1.625rem, 3vw, 2.25rem)" }}
               >
                 {tx({
@@ -453,7 +453,7 @@ export default function HomePage() {
                 })}
               </h2>
               <p
-                className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate"
+                className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300"
                 style={{ fontSize: "clamp(0.9rem, 1.3vw, 1.05rem)" }}
               >
                 {tx({
@@ -487,13 +487,13 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════
           6. STRATEGIC ADVANTAGE — 3 Pillars of the J-Gate Advantage
          ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad bg-ivory border-t border-slate-200/60">
+      <section className="section-pad bg-ivory dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto mb-10 max-w-3xl text-center">
               <Eyebrow>{tx({ EN: "The J-Gate Enterprise Advantage", JP: "J-Gateが選ばれる3つの強み" })}</Eyebrow>
               <h2
-                className="mt-3 font-serif-jp font-bold leading-[1.15] text-ink"
+                className="mt-3 font-serif-jp font-bold leading-[1.15] text-ink dark:text-white"
                 style={{ fontSize: "clamp(1.625rem, 3vw, 2.25rem)" }}
               >
                 {tx({
@@ -502,7 +502,7 @@ export default function HomePage() {
                 })}
               </h2>
               <p
-                className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-slate"
+                className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300"
                 style={{ fontSize: "clamp(0.9rem, 1.3vw, 1.05rem)" }}
               >
                 {tx({
@@ -516,29 +516,29 @@ export default function HomePage() {
           <div className="grid gap-4 sm:gap-6 md:grid-cols-3">
             {advantagePillars.map((p, i) => (
               <Reveal key={p.num} delay={i * 120} variant="scale">
-                <article className="luxury-light-card card-sheen gold-hairline group relative h-full overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-4 sm:p-6 lg:p-7 shadow-card hover:shadow-2xl hover:border-crimson/35 transition-all duration-300">
+                <article className="luxury-light-card card-sheen gold-hairline group relative h-full overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-6 lg:p-7 shadow-card dark:shadow-2xl hover:shadow-2xl hover:border-crimson/35 transition-all duration-300">
                   <span
-                    className="pointer-events-none absolute -top-3 sm:-top-5 right-3 sm:right-4 font-serif-jp font-black leading-none text-slate-100/80 text-[52px] sm:text-[72px] lg:text-[88px] transition-all duration-500 group-hover:scale-110 group-hover:text-crimson/10"
+                    className="pointer-events-none absolute -top-3 sm:-top-5 right-3 sm:right-4 font-serif-jp font-black leading-none text-slate-100/80 dark:text-white/[0.04] text-[52px] sm:text-[72px] lg:text-[88px] transition-all duration-500 group-hover:scale-110 group-hover:text-crimson/10"
                     aria-hidden
                   >
                     {p.num}
                   </span>
                   <div className="relative z-10">
                     <span
-                      className="inline-flex items-center gap-1.5 rounded-full bg-crimson/[0.08] border border-crimson/25 px-2.5 py-0.5 sm:px-3 sm:py-1 font-serif-jp text-[11.5px] sm:text-[12.5px] font-bold text-crimson tracking-wider shadow-sm"
+                      className="inline-flex items-center gap-1.5 rounded-full bg-crimson/[0.08] dark:bg-rose-950/50 border border-crimson/25 dark:border-rose-400/30 px-2.5 py-0.5 sm:px-3 sm:py-1 font-serif-jp text-[11.5px] sm:text-[12.5px] font-bold text-crimson dark:text-rose-400 tracking-wider shadow-sm"
                     >
-                      <span className="h-1.5 w-1.5 rounded-full bg-crimson" />
+                      <span className="h-1.5 w-1.5 rounded-full bg-crimson dark:bg-rose-400" />
                       {p.kanji}
                     </span>
                     <h3
-                      className="mt-3 sm:mt-4 font-serif-jp font-bold leading-tight text-ink group-hover:text-crimson transition-colors"
+                      className="mt-3 sm:mt-4 font-serif-jp font-bold leading-tight text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400 transition-colors"
                       style={{ fontSize: "clamp(1.05rem, 1.6vw, 1.3rem)" }}
                     >
                       {p.title}
                     </h3>
                     <div className="mt-2.5 sm:mt-3.5 h-[2px] w-12 sm:w-14 bg-gradient-to-r from-crimson to-saffron rounded-full" />
                     <p
-                      className="mt-2.5 sm:mt-4 font-inter leading-relaxed text-slate-600 text-[12.5px] sm:text-[14px]"
+                      className="mt-2.5 sm:mt-4 font-inter leading-relaxed text-slate-600 dark:text-slate-300 text-[12.5px] sm:text-[14px]"
                     >
                       {p.body}
                     </p>
@@ -553,13 +553,13 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════
           6. HYDERABAD LOCATION — 2-Column Strategic Map & Details
          ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad bg-ivory-warm border-t border-slate-200/70">
+      <section className="section-pad bg-ivory-warm dark:bg-[#0b111e] border-t border-slate-200/70 dark:border-white/10">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto mb-10 max-w-3xl text-center">
               <Eyebrow>{tx({ EN: "Strategic Hub Location", JP: "戦略的拠点立地" })}</Eyebrow>
               <h2
-                className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
+                className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink dark:text-white"
                 style={{ fontSize: "clamp(1.625rem, 3vw, 2.25rem)" }}
               >
                 {tx({
@@ -568,7 +568,7 @@ export default function HomePage() {
                 })}
               </h2>
               <p
-                className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate"
+                className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300"
                 style={{ fontSize: "clamp(0.9rem, 1.3vw, 1.05rem)" }}
               >
                 {tx({
@@ -584,10 +584,10 @@ export default function HomePage() {
             {/* Left: India Map Graphic with Highlight Badge */}
             <div className="lg:col-span-5">
               <Reveal variant="scale">
-                <div className="luxury-light-card card-sheen gold-hairline group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-4 sm:p-6 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-crimson/30">
+                <div className="luxury-light-card card-sheen gold-hairline group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-6 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-crimson/30">
                   {/* Floating Live Badge with radar beacon */}
                   <div className="flex items-center justify-between mb-3 sm:mb-4">
-                    <span className="inline-flex items-center gap-1.5 rounded-full bg-crimson/10 border border-crimson/25 px-2.5 py-0.5 sm:px-3 sm:py-1 text-[10.5px] sm:text-[11px] font-bold text-crimson uppercase tracking-wider">
+                    <span className="inline-flex items-center gap-1.5 rounded-full bg-crimson/10 dark:bg-rose-950/50 border border-crimson/25 dark:border-rose-400/30 px-2.5 py-0.5 sm:px-3 sm:py-1 text-[10.5px] sm:text-[11px] font-bold text-crimson dark:text-rose-400 uppercase tracking-wider">
                       <MapPin className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                       {tx({ EN: "Flagship Hub", JP: "旗艦拠点" })}
                     </span>
@@ -598,7 +598,7 @@ export default function HomePage() {
                   </div>
 
                   {/* The Map Graphic */}
-                  <div className="relative flex items-center justify-center p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-slate-50/80 border border-slate-100 shadow-inner">
+                  <div className="relative flex items-center justify-center p-2 sm:p-3 rounded-xl sm:rounded-2xl bg-slate-50/80 dark:bg-white/5 border border-slate-100 dark:border-white/10 shadow-inner">
                     <img
                       src="/india-map-hyderabad.png"
                       alt="Map of India highlighting Hyderabad location along with New Delhi, Mumbai, Bengaluru, Chennai, and Ahmedabad"
@@ -608,28 +608,28 @@ export default function HomePage() {
                   </div>
 
                   {/* Connectivity Quick Strip */}
-                  <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-slate-100 grid grid-cols-3 gap-1.5 sm:gap-2.5 text-center">
-                    <div className="bg-slate-50 rounded-lg sm:rounded-xl p-1.5 sm:p-2.5 border border-slate-200/60 shadow-sm transition-transform duration-200 hover:scale-105">
+                  <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-slate-100 dark:border-white/10 grid grid-cols-3 gap-1.5 sm:gap-2.5 text-center">
+                    <div className="bg-slate-50 dark:bg-white/5 rounded-lg sm:rounded-xl p-1.5 sm:p-2.5 border border-slate-200/60 dark:border-white/10 shadow-sm transition-transform duration-200 hover:scale-105">
                       <span className="block font-inter text-[8.5px] sm:text-[9.5px] font-semibold text-slate-400 uppercase tracking-wider">
                         {tx({ EN: "Metro", JP: "メトロ" })}
                       </span>
-                      <span className="block font-inter text-[10.5px] sm:text-[12px] font-bold text-ink truncate mt-0.5">
+                      <span className="block font-inter text-[10.5px] sm:text-[12px] font-bold text-ink dark:text-white truncate mt-0.5">
                         {tx({ EN: "2 Min Walk", JP: "徒歩2分" })}
                       </span>
                     </div>
-                    <div className="bg-slate-50 rounded-lg sm:rounded-xl p-1.5 sm:p-2.5 border border-slate-200/60 shadow-sm transition-transform duration-200 hover:scale-105">
+                    <div className="bg-slate-50 dark:bg-white/5 rounded-lg sm:rounded-xl p-1.5 sm:p-2.5 border border-slate-200/60 dark:border-white/10 shadow-sm transition-transform duration-200 hover:scale-105">
                       <span className="block font-inter text-[8.5px] sm:text-[9.5px] font-semibold text-slate-400 uppercase tracking-wider">
                         {tx({ EN: "Airport", JP: "空港" })}
                       </span>
-                      <span className="block font-inter text-[10.5px] sm:text-[12px] font-bold text-ink truncate mt-0.5">
+                      <span className="block font-inter text-[10.5px] sm:text-[12px] font-bold text-ink dark:text-white truncate mt-0.5">
                         {tx({ EN: "35 Min Drive", JP: "車で35分" })}
                       </span>
                     </div>
-                    <div className="bg-slate-50 rounded-lg sm:rounded-xl p-1.5 sm:p-2.5 border border-slate-200/60 shadow-sm transition-transform duration-200 hover:scale-105">
+                    <div className="bg-slate-50 dark:bg-white/5 rounded-lg sm:rounded-xl p-1.5 sm:p-2.5 border border-slate-200/60 dark:border-white/10 shadow-sm transition-transform duration-200 hover:scale-105">
                       <span className="block font-inter text-[8.5px] sm:text-[9.5px] font-semibold text-slate-400 uppercase tracking-wider">
                         {tx({ EN: "District", JP: "地区" })}
                       </span>
-                      <span className="block font-inter text-[10.5px] sm:text-[12px] font-bold text-crimson truncate mt-0.5">
+                      <span className="block font-inter text-[10.5px] sm:text-[12px] font-bold text-crimson dark:text-rose-400 truncate mt-0.5">
                         {tx({ EN: "Hitech City", JP: "IT特区" })}
                       </span>
                     </div>
@@ -642,16 +642,16 @@ export default function HomePage() {
             <div className="lg:col-span-7 space-y-3 sm:space-y-4">
               <Reveal delay={80}>
                 <div>
-                  <span className="font-inter text-[11px] sm:text-[11.5px] font-bold uppercase tracking-wider text-crimson">
+                  <span className="font-inter text-[11px] sm:text-[11.5px] font-bold uppercase tracking-wider text-crimson dark:text-rose-400">
                     {tx({ EN: "Cyber Gateway, Phase 2, Hitech City", JP: "サイバーゲートウェイ Phase 2・ハイテックシティ" })}
                   </span>
-                  <h3 className="mt-1 sm:mt-1.5 font-serif-jp text-xl sm:text-2xl lg:text-3xl font-bold text-ink leading-tight">
+                  <h3 className="mt-1 sm:mt-1.5 font-serif-jp text-xl sm:text-2xl lg:text-3xl font-bold text-ink dark:text-white leading-tight">
                     {tx({
                       EN: "At the Center of India's Silicon Corridor",
                       JP: "インドのシリコン回廊の中心に位置する拠点",
                     })}
                   </h3>
-                  <p className="mt-2 sm:mt-2.5 font-inter text-[13px] sm:text-[13.5px] leading-relaxed text-slate">
+                  <p className="mt-2 sm:mt-2.5 font-inter text-[13px] sm:text-[13.5px] leading-relaxed text-slate dark:text-slate-300">
                     {tx({
                       EN: "Hyderabad is a major IT and business hub with modern commercial infrastructure and active government support. J-Gate at Cyber Gateway provides Japanese businesses with a fully equipped workspace and local advisory to operate with confidence.",
                       JP: "ハイデラバードは、整った都市インフラ、比較的抑えられた運営コスト、手厚い州政府支援が揃ったインド有数のIT都市です。Cyber GatewayのJ-Gateは、日本企業が安心して事業を進められるオフィス環境と伴走支援を提供します。",
@@ -664,15 +664,15 @@ export default function HomePage() {
               <div className="space-y-2.5 sm:space-y-3 pt-1 sm:pt-2">
                 {locationAdvantages.map((item, idx) => (
                   <Reveal key={idx} delay={100 + idx * 40}>
-                    <div className="group flex items-start gap-3 sm:gap-4 rounded-xl sm:rounded-2xl bg-white p-3 sm:p-4 border border-slate-200/90 shadow-sm transition-all duration-300 hover:shadow-md hover:border-crimson/35 smooth-lift">
-                      <div className="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-lg bg-crimson/10 border border-crimson/25 text-crimson font-mono font-bold text-[11px] sm:text-[12px] group-hover:bg-crimson group-hover:text-white transition-colors mt-0.5">
+                    <div className="group flex items-start gap-3 sm:gap-4 rounded-xl sm:rounded-2xl bg-white dark:bg-[#101a2c] p-3 sm:p-4 border border-slate-200/90 dark:border-white/10 shadow-sm transition-all duration-300 hover:shadow-md hover:border-crimson/35 smooth-lift">
+                      <div className="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-lg bg-crimson/10 dark:bg-rose-950/50 border border-crimson/25 dark:border-rose-400/30 text-crimson dark:text-rose-400 font-mono font-bold text-[11px] sm:text-[12px] group-hover:bg-crimson group-hover:text-white transition-colors mt-0.5">
                         {item.num}
                       </div>
                       <div className="flex-1 min-w-0">
-                        <h4 className="font-serif-jp text-[13.5px] sm:text-[14.5px] font-bold text-ink group-hover:text-crimson transition-colors">
+                        <h4 className="font-serif-jp text-[13.5px] sm:text-[14.5px] font-bold text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400 transition-colors">
                           {tx(item.title)}
                         </h4>
-                        <p className="mt-0.5 font-inter text-[12px] sm:text-[12.5px] text-slate-600 leading-relaxed">
+                        <p className="mt-0.5 font-inter text-[12px] sm:text-[12.5px] text-slate-600 dark:text-slate-300 leading-relaxed">
                           {tx(item.desc)}
                         </p>
                       </div>
@@ -693,7 +693,7 @@ export default function HomePage() {
                   </Link>
                   <Link
                     href="/pricing"
-                    className="inline-flex items-center gap-2 rounded-xl border border-slate-300 bg-white px-4 py-2.5 sm:px-6 sm:py-3.5 font-inter text-[12.5px] sm:text-[13.5px] font-semibold text-slate-700 hover:bg-slate-50 hover:border-slate-400 transition-all shadow-sm"
+                    className="inline-flex items-center gap-2 rounded-xl border border-slate-300 dark:border-white/20 bg-white dark:bg-[#101a2c] px-4 py-2.5 sm:px-6 sm:py-3.5 font-inter text-[12.5px] sm:text-[13.5px] font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/10 hover:border-slate-400 dark:hover:border-white/30 transition-all shadow-sm"
                   >
                     {tx({ EN: "View Membership Plans", JP: "料金プランを見る" })}
                   </Link>
@@ -707,19 +707,19 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════
           7. ECOSYSTEM MARQUEE — Bilateral Innovation Network
          ════════════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden border-t border-slate-200/60 bg-ivory py-10 sm:py-16">
+      <section className="relative overflow-hidden border-t border-slate-200/60 dark:border-white/10 bg-ivory dark:bg-[#080d17] py-10 sm:py-16">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto mb-6 sm:mb-10 max-w-3xl text-center">
               <Eyebrow>{t("home.logos.eyebrow")}</Eyebrow>
               <h2
-                className="mt-2.5 sm:mt-3 font-serif-jp font-bold text-ink"
+                className="mt-2.5 sm:mt-3 font-serif-jp font-bold text-ink dark:text-white"
                 style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)" }}
               >
                 {t("home.logos.title")}
               </h2>
               <p
-                className="mx-auto mt-2 sm:mt-3 max-w-2xl font-inter leading-relaxed text-slate text-[13px] sm:text-[15px]"
+                className="mx-auto mt-2 sm:mt-3 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300 text-[13px] sm:text-[15px]"
               >
                 {t("home.logos.subtitle")}
               </p>

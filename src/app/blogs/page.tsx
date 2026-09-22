@@ -526,18 +526,18 @@ export default function OfficeGalleryPage() {
       {/* ───────────────────────────────────────────────────────────
           Main Office Gallery Section
          ─────────────────────────────────────────────────────────── */}
-      <section className="section-pad bg-ivory-warm">
+      <section className="section-pad bg-ivory-warm dark:bg-[#080d17]">
         <div className="container-jg">
           {/* Header with View Mode Switcher */}
           <Reveal>
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-200/80">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-200/80 dark:border-white/10">
               <div>
-                <div className="inline-flex items-center gap-2 rounded-full border border-crimson/25 bg-crimson/10 px-3.5 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-crimson">
+                <div className="inline-flex items-center gap-2 rounded-full border border-crimson/25 dark:border-crimson/40 bg-crimson/10 dark:bg-crimson/20 px-3.5 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-crimson dark:text-rose-400">
                   <Building2 className="h-3.5 w-3.5" />
                   {tx({ EN: "Office Photography", JP: "オフィス施設写真" })}
                 </div>
                 <h2
-                  className="mt-2 font-serif-jp font-bold text-ink leading-tight"
+                  className="mt-2 font-serif-jp font-bold text-ink dark:text-white leading-tight"
                   style={{ fontSize: "clamp(1.75rem,3.2vw,2.3rem)" }}
                 >
                   {tx({
@@ -545,7 +545,7 @@ export default function OfficeGalleryPage() {
                     JP: "オフィス設備と環境のご案内",
                   })}
                 </h2>
-                <p className="mt-1 font-inter text-[13.5px] text-slate max-w-2xl">
+                <p className="mt-1 font-inter text-[13.5px] text-slate dark:text-slate-300 max-w-2xl">
                   {tx({
                     EN: "Official photography of J-Gate workspaces, meeting rooms, and amenities at Cyber Gateway Phase 2, Hitech City, Hyderabad.",
                     JP: "ハイデラバード・ハイテックシティ Phase 2のCyber Gateway内にあるオフィスの写真と設備仕様。",
@@ -554,14 +554,14 @@ export default function OfficeGalleryPage() {
               </div>
 
               {/* View Mode Toggle */}
-              <div className="flex items-center gap-1.5 rounded-2xl bg-white border border-slate-200 p-1.5 shadow-sm shrink-0">
+              <div className="flex items-center gap-1.5 rounded-2xl bg-white dark:bg-[#101a2c] border border-slate-200 dark:border-white/10 p-1.5 shadow-sm shrink-0">
                 <button
                   onClick={() => setViewMode("zones")}
                   className={cn(
                     "flex items-center gap-1.5 rounded-xl px-4 py-2 font-inter text-[12.5px] font-semibold transition-all duration-300",
                     viewMode === "zones"
-                      ? "bg-midnight text-white shadow-sm"
-                      : "text-slate hover:text-ink hover:bg-slate-50"
+                      ? "bg-gradient-to-r from-crimson to-crimson-deep text-white shadow-md shadow-crimson/30"
+                      : "text-slate dark:text-slate-300 hover:text-ink dark:hover:text-white hover:bg-slate-50 dark:hover:bg-white/5"
                   )}
                 >
                   <Layers className="h-4 w-4 text-saffron" />
@@ -572,11 +572,11 @@ export default function OfficeGalleryPage() {
                   className={cn(
                     "flex items-center gap-1.5 rounded-xl px-4 py-2 font-inter text-[12.5px] font-semibold transition-all duration-300",
                     viewMode === "mosaic"
-                      ? "bg-midnight text-white shadow-sm"
-                      : "text-slate hover:text-ink hover:bg-slate-50"
+                      ? "bg-gradient-to-r from-crimson to-crimson-deep text-white shadow-md shadow-crimson/30"
+                      : "text-slate dark:text-slate-300 hover:text-ink dark:hover:text-white hover:bg-slate-50 dark:hover:bg-white/5"
                   )}
                 >
-                  <LayoutGrid className="h-4 w-4 text-crimson" />
+                  <LayoutGrid className="h-4 w-4 text-saffron" />
                   {tx({ EN: "Grid View (14)", JP: "写真一覧 (14枚)" })}
                 </button>
               </div>
@@ -586,27 +586,27 @@ export default function OfficeGalleryPage() {
           {/* Clean Metrics Summary */}
           <Reveal delay={40}>
             <div className="my-5 sm:my-8 grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 max-w-5xl mx-auto">
-              <div className="luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 bg-white p-3 sm:p-5 text-center shadow-md hover:shadow-xl transition-all">
-                <span className="block font-serif-jp text-2xl sm:text-3xl font-bold text-crimson">40+</span>
-                <span className="mt-0.5 sm:mt-1 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700">
+              <div className="luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-3 sm:p-5 text-center shadow-md hover:shadow-xl transition-all">
+                <span className="block font-serif-jp text-2xl sm:text-3xl font-bold text-crimson dark:text-rose-400">40+</span>
+                <span className="mt-0.5 sm:mt-1 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
                   {tx({ EN: "Dedicated Desks", JP: "固定専用デスク" })}
                 </span>
               </div>
-              <div className="luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 bg-white p-3 sm:p-5 text-center shadow-md hover:shadow-xl transition-all">
-                <span className="block font-serif-jp text-2xl sm:text-3xl font-bold text-saffron-dark">16 & 4-Pax</span>
-                <span className="mt-0.5 sm:mt-1 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700">
+              <div className="luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-3 sm:p-5 text-center shadow-md hover:shadow-xl transition-all">
+                <span className="block font-serif-jp text-2xl sm:text-3xl font-bold text-saffron-dark dark:text-amber-300">16 & 4-Pax</span>
+                <span className="mt-0.5 sm:mt-1 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
                   {tx({ EN: "Boardroom & Meeting", JP: "国際会議室＆面談室" })}
                 </span>
               </div>
-              <div className="luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 bg-white p-3 sm:p-5 text-center shadow-md hover:shadow-xl transition-all">
-                <span className="block font-serif-jp text-2xl sm:text-3xl font-bold text-crimson">1 Gbps</span>
-                <span className="mt-0.5 sm:mt-1 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700">
+              <div className="luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-3 sm:p-5 text-center shadow-md hover:shadow-xl transition-all">
+                <span className="block font-serif-jp text-2xl sm:text-3xl font-bold text-crimson dark:text-rose-400">1 Gbps</span>
+                <span className="mt-0.5 sm:mt-1 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
                   {tx({ EN: "Dedicated Fiber Line", JP: "専用光回線" })}
                 </span>
               </div>
-              <div className="luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 bg-white p-3 sm:p-5 text-center shadow-md hover:shadow-xl transition-all">
-                <span className="block font-serif-jp text-2xl sm:text-3xl font-bold text-emerald-600">24/7</span>
-                <span className="mt-0.5 sm:mt-1 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700">
+              <div className="luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-3 sm:p-5 text-center shadow-md hover:shadow-xl transition-all">
+                <span className="block font-serif-jp text-2xl sm:text-3xl font-bold text-emerald-600 dark:text-emerald-400">24/7</span>
+                <span className="mt-0.5 sm:mt-1 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
                   {tx({ EN: "Keycard Access", JP: "入退館管理・警備" })}
                 </span>
               </div>
@@ -624,39 +624,39 @@ export default function OfficeGalleryPage() {
 
                 return (
                   <Reveal key={zone.id} delay={zIdx * 50}>
-                    <div className="luxury-light-card card-sheen rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-4 sm:p-7 lg:p-9 shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
+                    <div className="luxury-light-card card-sheen rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-7 lg:p-9 shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
                       {/* Zone Header Strip */}
-                      <div className="grid lg:grid-cols-12 gap-4 sm:gap-6 items-start pb-4 sm:pb-6 border-b border-slate-100">
+                      <div className="grid lg:grid-cols-12 gap-4 sm:gap-6 items-start pb-4 sm:pb-6 border-b border-slate-100 dark:border-white/10">
                         <div className="lg:col-span-8">
                           <div className="flex items-center gap-2.5 sm:gap-3">
-                            <span className="font-serif-jp text-xl sm:text-3xl font-bold text-crimson">
+                            <span className="font-serif-jp text-xl sm:text-3xl font-bold text-crimson dark:text-rose-400">
                               {zone.num}
                             </span>
-                            <div className="h-4 sm:h-5 w-px bg-slate-200" />
-                            <span className="inline-flex items-center gap-1.5 rounded-lg bg-slate-100 px-2 sm:px-2.5 py-0.5 sm:py-1 font-inter text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-700">
-                              <ZoneIcon className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-crimson" />
+                            <div className="h-4 sm:h-5 w-px bg-slate-200 dark:bg-white/10" />
+                            <span className="inline-flex items-center gap-1.5 rounded-lg bg-slate-100 dark:bg-white/5 px-2 sm:px-2.5 py-0.5 sm:py-1 font-inter text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-white/10">
+                              <ZoneIcon className="h-3 w-3 sm:h-3.5 sm:w-3.5 text-crimson dark:text-rose-400" />
                               {tx(zone.tag)}
                             </span>
                           </div>
-                          <h3 className="mt-2 sm:mt-2.5 font-serif-jp text-lg sm:text-2xl font-bold text-ink leading-snug">
+                          <h3 className="mt-2 sm:mt-2.5 font-serif-jp text-lg sm:text-2xl font-bold text-ink dark:text-white leading-snug">
                             {tx(zone.title)}
                           </h3>
-                          <p className="mt-1.5 sm:mt-2 font-inter text-[12px] sm:text-[13px] leading-relaxed text-slate max-w-3xl">
+                          <p className="mt-1.5 sm:mt-2 font-inter text-[12px] sm:text-[13px] leading-relaxed text-slate dark:text-slate-300 max-w-3xl">
                             {tx(zone.lead)}
                           </p>
                         </div>
 
                         {/* Key Highlights */}
-                        <div className="lg:col-span-4 rounded-xl sm:rounded-2xl bg-slate-50 border border-slate-200/60 p-3 sm:p-4 space-y-1.5 sm:space-y-2">
+                        <div className="lg:col-span-4 rounded-xl sm:rounded-2xl bg-slate-50 dark:bg-white/5 border border-slate-200/60 dark:border-white/10 p-3 sm:p-4 space-y-1.5 sm:space-y-2">
                           <h4 className="font-inter text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-400 mb-1 sm:mb-1.5">
                             {tx({ EN: "Facilities & Specs", JP: "主な設備" })}
                           </h4>
                           {zone.highlights.map((h, hIdx) => (
                             <div
                               key={hIdx}
-                              className="flex items-start gap-1.5 sm:gap-2 text-[11.5px] sm:text-[12px] font-inter text-slate-700 leading-snug"
+                              className="flex items-start gap-1.5 sm:gap-2 text-[11.5px] sm:text-[12px] font-inter text-slate-700 dark:text-slate-300 leading-snug"
                             >
-                              <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-success mt-0.5" />
+                              <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-success dark:text-emerald-400 mt-0.5" />
                               <span>{tx(h)}</span>
                             </div>
                           ))}
@@ -669,7 +669,7 @@ export default function OfficeGalleryPage() {
                           <div
                             key={photo.id}
                             onClick={() => openPhotoModal(photo.id)}
-                            className="lift-card card-sheen group cursor-pointer rounded-2xl border border-slate-200/90 bg-white overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
+                            className="lift-card card-sheen group cursor-pointer rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#142036] overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
                           >
                             {/* Photo Canvas */}
                             <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-950">
@@ -699,27 +699,27 @@ export default function OfficeGalleryPage() {
                             </div>
 
                             {/* Photo Metadata Card */}
-                            <div className="p-4 bg-white flex-1 flex flex-col justify-between border-t border-slate-100">
+                            <div className="p-4 bg-white dark:bg-[#142036] flex-1 flex flex-col justify-between border-t border-slate-100 dark:border-white/10">
                               <div>
-                                <h4 className="font-serif-jp text-[14.5px] font-bold text-ink group-hover:text-crimson transition-colors leading-snug">
+                                <h4 className="font-serif-jp text-[14.5px] font-bold text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400 transition-colors leading-snug">
                                   {tx(photo.title)}
                                 </h4>
-                                <p className="mt-1 font-inter text-[12px] text-slate line-clamp-2 leading-relaxed">
+                                <p className="mt-1 font-inter text-[12px] text-slate dark:text-slate-300 line-clamp-2 leading-relaxed">
                                   {tx(photo.subtitle)}
                                 </p>
                               </div>
 
                               {/* Specs */}
-                              <div className="mt-3 grid grid-cols-2 gap-1.5 pt-2.5 border-t border-slate-100">
+                              <div className="mt-3 grid grid-cols-2 gap-1.5 pt-2.5 border-t border-slate-100 dark:border-white/10">
                                 {photo.specs.slice(0, 2).map((sp, sIdx) => (
                                   <div
                                     key={sIdx}
-                                    className="bg-slate-50 rounded-lg p-2 text-[11px] font-inter"
+                                    className="bg-slate-50 dark:bg-white/5 rounded-lg p-2 text-[11px] font-inter"
                                   >
                                     <span className="block text-slate-400 font-medium uppercase text-[9.5px]">
                                       {tx(sp.label)}
                                     </span>
-                                    <span className="block font-bold text-ink truncate mt-0.5">
+                                    <span className="block font-bold text-ink dark:text-white truncate mt-0.5">
                                       {tx(sp.val)}
                                     </span>
                                   </div>
@@ -752,15 +752,15 @@ export default function OfficeGalleryPage() {
                       className={cn(
                         "flex items-center gap-2 rounded-xl px-4 py-2 font-inter text-[12.5px] font-semibold transition-all duration-200 shadow-sm",
                         isSelected
-                          ? "bg-crimson text-white shadow-md shadow-crimson/25 scale-105"
-                          : "bg-white text-slate hover:bg-white/90 hover:text-ink border border-slate-200"
+                          ? "bg-gradient-to-r from-crimson to-crimson-deep text-white shadow-md shadow-crimson/25 scale-105"
+                          : "bg-white dark:bg-[#101a2c] text-slate dark:text-slate-300 hover:bg-white/90 dark:hover:bg-white/10 hover:text-ink dark:hover:text-white border border-slate-200 dark:border-white/10"
                       )}
                     >
                       <span>{tx(cat.label)}</span>
                       <span
                         className={cn(
                           "rounded-full px-2 py-0.5 text-[10.5px] font-bold font-mono",
-                          isSelected ? "bg-white/20 text-white" : "bg-slate-100 text-slate-600"
+                          isSelected ? "bg-white/20 text-white" : "bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300"
                         )}
                       >
                         {cat.count}
@@ -776,7 +776,7 @@ export default function OfficeGalleryPage() {
                   <Reveal key={photo.id} delay={(i % 3) * 40}>
                     <div
                       onClick={() => openPhotoModal(photo.id)}
-                      className="lift-card card-sheen group relative cursor-pointer overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-slate-900 shadow-md hover:shadow-2xl transition-all duration-500 h-64 sm:h-80"
+                      className="lift-card card-sheen group relative cursor-pointer overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-slate-900 shadow-md hover:shadow-2xl transition-all duration-500 h-64 sm:h-80"
                     >
                       <img
                         src={photo.src}
@@ -795,7 +795,7 @@ export default function OfficeGalleryPage() {
 
                       {/* Top Badge */}
                       <div className="absolute top-2.5 left-2.5 right-2.5 sm:top-3 sm:left-3 sm:right-3 z-20 flex items-center justify-between">
-                        <span className="inline-flex items-center gap-1 sm:gap-1.5 rounded-lg bg-white/95 backdrop-blur-md px-2 py-0.5 sm:px-2.5 sm:py-1 font-inter text-[9.5px] sm:text-[10.5px] font-bold uppercase text-ink shadow-sm border border-white/60">
+                        <span className="inline-flex items-center gap-1 sm:gap-1.5 rounded-lg bg-white/95 dark:bg-[#101a2c]/95 backdrop-blur-md px-2 py-0.5 sm:px-2.5 sm:py-1 font-inter text-[9.5px] sm:text-[10.5px] font-bold uppercase text-ink dark:text-white shadow-sm border border-white/60 dark:border-white/10">
                           <span className="h-1.5 w-1.5 rounded-full bg-crimson" />
                           {tx(photo.badge)}
                         </span>
@@ -825,10 +825,10 @@ export default function OfficeGalleryPage() {
 
           {/* Subtle Location Footer */}
           <Reveal delay={60}>
-            <div className="mt-8 sm:mt-12 rounded-xl sm:rounded-2xl border border-slate-200/80 bg-white p-3.5 sm:p-5 text-center shadow-sm max-w-3xl mx-auto flex items-center justify-center gap-2.5 sm:gap-3">
+            <div className="mt-8 sm:mt-12 rounded-xl sm:rounded-2xl border border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#101a2c] p-3.5 sm:p-5 text-center shadow-sm max-w-3xl mx-auto flex items-center justify-center gap-2.5 sm:gap-3">
               <MapPin className="h-4 w-4 text-crimson shrink-0" />
-              <p className="font-inter text-[12px] sm:text-[13px] text-slate">
-                <strong>J-Gate Office:</strong> 2nd Floor, Block B, Wing-1, Cyber Gateway, Phase 2, Hitech City, Hyderabad, Telangana 500081
+              <p className="font-inter text-[12px] sm:text-[13px] text-slate dark:text-slate-300">
+                <strong className="text-ink dark:text-white">J-Gate Office:</strong> 2nd Floor, Block B, Wing-1, Cyber Gateway, Phase 2, Hitech City, Hyderabad, Telangana 500081
               </p>
             </div>
           </Reveal>

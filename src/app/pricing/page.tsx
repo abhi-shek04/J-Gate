@@ -328,7 +328,7 @@ export default function PricingPage() {
   const isAnnual = billingCycle === "annual";
 
   return (
-    <div className="min-h-screen bg-ivory">
+    <div className="min-h-screen bg-ivory dark:bg-[#0b111e] transition-colors">
       {/* ───────────────────────────────────────────────────────────
           1. Hero Banner
          ─────────────────────────────────────────────────────────── */}
@@ -351,19 +351,19 @@ export default function PricingPage() {
          ─────────────────────────────────────────────────────────── */}
       <section className="relative mt-1 sm:-mt-9 z-20 container-jg">
         <Reveal>
-          <div className="rounded-xl sm:rounded-2xl border border-slate-200/90 bg-white/95 p-3.5 sm:p-5 shadow-[0_16px_40px_-12px_rgba(8,15,26,0.08)] backdrop-blur-md">
+          <div className="rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white/95 dark:bg-[#101a2c] p-3.5 sm:p-5 shadow-[0_16px_40px_-12px_rgba(8,15,26,0.08)] backdrop-blur-md transition-colors">
             <div className="flex flex-col xl:flex-row items-center justify-between gap-4">
               {/* ROI Benchmark Metric */}
               <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5 text-center sm:text-left">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 border border-emerald-200/80 px-3 py-1 text-emerald-800 font-inter text-[11px] font-bold">
-                  <TrendingDown className="h-3.5 w-3.5 text-emerald-600" />
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-700/40 px-3 py-1 text-emerald-800 dark:text-emerald-300 font-inter text-[11px] font-bold">
+                  <TrendingDown className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
                   <span>{tx({ EN: "Cost Benchmark", JP: "費用対効果の検証" })}</span>
                 </span>
-                <div className="text-[12.5px] font-inter text-slate-500">
+                <div className="text-[12.5px] font-inter text-slate-500 dark:text-slate-400">
                   <span className="line-through mr-2">
                     {tx({ EN: "Traditional Expat: ¥15M–¥20M/yr", JP: "従来型駐在: 年間¥15M〜¥20M" })}
                   </span>
-                  <span className="inline-flex items-center gap-1 font-bold text-ink bg-amber-50/90 border border-amber-200/70 px-2.5 py-0.5 rounded-md">
+                  <span className="inline-flex items-center gap-1 font-bold text-ink dark:text-amber-200 bg-amber-50/90 dark:bg-amber-950/40 border border-amber-200/70 dark:border-amber-700/40 px-2.5 py-0.5 rounded-md">
                     <Zap className="h-3 w-3 text-saffron fill-saffron" />
                     {tx({
                       EN: "J-Gate Hub: From ₹15,000/mo (~¥27,000) · 90%+ Cost Efficiency",
@@ -376,14 +376,14 @@ export default function PricingPage() {
               {/* Interactive Dual Switcher (Currency + Billing Period) */}
               <div className="flex flex-wrap items-center justify-center gap-3">
                 {/* Billing Cycle Toggle */}
-                <div className="flex items-center bg-slate-100/90 p-1 rounded-xl border border-slate-200/80 text-[11.5px] font-inter font-bold">
+                <div className="flex items-center bg-slate-100/90 dark:bg-white/10 p-1 rounded-xl border border-slate-200/80 dark:border-white/10 text-[11.5px] font-inter font-bold">
                   <button
                     type="button"
                     onClick={() => setBillingCycle("monthly")}
-                    className={`px-3 py-1 rounded-lg transition-all duration-200 ${
+                    className={`px-3 py-1 rounded-lg transition-all duration-200 cursor-pointer ${
                       !isAnnual
-                        ? "bg-white text-ink shadow-xs border border-slate-200/80"
-                        : "text-slate-500 hover:text-slate-900"
+                        ? "bg-white dark:bg-[#182846] text-ink dark:text-white shadow-xs border border-slate-200/80 dark:border-white/20"
+                        : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                     }`}
                   >
                     {tx({ EN: "Monthly", JP: "月払い" })}
@@ -391,28 +391,28 @@ export default function PricingPage() {
                   <button
                     type="button"
                     onClick={() => setBillingCycle("annual")}
-                    className={`flex items-center gap-1.5 px-3 py-1 rounded-lg transition-all duration-200 ${
+                    className={`flex items-center gap-1.5 px-3 py-1 rounded-lg transition-all duration-200 cursor-pointer ${
                       isAnnual
-                        ? "bg-white text-crimson shadow-xs border border-slate-200/80"
-                        : "text-slate-500 hover:text-slate-900"
+                        ? "bg-white dark:bg-[#182846] text-crimson dark:text-rose-400 shadow-xs border border-slate-200/80 dark:border-white/20"
+                        : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                     }`}
                   >
                     <span>{tx({ EN: "Annual", JP: "年払い" })}</span>
-                    <span className="rounded bg-emerald-100 text-emerald-800 text-[10px] px-1.5 py-0.2">
+                    <span className="rounded bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 text-[10px] px-1.5 py-0.2">
                       -15%
                     </span>
                   </button>
                 </div>
 
                 {/* Currency Toggle */}
-                <div className="flex items-center bg-slate-100/90 p-1 rounded-xl border border-slate-200/80 text-[11.5px] font-inter font-bold">
+                <div className="flex items-center bg-slate-100/90 dark:bg-white/10 p-1 rounded-xl border border-slate-200/80 dark:border-white/10 text-[11.5px] font-inter font-bold">
                   <button
                     type="button"
                     onClick={() => setCurrency("INR")}
-                    className={`px-3 py-1 rounded-lg transition-all duration-200 ${
+                    className={`px-3 py-1 rounded-lg transition-all duration-200 cursor-pointer ${
                       currency === "INR"
-                        ? "bg-white text-crimson shadow-xs border border-slate-200/80"
-                        : "text-slate-500 hover:text-slate-900"
+                        ? "bg-white dark:bg-[#182846] text-crimson dark:text-rose-400 shadow-xs border border-slate-200/80 dark:border-white/20"
+                        : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                     }`}
                   >
                     ₹ INR
@@ -420,10 +420,10 @@ export default function PricingPage() {
                   <button
                     type="button"
                     onClick={() => setCurrency("JPY")}
-                    className={`px-3 py-1 rounded-lg transition-all duration-200 ${
+                    className={`px-3 py-1 rounded-lg transition-all duration-200 cursor-pointer ${
                       currency === "JPY"
-                        ? "bg-white text-crimson shadow-xs border border-slate-200/80"
-                        : "text-slate-500 hover:text-slate-900"
+                        ? "bg-white dark:bg-[#182846] text-crimson dark:text-rose-400 shadow-xs border border-slate-200/80 dark:border-white/20"
+                        : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                     }`}
                   >
                     ¥ JPY (円)
@@ -438,7 +438,7 @@ export default function PricingPage() {
       {/* ───────────────────────────────────────────────────────────
           3. Three Executive Plan Cards
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-6 sm:py-10 lg:py-12 bg-ivory-warm relative overflow-hidden">
+      <section className="py-6 sm:py-10 lg:py-12 bg-ivory-warm dark:bg-[#0f1728] relative overflow-hidden transition-colors">
         {/* Ambient subtle warm lighting */}
         <div
           className="pointer-events-none absolute inset-0 opacity-35"
@@ -451,12 +451,12 @@ export default function PricingPage() {
         <div className="container-jg relative z-10">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center mb-5 sm:mb-7">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-crimson/30 bg-crimson/10 px-3.5 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-crimson">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-crimson/30 bg-crimson/10 px-3.5 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-crimson dark:text-rose-400">
                 <Briefcase className="h-3.5 w-3.5" />
                 {tx({ EN: "Transparent Operating Memberships", JP: "透明で明瞭なメンバーシップ体系" })}
               </span>
               <h2
-                className="mt-2.5 font-serif-jp font-bold text-ink"
+                className="mt-2.5 font-serif-jp font-bold text-ink dark:text-white"
                 style={{ fontSize: "clamp(1.5rem, 2.8vw, 2.25rem)" }}
               >
                 {tx({
@@ -464,7 +464,7 @@ export default function PricingPage() {
                   JP: "進出段階に合わせて選べる3つのプラン",
                 })}
               </h2>
-              <p className="mx-auto mt-1.5 max-w-2xl font-inter text-[12px] sm:text-[13px] leading-relaxed text-slate">
+              <p className="mx-auto mt-1.5 max-w-2xl font-inter text-[12px] sm:text-[13px] leading-relaxed text-slate dark:text-slate-300">
                 {tx({
                   EN: "All tiers include full Cyber Gateway workspace infrastructure, 1Gbps connectivity, and on-site Japanese leadership guidance.",
                   JP: "すべてのプランにサイバーゲートウェイのオフィス利用、1Gbps光回線、常駐日本人ディレクターによるサポートが含まれています。",
@@ -472,7 +472,7 @@ export default function PricingPage() {
               </p>
 
               {/* Interactive Team Size Quick Selector */}
-              <div className="mt-4 sm:mt-5 inline-flex flex-wrap items-center justify-center gap-1.5 bg-white/90 dark:bg-[#0c1424] p-1.5 rounded-2xl border border-slate-200/80 dark:border-white/10 shadow-xs">
+              <div className="mt-4 sm:mt-5 inline-flex flex-wrap items-center justify-center gap-1.5 bg-white/90 dark:bg-[#101a2c] p-1.5 rounded-2xl border border-slate-200/80 dark:border-white/10 shadow-xs">
                 <span className="text-[11px] font-inter font-semibold text-slate-400 dark:text-slate-400 px-2.5">
                   {tx({ EN: "Filter by Team:", JP: "チーム規模で絞り込み:" })}
                 </span>
@@ -488,7 +488,7 @@ export default function PricingPage() {
                     onClick={() => setSelectedFilter(tab.id as any)}
                     className={`px-3 py-1 rounded-xl text-[11.5px] font-inter font-semibold transition-all duration-200 cursor-pointer ${
                       selectedFilter === tab.id
-                        ? "bg-[#0a1120] dark:bg-crimson text-white shadow-xs"
+                        ? "bg-crimson text-white shadow-xs"
                         : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-white/10"
                     }`}
                   >
@@ -641,7 +641,7 @@ export default function PricingPage() {
                     <div className="mt-5 sm:mt-7 pt-3.5 sm:pt-4 border-t border-slate-100 dark:border-white/10">
                       <Link
                         href={`/contact?plan=${plan.id}`}
-                        className="group/btn relative w-full inline-flex items-center justify-center gap-2 rounded-xl py-2.5 sm:py-3.5 font-inter text-[13px] sm:text-[13.5px] font-semibold text-white bg-[#0a1120] dark:bg-crimson hover:bg-crimson dark:hover:bg-crimson-deep shadow-md hover:shadow-lg transition-all duration-300"
+                        className="group/btn relative w-full inline-flex items-center justify-center gap-2 rounded-xl py-2.5 sm:py-3.5 font-inter text-[13px] sm:text-[13.5px] font-semibold text-white bg-gradient-to-r from-crimson to-crimson-deep shadow-md shadow-crimson/30 hover:opacity-95 transition-all duration-300"
                       >
                         <span>{tx({ EN: `Select ${plan.enName}`, JP: `${plan.jpName}を問い合わせる` })}</span>
                         <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
@@ -662,7 +662,7 @@ export default function PricingPage() {
             <button
               type="button"
               onClick={() => setShowMatrix(!showMatrix)}
-              className="inline-flex items-center gap-2 rounded-full border border-slate-300 dark:border-white/20 bg-white dark:bg-[#0c1424] px-6 py-3 font-inter text-[13px] font-semibold text-ink dark:text-white shadow-sm hover:bg-slate-50 dark:hover:bg-white/10 hover:border-slate-400 dark:hover:border-white/30 hover:shadow transition-all duration-200 cursor-pointer"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-300 dark:border-white/10 bg-white dark:bg-[#101a2c] px-6 py-3 font-inter text-[13px] font-semibold text-ink dark:text-white shadow-sm hover:bg-slate-50 dark:hover:bg-white/10 hover:border-slate-400 dark:hover:border-white/20 hover:shadow transition-all duration-200 cursor-pointer"
             >
               <Sparkles className="h-4 w-4 text-saffron" />
               <span>
@@ -676,7 +676,7 @@ export default function PricingPage() {
 
           {/* Expandable Feature Matrix Table */}
           {showMatrix && (
-            <div className="mt-8 rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#0c1424] p-5 sm:p-8 shadow-xl overflow-hidden animate-in fade-in duration-300">
+            <div className="mt-8 rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-5 sm:p-8 shadow-xl overflow-hidden animate-in fade-in duration-300">
               <div className="border-b border-slate-200 dark:border-white/10 pb-4 mb-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                 <div>
                   <h3 className="font-serif-jp text-xl font-bold text-ink dark:text-white">
@@ -751,7 +751,7 @@ export default function PricingPage() {
       {/* ───────────────────────────────────────────────────────────
           4. Billing Notes & Transparent Guarantees
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-8 sm:py-12 lg:py-14 bg-ivory border-t border-slate-200/60">
+      <section className="py-8 sm:py-12 lg:py-14 bg-ivory dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-4xl">
@@ -761,7 +761,7 @@ export default function PricingPage() {
                 </span>
                 <div>
                   <Eyebrow>{tx({ EN: "Transparent Terms", JP: "ご契約前の確認事項" })}</Eyebrow>
-                  <h3 className="font-serif-jp text-lg sm:text-2xl font-bold text-ink">
+                  <h3 className="font-serif-jp text-lg sm:text-2xl font-bold text-ink dark:text-white">
                     {tx({ EN: "Billing Terms & Invoicing Policies", JP: "請求・決済および契約条件" })}
                   </h3>
                 </div>
@@ -798,15 +798,15 @@ export default function PricingPage() {
                   return (
                     <div
                       key={idx}
-                      className="rounded-xl sm:rounded-2xl border border-slate-200/90 bg-white p-3.5 sm:p-5 shadow-xs hover:shadow-md transition-shadow"
+                      className="rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-3.5 sm:p-5 shadow-xs hover:shadow-md transition-shadow"
                     >
-                      <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg bg-saffron/15 text-saffron-deep mb-2.5 sm:mb-3">
+                      <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg bg-saffron/15 text-saffron-deep dark:text-saffron-light mb-2.5 sm:mb-3">
                         <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                       </div>
-                      <h4 className="font-serif-jp text-[13.5px] sm:text-[14.5px] font-bold text-ink">
+                      <h4 className="font-serif-jp text-[13.5px] sm:text-[14.5px] font-bold text-ink dark:text-white">
                         {tx(note.title)}
                       </h4>
-                      <p className="mt-1 sm:mt-1.5 font-inter text-[11.5px] sm:text-[12px] leading-relaxed text-slate-600">
+                      <p className="mt-1 sm:mt-1.5 font-inter text-[11.5px] sm:text-[12px] leading-relaxed text-slate-600 dark:text-slate-300">
                         {tx(note.desc)}
                       </p>
                     </div>
@@ -815,10 +815,10 @@ export default function PricingPage() {
               </div>
 
               {/* Guarantees Strip */}
-              <div className="mt-4 sm:mt-5 rounded-xl sm:rounded-2xl border border-emerald-200/90 bg-emerald-50/60 p-3.5 sm:p-5 flex items-start sm:items-center gap-3">
-                <CheckCircle2 className="h-4.5 w-4.5 sm:h-5 sm:w-5 shrink-0 text-emerald-600 mt-0.5 sm:mt-0" />
-                <p className="font-inter text-[11.5px] sm:text-[12.5px] leading-relaxed text-slate-700">
-                  <span className="font-bold text-ink">
+              <div className="mt-4 sm:mt-5 rounded-xl sm:rounded-2xl border border-emerald-200/90 dark:border-emerald-700/40 bg-emerald-50/60 dark:bg-emerald-950/30 p-3.5 sm:p-5 flex items-start sm:items-center gap-3">
+                <CheckCircle2 className="h-4.5 w-4.5 sm:h-5 sm:w-5 shrink-0 text-emerald-600 dark:text-emerald-400 mt-0.5 sm:mt-0" />
+                <p className="font-inter text-[11.5px] sm:text-[12.5px] leading-relaxed text-slate-700 dark:text-slate-300">
+                  <span className="font-bold text-ink dark:text-white">
                     {tx({ EN: "Universal Plan Guarantee: ", JP: "全プラン共通の安心保証: " })}
                   </span>
                   {tx({

@@ -200,7 +200,7 @@ export default function ContactPage() {
           Left (5 cols): Resident Leadership + Headquarters + SLA
           Right (7 cols): Luxury Inquiry Console + Quick Topic Chips
          ─────────────────────────────────────────────────────────── */}
-      <section className="section-pad relative overflow-hidden bg-ivory">
+      <section className="section-pad relative overflow-hidden bg-ivory dark:bg-[#080d17]">
         {/* Subtle decorative background gradient */}
         <div className="pointer-events-none absolute -top-40 right-1/4 h-96 w-96 rounded-full bg-saffron/5 blur-3xl" />
         <div className="pointer-events-none absolute bottom-0 left-10 h-80 w-80 rounded-full bg-crimson/5 blur-3xl" />
@@ -211,7 +211,7 @@ export default function ContactPage() {
             <div className="mx-auto mb-8 sm:mb-12 max-w-3xl text-center">
               <Eyebrow>{tx({ EN: "Direct Bilateral Channels", JP: "公式窓口・現地デスク" })}</Eyebrow>
               <h2
-                className="mt-3 font-serif-jp font-bold text-ink leading-tight"
+                className="mt-3 font-serif-jp font-bold text-ink dark:text-white leading-tight"
                 style={{ fontSize: "clamp(1.65rem, 3.2vw, 2.5rem)" }}
               >
                 {tx({
@@ -219,7 +219,7 @@ export default function ContactPage() {
                   JP: "常駐日本人スタッフへの直接相談窓口",
                 })}
               </h2>
-              <p className="mt-2.5 font-inter text-[13px] sm:text-[14.5px] leading-relaxed text-slate max-w-2xl mx-auto">
+              <p className="mt-2.5 font-inter text-[13px] sm:text-[14.5px] leading-relaxed text-slate dark:text-slate-300 max-w-2xl mx-auto">
                 {tx({
                   EN: "Connect directly with our resident directors in Hyderabad. Whether you require private office space, entity setup, or a confidential feasibility consultation, we support you in Japanese and English.",
                   JP: "ハイデラバード現地常駐スタッフに直接ご相談いただけます。オフィス見学、法人設立、IT人材採用など、すべて日本語で丁寧に対応いたします。",
@@ -238,19 +238,19 @@ export default function ContactPage() {
               
               {/* Card 1: Official Corporate Email & Quick Copy */}
               <Reveal variant="left">
-                <div className="luxury-light-card card-sheen gold-hairline relative overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-4.5 sm:p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
+                <div className="luxury-light-card card-sheen gold-hairline relative overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4.5 sm:p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
-                      <div className="icon-pod h-11 w-11 shrink-0 !bg-crimson/10 !border-crimson/30 !text-crimson">
+                      <div className="icon-pod h-11 w-11 shrink-0 !bg-crimson/10 dark:!bg-rose-950/50 !border-crimson/30 dark:!border-rose-400/30 !text-crimson dark:!text-rose-400">
                         <Mail className="h-5 w-5" strokeWidth={1.8} />
                       </div>
                       <div>
-                        <span className="font-inter text-[10.5px] font-bold uppercase tracking-wider text-crimson">
+                        <span className="font-inter text-[10.5px] font-bold uppercase tracking-wider text-crimson dark:text-rose-400">
                           {tx({ EN: "Official Bilateral Inbox", JP: "公式メール窓口" })}
                         </span>
                         <a
                           href="mailto:contact@indobox.co.jp"
-                          className="block font-serif-jp text-[15px] sm:text-[16.5px] font-bold text-ink hover:text-crimson transition-colors"
+                          className="block font-serif-jp text-[15px] sm:text-[16.5px] font-bold text-ink dark:text-white hover:text-crimson dark:hover:text-rose-400 transition-colors"
                         >
                           contact@indobox.co.jp
                         </a>
@@ -266,19 +266,19 @@ export default function ContactPage() {
                         "flex h-9 w-9 items-center justify-center rounded-xl border transition-all duration-200 shrink-0",
                         copiedEmail
                           ? "border-success bg-success/15 text-success scale-105"
-                          : "border-slate-200 bg-slate-50 text-slate-500 hover:border-crimson/40 hover:text-crimson hover:bg-white"
+                          : "border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 text-slate-500 dark:text-slate-400 hover:border-crimson/40 hover:text-crimson hover:bg-white dark:hover:bg-white/10"
                       )}
                     >
                       {copiedEmail ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
                     </button>
                   </div>
 
-                  <div className="mt-3.5 flex items-center justify-between rounded-xl bg-crimson/[0.04] border border-crimson/15 px-3 py-2 text-[11.5px] font-inter text-slate-700">
+                  <div className="mt-3.5 flex items-center justify-between rounded-xl bg-crimson/[0.04] dark:bg-rose-950/30 border border-crimson/15 dark:border-rose-400/20 px-3 py-2 text-[11.5px] font-inter text-slate-700 dark:text-slate-300">
                     <span className="flex items-center gap-1.5">
-                      <Clock className="h-3.5 w-3.5 text-crimson shrink-0" />
+                      <Clock className="h-3.5 w-3.5 text-crimson dark:text-rose-400 shrink-0" />
                       {tx({ EN: "Guaranteed 24-hour SLA response", JP: "24時間以内返信保証（平日）" })}
                     </span>
-                    <span className="font-bold text-crimson text-[10px] uppercase tracking-wider">
+                    <span className="font-bold text-crimson dark:text-rose-400 text-[10px] uppercase tracking-wider">
                       {tx({ EN: "BILINGUAL", JP: "日本語対応" })}
                     </span>
                   </div>
@@ -287,22 +287,22 @@ export default function ContactPage() {
 
               {/* Card 2: Resident Leadership Direct Lines with 1-Click WhatsApp & Phone */}
               <Reveal variant="left" delay={70}>
-                <div className="luxury-light-card card-sheen gold-hairline relative overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-4.5 sm:p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
-                  <div className="flex items-center justify-between border-b border-slate-100 pb-3 sm:pb-3.5">
+                <div className="luxury-light-card card-sheen gold-hairline relative overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4.5 sm:p-6 shadow-xl hover:shadow-2xl transition-all duration-300">
+                  <div className="flex items-center justify-between border-b border-slate-100 dark:border-white/10 pb-3 sm:pb-3.5">
                     <div className="flex items-center gap-2.5">
-                      <div className="icon-pod h-9 w-9 shrink-0 !bg-saffron/15 !border-saffron/30 !text-saffron-dark">
+                      <div className="icon-pod h-9 w-9 shrink-0 !bg-saffron/15 dark:!bg-amber-950/50 !border-saffron/30 dark:!border-amber-700/40 !text-saffron-dark dark:!text-amber-300">
                         <Phone className="h-4.5 w-4.5" strokeWidth={1.8} />
                       </div>
                       <div>
-                        <span className="font-inter text-[10.5px] font-bold uppercase tracking-wider text-saffron-dark">
+                        <span className="font-inter text-[10.5px] font-bold uppercase tracking-wider text-saffron-dark dark:text-amber-300">
                           {tx({ EN: "Resident Executive Lines", JP: "常駐担当者 直通連絡先" })}
                         </span>
-                        <h4 className="font-serif-jp text-[14.5px] font-bold text-ink leading-tight">
+                        <h4 className="font-serif-jp text-[14.5px] font-bold text-ink dark:text-white leading-tight">
                           {tx({ EN: "Direct Phone & WhatsApp", JP: "お電話・WhatsApp直通" })}
                         </h4>
                       </div>
                     </div>
-                    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 border border-emerald-200 px-2 py-0.5 text-[10px] font-bold text-emerald-700 uppercase tracking-wider">
+                    <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-700/60 px-2 py-0.5 text-[10px] font-bold text-emerald-700 dark:text-emerald-300 uppercase tracking-wider">
                       <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
                       {tx({ EN: "Online", JP: "受付中" })}
                     </span>
@@ -310,18 +310,18 @@ export default function ContactPage() {
 
                   {/* Leader 1: Tanji (Resident Director) */}
                   <div className="mt-3.5 space-y-3">
-                    <div className="rounded-xl sm:rounded-2xl border border-slate-200/80 bg-slate-50/80 p-3 sm:p-3.5 transition-all hover:bg-slate-50 hover:border-saffron/40">
+                    <div className="rounded-xl sm:rounded-2xl border border-slate-200/80 dark:border-white/10 bg-slate-50/80 dark:bg-white/[0.03] p-3 sm:p-3.5 transition-all hover:bg-slate-50 dark:hover:bg-white/[0.06] hover:border-saffron/40">
                       <div className="flex items-center justify-between">
                         <div>
                           <div className="flex items-center gap-2">
-                            <span className="font-serif-jp text-[13.5px] sm:text-[14px] font-bold text-ink">
+                            <span className="font-serif-jp text-[13.5px] sm:text-[14px] font-bold text-ink dark:text-white">
                               {tx({ EN: "Daisuke Tanji", JP: "丹治 大介（ディレクター）" })}
                             </span>
-                            <span className="rounded bg-saffron/20 px-1.5 py-0.5 text-[9.5px] font-bold text-saffron-dark uppercase">
+                            <span className="rounded bg-saffron/20 dark:bg-amber-950/50 px-1.5 py-0.5 text-[9.5px] font-bold text-saffron-dark dark:text-amber-300 uppercase">
                               {tx({ EN: "Director", JP: "常駐" })}
                             </span>
                           </div>
-                          <p className="mt-0.5 font-inter text-[11px] text-slate-500">
+                          <p className="mt-0.5 font-inter text-[11px] text-slate-500 dark:text-slate-400">
                             {tx({ EN: "India-Japan Corridor Director", JP: "日本語対応・現地代表" })}
                           </p>
                         </div>
@@ -331,36 +331,36 @@ export default function ContactPage() {
                       <div className="mt-2.5 grid grid-cols-2 gap-2">
                         <a
                           href="tel:+919910360648"
-                          className="flex items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-2 font-mono text-[11.5px] font-bold text-ink hover:text-crimson hover:border-crimson/40 transition-colors shadow-xs"
+                          className="flex items-center justify-center gap-1.5 rounded-lg border border-slate-200 dark:border-white/10 bg-white dark:bg-[#142036] px-2.5 py-2 font-mono text-[11.5px] font-bold text-ink dark:text-white hover:text-crimson hover:border-crimson/40 transition-colors shadow-xs"
                         >
-                          <Phone className="h-3 w-3 text-crimson" />
+                          <Phone className="h-3 w-3 text-crimson dark:text-rose-400" />
                           +91-9910360648
                         </a>
                         <a
                           href="https://wa.me/919910360648?text=Hello%20Tanji-san%2C%20I%20would%20like%20to%20inquire%20about%20J-Gate."
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center justify-center gap-1.5 rounded-lg border border-emerald-300/80 bg-emerald-500/10 px-2.5 py-2 font-inter text-[11.5px] font-bold text-emerald-800 hover:bg-emerald-500/20 transition-colors shadow-xs"
+                          className="flex items-center justify-center gap-1.5 rounded-lg border border-emerald-300/80 dark:border-emerald-600/40 bg-emerald-500/10 dark:bg-emerald-950/40 px-2.5 py-2 font-inter text-[11.5px] font-bold text-emerald-800 dark:text-emerald-300 hover:bg-emerald-500/20 transition-colors shadow-xs"
                         >
-                          <MessageCircle className="h-3 w-3 text-emerald-600" />
+                          <MessageCircle className="h-3 w-3 text-emerald-600 dark:text-emerald-400" />
                           {tx({ EN: "WhatsApp Chat", JP: "WhatsAppで相談" })}
                         </a>
                       </div>
                     </div>
 
                     {/* Leader 2: Dheeraj (Community Manager) */}
-                    <div className="rounded-xl sm:rounded-2xl border border-slate-200/80 bg-slate-50/80 p-3 sm:p-3.5 transition-all hover:bg-slate-50 hover:border-crimson/30">
+                    <div className="rounded-xl sm:rounded-2xl border border-slate-200/80 dark:border-white/10 bg-slate-50/80 dark:bg-white/[0.03] p-3 sm:p-3.5 transition-all hover:bg-slate-50 dark:hover:bg-white/[0.06] hover:border-crimson/30">
                       <div className="flex items-center justify-between">
                         <div>
                           <div className="flex items-center gap-2">
-                            <span className="font-serif-jp text-[13.5px] sm:text-[14px] font-bold text-ink">
+                            <span className="font-serif-jp text-[13.5px] sm:text-[14px] font-bold text-ink dark:text-white">
                               {tx({ EN: "Dheeraj Yanneti", JP: "ディラジ・ヤネティ" })}
                             </span>
-                            <span className="rounded bg-slate-200/80 px-1.5 py-0.5 text-[9.5px] font-bold text-slate-700 uppercase">
+                            <span className="rounded bg-slate-200/80 dark:bg-white/10 px-1.5 py-0.5 text-[9.5px] font-bold text-slate-700 dark:text-slate-300 uppercase">
                               {tx({ EN: "Community", JP: "運営" })}
                             </span>
                           </div>
-                          <p className="mt-0.5 font-inter text-[11px] text-slate-500">
+                          <p className="mt-0.5 font-inter text-[11px] text-slate-500 dark:text-slate-400">
                             {tx({ EN: "Community & Facility Manager", JP: "施設運営・コミュニティ担当" })}
                           </p>
                         </div>
@@ -370,18 +370,18 @@ export default function ContactPage() {
                       <div className="mt-2.5 grid grid-cols-2 gap-2">
                         <a
                           href="tel:+919849811543"
-                          className="flex items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-white px-2.5 py-2 font-mono text-[11.5px] font-bold text-ink hover:text-crimson hover:border-crimson/40 transition-colors shadow-xs"
+                          className="flex items-center justify-center gap-1.5 rounded-lg border border-slate-200 dark:border-white/10 bg-white dark:bg-[#142036] px-2.5 py-2 font-mono text-[11.5px] font-bold text-ink dark:text-white hover:text-crimson hover:border-crimson/40 transition-colors shadow-xs"
                         >
-                          <Phone className="h-3 w-3 text-crimson" />
+                          <Phone className="h-3 w-3 text-crimson dark:text-rose-400" />
                           +91-98498 11543
                         </a>
                         <a
                           href="https://wa.me/919849811543?text=Hello%20Dheeraj%2C%20I%20would%20like%20to%20inquire%20about%20J-Gate."
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center justify-center gap-1.5 rounded-lg border border-emerald-300/80 bg-emerald-500/10 px-2.5 py-2 font-inter text-[11.5px] font-bold text-emerald-800 hover:bg-emerald-500/20 transition-colors shadow-xs"
+                          className="flex items-center justify-center gap-1.5 rounded-lg border border-emerald-300/80 dark:border-emerald-600/40 bg-emerald-500/10 dark:bg-emerald-950/40 px-2.5 py-2 font-inter text-[11.5px] font-bold text-emerald-800 dark:text-emerald-300 hover:bg-emerald-500/20 transition-colors shadow-xs"
                         >
-                          <MessageCircle className="h-3 w-3 text-emerald-600" />
+                          <MessageCircle className="h-3 w-3 text-emerald-600 dark:text-emerald-400" />
                           {tx({ EN: "WhatsApp Chat", JP: "WhatsAppで相談" })}
                         </a>
                       </div>
@@ -392,19 +392,19 @@ export default function ContactPage() {
 
               {/* Card 3: Flagship Headquarters Location & Google Maps */}
               <Reveal variant="left" delay={130}>
-                <div className="luxury-light-card card-sheen relative overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-4.5 sm:p-6 shadow-xl">
+                <div className="luxury-light-card card-sheen relative overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4.5 sm:p-6 shadow-xl">
                   <div className="flex items-start gap-3">
-                    <div className="icon-pod h-10 w-10 shrink-0 !bg-slate-100 !border-slate-200 !text-slate-700">
-                      <MapPin className="h-5 w-5 text-crimson" strokeWidth={1.8} />
+                    <div className="icon-pod h-10 w-10 shrink-0 !bg-slate-100 dark:!bg-white/5 !border-slate-200 dark:!border-white/10 !text-slate-700 dark:!text-slate-300">
+                      <MapPin className="h-5 w-5 text-crimson dark:text-rose-400" strokeWidth={1.8} />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <span className="font-inter text-[10px] font-bold uppercase tracking-wider text-crimson">
+                      <span className="font-inter text-[10px] font-bold uppercase tracking-wider text-crimson dark:text-rose-400">
                         {tx({ EN: "Hyderabad Flagship Facility", JP: "インド・旗艦拠点" })}
                       </span>
-                      <h4 className="font-serif-jp text-[14px] sm:text-[15px] font-bold text-ink leading-snug mt-0.5">
+                      <h4 className="font-serif-jp text-[14px] sm:text-[15px] font-bold text-ink dark:text-white leading-snug mt-0.5">
                         Cyber Gateway, Block D, Phase 2
                       </h4>
-                      <p className="mt-1 font-inter text-[11.5px] text-slate-600 leading-relaxed">
+                      <p className="mt-1 font-inter text-[11.5px] text-slate-600 dark:text-slate-300 leading-relaxed">
                         HITEC City, Madhapur, Hyderabad, Telangana 500081, India
                       </p>
 
@@ -413,12 +413,12 @@ export default function ContactPage() {
                           href="https://maps.google.com/?q=Cyber+Gateway+Hitec+City+Hyderabad"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 rounded-lg bg-slate-100 hover:bg-slate-200/80 px-2.5 py-1.5 font-inter text-[11px] font-semibold text-slate-700 transition-colors"
+                          className="inline-flex items-center gap-1.5 rounded-lg bg-slate-100 dark:bg-white/5 hover:bg-slate-200/80 dark:hover:bg-white/10 px-2.5 py-1.5 font-inter text-[11px] font-semibold text-slate-700 dark:text-slate-300 transition-colors"
                         >
                           <ExternalLink className="h-3 w-3" />
                           {tx({ EN: "Open in Google Maps", JP: "Googleマップで確認" })}
                         </a>
-                        <span className="rounded-lg bg-slate-50 border border-slate-200/70 px-2 py-1 font-inter text-[10.5px] text-slate-500">
+                        <span className="rounded-lg bg-slate-50 dark:bg-white/5 border border-slate-200/70 dark:border-white/10 px-2 py-1 font-inter text-[10.5px] text-slate-500 dark:text-slate-400">
                           {tx({ EN: "2 Min Walk from Metro", JP: "最寄りメトロ駅 徒歩2分" })}
                         </span>
                       </div>
@@ -426,8 +426,8 @@ export default function ContactPage() {
                   </div>
 
                   {/* Trust & Security Reassurance Note */}
-                  <div className="mt-4 pt-3.5 border-t border-slate-100 flex items-center gap-2 text-[11px] font-inter text-slate-500">
-                    <ShieldCheck className="h-4 w-4 text-emerald-600 shrink-0" />
+                  <div className="mt-4 pt-3.5 border-t border-slate-100 dark:border-white/10 flex items-center gap-2 text-[11px] font-inter text-slate-500 dark:text-slate-400">
+                    <ShieldCheck className="h-4 w-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
                     <span>
                       {tx({
                         EN: "NDA & Enterprise confidentiality strictly guaranteed.",

@@ -270,10 +270,7 @@ const FAQ_LIST: FAQItem[] = [
 export default function FAQPage() {
   const { tx } = useI18n();
   const [selectedCategory, setSelectedCategory] = useState<CategoryKey>("all");
-  const [openIds, setOpenIds] = useState<Record<string, boolean>>({
-    "ws-movein": true,
-    "jd-support": true,
-  });
+  const [openIds, setOpenIds] = useState<Record<string, boolean>>({});
 
   // Toggle single accordion
   const toggleItem = (id: string) => {
@@ -320,7 +317,7 @@ export default function FAQPage() {
       />
 
       {/* 2. REASSURANCE PODS (4 PILLARS) */}
-      <section className="border-b border-slate-200/80 bg-white py-8">
+      <section className="border-b border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#0f1728] py-8 transition-colors">
         <div className="container-jg">
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {[
@@ -346,13 +343,13 @@ export default function FAQPage() {
               },
             ].map((pod, idx) => (
               <Reveal key={idx} delay={idx * 60}>
-                <div className="flex items-start gap-3 rounded-xl border border-slate-100 bg-ivory/50 p-4 transition-all hover:border-crimson/30 hover:bg-ivory hover:shadow-sm">
+                <div className="flex items-start gap-3 rounded-xl border border-slate-100 dark:border-white/10 bg-ivory/50 dark:bg-white/[0.04] p-4 transition-all hover:border-crimson/30 dark:hover:border-rose-400/40 hover:bg-ivory dark:hover:bg-white/[0.08] hover:shadow-sm">
                   <div className="icon-pod h-9 w-9 shrink-0 mt-0.5">
                     <pod.icon className="h-4 w-4" />
                   </div>
                   <div>
-                    <h3 className="font-serif-jp text-[13.5px] font-bold text-ink">{pod.title}</h3>
-                    <p className="mt-0.5 font-inter text-[12px] text-slate-600 leading-snug">{pod.desc}</p>
+                    <h3 className="font-serif-jp text-[13.5px] font-bold text-ink dark:text-white">{pod.title}</h3>
+                    <p className="mt-0.5 font-inter text-[12px] text-slate-600 dark:text-slate-300 leading-snug">{pod.desc}</p>
                   </div>
                 </div>
               </Reveal>
@@ -362,7 +359,7 @@ export default function FAQPage() {
       </section>
 
       {/* 3. MAIN FAQ SEARCH & ACCORDION SYSTEM */}
-      <section className="py-8 sm:py-12 lg:py-16 bg-ivory">
+      <section className="py-8 sm:py-12 lg:py-16 bg-ivory dark:bg-[#0b111e] transition-colors">
         <div className="container-jg max-w-5xl">
           {/* Category Filter Pills */}
           <Reveal>
@@ -380,18 +377,18 @@ export default function FAQPage() {
                     key={cat.id}
                     onClick={() => setSelectedCategory(cat.id)}
                     className={cn(
-                      "group inline-flex items-center gap-1.5 sm:gap-2 rounded-full px-3 py-1.5 sm:px-3.5 sm:py-2 font-inter text-[11px] sm:text-[12px] font-semibold transition-all duration-200",
+                      "group inline-flex items-center gap-1.5 sm:gap-2 rounded-full px-3 py-1.5 sm:px-3.5 sm:py-2 font-inter text-[11px] sm:text-[12px] font-semibold transition-all duration-200 cursor-pointer",
                       isSelected
                         ? "bg-crimson text-white shadow-md shadow-crimson/25 ring-2 ring-crimson/20"
-                        : "border border-slate-200 bg-white text-slate-700 hover:border-crimson/40 hover:bg-slate-50"
+                        : "border border-slate-200 dark:border-white/12 bg-white dark:bg-[#132038] text-slate-700 dark:text-slate-200 hover:border-crimson/40 dark:hover:border-white/25 hover:bg-slate-50 dark:hover:bg-[#182846]"
                     )}
                   >
-                    <Icon className={cn("h-3 w-3 sm:h-3.5 sm:w-3.5", isSelected ? "text-white" : "text-slate-500 group-hover:text-crimson")} />
+                    <Icon className={cn("h-3 w-3 sm:h-3.5 sm:w-3.5", isSelected ? "text-white" : "text-slate-500 dark:text-slate-400 group-hover:text-crimson dark:group-hover:text-rose-400")} />
                     <span>{tx(cat.label)}</span>
                     <span
                       className={cn(
                         "rounded-full px-1.5 py-0.2 text-[10px] sm:text-[10.5px] font-bold",
-                        isSelected ? "bg-white/20 text-white" : "bg-slate-100 text-slate-600"
+                        isSelected ? "bg-white/20 text-white" : "bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300"
                       )}
                     >
                       {count}
@@ -403,7 +400,7 @@ export default function FAQPage() {
           </Reveal>
 
           {/* Results Summary Bar + Expand/Collapse Buttons */}
-          <div className="mt-4 sm:mt-6 flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 border-b border-slate-200 pb-2 sm:pb-2.5 font-inter text-[11px] sm:text-[12px] text-slate-600">
+          <div className="mt-4 sm:mt-6 flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 border-b border-slate-200 dark:border-white/10 pb-2 sm:pb-2.5 font-inter text-[11px] sm:text-[12px] text-slate-600 dark:text-slate-400">
             <div>
               {tx({
                 EN: `Showing ${filteredList.length} of ${FAQ_LIST.length} questions`,
@@ -413,14 +410,14 @@ export default function FAQPage() {
             <div className="flex items-center gap-3 font-medium">
               <button
                 onClick={expandAll}
-                className="text-slate-600 hover:text-crimson transition-colors"
+                className="text-slate-600 dark:text-slate-300 hover:text-crimson dark:hover:text-rose-400 transition-colors cursor-pointer"
               >
                 {tx({ EN: "Expand All", JP: "すべて開く" })}
               </button>
-              <span className="text-slate-300">|</span>
+              <span className="text-slate-300 dark:text-white/20">|</span>
               <button
                 onClick={collapseAll}
-                className="text-slate-600 hover:text-crimson transition-colors"
+                className="text-slate-600 dark:text-slate-300 hover:text-crimson dark:hover:text-rose-400 transition-colors cursor-pointer"
               >
                 {tx({ EN: "Collapse All", JP: "すべて閉じる" })}
               </button>
@@ -430,12 +427,12 @@ export default function FAQPage() {
           {/* FAQ Accordion List */}
           <div className="mt-3.5 sm:mt-5 space-y-2 sm:space-y-3">
             {filteredList.length === 0 ? (
-              <div className="rounded-2xl sm:rounded-3xl border border-dashed border-slate-300 bg-white py-10 sm:py-14 text-center">
-                <HelpCircle className="mx-auto h-9 w-9 sm:h-11 sm:w-11 text-slate-300" />
-                <h3 className="mt-3 font-serif-jp text-base sm:text-lg font-bold text-ink">
+              <div className="rounded-2xl sm:rounded-3xl border border-dashed border-slate-300 dark:border-white/20 bg-white dark:bg-[#101a2c] py-10 sm:py-14 text-center">
+                <HelpCircle className="mx-auto h-9 w-9 sm:h-11 sm:w-11 text-slate-300 dark:text-slate-600" />
+                <h3 className="mt-3 font-serif-jp text-base sm:text-lg font-bold text-ink dark:text-white">
                   {tx({ EN: "No matching questions found", JP: "該当する質問が見つかりませんでした" })}
                 </h3>
-                <p className="mx-auto mt-2 max-w-md font-inter text-[12px] sm:text-[13px] text-slate-600 px-4">
+                <p className="mx-auto mt-2 max-w-md font-inter text-[12px] sm:text-[13px] text-slate-600 dark:text-slate-300 px-4">
                   {tx({
                     EN: "Try using different keywords, or reach out to our resident Japan Desk for immediate personal consultation.",
                     JP: "キーワードを変更して再検索いただくか、常駐ジャパンデスクまで直接お問い合わせください。",
@@ -445,7 +442,7 @@ export default function FAQPage() {
                   onClick={() => {
                     setSelectedCategory("all");
                   }}
-                  className="mt-4 inline-flex items-center gap-2 rounded-xl bg-slate-100 px-4 py-2 font-inter text-[12px] font-semibold text-slate-800 hover:bg-slate-200 transition-colors"
+                  className="mt-4 inline-flex items-center gap-2 rounded-xl bg-slate-100 dark:bg-white/10 px-4 py-2 font-inter text-[12px] font-semibold text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-white/20 transition-colors cursor-pointer"
                 >
                   {tx({ EN: "View All Questions", JP: "すべての質問を表示" })}
                 </button>
@@ -457,25 +454,25 @@ export default function FAQPage() {
                   <Reveal key={item.id} delay={idx * 30}>
                     <div
                       className={cn(
-                        "group overflow-hidden rounded-xl sm:rounded-2xl border bg-white transition-all duration-300 shadow-xs",
+                        "group overflow-hidden rounded-xl sm:rounded-2xl border bg-white dark:bg-[#101a2c] transition-all duration-300 shadow-xs",
                         isOpen
-                          ? "border-crimson/50 shadow-md ring-1 ring-crimson/15"
-                          : "border-slate-200/90 hover:border-slate-300 hover:shadow-xs"
+                          ? "border-crimson/50 dark:border-rose-500/50 shadow-md ring-1 ring-crimson/15 dark:ring-rose-500/20"
+                          : "border-slate-200/90 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20 hover:shadow-xs"
                       )}
                     >
                       <button
                         onClick={() => toggleItem(item.id)}
-                        className="flex w-full items-start justify-between gap-3 sm:gap-4 p-3.5 sm:p-4.5 text-left transition-colors"
+                        className="flex w-full items-start justify-between gap-3 sm:gap-4 p-3.5 sm:p-4.5 text-left transition-colors cursor-pointer"
                         aria-expanded={isOpen}
                       >
                         <div className="flex-1 space-y-1">
-                          <span className="inline-flex items-center gap-1 rounded-md bg-slate-100 px-2 py-0.5 font-inter text-[10px] sm:text-[10.5px] font-bold text-slate-600 uppercase tracking-wide">
+                          <span className="inline-flex items-center gap-1 rounded-md bg-slate-100 dark:bg-white/10 px-2 py-0.5 font-inter text-[10px] sm:text-[10.5px] font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wide">
                             {tx(item.categoryLabel)}
                           </span>
                           <h3
                             className={cn(
                               "font-serif-jp font-bold leading-snug transition-colors",
-                              isOpen ? "text-crimson" : "text-ink group-hover:text-crimson"
+                              isOpen ? "text-crimson dark:text-rose-400" : "text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400"
                             )}
                             style={{ fontSize: "clamp(0.92rem, 1.25vw, 1.1rem)" }}
                           >
@@ -488,7 +485,7 @@ export default function FAQPage() {
                             "flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full transition-transform duration-300",
                             isOpen
                               ? "bg-crimson text-white rotate-180 shadow-xs shadow-crimson/30"
-                              : "bg-slate-100 text-slate-600 group-hover:bg-slate-200"
+                              : "bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300 group-hover:bg-slate-200 dark:group-hover:bg-white/20"
                           )}
                         >
                           <ChevronDown className="h-3.5 w-3.5" />
@@ -496,21 +493,21 @@ export default function FAQPage() {
                       </button>
 
                       {isOpen && (
-                        <div className="border-t border-slate-100 bg-gradient-to-b from-slate-50/40 to-white px-3.5 pb-3.5 pt-2.5 sm:px-5 sm:pb-5 sm:pt-3 animate-in fade-in-50 duration-200">
-                          <p className="font-inter text-[12px] sm:text-[13.5px] leading-relaxed text-slate-700">
+                        <div className="border-t border-slate-100 dark:border-white/10 bg-gradient-to-b from-slate-50/40 to-white dark:from-white/[0.02] dark:to-transparent px-3.5 pb-3.5 pt-2.5 sm:px-5 sm:pb-5 sm:pt-3 animate-in fade-in-50 duration-200">
+                          <p className="font-inter text-[12px] sm:text-[13.5px] leading-relaxed text-slate-700 dark:text-slate-300">
                             {tx(item.a)}
                           </p>
 
                           {/* Optional highlight checkpoints */}
                           {item.highlights && item.highlights.length > 0 && (
-                            <div className="mt-3 sm:mt-4 grid gap-1.5 sm:gap-2 sm:grid-cols-3 pt-2.5 sm:pt-3 border-t border-slate-100">
+                            <div className="mt-3 sm:mt-4 grid gap-1.5 sm:gap-2 sm:grid-cols-3 pt-2.5 sm:pt-3 border-t border-slate-100 dark:border-white/10">
                               {item.highlights.map((h, hIdx) => (
                                 <div
                                   key={hIdx}
-                                  className="flex items-center gap-2 rounded-lg bg-ivory/80 px-2.5 py-1.5 sm:px-3 sm:py-2 border border-slate-200/60"
+                                  className="flex items-center gap-2 rounded-lg bg-ivory/80 dark:bg-white/[0.05] px-2.5 py-1.5 sm:px-3 sm:py-2 border border-slate-200/60 dark:border-white/10"
                                 >
-                                  <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-crimson" />
-                                  <span className="font-inter text-[11px] sm:text-[11.5px] font-medium text-slate-700 leading-tight">
+                                  <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-crimson dark:text-rose-400" />
+                                  <span className="font-inter text-[11px] sm:text-[11.5px] font-medium text-slate-700 dark:text-slate-300 leading-tight">
                                     {tx(h)}
                                   </span>
                                 </div>

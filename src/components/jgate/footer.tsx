@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { MapPin, Mail, Navigation } from "lucide-react";
+import { MapPin, Mail } from "lucide-react";
 import { JGateLogo, LinkedInIcon, InstagramIcon } from "./icons";
 import { useI18n } from "@/lib/i18n";
 
@@ -98,35 +98,28 @@ export function Footer() {
             </div>
 
             <div className="pt-1">
-              <span className="font-inter text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
+              <span className="font-inter text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-2.5">
                 {tx({ EN: "AN INITIATIVE OF", JP: "共同事業・提携母体" })}
               </span>
-              <div className="mt-2.5 flex flex-wrap items-center gap-3.5">
-                <div className="flex items-center gap-2">
-                  <img
-                    src="/logos/indobox-icon.png"
-                    alt="Indobox"
-                    className="h-5 w-5 object-contain"
-                  />
-                  <span className="font-inter text-[13px] font-bold text-ink">
-                    Indobox India
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <img
-                    src="/logos/genesys-info-x.png"
-                    alt="Genesys Info X"
-                    className="h-5 w-auto object-contain max-w-[90px]"
-                  />
-                </div>
+              <div className="flex flex-wrap items-center gap-4 sm:gap-5">
+                <img
+                  src="/logos/indobox.png"
+                  alt="Indobox India"
+                  className="h-7 sm:h-8 w-auto object-contain"
+                />
+                <img
+                  src="/logos/genesys-info-x.png"
+                  alt="Genesys Info X"
+                  className="h-7 sm:h-8 w-auto object-contain"
+                />
               </div>
             </div>
           </div>
 
-          {/* Col 4 (3 cols) — Main Facility Location & Hub (Properly sized & titled) */}
+          {/* Col 4 (3 cols) — Main Facility Location */}
           <div className="lg:col-span-3">
             <h3 className="font-inter text-[11px] sm:text-[11.5px] font-bold uppercase tracking-wider text-ink">
-              {tx({ EN: "CYBER GATEWAY FACILITY", JP: "拠点所在地・オフィス" })}
+              {tx({ EN: "LOCATION", JP: "所在地" })}
             </h3>
             <div className="mt-4 space-y-3">
               <div className="flex items-start gap-2.5">
@@ -147,11 +140,6 @@ export function Footer() {
                 >
                   contact@indobox.co.jp
                 </a>
-              </div>
-
-              <div className="flex items-center gap-2 text-[11.5px] font-inter text-slate-500 pt-0.5">
-                <Navigation className="h-3 w-3 text-crimson shrink-0" />
-                <span>{tx({ EN: "2 Min Walk from Hitec City Metro", JP: "Hitec City メトロ駅 徒歩2分" })}</span>
               </div>
             </div>
           </div>

@@ -330,8 +330,7 @@ export default function HomePage() {
           </svg>
         </div>
         <div
-          className="pointer-events-none absolute bottom-0 left-0 h-[32%] w-full"
-          style={{ background: "linear-gradient(180deg, transparent, #f5f0e8 90%)" }}
+          className="pointer-events-none absolute bottom-0 left-0 h-[32%] w-full bg-gradient-to-b from-transparent via-ivory/60 to-ivory dark:via-midnight/60 dark:to-midnight"
         />
 
         <div className="container-jg relative z-10 pt-10 pb-20 sm:pt-16 sm:pb-16 text-center">

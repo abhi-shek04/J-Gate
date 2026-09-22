@@ -708,21 +708,39 @@ section[id] { scroll-margin-top: 80px; }
 }
 
 .dark body {
-  background-color: #080f1a;
-  color: #f5f0e8;
+  background-color: #080f1a !important;
+  color: #f5f0e8 !important;
 }
 
 /* Base surface overrides in dark mode */
-.dark .bg-ivory {
+.dark .bg-ivory,
+.dark .bg-ivory-warm,
+.dark .bg-pearl,
+.dark [class*="bg-ivory"] {
   background-color: #080f1a !important;
 }
 
-.dark .bg-ivory-warm {
+/* White cards and surfaces become deep navy / midnight in dark mode */
+.dark .bg-white,
+.dark .bg-white\/90,
+.dark .bg-white\/95,
+.dark .bg-white\/80,
+.dark .bg-white\/70,
+.dark .bg-white\/60,
+.dark .bg-white\/50 {
   background-color: #0d1b2a !important;
 }
 
-.dark .bg-pearl {
-  background-color: #0d1b2a !important;
+/* Subtle slate surfaces */
+.dark .bg-slate-50,
+.dark .bg-slate-50\/80,
+.dark .bg-slate-50\/90,
+.dark .bg-slate-100,
+.dark .bg-slate-100\/60,
+.dark .bg-slate-100\/70,
+.dark .bg-slate-100\/80,
+.dark .bg-slate-200 {
+  background-color: #132238 !important;
 }
 
 /* Light cards automatically switch to sleek midnight cards */
@@ -763,6 +781,8 @@ section[id] { scroll-margin-top: 80px; }
   color: #64748b !important;
 }
 
+.dark .text-slate,
+.dark .text-slate-900,
 .dark .text-slate-800,
 .dark .text-slate-700 {
   color: #cbd5e1 !important;
@@ -772,15 +792,38 @@ section[id] { scroll-margin-top: 80px; }
   color: #94a3b8 !important;
 }
 
-.dark .text-slate-500 {
-  color: #64748b !important;
+.dark .text-slate-500,
+.dark .text-slate-400 {
+  color: #8892a4 !important;
 }
 
 /* Border overrides */
+.dark .border-slate-50,
 .dark .border-slate-100,
 .dark .border-slate-200,
-.dark .border-slate-300 {
+.dark .border-slate-200\/60,
+.dark .border-slate-200\/70,
+.dark .border-slate-200\/80,
+.dark .border-slate-200\/90,
+.dark .border-slate-300,
+.dark .border-slate-300\/60,
+.dark .border-slate-300\/70,
+.dark .border-slate-300\/80,
+.dark .border-slate-400 {
   border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Form inputs & controls in dark mode */
+.dark input:not([type="checkbox"]):not([type="radio"]),
+.dark textarea,
+.dark select {
+  background-color: #0d1b2a !important;
+  color: #f5f0e8 !important;
+  border-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+.dark .shadow-card {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3) !important;
 }
 
 /* Pattern overrides */
@@ -793,7 +836,7 @@ section[id] { scroll-margin-top: 80px; }
 
 .dark .glass-light {
   background: rgba(13, 27, 42, 0.85) !important;
-  border-color: rgba(255, 255, 255, 0.1) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
 }
 
 .dark ::-webkit-scrollbar-track {
@@ -803,5 +846,6 @@ section[id] { scroll-margin-top: 80px; }
 .dark ::-webkit-scrollbar-thumb {
   border-color: #080f1a;
 }
+
 
 

@@ -101,16 +101,26 @@ export function Footer() {
               <span className="font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-3">
                 {tx({ EN: "AN INITIATIVE OF", JP: "共同事業・提携母体" })}
               </span>
-              <div className="flex flex-wrap items-center gap-5 sm:gap-6">
+              <div className="flex items-center gap-3 sm:gap-3.5">
                 <img
                   src="/logos/indobox.png"
-                  alt="Indobox India"
-                  className="h-9 sm:h-10 md:h-11 w-auto max-w-[140px] object-contain"
+                  alt="Indobox"
+                  className="h-8 sm:h-9 md:h-10 w-auto max-w-[125px] object-contain shrink-0"
                 />
+
+                {/* Detailed Bilateral Cross Medallion */}
+                <div className="relative flex items-center justify-center shrink-0" aria-hidden>
+                  <div className="h-6 w-6 sm:h-7 sm:w-7 rounded-full bg-gradient-to-br from-crimson/15 via-white to-saffron/20 border border-slate-300/80 shadow-xs flex items-center justify-center">
+                    <span className="font-serif-jp text-[12px] sm:text-[13px] font-black text-crimson leading-none select-none">
+                      ×
+                    </span>
+                  </div>
+                </div>
+
                 <img
                   src="/logos/genesys-info-x.png"
                   alt="Genesys Info X"
-                  className="h-9 sm:h-10 md:h-11 w-auto max-w-[140px] object-contain"
+                  className="h-8 sm:h-9 md:h-10 w-auto max-w-[125px] object-contain shrink-0"
                 />
               </div>
             </div>

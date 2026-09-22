@@ -98,30 +98,39 @@ export function Footer() {
             </div>
 
             <div className="pt-1">
-              <span className="font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-3">
+              <span className="font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-slate-400 block mb-2.5">
                 {tx({ EN: "AN INITIATIVE OF", JP: "共同事業・提携母体" })}
               </span>
-              <div className="flex items-center gap-3 sm:gap-3.5">
-                <img
-                  src="/logos/indobox.png"
-                  alt="Indobox"
-                  className="h-8 sm:h-9 md:h-10 w-auto max-w-[125px] object-contain shrink-0"
-                />
-
-                {/* Detailed Bilateral Cross Medallion */}
-                <div className="relative flex items-center justify-center shrink-0" aria-hidden>
-                  <div className="h-6 w-6 sm:h-7 sm:w-7 rounded-full bg-gradient-to-br from-crimson/15 via-white to-saffron/20 border border-slate-300/80 shadow-xs flex items-center justify-center">
-                    <span className="font-serif-jp text-[12px] sm:text-[13px] font-black text-crimson leading-none select-none">
-                      ×
-                    </span>
-                  </div>
+              <div className="inline-flex flex-wrap items-center gap-2.5 sm:gap-3 rounded-xl border border-slate-200/90 bg-slate-50/80 px-3.5 py-2.5 shadow-2xs">
+                {/* Indobox Inc. */}
+                <div className="flex items-center gap-2">
+                  <img
+                    src="/logos/indobox-icon.png"
+                    alt="Indobox Inc."
+                    className="h-5 w-5 sm:h-5.5 sm:w-5.5 object-contain shrink-0"
+                  />
+                  <span className="font-inter text-[13px] sm:text-[13.5px] font-bold text-ink whitespace-nowrap">
+                    Indobox Inc.
+                  </span>
                 </div>
 
-                <img
-                  src="/logos/genesys-info-x.png"
-                  alt="Genesys Info X"
-                  className="h-8 sm:h-9 md:h-10 w-auto max-w-[125px] object-contain shrink-0"
-                />
+                {/* Sleek Designer Bilateral Cross Connector */}
+                <div className="flex items-center gap-1 shrink-0" aria-hidden>
+                  <span className="h-3 w-px bg-slate-300" />
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-crimson/10 text-crimson font-mono font-bold text-[11px] ring-1 ring-crimson/25 shadow-2xs">
+                    ×
+                  </span>
+                  <span className="h-3 w-px bg-slate-300" />
+                </div>
+
+                {/* Genesys Info X */}
+                <div className="flex items-center shrink-0">
+                  <img
+                    src="/logos/genesys-info-x.png"
+                    alt="Genesys Info X"
+                    className="h-6 sm:h-7 w-auto object-contain max-w-[95px]"
+                  />
+                </div>
               </div>
             </div>
           </div>

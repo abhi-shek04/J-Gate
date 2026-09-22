@@ -135,21 +135,21 @@ export function WorkspaceExplorer() {
   const activeSpace = SPACES.find((s) => s.id === activeTab) || SPACES[0];
 
   return (
-    <section className="section-pad relative overflow-hidden bg-ivory-warm border-t border-slate-200/60">
+    <section className="section-pad relative overflow-hidden bg-ivory-warm dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10 transition-colors duration-300">
       <div className="container-jg">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-crimson/30 bg-crimson/10 px-4 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-crimson">
+            <span className="inline-flex items-center gap-2 rounded-full border border-crimson/30 dark:border-rose-400/30 bg-crimson/10 dark:bg-rose-950/50 px-4 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-crimson dark:text-rose-400 shadow-sm">
               <Zap className="h-3.5 w-3.5" />
               {tx({ EN: "Interactive Space Tour", JP: "インタラクティブ施設ツアー" })}
             </span>
             <h2
-              className="mt-3 font-serif-jp font-bold text-ink"
+              className="mt-3 font-serif-jp font-bold text-ink dark:text-white"
               style={{ fontSize: "clamp(1.875rem, 3.8vw, 2.75rem)" }}
             >
               {tx({ EN: "Explore J-Gate Facilities", JP: "J-Gateの施設と空間を体験する" })}
             </h2>
-            <p className="mt-2 font-inter text-[13.5px] text-slate">
+            <p className="mt-2 font-inter text-[13.5px] text-slate dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
               {tx({
                 EN: "Select a zone to explore the executive facilities, connectivity, and amenities designed for Japanese enterprises.",
                 JP: "タブを選択して、日本企業向けに設計されたプレミアムなワークスペース環境をご確認ください。",
@@ -183,7 +183,7 @@ export function WorkspaceExplorer() {
         {/* Active Space Bento Preview Card */}
         <div className="mt-6 sm:mt-8 max-w-5xl mx-auto">
           <Reveal key={activeSpace.id} variant="scale">
-            <div className="luxury-light-card card-sheen gold-hairline overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white p-4 sm:p-6 lg:p-8 hover:shadow-2xl transition-all duration-300">
+            <div className="luxury-light-card card-sheen gold-hairline overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-6 lg:p-8 hover:shadow-2xl transition-all duration-300">
               <div className="grid lg:grid-cols-12 gap-5 sm:gap-8 items-center">
                 {/* Left: Photo with floating overlay badge */}
                 <div className="lg:col-span-6 relative">
@@ -211,7 +211,7 @@ export function WorkspaceExplorer() {
                     <h3 className="font-serif-jp text-xl sm:text-2xl lg:text-3xl font-bold text-ink dark:text-white leading-tight">
                       {tx(activeSpace.headline)}
                     </h3>
-                    <p className="mt-2 sm:mt-3 font-inter text-[12.5px] sm:text-[13.5px] leading-relaxed text-slate dark:text-slate-300">
+                    <p className="mt-2 sm:mt-3 font-inter text-[12.5px] sm:text-[13.5px] leading-relaxed text-slate-600 dark:text-slate-300">
                       {tx(activeSpace.desc)}
                     </p>
 
@@ -220,7 +220,7 @@ export function WorkspaceExplorer() {
                       {activeSpace.specs.map((spec, i) => (
                         <div
                           key={i}
-                          className="rounded-lg sm:rounded-xl bg-slate-50 dark:bg-white/5 p-2 sm:p-3 border border-slate-200/60 dark:border-white/10 transition-all duration-200 hover:border-crimson/30 dark:hover:border-rose-400/40 hover:bg-slate-50/80 dark:hover:bg-white/10 hover:shadow-xs group/spec"
+                          className="rounded-lg sm:rounded-xl bg-slate-50 dark:bg-white/5 p-2.5 sm:p-3 border border-slate-200/60 dark:border-white/10 transition-all duration-200 hover:border-crimson/30 dark:hover:border-rose-400/40 hover:bg-slate-50/80 dark:hover:bg-white/10 hover:shadow-xs group/spec"
                         >
                           <span className="block font-inter text-[9.5px] sm:text-[10.5px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 group-hover/spec:text-crimson dark:group-hover/spec:text-rose-400 transition-colors">
                             {tx(spec.label)}

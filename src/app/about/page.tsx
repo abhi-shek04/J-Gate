@@ -139,19 +139,19 @@ export default function AboutPage() {
       {/* ════════════════════════════════════════════════════════════
           Section 1 — 3 Pillars Detailed
          ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad bg-ivory">
+      <section className="section-pad bg-ivory dark:bg-[#0b111e] transition-colors duration-300">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
               <Eyebrow>{t("about.purpose.eyebrow")}</Eyebrow>
               <h2
-                className="mt-2 font-serif-jp font-bold leading-[1.2] text-ink"
+                className="mt-2 font-serif-jp font-bold leading-[1.2] text-ink dark:text-white"
                 style={{ fontSize: "clamp(1.625rem,3vw,2.25rem)" }}
               >
                 {t("about.purpose.title")}
               </h2>
               <p
-                className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate"
+                className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300"
                 style={{ fontSize: "clamp(0.9rem,1.3vw,1.05rem)" }}
               >
                 {t("about.purpose.subtitle")}
@@ -162,10 +162,10 @@ export default function AboutPage() {
           <div className="mt-7 sm:mt-10 lg:mt-12 grid gap-4 sm:gap-6 md:grid-cols-3">
             {PILLARS.map((p, i) => (
               <Reveal key={p.num} delay={i * 100}>
-                <article className="luxury-light-card card-sheen gold-hairline group relative h-full overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-4 sm:p-6 lg:p-7.5 shadow-card hover:shadow-2xl hover:border-crimson/35 transition-all duration-300">
+                <article className="luxury-light-card card-sheen gold-hairline group relative h-full flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-6 lg:p-7.5 shadow-card dark:shadow-2xl hover:shadow-2xl hover:border-crimson/35 dark:hover:border-rose-400/40 transition-all duration-300">
                   {/* Faded large numeral */}
                   <span
-                    className="pointer-events-none absolute -top-3 sm:-top-6 right-2 font-serif-jp font-black leading-none text-crimson/10 select-none transition-transform duration-500 group-hover:scale-110 text-[64px] sm:text-[96px] lg:text-[120px]"
+                    className="pointer-events-none absolute -top-3 sm:-top-6 right-2 font-serif-jp font-black leading-none text-slate-100/80 dark:text-white/[0.04] select-none transition-transform duration-500 group-hover:scale-110 group-hover:text-crimson/10 text-[64px] sm:text-[96px] lg:text-[120px]"
                     aria-hidden
                   >
                     {p.num}
@@ -178,24 +178,24 @@ export default function AboutPage() {
                     {/* Tag + JP accent label */}
                     <div className="mt-3.5 sm:mt-5 flex items-center gap-2">
                       <span
-                        className="font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-crimson"
+                        className="font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-crimson dark:text-rose-400"
                       >
                         {t(p.tagKey)}
                       </span>
-                      <span className="text-slate-300">·</span>
-                      <span className="font-serif-jp text-[12px] sm:text-[13px] font-bold text-saffron-deep">
+                      <span className="text-slate-300 dark:text-white/20">·</span>
+                      <span className="font-serif-jp text-[12px] sm:text-[13px] font-bold text-saffron-dark dark:text-saffron">
                         {t(p.jpKey)}
                       </span>
                     </div>
                     {/* Title */}
                     <h3
-                      className="mt-1.5 sm:mt-2 font-serif-jp font-bold leading-tight text-ink group-hover:text-crimson transition-colors"
+                      className="mt-1.5 sm:mt-2 font-serif-jp font-bold leading-tight text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400 transition-colors"
                       style={{ fontSize: "clamp(1.05rem,1.5vw,1.3rem)" }}
                     >
                       {t(p.titleKey)}
                     </h3>
                     {/* Full paragraph */}
-                    <p className="mt-2 sm:mt-3 font-inter text-[12.5px] sm:text-[13.5px] leading-relaxed text-slate-600">
+                    <p className="mt-2 sm:mt-3 font-inter text-[12.5px] sm:text-[13.5px] leading-relaxed text-slate-600 dark:text-slate-300">
                       {t(p.descKey)}
                     </p>
                   </div>
@@ -209,7 +209,7 @@ export default function AboutPage() {
       {/* ════════════════════════════════════════════════════════════
           Section 2 — Japan–India Bilateral Alliance & Executive Partnership
          ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad relative overflow-hidden bg-midnight text-white">
+      <section className="section-pad relative overflow-hidden bg-midnight text-white border-t border-white/10">
         <div className="pattern-asanoha-dark absolute inset-0 opacity-50 pointer-events-none" />
         <div
           className="absolute inset-0 pointer-events-none"
@@ -222,7 +222,7 @@ export default function AboutPage() {
         <div className="container-jg relative z-10">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
-              <span className="inline-flex items-center gap-2 rounded-full border border-saffron/30 bg-saffron/10 px-3.5 py-1 font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-saffron">
+              <span className="inline-flex items-center gap-2 rounded-full border border-saffron/30 bg-saffron/10 px-3.5 py-1 font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-saffron shadow-sm">
                 <Sparkles className="h-3.5 w-3.5" />
                 {tx({ EN: "Bilateral Alliance & Trust", JP: "日印の信頼と共創" })}
               </span>
@@ -362,19 +362,19 @@ export default function AboutPage() {
       {/* ════════════════════════════════════════════════════════════
           Section 3 — Mission & Vision — 2 side-by-side cards
          ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad relative overflow-hidden bg-ivory-warm border-t border-slate-200/70">
+      <section className="section-pad relative overflow-hidden bg-ivory-warm dark:bg-[#080d17] border-t border-slate-200/70 dark:border-white/10 transition-colors duration-300">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
               <Eyebrow>{tx({ EN: "Mission & Vision", JP: "ミッション＆ビジョン" })}</Eyebrow>
               <h2
-                className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink"
+                className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink dark:text-white"
                 style={{ fontSize: "clamp(1.625rem,3vw,2.25rem)" }}
               >
                 {tx({ EN: "What We Exist To Do", JP: "私たちの存在意義" })}
               </h2>
               <p
-                className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate"
+                className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300"
                 style={{ fontSize: "clamp(0.9rem,1.3vw,1.05rem)" }}
               >
                 {tx({
@@ -388,22 +388,24 @@ export default function AboutPage() {
           <div className="mt-6 sm:mt-10 grid gap-4 sm:gap-6 md:grid-cols-2">
             {/* Mission — crimson accent */}
             <Reveal delay={100}>
-              <article className="luxury-light-card card-sheen relative h-full overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-4 sm:p-7 lg:p-9 shadow-xl hover:shadow-2xl transition-all duration-300">
+              <article className="luxury-light-card card-sheen relative h-full flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-7 lg:p-9 shadow-xl hover:shadow-2xl transition-all duration-300">
                 <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-crimson to-crimson-deep" />
-                <div className="flex items-center gap-3 sm:gap-4">
-                  <div className="icon-pod h-10 w-10 sm:h-13 sm:w-13 shrink-0">
-                    <Target className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.75} />
+                <div>
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className="icon-pod h-10 w-10 sm:h-13 sm:w-13 shrink-0">
+                      <Target className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.75} />
+                    </div>
+                    <h3 className="font-serif-jp text-xl sm:text-2xl font-bold text-ink dark:text-white">
+                      {tx(MISSION.title)}
+                    </h3>
                   </div>
-                  <h3 className="font-serif-jp text-xl sm:text-2xl font-bold text-ink">
-                    {tx(MISSION.title)}
-                  </h3>
+                  <p className="mt-3 sm:mt-5 font-inter text-[13.5px] sm:text-[15px] leading-relaxed text-slate-600 dark:text-slate-300">
+                    {tx(MISSION.body)}
+                  </p>
                 </div>
-                <p className="mt-3 sm:mt-5 font-inter text-[13.5px] sm:text-[15px] leading-relaxed text-slate-600">
-                  {tx(MISSION.body)}
-                </p>
-                <div className="mt-4 sm:mt-6 flex items-center gap-2 border-t border-slate-100 pt-3.5 sm:pt-5">
+                <div className="mt-4 sm:mt-6 flex items-center gap-2 border-t border-slate-100 dark:border-white/10 pt-3.5 sm:pt-5">
                   <span
-                    className="inline-block rounded-full bg-crimson/10 border border-crimson/25 px-3 py-0.5 sm:px-3.5 sm:py-1 font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-crimson"
+                    className="inline-block rounded-full bg-crimson/10 dark:bg-rose-950/50 border border-crimson/25 dark:border-rose-400/30 px-3 py-0.5 sm:px-3.5 sm:py-1 font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-crimson dark:text-rose-400"
                   >
                     {tx(MISSION.tag)}
                   </span>
@@ -413,22 +415,24 @@ export default function AboutPage() {
 
             {/* Vision — saffron accent */}
             <Reveal delay={200}>
-              <article className="luxury-light-card card-sheen relative h-full overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white p-4 sm:p-7 lg:p-9 shadow-xl hover:shadow-2xl transition-all duration-300">
+              <article className="luxury-light-card card-sheen relative h-full flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-7 lg:p-9 shadow-xl hover:shadow-2xl transition-all duration-300">
                 <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-saffron to-[#c9881a]" />
-                <div className="flex items-center gap-3 sm:gap-4">
-                  <div className="icon-pod h-10 w-10 sm:h-13 sm:w-13 shrink-0 !bg-saffron/15 !border-saffron/30 !text-saffron-dark">
-                    <Eye className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.75} />
+                <div>
+                  <div className="flex items-center gap-3 sm:gap-4">
+                    <div className="icon-pod h-10 w-10 sm:h-13 sm:w-13 shrink-0 !bg-saffron/15 !border-saffron/30 !text-saffron-dark dark:!text-amber-300">
+                      <Eye className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.75} />
+                    </div>
+                    <h3 className="font-serif-jp text-xl sm:text-2xl font-bold text-ink dark:text-white">
+                      {tx(VISION.title)}
+                    </h3>
                   </div>
-                  <h3 className="font-serif-jp text-xl sm:text-2xl font-bold text-ink">
-                    {tx(VISION.title)}
-                  </h3>
+                  <p className="mt-3 sm:mt-5 font-inter text-[13.5px] sm:text-[15px] leading-relaxed text-slate-600 dark:text-slate-300">
+                    {tx(VISION.body)}
+                  </p>
                 </div>
-                <p className="mt-3 sm:mt-5 font-inter text-[13.5px] sm:text-[15px] leading-relaxed text-slate-600">
-                  {tx(VISION.body)}
-                </p>
-                <div className="mt-4 sm:mt-6 flex items-center gap-2 border-t border-slate-100 pt-3.5 sm:pt-5">
+                <div className="mt-4 sm:mt-6 flex items-center gap-2 border-t border-slate-100 dark:border-white/10 pt-3.5 sm:pt-5">
                   <span
-                    className="inline-block rounded-full bg-saffron/15 border border-saffron/30 px-3 py-0.5 sm:px-3.5 sm:py-1 font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-saffron-dark"
+                    className="inline-block rounded-full bg-saffron/15 dark:bg-amber-950/50 border border-saffron/30 dark:border-amber-400/30 px-3 py-0.5 sm:px-3.5 sm:py-1 font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-saffron-dark dark:text-amber-300"
                   >
                     {tx(VISION.tag)}
                   </span>

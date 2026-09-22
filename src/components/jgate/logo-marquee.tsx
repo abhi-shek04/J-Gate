@@ -41,13 +41,15 @@ function PartnerCard({ logo, variant = "light" }: { logo: Logo; variant?: "light
         "group flex h-14 sm:h-20 w-44 sm:w-68 shrink-0 items-center gap-2.5 sm:gap-3.5 rounded-xl sm:rounded-2xl border p-2 sm:p-3.5 transition-all duration-300 hover:-translate-y-1",
         isDark
           ? "border-white/10 bg-white/[0.04] backdrop-blur-sm hover:border-saffron/40 hover:bg-white/[0.07] hover:shadow-[0_8px_24px_rgba(0,0,0,0.35)]"
-          : "border-slate-200/90 bg-white shadow-card hover:border-crimson/40 hover:shadow-xl"
+          : "border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] shadow-card dark:shadow-xl hover:border-crimson/40 dark:hover:border-rose-400/40 hover:shadow-xl"
       )}
     >
       <div
         className={cn(
           "flex h-10 w-13 sm:h-14 sm:w-22 shrink-0 items-center justify-center rounded-lg sm:rounded-xl p-1 sm:p-2 transition-colors",
-          isDark ? "bg-white" : "border border-slate-100 bg-slate-50/90"
+          isDark
+            ? "bg-white"
+            : "border border-slate-100 dark:border-white/10 bg-slate-50/90 dark:bg-white/[0.08]"
         )}
       >
         <img
@@ -61,7 +63,9 @@ function PartnerCard({ logo, variant = "light" }: { logo: Logo; variant?: "light
         <span
           className={cn(
             "block font-inter text-[11px] sm:text-[13px] font-bold truncate leading-tight transition-colors",
-            isDark ? "text-white group-hover:text-saffron" : "text-ink group-hover:text-crimson"
+            isDark
+              ? "text-white group-hover:text-saffron"
+              : "text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400"
           )}
         >
           {logo.name}
@@ -69,7 +73,7 @@ function PartnerCard({ logo, variant = "light" }: { logo: Logo; variant?: "light
         <span
           className={cn(
             "mt-0.5 block font-inter text-[7.5px] sm:text-[8.5px] font-bold uppercase tracking-wider truncate",
-            isDark ? "text-saffron" : "text-crimson"
+            isDark ? "text-saffron" : "text-crimson dark:text-rose-400"
           )}
         >
           {logo.category}
@@ -78,7 +82,7 @@ function PartnerCard({ logo, variant = "light" }: { logo: Logo; variant?: "light
           <p
             className={cn(
               "hidden sm:block mt-0.5 font-inter text-[10.5px] line-clamp-1",
-              isDark ? "text-mist" : "text-slate-500"
+              isDark ? "text-mist" : "text-slate-500 dark:text-slate-400"
             )}
           >
             {logo.desc}

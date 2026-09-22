@@ -423,8 +423,8 @@ export const translations: Dictionary = {
 
   // Footer
   "footer.tagline": {
-    EN: "Bridging global and Indian talent with Japan's enterprise opportunities.",
-    JP: "グローバルおよびインドの人材と日本の企業機会を繋ぐ。",
+    EN: "Bridging Japan & India — Talent, Training, Business",
+    JP: "日本とインドを繋ぐ — 人材・育成・ビジネス",
   },
   "footer.navigate": { EN: "Navigate", JP: "ナビゲート" },
   "footer.network": { EN: "Our Network", JP: "ネットワーク" },

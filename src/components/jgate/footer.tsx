@@ -1,37 +1,41 @@
 "use client";
 
 import Link from "next/link";
-import { MapPin, Mail } from "lucide-react";
+import { MapPin, Mail, Navigation } from "lucide-react";
 import { JGateLogo, LinkedInIcon, InstagramIcon } from "./icons";
 import { useI18n } from "@/lib/i18n";
 
-const WORKSPACE_PROGRAMS = [
-  { href: "/pricing", label: { EN: "Dedicated Fixed Desks", JP: "固定専用デスク" } },
-  { href: "/pricing", label: { EN: "Private Executive Cabins", JP: "個室プライベートキャビン" } },
-  { href: "/services", label: { EN: "Resident Japan Desk", JP: "常駐ジャパンデスク" } },
-  { href: "/services", label: { EN: "Corporate Setup & MCA Support", JP: "法人設立・登記支援" } },
-  { href: "/why-jgate", label: { EN: "Meeting & Conference Rooms", JP: "会議室・カンファレンス設備" } },
-];
+const NAV_LINKS = [
+  { href: "/", key: "nav.home" },
+  { href: "/about", key: "nav.about" },
+  { href: "/why-jgate", key: "nav.why" },
+  { href: "/services", key: "nav.services" },
+  { href: "/team", key: "nav.team" },
+  { href: "/pricing", key: "nav.pricing" },
+  { href: "/faq", key: "nav.faq" },
+  { href: "/blogs", key: "nav.blogs" },
+  { href: "/contact", key: "nav.contact" },
+] as const;
 
 export function Footer() {
-  const { tx, lang } = useI18n();
+  const { t, tx, lang } = useI18n();
 
   return (
     <footer className="relative mt-auto overflow-hidden border-t border-slate-200/80 bg-white text-ink">
       <div className="container-jg relative py-10 sm:py-14 md:py-16">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8 xl:gap-12">
-          {/* Col 1 — Brand, Description & Socials */}
-          <div className="space-y-4">
+        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8 xl:gap-10">
+          {/* Col 1 (3 cols) — Brand, Tagline & Socials */}
+          <div className="lg:col-span-3 space-y-4">
             <Link href="/" className="inline-block" aria-label="J-Gate Home">
               <JGateLogo size="md" />
             </Link>
-            <p className="font-inter text-[12.5px] sm:text-[13px] leading-relaxed text-slate-600">
+            <p className="font-inter text-[12.5px] sm:text-[13px] font-medium leading-relaxed text-slate-700">
               {tx({
-                EN: "Hyderabad's dedicated working hub for Japanese enterprises at Cyber Gateway. Dedicated workspaces, resident Japan Desk, and bilateral business acceleration.",
-                JP: "ハイデラバード・サイバーゲートウェイにある日本企業専用のワーキングハブ＆進出支援拠点。専用デスク、常駐ジャパンデスク、日印ビジネス伴走支援を提供。",
+                EN: "J-Gate | Bridging Japan & India — Talent, Training, Business",
+                JP: "J-Gate | 日本とインドを繋ぐ — 人材・育成・ビジネス",
               })}
             </p>
-            {/* Outlined square social buttons matching reference */}
+            {/* Outlined square social buttons */}
             <div className="flex items-center gap-2 pt-1">
               <a
                 href="https://linkedin.com"
@@ -61,27 +65,27 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Col 2 — Workspace Programs / Solutions */}
-          <div>
+          {/* Col 2 (3 cols) — Previous Site Navigation (Replaces Workspace Solutions) */}
+          <div className="lg:col-span-3">
             <h3 className="font-inter text-[11px] sm:text-[11.5px] font-bold uppercase tracking-wider text-ink">
-              {tx({ EN: "WORKSPACE SOLUTIONS", JP: "ワークスペース・支援機能" })}
+              {t("footer.navigate")}
             </h3>
-            <ul className="mt-4 space-y-2.5">
-              {WORKSPACE_PROGRAMS.map((item, idx) => (
-                <li key={idx}>
+            <ul className="mt-4 grid grid-cols-2 gap-x-3 gap-y-2 sm:grid-cols-1 sm:space-y-2">
+              {NAV_LINKS.map((l) => (
+                <li key={l.href}>
                   <Link
-                    href={item.href}
+                    href={l.href}
                     className="font-inter text-[13px] text-slate-600 transition-colors hover:text-crimson"
                   >
-                    {tx(item.label)}
+                    {t(l.key)}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Col 3 — Company & Operations */}
-          <div className="space-y-4">
+          {/* Col 3 (3 cols) — Company & Operations */}
+          <div className="lg:col-span-3 space-y-4">
             <div>
               <h3 className="font-inter text-[11px] sm:text-[11.5px] font-bold uppercase tracking-wider text-ink">
                 {tx({ EN: "COMPANY & OPERATIONS", JP: "運営・体制" })}
@@ -93,11 +97,11 @@ export function Footer() {
               </p>
             </div>
 
-            <div className="pt-2">
+            <div className="pt-1">
               <span className="font-inter text-[10px] font-bold uppercase tracking-wider text-slate-400 block">
                 {tx({ EN: "AN INITIATIVE OF", JP: "共同事業・提携母体" })}
               </span>
-              <div className="mt-3 flex flex-wrap items-center gap-4">
+              <div className="mt-2.5 flex flex-wrap items-center gap-3.5">
                 <div className="flex items-center gap-2">
                   <img
                     src="/logos/indobox-icon.png"
@@ -119,26 +123,35 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Col 4 — Address for Consultation */}
-          <div>
+          {/* Col 4 (3 cols) — Main Facility Location & Hub (Properly sized & titled) */}
+          <div className="lg:col-span-3">
             <h3 className="font-inter text-[11px] sm:text-[11.5px] font-bold uppercase tracking-wider text-ink">
-              {tx({ EN: "ADDRESS FOR CONSULTATION", JP: "拠点所在地・ご相談窓口" })}
+              {tx({ EN: "CYBER GATEWAY FACILITY", JP: "拠点所在地・オフィス" })}
             </h3>
-            <div className="mt-4 space-y-3.5">
+            <div className="mt-4 space-y-3">
               <div className="flex items-start gap-2.5">
-                <MapPin className="h-4 w-4 text-crimson shrink-0 mt-0.5" />
-                <p className="font-inter text-[12.5px] sm:text-[13px] leading-relaxed text-slate-600">
-                  2nd Floor, Genesys Info X, Block B, CYBER GATEWAY, Wing 1, Phase 2, HITEC City, Hyderabad, Telangana 500081
-                </p>
+                <MapPin className="h-4.5 w-4.5 text-crimson shrink-0 mt-0.5" />
+                <div className="font-inter text-[12.5px] sm:text-[13px] leading-relaxed text-slate-600">
+                  <p className="font-semibold text-ink">Cyber Gateway, Phase 2</p>
+                  <p>2nd Floor, Genesys Info X, Block B, Wing 1</p>
+                  <p>HITEC City, Madhapur, Hyderabad</p>
+                  <p>Telangana 500081, India</p>
+                </div>
               </div>
-              <div className="flex items-center gap-2.5">
+
+              <div className="flex items-center gap-2.5 pt-0.5">
                 <Mail className="h-4 w-4 text-crimson shrink-0" />
                 <a
                   href="mailto:contact@indobox.co.jp"
-                  className="font-inter text-[13px] text-slate-600 transition-colors hover:text-crimson"
+                  className="font-inter text-[13px] font-medium text-slate-700 transition-colors hover:text-crimson"
                 >
                   contact@indobox.co.jp
                 </a>
+              </div>
+
+              <div className="flex items-center gap-2 text-[11.5px] font-inter text-slate-500 pt-0.5">
+                <Navigation className="h-3 w-3 text-crimson shrink-0" />
+                <span>{tx({ EN: "2 Min Walk from Hitec City Metro", JP: "Hitec City メトロ駅 徒歩2分" })}</span>
               </div>
             </div>
           </div>

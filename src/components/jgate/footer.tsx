@@ -21,7 +21,7 @@ export function Footer() {
   const { t, tx, lang } = useI18n();
 
   return (
-    <footer className="relative mt-auto overflow-hidden border-t border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#080f1a] text-ink dark:text-white transition-colors duration-300">
+    <footer className="relative mt-auto overflow-hidden border-t border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#04080e] text-ink dark:text-white transition-colors duration-300">
       <div className="container-jg relative py-10 sm:py-14 md:py-16">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8 xl:gap-10">
           {/* Col 1 (3 cols) — Brand, Tagline & Socials */}
@@ -75,7 +75,7 @@ export function Footer() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="font-inter text-[13px] text-slate-600 dark:text-slate-400 transition-colors hover:text-crimson dark:hover:text-crimson"
+                    className="font-inter text-[13px] text-slate-600 dark:text-slate-400 transition-colors hover:text-crimson dark:hover:text-rose-400"
                   >
                     {t(l.key)}
                   </Link>
@@ -101,7 +101,7 @@ export function Footer() {
               <span className="font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 block mb-2.5">
                 {tx({ EN: "AN INITIATIVE OF", JP: "共同事業・提携母体" })}
               </span>
-              <div className="inline-flex flex-wrap items-center gap-2.5 sm:gap-3 rounded-xl border border-slate-200/90 dark:border-white/15 bg-slate-50/80 dark:bg-white/5 px-3.5 py-2.5 shadow-2xs">
+              <div className="inline-flex flex-wrap items-center gap-2.5 sm:gap-3 rounded-xl border border-slate-200/90 dark:border-white/12 bg-slate-50/80 dark:bg-white/[0.04] px-3.5 py-2.5 shadow-2xs backdrop-blur-sm">
                 {/* Indobox Inc. */}
                 <div className="flex items-center gap-2">
                   <img
@@ -117,7 +117,7 @@ export function Footer() {
                 {/* Sleek Designer Bilateral Cross Connector */}
                 <div className="flex items-center gap-1 shrink-0" aria-hidden>
                   <span className="h-3 w-px bg-slate-300 dark:bg-white/20" />
-                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-crimson/10 text-crimson font-mono font-bold text-[11px] ring-1 ring-crimson/25 shadow-2xs">
+                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-crimson/10 dark:bg-crimson/25 text-crimson dark:text-rose-300 font-mono font-bold text-[11px] ring-1 ring-crimson/25 dark:ring-crimson/50 shadow-2xs">
                     ×
                   </span>
                   <span className="h-3 w-px bg-slate-300 dark:bg-white/20" />
@@ -128,7 +128,7 @@ export function Footer() {
                   <img
                     src="/logos/genesys-info-x.png"
                     alt="Genesys Info X"
-                    className="h-6 sm:h-7 w-auto object-contain max-w-[95px] dark:brightness-110"
+                    className="h-6 sm:h-7 w-auto object-contain max-w-[95px] dark:brightness-125"
                   />
                 </div>
               </div>

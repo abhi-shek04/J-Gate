@@ -294,27 +294,35 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════
           1. HERO — Light, Elegant, ivory/white, Torii watermark, subtle particles, 2 glass badges
          ════════════════════════════════════════════════════════════ */}
-      <section className="relative flex min-h-[68vh] sm:min-h-[80vh] items-center justify-center overflow-hidden bg-ivory py-10 sm:py-16 border-b border-slate-200/60">
+      <section className="relative flex min-h-[68vh] sm:min-h-[80vh] items-center justify-center overflow-hidden bg-ivory dark:bg-[#060b13] py-10 sm:py-16 border-b border-slate-200/60 dark:border-white/10 transition-colors duration-300">
         {/* Ambient warm gradient washes — light mode */}
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 dark:hidden"
           style={{
             background:
               "linear-gradient(180deg, rgba(188,26,44,0.04) 0%, rgba(188,26,44,0.015) 40%, transparent 70%), radial-gradient(ellipse at 70% 50%, rgba(188,26,44,0.06) 0%, transparent 65%), radial-gradient(ellipse at 20% 80%, rgba(232,160,26,0.04) 0%, transparent 50%)",
           }}
         />
+        {/* Ambient luxury obsidian radial glow — dark mode */}
+        <div
+          className="absolute inset-0 hidden dark:block pointer-events-none"
+          style={{
+            background:
+              "radial-gradient(ellipse at 50% 15%, rgba(225,29,72,0.18) 0%, transparent 55%), radial-gradient(ellipse at 80% 50%, rgba(245,158,11,0.08) 0%, transparent 50%), radial-gradient(ellipse at 15% 85%, rgba(13,27,42,0.9) 0%, transparent 65%)",
+          }}
+        />
         {/* Subtle asanoha texture overlay */}
-        <div className="absolute inset-0 pattern-asanoha-light opacity-40" />
+        <div className="absolute inset-0 pattern-asanoha-light opacity-40 dark:opacity-25" />
         <ToriiWatermark
           className="torii-watermark"
           style={{ width: "70vw", maxWidth: "780px", right: "0", top: "8%", opacity: 0.03 }}
         />
         <Particles />
 
-        {/* Skyline silhouette — warm ivory tones */}
-        <div className="pointer-events-none absolute bottom-0 left-0 h-[30%] w-full opacity-30">
+        {/* Skyline silhouette — warm ivory tones / dark ambient */}
+        <div className="pointer-events-none absolute bottom-0 left-0 h-[30%] w-full opacity-30 dark:opacity-20">
           <svg viewBox="0 0 1440 200" preserveAspectRatio="xMidYMax slice" className="h-full w-full" aria-hidden>
-            <g fill="rgba(188, 26, 44, 0.06)">
+            <g className="fill-crimson/[0.06] dark:fill-white/[0.04]">
               <rect x="0" y="160" width="80" height="40" /><rect x="80" y="135" width="60" height="65" />
               <rect x="150" y="40" width="64" height="160" /><rect x="214" y="90" width="44" height="110" />
               <rect x="258" y="135" width="70" height="65" /><rect x="340" y="130" width="120" height="70" />
@@ -337,7 +345,7 @@ export default function HomePage() {
           {/* Eyebrow pill */}
           <Reveal>
             <span
-              className="inline-flex items-center gap-2 rounded-full bg-crimson px-3.5 py-1 sm:px-4 sm:py-1.5 font-inter text-[11px] sm:text-[12px] font-semibold text-white shadow-crimp"
+              className="inline-flex items-center gap-2 rounded-full bg-crimson px-3.5 py-1 sm:px-4 sm:py-1.5 font-inter text-[11px] sm:text-[12px] font-semibold text-white shadow-[0_0_20px_rgba(188,26,44,0.4)]"
               style={{ letterSpacing: "0.1em" }}
             >
               <IndiaFlag className="h-3.5 w-5 rounded-[2px]" />
@@ -348,7 +356,7 @@ export default function HomePage() {
           {/* Pre-title */}
           <Reveal delay={80}>
             <p
-              className="mt-5 font-inter text-[12px] font-semibold uppercase text-crimson"
+              className="mt-5 font-inter text-[12px] font-semibold uppercase text-crimson dark:text-rose-400"
               style={{ letterSpacing: "0.25em" }}
             >
               {t("hero.eyebrow")}
@@ -358,12 +366,12 @@ export default function HomePage() {
           {/* H1 — Noto Serif JP 900 */}
           <Reveal delay={140}>
             <h1
-              className="mx-auto mt-3 max-w-4xl font-serif-jp font-black leading-[1.18] text-ink"
+              className="mx-auto mt-3 max-w-4xl font-serif-jp font-black leading-[1.18] text-ink dark:text-white"
               style={{ fontSize: "clamp(1.9rem, 4.2vw, 3.1rem)" }}
             >
               {t("hero.title1")}
               <br />
-              <span className="text-ink">Working Hub for </span>
+              <span className="text-ink dark:text-white">Working Hub for </span>
               <span className="text-gradient-crimson">Japanese Companies</span>
             </h1>
           </Reveal>
@@ -371,7 +379,7 @@ export default function HomePage() {
           {/* JP tagline */}
           <Reveal delay={200}>
             <p
-              className="mt-3 font-serif-jp font-medium text-crimson/75"
+              className="mt-3 font-serif-jp font-medium text-crimson/85 dark:text-rose-300"
               style={{ fontSize: "clamp(0.9rem, 1.35vw, 1.05rem)", letterSpacing: "0.05em" }}
             >
               {t("hero.jptag")}
@@ -381,7 +389,7 @@ export default function HomePage() {
           {/* Body subtitle — catchphrase */}
           <Reveal delay={260}>
             <p
-              className="mx-auto mt-3.5 max-w-[620px] font-inter font-light leading-relaxed text-slate"
+              className="mx-auto mt-3.5 max-w-[620px] font-inter font-normal leading-relaxed text-slate-600 dark:text-slate-300"
               style={{ fontSize: "clamp(0.9rem, 1.25vw, 1.02rem)" }}
             >
               {t("hero.subtitle")}
@@ -410,15 +418,15 @@ export default function HomePage() {
         {/* Scroll cue */}
         <div className="absolute bottom-2.5 sm:bottom-4 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-1 opacity-60 hover:opacity-100 transition-opacity">
           <span
-            className="font-inter text-[9.5px] sm:text-[10px] font-semibold uppercase text-slate"
+            className="font-inter text-[9.5px] sm:text-[10px] font-semibold uppercase text-slate dark:text-slate-400"
             style={{ letterSpacing: "0.2em" }}
           >
             {t("hero.scroll")}
           </span>
-          <div className="relative h-6 w-px overflow-hidden bg-slate-300">
-            <span className="animate-scroll-line absolute inset-0 block bg-crimson" />
+          <div className="relative h-6 w-px overflow-hidden bg-slate-300 dark:bg-white/20">
+            <span className="animate-scroll-line absolute inset-0 block bg-crimson dark:bg-rose-400" />
           </div>
-          <ArrowDown className="h-3 w-3 text-slate" />
+          <ArrowDown className="h-3 w-3 text-slate dark:text-slate-400" />
         </div>
       </section>
 

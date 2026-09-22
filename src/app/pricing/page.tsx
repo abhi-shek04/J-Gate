@@ -472,8 +472,8 @@ export default function PricingPage() {
               </p>
 
               {/* Interactive Team Size Quick Selector */}
-              <div className="mt-4 sm:mt-5 inline-flex flex-wrap items-center justify-center gap-1.5 bg-white/90 p-1.5 rounded-2xl border border-slate-200/80 shadow-xs">
-                <span className="text-[11px] font-inter font-semibold text-slate-400 px-2.5">
+              <div className="mt-4 sm:mt-5 inline-flex flex-wrap items-center justify-center gap-1.5 bg-white/90 dark:bg-[#0c1424] p-1.5 rounded-2xl border border-slate-200/80 dark:border-white/10 shadow-xs">
+                <span className="text-[11px] font-inter font-semibold text-slate-400 dark:text-slate-400 px-2.5">
                   {tx({ EN: "Filter by Team:", JP: "チーム規模で絞り込み:" })}
                 </span>
                 {[
@@ -486,10 +486,10 @@ export default function PricingPage() {
                     key={tab.id}
                     type="button"
                     onClick={() => setSelectedFilter(tab.id as any)}
-                    className={`px-3 py-1 rounded-xl text-[11.5px] font-inter font-semibold transition-all duration-200 ${
+                    className={`px-3 py-1 rounded-xl text-[11.5px] font-inter font-semibold transition-all duration-200 cursor-pointer ${
                       selectedFilter === tab.id
-                        ? "bg-[#0a1120] text-white shadow-xs"
-                        : "text-slate-600 hover:text-slate-900 hover:bg-slate-100/70"
+                        ? "bg-[#0a1120] dark:bg-crimson text-white shadow-xs"
+                        : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-white/10"
                     }`}
                   >
                     {tx(tab.label)}
@@ -510,59 +510,59 @@ export default function PricingPage() {
               return (
                 <Reveal key={plan.id} delay={i * 80} variant="up">
                   <div
-                    className={`group relative flex h-full flex-col justify-between rounded-xl sm:rounded-2xl bg-white border border-slate-200/90 border-t-4 ${
+                    className={`group relative flex h-full flex-col justify-between rounded-xl sm:rounded-2xl bg-white dark:bg-[#0c1424] border border-slate-200/90 dark:border-white/10 border-t-4 ${
                       plan.accentBorder
-                    } shadow-[0_4px_24px_rgba(0,0,0,0.04)] hover:shadow-[0_22px_44px_-14px_rgba(8,15,26,0.12)] hover:-translate-y-1 transition-all duration-300 p-4 sm:p-5 lg:p-6 ${
+                    } shadow-[0_4px_24px_rgba(0,0,0,0.04)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:shadow-[0_22px_44px_-14px_rgba(8,15,26,0.12)] dark:hover:shadow-[0_20px_45px_rgba(0,0,0,0.8)] hover:-translate-y-1 transition-all duration-300 p-4 sm:p-5 lg:p-6 ${
                       isSelected ? "ring-2 ring-crimson/50 shadow-lg" : ""
                     }`}
                   >
                     {/* Top Content Area */}
                     <div>
                       {/* Plan Header */}
-                      <div className="flex items-center justify-between gap-3 border-b border-slate-100 pb-3.5 sm:pb-5">
+                      <div className="flex items-center justify-between gap-3 border-b border-slate-100 dark:border-white/10 pb-3.5 sm:pb-5">
                         <div className="flex items-center gap-2.5 sm:gap-3">
-                          <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-slate-50 border border-slate-200/80 text-ink group-hover:border-crimson/40 transition-colors">
-                            <Icon className="h-4.5 w-4.5 sm:h-5 sm:w-5 text-crimson" />
+                          <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-ink dark:text-white group-hover:border-crimson/40 dark:group-hover:border-rose-400/50 transition-colors">
+                            <Icon className="h-4.5 w-4.5 sm:h-5 sm:w-5 text-crimson dark:text-rose-400" />
                           </div>
                           <div>
-                            <h3 className="font-serif-jp text-lg sm:text-xl font-bold text-ink group-hover:text-crimson transition-colors">
+                            <h3 className="font-serif-jp text-lg sm:text-xl font-bold text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400 transition-colors">
                               {plan.enName}
                             </h3>
-                            <span className="text-[11.5px] sm:text-[12px] font-medium text-slate-500 font-sans-jp block leading-tight">
+                            <span className="text-[11.5px] sm:text-[12px] font-medium text-slate-500 dark:text-slate-400 font-sans-jp block leading-tight">
                               {plan.jpName}
                             </span>
                           </div>
                         </div>
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100/90 px-2.5 py-0.5 sm:px-3 sm:py-1 font-inter text-[10.5px] sm:text-[11px] font-bold text-slate-700 shrink-0 border border-slate-200/60">
-                          <Users className="h-3 w-3 text-crimson" />
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100/90 dark:bg-white/10 px-2.5 py-0.5 sm:px-3 sm:py-1 font-inter text-[10.5px] sm:text-[11px] font-bold text-slate-700 dark:text-slate-200 shrink-0 border border-slate-200/60 dark:border-white/10">
+                          <Users className="h-3 w-3 text-crimson dark:text-rose-400" />
                           {tx(plan.capacity)}
                         </span>
                       </div>
 
                       {/* Pricing Display */}
-                      <div className="mt-3.5 sm:mt-5 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100/60 border border-slate-200/80 p-3 sm:p-4.5">
+                      <div className="mt-3.5 sm:mt-5 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100/60 dark:from-white/5 dark:to-white/[0.02] border border-slate-200/80 dark:border-white/10 p-3 sm:p-4.5">
                         <div className="flex items-baseline gap-1.5">
-                          <span className="font-serif-jp text-2xl sm:text-3xl lg:text-4xl font-black text-ink tracking-tight">
+                          <span className="font-serif-jp text-2xl sm:text-3xl lg:text-4xl font-black text-ink dark:text-white tracking-tight">
                             {currency === "INR"
                               ? `₹${displayINR.toLocaleString()}`
                               : `¥${displayJPY.toLocaleString()}`}
                           </span>
-                          <span className="font-inter text-xs font-semibold text-slate-500">
+                          <span className="font-inter text-xs font-semibold text-slate-500 dark:text-slate-400">
                             {currency === "INR" ? "/ month" : "/月 目安"}
                           </span>
                         </div>
                         <div className="mt-1 flex items-center justify-between text-[11px] font-inter">
-                          <span className="text-slate-500 font-medium">
+                          <span className="text-slate-500 dark:text-slate-400 font-medium">
                             {currency === "INR"
                               ? `Approx. ¥${displayJPY.toLocaleString()} /月`
                               : `Base ₹${displayINR.toLocaleString()} INR /mo`}
                           </span>
-                          <span className="text-slate-400 font-medium">
+                          <span className="text-slate-400 dark:text-slate-500 font-medium">
                             {tx({ EN: "excl. GST (18%)", JP: "GST（18%）別" })}
                           </span>
                         </div>
                         {isAnnual && (
-                          <div className="mt-2 pt-2 border-t border-slate-200/60 flex items-center justify-between text-[11px] font-inter text-emerald-700 font-semibold">
+                          <div className="mt-2 pt-2 border-t border-slate-200/60 dark:border-white/10 flex items-center justify-between text-[11px] font-inter text-emerald-700 dark:text-emerald-400 font-semibold">
                             <span>{tx({ EN: "Annual Contract (-15%)", JP: "年間一括契約 15%OFF適用" })}</span>
                             <span>{tx({ EN: "Save ~2 months", JP: "実質約2ヶ月分無料" })}</span>
                           </div>
@@ -571,63 +571,63 @@ export default function PricingPage() {
 
                       {/* Tagline & Target Callout */}
                       <div className="mt-3.5 sm:mt-4.5">
-                        <p className="font-inter text-[11.5px] sm:text-[12px] font-bold text-slate-900 leading-snug">
+                        <p className="font-inter text-[11.5px] sm:text-[12px] font-bold text-slate-900 dark:text-slate-100 leading-snug">
                           {tx(plan.tagline)}
                         </p>
-                        <div className="mt-2 rounded-lg sm:rounded-xl bg-slate-50 p-2.5 sm:p-3 border border-slate-200/60">
-                          <span className="font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-slate-400 block mb-0.5">
+                        <div className="mt-2 rounded-lg sm:rounded-xl bg-slate-50 dark:bg-white/5 p-2.5 sm:p-3 border border-slate-200/60 dark:border-white/10">
+                          <span className="font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 block mb-0.5">
                             {tx({ EN: "Designed For", JP: "対象企業" })}
                           </span>
-                          <p className="font-inter text-[11.5px] sm:text-[12px] leading-relaxed text-slate-700">
+                          <p className="font-inter text-[11.5px] sm:text-[12px] leading-relaxed text-slate-700 dark:text-slate-300">
                             {tx(plan.target)}
                           </p>
                         </div>
                       </div>
 
                       {/* Quick 3-Specs Strip */}
-                      <div className="mt-3 sm:mt-3.5 grid grid-cols-3 gap-1 rounded-lg sm:rounded-xl bg-slate-100/60 p-2 text-center text-[10px] sm:text-[10.5px] font-inter border border-slate-200/50">
+                      <div className="mt-3 sm:mt-3.5 grid grid-cols-3 gap-1 rounded-lg sm:rounded-xl bg-slate-100/60 dark:bg-white/5 p-2 text-center text-[10px] sm:text-[10.5px] font-inter border border-slate-200/50 dark:border-white/10">
                         <div>
-                          <span className="text-slate-400 block uppercase font-bold text-[9px] sm:text-[9.5px]">
+                          <span className="text-slate-400 dark:text-slate-500 block uppercase font-bold text-[9px] sm:text-[9.5px]">
                             {tx({ EN: "Contract", JP: "契約期間" })}
                           </span>
-                          <span className="font-semibold text-slate-700 mt-0.5 block truncate">
+                          <span className="font-semibold text-slate-700 dark:text-slate-200 mt-0.5 block truncate">
                             {tx(plan.specs.term)}
                           </span>
                         </div>
-                        <div className="border-x border-slate-200/70">
-                          <span className="text-slate-400 block uppercase font-bold text-[9px] sm:text-[9.5px]">
+                        <div className="border-x border-slate-200/70 dark:border-white/10">
+                          <span className="text-slate-400 dark:text-slate-500 block uppercase font-bold text-[9px] sm:text-[9.5px]">
                             {tx({ EN: "Access", JP: "利用時間" })}
                           </span>
-                          <span className="font-semibold text-slate-700 mt-0.5 block truncate">
+                          <span className="font-semibold text-slate-700 dark:text-slate-200 mt-0.5 block truncate">
                             {tx(plan.specs.access)}
                           </span>
                         </div>
                         <div>
-                          <span className="text-slate-400 block uppercase font-bold text-[9px] sm:text-[9.5px]">
+                          <span className="text-slate-400 dark:text-slate-500 block uppercase font-bold text-[9px] sm:text-[9.5px]">
                             {tx({ EN: "Japan Desk", JP: "相談支援" })}
                           </span>
-                          <span className="font-semibold text-slate-700 mt-0.5 block truncate">
+                          <span className="font-semibold text-slate-700 dark:text-slate-200 mt-0.5 block truncate">
                             {tx(plan.specs.support)}
                           </span>
                         </div>
                       </div>
 
                       {/* Feature Deliverables Checklist */}
-                      <div className="mt-4 sm:mt-5 border-t border-slate-100 pt-3.5 sm:pt-4.5">
-                        <div className="font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-slate-400 mb-2 sm:mb-3">
+                      <div className="mt-4 sm:mt-5 border-t border-slate-100 dark:border-white/10 pt-3.5 sm:pt-4.5">
+                        <div className="font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2 sm:mb-3">
                           {tx({ EN: "Included Deliverables", JP: "プランに含まれる主な内容" })}
                         </div>
                         <ul className="space-y-2 sm:space-y-2.5">
                           {plan.features.map((feat, fi) => (
-                            <li key={fi} className="flex items-start gap-2 sm:gap-2.5 text-[12px] sm:text-[12.5px] font-inter text-slate-700">
-                              <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-50 border border-emerald-200 text-emerald-700 shadow-xs">
+                            <li key={fi} className="flex items-start gap-2 sm:gap-2.5 text-[12px] sm:text-[12.5px] font-inter text-slate-700 dark:text-slate-300">
+                              <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-700/60 text-emerald-700 dark:text-emerald-300 shadow-xs">
                                 <Check className="h-2.5 w-2.5 stroke-[3]" />
                               </span>
                               <div className="min-w-0 flex-1 leading-snug">
-                                <span className="font-bold text-slate-900 block text-[12px] sm:text-[12.5px]">
+                                <span className="font-bold text-slate-900 dark:text-slate-100 block text-[12px] sm:text-[12.5px]">
                                   {tx(feat.title)}
                                 </span>
-                                <span className="text-[11px] sm:text-[11.5px] text-slate-500 block">
+                                <span className="text-[11px] sm:text-[11.5px] text-slate-500 dark:text-slate-400 block">
                                   {tx(feat.desc)}
                                 </span>
                               </div>
@@ -638,15 +638,15 @@ export default function PricingPage() {
                     </div>
 
                     {/* Bottom Action CTA */}
-                    <div className="mt-5 sm:mt-7 pt-3.5 sm:pt-4 border-t border-slate-100">
+                    <div className="mt-5 sm:mt-7 pt-3.5 sm:pt-4 border-t border-slate-100 dark:border-white/10">
                       <Link
                         href={`/contact?plan=${plan.id}`}
-                        className="group/btn relative w-full inline-flex items-center justify-center gap-2 rounded-xl py-2.5 sm:py-3.5 font-inter text-[13px] sm:text-[13.5px] font-semibold text-white bg-[#0a1120] hover:bg-crimson shadow-md hover:shadow-lg transition-all duration-300"
+                        className="group/btn relative w-full inline-flex items-center justify-center gap-2 rounded-xl py-2.5 sm:py-3.5 font-inter text-[13px] sm:text-[13.5px] font-semibold text-white bg-[#0a1120] dark:bg-crimson hover:bg-crimson dark:hover:bg-crimson-deep shadow-md hover:shadow-lg transition-all duration-300"
                       >
                         <span>{tx({ EN: `Select ${plan.enName}`, JP: `${plan.jpName}を問い合わせる` })}</span>
                         <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
                       </Link>
-                      <div className="mt-2 sm:mt-2.5 flex items-center justify-center gap-1.5 font-inter text-[10.5px] sm:text-[11px] text-slate-400">
+                      <div className="mt-2 sm:mt-2.5 flex items-center justify-center gap-1.5 font-inter text-[10.5px] sm:text-[11px] text-slate-400 dark:text-slate-500">
                         <Clock className="h-3 w-3" />
                         <span>{tx({ EN: "Free initial consultation · Rapid move-in", JP: "初回相談無料 · 最短即日利用可" })}</span>
                       </div>
@@ -662,7 +662,7 @@ export default function PricingPage() {
             <button
               type="button"
               onClick={() => setShowMatrix(!showMatrix)}
-              className="inline-flex items-center gap-2 rounded-full border border-slate-300 bg-white px-6 py-3 font-inter text-[13px] font-semibold text-ink shadow-sm hover:bg-slate-50 hover:border-slate-400 hover:shadow transition-all duration-200"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-300 dark:border-white/20 bg-white dark:bg-[#0c1424] px-6 py-3 font-inter text-[13px] font-semibold text-ink dark:text-white shadow-sm hover:bg-slate-50 dark:hover:bg-white/10 hover:border-slate-400 dark:hover:border-white/30 hover:shadow transition-all duration-200 cursor-pointer"
             >
               <Sparkles className="h-4 w-4 text-saffron" />
               <span>
@@ -676,20 +676,20 @@ export default function PricingPage() {
 
           {/* Expandable Feature Matrix Table */}
           {showMatrix && (
-            <div className="mt-8 rounded-2xl border border-slate-200/90 bg-white p-5 sm:p-8 shadow-xl overflow-hidden animate-in fade-in duration-300">
-              <div className="border-b border-slate-200 pb-4 mb-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+            <div className="mt-8 rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#0c1424] p-5 sm:p-8 shadow-xl overflow-hidden animate-in fade-in duration-300">
+              <div className="border-b border-slate-200 dark:border-white/10 pb-4 mb-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                 <div>
-                  <h3 className="font-serif-jp text-xl font-bold text-ink">
+                  <h3 className="font-serif-jp text-xl font-bold text-ink dark:text-white">
                     {tx({ EN: "Full Deliverable Comparison Matrix", JP: "全プラン項目別 詳細比較表" })}
                   </h3>
-                  <p className="font-inter text-[12.5px] text-slate-500">
+                  <p className="font-inter text-[12.5px] text-slate-500 dark:text-slate-400">
                     {tx({
                       EN: "Clear deliverables across physical facilities, resident Japan Desk advisory, and strategic GTM consulting.",
                       JP: "オフィス設備、常駐相談、実践コンサルティング支援の項目別詳細。",
                     })}
                   </p>
                 </div>
-                <span className="text-[11.5px] font-inter text-slate-400 bg-slate-50 px-3 py-1 rounded-md border border-slate-200/60">
+                <span className="text-[11.5px] font-inter text-slate-400 dark:text-slate-400 bg-slate-50 dark:bg-white/5 px-3 py-1 rounded-md border border-slate-200/60 dark:border-white/10">
                   {tx({ EN: "Monthly INR (excl. 18% GST)", JP: "※料金は税抜月額INR表示" })}
                 </span>
               </div>
@@ -697,15 +697,15 @@ export default function PricingPage() {
               <div className="overflow-x-auto">
                 <table className="w-full text-left border-collapse min-w-[650px]">
                   <thead>
-                    <tr className="border-b-2 border-slate-200 text-[12.5px] font-inter uppercase text-slate-500">
+                    <tr className="border-b-2 border-slate-200 dark:border-white/10 text-[12.5px] font-inter uppercase text-slate-500 dark:text-slate-400">
                       <th className="py-3 px-4 w-2/5 font-bold">{tx({ EN: "Deliverable / Feature", JP: "項目・サポート内容" })}</th>
-                      <th className="py-3 px-4 text-center w-1/5 bg-slate-50/70 rounded-t-lg font-bold text-slate-700">
+                      <th className="py-3 px-4 text-center w-1/5 bg-slate-50/70 dark:bg-white/5 rounded-t-lg font-bold text-slate-700 dark:text-slate-200">
                         Satellite
                       </th>
-                      <th className="py-3 px-4 text-center w-1/5 bg-slate-50/70 rounded-t-lg font-bold text-slate-700">
+                      <th className="py-3 px-4 text-center w-1/5 bg-slate-50/70 dark:bg-white/5 rounded-t-lg font-bold text-slate-700 dark:text-slate-200">
                         Standard
                       </th>
-                      <th className="py-3 px-4 text-center w-1/5 bg-slate-50/70 rounded-t-lg font-bold text-slate-700">
+                      <th className="py-3 px-4 text-center w-1/5 bg-slate-50/70 dark:bg-white/5 rounded-t-lg font-bold text-slate-700 dark:text-slate-200">
                         Advance
                       </th>
                     </tr>
@@ -713,10 +713,10 @@ export default function PricingPage() {
                   <tbody>
                     {MATRIX_FEATURES.map((group, gi) => (
                       <React.Fragment key={`grp-${gi}`}>
-                        <tr className="bg-slate-100/80">
+                        <tr className="bg-slate-100/80 dark:bg-white/5">
                           <td
                             colSpan={4}
-                            className="py-2.5 px-4 font-inter text-[11.5px] font-bold uppercase tracking-wider text-slate-700"
+                            className="py-2.5 px-4 font-inter text-[11.5px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300"
                           >
                             {tx(group.category)}
                           </td>
@@ -724,16 +724,16 @@ export default function PricingPage() {
                         {group.items.map((item, ii) => (
                           <tr
                             key={`row-${gi}-${ii}`}
-                            className="border-b border-slate-100 hover:bg-slate-50/70 transition-colors text-[13px] font-inter"
+                            className="border-b border-slate-100 dark:border-white/10 hover:bg-slate-50/70 dark:hover:bg-white/5 transition-colors text-[13px] font-inter"
                           >
-                            <td className="py-3 px-4 text-slate-800 font-medium">{tx(item.name)}</td>
-                            <td className="py-3 px-4 text-center text-slate-600 bg-slate-50/20">
+                            <td className="py-3 px-4 text-slate-800 dark:text-slate-200 font-medium">{tx(item.name)}</td>
+                            <td className="py-3 px-4 text-center text-slate-600 dark:text-slate-400 bg-slate-50/20 dark:bg-transparent">
                               {item.satellite}
                             </td>
-                            <td className="py-3 px-4 text-center text-slate-700 bg-slate-50/20 font-semibold">
+                            <td className="py-3 px-4 text-center text-slate-700 dark:text-slate-200 bg-slate-50/20 dark:bg-transparent font-semibold">
                               {item.standard}
                             </td>
-                            <td className="py-3 px-4 text-center text-slate-700 bg-slate-50/20 font-semibold">
+                            <td className="py-3 px-4 text-center text-slate-700 dark:text-slate-200 bg-slate-50/20 dark:bg-transparent font-semibold">
                               {item.advance}
                             </td>
                           </tr>

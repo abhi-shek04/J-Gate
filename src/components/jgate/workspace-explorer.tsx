@@ -167,13 +167,13 @@ export function WorkspaceExplorer() {
               <button
                 key={space.id}
                 onClick={() => setActiveTab(space.id)}
-                className={`shrink-0 flex items-center gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl px-3.5 py-2 sm:px-4 sm:py-2.5 font-inter text-[12px] sm:text-[13px] font-semibold transition-all duration-300 ${
+                className={`shrink-0 flex items-center gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl px-3.5 py-2 sm:px-4 sm:py-2.5 font-inter text-[12px] sm:text-[13px] font-semibold transition-all duration-300 cursor-pointer ${
                   isActive
-                    ? "bg-gradient-to-r from-crimson to-crimson-deep text-white shadow-md sm:shadow-lg shadow-crimson/25 scale-[1.02] sm:scale-105 tab-active-glow"
-                    : "bg-white text-slate hover:bg-white/80 hover:text-ink border border-slate-200/80 shadow-xs hover:border-slate-300"
+                    ? "bg-gradient-to-r from-crimson to-crimson-deep text-white shadow-md sm:shadow-lg shadow-crimson/30 scale-[1.02] sm:scale-105 tab-active-glow"
+                    : "bg-white dark:bg-slate-900/80 text-slate dark:text-slate-300 hover:bg-white/80 dark:hover:bg-slate-800 hover:text-ink dark:hover:text-white border border-slate-200/80 dark:border-white/10 shadow-xs hover:border-slate-300 dark:hover:border-white/20"
                 }`}
               >
-                <Icon className={`h-3.5 w-3.5 sm:h-4 sm:w-4 ${isActive ? "text-white" : "text-crimson"}`} />
+                <Icon className={`h-3.5 w-3.5 sm:h-4 sm:w-4 ${isActive ? "text-white" : "text-crimson dark:text-rose-400"}`} />
                 <span>{tx(space.title)}</span>
               </button>
             );
@@ -183,11 +183,11 @@ export function WorkspaceExplorer() {
         {/* Active Space Bento Preview Card */}
         <div className="mt-6 sm:mt-8 max-w-5xl mx-auto">
           <Reveal key={activeSpace.id} variant="scale">
-            <div className="luxury-light-card card-sheen gold-hairline overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 bg-white shadow-xl p-4 sm:p-6 lg:p-8 hover:shadow-2xl transition-all duration-300">
+            <div className="luxury-light-card card-sheen gold-hairline overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#0c1424] shadow-xl p-4 sm:p-6 lg:p-8 hover:shadow-2xl transition-all duration-300">
               <div className="grid lg:grid-cols-12 gap-5 sm:gap-8 items-center">
                 {/* Left: Photo with floating overlay badge */}
                 <div className="lg:col-span-6 relative">
-                  <div className="overflow-hidden rounded-xl sm:rounded-2xl border-2 border-slate-100 shadow-md">
+                  <div className="overflow-hidden rounded-xl sm:rounded-2xl border-2 border-slate-100 dark:border-white/10 shadow-md">
                     <Photo
                       id={activeSpace.photoId}
                       src={activeSpace.src}
@@ -208,10 +208,10 @@ export function WorkspaceExplorer() {
                 {/* Right: Details & Specs Grid */}
                 <div className="lg:col-span-6 flex flex-col justify-between">
                   <div>
-                    <h3 className="font-serif-jp text-xl sm:text-2xl lg:text-3xl font-bold text-ink leading-tight">
+                    <h3 className="font-serif-jp text-xl sm:text-2xl lg:text-3xl font-bold text-ink dark:text-white leading-tight">
                       {tx(activeSpace.headline)}
                     </h3>
-                    <p className="mt-2 sm:mt-3 font-inter text-[12.5px] sm:text-[13.5px] leading-relaxed text-slate">
+                    <p className="mt-2 sm:mt-3 font-inter text-[12.5px] sm:text-[13.5px] leading-relaxed text-slate dark:text-slate-300">
                       {tx(activeSpace.desc)}
                     </p>
 
@@ -220,12 +220,12 @@ export function WorkspaceExplorer() {
                       {activeSpace.specs.map((spec, i) => (
                         <div
                           key={i}
-                          className="rounded-lg sm:rounded-xl bg-slate-50 p-2 sm:p-3 border border-slate-200/60 transition-all duration-200 hover:border-crimson/30 hover:bg-slate-50/80 hover:shadow-xs group/spec"
+                          className="rounded-lg sm:rounded-xl bg-slate-50 dark:bg-white/5 p-2 sm:p-3 border border-slate-200/60 dark:border-white/10 transition-all duration-200 hover:border-crimson/30 dark:hover:border-rose-400/40 hover:bg-slate-50/80 dark:hover:bg-white/10 hover:shadow-xs group/spec"
                         >
-                          <span className="block font-inter text-[9.5px] sm:text-[10.5px] font-bold uppercase tracking-wider text-slate-500 group-hover/spec:text-crimson transition-colors">
+                          <span className="block font-inter text-[9.5px] sm:text-[10.5px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 group-hover/spec:text-crimson dark:group-hover/spec:text-rose-400 transition-colors">
                             {tx(spec.label)}
                           </span>
-                          <span className="mt-0.5 block font-inter text-[12px] sm:text-[13px] font-bold text-ink truncate">
+                          <span className="mt-0.5 block font-inter text-[12px] sm:text-[13px] font-bold text-ink dark:text-white truncate">
                             {tx(spec.val)}
                           </span>
                         </div>
@@ -233,10 +233,10 @@ export function WorkspaceExplorer() {
                     </div>
 
                     {/* Feature Checkpoints */}
-                    <ul className="mt-4 sm:mt-5 space-y-1.5 sm:space-y-2 border-t border-slate-100 pt-3 sm:pt-4">
+                    <ul className="mt-4 sm:mt-5 space-y-1.5 sm:space-y-2 border-t border-slate-100 dark:border-white/10 pt-3 sm:pt-4">
                       {activeSpace.features.map((feat, i) => (
-                        <li key={i} className="flex items-start gap-2 sm:gap-2.5 text-[12px] sm:text-[12.5px] font-inter text-slate-700">
-                          <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 text-crimson mt-0.5" />
+                        <li key={i} className="flex items-start gap-2 sm:gap-2.5 text-[12px] sm:text-[12.5px] font-inter text-slate-700 dark:text-slate-300">
+                          <CheckCircle2 className="h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 text-crimson dark:text-rose-400 mt-0.5" />
                           <span>{tx(feat)}</span>
                         </li>
                       ))}

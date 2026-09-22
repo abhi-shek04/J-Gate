@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { I18nProvider } from "@/lib/i18n";
 import { BrochureProvider } from "@/lib/brochure-context";
@@ -77,18 +78,25 @@ export default function RootLayout({
       <body
         className={`${notoSerifJP.variable} ${notoSansJP.variable} ${inter.variable} antialiased bg-background text-foreground`}
       >
-        <I18nProvider>
-          <BrochureProvider>
-            <LightboxProvider>
-              <div className="flex min-h-screen flex-col bg-ivory">
-                <Navbar />
-                <main className="flex-1">{children}</main>
-                <Footer />
-              </div>
-            </LightboxProvider>
-          </BrochureProvider>
-        </I18nProvider>
-        <Toaster />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem={false}
+          disableTransitionOnChange={false}
+        >
+          <I18nProvider>
+            <BrochureProvider>
+              <LightboxProvider>
+                <div className="flex min-h-screen flex-col bg-ivory dark:bg-[#080f1a] transition-colors duration-300">
+                  <Navbar />
+                  <main className="flex-1">{children}</main>
+                  <Footer />
+                </div>
+              </LightboxProvider>
+            </BrochureProvider>
+          </I18nProvider>
+          <Toaster />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X, Download } from "lucide-react";
+import { Menu, X, Download, Sun, Moon } from "lucide-react";
+import { useTheme } from "next-themes";
 import { JGateLogo } from "./icons";
 import { useScrolled } from "./shared";
 import { useI18n } from "@/lib/i18n";
@@ -25,7 +26,13 @@ export function Navbar() {
   const scrolled = useScrolled(60);
   const [open, setOpen] = useState(false);
   const { lang, setLang, t } = useI18n();
+  const { theme, setTheme, resolvedTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (open) {
@@ -43,6 +50,8 @@ export function Navbar() {
     setOpen(false);
   }, [pathname]);
 
+  const isDark = mounted && (resolvedTheme === "dark" || theme === "dark");
+
   // Determine if a nav link is active
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
@@ -51,9 +60,9 @@ export function Navbar() {
 
   // On auth page, navbar is transparent over dark content
   const isAuthPage = pathname === "/auth/brochure";
-  // Homepage hero is light mode — navbar needs dark text when not scrolled
+  // Homepage hero is light mode when not in dark theme — navbar needs dark text when not scrolled
   const isHomePage = pathname === "/";
-  const useLightNav = isHomePage && !scrolled && !open;
+  const useLightNav = isHomePage && !scrolled && !open && !isDark;
 
   return (
     <header
@@ -63,7 +72,9 @@ export function Navbar() {
           ? "glass-frost bg-[#080f1a]/95 shadow-xl border-b border-white/10"
           : useLightNav
             ? "bg-transparent"
-            : "bg-transparent"
+            : isDark
+              ? "bg-[#080f1a]/60 backdrop-blur-md border-b border-white/5"
+              : "bg-transparent"
       )}
     >
       <nav
@@ -137,6 +148,30 @@ export function Navbar() {
             ))}
           </div>
 
+          {/* Theme toggle (Light / Dark mode) */}
+          <button
+            type="button"
+            onClick={() => setTheme(isDark ? "light" : "dark")}
+            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+            title={isDark ? (lang === "JP" ? "ライトモードに切り替え" : "Switch to Light Mode") : (lang === "JP" ? "ダークモードに切り替え" : "Switch to Dark Mode")}
+            className={cn(
+              "flex h-8 w-8 items-center justify-center rounded-full border transition-all duration-200 active:scale-95 shrink-0 cursor-pointer",
+              useLightNav
+                ? "border-slate-300 bg-slate-100/70 text-ink hover:bg-slate-200/80 hover:text-crimson"
+                : "border-white/15 bg-white/5 text-white/80 hover:bg-white/15 hover:text-white"
+            )}
+          >
+            {mounted ? (
+              isDark ? (
+                <Sun className="h-4 w-4 text-amber-400 transition-transform duration-300 hover:rotate-45" />
+              ) : (
+                <Moon className="h-4 w-4 text-slate-700 transition-transform duration-300 hover:-rotate-12" />
+              )
+            ) : (
+              <span className="h-4 w-4" />
+            )}
+          </button>
+
           {/* Download Brochure CTA — routes to /auth/brochure */}
           <Link
             href="/auth/brochure"
@@ -196,6 +231,35 @@ export function Navbar() {
         </ul>
 
         <div className="container-jg flex flex-col gap-3 pb-8 pt-3 border-t border-white/10 bg-[#080f1a]/95 shrink-0">
+          {/* Mobile theme toggle */}
+          <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-3">
+            <span className="font-inter text-xs font-medium text-mist">
+              {lang === "JP" ? "表示テーマ" : "Theme / モード"}
+            </span>
+            <div className="flex items-center rounded-full border border-white/15 bg-white/10 p-0.5">
+              <button
+                onClick={() => setTheme("light")}
+                className={cn(
+                  "flex items-center gap-1.5 rounded-full px-3 py-1 font-inter text-[11px] font-bold transition-all",
+                  !isDark ? "bg-crimson text-white shadow-xs" : "text-white/60 hover:text-white"
+                )}
+              >
+                <Sun className="h-3.5 w-3.5" />
+                <span>Light</span>
+              </button>
+              <button
+                onClick={() => setTheme("dark")}
+                className={cn(
+                  "flex items-center gap-1.5 rounded-full px-3 py-1 font-inter text-[11px] font-bold transition-all",
+                  isDark ? "bg-crimson text-white shadow-xs" : "text-white/60 hover:text-white"
+                )}
+              >
+                <Moon className="h-3.5 w-3.5" />
+                <span>Dark</span>
+              </button>
+            </div>
+          </div>
+
           {/* Mobile lang toggle */}
           <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-3">
             <span className="font-inter text-xs font-medium text-mist">Language / 言語</span>
@@ -214,6 +278,7 @@ export function Navbar() {
               ))}
             </div>
           </div>
+
           <Link
             href="/auth/brochure"
             onClick={() => setOpen(false)}

@@ -700,3 +700,108 @@ section[id] { scroll-margin-top: 80px; }
   .reveal, .reveal-left, .reveal-right { opacity: 1 !important; transform: none !important; }
 }
 
+/* ============================================================
+   DARK THEME COMPREHENSIVE AUTOMATION & ELEVATION
+   ============================================================ */
+.dark {
+  color-scheme: dark;
+}
+
+.dark body {
+  background-color: #080f1a;
+  color: #f5f0e8;
+}
+
+/* Base surface overrides in dark mode */
+.dark .bg-ivory {
+  background-color: #080f1a !important;
+}
+
+.dark .bg-ivory-warm {
+  background-color: #0d1b2a !important;
+}
+
+.dark .bg-pearl {
+  background-color: #0d1b2a !important;
+}
+
+/* Light cards automatically switch to sleek midnight cards */
+.dark .luxury-light-card {
+  background: #0d1b2a !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+}
+
+.dark .luxury-light-card:hover {
+  border-color: rgba(188, 26, 44, 0.45) !important;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.7), 0 0 25px rgba(188, 26, 44, 0.15) !important;
+}
+
+/* Text ink overrides */
+.dark .text-ink {
+  color: #f5f0e8 !important;
+}
+
+.dark .text-ink\/90 {
+  color: rgba(245, 240, 232, 0.9) !important;
+}
+
+.dark .text-ink\/80 {
+  color: rgba(245, 240, 232, 0.8) !important;
+}
+
+.dark .text-ink\/70 {
+  color: rgba(245, 240, 232, 0.7) !important;
+}
+
+.dark .text-ink\/60 {
+  color: #94a3b8 !important;
+}
+
+.dark .text-ink\/50,
+.dark .text-ink\/40 {
+  color: #64748b !important;
+}
+
+.dark .text-slate-800,
+.dark .text-slate-700 {
+  color: #cbd5e1 !important;
+}
+
+.dark .text-slate-600 {
+  color: #94a3b8 !important;
+}
+
+.dark .text-slate-500 {
+  color: #64748b !important;
+}
+
+/* Border overrides */
+.dark .border-slate-100,
+.dark .border-slate-200,
+.dark .border-slate-300 {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Pattern overrides */
+.dark .pattern-asanoha-light {
+  background-color: #080f1a !important;
+  background-image:
+    linear-gradient(45deg, transparent 47.5%, rgba(232, 160, 26, 0.05) 47.5%, rgba(232, 160, 26, 0.05) 52.5%, transparent 52.5%),
+    linear-gradient(-45deg, transparent 47.5%, rgba(245, 240, 232, 0.04) 47.5%, rgba(245, 240, 232, 0.04) 52.5%, transparent 52.5%) !important;
+}
+
+.dark .glass-light {
+  background: rgba(13, 27, 42, 0.85) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #080f1a;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  border-color: #080f1a;
+}
+
+

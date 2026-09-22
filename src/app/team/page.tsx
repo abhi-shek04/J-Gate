@@ -25,28 +25,34 @@ const ADVISORY_ROW_1 = [
     id: "mahankali",
     name: "Srinivas Rao Mahankali (MSR)",
     jpName: "スリニヴァス・ラオ・マハンカリ",
-    title: "Former CEO, T-Hub",
-    desc: "Spearheaded world's largest startup incubator. Decades of enterprise leadership across global IT corridors.",
+    title: "Former CEO, T-Hub | IT Enterprise Leader",
+    desc: "Spearheaded the world's largest startup incubator. Decades of enterprise leadership across global IT corridors and startup innovation.",
     image: "/advisory/mahankali.png",
     badge: "T-HUB LEADERSHIP",
+    tags: ["Startup Incubation", "Enterprise IT", "Global Corridors"],
+    linkedin: "https://www.linkedin.com/in/mahankali-srinivas-rao-msr-3112662/",
   },
   {
     id: "jagirdar",
     name: "Sujit Jagirdar",
     jpName: "スジット・ジャギルダー",
-    title: "Former CIO, T-Hub",
-    desc: "Key strategist behind Telangana's innovation architecture and cross-border incubation alliances.",
+    title: "Former CIO, T-Hub | Innovation Ecosystem Strategist",
+    desc: "Key strategist behind Telangana's innovation architecture and cross-border incubation alliances between India and global markets.",
     image: "/advisory/jagirdar.png",
     badge: "INNOVATION ARCHITECT",
+    tags: ["Innovation Strategy", "Cross-Border Alliances", "Ecosystem Architecture"],
+    linkedin: "https://www.linkedin.com/in/sujitjagirdar/",
   },
   {
     id: "desai",
     name: "Dr. Uday B. Desai",
     jpName: "ウダイ・B・デサイ博士",
-    title: "Founding Director, IIT Hyderabad",
-    desc: "Pioneered Japan-India academic collaboration and deep-tech talent pipelines across semiconductor & AI.",
+    title: "Founding Director, IIT Hyderabad | Academic Leader",
+    desc: "Pioneered Japan-India academic collaboration and deep-tech talent pipelines across semiconductor, wireless communications, and AI.",
     image: "/advisory/desai.png",
     badge: "IIT FOUNDING DIRECTOR",
+    tags: ["Academic Leadership", "Semiconductor & AI", "Deep-Tech Pipelines"],
+    linkedin: "https://www.linkedin.com/in/uday-desai-4752b04/",
   },
 ];
 
@@ -55,19 +61,23 @@ const ADVISORY_ROW_2 = [
     id: "sarikonda",
     name: "Dr. Viinay Sarikonda",
     jpName: "ヴィーナイ・サリコンダ博士",
-    title: "CEO, Genesys Info X",
+    title: "CEO, Genesys Info X | Bilateral Enterprise Strategist",
     desc: "Bilateral enterprise strategist driving digital transformation, MoU partnerships, and market entry for Japanese multinationals.",
     image: "/advisory/sarikonda.png",
     badge: "GENESYS INFO X",
+    tags: ["Digital Transformation", "MoU Partnerships", "Market Entry"],
+    linkedin: "https://www.linkedin.com/in/dr-viinay-sarikonda-5b23261a/",
   },
   {
     id: "isogai",
     name: "Tomio Isogai (磯貝 富雄)",
     jpName: "元シャープ・インディア社長",
-    title: "Indobox Advisor · Former MD, Sharp India",
-    desc: "Over 35 years directing Japanese manufacturing & consumer electronics in India. Dean of Indo-Japan corporate harmony.",
+    title: "Former MD, Sharp India | Indobox Corporate Advisor",
+    desc: "Over 35 years directing Japanese manufacturing & consumer electronics in India. Dean of Indo-Japan corporate harmony and cross-cultural synergy.",
     image: "/advisory/isogai.png",
     badge: "EX-SHARP INDIA MD",
+    tags: ["Corporate Advisory", "Manufacturing", "Bilateral Harmony"],
+    linkedin: "https://www.linkedin.com/in/tomio-isogai-416b9b16/",
   },
 ];
 
@@ -83,12 +93,15 @@ type OpsMember = {
   jpName: string;
   role: string;
   badge?: string;
+  subtitle: string;
   flag: string;
   country: string;
   phone?: string;
   email: string;
   image: string;
   desc: string;
+  tags: string[];
+  linkedin: string;
   languages: SpokenLanguage[];
 };
 
@@ -98,13 +111,16 @@ const OPS_TEAM: OpsMember[] = [
     id: "tanji",
     name: "Daisuke TANJI",
     jpName: "丹治 大佑",
-    role: "Director / CEO Indobox",
+    role: "DIRECTOR",
+    subtitle: "Bilateral Business Facilitator | Indobox Inc.",
     flag: "🇯🇵",
     country: "Japan",
     phone: "+91-9910360648",
     email: "contact@indobox.co.jp",
     image: "/team/tanji.png",
     desc: "Directs J-Gate's bilateral bridge, connecting Indian engineering powerhouses with Japanese corporate headquarters.",
+    tags: ["Business Strategy", "Career Placement", "Bilateral Relations"],
+    linkedin: "https://www.linkedin.com/in/daisuke-tanji-7749171b/",
     languages: [
       { EN: "Japanese", JP: "日本語", highlight: true },
       { EN: "English", JP: "英語" },
@@ -115,12 +131,15 @@ const OPS_TEAM: OpsMember[] = [
     id: "hanaoka",
     name: "Mariko HANAOKA",
     jpName: "花岡 真理子",
-    role: "Director / Language Lead",
+    role: "DIRECTOR",
+    subtitle: "Native Educator | 9+ Years Exp. in India",
     flag: "🇯🇵",
     country: "Japan",
     email: "contact@indobox.co.jp",
     image: "/team/hanaoka.png",
     desc: "Native Japanese educator leading business Japanese, JLPT/NAT curriculum, and cultural orientation programs.",
+    tags: ["Curriculum Design", "Pedagogy", "Cultural Orientation"],
+    linkedin: "https://www.linkedin.com/company/indobox/",
     languages: [
       { EN: "Japanese", JP: "日本語", highlight: true },
       { EN: "English", JP: "英語" },
@@ -132,14 +151,17 @@ const OPS_TEAM: OpsMember[] = [
     id: "dheeraj",
     name: "Dheeraj YANNETI",
     jpName: "ディラジ・ヤンネティ",
-    role: "Community Manager & Concierge Lead",
+    role: "COMMUNITY MANAGER",
     badge: "CONCIERGE LEAD",
+    subtitle: "Operations Head | Admissions Specialist",
     flag: "🇮🇳",
     country: "India",
     phone: "+91-98498 11543",
     email: "contact@indobox.co.jp",
     image: "/team/dheeraj.png",
     desc: "Manages day-to-day workspace operations, member admissions, bilingual concierge services, and enterprise client relations.",
+    tags: ["Operations", "Admissions", "Client Relations"],
+    linkedin: "https://www.linkedin.com/in/dheeraj-yanneti/",
     languages: [
       { EN: "Japanese", JP: "日本語", highlight: true },
       { EN: "English", JP: "英語" },
@@ -151,12 +173,15 @@ const OPS_TEAM: OpsMember[] = [
     id: "abhishek",
     name: "Abhishek BUDURU",
     jpName: "アブシェーク・ブドゥル",
-    role: "Intern / Tech Operations",
+    role: "TECH OPERATIONS",
+    subtitle: "Smart Access & IT Infrastructure Specialist",
     flag: "🇮🇳",
     country: "India",
     email: "contact@indobox.co.jp",
     image: "/team/abhishek.png",
     desc: "Oversees smart access infrastructure, IT facility support, and technology integrations across the Hyderabad hub.",
+    tags: ["Tech Support", "IT Infrastructure", "Smart Access"],
+    linkedin: "https://www.linkedin.com/in/abhishek-buduru/",
     languages: [
       { EN: "Japanese (N3)", JP: "日本語 (N3)", highlight: true },
       { EN: "English", JP: "英語" },
@@ -217,44 +242,72 @@ export default function TeamPage() {
           </Reveal>
 
           {/* Row 1 — 3 Advisors across */}
-          <div className="mt-7 sm:mt-10 lg:mt-12 grid gap-4 sm:gap-6 md:grid-cols-3">
+          <div className="mt-7 sm:mt-10 lg:mt-12 grid gap-5 sm:gap-6 md:grid-cols-3">
             {ADVISORY_ROW_1.map((adv, i) => (
               <Reveal key={adv.id} delay={i * 90}>
-                <article className="luxury-glass-card card-sheen lift-card-dark group relative flex h-full flex-col overflow-hidden rounded-2xl sm:rounded-3xl border border-white/15 bg-gradient-to-b from-white/[0.08] to-white/[0.03] p-4 sm:p-6 lg:p-7 shadow-2xl backdrop-blur-xl transition-all duration-300 hover:border-saffron/60 hover:shadow-[0_0_36px_rgba(232,160,26,0.25)]">
+                <article className="luxury-glass-card card-sheen lift-card-dark group relative flex h-full flex-col justify-between items-center overflow-hidden rounded-2xl sm:rounded-3xl border border-white/15 bg-gradient-to-b from-white/[0.08] to-white/[0.03] p-5 sm:p-6 lg:p-7 text-center shadow-2xl backdrop-blur-xl transition-all duration-300 hover:border-saffron/60 hover:shadow-[0_0_36px_rgba(232,160,26,0.25)]">
                   {/* Top gold accent line */}
-                  <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-saffron via-saffron-light to-transparent opacity-90" />
+                  <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-saffron via-saffron-light to-transparent opacity-90" />
 
-                  {/* Header: Squircle Portrait + Executive Title */}
-                  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3.5 sm:gap-4.5">
-                    <div className="relative shrink-0">
-                      <div className="h-20 w-20 sm:h-28 sm:w-28 rounded-xl sm:rounded-2xl overflow-hidden border-2 border-saffron/50 bg-navy/80 shadow-xl transition-transform duration-300 group-hover:scale-105 group-hover:border-saffron">
-                        <img
-                          src={adv.image}
-                          alt={adv.name}
-                          className="h-full w-full object-cover object-top"
-                          loading="lazy"
-                        />
-                      </div>
-                    </div>
-                    <div className="min-w-0 flex-1 text-center sm:text-left">
-                      <span className="inline-block rounded-full border border-saffron/40 bg-saffron/15 px-2.5 py-0.5 font-inter text-[9px] sm:text-[9.5px] font-bold uppercase tracking-wider text-saffron shadow-sm">
-                        {adv.badge}
-                      </span>
-                      <h3 className="mt-1.5 sm:mt-2 font-serif-jp text-[16px] sm:text-[18px] font-bold leading-snug text-white group-hover:text-saffron-light transition-colors">
-                        {adv.name}
-                      </h3>
-                      <p className="font-sans-jp text-[11.5px] sm:text-[12px] text-mist/90 mt-0.5">{adv.jpName}</p>
-                      <p className="mt-1.5 sm:mt-2 font-inter text-[12px] sm:text-[13px] font-bold text-saffron">
-                        {adv.title}
-                      </p>
+                  {/* Circular Portrait */}
+                  <div className="relative">
+                    <div className="h-28 w-28 rounded-full overflow-hidden border-2 border-saffron/50 bg-navy/80 shadow-xl transition-transform duration-300 group-hover:scale-105 group-hover:border-saffron mx-auto">
+                      <img
+                        src={adv.image}
+                        alt={adv.name}
+                        className="h-full w-full object-cover object-top"
+                        loading="lazy"
+                      />
                     </div>
                   </div>
 
+                  {/* Role Eyebrow */}
+                  <span className="mt-4 font-inter text-[11px] font-bold uppercase tracking-widest text-saffron">
+                    {adv.badge}
+                  </span>
+
+                  {/* Executive Name */}
+                  <h3 className="mt-1 font-serif-jp text-[18px] sm:text-[19px] font-bold text-white group-hover:text-saffron-light transition-colors leading-tight">
+                    {adv.name}
+                  </h3>
+                  <p className="mt-0.5 font-sans-jp text-[11.5px] text-mist/90">{adv.jpName}</p>
+
+                  {/* Subtitle / Headline with Pipe Dividers */}
+                  <p className="mt-2 font-inter text-[12px] sm:text-[12.5px] font-semibold text-saffron leading-snug">
+                    {adv.title}
+                  </p>
+
                   {/* Body Content */}
-                  <div className="mt-3.5 sm:mt-5 flex flex-1 flex-col border-t border-white/[0.1] pt-3 sm:pt-4">
-                    <p className="flex-1 font-inter text-[12px] sm:text-[13px] leading-relaxed text-slate-300">
-                      {adv.desc}
-                    </p>
+                  <p className="mt-2.5 font-inter text-[12px] sm:text-[12.5px] leading-relaxed text-slate-300 flex-1">
+                    {adv.desc}
+                  </p>
+
+                  {/* Skill / Domain Pill Tags */}
+                  <div className="mt-4 flex flex-wrap items-center justify-center gap-1.5 w-full">
+                    {adv.tags.map((tag, ti) => (
+                      <span
+                        key={ti}
+                        className="rounded px-2.5 py-1 font-inter text-[10px] sm:text-[10.5px] font-semibold bg-white/10 border border-white/15 text-slate-200"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Bottom Action: in CONNECT */}
+                  <div className="mt-4 pt-3.5 border-t border-white/10 w-full flex items-center justify-center">
+                    <a
+                      href={adv.linkedin || "#"}
+                      target={adv.linkedin ? "_blank" : undefined}
+                      rel={adv.linkedin ? "noopener noreferrer" : undefined}
+                      onClick={adv.linkedin ? undefined : (e) => e.preventDefault()}
+                      className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-white/20 bg-white/10 px-3.5 py-1.5 font-inter text-[11px] font-bold uppercase tracking-wider text-slate-200 hover:border-saffron hover:bg-saffron/20 hover:text-saffron transition-all shadow-sm"
+                    >
+                      <span className="flex h-4 w-4 items-center justify-center rounded bg-[#0A66C2] text-white text-[9px] font-black">
+                        in
+                      </span>
+                      <span>CONNECT</span>
+                    </a>
                   </div>
                 </article>
               </Reveal>
@@ -262,44 +315,72 @@ export default function TeamPage() {
           </div>
 
           {/* Row 2 — 2 Advisors centered */}
-          <div className="mt-4 sm:mt-6 grid gap-4 sm:gap-6 md:grid-cols-2 lg:mx-auto lg:max-w-4xl">
+          <div className="mt-5 sm:mt-6 grid gap-5 sm:gap-6 md:grid-cols-2 lg:mx-auto lg:max-w-4xl">
             {ADVISORY_ROW_2.map((adv, i) => (
               <Reveal key={adv.id} delay={300 + i * 90}>
-                <article className="luxury-glass-card card-sheen lift-card-dark group relative flex h-full flex-col overflow-hidden rounded-2xl sm:rounded-3xl border border-white/15 bg-gradient-to-b from-white/[0.08] to-white/[0.03] p-4 sm:p-6 lg:p-7 shadow-2xl backdrop-blur-xl transition-all duration-300 hover:border-saffron/60 hover:shadow-[0_0_36px_rgba(232,160,26,0.25)]">
+                <article className="luxury-glass-card card-sheen lift-card-dark group relative flex h-full flex-col justify-between items-center overflow-hidden rounded-2xl sm:rounded-3xl border border-white/15 bg-gradient-to-b from-white/[0.08] to-white/[0.03] p-5 sm:p-6 lg:p-7 text-center shadow-2xl backdrop-blur-xl transition-all duration-300 hover:border-saffron/60 hover:shadow-[0_0_36px_rgba(232,160,26,0.25)]">
                   {/* Top gold accent line */}
-                  <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-saffron via-saffron-light to-transparent opacity-90" />
+                  <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-saffron via-saffron-light to-transparent opacity-90" />
 
-                  {/* Header: Squircle Portrait + Executive Title */}
-                  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3.5 sm:gap-4.5">
-                    <div className="relative shrink-0">
-                      <div className="h-20 w-20 sm:h-28 sm:w-28 rounded-xl sm:rounded-2xl overflow-hidden border-2 border-saffron/50 bg-navy/80 shadow-xl transition-transform duration-300 group-hover:scale-105 group-hover:border-saffron">
-                        <img
-                          src={adv.image}
-                          alt={adv.name}
-                          className="h-full w-full object-cover object-top"
-                          loading="lazy"
-                        />
-                      </div>
-                    </div>
-                    <div className="min-w-0 flex-1 text-center sm:text-left">
-                      <span className="inline-block rounded-full border border-saffron/40 bg-saffron/15 px-2.5 py-0.5 font-inter text-[9px] sm:text-[9.5px] font-bold uppercase tracking-wider text-saffron shadow-sm">
-                        {adv.badge}
-                      </span>
-                      <h3 className="mt-1.5 sm:mt-2 font-serif-jp text-[16px] sm:text-[18px] font-bold leading-snug text-white group-hover:text-saffron-light transition-colors">
-                        {adv.name}
-                      </h3>
-                      <p className="font-sans-jp text-[11.5px] sm:text-[12px] text-mist/90 mt-0.5">{adv.jpName}</p>
-                      <p className="mt-1.5 sm:mt-2 font-inter text-[12px] sm:text-[13px] font-bold text-saffron">
-                        {adv.title}
-                      </p>
+                  {/* Circular Portrait */}
+                  <div className="relative">
+                    <div className="h-28 w-28 rounded-full overflow-hidden border-2 border-saffron/50 bg-navy/80 shadow-xl transition-transform duration-300 group-hover:scale-105 group-hover:border-saffron mx-auto">
+                      <img
+                        src={adv.image}
+                        alt={adv.name}
+                        className="h-full w-full object-cover object-top"
+                        loading="lazy"
+                      />
                     </div>
                   </div>
 
+                  {/* Role Eyebrow */}
+                  <span className="mt-4 font-inter text-[11px] font-bold uppercase tracking-widest text-saffron">
+                    {adv.badge}
+                  </span>
+
+                  {/* Executive Name */}
+                  <h3 className="mt-1 font-serif-jp text-[18px] sm:text-[19px] font-bold text-white group-hover:text-saffron-light transition-colors leading-tight">
+                    {adv.name}
+                  </h3>
+                  <p className="mt-0.5 font-sans-jp text-[11.5px] text-mist/90">{adv.jpName}</p>
+
+                  {/* Subtitle / Headline with Pipe Dividers */}
+                  <p className="mt-2 font-inter text-[12px] sm:text-[12.5px] font-semibold text-saffron leading-snug">
+                    {adv.title}
+                  </p>
+
                   {/* Body Content */}
-                  <div className="mt-3.5 sm:mt-5 flex flex-1 flex-col border-t border-white/[0.1] pt-3 sm:pt-4">
-                    <p className="flex-1 font-inter text-[12px] sm:text-[13px] leading-relaxed text-slate-300">
-                      {adv.desc}
-                    </p>
+                  <p className="mt-2.5 font-inter text-[12px] sm:text-[12.5px] leading-relaxed text-slate-300 flex-1">
+                    {adv.desc}
+                  </p>
+
+                  {/* Skill / Domain Pill Tags */}
+                  <div className="mt-4 flex flex-wrap items-center justify-center gap-1.5 w-full">
+                    {adv.tags.map((tag, ti) => (
+                      <span
+                        key={ti}
+                        className="rounded px-2.5 py-1 font-inter text-[10px] sm:text-[10.5px] font-semibold bg-white/10 border border-white/15 text-slate-200"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Bottom Action: in CONNECT */}
+                  <div className="mt-4 pt-3.5 border-t border-white/10 w-full flex items-center justify-center">
+                    <a
+                      href={adv.linkedin || "#"}
+                      target={adv.linkedin ? "_blank" : undefined}
+                      rel={adv.linkedin ? "noopener noreferrer" : undefined}
+                      onClick={adv.linkedin ? undefined : (e) => e.preventDefault()}
+                      className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-white/20 bg-white/10 px-3.5 py-1.5 font-inter text-[11px] font-bold uppercase tracking-wider text-slate-200 hover:border-saffron hover:bg-saffron/20 hover:text-saffron transition-all shadow-sm"
+                    >
+                      <span className="flex h-4 w-4 items-center justify-center rounded bg-[#0A66C2] text-white text-[9px] font-black">
+                        in
+                      </span>
+                      <span>CONNECT</span>
+                    </a>
                   </div>
                 </article>
               </Reveal>
@@ -311,12 +392,12 @@ export default function TeamPage() {
       {/* ════════════════════════════════════════════════════════════
           2. ARCHITECTURAL DIVIDER
          ════════════════════════════════════════════════════════════ */}
-      <div className="relative h-14 overflow-hidden bg-ivory">
+      <div className="relative h-14 overflow-hidden bg-ivory dark:bg-[#0c1424]">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-crimson/40 to-transparent" />
         <div className="flex h-full items-center justify-center">
           <div className="flex items-center gap-3">
             <span className="h-px w-20 bg-crimson/30" />
-            <span className="font-serif-jp text-[11.5px] font-bold uppercase tracking-widest text-crimson">
+            <span className="font-serif-jp text-[11.5px] font-bold uppercase tracking-widest text-crimson dark:text-rose-400">
               {tx({ EN: "OPERATIONS & EXECUTION · 運営体制", JP: "運営・執行体制 · OPERATIONS" })}
             </span>
             <span className="h-px w-20 bg-crimson/30" />
@@ -327,19 +408,19 @@ export default function TeamPage() {
       {/* ════════════════════════════════════════════════════════════
           3. OPERATIONS TEAM — 4-Card Executive Grid (Warm Ivory)
          ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad bg-ivory">
+      <section className="section-pad bg-ivory dark:bg-[#0c1424]">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
               <Eyebrow>{tx({ EN: "Operations & On-Ground Team", JP: "現地運営チーム" })}</Eyebrow>
               <h2
-                className="mt-3 font-serif-jp font-bold text-ink"
+                className="mt-3 font-serif-jp font-bold text-ink dark:text-white"
                 style={{ fontSize: "clamp(1.875rem, 3.8vw, 2.75rem)" }}
               >
                 {tx({ EN: "Organizing & Execution Team", JP: "J-Gate 運営チーム" })}
               </h2>
               <p
-                className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-slate"
+                className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300"
                 style={{ fontSize: "clamp(0.95rem, 1.4vw, 1.05rem)" }}
               >
                 {tx({
@@ -350,27 +431,27 @@ export default function TeamPage() {
             </div>
           </Reveal>
 
-          {/* 4 Profile Cards across */}
-          <div className="mt-7 sm:mt-10 lg:mt-12 grid grid-cols-1 gap-4 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {/* 4 Profile Cards across matching reference */}
+          <div className="mt-7 sm:mt-10 lg:mt-12 grid grid-cols-1 gap-5 sm:gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {OPS_TEAM.map((m, i) => {
               const isDheeraj = m.id === "dheeraj";
               return (
                 <Reveal key={m.id} delay={i * 80}>
                   <article
                     id={isDheeraj ? "team-dheeraj" : undefined}
-                    className={`luxury-light-card card-sheen gold-hairline group flex h-full flex-col items-center rounded-2xl sm:rounded-3xl border bg-white p-4 sm:p-6 lg:p-7 text-center shadow-card transition-all duration-300 hover:shadow-2xl ${
+                    className={`luxury-light-card card-sheen group relative flex h-full flex-col justify-between items-center rounded-2xl sm:rounded-3xl border bg-white dark:bg-[#101a2c] p-5 sm:p-6 lg:p-7 text-center shadow-card transition-all duration-300 hover:shadow-2xl ${
                       isDheeraj
-                        ? "border-saffron ring-2 ring-saffron/30 hover:border-saffron shadow-lg shadow-saffron/10"
-                        : "border-slate-200/90 hover:border-crimson/40"
+                        ? "border-saffron/90 dark:border-saffron/60 ring-2 ring-saffron/20 hover:border-saffron shadow-lg shadow-saffron/5"
+                        : "border-slate-200/90 dark:border-white/10 hover:border-crimson/40 dark:hover:border-crimson/50"
                     }`}
                   >
-                    {/* Modern Squircle Portrait with Crisp Country Badge */}
-                    <div className="relative w-full max-w-[140px] sm:max-w-[190px]">
+                    {/* Top Circular Portrait with Flag Badge */}
+                    <div className="relative">
                       <div
-                        className={`aspect-square w-full overflow-hidden rounded-2xl border-2 bg-slate-50 shadow-md transition-all duration-300 group-hover:scale-105 ${
+                        className={`h-28 w-28 rounded-full overflow-hidden border-2 bg-slate-50 dark:bg-white/5 shadow-md mx-auto transition-transform duration-300 group-hover:scale-105 ${
                           isDheeraj
                             ? "border-saffron group-hover:border-saffron"
-                            : "border-slate-200/80 group-hover:border-crimson/50"
+                            : "border-slate-200/90 dark:border-white/20 group-hover:border-crimson/60"
                         }`}
                       >
                         <img
@@ -382,81 +463,105 @@ export default function TeamPage() {
                       </div>
 
                       {/* Flag Tag */}
-                      <span className="absolute bottom-2 right-2 sm:bottom-2.5 sm:right-2.5 flex items-center gap-1 rounded-full bg-white/95 px-2 py-0.5 sm:px-2.5 text-[10px] sm:text-[11px] font-bold text-slate-700 shadow-md border border-slate-200/80 backdrop-blur-sm">
+                      <span className="absolute bottom-0 right-0 flex items-center gap-1 rounded-full bg-white/95 dark:bg-navy/95 px-2 py-0.5 text-[10px] font-bold text-slate-700 dark:text-slate-200 shadow-md border border-slate-200/80 dark:border-white/15 backdrop-blur-sm">
                         <span>{m.flag}</span>
-                        <span className="text-[9px] sm:text-[10px] tracking-wide uppercase font-inter">{m.country}</span>
+                        <span className="text-[9px] tracking-wide uppercase font-inter">{m.country}</span>
                       </span>
 
                       {/* Spotlight Concierge Lead Badge for Dheeraj */}
                       {isDheeraj && (
-                        <span className="absolute top-2 left-2 sm:top-2.5 sm:left-2.5 flex items-center gap-1 rounded-full bg-saffron px-2 py-0.5 sm:px-2.5 text-[9px] sm:text-[9.5px] font-bold text-ink shadow-md border border-saffron-dark/20 uppercase tracking-wider font-inter animate-pulse">
-                          <Sparkles className="h-2.5 w-2.5 sm:h-3 sm:w-3 text-ink" />
+                        <span className="absolute -top-2 left-1/2 -translate-x-1/2 flex items-center gap-1 rounded-full bg-saffron px-2.5 py-0.5 text-[9px] font-bold text-ink shadow-md border border-saffron-dark/20 uppercase tracking-wider font-inter">
+                          <Sparkles className="h-2.5 w-2.5 text-ink" />
                           <span>{m.badge}</span>
                         </span>
                       )}
                     </div>
 
-                    {/* Name & Titles */}
-                    <h3 className="mt-3 sm:mt-4 font-serif-jp text-[16px] sm:text-[18px] font-bold leading-tight text-ink group-hover:text-crimson transition-colors">
-                      {m.name}
-                    </h3>
-                    <p className="mt-0.5 font-sans-jp text-[11.5px] sm:text-[12px] font-semibold text-slate-500">
-                      {m.jpName}
-                    </p>
+                    {/* Role Eyebrow */}
                     <span
-                      className={`mt-2 sm:mt-2.5 inline-flex rounded-full px-3 py-0.5 sm:px-3.5 sm:py-1 font-inter text-[10.5px] sm:text-[11px] font-bold shadow-sm ${
-                        isDheeraj
-                          ? "bg-saffron/20 text-saffron-dark border border-saffron/40"
-                          : "bg-crimson/10 text-crimson border border-crimson/20"
+                      className={`mt-4 font-inter text-[11px] font-bold uppercase tracking-widest ${
+                        isDheeraj ? "text-saffron-dark dark:text-saffron" : "text-crimson dark:text-rose-400"
                       }`}
                     >
                       {m.role}
                     </span>
 
-                    {/* Spoken Languages Strip */}
-                    <div className="mt-2.5 sm:mt-3.5 w-full rounded-xl sm:rounded-2xl bg-slate-50/90 border border-slate-200/70 p-2 sm:p-2.5">
-                      <div className="flex items-center justify-center gap-1.5 font-inter text-[9.5px] sm:text-[10px] font-bold uppercase tracking-wider text-slate-500 mb-1 sm:mb-1.5">
-                        <Languages className="h-3 w-3 text-crimson" />
-                        <span>{tx({ EN: "Languages", JP: "対応言語" })}</span>
-                      </div>
-                      <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-1.5">
-                        {m.languages.map((lang, li) => (
-                          <span
-                            key={li}
-                            className={`inline-flex items-center rounded-md px-1.5 py-0.5 sm:px-2 font-inter text-[10px] sm:text-[10.5px] font-semibold transition-colors ${
-                              lang.highlight
-                                ? "bg-crimson/10 text-crimson border border-crimson/25 font-bold"
-                                : "bg-white text-slate-700 border border-slate-200/90 shadow-2xs"
-                            }`}
-                          >
-                            {tx(lang)}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
+                    {/* Executive Name */}
+                    <h3 className="mt-1 font-serif-jp text-[18px] sm:text-[19px] font-bold leading-tight text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400 transition-colors">
+                      {m.name}
+                    </h3>
+                    <p className="mt-0.5 font-sans-jp text-[11.5px] font-medium text-slate-500 dark:text-slate-400">
+                      {m.jpName}
+                    </p>
+
+                    {/* Subtitle / Headline with Pipe Dividers */}
+                    <p className="mt-2 font-inter text-[12px] sm:text-[12.5px] font-semibold text-slate-800 dark:text-slate-200 leading-snug">
+                      {m.subtitle}
+                    </p>
 
                     {/* Short Bio */}
-                    <p className="mt-2.5 sm:mt-3.5 flex-1 font-inter text-[12px] sm:text-[12.5px] leading-relaxed text-slate-600">
+                    <p className="mt-2.5 font-inter text-[12px] sm:text-[12.5px] leading-relaxed text-slate-600 dark:text-slate-300 flex-1">
                       {m.desc}
                     </p>
 
-                    {/* Direct Contact Links */}
-                    <div className="mt-3.5 sm:mt-5 w-full space-y-1.5 sm:space-y-2 border-t border-slate-100 pt-3 sm:pt-4 text-[11.5px] sm:text-[12px]">
+                    {/* Skill / Domain Pill Tags */}
+                    <div className="mt-4 flex flex-wrap items-center justify-center gap-1.5 w-full">
+                      {m.tags.map((tag, ti) => (
+                        <span
+                          key={ti}
+                          className="rounded px-2.5 py-1 font-inter text-[10px] sm:text-[10.5px] font-semibold bg-slate-100 dark:bg-white/5 border border-slate-200/70 dark:border-white/10 text-slate-600 dark:text-slate-300"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Spoken Languages Strip */}
+                    <div className="mt-3 flex flex-wrap items-center justify-center gap-1">
+                      {m.languages.map((lang, li) => (
+                        <span
+                          key={li}
+                          className={`inline-flex items-center rounded px-1.5 py-0.5 font-inter text-[9.5px] sm:text-[10px] font-semibold ${
+                            lang.highlight
+                              ? "bg-crimson/10 text-crimson dark:bg-rose-950/40 dark:text-rose-300 border border-crimson/20 dark:border-rose-400/30 font-bold"
+                              : "bg-slate-50 dark:bg-white/5 text-slate-500 dark:text-slate-400 border border-slate-200/50 dark:border-white/5"
+                          }`}
+                        >
+                          {tx(lang)}
+                        </span>
+                      ))}
+                    </div>
+
+                    {/* Direct Contact Links & in CONNECT */}
+                    <div className="mt-4 pt-3.5 border-t border-slate-100 dark:border-white/10 w-full flex items-center justify-center gap-2">
+                      {m.linkedin && (
+                        <a
+                          href={m.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-200/80 dark:border-white/15 bg-slate-50 dark:bg-white/5 px-3 py-1.5 font-inter text-[11px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 hover:border-[#0A66C2] hover:bg-[#0A66C2]/10 hover:text-[#0A66C2] dark:hover:text-[#388bfd] transition-all shadow-2xs"
+                        >
+                          <span className="flex h-3.5 w-3.5 items-center justify-center rounded bg-[#0A66C2] text-white text-[8.5px] font-black">
+                            in
+                          </span>
+                          <span>CONNECT</span>
+                        </a>
+                      )}
                       {m.phone && (
                         <a
                           href={`tel:${m.phone.replace(/[^0-9+]/g, "")}`}
-                          className="flex items-center justify-center gap-2 rounded-xl bg-slate-50 py-1.5 sm:py-2 px-2.5 sm:px-3 font-inter font-medium text-slate-700 transition-colors hover:bg-crimson/10 hover:text-crimson border border-slate-200/60 shadow-sm"
+                          className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200/80 dark:border-white/15 bg-slate-50 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:bg-crimson/10 hover:text-crimson dark:hover:text-rose-400 hover:border-crimson/30 transition-all shadow-2xs"
+                          title={m.phone}
                         >
-                          <Phone className="h-3.5 w-3.5 text-crimson" />
-                          <span>{m.phone}</span>
+                          <Phone className="h-3.5 w-3.5" />
                         </a>
                       )}
                       <a
                         href={`mailto:${m.email}`}
-                        className="flex items-center justify-center gap-2 rounded-xl bg-slate-50 py-1.5 sm:py-2 px-2.5 sm:px-3 font-inter font-medium text-slate-700 transition-colors hover:bg-crimson/10 hover:text-crimson border border-slate-200/60 shadow-sm"
+                        className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200/80 dark:border-white/15 bg-slate-50 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:bg-crimson/10 hover:text-crimson dark:hover:text-rose-400 hover:border-crimson/30 transition-all shadow-2xs"
+                        title={m.email}
                       >
-                        <Mail className="h-3.5 w-3.5 text-crimson" />
-                        <span>{m.email}</span>
+                        <Mail className="h-3.5 w-3.5" />
                       </a>
                     </div>
                   </article>

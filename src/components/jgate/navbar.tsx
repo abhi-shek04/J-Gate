@@ -60,21 +60,29 @@ export function Navbar() {
 
   // On auth page, navbar is transparent over dark content
   const isAuthPage = pathname === "/auth/brochure";
-  // Homepage hero is light mode when not in dark theme — navbar needs dark text when not scrolled
   const isHomePage = pathname === "/";
-  const useLightNav = isHomePage && !scrolled && !open && !isDark;
+  // Subpages have dark hero banner at top when not scrolled
+  const isSubPage = !isHomePage && !isAuthPage;
+  // Light navbar text only when in light mode and (scrolled or on homepage)
+  const useLightNavText = !isDark && (scrolled || isHomePage);
 
   return (
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled || isAuthPage || open
-          ? "glass-frost bg-[#080f1a]/95 shadow-xl border-b border-white/10"
-          : useLightNav
-            ? "bg-transparent"
-            : isDark
-              ? "bg-[#080f1a]/60 backdrop-blur-md border-b border-white/5"
-              : "bg-transparent"
+        open
+          ? isDark
+            ? "bg-[#0b111e]/98 border-b border-white/10 shadow-2xl"
+            : "bg-[#f5f0e8]/98 border-b border-slate-300/80 shadow-xl"
+          : scrolled
+            ? isDark
+              ? "bg-[#0b111e]/90 backdrop-blur-xl border-b border-white/10 shadow-2xl"
+              : "bg-[#f5f0e8]/92 backdrop-blur-xl border-b border-slate-300/80 shadow-md"
+            : isAuthPage
+              ? "bg-transparent"
+              : isDark
+                ? "bg-[#0b111e]/60 backdrop-blur-md border-b border-white/5"
+                : "bg-transparent"
       )}
     >
       <nav
@@ -101,10 +109,13 @@ export function Navbar() {
                 href={link.href}
                 className={cn(
                   "relative px-1.5 xl:px-2.5 py-1.5 font-inter text-[12.5px] xl:text-[13.5px] font-medium transition-colors whitespace-nowrap",
-                  useLightNav
-                    ? "text-ink/70 hover:text-ink"
-                    : "text-white/70 hover:text-white",
-                  isActive(link.href) && (useLightNav ? "text-ink font-semibold" : "text-white font-semibold")
+                  useLightNavText
+                    ? "text-slate-700 hover:text-ink"
+                    : "text-slate-300 hover:text-white",
+                  isActive(link.href) &&
+                    (useLightNavText
+                      ? "text-crimson font-bold"
+                      : "text-white font-bold")
                 )}
                 style={{ letterSpacing: "0.01em" }}
               >
@@ -125,8 +136,8 @@ export function Navbar() {
           {/* JP/EN language toggle — working pill switch */}
           <div className={cn(
             "flex items-center rounded-full border p-0.5 shrink-0 transition-colors",
-            useLightNav
-              ? "border-slate-300 bg-slate-100/60"
+            useLightNavText
+              ? "border-slate-300 bg-slate-200/60"
               : "border-white/15 bg-white/5"
           )}>
             {(["JP", "EN"] as const).map((l) => (
@@ -138,8 +149,8 @@ export function Navbar() {
                   "rounded-full px-2.5 py-1 font-inter text-[11px] font-bold transition-all",
                   lang === l
                     ? "bg-crimson text-white shadow-xs"
-                    : useLightNav
-                      ? "text-ink/60 hover:text-ink"
+                    : useLightNavText
+                      ? "text-slate-600 hover:text-ink"
                       : "text-white/60 hover:text-white"
                 )}
               >
@@ -156,8 +167,8 @@ export function Navbar() {
             title={isDark ? (lang === "JP" ? "ライトモードに切り替え" : "Switch to Light Mode") : (lang === "JP" ? "ダークモードに切り替え" : "Switch to Dark Mode")}
             className={cn(
               "flex h-8 w-8 items-center justify-center rounded-full border transition-all duration-200 active:scale-95 shrink-0 cursor-pointer",
-              useLightNav
-                ? "border-slate-300 bg-slate-100/70 text-ink hover:bg-slate-200/80 hover:text-crimson"
+              useLightNavText
+                ? "border-slate-300 bg-slate-100/80 text-slate-800 hover:bg-slate-200 hover:text-crimson shadow-xs"
                 : "border-white/15 bg-white/5 text-white/80 hover:bg-white/15 hover:text-white"
             )}
           >
@@ -187,15 +198,15 @@ export function Navbar() {
             className={cn(
               "inline-flex h-10 w-10 items-center justify-center rounded-xl border transition-all duration-200 lg:hidden shrink-0 active:scale-95",
               open
-                ? "bg-crimson/20 border-crimson/50 text-white shadow-xs"
-                : useLightNav
-                  ? "bg-ink/5 border-slate-300 text-ink hover:bg-ink/10"
+                ? "bg-crimson/20 border-crimson/50 text-crimson dark:text-white shadow-xs"
+                : useLightNavText
+                  ? "bg-slate-200/70 border-slate-300 text-slate-800 hover:bg-slate-300"
                   : "bg-white/10 border-white/20 text-white hover:bg-white/20"
             )}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
           >
-            {open ? <X className="h-5 w-5 text-white" /> : <Menu className={cn("h-5 w-5", useLightNav ? "text-ink" : "text-white")} />}
+            {open ? <X className="h-5 w-5 text-crimson dark:text-white" /> : <Menu className={cn("h-5 w-5", useLightNavText ? "text-slate-800" : "text-white")} />}
           </button>
         </div>
       </nav>
@@ -203,7 +214,8 @@ export function Navbar() {
       {/* Mobile full-screen drawer */}
       <div
         className={cn(
-          "fixed inset-x-0 top-[76px] bottom-0 z-40 overflow-y-auto bg-[#080f1a]/98 backdrop-blur-2xl transition-all duration-300 lg:hidden flex flex-col justify-between",
+          "fixed inset-x-0 top-[76px] bottom-0 z-40 overflow-y-auto backdrop-blur-2xl transition-all duration-300 lg:hidden flex flex-col justify-between",
+          isDark ? "bg-[#0b111e]/98 text-white" : "bg-[#f5f0e8]/98 text-ink",
           open ? "visible opacity-100 translate-y-0" : "invisible opacity-0 -translate-y-2 pointer-events-none"
         )}
       >
@@ -218,25 +230,38 @@ export function Navbar() {
                   className={cn(
                     "flex w-full items-center justify-between rounded-xl px-4 py-3 font-serif-jp text-[15.5px] font-medium transition-all duration-200 border",
                     active
-                      ? "bg-crimson/15 border-crimson/40 text-white font-bold"
-                      : "border-transparent text-white/80 hover:bg-white/5 hover:text-white"
+                      ? isDark
+                        ? "bg-crimson/15 border-crimson/40 text-white font-bold"
+                        : "bg-crimson/10 border-crimson/30 text-crimson font-bold"
+                      : isDark
+                        ? "border-transparent text-white/80 hover:bg-white/5 hover:text-white"
+                        : "border-transparent text-slate-700 hover:bg-slate-200/60 hover:text-ink"
                   )}
                 >
                   <span>{t(link.key)}</span>
-                  <span className={cn("h-2 w-2 rounded-full", active ? "bg-crimson" : "bg-white/20")} />
+                  <span className={cn("h-2 w-2 rounded-full", active ? "bg-crimson" : isDark ? "bg-white/20" : "bg-slate-300")} />
                 </Link>
               </li>
             );
           })}
         </ul>
 
-        <div className="container-jg flex flex-col gap-3 pb-8 pt-3 border-t border-white/10 bg-[#080f1a]/95 shrink-0">
+        <div className={cn(
+          "container-jg flex flex-col gap-3 pb-8 pt-3 border-t shrink-0",
+          isDark ? "border-white/10 bg-[#0b111e]/95" : "border-slate-300/80 bg-[#f5f0e8]/95"
+        )}>
           {/* Mobile theme toggle */}
-          <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-3">
-            <span className="font-inter text-xs font-medium text-mist">
+          <div className={cn(
+            "flex items-center justify-between rounded-xl border p-3",
+            isDark ? "border-white/10 bg-white/5" : "border-slate-300 bg-white/60"
+          )}>
+            <span className={cn("font-inter text-xs font-semibold", isDark ? "text-mist" : "text-slate-600")}>
               {lang === "JP" ? "表示テーマ" : "Theme / モード"}
             </span>
-            <div className="flex items-center rounded-full border border-white/15 bg-white/10 p-0.5">
+            <div className={cn(
+              "flex items-center rounded-full border p-0.5",
+              isDark ? "border-white/15 bg-white/10" : "border-slate-300 bg-slate-100"
+            )}>
               <button
                 onClick={() => setTheme("light")}
                 className={cn(
@@ -251,7 +276,7 @@ export function Navbar() {
                 onClick={() => setTheme("dark")}
                 className={cn(
                   "flex items-center gap-1.5 rounded-full px-3 py-1 font-inter text-[11px] font-bold transition-all",
-                  isDark ? "bg-crimson text-white shadow-xs" : "text-white/60 hover:text-white"
+                  isDark ? "bg-crimson text-white shadow-xs" : "text-slate-600 hover:text-ink"
                 )}
               >
                 <Moon className="h-3.5 w-3.5" />
@@ -261,16 +286,26 @@ export function Navbar() {
           </div>
 
           {/* Mobile lang toggle */}
-          <div className="flex items-center justify-between rounded-xl border border-white/10 bg-white/5 p-3">
-            <span className="font-inter text-xs font-medium text-mist">Language / 言語</span>
-            <div className="flex items-center rounded-full border border-white/15 bg-white/10 p-0.5">
+          <div className={cn(
+            "flex items-center justify-between rounded-xl border p-3",
+            isDark ? "border-white/10 bg-white/5" : "border-slate-300 bg-white/60"
+          )}>
+            <span className={cn("font-inter text-xs font-semibold", isDark ? "text-mist" : "text-slate-600")}>Language / 言語</span>
+            <div className={cn(
+              "flex items-center rounded-full border p-0.5",
+              isDark ? "border-white/15 bg-white/10" : "border-slate-300 bg-slate-100"
+            )}>
               {(["JP", "EN"] as const).map((l) => (
                 <button
                   key={l}
                   onClick={() => setLang(l)}
                   className={cn(
                     "rounded-full px-3 py-1 font-inter text-[11px] font-bold transition-all",
-                    lang === l ? "bg-crimson text-white shadow-xs" : "text-white/60 hover:text-white"
+                    lang === l
+                      ? "bg-crimson text-white shadow-xs"
+                      : isDark
+                        ? "text-white/60 hover:text-white"
+                        : "text-slate-600 hover:text-ink"
                   )}
                 >
                   {l}

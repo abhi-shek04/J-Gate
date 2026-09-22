@@ -294,7 +294,7 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════
           1. HERO — Light, Elegant, ivory/white, Torii watermark, subtle particles, 2 glass badges
          ════════════════════════════════════════════════════════════ */}
-      <section className="relative flex min-h-[68vh] sm:min-h-[80vh] items-center justify-center overflow-hidden bg-ivory dark:bg-[#060b13] py-10 sm:py-16 border-b border-slate-200/60 dark:border-white/10 transition-colors duration-300">
+      <section className="relative flex min-h-[68vh] sm:min-h-[80vh] items-center justify-center overflow-hidden bg-ivory dark:bg-[#0b111e] py-10 sm:py-16 border-b border-slate-200/60 dark:border-white/10 transition-colors duration-300">
         {/* Ambient warm gradient washes — light mode */}
         <div
           className="absolute inset-0 dark:hidden"

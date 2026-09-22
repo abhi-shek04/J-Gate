@@ -87,7 +87,7 @@ export default function RootLayout({
           <I18nProvider>
             <BrochureProvider>
               <LightboxProvider>
-                <div className="flex min-h-screen flex-col bg-ivory dark:bg-[#080f1a] transition-colors duration-300">
+                <div className="flex min-h-screen flex-col bg-ivory dark:bg-[#0b111e] transition-colors duration-300">
                   <Navbar />
                   <main className="flex-1">{children}</main>
                   <Footer />

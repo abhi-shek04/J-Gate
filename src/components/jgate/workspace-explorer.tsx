@@ -170,7 +170,7 @@ export function WorkspaceExplorer() {
                 className={`shrink-0 flex items-center gap-1.5 sm:gap-2 rounded-lg sm:rounded-xl px-3.5 py-2 sm:px-4 sm:py-2.5 font-inter text-[12px] sm:text-[13px] font-semibold transition-all duration-300 cursor-pointer ${
                   isActive
                     ? "bg-gradient-to-r from-crimson to-crimson-deep text-white shadow-md sm:shadow-lg shadow-crimson/30 scale-[1.02] sm:scale-105 tab-active-glow"
-                    : "bg-white dark:bg-slate-900/80 text-slate dark:text-slate-300 hover:bg-white/80 dark:hover:bg-slate-800 hover:text-ink dark:hover:text-white border border-slate-200/80 dark:border-white/10 shadow-xs hover:border-slate-300 dark:hover:border-white/20"
+                    : "bg-white dark:bg-[#132038] text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-[#182846] hover:text-ink dark:hover:text-white border border-slate-200/80 dark:border-white/12 shadow-xs hover:border-slate-300 dark:hover:border-white/25"
                 }`}
               >
                 <Icon className={`h-3.5 w-3.5 sm:h-4 sm:w-4 ${isActive ? "text-white" : "text-crimson dark:text-rose-400"}`} />
@@ -183,7 +183,7 @@ export function WorkspaceExplorer() {
         {/* Active Space Bento Preview Card */}
         <div className="mt-6 sm:mt-8 max-w-5xl mx-auto">
           <Reveal key={activeSpace.id} variant="scale">
-            <div className="luxury-light-card card-sheen gold-hairline overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#0c1424] shadow-xl p-4 sm:p-6 lg:p-8 hover:shadow-2xl transition-all duration-300">
+            <div className="luxury-light-card card-sheen gold-hairline overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white p-4 sm:p-6 lg:p-8 hover:shadow-2xl transition-all duration-300">
               <div className="grid lg:grid-cols-12 gap-5 sm:gap-8 items-center">
                 {/* Left: Photo with floating overlay badge */}
                 <div className="lg:col-span-6 relative">

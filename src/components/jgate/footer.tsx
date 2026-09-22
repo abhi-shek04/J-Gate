@@ -21,7 +21,7 @@ export function Footer() {
   const { t, tx, lang } = useI18n();
 
   return (
-    <footer className="relative mt-auto overflow-hidden border-t border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#04080e] text-ink dark:text-white transition-colors duration-300">
+    <footer className="relative mt-auto overflow-hidden border-t border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#070c16] text-ink dark:text-white transition-colors duration-300">
       <div className="container-jg relative py-10 sm:py-14 md:py-16">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-12 lg:gap-8 xl:gap-10">
           {/* Col 1 (3 cols) — Brand, Tagline & Socials */}

@@ -98,19 +98,19 @@ export function Footer() {
             </div>
 
             <div className="pt-1">
-              <span className="font-inter text-[10px] font-bold uppercase tracking-wider text-slate-400 block mb-2.5">
+              <span className="font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-3">
                 {tx({ EN: "AN INITIATIVE OF", JP: "共同事業・提携母体" })}
               </span>
-              <div className="flex flex-wrap items-center gap-4 sm:gap-5">
+              <div className="flex flex-wrap items-center gap-5 sm:gap-6">
                 <img
                   src="/logos/indobox.png"
                   alt="Indobox India"
-                  className="h-7 sm:h-8 w-auto object-contain"
+                  className="h-9 sm:h-10 md:h-11 w-auto max-w-[140px] object-contain"
                 />
                 <img
                   src="/logos/genesys-info-x.png"
                   alt="Genesys Info X"
-                  className="h-7 sm:h-8 w-auto object-contain"
+                  className="h-9 sm:h-10 md:h-11 w-auto max-w-[140px] object-contain"
                 />
               </div>
             </div>

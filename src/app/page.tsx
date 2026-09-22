@@ -69,7 +69,7 @@ function Particles() {
   );
 }
 
-/* Floating glass location badge (hero) */
+/* Floating luxury glass location & operator badge (hero) */
 function GlassBadge({
   icon: Icon,
   flag,
@@ -85,30 +85,47 @@ function GlassBadge({
   secondary: string;
   accent: "saffron" | "crimson" | "slate";
 }) {
-  const accentClass =
+  const accentBorder =
     accent === "saffron"
-      ? "text-saffron border-saffron/20"
+      ? "hover:border-saffron/60 border-saffron/30 dark:border-saffron/20"
       : accent === "crimson"
-        ? "text-crimson dark:text-rose-400 border-crimson/20 dark:border-rose-400/30"
-        : "text-slate dark:text-slate-300 border-slate-300 dark:border-white/20";
+      ? "hover:border-crimson/60 border-crimson/30 dark:border-rose-400/25"
+      : "hover:border-slate-400/60 border-slate-200/90 dark:border-white/15";
+
+  const primaryColor =
+    accent === "saffron"
+      ? "text-saffron-dark dark:text-saffron"
+      : accent === "crimson"
+      ? "text-crimson dark:text-rose-400"
+      : "text-slate-800 dark:text-white";
+
   return (
-    <div className="flex items-center gap-2 sm:gap-2.5 rounded-full px-3 py-1.5 sm:px-4 sm:py-2 border border-slate-200/80 dark:border-white/10 bg-white/90 dark:bg-[#101a2c]/90 backdrop-blur-md shadow-card transition-all duration-300 hover:scale-105 hover:shadow-lg max-w-[92vw] sm:max-w-none">
-      {imageSrc ? (
-        <img
-          src={imageSrc}
-          alt="Indobox"
-          className="h-4 w-4 sm:h-5 sm:w-5 object-contain shrink-0"
-        />
-      ) : flag ? (
-        <span className="shrink-0">{flag}</span>
-      ) : Icon ? (
-        <Icon className={`h-4 w-4 sm:h-4.5 sm:w-4.5 shrink-0 ${accentClass.split(" ")[0]}`} />
-      ) : null}
-      <div className="flex flex-col leading-tight text-left min-w-0">
-        <span className={`font-inter text-[11px] sm:text-[12px] font-bold truncate ${accentClass.split(" ")[0]}`} style={{ letterSpacing: "0.02em" }}>
+    <div
+      className={cn(
+        "luxury-light-card card-sheen group relative flex items-center gap-3.5 rounded-2xl px-5 py-3 sm:px-6 sm:py-3.5 bg-white/95 dark:bg-[#101a2c]/95 backdrop-blur-xl border shadow-lg shadow-slate-200/50 dark:shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl text-left",
+        accentBorder
+      )}
+    >
+      <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 shadow-2xs group-hover:scale-105 transition-transform duration-300">
+        {imageSrc ? (
+          <img
+            src={imageSrc}
+            alt="Indobox"
+            className="h-6 w-6 object-contain shrink-0"
+          />
+        ) : flag ? (
+          <span className="shrink-0 scale-110">{flag}</span>
+        ) : Icon ? (
+          <Icon className="h-5 w-5 text-crimson dark:text-rose-400 shrink-0" />
+        ) : null}
+      </div>
+      <div className="flex flex-col leading-tight min-w-0">
+        <span className={cn("font-serif-jp text-[13.5px] sm:text-[14.5px] font-bold tracking-tight truncate group-hover:text-crimson dark:group-hover:text-rose-400 transition-colors", primaryColor)}>
           {primary}
         </span>
-        <span className="font-inter text-[10px] sm:text-[11px] text-slate dark:text-slate-300 truncate">{secondary}</span>
+        <span className="mt-0.5 font-inter text-[11px] sm:text-[12px] font-medium text-slate-600 dark:text-slate-300 truncate">
+          {secondary}
+        </span>
       </div>
     </div>
   );
@@ -292,35 +309,40 @@ export default function HomePage() {
   return (
     <>
       {/* ════════════════════════════════════════════════════════════
-          1. HERO — Light, Elegant, ivory/white, Torii watermark, subtle particles, 2 glass badges
+          1. HERO — Ultra-Luxurious Japanese-Modern Executive Launchpad
          ════════════════════════════════════════════════════════════ */}
-      <section className="relative flex min-h-[68vh] sm:min-h-[80vh] items-center justify-center overflow-hidden bg-ivory dark:bg-[#0b111e] py-10 sm:py-16 border-b border-slate-200/60 dark:border-white/10 transition-colors duration-300">
-        {/* Ambient warm gradient washes — light mode */}
+      <section className="relative flex min-h-[82vh] sm:min-h-[88vh] items-center justify-center overflow-hidden bg-ivory dark:bg-[#0b111e] py-14 sm:py-24 border-b border-slate-200/60 dark:border-white/10 transition-colors duration-300">
+        {/* Ambient warm layered glows — Light & Dark */}
         <div
-          className="absolute inset-0 dark:hidden"
+          className="absolute inset-0 dark:hidden pointer-events-none"
           style={{
             background:
-              "linear-gradient(180deg, rgba(188,26,44,0.04) 0%, rgba(188,26,44,0.015) 40%, transparent 70%), radial-gradient(ellipse at 70% 50%, rgba(188,26,44,0.06) 0%, transparent 65%), radial-gradient(ellipse at 20% 80%, rgba(232,160,26,0.04) 0%, transparent 50%)",
+              "radial-gradient(ellipse at 50% -10%, rgba(232,160,26,0.18) 0%, transparent 60%), radial-gradient(ellipse at 85% 35%, rgba(188,26,44,0.08) 0%, transparent 55%), radial-gradient(ellipse at 15% 75%, rgba(188,26,44,0.06) 0%, transparent 50%), radial-gradient(ellipse at 50% 105%, rgba(232,160,26,0.08) 0%, transparent 60%)",
           }}
         />
-        {/* Ambient luxury obsidian radial glow — dark mode */}
         <div
           className="absolute inset-0 hidden dark:block pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse at 50% 15%, rgba(225,29,72,0.18) 0%, transparent 55%), radial-gradient(ellipse at 80% 50%, rgba(245,158,11,0.08) 0%, transparent 50%), radial-gradient(ellipse at 15% 85%, rgba(13,27,42,0.9) 0%, transparent 65%)",
+              "radial-gradient(ellipse at 50% -10%, rgba(225,29,72,0.22) 0%, transparent 55%), radial-gradient(ellipse at 85% 45%, rgba(245,158,11,0.09) 0%, transparent 50%), radial-gradient(ellipse at 15% 75%, rgba(13,27,42,0.95) 0%, transparent 65%)",
           }}
         />
+
+        {/* Floating subtle ambient glowing orbs */}
+        <div className="pointer-events-none absolute -top-16 left-1/4 h-72 w-72 rounded-full bg-saffron/12 dark:bg-rose-500/10 blur-3xl animate-float" />
+        <div className="pointer-events-none absolute top-1/3 -right-16 h-80 w-80 rounded-full bg-crimson/8 dark:bg-amber-500/10 blur-3xl animate-float-delay" />
+        <div className="pointer-events-none absolute -bottom-20 left-10 h-72 w-72 rounded-full bg-crimson/6 dark:bg-rose-600/10 blur-3xl animate-float-slow" />
+
         {/* Subtle asanoha texture overlay */}
-        <div className="absolute inset-0 pattern-asanoha-light opacity-40 dark:opacity-25" />
+        <div className="absolute inset-0 pattern-asanoha-light opacity-35 dark:opacity-20 pointer-events-none" />
         <ToriiWatermark
           className="torii-watermark"
-          style={{ width: "70vw", maxWidth: "780px", right: "0", top: "8%", opacity: 0.03 }}
+          style={{ width: "70vw", maxWidth: "780px", right: "0", top: "8%", opacity: 0.035 }}
         />
         <Particles />
 
         {/* Skyline silhouette — warm ivory tones / dark ambient */}
-        <div className="pointer-events-none absolute bottom-0 left-0 h-[30%] w-full opacity-30 dark:opacity-20">
+        <div className="pointer-events-none absolute bottom-0 left-0 h-[28%] w-full opacity-30 dark:opacity-20">
           <svg viewBox="0 0 1440 200" preserveAspectRatio="xMidYMax slice" className="h-full w-full" aria-hidden>
             <g className="fill-crimson/[0.06] dark:fill-white/[0.04]">
               <rect x="0" y="160" width="80" height="40" /><rect x="80" y="135" width="60" height="65" />
@@ -338,69 +360,72 @@ export default function HomePage() {
           </svg>
         </div>
         <div
-          className="pointer-events-none absolute bottom-0 left-0 h-[32%] w-full bg-gradient-to-b from-transparent via-ivory/60 to-ivory dark:via-midnight/60 dark:to-midnight"
+          className="pointer-events-none absolute bottom-0 left-0 h-[30%] w-full bg-gradient-to-b from-transparent via-ivory/60 to-ivory dark:via-[#0b111e]/60 dark:to-[#0b111e]"
         />
 
-        <div className="container-jg relative z-10 pt-10 pb-20 sm:pt-16 sm:pb-16 text-center">
-          {/* Eyebrow pill */}
+        <div className="container-jg relative z-10 pt-6 pb-16 sm:pt-10 sm:pb-20 text-center max-w-5xl mx-auto">
+          {/* 1. Eyebrow: HYDERABAD · CYBER GATEWAY */}
           <Reveal>
             <span
-              className="inline-flex items-center gap-2 rounded-full bg-crimson px-3.5 py-1 sm:px-4 sm:py-1.5 font-inter text-[11px] sm:text-[12px] font-semibold text-white shadow-[0_0_20px_rgba(188,26,44,0.4)]"
-              style={{ letterSpacing: "0.1em" }}
+              className="inline-flex items-center gap-2 rounded-full border border-crimson/25 dark:border-rose-400/30 bg-white/95 dark:bg-[#101a2c]/95 px-4 py-1.5 font-inter text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.14em] text-crimson dark:text-rose-400 shadow-card backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-lg"
             >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+              </span>
               <IndiaFlag className="h-3.5 w-5 rounded-[2px]" />
               <span>{tx({ EN: "HYDERABAD · CYBER GATEWAY", JP: "ハイデラバード・サイバーゲートウェイ" })}</span>
             </span>
           </Reveal>
 
-          {/* Pre-title */}
+          {/* 2. Pre-title: Japan × India Talent & Business Bridge */}
           <Reveal delay={80}>
-            <p
-              className="mt-5 font-inter text-[12px] font-semibold uppercase text-crimson dark:text-rose-400"
-              style={{ letterSpacing: "0.25em" }}
-            >
-              {t("hero.eyebrow")}
-            </p>
+            <div className="mt-5 sm:mt-6 flex items-center justify-center gap-2.5 font-inter text-[12px] sm:text-[13px] font-bold uppercase tracking-[0.24em] text-slate-700 dark:text-slate-300">
+              <span className="hidden sm:inline-block h-px w-8 bg-gradient-to-r from-transparent to-crimson/40 dark:to-rose-400/40" />
+              <span>Japan × India Talent &amp; Business Bridge</span>
+              <span className="hidden sm:inline-block h-px w-8 bg-gradient-to-l from-transparent to-crimson/40 dark:to-rose-400/40" />
+            </div>
           </Reveal>
 
-          {/* H1 — Noto Serif JP 900 */}
+          {/* 3. Main H1 Title: Birth of a Dedicated Working Hub for Japanese Companies */}
           <Reveal delay={140}>
             <h1
-              className="mx-auto mt-3 max-w-4xl font-serif-jp font-black leading-[1.18] text-ink dark:text-white"
-              style={{ fontSize: "clamp(1.9rem, 4.2vw, 3.1rem)" }}
+              className="mx-auto mt-4 max-w-4xl font-serif-jp font-black leading-[1.15] text-ink dark:text-white tracking-tight"
+              style={{ fontSize: "clamp(2.1rem, 4.8vw, 3.5rem)" }}
             >
-              {t("hero.title1")}
+              Birth of a Dedicated
               <br />
-              <span className="text-ink dark:text-white">Working Hub for </span>
-              <span className="text-gradient-crimson">Japanese Companies</span>
+              <span className="text-gradient-crimson">Working Hub for Japanese Companies</span>
             </h1>
           </Reveal>
 
-          {/* JP tagline */}
+          {/* 4. Japanese Tagline: 「日本企業専用のワーキングハブ誕生」 */}
           <Reveal delay={200}>
-            <p
-              className="mt-3 font-serif-jp font-medium text-crimson/85 dark:text-rose-300"
-              style={{ fontSize: "clamp(0.9rem, 1.35vw, 1.05rem)", letterSpacing: "0.05em" }}
-            >
-              {t("hero.jptag")}
-            </p>
+            <div className="mt-4 flex items-center justify-center">
+              <span className="inline-flex items-center gap-2 rounded-full bg-crimson/10 dark:bg-rose-950/50 border border-crimson/25 dark:border-rose-400/30 px-5 py-2 font-serif-jp text-[14px] sm:text-[16px] font-bold text-crimson dark:text-rose-300 tracking-wider shadow-sm backdrop-blur-sm">
+                <Sparkles className="h-3.5 w-3.5 text-saffron" />
+                <span>「日本企業専用のワーキングハブ誕生」</span>
+              </span>
+            </div>
           </Reveal>
 
-          {/* Body subtitle — catchphrase */}
+          {/* 5. Lead Description Paragraph */}
           <Reveal delay={260}>
             <p
-              className="mx-auto mt-3.5 max-w-[620px] font-inter font-normal leading-relaxed text-slate-600 dark:text-slate-300"
-              style={{ fontSize: "clamp(0.9rem, 1.25vw, 1.02rem)" }}
+              className="mx-auto mt-5 max-w-[680px] font-inter font-normal leading-relaxed text-slate-700 dark:text-slate-200 text-[14.5px] sm:text-[16px]"
             >
-              {t("hero.subtitle")}
+              {tx({
+                EN: "A dedicated co-working space at Cyber Gateway, Hyderabad for Japanese businesses. Dedicated desks, private cabins, resident Japan Desk support, and full office infrastructure to start operations smoothly in India.",
+                JP: "ハイデラバード・Cyber Gatewayに誕生した日本企業専用コワーキングスペース。専用デスク、個室キャビン、常駐ジャパンデスク、充実したオフィスインフラで、インド事業の円滑な立ち上げを包括支援。",
+              })}
             </p>
           </Reveal>
 
-          {/* 2 floating glass badges — Location + Operator */}
-          <Reveal delay={300}>
-            <div className="mt-6 sm:mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+          {/* 6. The 2 Floating Glass Badges: Telangana State & Indobox */}
+          <Reveal delay={320}>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-5">
               <GlassBadge
-                flag={<IndiaFlag className="h-3.5 w-5 rounded-[2px] shadow-xs" />}
+                flag={<IndiaFlag className="h-4 w-6 rounded-[2px] shadow-2xs" />}
                 primary={tx({ EN: "Telangana State", JP: "テランガナ州" })}
                 secondary={tx({ EN: "Hyderabad · Cyber Gateway", JP: "ハイデラバード・サイバーゲートウェイ" })}
                 accent="saffron"
@@ -411,6 +436,19 @@ export default function HomePage() {
                 secondary={tx({ EN: "Operator", JP: "運営" })}
                 accent="slate"
               />
+            </div>
+          </Reveal>
+
+          {/* 7. Primary Action Button: Discover J-Gate */}
+          <Reveal delay={380}>
+            <div className="mt-8 sm:mt-10 flex items-center justify-center">
+              <Link
+                href="/why-jgate"
+                className="btn-shine group inline-flex items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-crimson via-[#d32f2f] to-crimson-deep px-8 py-4 font-inter text-[14.5px] sm:text-[15.5px] font-bold text-white shadow-xl shadow-crimson/30 hover:shadow-2xl hover:shadow-crimson/50 hover:scale-[1.03] active:scale-[0.98] transition-all duration-300"
+              >
+                <span>{tx({ EN: "Discover J-Gate", JP: "J-Gate を詳しく見る" })}</span>
+                <ArrowRight className="h-4.5 w-4.5 transition-transform duration-300 group-hover:translate-x-1.5" />
+              </Link>
             </div>
           </Reveal>
         </div>
@@ -426,7 +464,6 @@ export default function HomePage() {
           <div className="relative h-6 w-px overflow-hidden bg-slate-300 dark:bg-white/20">
             <span className="animate-scroll-line absolute inset-0 block bg-crimson dark:bg-rose-400" />
           </div>
-          <ArrowDown className="h-3 w-3 text-slate dark:text-slate-400" />
         </div>
       </section>
 

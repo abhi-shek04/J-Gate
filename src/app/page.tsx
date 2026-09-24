@@ -131,177 +131,102 @@ function GlassBadge({
   );
 }
 
-/* Workspace feature card with high-craft icon pod, numerical indexing & sheen */
-function FeatureCard({
-  icon: Icon,
-  title,
-  desc,
-  delay,
-  index,
-}: {
-  icon: typeof Building2;
-  title: string;
-  desc: string;
-  delay: number;
-  index: number;
-}) {
-  const indexFormatted = String(index + 1).padStart(2, "0");
-  return (
-    <Reveal delay={delay} variant="scale">
-      <article className="luxury-light-card card-sheen smooth-lift group relative flex h-full flex-col justify-between rounded-xl sm:rounded-2xl p-4 sm:p-5 md:p-6 bg-white dark:bg-[#101a2c] border border-slate-200/90 dark:border-white/10 shadow-card dark:shadow-2xl hover:shadow-2xl hover:border-crimson/35 transition-all duration-300">
-        {/* Top subtle hairline accent */}
-        <span className="absolute inset-x-0 top-0 h-[2.5px] bg-gradient-to-r from-crimson via-saffron to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-        
-        <div>
-          <div className="flex items-center justify-between">
-            <div className="icon-pod h-10 w-10 sm:h-11 sm:w-11 shrink-0">
-              <Icon className="h-5 w-5 sm:h-5.5 sm:w-5.5" strokeWidth={1.75} />
-            </div>
-            <span className="font-mono text-[11px] sm:text-[12px] font-bold text-slate-400 group-hover:text-crimson transition-colors px-2 py-0.5 rounded-full bg-slate-50 dark:bg-white/5 border border-slate-200/60 dark:border-white/10">
-              {indexFormatted}
-            </span>
-          </div>
-          <h3 className="mt-3.5 sm:mt-4 font-serif-jp text-[15px] sm:text-[16px] font-bold leading-snug text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400 transition-colors">
-            {title}
-          </h3>
-          <p className="mt-2 text-[12.5px] sm:text-[13px] leading-relaxed text-slate-600 dark:text-slate-300">
-            {desc}
-          </p>
-        </div>
-      </article>
-    </Reveal>
-  );
-}
+
 
 export default function HomePage() {
   const { t, tx } = useI18n();
 
-  /* 3 Strategic Advantage Pillars — Simple, professional, grounded */
-  const advantagePillars = [
+  /* 3 Core Turnkey Capabilities — Clear, non-overlapping, punchy */
+  const coreAgenda = [
     {
       num: "01",
-      kanji: "基盤",
-      title: tx({ EN: "Ready-to-Use Operational Infrastructure", JP: "即日稼働の事業基盤" }),
-      body: tx({
-        EN: "Dedicated office space at Cyber Gateway, Hyderabad. Move in with high-speed internet, meeting rooms, lockable storage, registered address, and 24/7 security access without upfront renovation costs.",
-        JP: "Cyber Gateway（ハイデラバード）のオフィス環境を確保。高速光回線、会議室、施錠キャビネット、法人登記住所、24時間セキュリティを完備。",
+      kanji: "拠点",
+      icon: Building2,
+      badge: { EN: "Ready Workspace", JP: "即日利用オフィス" },
+      title: tx({ EN: "Plug-and-Play Hub at Cyber Gateway", JP: "Cyber Gateway 即日稼働オフィス" }),
+      desc: tx({
+        EN: "Dedicated desks, private suites, enterprise fiber internet, meeting suites, and 24/7 biometric security at HITEC City. Start operating on Day 1 without capital renovation costs or deposit delays.",
+        JP: "専用デスク、個室キャビン、高速光回線、会議室、24時間セキュリティを完備。初期内装投資や長期契約の負担なく、最短即日でインド拠点を立ち上げ可能です。",
       }),
+      highlights: [
+        { EN: "Dedicated Desks & 4–20 Pax Cabins", JP: "専用デスク・4〜20名個室" },
+        { EN: "Meeting Suites & Event Canteen", JP: "会議室・専用カフェテリア" },
+        { EN: "24/7 Security & High-Speed Wi-Fi", JP: "24時間生体認証・高速回線" },
+      ],
+      link: "/why-jgate",
+      linkLabel: { EN: "Explore Office Specs", JP: "オフィス詳細を見る" },
     },
     {
       num: "02",
       kanji: "伴走",
-      title: tx({ EN: "Resident Executive Japanese Advisory", JP: "現地常駐の日本人伴走体制" }),
-      body: tx({
-        EN: "Resident Japanese directors assist with everyday business questions, local partner introductions (accounting/legal), talent recruiting, and communication support in Japanese.",
-        JP: "現地拠点に日本人ディレクターが常駐。日々の業務相談、現地会計・法務専門家の紹介、人材採用、商談サポートを日本語で対応。",
+      icon: Sparkles,
+      badge: { EN: "100% Japanese", JP: "現地常駐・完全日本語" },
+      title: tx({ EN: "Resident Japan Desk & Daily Advisory", JP: "現地常駐日本人による日常相談" }),
+      desc: tx({
+        EN: "Resident Director Daisuke Tanji and bilingual specialists assist daily with business consultations, local partner vetting, contract reviews, and meeting translation in Japanese.",
+        JP: "現地代表・丹治をはじめとするスタッフが常駐。日々の業務相談（何でも相談）、現地会計・法務専門家の紹介、商談同行、通訳まで日本語で全面支援します。",
       }),
+      highlights: [
+        { EN: "Native Japanese Director On-Site", JP: "日本人ディレクター現地常駐" },
+        { EN: "Everyday Business Consultation", JP: "日々の実務相談・トラブル対応" },
+        { EN: "Vetted Accounting & Legal Introductions", JP: "現地提携専門家（法務・会計）紹介" },
+      ],
+      link: "/contact",
+      linkLabel: { EN: "Meet Resident Team", JP: "常駐チームに相談" },
     },
     {
       num: "03",
-      kanji: "共創",
-      title: tx({ EN: "Direct Institutional & Tech Ecosystem", JP: "政府・主要機関直結のエコシステム" }),
-      body: tx({
-        EN: "Partnerships with Telangana State Government, T-Hub innovation hub, and premier tech universities provide direct access to verified partners and technical talent.",
-        JP: "テランガナ州政府、イノベーション機関T-Hub、主要大学とのネットワークにより、信頼できる現地企業やIT人材へのアクセスを支援。",
-      }),
-    },
-  ];
-
-  /* 6 Turnkey Business Solutions — Clear, grounded, non-hyperbolic */
-  const features = [
-    {
-      icon: FileText,
-      title: tx({ EN: "Corporate Registration & MCA", JP: "法人設立登記・公式登録住所" }),
-      desc: tx({
-        EN: "Registered office address at Cyber Gateway, Hyderabad, with support for MCA incorporation, PAN/TAN, and GST registration.",
-        JP: "Cyber Gatewayでの登記住所提供と、法人設立、PAN/TAN、GST登録手続きをサポート。",
-      }),
-    },
-    {
-      icon: ShieldCheck,
-      title: tx({ EN: "Statutory Governance & Compliance", JP: "法務・法定ガバナンス支援" }),
-      desc: tx({
-        EN: "Guidance on resident director compliance, corporate secretarial processes, and annual statutory filings under Indian company law.",
-        JP: "インド会社法に基づく居住取締役要件、会社秘書役監査、ROC年次報告手続きを支援。",
-      }),
-    },
-    {
-      icon: Landmark,
-      title: tx({ EN: "Corporate Banking & Remittances", JP: "法人銀行口座・国際送金支援" }),
-      desc: tx({
-        EN: "Assistance with corporate bank account opening with leading banks, FDI reporting, and foreign remittances.",
-        JP: "主要銀行での法人口座開設、外資規制（FDI）対応、円滑な国際送金手続きをサポート。",
-      }),
-    },
-    {
-      icon: Sparkles,
-      title: tx({ EN: "On-Site Japanese Advisory", JP: "常駐日本人による日常相談" }),
-      desc: tx({
-        EN: "Resident Japanese team in Hyderabad available daily for business queries, partner contracts, and meeting support in Japanese.",
-        JP: "現地常駐の日本人スタッフが、日々の業務相談や現地パートナーとのやり取りを日本語でサポート。",
-      }),
-    },
-    {
+      kanji: "展開",
       icon: Users,
-      title: tx({ EN: "Curated Tech Talent Pipelines", JP: "高度ITエンジニア・バイリンガル採用" }),
+      badge: { EN: "Turnkey Growth", JP: "法人設立・人材採用" },
+      title: tx({ EN: "Turnkey Setup & Elite Tech Talent", JP: "法人設立登記・高度IT人材採用" }),
       desc: tx({
-        EN: "Hiring support for skilled software engineers and bilingual professionals through local tech institutions and university networks.",
-        JP: "提携工科大学や研修機関を通じて、スキルを持つエンジニアやバイリンガル人材の採用を支援。",
+        EN: "End-to-end guidance for Private Limited (Pvt Ltd) company formation, corporate bank accounts with leading institutions, and direct recruitment pipelines to Telangana's premier software talent.",
+        JP: "現地法人（Pvt Ltd）設立、PAN/TAN/GST税務登録、大手商業銀行での法人口座開設、そして名門大学やT-Hubと連携した高度ITエンジニアの採用を支援します。",
       }),
-    },
-    {
-      icon: Handshake,
-      title: tx({ EN: "Telangana State & T-Hub Ecosystem Matching", JP: "テランガナ州政府・T-Hubとの連携" }),
-      desc: tx({
-        EN: "Connecting your business with Telangana State Government initiatives, T-Hub programs, and vetted local partners.",
-        JP: "テランガナ州政府の支援制度やT-Hub、信頼できる現地提携先の紹介・マッチングを実施。",
-      }),
+      highlights: [
+        { EN: "MCA Incorporation & GST Registration", JP: "法人登記・税務登録代行" },
+        { EN: "Corporate Banking & FDI Assistance", JP: "法人口座開設・送金サポート" },
+        { EN: "Senior Developers & Bilingual PMs", JP: "ITエンジニア・バイリンガル採用" },
+      ],
+      link: "/services",
+      linkLabel: { EN: "View Setup Services", JP: "設立支援サービスを見る" },
     },
   ];
 
+  /* 3 Clean Strategic Location Pillars (Zero duplication with agenda!) */
   const locationAdvantages = [
     {
       num: "01",
       title: {
-        EN: "Asia's Leading Tech & Innovation District",
-        JP: "アジア屈指のハイテク・イノベーション集積地",
+        EN: "Heart of Asia's Silicon Corridor",
+        JP: "アジア屈指のIT集積地・ハイテックシティの中心",
       },
       desc: {
-        EN: "Cyber Gateway in Hitech City is located near major global technology firms, offering a recognized business address in Hyderabad.",
-        JP: "HITEC CityのCyber Gateway周辺には主要なグローバルIT企業が集結し、認知度の高いビジネス拠点を確保できます。",
+        EN: "Cyber Gateway in HITEC City is surrounded by global technology leaders including Microsoft, Google, and Amazon, providing Japanese firms with immediate prestige and corporate credibility.",
+        JP: "HITEC CityのCyber Gateway周辺にはグローバル大手IT企業が集結し、認知度と信頼性の高いビジネス拠点を確保できます。",
       },
     },
     {
       num: "02",
       title: {
-        EN: "Strategic Cost & Quality-of-Life Advantages",
-        JP: "優れたコスト効率と快適な事業・生活環境",
+        EN: "Optimal Operational Cost Efficiency",
+        JP: "優れたコスト効率とインフラ環境",
       },
       desc: {
-        EN: "Competitive office overheads compared to Mumbai or Bengaluru, paired with direct metro connectivity and established commercial infrastructure.",
-        JP: "ムンバイやバンガロールと比較してオフィス運営コストを抑えられ、最寄りメトロ駅徒歩2分の利便性を備えています。",
+        EN: "Over 40% operational savings compared to Mumbai, Bengaluru, or Tokyo, with seamless 2-minute walk to Cyber Towers Metro and 35 minutes to Rajiv Gandhi International Airport.",
+        JP: "ムンバイやバンガロールと比較してオフィス運営費を抑えられ、最寄りメトロ駅徒歩2分、国際空港車で35分の優れたアクセス性を誇ります。",
       },
     },
     {
       num: "03",
       title: {
-        EN: "Proactive Telangana State Government Policy",
-        JP: "テランガナ州政府の手厚い外国企業優遇策",
+        EN: "Dedicated Japanese Enterprise Standard",
+        JP: "日系ビジネスに最適化されたセキュリティと品質",
       },
       desc: {
-        EN: "Telangana offers streamlined business approval processes, proactive IT industry policies, and bilateral investment support.",
-        JP: "テランガナ州は手続きの迅速化やIT支援策が整っており、外国企業の進出を積極的に支援しています。",
-      },
-    },
-    {
-      num: "04",
-      title: {
-        EN: "Abundant Top-Tier Engineering Talent",
-        JP: "名門工科大学が輩出する豊富なトップIT人材",
-      },
-      desc: {
-        EN: "Direct access to engineering graduates and experienced software developers from premier institutes across Hyderabad.",
-        JP: "IITハイデラバードをはじめとする名門大学から、毎年多くの工学・IT系人材が輩出されています。",
+        EN: "Level 4 dedicated corridor featuring biometric access, enterprise quiet zones, dual high-speed fiber feeds, and 100% generator backup for uninterrupted business continuity.",
+        JP: "4階の日系企業専用フロアは、厳格な入退室管理、防音会議室、無停電電源、二重化光回線を完備し、情報管理と業務の継続性を保証します。",
       },
     },
   ];
@@ -457,119 +382,100 @@ export default function HomePage() {
       <BilateralCorridorVisualizer />
 
       {/* ════════════════════════════════════════════════════════════
-          4. CORE BUSINESS SOLUTIONS — 6 Enterprise Capabilities
+          3. CORE AGENDA — The 3 Turnkey Capabilities
          ════════════════════════════════════════════════════════════ */}
       <section className="section-pad bg-ivory dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10">
         <div className="container-jg">
           <Reveal>
-            <div className="mx-auto mb-8 max-w-3xl text-center">
-              <Eyebrow>{tx({ EN: "Core Business Capabilities", JP: "包括的な進出支援サービス" })}</Eyebrow>
+            <div className="mx-auto mb-8 sm:mb-12 max-w-3xl text-center">
+              <Eyebrow>{tx({ EN: "Turnkey Bilateral Capabilities", JP: "ワンストップ進出支援" })}</Eyebrow>
               <h2
-                className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink dark:text-white"
-                style={{ fontSize: "clamp(1.625rem, 3vw, 2.25rem)" }}
+                className="mt-2.5 font-serif-jp font-bold leading-[1.18] text-ink dark:text-white"
+                style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.5rem)" }}
               >
                 {tx({
-                  EN: "Everything Required to Establish & Scale in India",
-                  JP: "インド進出の立ち上げと成長を支える6つの支援機能",
+                  EN: "The 3 Pillars of Your India Expansion",
+                  JP: "インド進出を最短で実現する3つの柱",
                 })}
               </h2>
               <p
-                className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300"
-                style={{ fontSize: "clamp(0.9rem, 1.3vw, 1.05rem)" }}
+                className="mx-auto mt-2.5 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300 text-[13px] sm:text-[14.5px]"
               >
                 {tx({
-                  EN: "Comprehensive operational support including company registration, statutory compliance, corporate banking, local hiring, and institutional connections in Hyderabad.",
-                  JP: "デスクの提供に加え、法人設立登記、コンプライアンス管理、法人口座開設、現地採用、公的機関との連携まで包括的にサポートします。",
+                  EN: "Physical office infrastructure, resident Japanese advisory, and turnkey company formation with talent hiring — coordinated under one roof.",
+                  JP: "オフィス確保、現地常駐の日本語サポート、そして法人設立と高度IT人材採用まで、ワンストップで完結します。",
                 })}
               </p>
             </div>
           </Reveal>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {features.map((f, i) => (
-              <FeatureCard
-                key={i}
-                icon={f.icon}
-                title={f.title}
-                desc={f.desc}
-                delay={(i % 3) * 100}
-                index={i}
-              />
-            ))}
+          <div className="grid gap-5 md:grid-cols-3 items-stretch">
+            {coreAgenda.map((p, i) => {
+              const Icon = p.icon;
+              return (
+                <Reveal key={p.num} delay={i * 100} variant="scale">
+                  <article className="luxury-light-card card-sheen gold-hairline group relative h-full flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-5 sm:p-6 lg:p-7 shadow-lg hover:shadow-2xl hover:border-crimson/35 transition-all duration-300">
+                    <span
+                      className="pointer-events-none absolute -top-3 sm:-top-5 right-3 sm:right-4 font-serif-jp font-black leading-none text-slate-100/80 dark:text-white/[0.04] text-[52px] sm:text-[72px] lg:text-[88px] transition-all duration-500 group-hover:scale-110 group-hover:text-crimson/10 select-none"
+                      aria-hidden
+                    >
+                      {p.num}
+                    </span>
+                    <div className="relative z-10 flex-1 flex flex-col justify-between">
+                      <div>
+                        <div className="flex items-center justify-between">
+                          <div className="icon-pod h-11 w-11 sm:h-12 sm:w-12 shrink-0">
+                            <Icon className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.75} />
+                          </div>
+                          <span className="inline-flex items-center gap-1 rounded-full bg-crimson/[0.08] dark:bg-rose-950/50 border border-crimson/25 dark:border-rose-400/30 px-2.5 py-0.5 text-[10.5px] font-bold text-crimson dark:text-rose-400 tracking-wider">
+                            {tx(p.badge)}
+                          </span>
+                        </div>
+
+                        <h3
+                          className="mt-4 font-serif-jp font-bold leading-tight text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400 transition-colors"
+                          style={{ fontSize: "clamp(1.1rem, 1.6vw, 1.3rem)" }}
+                        >
+                          {p.title}
+                        </h3>
+                        <p className="mt-2.5 font-inter leading-relaxed text-slate-600 dark:text-slate-300 text-[12.5px] sm:text-[13.5px]">
+                          {p.desc}
+                        </p>
+
+                        {/* Bullet Highlights */}
+                        <div className="mt-4 space-y-1.5 border-t border-slate-100 dark:border-white/10 pt-3.5">
+                          {p.highlights.map((h, hi) => (
+                            <div key={hi} className="flex items-center gap-2 text-[11.5px] sm:text-[12px] font-inter text-slate-700 dark:text-slate-300">
+                              <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                              <span>{tx(h)}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Action Link */}
+                      <div className="mt-5 pt-3 border-t border-slate-100 dark:border-white/10">
+                        <Link
+                          href={p.link}
+                          className="inline-flex items-center gap-1.5 font-inter text-[12px] font-bold text-crimson dark:text-rose-400 group-hover:translate-x-1 transition-transform"
+                        >
+                          <span>{tx(p.linkLabel)}</span>
+                          <ArrowRight className="h-3.5 w-3.5" />
+                        </Link>
+                      </div>
+                    </div>
+                  </article>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          5. INTERACTIVE WORKSPACE BENTO TOUR & SPEC EXPLORER
+          4. INTERACTIVE WORKSPACE BENTO TOUR & SPEC EXPLORER
          ════════════════════════════════════════════════════════════ */}
       <WorkspaceExplorer />
-
-      {/* ════════════════════════════════════════════════════════════
-          6. STRATEGIC ADVANTAGE — 3 Pillars of the J-Gate Advantage
-         ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad bg-ivory dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10">
-        <div className="container-jg">
-          <Reveal>
-            <div className="mx-auto mb-10 max-w-3xl text-center">
-              <Eyebrow>{tx({ EN: "The J-Gate Enterprise Advantage", JP: "J-Gateが選ばれる3つの強み" })}</Eyebrow>
-              <h2
-                className="mt-3 font-serif-jp font-bold leading-[1.15] text-ink dark:text-white"
-                style={{ fontSize: "clamp(1.625rem, 3vw, 2.25rem)" }}
-              >
-                {tx({
-                  EN: "Engineered Exclusively for Japanese Business",
-                  JP: "日本企業のインド進出に特化した運営体制",
-                })}
-              </h2>
-              <p
-                className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300"
-                style={{ fontSize: "clamp(0.9rem, 1.3vw, 1.05rem)" }}
-              >
-                {tx({
-                  EN: "Ready workspace infrastructure, on-site Japanese advisory, and direct connections to Hyderabad's business ecosystem.",
-                  JP: "即日稼働のオフィス設備、現地常駐の日本人サポート、そして現地のビジネスネットワークを通じて円滑な立ち上げを支援します。",
-                })}
-              </p>
-            </div>
-          </Reveal>
-
-          <div className="grid gap-4 sm:gap-6 md:grid-cols-3">
-            {advantagePillars.map((p, i) => (
-              <Reveal key={p.num} delay={i * 120} variant="scale">
-                <article className="luxury-light-card card-sheen gold-hairline group relative h-full overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-6 lg:p-7 shadow-card dark:shadow-2xl hover:shadow-2xl hover:border-crimson/35 transition-all duration-300">
-                  <span
-                    className="pointer-events-none absolute -top-3 sm:-top-5 right-3 sm:right-4 font-serif-jp font-black leading-none text-slate-100/80 dark:text-white/[0.04] text-[52px] sm:text-[72px] lg:text-[88px] transition-all duration-500 group-hover:scale-110 group-hover:text-crimson/10"
-                    aria-hidden
-                  >
-                    {p.num}
-                  </span>
-                  <div className="relative z-10">
-                    <span
-                      className="inline-flex items-center gap-1.5 rounded-full bg-crimson/[0.08] dark:bg-rose-950/50 border border-crimson/25 dark:border-rose-400/30 px-2.5 py-0.5 sm:px-3 sm:py-1 font-serif-jp text-[11.5px] sm:text-[12.5px] font-bold text-crimson dark:text-rose-400 tracking-wider shadow-sm"
-                    >
-                      <span className="h-1.5 w-1.5 rounded-full bg-crimson dark:bg-rose-400" />
-                      {p.kanji}
-                    </span>
-                    <h3
-                      className="mt-3 sm:mt-4 font-serif-jp font-bold leading-tight text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400 transition-colors"
-                      style={{ fontSize: "clamp(1.05rem, 1.6vw, 1.3rem)" }}
-                    >
-                      {p.title}
-                    </h3>
-                    <div className="mt-2.5 sm:mt-3.5 h-[2px] w-12 sm:w-14 bg-gradient-to-r from-crimson to-saffron rounded-full" />
-                    <p
-                      className="mt-2.5 sm:mt-4 font-inter leading-relaxed text-slate-600 dark:text-slate-300 text-[12.5px] sm:text-[14px]"
-                    >
-                      {p.body}
-                    </p>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* ════════════════════════════════════════════════════════════
           6. HYDERABAD LOCATION — 2-Column Strategic Map & Details

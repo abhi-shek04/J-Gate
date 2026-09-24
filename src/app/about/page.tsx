@@ -62,38 +62,29 @@ const PILLARS = [
 const BILATERAL_SYNERGIES = [
   {
     icon: Handshake,
-    badge: { EN: "Corporate Synergy", JP: "企業アライアンス" },
-    title: { EN: "Cultural & Strategic Alignment", JP: "商習慣と企業文化の高度な融合" },
+    badge: { EN: "Corporate Alignment", JP: "商習慣の調和" },
+    title: { EN: "Cultural & Strategic Governance", JP: "日本品質ガバナンスと現地推進力の融合" },
     desc: {
-      EN: "Harmonizing Japanese standards of meticulous quality, governance, and compliance with India's agile execution speed and massive market scale.",
-      JP: "日本の高い品質基準・ガバナンスと、インド現地のスピード感・圧倒的な開発推進力を高度に調和させます。",
+      EN: "Harmonizing Japanese standards of meticulous quality, compliance, and Tokyo HQ reporting with India's agile execution speed.",
+      JP: "日本の高い品質基準・コンプライアンス・本社報告基準と、インド現地の圧倒的な実行スピードを高度に調和させます。",
     },
   },
   {
     icon: Building2,
-    badge: { EN: "Institutional Power", JP: "公的機関連携" },
-    title: { EN: "High-Level Ecosystem Integration", JP: "政府・主要機関との強固なネットワーク" },
+    badge: { EN: "Institutional Network", JP: "公的・産学連携" },
+    title: { EN: "Direct Institutional & Government Ties", JP: "州政府・T-Hub・学術機関との直接連携" },
     desc: {
-      EN: "Direct institutional ties with T-Hub, Woxsen University, and state government industrial promotion bodies from Day 1.",
-      JP: "T-Hub、Woxsen大学、州政府機関との緊密なアライアンスにより、確実で安全な事業基盤を提供します。",
+      EN: "Direct institutional ties with the Telangana Government IT Department, T-Hub (India's premier tech incubator), and premier engineering universities.",
+      JP: "テランガナ州政府IT局、インド最大のイノベーション拠点T-Hub、名門大学との直結ネットワークにより、安心の事業展開基盤を構築します。",
     },
   },
   {
     icon: ShieldCheck,
-    badge: { EN: "Resident Support", JP: "現地伴走体制" },
-    title: { EN: "On-the-Ground Resident Advisory", JP: "日本人ディレクターによる現地常駐支援" },
+    badge: { EN: "Single Window", JP: "窓口一本化" },
+    title: { EN: "Unified Bilateral SLA & Accountability", JP: "日印共同体制によるワンストップ保証" },
     desc: {
-      EN: "Native Japanese leadership and bilingual Indian specialists on-site in Hyderabad, providing daily 'Yorozu' consultation, translation, and negotiation support.",
-      JP: "ハイデラバード現地に日本人ディレクターとバイリンガルスタッフが常駐し、日々の実務や商談を現場で強力に伴走支援します。",
-    },
-  },
-  {
-    icon: Rocket,
-    badge: { EN: "Ready-to-Use Setup", JP: "即日稼働" },
-    title: { EN: "Fast-Track Entry & Talent Pipelines", JP: "迅速な法人設立と高度IT人材の確保" },
-    desc: {
-      EN: "Eliminating expansion friction with ready-to-use workspace infrastructure, official corporate registration (MCA/GST), and direct access to top engineering talent.",
-      JP: "法人登記、銀行口座開設、即日利用可能な執務環境、そして名門大学からのトップエンジニア採用を一気通貫で支援します。",
+      EN: "Co-operated by Indobox India and Genesys Info X — providing a single contract window that eliminates vendor fragmentation and cross-border risk.",
+      JP: "IndoboxとGenesys Info Xの共同運営により、複数業者との個別交渉を排除。契約から日常運用まで一元管理で支援します。",
     },
   },
 ];
@@ -102,19 +93,19 @@ const BILATERAL_SYNERGIES = [
 const MISSION = {
   title: { EN: "Our Mission", JP: "ミッション" },
   body: {
-    EN: "To provide Japanese companies entering India with a dedicated working hub — a professional workspace with resident Japan Desk support, complete infrastructure, and end-to-end business assistance from first curiosity to corporate entity establishment.",
-    JP: "インドに進出する日本企業に専用のワーキングハブを提供すること — 常駐ジャパンデスク、完全なインフラ、そして初期相談から法人設立までのエンドツーエンドのビジネス支援を備えたプロフェッショナルなワークスペース。",
+    EN: "To eliminate every friction point of India expansion for Japanese enterprises by providing turnkey workspace, resident Japanese advisory, and statutory execution in Hyderabad.",
+    JP: "即日利用可能な執務環境、現地常駐の日本語支援、そして確実な法人登記・行政手続きを通じて、日本企業のインド進出におけるあらゆる摩擦をゼロにすること。",
   },
-  tag: { EN: "What we do today", JP: "今日私たちが行うこと" },
+  tag: { EN: "Execution Today", JP: "私たちの使命" },
 } as const;
 
 const VISION = {
   title: { EN: "Our Vision", JP: "ビジョン" },
   body: {
-    EN: "To be the premier physical and operational bridge between the Japanese and Indian business ecosystems, accelerating bilateral innovation, human capital exchange, and market success.",
-    JP: "日本とインドのビジネスエコシステムをつなぐ最高の物理的・運営的架け橋となり、二国間のイノベーション、人材交流、そして市場での成功を加速させること。",
+    EN: "To serve as the premier bilateral launchpad between Japan and India — accelerating cross-border innovation, elite engineering exchange, and sustainable enterprise growth.",
+    JP: "日印両国を結ぶ永続的な共創基盤となり、国境を越えたイノベーション、高度IT人材の交流、そして企業の持続的成長を加速させること。",
   },
-  tag: { EN: "What we are building toward", JP: "私たちが目指す未来" },
+  tag: { EN: "Long-Term Vision", JP: "私たちが目指す未来" },
 } as const;
 
 export default function AboutPage() {

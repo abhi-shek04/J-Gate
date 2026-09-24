@@ -30,15 +30,10 @@ const PLANS: Plan[] = [
     ctaStyle: "outline-crimson",
     features: [
       { text: "Shared hot desk — 5 days/week access", included: true },
-      { text: "High-speed fiber WiFi", included: true },
-      { text: "4 hours/month of meeting room access", included: true },
+      { text: "1 Gbps redundant fiber WiFi & power backup", included: true },
+      { text: "Meeting room & video booth access", included: true },
+      { text: "Official business registered address", included: true },
       { text: "Access to J-Gate community events", included: true },
-      { text: "Basic partner network introduction", included: true },
-      { text: "Business address — Cyber Gateway, Hyderabad", included: true },
-      { text: "Lounge & common area access", included: true },
-      { text: "Mail handling service", included: true },
-      { text: "Dedicated desk", included: false },
-      { text: "Private cabin", included: false },
     ],
   },
   {
@@ -52,44 +47,29 @@ const PLANS: Plan[] = [
     cta: "Join Now →",
     ctaStyle: "filled-crimson",
     features: [
-      { text: "Your own dedicated desk (locked, permanent)", included: true },
-      { text: "High-speed fiber WiFi", included: true },
-      { text: "12 hours/month of meeting room access", included: true },
-      { text: "Priority partner network introductions (legal, HR, finance, tech)", included: true },
-      { text: "1 hour/month strategic business consultation", included: true },
-      { text: "Access to all J-Gate community events + networking dinners", included: true },
-      { text: "Japan-India business etiquette & culture workshops", included: true },
-      { text: "Business address — Cyber Gateway, Hyderabad", included: true },
-      { text: "Mail handling & courier management", included: true },
+      { text: "Dedicated locked executive desk", included: true },
+      { text: "Daily in-person 'Yorozu' Japan Desk consultation", included: true },
+      { text: "Priority boardroom allocation", included: true },
+      { text: "Vetted professional network introductions", included: true },
       { text: "Access to T-Hub co-innovation support", included: true },
-      { text: "Member directory listing", included: true },
-      { text: "Private cabin", included: false },
     ],
   },
   {
     name: "Enterprise",
     subtitle: "Private Furnished Cabin",
-    monthly: "Contact Us — Custom Pricing",
-    annual: "Contact Us — Custom Pricing",
+    monthly: "Custom Pricing",
+    annual: "Custom Pricing",
     note: "Your Japan headquarters in India",
     borderTop: "border-top-gold-feature",
     badge: { text: "FLAGSHIP", bg: "bg-saffron" },
     cta: "Contact Our Team",
     ctaStyle: "outline-saffron",
     features: [
-      { text: "Private furnished cabin (2 to 6 seats, fully branded if desired)", included: true },
-      { text: "Dedicated fiber internet line", included: true },
-      { text: "Unlimited meeting room & conference room access", included: true },
-      { text: "VIP partner network access (direct introductions, not referrals)", included: true },
-      { text: "Monthly strategic advisory session with Advisory Council", included: true },
-      { text: "Telangana Government liaison & innovation support", included: true },
-      { text: "Full market entry consulting package (registration, HR, legal, finance)", included: true },
-      { text: "Bilingual concierge support (English & Japanese)", included: true },
-      { text: "Dedicated receptionist & administrative support", included: true },
-      { text: "Business address — Cyber Gateway, Hyderabad", included: true },
-      { text: "Priority event hosting rights", included: true },
-      { text: "Custom branding rights inside J-Gate premises", included: true },
-      { text: "Access to Indobox India's complete talent sourcing network", included: true },
+      { text: "Private furnished cabin (fully branded)", included: true },
+      { text: "Hands-on market entry consulting package", included: true },
+      { text: "Monthly business meeting accompaniment", included: true },
+      { text: "Bilingual concierge & executive receptionist", included: true },
+      { text: "Full talent sourcing & hiring pipeline", included: true },
     ],
   },
 ];
@@ -157,43 +137,42 @@ export function Pricing() {
             <Reveal key={plan.name} delay={i * 120}>
               <article
                 className={cn(
-                  "relative flex h-full flex-col rounded-lg bg-pearl p-7 shadow-card transition-all duration-300 lift-card",
+                  "relative flex h-full flex-col rounded-2xl bg-pearl p-5 shadow-card transition-all duration-300 lift-card border border-slate-200/80",
                   plan.borderTop,
-                  plan.badge?.bg === "bg-crimson" && "lg:-translate-y-3 lg:shadow-hover"
+                  plan.badge?.bg === "bg-crimson" && "lg:-translate-y-2 lg:shadow-hover ring-1 ring-crimson/20"
                 )}
               >
                 {plan.badge && (
                   <span
                     className={cn(
-                      "absolute -top-3 right-6 rounded px-3 py-1 font-inter text-[11px] font-semibold uppercase text-white",
+                      "absolute -top-3 right-5 rounded-full px-3 py-0.5 font-inter text-[10px] font-bold uppercase tracking-wider text-white shadow-xs",
                       plan.badge.bg,
                       plan.badge.bg === "bg-saffron" && "text-ink"
                     )}
-                    style={{ letterSpacing: "0.08em" }}
                   >
                     {plan.badge.text}
                   </span>
                 )}
 
                 <div>
-                  <h3 className="font-serif-jp text-2xl font-bold text-ink">{plan.name}</h3>
-                  <p className="mt-1 font-inter text-[13px] font-medium uppercase text-mist" style={{ letterSpacing: "0.05em" }}>
+                  <h3 className="font-serif-jp text-xl font-bold text-ink">{plan.name}</h3>
+                  <p className="mt-0.5 font-inter text-[12px] font-medium uppercase text-mist" style={{ letterSpacing: "0.05em" }}>
                     {plan.subtitle}
                   </p>
                 </div>
 
                 {/* Price */}
-                <div className="mt-5">
+                <div className="mt-3.5">
                   <div className="flex items-baseline gap-1.5">
-                    <span className="font-serif-jp text-2xl font-bold text-crimson">¥</span>
-                    <span className="font-serif-jp text-lg font-bold text-ink">
+                    <span className="font-serif-jp text-xl font-bold text-crimson">¥</span>
+                    <span className="font-serif-jp text-2xl font-bold text-ink">
                       {annual ? plan.annual : plan.monthly}
                     </span>
                   </div>
-                  <p className="mt-1 font-inter text-[13px] text-mist">
+                  <p className="mt-0.5 font-inter text-[12px] text-mist">
                     {annual ? "/ year · billed annually" : "/ month"}
                   </p>
-                  <p className="mt-2 font-inter text-[13px] italic text-slate">{plan.note}</p>
+                  <p className="mt-1 font-inter text-[11.5px] italic text-slate">{plan.note}</p>
                 </div>
 
                 {/* CTA — 6px radius */}

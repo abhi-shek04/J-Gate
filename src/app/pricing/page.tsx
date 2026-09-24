@@ -24,6 +24,7 @@ import {
   Zap,
 } from "lucide-react";
 import Link from "next/link";
+import { cn } from "@/lib/utils";
 
 type Bilingual = { EN: string; JP: string };
 
@@ -499,138 +500,139 @@ export default function PricingPage() {
             </div>
           </Reveal>
 
-          {/* Grid of 3 Balanced Cards — Strict Equal Height & Baseline */}
-          <div className="grid gap-4 sm:gap-5 lg:gap-6 lg:grid-cols-3 items-stretch">
+          {/* Grid of 3 Balanced Cards — Compact, Premium, High-End Presentation */}
+          <div className="grid gap-4 sm:gap-5 lg:gap-5 lg:grid-cols-3 items-stretch">
             {PLANS.map((plan, i) => {
               const Icon = plan.icon;
               const displayINR = isAnnual ? plan.priceINRAnnual : plan.priceINRMonthly;
               const displayJPY = isAnnual ? plan.priceJPYAnnual : plan.priceJPYMonthly;
               const isSelected = selectedFilter === plan.capacityCategory;
+              const isFeatured = plan.id === "standard";
 
               return (
                 <Reveal key={plan.id} delay={i * 80} variant="up">
                   <div
-                    className={`group relative flex h-full flex-col justify-between rounded-xl sm:rounded-2xl bg-white dark:bg-[#0c1424] border border-slate-200/90 dark:border-white/10 border-t-4 ${
-                      plan.accentBorder
-                    } shadow-[0_4px_24px_rgba(0,0,0,0.04)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.5)] hover:shadow-[0_22px_44px_-14px_rgba(8,15,26,0.12)] dark:hover:shadow-[0_20px_45px_rgba(0,0,0,0.8)] hover:-translate-y-1 transition-all duration-300 p-4 sm:p-5 lg:p-6 ${
-                      isSelected ? "ring-2 ring-crimson/50 shadow-lg" : ""
-                    }`}
+                    className={cn(
+                      "group relative flex h-full flex-col justify-between rounded-2xl bg-white dark:bg-[#0c1424] border transition-all duration-300 p-4 sm:p-5",
+                      isFeatured
+                        ? "border-crimson dark:border-crimson/80 shadow-[0_12px_36px_-10px_rgba(188,26,44,0.18)] dark:shadow-[0_16px_40px_-10px_rgba(188,26,44,0.35)] ring-1 ring-crimson/30 lg:-translate-y-1.5"
+                        : "border-slate-200/90 dark:border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.4)] hover:shadow-lg dark:hover:shadow-[0_16px_36px_rgba(0,0,0,0.6)] hover:-translate-y-0.5",
+                      isSelected ? "ring-2 ring-saffron/70" : ""
+                    )}
                   >
+                    {/* Featured Top Badge */}
+                    {isFeatured && (
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2">
+                        <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-crimson to-crimson-deep px-3 py-0.5 font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-white shadow-md shadow-crimson/30">
+                          <Sparkles className="h-3 w-3 text-amber-300 fill-amber-300" />
+                          <span>{tx({ EN: "Most Popular Hub", JP: "一番人気 · 主力プラン" })}</span>
+                        </span>
+                      </div>
+                    )}
+
                     {/* Top Content Area */}
                     <div>
-                      {/* Plan Header */}
-                      <div className="flex items-center justify-between gap-3 border-b border-slate-100 dark:border-white/10 pb-3.5 sm:pb-5">
-                        <div className="flex items-center gap-2.5 sm:gap-3">
-                          <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-slate-50 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-ink dark:text-white group-hover:border-crimson/40 dark:group-hover:border-rose-400/50 transition-colors">
-                            <Icon className="h-4.5 w-4.5 sm:h-5 sm:w-5 text-crimson dark:text-rose-400" />
+                      {/* Header Row: Icon + Title + Capacity Badge */}
+                      <div className="flex items-start justify-between gap-2.5 pb-3 border-b border-slate-100 dark:border-white/8">
+                        <div className="flex items-center gap-2.5">
+                          <div
+                            className={cn(
+                              "flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border transition-colors",
+                              isFeatured
+                                ? "bg-crimson/10 border-crimson/30 text-crimson dark:text-rose-400"
+                                : "bg-slate-50 dark:bg-white/5 border-slate-200/80 dark:border-white/10 text-ink dark:text-white"
+                            )}
+                          >
+                            <Icon className={cn("h-4.5 w-4.5", isFeatured ? "text-crimson dark:text-rose-400" : "text-slate-700 dark:text-slate-300")} />
                           </div>
                           <div>
-                            <h3 className="font-serif-jp text-lg sm:text-xl font-bold text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400 transition-colors">
-                              {plan.enName}
-                            </h3>
-                            <span className="text-[11.5px] sm:text-[12px] font-medium text-slate-500 dark:text-slate-400 font-sans-jp block leading-tight">
+                            <div className="flex items-center gap-2">
+                              <h3 className="font-serif-jp text-[16px] sm:text-[17px] font-bold text-ink dark:text-white leading-tight">
+                                {plan.enName}
+                              </h3>
+                            </div>
+                            <span className="text-[11px] sm:text-[11.5px] font-medium text-slate-500 dark:text-slate-400 font-sans-jp">
                               {plan.jpName}
                             </span>
                           </div>
                         </div>
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100/90 dark:bg-white/10 px-2.5 py-0.5 sm:px-3 sm:py-1 font-inter text-[10.5px] sm:text-[11px] font-bold text-slate-700 dark:text-slate-200 shrink-0 border border-slate-200/60 dark:border-white/10">
-                          <Users className="h-3 w-3 text-crimson dark:text-rose-400" />
+
+                        <span className="inline-flex items-center gap-1 rounded-full bg-slate-100/90 dark:bg-white/8 px-2.5 py-0.5 font-inter text-[10px] sm:text-[10.5px] font-bold text-slate-700 dark:text-slate-300 shrink-0 border border-slate-200/60 dark:border-white/10">
+                          <Users className="h-2.5 w-2.5 text-crimson dark:text-rose-400" />
                           {tx(plan.capacity)}
                         </span>
                       </div>
 
                       {/* Pricing Display */}
-                      <div className="mt-3.5 sm:mt-5 rounded-xl bg-gradient-to-br from-slate-50 to-slate-100/60 dark:from-white/5 dark:to-white/[0.02] border border-slate-200/80 dark:border-white/10 p-3 sm:p-4.5">
-                        <div className="flex items-baseline gap-1.5">
-                          <span className="font-serif-jp text-2xl sm:text-3xl lg:text-4xl font-black text-ink dark:text-white tracking-tight">
-                            {currency === "INR"
-                              ? `₹${displayINR.toLocaleString()}`
-                              : `¥${displayJPY.toLocaleString()}`}
-                          </span>
-                          <span className="font-inter text-xs font-semibold text-slate-500 dark:text-slate-400">
-                            {currency === "INR" ? "/ month" : "/月 目安"}
-                          </span>
-                        </div>
-                        <div className="mt-1 flex items-center justify-between text-[11px] font-inter">
-                          <span className="text-slate-500 dark:text-slate-400 font-medium">
-                            {currency === "INR"
-                              ? `Approx. ¥${displayJPY.toLocaleString()} /月`
-                              : `Base ₹${displayINR.toLocaleString()} INR /mo`}
-                          </span>
-                          <span className="text-slate-400 dark:text-slate-500 font-medium">
-                            {tx({ EN: "excl. GST (18%)", JP: "GST（18%）別" })}
-                          </span>
-                        </div>
-                        {isAnnual && (
-                          <div className="mt-2 pt-2 border-t border-slate-200/60 dark:border-white/10 flex items-center justify-between text-[11px] font-inter text-emerald-700 dark:text-emerald-400 font-semibold">
-                            <span>{tx({ EN: "Annual Contract (-15%)", JP: "年間一括契約 15%OFF適用" })}</span>
-                            <span>{tx({ EN: "Save ~2 months", JP: "実質約2ヶ月分無料" })}</span>
+                      <div className="mt-3 rounded-xl bg-slate-50/90 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/8 p-3">
+                        <div className="flex items-baseline justify-between gap-1">
+                          <div className="flex items-baseline gap-1">
+                            <span className="font-serif-jp text-2xl sm:text-[26px] font-black text-ink dark:text-white tracking-tight">
+                              {currency === "INR"
+                                ? `₹${displayINR.toLocaleString()}`
+                                : `¥${displayJPY.toLocaleString()}`}
+                            </span>
+                            <span className="font-inter text-[11px] font-semibold text-slate-500 dark:text-slate-400">
+                              {currency === "INR" ? "/mo" : "/月"}
+                            </span>
                           </div>
-                        )}
-                      </div>
 
-                      {/* Tagline & Target Callout */}
-                      <div className="mt-3.5 sm:mt-4.5">
-                        <p className="font-inter text-[11.5px] sm:text-[12px] font-bold text-slate-900 dark:text-slate-100 leading-snug">
-                          {tx(plan.tagline)}
-                        </p>
-                        <div className="mt-2 rounded-lg sm:rounded-xl bg-slate-50 dark:bg-white/5 p-2.5 sm:p-3 border border-slate-200/60 dark:border-white/10">
-                          <span className="font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 block mb-0.5">
-                            {tx({ EN: "Designed For", JP: "対象企業" })}
-                          </span>
-                          <p className="font-inter text-[11.5px] sm:text-[12px] leading-relaxed text-slate-700 dark:text-slate-300">
-                            {tx(plan.target)}
-                          </p>
+                          {isAnnual ? (
+                            <span className="rounded-md bg-emerald-100 dark:bg-emerald-950/60 border border-emerald-300/50 dark:border-emerald-700/40 text-emerald-800 dark:text-emerald-300 text-[10px] font-bold px-1.5 py-0.5">
+                              -15% OFF
+                            </span>
+                          ) : (
+                            <span className="text-[10.5px] font-inter text-slate-400 dark:text-slate-500 font-medium">
+                              {tx({ EN: "+18% GST", JP: "税別" })}
+                            </span>
+                          )}
                         </div>
-                      </div>
 
-                      {/* Quick 3-Specs Strip */}
-                      <div className="mt-3 sm:mt-3.5 grid grid-cols-3 gap-1 rounded-lg sm:rounded-xl bg-slate-100/60 dark:bg-white/5 p-2 text-center text-[10px] sm:text-[10.5px] font-inter border border-slate-200/50 dark:border-white/10">
-                        <div>
-                          <span className="text-slate-400 dark:text-slate-500 block uppercase font-bold text-[9px] sm:text-[9.5px]">
-                            {tx({ EN: "Contract", JP: "契約期間" })}
+                        <div className="mt-1 flex items-center justify-between text-[10.5px] font-inter text-slate-500 dark:text-slate-400">
+                          <span>
+                            {currency === "INR"
+                              ? `Approx. ¥${displayJPY.toLocaleString()}/月`
+                              : `Base ₹${displayINR.toLocaleString()} INR`}
                           </span>
-                          <span className="font-semibold text-slate-700 dark:text-slate-200 mt-0.5 block truncate">
-                            {tx(plan.specs.term)}
-                          </span>
-                        </div>
-                        <div className="border-x border-slate-200/70 dark:border-white/10">
-                          <span className="text-slate-400 dark:text-slate-500 block uppercase font-bold text-[9px] sm:text-[9.5px]">
-                            {tx({ EN: "Access", JP: "利用時間" })}
-                          </span>
-                          <span className="font-semibold text-slate-700 dark:text-slate-200 mt-0.5 block truncate">
-                            {tx(plan.specs.access)}
-                          </span>
-                        </div>
-                        <div>
-                          <span className="text-slate-400 dark:text-slate-500 block uppercase font-bold text-[9px] sm:text-[9.5px]">
-                            {tx({ EN: "Japan Desk", JP: "相談支援" })}
-                          </span>
-                          <span className="font-semibold text-slate-700 dark:text-slate-200 mt-0.5 block truncate">
-                            {tx(plan.specs.support)}
-                          </span>
+                          {isAnnual && (
+                            <span className="text-emerald-700 dark:text-emerald-400 font-medium">
+                              {tx({ EN: "Save ~2 mos", JP: "約2ヶ月分無料" })}
+                            </span>
+                          )}
                         </div>
                       </div>
 
-                      {/* Feature Deliverables Checklist */}
-                      <div className="mt-4 sm:mt-5 border-t border-slate-100 dark:border-white/10 pt-3.5 sm:pt-4.5">
-                        <div className="font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 mb-2 sm:mb-3">
-                          {tx({ EN: "Included Deliverables", JP: "プランに含まれる主な内容" })}
-                        </div>
-                        <ul className="space-y-2 sm:space-y-2.5">
+                      {/* Target Audience Summary Callout */}
+                      <p className="mt-2.5 font-inter text-[11px] sm:text-[11.5px] text-slate-600 dark:text-slate-300 leading-snug">
+                        <strong className="text-ink dark:text-slate-100 font-semibold">{tx({ EN: "Best for: ", JP: "対象: " })}</strong>
+                        {tx(plan.target)}
+                      </p>
+
+                      {/* Specs Micro-Pills */}
+                      <div className="mt-2.5 flex items-center justify-between gap-1 rounded-lg bg-slate-100/60 dark:bg-white/[0.04] p-1.5 text-center text-[10px] font-inter border border-slate-200/50 dark:border-white/8 text-slate-600 dark:text-slate-300">
+                        <span className="truncate flex-1 font-medium">{tx(plan.specs.term)}</span>
+                        <span className="text-slate-300 dark:text-white/20">·</span>
+                        <span className="truncate flex-1 font-medium">{tx(plan.specs.access)}</span>
+                        <span className="text-slate-300 dark:text-white/20">·</span>
+                        <span className="truncate flex-1 font-medium text-crimson dark:text-rose-400 font-semibold">{tx(plan.specs.support)}</span>
+                      </div>
+
+                      {/* Compact Deliverables Checklist */}
+                      <div className="mt-3 pt-2.5 border-t border-slate-100 dark:border-white/8">
+                        <ul className="space-y-1.5 sm:space-y-2">
                           {plan.features.map((feat, fi) => (
-                            <li key={fi} className="flex items-start gap-2 sm:gap-2.5 text-[12px] sm:text-[12.5px] font-inter text-slate-700 dark:text-slate-300">
-                              <span className="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200 dark:border-emerald-700/60 text-emerald-700 dark:text-emerald-300 shadow-xs">
-                                <Check className="h-2.5 w-2.5 stroke-[3]" />
+                            <li key={fi} className="flex items-start gap-2 text-[11.5px] sm:text-[12px] font-inter text-slate-700 dark:text-slate-300 leading-tight">
+                              <span className="mt-0.5 flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-700/40">
+                                <Check className="h-2 w-2 stroke-[3]" />
                               </span>
-                              <div className="min-w-0 flex-1 leading-snug">
-                                <span className="font-bold text-slate-900 dark:text-slate-100 block text-[12px] sm:text-[12.5px]">
+                              <span className="min-w-0 flex-1">
+                                <span className="font-semibold text-slate-900 dark:text-slate-100 mr-1">
                                   {tx(feat.title)}
                                 </span>
-                                <span className="text-[11px] sm:text-[11.5px] text-slate-500 dark:text-slate-400 block">
-                                  {tx(feat.desc)}
+                                <span className="text-slate-500 dark:text-slate-400 hidden sm:inline">
+                                  — {tx(feat.desc)}
                                 </span>
-                              </div>
+                              </span>
                             </li>
                           ))}
                         </ul>
@@ -638,18 +640,22 @@ export default function PricingPage() {
                     </div>
 
                     {/* Bottom Action CTA */}
-                    <div className="mt-5 sm:mt-7 pt-3.5 sm:pt-4 border-t border-slate-100 dark:border-white/10">
+                    <div className="mt-4 pt-3 border-t border-slate-100 dark:border-white/8">
                       <Link
                         href={`/contact?plan=${plan.id}`}
-                        className="group/btn relative w-full inline-flex items-center justify-center gap-2 rounded-xl py-2.5 sm:py-3.5 font-inter text-[13px] sm:text-[13.5px] font-semibold text-white bg-gradient-to-r from-crimson to-crimson-deep shadow-md shadow-crimson/30 hover:opacity-95 transition-all duration-300"
+                        className={cn(
+                          "group/btn relative w-full inline-flex items-center justify-center gap-1.5 rounded-xl py-2.5 font-inter text-[12.5px] sm:text-[13px] font-semibold transition-all duration-300",
+                          isFeatured
+                            ? "bg-gradient-to-r from-crimson to-crimson-deep text-white shadow-md shadow-crimson/25 hover:shadow-lg hover:shadow-crimson/40 hover:-translate-y-0.5"
+                            : "bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-crimson dark:hover:bg-crimson dark:hover:text-white hover:-translate-y-0.5 shadow-xs"
+                        )}
                       >
-                        <span>{tx({ EN: `Select ${plan.enName}`, JP: `${plan.jpName}を問い合わせる` })}</span>
-                        <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
+                        <span>{tx({ EN: `Select ${plan.enName}`, JP: `${plan.jpName}を申し込む` })}</span>
+                        <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" />
                       </Link>
-                      <div className="mt-2 sm:mt-2.5 flex items-center justify-center gap-1.5 font-inter text-[10.5px] sm:text-[11px] text-slate-400 dark:text-slate-500">
-                        <Clock className="h-3 w-3" />
-                        <span>{tx({ EN: "Free initial consultation · Rapid move-in", JP: "初回相談無料 · 最短即日利用可" })}</span>
-                      </div>
+                      <p className="mt-1.5 text-center font-inter text-[10px] text-slate-400 dark:text-slate-500">
+                        {tx({ EN: "Free consultation · Rapid onboarding", JP: "初回相談無料 · 最短即日利用可" })}
+                      </p>
                     </div>
                   </div>
                 </Reveal>

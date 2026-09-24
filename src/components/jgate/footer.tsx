@@ -1,24 +1,41 @@
 "use client";
 
 import Link from "next/link";
-import { MapPin, Mail } from "lucide-react";
+import { MapPin, Mail, Phone, ShieldCheck, Download, ArrowUpRight } from "lucide-react";
 import { JGateLogo, LinkedInIcon, InstagramIcon } from "./icons";
 import { useI18n } from "@/lib/i18n";
 
-const NAV_LINKS = [
-  { href: "/", key: "nav.home" },
-  { href: "/about", key: "nav.about" },
-  { href: "/why-jgate", key: "nav.why" },
-  { href: "/services", key: "nav.services" },
-  { href: "/team", key: "nav.team" },
-  { href: "/pricing", key: "nav.pricing" },
-  { href: "/faq", key: "nav.faq" },
-  { href: "/blogs", key: "nav.blogs" },
-  { href: "/contact", key: "nav.contact" },
+const FOOTER_SOLUTIONS = [
+  {
+    href: "/services",
+    label: { EN: "Turnkey Office & Private Cabins", JP: "専用オフィス・個室キャビン" },
+    desc: { EN: "Cyber Gateway Tier-3 Facilities", JP: "即日利用・二重化光回線" },
+  },
+  {
+    href: "/services",
+    label: { EN: "MCA Incorporation & Bank Setup", JP: "法人設立登記・法人口座開設" },
+    desc: { EN: "PAN, TAN & Statutory GSTIN", JP: "公式商業登記住所・税務登録" },
+  },
+  {
+    href: "/team",
+    label: { EN: "Resident Japan Desk Advisory", JP: "日本人役員常駐・よろず相談" },
+    desc: { EN: "Daily In-Person Consultation", JP: "日本語による日常業務伴走" },
+  },
+  {
+    href: "/services",
+    label: { EN: "Tech Talent & EOR Staffing", JP: "IT人材採用・EOR雇用代行" },
+    desc: { EN: "IIT Pipelines & Bilingual Engineers", JP: "名門大学直結・即日雇用" },
+  },
+  {
+    href: "/auth/brochure",
+    label: { EN: "Official Brochure (55MB PDF)", JP: "公式パンフレット（PDF）" },
+    desc: { EN: "Comprehensive Entry Guide", JP: "インド進出総合資料の無料DL" },
+    isDownload: true,
+  },
 ] as const;
 
 export function Footer() {
-  const { t, tx, lang } = useI18n();
+  const { tx, lang } = useI18n();
 
   return (
     <footer className="relative mt-auto overflow-hidden border-t border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#070c16] text-ink dark:text-white transition-colors duration-300">
@@ -63,34 +80,50 @@ export function Footer() {
                 <Mail className="h-4 w-4" />
               </a>
             </div>
+
+            {/* Quick SLA Assurance Badge */}
+            <div className="inline-flex items-center gap-2 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-700/40 px-2.5 py-1.5 text-[11px] font-inter text-emerald-800 dark:text-emerald-300">
+              <ShieldCheck className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+              <span>{tx({ EN: "Guaranteed < 24h Response SLA", JP: "24時間以内返信保証（平日）" })}</span>
+            </div>
           </div>
 
-          {/* Col 2 (2 cols) — Previous Site Navigation */}
-          <div className="lg:col-span-2">
+          {/* Col 2 (3 cols) — Core Solutions & Capabilities (Replaces generic Navigate list) */}
+          <div className="lg:col-span-3 space-y-3">
             <h3 className="font-inter text-[11px] sm:text-[11.5px] font-bold uppercase tracking-wider text-ink dark:text-white">
-              {t("footer.navigate")}
+              {tx({ EN: "SOLUTIONS & CAPABILITIES", JP: "主要ソリューション" })}
             </h3>
-            <ul className="mt-4 grid grid-cols-2 gap-x-3 gap-y-2 sm:grid-cols-1 sm:space-y-2">
-              {NAV_LINKS.map((l) => (
-                <li key={l.href}>
+            <ul className="space-y-2.5 pt-1">
+              {FOOTER_SOLUTIONS.map((sol, idx) => (
+                <li key={idx}>
                   <Link
-                    href={l.href}
-                    className="font-inter text-[13px] text-slate-600 dark:text-slate-400 transition-colors hover:text-crimson dark:hover:text-rose-400"
+                    href={sol.href}
+                    className="group block transition-all"
                   >
-                    {t(l.key)}
+                    <div className="flex items-center justify-between gap-1 text-[12.5px] sm:text-[13px] font-semibold text-slate-700 dark:text-slate-200 group-hover:text-crimson dark:group-hover:text-rose-400">
+                      <span>{tx(sol.label)}</span>
+                      {sol.isDownload ? (
+                        <Download className="h-3 w-3 text-crimson dark:text-rose-400 shrink-0" />
+                      ) : (
+                        <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity shrink-0 text-crimson" />
+                      )}
+                    </div>
+                    <span className="block font-inter text-[11px] text-slate-500 dark:text-slate-400">
+                      {tx(sol.desc)}
+                    </span>
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Col 3 (4 cols) — Company & Operations */}
-          <div className="lg:col-span-4 space-y-4">
+          {/* Col 3 (3 cols) — Company & Bilateral Operations */}
+          <div className="lg:col-span-3 space-y-4">
             <div>
               <h3 className="font-inter text-[11px] sm:text-[11.5px] font-bold uppercase tracking-wider text-ink dark:text-white">
                 {tx({ EN: "COMPANY & OPERATIONS", JP: "運営・体制" })}
               </h3>
-              <p className="mt-4 font-inter text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">
+              <p className="mt-3.5 font-inter text-[12.5px] sm:text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">
                 {lang === "EN"
                   ? "Operated by Indobox India Private Limited"
                   : "Indobox India Private Limited が運営"}
@@ -98,7 +131,7 @@ export function Footer() {
             </div>
 
             <div className="pt-1">
-              <span className="font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 block mb-2.5">
+              <span className="font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 block mb-2">
                 {tx({ EN: "AN INITIATIVE OF", JP: "共同事業・提携母体" })}
               </span>
               <div className="inline-flex items-center gap-2 sm:gap-2.5 rounded-xl border border-slate-200/90 dark:border-white/12 bg-slate-50/80 dark:bg-white/[0.04] px-3 py-2 sm:px-3.5 sm:py-2.5 shadow-2xs backdrop-blur-sm whitespace-nowrap">
@@ -138,12 +171,12 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Col 4 (3 cols) — Main Facility Location */}
-          <div className="lg:col-span-3">
+          {/* Col 4 (3 cols) — Main Facility Location & Contacts */}
+          <div className="lg:col-span-3 space-y-3">
             <h3 className="font-inter text-[11px] sm:text-[11.5px] font-bold uppercase tracking-wider text-ink dark:text-white">
-              {tx({ EN: "LOCATION", JP: "所在地" })}
+              {tx({ EN: "LOCATION & DESK", JP: "所在地・直通連絡" })}
             </h3>
-            <div className="mt-4 space-y-3">
+            <div className="space-y-3 pt-1">
               <div className="flex items-start gap-2.5">
                 <MapPin className="h-4.5 w-4.5 text-crimson shrink-0 mt-0.5" />
                 <div className="font-inter text-[12.5px] sm:text-[13px] leading-relaxed text-slate-600 dark:text-slate-400">
@@ -154,14 +187,25 @@ export function Footer() {
                 </div>
               </div>
 
-              <div className="flex items-center gap-2.5 pt-0.5">
-                <Mail className="h-4 w-4 text-crimson shrink-0" />
-                <a
-                  href="mailto:contact@indobox.co.jp"
-                  className="font-inter text-[13px] font-medium text-slate-700 dark:text-slate-300 transition-colors hover:text-crimson dark:hover:text-crimson"
-                >
-                  contact@indobox.co.jp
-                </a>
+              <div className="space-y-1.5 pt-1">
+                <div className="flex items-center gap-2">
+                  <Mail className="h-4 w-4 text-crimson shrink-0" />
+                  <a
+                    href="mailto:contact@indobox.co.jp"
+                    className="font-inter text-[12.5px] sm:text-[13px] font-medium text-slate-700 dark:text-slate-300 transition-colors hover:text-crimson dark:hover:text-crimson"
+                  >
+                    contact@indobox.co.jp
+                  </a>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="h-4 w-4 text-crimson shrink-0" />
+                  <a
+                    href="tel:+919910360648"
+                    className="font-inter text-[12.5px] sm:text-[13px] font-medium text-slate-700 dark:text-slate-300 transition-colors hover:text-crimson dark:hover:text-crimson"
+                  >
+                    +91-9910360648 (JP Desk)
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -173,12 +217,16 @@ export function Footer() {
             © 2026 J-Gate · Indobox India Private Limited. {tx({ EN: "All Rights Reserved.", JP: "無断転載を禁じます。" })}
           </p>
           <div className="flex gap-4 text-[11.5px] sm:text-[12px] text-slate-500 dark:text-slate-400">
-            <Link href="#" className="transition-colors hover:text-crimson dark:hover:text-crimson">
-              {tx({ EN: "Privacy Policy", JP: "プライバシーポリシー" })}
+            <Link href="/services" className="transition-colors hover:text-crimson dark:hover:text-crimson">
+              {tx({ EN: "Services", JP: "サービス一覧" })}
             </Link>
             <span>·</span>
-            <Link href="#" className="transition-colors hover:text-crimson dark:hover:text-crimson">
-              {tx({ EN: "Terms & Conditions", JP: "利用規約" })}
+            <Link href="/auth/brochure" className="transition-colors hover:text-crimson dark:hover:text-crimson">
+              {tx({ EN: "Brochure", JP: "パンフレット" })}
+            </Link>
+            <span>·</span>
+            <Link href="/contact" className="transition-colors hover:text-crimson dark:hover:text-crimson">
+              {tx({ EN: "Contact", JP: "お問い合わせ" })}
             </Link>
           </div>
         </div>

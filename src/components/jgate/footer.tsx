@@ -8,28 +8,23 @@ import { useI18n } from "@/lib/i18n";
 const FOOTER_SOLUTIONS = [
   {
     href: "/services",
-    label: { EN: "Turnkey Office & Private Cabins", JP: "専用オフィス・個室キャビン" },
-    desc: { EN: "Cyber Gateway Tier-3 Facilities", JP: "即日利用・二重化光回線" },
+    label: { EN: "Private Cabins & Desks", JP: "専用個室・執務デスク" },
   },
   {
     href: "/services",
-    label: { EN: "MCA Incorporation & Bank Setup", JP: "法人設立登記・法人口座開設" },
-    desc: { EN: "PAN, TAN & Statutory GSTIN", JP: "公式商業登記住所・税務登録" },
+    label: { EN: "MCA Incorporation & Banking", JP: "法人設立・登記・口座開設" },
   },
   {
     href: "/team",
-    label: { EN: "Resident Japan Desk Advisory", JP: "日本人役員常駐・よろず相談" },
-    desc: { EN: "Daily In-Person Consultation", JP: "日本語による日常業務伴走" },
+    label: { EN: "Resident Japan Desk Advisory", JP: "日本人役員常駐支援" },
   },
   {
     href: "/services",
-    label: { EN: "Tech Talent & EOR Staffing", JP: "IT人材採用・EOR雇用代行" },
-    desc: { EN: "IIT Pipelines & Bilingual Engineers", JP: "名門大学直結・即日雇用" },
+    label: { EN: "Tech Talent & EOR Staffing", JP: "高度IT人材採用・雇用代行" },
   },
   {
     href: "/auth/brochure",
-    label: { EN: "Official Brochure (55MB PDF)", JP: "公式パンフレット（PDF）" },
-    desc: { EN: "Comprehensive Entry Guide", JP: "インド進出総合資料の無料DL" },
+    label: { EN: "Official Brochure", JP: "公式パンフレット（PDF）" },
     isDownload: true,
   },
 ] as const;
@@ -88,29 +83,29 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Col 2 (3 cols) — Core Solutions & Capabilities (Replaces generic Navigate list) */}
+          {/* Col 2 (3 cols) — Core Solutions & Capabilities */}
           <div className="lg:col-span-3 space-y-3">
             <h3 className="font-inter text-[11px] sm:text-[11.5px] font-bold uppercase tracking-wider text-ink dark:text-white">
-              {tx({ EN: "SOLUTIONS & CAPABILITIES", JP: "主要ソリューション" })}
+              {tx({ EN: "SERVICES & SOLUTIONS", JP: "主要ソリューション" })}
             </h3>
             <ul className="space-y-2.5 pt-1">
               {FOOTER_SOLUTIONS.map((sol, idx) => (
                 <li key={idx}>
                   <Link
                     href={sol.href}
-                    className="group block transition-all"
+                    className="group flex items-center justify-between text-[12.5px] sm:text-[13px] text-slate-600 dark:text-slate-300 hover:text-crimson dark:hover:text-rose-400 transition-colors"
                   >
-                    <div className="flex items-center justify-between gap-1 text-[12.5px] sm:text-[13px] font-semibold text-slate-700 dark:text-slate-200 group-hover:text-crimson dark:group-hover:text-rose-400">
-                      <span>{tx(sol.label)}</span>
-                      {sol.isDownload ? (
-                        <Download className="h-3 w-3 text-crimson dark:text-rose-400 shrink-0" />
-                      ) : (
-                        <ArrowUpRight className="h-3 w-3 opacity-0 group-hover:opacity-100 transition-opacity shrink-0 text-crimson" />
-                      )}
-                    </div>
-                    <span className="block font-inter text-[11px] text-slate-500 dark:text-slate-400">
-                      {tx(sol.desc)}
+                    <span className="flex items-center gap-2">
+                      <span className="h-1.5 w-1.5 rounded-full bg-slate-300 dark:bg-white/20 group-hover:bg-crimson group-hover:scale-125 transition-all" />
+                      <span className="font-medium">{tx(sol.label)}</span>
                     </span>
+                    {sol.isDownload ? (
+                      <span className="flex items-center gap-1 rounded bg-crimson/10 dark:bg-crimson/20 border border-crimson/20 px-1.5 py-0.5 text-[10px] font-semibold text-crimson dark:text-rose-300">
+                        <Download className="h-2.5 w-2.5" /> PDF
+                      </span>
+                    ) : (
+                      <ArrowUpRight className="h-3.5 w-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-crimson" />
+                    )}
                   </Link>
                 </li>
               ))}

@@ -6,7 +6,6 @@ import { JGateLogo, LinkedInIcon, InstagramIcon } from "./icons";
 import { useI18n } from "@/lib/i18n";
 
 const ECOSYSTEM = [
-  { name: "Indobox Inc.", logo: "/logos/indobox-icon.png" },
   { name: "Genesys Info X", logo: "/logos/genesys-info-x.png" },
   { name: "T-Hub", logo: "/logos/thub.png" },
   { name: "Woxsen University", logo: "/logos/woxsen.png" },
@@ -63,7 +62,7 @@ export function Footer() {
           {/* Col 2 (3 cols) — Partners & Network */}
           <div className="lg:col-span-3">
             <h3 className="font-inter text-[11px] sm:text-[11.5px] font-bold uppercase tracking-wider text-ink dark:text-white">
-              {tx({ EN: "PARTNERS & NETWORK", JP: "提携企業・ネットワーク" })}
+              {tx({ EN: "ECOSYSTEM PARTNERS", JP: "エコシステムパートナー" })}
             </h3>
             <ul className="mt-4 space-y-3">
               {ECOSYSTEM.map((e) => (

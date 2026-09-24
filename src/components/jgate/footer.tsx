@@ -5,16 +5,12 @@ import { MapPin, Mail, Phone } from "lucide-react";
 import { JGateLogo, LinkedInIcon, InstagramIcon } from "./icons";
 import { useI18n } from "@/lib/i18n";
 
-const NAV_LINKS = [
-  { href: "/", key: "nav.home" },
-  { href: "/about", key: "nav.about" },
-  { href: "/why-jgate", key: "nav.why" },
-  { href: "/services", key: "nav.services" },
-  { href: "/team", key: "nav.team" },
-  { href: "/pricing", key: "nav.pricing" },
-  { href: "/faq", key: "nav.faq" },
-  { href: "/blogs", key: "nav.blogs" },
-  { href: "/contact", key: "nav.contact" },
+const ECOSYSTEM = [
+  { name: "Indobox Inc.", loc: { EN: "Tokyo, Japan", JP: "東京" }, role: { EN: "Founding Entity", JP: "創業母体" } },
+  { name: "Genesys Info X", loc: { EN: "Hyderabad", JP: "ハイデラバード" }, role: { EN: "Operations Partner", JP: "運営パートナー" } },
+  { name: "T-Hub", loc: { EN: "Hyderabad", JP: "ハイデラバード" }, role: { EN: "Innovation Ecosystem", JP: "イノベーション連携" } },
+  { name: "Woxsen University", loc: { EN: "Hyderabad", JP: "ハイデラバード" }, role: { EN: "Academic Alliance", JP: "産学連携" } },
+  { name: "Cyber Gateway", loc: { EN: "HITEC City", JP: "ハイテックシティ" }, role: { EN: "Facility Campus", JP: "施設拠点" } },
 ] as const;
 
 export function Footer() {
@@ -65,27 +61,27 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Col 2 (2 cols) — Previous Site Navigation */}
-          <div className="lg:col-span-2">
+          {/* Col 2 (3 cols) — Partners & Network */}
+          <div className="lg:col-span-3">
             <h3 className="font-inter text-[11px] sm:text-[11.5px] font-bold uppercase tracking-wider text-ink dark:text-white">
-              {t("footer.navigate")}
+              {tx({ EN: "PARTNERS & NETWORK", JP: "提携企業・ネットワーク" })}
             </h3>
-            <ul className="mt-4 grid grid-cols-2 gap-x-3 gap-y-2 sm:grid-cols-1 sm:space-y-2">
-              {NAV_LINKS.map((l) => (
-                <li key={l.href}>
-                  <Link
-                    href={l.href}
-                    className="font-inter text-[13px] text-slate-600 dark:text-slate-400 transition-colors hover:text-crimson dark:hover:text-rose-400"
-                  >
-                    {t(l.key)}
-                  </Link>
+            <ul className="mt-4 space-y-2.5">
+              {ECOSYSTEM.map((e) => (
+                <li key={e.name} className="flex items-baseline justify-between gap-2">
+                  <span className="font-inter text-[12.5px] sm:text-[13px] font-semibold text-slate-700 dark:text-slate-200">
+                    {e.name}
+                  </span>
+                  <span className="font-inter text-[10.5px] text-slate-400 dark:text-slate-500 whitespace-nowrap">
+                    {tx(e.loc)}
+                  </span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Col 3 (4 cols) — Company & Operations */}
-          <div className="lg:col-span-4 space-y-4">
+          {/* Col 3 (3 cols) — Company & Operations */}
+          <div className="lg:col-span-3 space-y-4">
             <div>
               <h3 className="font-inter text-[11px] sm:text-[11.5px] font-bold uppercase tracking-wider text-ink dark:text-white">
                 {tx({ EN: "COMPANY & OPERATIONS", JP: "運営・体制" })}

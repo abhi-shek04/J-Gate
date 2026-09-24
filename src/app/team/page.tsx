@@ -4,7 +4,7 @@ import { Reveal, Eyebrow } from "@/components/jgate/shared";
 import { PageHero } from "@/components/jgate/page-hero";
 import { LogoMarquee } from "@/components/jgate/logo-marquee";
 import { useI18n } from "@/lib/i18n";
-import { Phone, Mail, MessageSquare, Sparkles, Languages } from "lucide-react";
+import { Phone, Mail, Sparkles } from "lucide-react";
 import Link from "next/link";
 
 /* ============================================================
@@ -571,76 +571,31 @@ export default function TeamPage() {
           </div>
 
           {/* ══════════════════════════════════════════════════════════
-              Bilingual Concierge Speech Bubble — Pointing Directly up to Dheeraj
+              Bilingual Concierge Reassurance Note (Compact & Neatly Centered)
              ══════════════════════════════════════════════════════════ */}
-          <Reveal delay={250}>
-            <div className="mt-6 sm:mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 items-start">
-              {/* Empty space for Columns 1 & 2 (Tanji & Hanaoka) on desktop */}
-              <div className="hidden lg:block lg:col-span-2" />
-
-              {/* Speech Bubble spanning under Column 3 (Dheeraj) & Column 4 (Abhishek) */}
-              <div className="sm:col-span-2 lg:col-span-2 relative">
-                <div className="relative rounded-2xl sm:rounded-[36px] border-2 border-saffron dark:border-saffron/70 bg-[#FFF9EE] dark:bg-[#151f33] p-4 sm:p-6 lg:p-8 shadow-xl transition-all duration-300 hover:shadow-2xl">
-                  {/* Authentic Speech Bubble Pointer Tail pointing EXACTLY UP to Dheeraj (Col 3 center = 25% of 2-col span) */}
-                  <div className="absolute -top-[14px] left-1/2 sm:left-[25%] -translate-x-1/2 h-0 w-0 border-x-[13px] border-x-transparent border-b-[14px] border-b-saffron dark:border-b-saffron/70" />
-                  <div className="absolute -top-[11px] left-1/2 sm:left-[25%] -translate-x-1/2 h-0 w-0 border-x-[13px] border-x-transparent border-b-[14px] border-b-[#FFF9EE] dark:border-b-[#151f33]" />
-
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 sm:gap-6">
-                    <div className="space-y-2 flex-1">
-                      <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-                        <span className="inline-block rounded-full bg-saffron/25 dark:bg-amber-950/60 border border-saffron/40 dark:border-amber-400/30 px-2.5 py-0.5 font-inter text-[9.5px] sm:text-[10.5px] font-bold uppercase tracking-wider text-saffron-dark dark:text-amber-300">
-                          BILINGUAL CONCIERGE · バイリンガル対応
-                        </span>
-                        <span className="inline-flex items-center gap-1 rounded-full bg-crimson/10 dark:bg-rose-950/60 border border-crimson/20 dark:border-rose-400/30 px-2 py-0.5 font-inter text-[9.5px] sm:text-[10.5px] font-bold text-crimson dark:text-rose-300">
-                          <Sparkles className="h-3 w-3" />
-                          <span>Dheeraj (Community Manager)</span>
-                        </span>
-                      </div>
-
-                      {/* Exact Japanese Header */}
-                      <h4 className="font-serif-jp text-[17px] sm:text-[21px] lg:text-[23px] font-bold text-ink dark:text-white leading-tight tracking-tight">
-                        なんでもお気軽にご相談ください。
-                        <br />
-                        日本語でご対応致します。
-                      </h4>
-
-                      {/* Bilingual Description */}
-                      <p className="font-inter text-[12px] sm:text-[13px] lg:text-[13.5px] leading-relaxed text-slate-700 dark:text-slate-200">
-                        {tx({
-                          EN: "Whether exploring hub memberships, enterprise private suites, company incorporation, or bilateral business partnerships — our team provides dedicated support in Japanese and English.",
-                          JP: "オフィス視察、現地法人設立、人材採用、市場調査など、経験豊富な現地スタッフが日本語・英語で迅速かつ丁寧に対応いたします。",
-                        })}
-                      </p>
-                    </div>
-
-                    {/* Direct Contact Buttons */}
-                    <div className="flex flex-wrap sm:flex-col shrink-0 gap-2 sm:gap-2.5 w-full sm:w-auto">
-                      <a
-                        href="tel:+919849811543"
-                        className="btn-shine inline-flex items-center justify-center gap-2 rounded-xl bg-crimson px-4 py-2 sm:px-5 sm:py-2.5 font-inter text-[12px] sm:text-[12.5px] font-semibold text-white shadow-md hover:bg-crimson-deep transition-all"
-                      >
-                        <Phone className="h-3.5 w-3.5" />
-                        <span>+91-98498 11543</span>
-                      </a>
-                      <a
-                        href="https://wa.me/919849811543?text=Hello%20Dheeraj,%20I%20would%20like%20to%20inquire%20about%20J-Gate%20Hyderabad."
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 px-4 py-2 sm:px-5 sm:py-2.5 font-inter text-[12px] sm:text-[12.5px] font-semibold text-white shadow-md transition-all"
-                      >
-                        <MessageSquare className="h-3.5 w-3.5" />
-                        <span>WhatsApp Dheeraj</span>
-                      </a>
-                      <Link
-                        href="/contact"
-                        className="inline-flex items-center justify-center gap-2 rounded-xl bg-white dark:bg-white/10 hover:bg-slate-50 dark:hover:bg-white/15 px-4 py-1.5 sm:px-5 sm:py-2 font-inter text-[11.5px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-white/15 shadow-sm transition-all"
-                      >
-                        <Mail className="h-3.5 w-3.5 text-crimson dark:text-rose-400" />
-                        <span>{tx({ EN: "Online Inquiry Desk →", JP: "Web相談・予約 →" })}</span>
-                      </Link>
-                    </div>
-                  </div>
+          <Reveal delay={200}>
+            <div className="mt-6 sm:mt-7 max-w-2xl mx-auto">
+              <div className="relative rounded-xl sm:rounded-2xl border border-saffron/50 dark:border-saffron/40 bg-amber-50/60 dark:bg-[#121b2d] p-3.5 sm:p-4 text-center shadow-xs">
+                <div className="flex flex-wrap items-center justify-center gap-1.5 mb-2">
+                  <span className="inline-block rounded-full bg-saffron/20 dark:bg-amber-950/60 border border-saffron/40 dark:border-amber-400/30 px-2 py-0.5 font-inter text-[9px] sm:text-[9.5px] font-bold uppercase tracking-wider text-saffron-dark dark:text-amber-300">
+                    BILINGUAL CONCIERGE · バイリンガル対応
+                  </span>
+                  <span className="inline-flex items-center gap-1 rounded-full bg-crimson/10 dark:bg-rose-950/60 border border-crimson/20 dark:border-rose-400/30 px-2 py-0.5 font-inter text-[9px] sm:text-[9.5px] font-bold text-crimson dark:text-rose-300">
+                    <Sparkles className="h-2.5 w-2.5" />
+                    <span>Dheeraj (Community Manager)</span>
+                  </span>
                 </div>
+
+                <h4 className="font-serif-jp text-[14px] sm:text-[15px] font-bold text-ink dark:text-white leading-snug">
+                  なんでもお気軽にご相談ください。日本語でご対応致します。
+                </h4>
+
+                <p className="mt-1.5 font-inter text-[11px] sm:text-[11.5px] leading-relaxed text-slate-600 dark:text-slate-300 max-w-xl mx-auto">
+                  {tx({
+                    EN: "Whether exploring hub memberships, enterprise private suites, company incorporation, or bilateral business partnerships — our team provides dedicated support in Japanese and English.",
+                    JP: "オフィス視察、現地法人設立、人材採用、市場調査など、経験豊富な現地スタッフが日本語・英語で迅速かつ丁寧に対応いたします。",
+                  })}
+                </p>
               </div>
             </div>
           </Reveal>

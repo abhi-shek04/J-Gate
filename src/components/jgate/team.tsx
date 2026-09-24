@@ -14,7 +14,7 @@ const CORE_LEADERSHIP = [
     image: "/team/tanji.png",
     desc: "Directs J-Gate's bilateral bridge, connecting Indian engineering powerhouses with Japanese corporate headquarters.",
     tags: ["Business Strategy", "Career Placement", "Bilateral Relations"],
-    linkedin: "https://www.linkedin.com/in/daisuke-tanji-7749171b/",
+    linkedin: "https://www.linkedin.com/in/daisuke-tanji/",
   },
   {
     name: "Mariko Hanaoka",
@@ -24,7 +24,7 @@ const CORE_LEADERSHIP = [
     image: "/team/hanaoka.png",
     desc: "Native Japanese educator leading business Japanese, JLPT/NAT curriculum, and cultural orientation programs.",
     tags: ["Curriculum Design", "Pedagogy", "Cultural Orientation"],
-    linkedin: "https://www.linkedin.com/company/indobox/",
+    linkedin: "https://www.linkedin.com/in/marikohanaoka/",
   },
   {
     name: "Dheeraj Yanneti",
@@ -34,7 +34,7 @@ const CORE_LEADERSHIP = [
     image: "/team/dheeraj.png",
     desc: "Manages day-to-day workspace operations, member admissions, bilingual concierge services, and enterprise client relations.",
     tags: ["Operations", "Admissions", "Client Relations"],
-    linkedin: "https://www.linkedin.com/in/dheeraj-yanneti/",
+    linkedin: "https://www.linkedin.com/in/dheeraj-yenneti-41866531b/",
   },
   {
     name: "Abhishek Buduru",
@@ -44,7 +44,7 @@ const CORE_LEADERSHIP = [
     image: "/team/abhishek.png",
     desc: "Oversees smart access infrastructure, IT facility support, and technology integrations across the Hyderabad hub.",
     tags: ["Tech Support", "IT Infrastructure", "Smart Access"],
-    linkedin: "https://www.linkedin.com/in/abhishek-buduru/",
+    linkedin: "https://www.linkedin.com/in/buduru-abhishek/",
   },
 ];
 

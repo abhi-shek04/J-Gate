@@ -16,7 +16,7 @@ const FOUNDERS = [
     flag: "jp" as const,
     badge: "🇯🇵 Japanese National, India-based (10+ years)",
     tags: ["Business Strategy", "Career Placement", "Bilateral Relations"],
-    linkedin: "https://www.linkedin.com/in/daisuke-tanji-7749171b/",
+    linkedin: "https://www.linkedin.com/in/daisuke-tanji/",
     bio: [
       "Mr. Daisuke Tanji is the architect of J-Gate and the driving force behind Indobox India Private Limited — a business consultancy and market entry firm dedicated specifically to the India-Japan business corridor.",
       "Having arrived in India in August 2013, Mr. Tanji has spent over a decade immersed in the Indian business environment while maintaining his deep roots in Japanese corporate culture, language, and values. This rare dual perspective forms the foundation of everything J-Gate represents.",

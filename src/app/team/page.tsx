@@ -120,7 +120,7 @@ const OPS_TEAM: OpsMember[] = [
     image: "/team/tanji.png",
     desc: "Directs J-Gate's bilateral bridge, connecting Indian engineering powerhouses with Japanese corporate headquarters.",
     tags: ["Business Strategy", "Career Placement", "Bilateral Relations"],
-    linkedin: "https://www.linkedin.com/in/daisuke-tanji-7749171b/",
+    linkedin: "https://www.linkedin.com/in/daisuke-tanji/",
     languages: [
       { EN: "Japanese", JP: "日本語", highlight: true },
       { EN: "English", JP: "英語" },
@@ -139,7 +139,7 @@ const OPS_TEAM: OpsMember[] = [
     image: "/team/hanaoka.png",
     desc: "Native Japanese educator leading business Japanese, JLPT/NAT curriculum, and cultural orientation programs.",
     tags: ["Curriculum Design", "Pedagogy", "Cultural Orientation"],
-    linkedin: "https://www.linkedin.com/company/indobox/",
+    linkedin: "https://www.linkedin.com/in/marikohanaoka/",
     languages: [
       { EN: "Japanese", JP: "日本語", highlight: true },
       { EN: "English", JP: "英語" },
@@ -161,7 +161,7 @@ const OPS_TEAM: OpsMember[] = [
     image: "/team/dheeraj.png",
     desc: "Manages day-to-day workspace operations, member admissions, bilingual concierge services, and enterprise client relations.",
     tags: ["Operations", "Admissions", "Client Relations"],
-    linkedin: "https://www.linkedin.com/in/dheeraj-yanneti/",
+    linkedin: "https://www.linkedin.com/in/dheeraj-yenneti-41866531b/",
     languages: [
       { EN: "Japanese", JP: "日本語", highlight: true },
       { EN: "English", JP: "英語" },
@@ -181,7 +181,7 @@ const OPS_TEAM: OpsMember[] = [
     image: "/team/abhishek.png",
     desc: "Oversees smart access infrastructure, IT facility support, and technology integrations across the Hyderabad hub.",
     tags: ["Tech Support", "IT Infrastructure", "Smart Access"],
-    linkedin: "https://www.linkedin.com/in/abhishek-buduru/",
+    linkedin: "https://www.linkedin.com/in/buduru-abhishek/",
     languages: [
       { EN: "Japanese (N3)", JP: "日本語 (N3)", highlight: true },
       { EN: "English", JP: "英語" },

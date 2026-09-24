@@ -311,40 +311,38 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════
           1. HERO — Ultra-Luxurious Japanese-Modern Executive Launchpad
          ════════════════════════════════════════════════════════════ */}
-      <section className="relative flex min-h-[82vh] sm:min-h-[88vh] items-center justify-center overflow-hidden bg-ivory dark:bg-[#0b111e] py-14 sm:py-24 border-b border-slate-200/60 dark:border-white/10 transition-colors duration-300">
-        {/* Ambient warm layered glows — Light & Dark */}
+      {/* ════════════════════════════════════════════════════════════
+          1. HERO — Ultra-Luxurious Japanese-Modern Executive Launchpad
+         ════════════════════════════════════════════════════════════ */}
+      <section className="relative flex min-h-[80vh] sm:min-h-[85vh] items-center justify-center overflow-hidden bg-slate-50/70 dark:bg-[#070c16] py-14 sm:py-20 border-b border-slate-200/80 dark:border-white/10 transition-colors duration-300">
+        {/* Ambient warm layered glows — Clean Institutional Light & Dark */}
         <div
           className="absolute inset-0 dark:hidden pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse at 50% -10%, rgba(232,160,26,0.18) 0%, transparent 60%), radial-gradient(ellipse at 85% 35%, rgba(188,26,44,0.08) 0%, transparent 55%), radial-gradient(ellipse at 15% 75%, rgba(188,26,44,0.06) 0%, transparent 50%), radial-gradient(ellipse at 50% 105%, rgba(232,160,26,0.08) 0%, transparent 60%)",
+              "radial-gradient(ellipse at 50% 0%, rgba(188,26,44,0.035) 0%, transparent 65%), radial-gradient(ellipse at 80% 80%, rgba(232,160,26,0.025) 0%, transparent 50%)",
           }}
         />
         <div
           className="absolute inset-0 hidden dark:block pointer-events-none"
           style={{
             background:
-              "radial-gradient(ellipse at 50% -10%, rgba(225,29,72,0.22) 0%, transparent 55%), radial-gradient(ellipse at 85% 45%, rgba(245,158,11,0.09) 0%, transparent 50%), radial-gradient(ellipse at 15% 75%, rgba(13,27,42,0.95) 0%, transparent 65%)",
+              "radial-gradient(ellipse at 50% -10%, rgba(225,29,72,0.18) 0%, transparent 60%), radial-gradient(ellipse at 85% 45%, rgba(245,158,11,0.06) 0%, transparent 50%)",
           }}
         />
 
-        {/* Floating subtle ambient glowing orbs */}
-        <div className="pointer-events-none absolute -top-16 left-1/4 h-72 w-72 rounded-full bg-saffron/12 dark:bg-rose-500/10 blur-3xl animate-float" />
-        <div className="pointer-events-none absolute top-1/3 -right-16 h-80 w-80 rounded-full bg-crimson/8 dark:bg-amber-500/10 blur-3xl animate-float-delay" />
-        <div className="pointer-events-none absolute -bottom-20 left-10 h-72 w-72 rounded-full bg-crimson/6 dark:bg-rose-600/10 blur-3xl animate-float-slow" />
-
         {/* Subtle asanoha texture overlay */}
-        <div className="absolute inset-0 pattern-asanoha-light opacity-35 dark:opacity-20 pointer-events-none" />
+        <div className="absolute inset-0 pattern-asanoha opacity-[0.025] dark:pattern-asanoha-dark dark:opacity-20 pointer-events-none" />
         <ToriiWatermark
           className="torii-watermark"
-          style={{ width: "70vw", maxWidth: "780px", right: "0", top: "8%", opacity: 0.035 }}
+          style={{ width: "70vw", maxWidth: "780px", right: "0", top: "8%", opacity: 0.025 }}
         />
         <Particles />
 
-        {/* Skyline silhouette — warm ivory tones / dark ambient */}
-        <div className="pointer-events-none absolute bottom-0 left-0 h-[28%] w-full opacity-30 dark:opacity-20">
+        {/* Skyline silhouette — clean subtle neutral ambient */}
+        <div className="pointer-events-none absolute bottom-0 left-0 h-[26%] w-full opacity-25 dark:opacity-15">
           <svg viewBox="0 0 1440 200" preserveAspectRatio="xMidYMax slice" className="h-full w-full" aria-hidden>
-            <g className="fill-crimson/[0.06] dark:fill-white/[0.04]">
+            <g className="fill-slate-900/[0.04] dark:fill-white/[0.04]">
               <rect x="0" y="160" width="80" height="40" /><rect x="80" y="135" width="60" height="65" />
               <rect x="150" y="40" width="64" height="160" /><rect x="214" y="90" width="44" height="110" />
               <rect x="258" y="135" width="70" height="65" /><rect x="340" y="130" width="120" height="70" />
@@ -360,59 +358,45 @@ export default function HomePage() {
           </svg>
         </div>
         <div
-          className="pointer-events-none absolute bottom-0 left-0 h-[30%] w-full bg-gradient-to-b from-transparent via-ivory/60 to-ivory dark:via-[#0b111e]/60 dark:to-[#0b111e]"
+          className="pointer-events-none absolute bottom-0 left-0 h-[25%] w-full bg-gradient-to-b from-transparent via-slate-50/60 to-slate-50 dark:via-[#070c16]/60 dark:to-[#070c16]"
         />
 
-        <div className="container-jg relative z-10 pt-6 pb-16 sm:pt-10 sm:pb-20 text-center max-w-5xl mx-auto">
-          {/* 1. Eyebrow: HYDERABAD · CYBER GATEWAY */}
+        <div className="container-jg relative z-10 pt-4 pb-12 sm:pt-8 sm:pb-16 text-center max-w-5xl mx-auto">
+          {/* 1. Pre-title: Japan × India Talent & Business Bridge */}
           <Reveal>
-            <span
-              className="inline-flex items-center gap-2 rounded-full border border-crimson/25 dark:border-rose-400/30 bg-white/95 dark:bg-[#101a2c]/95 px-4 py-1.5 font-inter text-[11px] sm:text-[12px] font-bold uppercase tracking-[0.14em] text-crimson dark:text-rose-400 shadow-card backdrop-blur-md transition-all duration-300 hover:scale-105 hover:shadow-lg"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
-              </span>
-              <IndiaFlag className="h-3.5 w-5 rounded-[2px]" />
-              <span>{tx({ EN: "HYDERABAD · CYBER GATEWAY", JP: "ハイデラバード・サイバーゲートウェイ" })}</span>
-            </span>
-          </Reveal>
-
-          {/* 2. Pre-title: Japan × India Talent & Business Bridge */}
-          <Reveal delay={80}>
-            <div className="mt-5 sm:mt-6 flex items-center justify-center gap-2.5 font-inter text-[12px] sm:text-[13px] font-bold uppercase tracking-[0.24em] text-slate-700 dark:text-slate-300">
-              <span className="hidden sm:inline-block h-px w-8 bg-gradient-to-r from-transparent to-crimson/40 dark:to-rose-400/40" />
+            <div className="flex items-center justify-center gap-2.5 font-inter text-[11.5px] sm:text-[12.5px] font-bold uppercase tracking-[0.22em] text-crimson dark:text-rose-400">
+              <span className="hidden sm:inline-block h-px w-8 bg-crimson/30 dark:bg-rose-400/30" />
               <span>Japan × India Talent &amp; Business Bridge</span>
-              <span className="hidden sm:inline-block h-px w-8 bg-gradient-to-l from-transparent to-crimson/40 dark:to-rose-400/40" />
+              <span className="hidden sm:inline-block h-px w-8 bg-crimson/30 dark:bg-rose-400/30" />
             </div>
           </Reveal>
 
-          {/* 3. Main H1 Title: Birth of a Dedicated Working Hub for Japanese Companies */}
-          <Reveal delay={140}>
+          {/* 2. Main H1 Title: Birth of a Dedicated Working Hub for Japanese Companies */}
+          <Reveal delay={80}>
             <h1
-              className="mx-auto mt-4 max-w-4xl font-serif-jp font-black leading-[1.15] text-ink dark:text-white tracking-tight"
-              style={{ fontSize: "clamp(2.1rem, 4.8vw, 3.5rem)" }}
+              className="mx-auto mt-4 max-w-4xl font-serif-jp font-extrabold leading-[1.15] text-ink dark:text-white tracking-tight"
+              style={{ fontSize: "clamp(2.1rem, 4.8vw, 3.4rem)" }}
             >
               Birth of a Dedicated
               <br />
-              <span className="text-gradient-crimson">Working Hub for Japanese Companies</span>
+              <span className="text-crimson dark:text-rose-400">Working Hub for Japanese Companies</span>
             </h1>
           </Reveal>
 
-          {/* 4. Japanese Tagline: 「日本企業専用のワーキングハブ誕生」 */}
-          <Reveal delay={200}>
+          {/* 3. Japanese Tagline: 「日本企業専用のワーキングハブ誕生」 */}
+          <Reveal delay={140}>
             <div className="mt-4 flex items-center justify-center">
-              <span className="inline-flex items-center gap-2 rounded-full bg-crimson/10 dark:bg-rose-950/50 border border-crimson/25 dark:border-rose-400/30 px-5 py-2 font-serif-jp text-[14px] sm:text-[16px] font-bold text-crimson dark:text-rose-300 tracking-wider shadow-sm backdrop-blur-sm">
+              <span className="inline-flex items-center gap-2 rounded-full bg-crimson/[0.06] dark:bg-rose-950/40 border border-crimson/20 dark:border-rose-400/30 px-4 py-1.5 font-serif-jp text-[13.5px] sm:text-[15px] font-bold text-crimson dark:text-rose-300 tracking-wide shadow-2xs backdrop-blur-sm">
                 <Sparkles className="h-3.5 w-3.5 text-saffron" />
                 <span>「日本企業専用のワーキングハブ誕生」</span>
               </span>
             </div>
           </Reveal>
 
-          {/* 5. Lead Description Paragraph */}
-          <Reveal delay={260}>
+          {/* 4. Lead Description Paragraph */}
+          <Reveal delay={200}>
             <p
-              className="mx-auto mt-5 max-w-[680px] font-inter font-normal leading-relaxed text-slate-700 dark:text-slate-200 text-[14.5px] sm:text-[16px]"
+              className="mx-auto mt-4 sm:mt-5 max-w-[680px] font-inter font-normal leading-relaxed text-slate-600 dark:text-slate-300 text-[14.5px] sm:text-[15.5px]"
             >
               {tx({
                 EN: "A dedicated co-working space at Cyber Gateway, Hyderabad for Japanese businesses. Dedicated desks, private cabins, resident Japan Desk support, and full office infrastructure to start operations smoothly in India.",
@@ -421,9 +405,9 @@ export default function HomePage() {
             </p>
           </Reveal>
 
-          {/* 6. The 2 Floating Glass Badges: Telangana State & Indobox */}
-          <Reveal delay={320}>
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-5">
+          {/* 5. The 2 Floating Glass Badges: Telangana State & Indobox */}
+          <Reveal delay={260}>
+            <div className="mt-7 sm:mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
               <GlassBadge
                 flag={<IndiaFlag className="h-4 w-6 rounded-[2px] shadow-2xs" />}
                 primary={tx({ EN: "Telangana State", JP: "テランガナ州" })}
@@ -439,15 +423,15 @@ export default function HomePage() {
             </div>
           </Reveal>
 
-          {/* 7. Primary Action Button: Discover J-Gate */}
-          <Reveal delay={380}>
-            <div className="mt-8 sm:mt-10 flex items-center justify-center">
+          {/* 6. Primary Action Button: Discover J-Gate */}
+          <Reveal delay={320}>
+            <div className="mt-7 sm:mt-9 flex items-center justify-center">
               <Link
                 href="/why-jgate"
-                className="btn-shine group inline-flex items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-crimson via-[#d32f2f] to-crimson-deep px-8 py-4 font-inter text-[14.5px] sm:text-[15.5px] font-bold text-white shadow-xl shadow-crimson/30 hover:shadow-2xl hover:shadow-crimson/50 hover:scale-[1.03] active:scale-[0.98] transition-all duration-300"
+                className="btn-shine group inline-flex items-center justify-center gap-2.5 rounded-xl bg-crimson hover:bg-crimson-deep px-7 py-3.5 sm:px-8 sm:py-4 font-inter text-[14px] sm:text-[15px] font-bold text-white shadow-lg shadow-crimson/20 hover:shadow-xl hover:shadow-crimson/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
               >
                 <span>{tx({ EN: "Discover J-Gate", JP: "J-Gate を詳しく見る" })}</span>
-                <ArrowRight className="h-4.5 w-4.5 transition-transform duration-300 group-hover:translate-x-1.5" />
+                <ArrowRight className="h-4.5 w-4.5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
             </div>
           </Reveal>

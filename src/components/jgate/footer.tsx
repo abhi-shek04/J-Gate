@@ -63,15 +63,15 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Col 2 (3 cols) — Ecosystem Partners */}
-          <div className="lg:col-span-3">
+          {/* Col 2 (2 cols) — Ecosystem Partners */}
+          <div className="lg:col-span-2">
             <h3 className="font-inter text-[11px] sm:text-[11.5px] font-bold uppercase tracking-wider text-ink dark:text-white">
               {tx({ EN: "ECOSYSTEM PARTNERS", JP: "エコシステムパートナー" })}
             </h3>
-            <ul className="mt-4 space-y-2">
+            <ul className="mt-3.5 space-y-1.5">
               {ECOSYSTEM.map((name) => (
                 <li key={name}>
-                  <span className="font-inter text-[12.5px] sm:text-[13px] text-slate-600 dark:text-slate-400">
+                  <span className="font-inter text-[12px] sm:text-[12.5px] text-slate-600 dark:text-slate-400 block truncate">
                     {name}
                   </span>
                 </li>
@@ -79,13 +79,13 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Col 3 (3 cols) — Company & Operations */}
-          <div className="lg:col-span-3 space-y-4">
+          {/* Col 3 (4 cols) — Company & Operations */}
+          <div className="lg:col-span-4 space-y-4">
             <div>
               <h3 className="font-inter text-[11px] sm:text-[11.5px] font-bold uppercase tracking-wider text-ink dark:text-white">
                 {tx({ EN: "COMPANY & OPERATIONS", JP: "運営・体制" })}
               </h3>
-              <p className="mt-4 font-inter text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">
+              <p className="mt-3.5 font-inter text-[12.5px] sm:text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">
                 {lang === "EN"
                   ? "Operated by Indobox India Private Limited"
                   : "Indobox India Private Limited が運営"}
@@ -96,26 +96,36 @@ export function Footer() {
               <span className="font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 block mb-2">
                 {tx({ EN: "AN INITIATIVE OF", JP: "共同事業・提携母体" })}
               </span>
-              <div className="flex flex-col gap-2 max-w-fit">
+              <div className="inline-flex items-center gap-2 sm:gap-2.5 rounded-xl border border-slate-200/90 dark:border-white/12 bg-slate-50/80 dark:bg-white/[0.04] px-3 py-2 sm:px-3.5 sm:py-2.5 shadow-2xs backdrop-blur-sm whitespace-nowrap">
                 {/* Indobox Inc. */}
-                <div className="flex items-center gap-2 rounded-lg border border-slate-200/90 dark:border-white/12 bg-slate-50/80 dark:bg-white/[0.04] px-2.5 py-1.5 shadow-2xs">
+                <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
                   <img
                     src="/logos/indobox-icon.png"
                     alt="Indobox Inc."
-                    className="h-4.5 w-4.5 object-contain shrink-0"
+                    className="h-5 w-5 sm:h-5.5 sm:w-5.5 object-contain shrink-0"
                   />
-                  <span className="font-inter text-[12px] sm:text-[12.5px] font-bold text-ink dark:text-white">
+                  <span className="font-inter text-[12.5px] sm:text-[13px] font-bold text-ink dark:text-white whitespace-nowrap">
                     Indobox Inc.
                   </span>
                 </div>
+
+                {/* Sleek Designer Bilateral Cross Connector */}
+                <div className="flex items-center gap-1 shrink-0" aria-hidden>
+                  <span className="h-3 w-px bg-slate-300 dark:bg-white/20" />
+                  <span className="flex h-4.5 w-4.5 sm:h-5 sm:w-5 items-center justify-center rounded-full bg-crimson/10 dark:bg-crimson/25 text-crimson dark:text-rose-300 font-mono font-bold text-[10px] sm:text-[11px] ring-1 ring-crimson/25 dark:ring-crimson/50 shadow-2xs">
+                    ×
+                  </span>
+                  <span className="h-3 w-px bg-slate-300 dark:bg-white/20" />
+                </div>
+
                 {/* Genesys Info X */}
-                <div className="flex items-center gap-2 rounded-lg border border-slate-200/90 dark:border-white/12 bg-slate-50/80 dark:bg-white/[0.04] px-2.5 py-1.5 shadow-2xs">
+                <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
                   <img
                     src="/logos/genesys-info-x.png"
                     alt="Genesys Info X"
-                    className="h-5 w-5 object-contain shrink-0 dark:brightness-125"
+                    className="h-6 w-6 sm:h-7 sm:w-7 object-contain shrink-0 dark:brightness-125"
                   />
-                  <span className="font-inter text-[12px] sm:text-[12.5px] font-bold text-ink dark:text-white">
+                  <span className="font-inter text-[12.5px] sm:text-[13px] font-bold text-ink dark:text-white whitespace-nowrap">
                     Genesys Info X
                   </span>
                 </div>
@@ -123,12 +133,12 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Col 4 (3 cols) — Main Facility Location */}
-          <div className="lg:col-span-3">
+          {/* Col 4 (3 cols) — Main Facility Location & Contacts */}
+          <div className="lg:col-span-3 lg:pl-2 xl:pl-4 space-y-3">
             <h3 className="font-inter text-[11px] sm:text-[11.5px] font-bold uppercase tracking-wider text-ink dark:text-white">
               {tx({ EN: "LOCATION & DESK", JP: "所在地・窓口" })}
             </h3>
-            <div className="mt-4 space-y-3">
+            <div className="space-y-3 pt-1">
               <div className="flex items-start gap-2.5">
                 <MapPin className="h-4.5 w-4.5 text-crimson shrink-0 mt-0.5" />
                 <div className="font-inter text-[12.5px] sm:text-[13px] leading-relaxed text-slate-600 dark:text-slate-400">

@@ -101,26 +101,26 @@ export function Footer() {
               <span className="font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 block mb-2.5">
                 {tx({ EN: "AN INITIATIVE OF", JP: "共同事業・提携母体" })}
               </span>
-              <div className="inline-flex flex-wrap items-center gap-2.5 sm:gap-3 rounded-xl border border-slate-200/90 dark:border-white/12 bg-slate-50/80 dark:bg-white/[0.04] px-3.5 py-2.5 shadow-2xs backdrop-blur-sm">
+              <div className="inline-flex flex-wrap items-center gap-2.5 sm:gap-3.5 rounded-xl border border-slate-200/90 dark:border-white/12 bg-slate-50/80 dark:bg-white/[0.04] px-3.5 py-2.5 sm:px-4 sm:py-3 shadow-2xs backdrop-blur-sm">
                 {/* Indobox Inc. */}
                 <div className="flex items-center gap-2">
                   <img
                     src="/logos/indobox-icon.png"
                     alt="Indobox Inc."
-                    className="h-5 w-5 sm:h-5.5 sm:w-5.5 object-contain shrink-0"
+                    className="h-5.5 w-5.5 sm:h-6 sm:w-6 object-contain shrink-0"
                   />
-                  <span className="font-inter text-[13px] sm:text-[13.5px] font-bold text-ink dark:text-white whitespace-nowrap">
+                  <span className="font-inter text-[13px] sm:text-[14px] font-bold text-ink dark:text-white whitespace-nowrap">
                     Indobox Inc.
                   </span>
                 </div>
 
                 {/* Sleek Designer Bilateral Cross Connector */}
                 <div className="flex items-center gap-1 shrink-0" aria-hidden>
-                  <span className="h-3 w-px bg-slate-300 dark:bg-white/20" />
-                  <span className="flex h-5 w-5 items-center justify-center rounded-full bg-crimson/10 dark:bg-crimson/25 text-crimson dark:text-rose-300 font-mono font-bold text-[11px] ring-1 ring-crimson/25 dark:ring-crimson/50 shadow-2xs">
+                  <span className="h-3.5 w-px bg-slate-300 dark:bg-white/20" />
+                  <span className="flex h-5.5 w-5.5 items-center justify-center rounded-full bg-crimson/10 dark:bg-crimson/25 text-crimson dark:text-rose-300 font-mono font-bold text-[11px] ring-1 ring-crimson/25 dark:ring-crimson/50 shadow-2xs">
                     ×
                   </span>
-                  <span className="h-3 w-px bg-slate-300 dark:bg-white/20" />
+                  <span className="h-3.5 w-px bg-slate-300 dark:bg-white/20" />
                 </div>
 
                 {/* Genesys Info X */}
@@ -128,7 +128,7 @@ export function Footer() {
                   <img
                     src="/logos/genesys-info-x.png"
                     alt="Genesys Info X"
-                    className="h-6 sm:h-7 w-auto object-contain max-w-[95px] dark:brightness-125"
+                    className="h-8 sm:h-9 w-auto object-contain max-w-[135px] sm:max-w-[155px] dark:brightness-125"
                   />
                 </div>
               </div>

@@ -7,9 +7,6 @@ import {
   Send,
   CheckCircle2,
   ArrowRight,
-  Globe2,
-  MessageCircle,
-  Languages,
   Clock,
   ShieldCheck,
   Copy,
@@ -21,6 +18,10 @@ import {
   Handshake,
   Sparkles,
   ExternalLink,
+  MessageCircle,
+  Briefcase,
+  Lock,
+  BadgeCheck,
 } from "lucide-react";
 import { Reveal, Eyebrow } from "@/components/jgate/shared";
 import { PageHero } from "@/components/jgate/page-hero";
@@ -29,64 +30,95 @@ import { cn } from "@/lib/utils";
 
 /* ============================================================
    /contact — Executive Japan Desk & Bilateral Consultation Console
-   Ultra-premium, unified 2-column executive console on PC
-   and structured luxury mobile layout.
+   Industrial-Grade, Institutional Layout with Unified Light/Dark
+   Executive Theme & Direct Resident Corridors
    ============================================================ */
-
-type Bilingual = { EN: string; JP: string };
 
 type ContactForm = {
   name: string;
   email: string;
   company: string;
+  phone: string;
   subject: string;
   message: string;
-  lang: "EN" | "JP";
 };
 
 type FormErrors = Partial<Record<keyof ContactForm, string>>;
 
-const TOPIC_CHIPS = [
+const CONSULTATION_TRACKS = [
   {
     id: "workspace",
     icon: Building2,
-    label: { EN: "Workspace & Dedicated Desks", JP: "オフィス・専用デスク" },
-    subject: { EN: "Workspace & Satellite Desk Inquiry", JP: "オフィス・サテライトデスクについてのお問い合わせ" },
+    badge: { EN: "Turnkey Space", JP: "即時入居可" },
+    label: { EN: "Workspace & Suites", JP: "オフィス・専用個室" },
+    desc: {
+      EN: "Dedicated desks, 4–20 pax suites & satellite hubs",
+      JP: "専用デスク・4〜20席個室・サテライト拠点",
+    },
+    subject: {
+      EN: "Inquiry: Workspace & Private Office Suites",
+      JP: "オフィス・専用個室についてのお問い合わせ",
+    },
   },
   {
     id: "incorporation",
     icon: FileText,
-    label: { EN: "Entity Incorporation & Banking", JP: "法人設立・口座開設" },
-    subject: { EN: "India Legal Entity Incorporation & Banking", JP: "インド法人設立・口座開設のご相談" },
+    badge: { EN: "Legal & RBI", JP: "会社設立・法務" },
+    label: { EN: "Legal Entity & Banking", JP: "法人設立・銀行口座" },
+    desc: {
+      EN: "India Pvt Ltd incorporation, GST & ICICI/HDFC accounts",
+      JP: "インド法人設立・各種許認可・銀行口座開設",
+    },
+    subject: {
+      EN: "Inquiry: India Entity Incorporation & Banking",
+      JP: "インド法人設立・口座開設のご相談",
+    },
   },
   {
     id: "talent",
     icon: Users,
-    label: { EN: "Tech Talent & Bilingual Staffing", JP: "ITエンジニア・人材採用" },
-    subject: { EN: "IT Talent & Bilingual Team Staffing", JP: "ITエンジニア・バイリンガル人材採用について" },
+    badge: { EN: "Tech Staffing", JP: "IT人材採用" },
+    label: { EN: "Bilingual IT Talent", JP: "ITエンジニア・採用" },
+    desc: {
+      EN: "Senior developers, AI engineers & bilingual PMs",
+      JP: "シニアエンジニア・AI技術者・バイリンガルPM",
+    },
+    subject: {
+      EN: "Inquiry: IT Talent & Bilingual Team Staffing",
+      JP: "ITエンジニア・バイリンガル人材採用について",
+    },
   },
   {
     id: "tour",
     icon: Handshake,
-    label: { EN: "Delegation & Private Facility Tour", JP: "現地視察・施設見学" },
-    subject: { EN: "Hyderabad Delegation Visit & Private Tour", JP: "ハイデラバード現地視察・オフィス見学のお申し込み" },
+    badge: { EN: "VIP Inspection", JP: "現地視察" },
+    label: { EN: "Delegation & Site Tour", JP: "現地視察・オフィス見学" },
+    desc: {
+      EN: "Private Hyderabad campus tour & bilateral briefing",
+      JP: "ハイデラバード現地視察・施設案内・個別ブリーフィング",
+    },
+    subject: {
+      EN: "Inquiry: Hyderabad Delegation Visit & Facility Tour",
+      JP: "ハイデラバード現地視察・オフィス見学のお申し込み",
+    },
   },
 ];
 
 export default function ContactPage() {
-  const { t, tx } = useI18n();
+  const { t, tx, lang } = useI18n();
   const [sent, setSent] = useState(false);
+  const [inquiryId, setInquiryId] = useState<string>("");
   const [submitting, setSubmitting] = useState(false);
   const [copiedEmail, setCopiedEmail] = useState(false);
-  const [activeChip, setActiveChip] = useState<string | null>(null);
+  const [activeTrack, setActiveTrack] = useState<string | null>(null);
 
   const [form, setForm] = useState<ContactForm>({
     name: "",
     email: "",
     company: "",
+    phone: "",
     subject: "",
     message: "",
-    lang: "JP",
   });
   const [errors, setErrors] = useState<FormErrors>({});
 
@@ -100,24 +132,24 @@ export default function ContactPage() {
     }
   };
 
-  const handleChipSelect = (chip: (typeof TOPIC_CHIPS)[0]) => {
-    setActiveChip(chip.id);
+  const handleTrackSelect = (track: (typeof CONSULTATION_TRACKS)[0]) => {
+    setActiveTrack(track.id);
     setForm((prev) => ({
       ...prev,
-      subject: tx(chip.subject),
+      subject: tx(track.subject),
     }));
   };
 
   const validate = (): boolean => {
     const e: FormErrors = {};
     if (!form.name.trim()) {
-      e.name = tx({ EN: "Please enter your name", JP: "お名前を入力してください" });
+      e.name = tx({ EN: "Please enter your full name & title", JP: "お名前・役職を入力してください" });
     }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-      e.email = tx({ EN: "Please enter a valid business email", JP: "有効なメールアドレスを入力してください" });
+      e.email = tx({ EN: "Please enter a valid corporate email", JP: "有効な貴社メールアドレスを入力してください" });
     }
     if (!form.message.trim()) {
-      e.message = tx({ EN: "Please enter your inquiry details", JP: "お問い合わせ内容を入力してください" });
+      e.message = tx({ EN: "Please describe your consultation requirements", JP: "お問い合わせ内容をご記入ください" });
     }
     setErrors(e);
     return Object.keys(e).length === 0;
@@ -128,8 +160,12 @@ export default function ContactPage() {
     if (!validate()) return;
     setSubmitting(true);
 
-    const payloadMessage = form.company.trim()
-      ? `[Company / Organization: ${form.company.trim()}]\n\n${form.message.trim()}`
+    const metadataLines: string[] = [];
+    if (form.company.trim()) metadataLines.push(`[Company / Organization: ${form.company.trim()}]`);
+    if (form.phone.trim()) metadataLines.push(`[Direct Phone / WhatsApp: ${form.phone.trim()}]`);
+
+    const payloadMessage = metadataLines.length > 0
+      ? `${metadataLines.join("\n")}\n\n${form.message.trim()}`
       : form.message.trim();
 
     try {
@@ -139,28 +175,29 @@ export default function ContactPage() {
         body: JSON.stringify({
           name: form.name.trim(),
           email: form.email.trim(),
-          subject: form.subject.trim() || tx({ EN: "General Consultation", JP: "お問い合わせ・個別相談" }),
+          subject: form.subject.trim() || tx({ EN: "General Executive Consultation", JP: "お問い合わせ・個別相談" }),
           message: payloadMessage,
-          lang: form.lang,
+          lang: lang === "JP" ? "JP" : "EN",
         }),
       });
       const data = await res.json();
       if (!res.ok || !data.ok) {
         setErrors({
           message: tx({
-            EN: "Failed to send message. Please try again or reach us via phone/email.",
-            JP: "送信に失敗しました。直接お電話またはメールでお問い合わせください。",
+            EN: "Failed to dispatch inquiry. Please reach us via direct phone or WhatsApp.",
+            JP: "送信に失敗しました。直接お電話またはWhatsAppでお問い合わせください。",
           }),
         });
         setSubmitting(false);
         return;
       }
+      setInquiryId(data.inquiryId || `JG-${Date.now().toString().slice(-6)}`);
       setSubmitting(false);
       setSent(true);
     } catch {
       setErrors({
         message: tx({
-          EN: "Network error. Please try again or contact us directly.",
+          EN: "Network error occurred. Please try again or contact us directly.",
           JP: "通信エラーが発生しました。もう一度お試しいただくか直接ご連絡ください。",
         }),
       });
@@ -170,14 +207,16 @@ export default function ContactPage() {
 
   const reset = () => {
     setSent(false);
-    setForm({ name: "", email: "", company: "", subject: "", message: "", lang: "JP" });
+    setForm({ name: "", email: "", company: "", phone: "", subject: "", message: "" });
     setErrors({});
-    setActiveChip(null);
+    setActiveTrack(null);
+    setInquiryId("");
   };
 
   const inputClass =
-    "w-full rounded-xl border bg-white/[0.06] px-3.5 py-3 font-inter text-base sm:text-sm text-white placeholder-white/35 outline-none transition-all duration-200 focus:border-saffron focus:bg-white/[0.09] focus:ring-1 focus:ring-saffron/40";
-  const labelClass = "mb-1.5 block font-inter text-[11px] font-semibold uppercase tracking-wider text-slate-300";
+    "w-full rounded-xl border border-slate-200 dark:border-white/12 bg-slate-50 dark:bg-white/[0.05] px-3.5 py-3 font-inter text-base sm:text-sm text-ink dark:text-white placeholder-slate-400 dark:placeholder-white/35 outline-none transition-all duration-200 focus:border-crimson dark:focus:border-saffron focus:bg-white dark:focus:bg-white/[0.08] focus:ring-2 focus:ring-crimson/15 dark:focus:ring-saffron/20";
+  const labelClass =
+    "mb-1.5 flex items-center justify-between font-inter text-[11px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300";
 
   return (
     <>
@@ -212,7 +251,7 @@ export default function ContactPage() {
               <Eyebrow>{tx({ EN: "Direct Bilateral Channels", JP: "公式窓口・現地デスク" })}</Eyebrow>
               <h2
                 className="mt-3 font-serif-jp font-bold text-ink dark:text-white leading-tight"
-                style={{ fontSize: "clamp(1.65rem, 3.2vw, 2.5rem)" }}
+                style={{ fontSize: "clamp(1.75rem, 3.4vw, 2.6rem)" }}
               >
                 {tx({
                   EN: "Direct Communication with Resident Leadership",
@@ -221,10 +260,28 @@ export default function ContactPage() {
               </h2>
               <p className="mt-2.5 font-inter text-[13px] sm:text-[14.5px] leading-relaxed text-slate dark:text-slate-300 max-w-2xl mx-auto">
                 {tx({
-                  EN: "Connect directly with our resident directors in Hyderabad. Whether you require private office space, entity setup, or a confidential feasibility consultation, we support you in Japanese and English.",
+                  EN: "Connect directly with our resident directors in Hyderabad. Whether you require private office space, entity setup, or a confidential feasibility consultation, our team provides comprehensive Japanese and English support.",
                   JP: "ハイデラバード現地常駐スタッフに直接ご相談いただけます。オフィス見学、法人設立、IT人材採用など、すべて日本語で丁寧に対応いたします。",
                 })}
               </p>
+
+              {/* Institutional Live Status Strip */}
+              <div className="mt-5 inline-flex flex-wrap items-center justify-center gap-2.5 sm:gap-5 rounded-full bg-white dark:bg-[#101a2c] border border-slate-200/90 dark:border-white/10 px-4 sm:px-6 py-2 shadow-sm text-[11px] sm:text-[12px] font-inter">
+                <span className="inline-flex items-center gap-1.5 text-slate-700 dark:text-slate-300 font-semibold">
+                  <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                  {tx({ EN: "Hyderabad Japan Desk: Active", JP: "ハイデラバード常駐デスク：受付中" })}
+                </span>
+                <span className="hidden sm:inline text-slate-300 dark:text-white/20">|</span>
+                <span className="inline-flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
+                  <Clock className="h-3.5 w-3.5 text-crimson dark:text-rose-400" />
+                  {tx({ EN: "Average SLA: < 24 Hours", JP: "平均回答時間：24時間以内" })}
+                </span>
+                <span className="hidden sm:inline text-slate-300 dark:text-white/20">|</span>
+                <span className="inline-flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
+                  <ShieldCheck className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
+                  {tx({ EN: "NDA Confidentiality Guaranteed", JP: "秘密保持（NDA）厳守" })}
+                </span>
+              </div>
             </div>
           </Reveal>
 
@@ -421,6 +478,9 @@ export default function ContactPage() {
                         <span className="rounded-lg bg-slate-50 dark:bg-white/5 border border-slate-200/70 dark:border-white/10 px-2 py-1 font-inter text-[10.5px] text-slate-500 dark:text-slate-400">
                           {tx({ EN: "2 Min Walk from Metro", JP: "最寄りメトロ駅 徒歩2分" })}
                         </span>
+                        <span className="rounded-lg bg-slate-50 dark:bg-white/5 border border-slate-200/70 dark:border-white/10 px-2 py-1 font-inter text-[10.5px] text-slate-500 dark:text-slate-400">
+                          {tx({ EN: "Level 4 Dedicated Japanese Corridor", JP: "4階 日系企業専用フロア" })}
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -441,56 +501,81 @@ export default function ContactPage() {
             </div>
 
             {/* ════════════════════════════════════════════════════════
-                COL 2 (7 Cols): Ultra-Luxury Interactive Inquiry Console
+                COL 2 (7 Cols): Ultra-Premium Executive Consultation Terminal
                ════════════════════════════════════════════════════════ */}
             <div className="lg:col-span-7">
               <Reveal variant="right" delay={90}>
-                <div className="luxury-glass-card card-sheen gold-hairline relative overflow-hidden rounded-2xl sm:rounded-3xl border border-white/20 bg-[#080F1A] p-5 sm:p-7 lg:p-9 shadow-2xl text-white backdrop-blur-2xl">
+                <div className="card-sheen relative overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#0c1424] p-5 sm:p-7 lg:p-9 shadow-xl dark:shadow-2xl transition-all duration-300">
                   
-                  {/* Sheen accent in background */}
+                  {/* Subtle corner glows */}
                   <div className="pointer-events-none absolute -top-24 -right-24 h-56 w-56 rounded-full bg-saffron/10 blur-2xl" />
                   <div className="pointer-events-none absolute -bottom-24 -left-24 h-56 w-56 rounded-full bg-crimson/10 blur-2xl" />
 
-                  {/* Console Header */}
-                  <div className="relative z-10 border-b border-white/10 pb-4 sm:pb-5">
+                  {/* Terminal Header */}
+                  <div className="relative z-10 border-b border-slate-200/80 dark:border-white/10 pb-4 sm:pb-5">
                     <div className="flex items-center justify-between">
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-saffron/15 border border-saffron/30 px-3 py-0.5 font-inter text-[10.5px] font-bold uppercase tracking-wider text-saffron">
+                      <span className="inline-flex items-center gap-1.5 rounded-full bg-crimson/10 dark:bg-rose-950/50 border border-crimson/25 dark:border-rose-400/30 px-3 py-1 font-inter text-[10.5px] font-bold uppercase tracking-wider text-crimson dark:text-rose-400">
                         <Sparkles className="h-3 w-3" />
-                        {tx({ EN: "Direct Executive Console", JP: "オンライン相談フォーム" })}
+                        {tx({ EN: "Executive Consultation Console", JP: "エグゼクティブ相談コンソール" })}
                       </span>
-                      <span className="font-mono text-[11px] text-mist/60">
-                        {tx({ EN: "SLA: < 24h", JP: "24時間以内返信" })}
+                      <span className="font-mono text-[11px] font-semibold text-slate-500 dark:text-slate-400">
+                        {tx({ EN: "SLA: < 24 Hours", JP: "24時間以内返信" })}
                       </span>
                     </div>
-                    <h3 className="mt-2.5 font-serif-jp text-lg sm:text-2xl font-bold text-white leading-tight">
-                      {tx({ EN: "Send Us a Confidential Inquiry", JP: "個別相談・お問い合わせメッセージ" })}
+
+                    <h3 className="mt-3 font-serif-jp text-xl sm:text-2xl font-bold text-ink dark:text-white leading-tight">
+                      {tx({ EN: "Schedule a Confidential Consultation", JP: "個別相談・お問い合わせメッセージ" })}
                     </h3>
-                    <p className="mt-1 font-inter text-[12px] sm:text-[13px] text-mist">
+                    <p className="mt-1.5 font-inter text-[12.5px] sm:text-[13.5px] text-slate-600 dark:text-slate-300">
                       {tx({
-                        EN: "Select a topic below to quick-fill or describe your enterprise objectives directly.",
-                        JP: "ご興味のある項目を選択するか、直接お問い合わせ内容をご入力ください。",
+                        EN: "Select a consultation corridor below to auto-fill topic scope, or submit your specific enterprise objectives directly.",
+                        JP: "ご関心のある分野を選択するか、直接お問い合わせ内容をご入力ください。",
                       })}
                     </p>
 
-                    {/* Quick Topic Chips */}
-                    <div className="mt-3.5 flex flex-wrap gap-1.5 sm:gap-2">
-                      {TOPIC_CHIPS.map((chip) => {
-                        const isSelected = activeChip === chip.id;
-                        const ChipIcon = chip.icon;
+                    {/* Structured 4 Consultation Tracks */}
+                    <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
+                      {CONSULTATION_TRACKS.map((track) => {
+                        const isSelected = activeTrack === track.id;
+                        const TrackIcon = track.icon;
                         return (
                           <button
-                            key={chip.id}
+                            key={track.id}
                             type="button"
-                            onClick={() => handleChipSelect(chip)}
+                            onClick={() => handleTrackSelect(track)}
                             className={cn(
-                              "inline-flex items-center gap-1.5 rounded-lg px-2.5 py-1.5 font-inter text-[11px] sm:text-[12px] font-medium transition-all duration-200 border",
+                              "group flex items-start gap-2.5 rounded-xl border p-2.5 sm:p-3 text-left transition-all duration-200",
                               isSelected
-                                ? "bg-saffron text-slate-950 font-bold border-saffron shadow-md shadow-saffron/20 scale-[1.02]"
-                                : "bg-white/[0.05] border-white/12 text-slate-300 hover:bg-white/[0.1] hover:text-white hover:border-white/25"
+                                ? "border-crimson dark:border-saffron bg-crimson/[0.04] dark:bg-saffron/10 shadow-sm ring-1 ring-crimson/30 dark:ring-saffron/40"
+                                : "border-slate-200/90 dark:border-white/10 bg-slate-50/70 dark:bg-white/[0.02] hover:bg-slate-100/80 dark:hover:bg-white/[0.05] hover:border-slate-300 dark:hover:border-white/20"
                             )}
                           >
-                            <ChipIcon className="h-3.5 w-3.5 shrink-0" />
-                            <span>{tx(chip.label)}</span>
+                            <div
+                              className={cn(
+                                "flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-lg border transition-colors mt-0.5",
+                                isSelected
+                                  ? "bg-crimson text-white border-crimson dark:bg-saffron dark:text-slate-950 dark:border-saffron"
+                                  : "bg-white dark:bg-white/5 border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-300 group-hover:text-crimson dark:group-hover:text-saffron"
+                              )}
+                            >
+                              <TrackIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                            </div>
+                            <div className="min-w-0 flex-1">
+                              <div className="flex items-center justify-between gap-1">
+                                <span className={cn(
+                                  "font-serif-jp text-[12.5px] sm:text-[13px] font-bold leading-snug truncate",
+                                  isSelected ? "text-crimson dark:text-saffron" : "text-ink dark:text-white"
+                                )}>
+                                  {tx(track.label)}
+                                </span>
+                                <span className="rounded bg-slate-200/60 dark:bg-white/10 px-1.5 py-0.5 text-[9px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400 shrink-0">
+                                  {tx(track.badge)}
+                                </span>
+                              </div>
+                              <p className="mt-0.5 font-inter text-[11px] text-slate-500 dark:text-slate-400 line-clamp-1">
+                                {tx(track.desc)}
+                              </p>
+                            </div>
                           </button>
                         );
                       })}
@@ -501,54 +586,67 @@ export default function ContactPage() {
                   <div className="relative z-10 pt-5 sm:pt-6">
                     {sent ? (
                       <div className="flex flex-col items-center py-10 sm:py-14 text-center">
-                        <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-success/20 text-success border border-success/40 shadow-xl shadow-success/15">
+                        <span className="flex h-16 w-16 items-center justify-center rounded-2xl bg-success/15 text-success border border-success/35 shadow-xl shadow-success/10">
                           <CheckCircle2 className="h-9 w-9" strokeWidth={1.75} />
                         </span>
-                        <h4 className="mt-4 font-serif-jp text-xl sm:text-2xl font-bold text-white">
-                          {tx({ EN: "Inquiry Successfully Dispatched", JP: "お問い合わせを受け付けました" })}
+                        <h4 className="mt-4 font-serif-jp text-xl sm:text-2xl font-bold text-ink dark:text-white">
+                          {tx({ EN: "Consultation Request Dispatched", JP: "お問い合わせを受け付けました" })}
                         </h4>
-                        <p className="mt-2 max-w-md font-inter text-[13px] sm:text-[14px] leading-relaxed text-mist">
+                        <p className="mt-2 max-w-md font-inter text-[13px] sm:text-[14px] leading-relaxed text-slate-600 dark:text-slate-300">
                           {tx({
-                            EN: "Thank you. Your request has been dispatched to Resident Director Daisuke Tanji and the Japan desk at Cyber Gateway. We will respond within 24 hours.",
+                            EN: "Thank you. Your consultation request has been forwarded directly to Resident Director Daisuke Tanji at Cyber Gateway, Hyderabad. We will respond within 24 business hours.",
                             JP: "常駐ディレクター丹治および現地J-Gateデスクに送信されました。24時間以内に日本語でご連絡を差し上げます。",
                           })}
                         </p>
+
+                        {inquiryId && (
+                          <div className="mt-4 rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 px-4 py-2 font-mono text-[12px] text-slate-600 dark:text-slate-300">
+                            Reference ID: <span className="font-bold text-crimson dark:text-rose-400">{inquiryId}</span>
+                          </div>
+                        )}
+
                         <button
                           onClick={reset}
-                          className="mt-6 inline-flex items-center gap-2 rounded-xl border border-white/25 bg-white/10 px-5 py-2.5 font-inter text-[13px] font-semibold text-white transition-all hover:bg-white/20 hover:border-white/40"
+                          className="mt-6 inline-flex items-center gap-2 rounded-xl border border-slate-300 dark:border-white/20 bg-slate-100 dark:bg-white/10 px-5 py-2.5 font-inter text-[13px] font-semibold text-slate-700 dark:text-white transition-all hover:bg-slate-200 dark:hover:bg-white/20"
                         >
-                          {tx({ EN: "Send Another Inquiry", JP: "別の内容で問い合わせる" })}
+                          {tx({ EN: "Submit Another Inquiry", JP: "別の内容で問い合わせる" })}
                           <ArrowRight className="h-3.5 w-3.5" />
                         </button>
                       </div>
                     ) : (
-                      <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-4.5" noValidate>
+                      <form onSubmit={handleSubmit} className="space-y-4" noValidate>
                         
-                        {/* Row 1: Name + Email (2 cols on tablet/desktop) */}
-                        <div className="grid gap-4 sm:grid-cols-2">
+                        {/* Row 1: Name + Corporate Email (2 cols on tablet/desktop) */}
+                        <div className="grid gap-3.5 sm:grid-cols-2">
                           <div>
                             <label htmlFor="c-name" className={labelClass}>
-                              {t("contact.form.name")} <span className="text-crimson">*</span>
+                              <span>
+                                {tx({ EN: "Full Name & Title", JP: "ご氏名・お役職" })}
+                              </span>
+                              <span className="text-crimson font-bold text-xs">*</span>
                             </label>
                             <input
                               id="c-name"
                               value={form.name}
                               onChange={(e) => setForm({ ...form, name: e.target.value })}
-                              placeholder={tx({ EN: "e.g. Kenji Sato / 佐藤 健司", JP: "例：佐藤 健司" })}
+                              placeholder={tx({ EN: "e.g. Kenji Sato / 佐藤 健司 (Director)", JP: "例：佐藤 健司（代表取締役）" })}
                               className={cn(
                                 inputClass,
-                                errors.name ? "border-crimson ring-1 ring-crimson" : "border-white/15"
+                                errors.name && "border-crimson ring-1 ring-crimson"
                               )}
                               aria-invalid={!!errors.name}
                             />
                             {errors.name && (
-                              <p className="mt-1 font-inter text-[11px] text-crimson">{errors.name}</p>
+                              <p className="mt-1 font-inter text-[11px] font-medium text-crimson">{errors.name}</p>
                             )}
                           </div>
 
                           <div>
                             <label htmlFor="c-email" className={labelClass}>
-                              {t("contact.form.email")} <span className="text-crimson">*</span>
+                              <span>
+                                {tx({ EN: "Corporate Business Email", JP: "貴社メールアドレス" })}
+                              </span>
+                              <span className="text-crimson font-bold text-xs">*</span>
                             </label>
                             <input
                               id="c-email"
@@ -558,54 +656,76 @@ export default function ContactPage() {
                               placeholder="name@company.co.jp"
                               className={cn(
                                 inputClass,
-                                errors.email ? "border-crimson ring-1 ring-crimson" : "border-white/15"
+                                errors.email && "border-crimson ring-1 ring-crimson"
                               )}
                               aria-invalid={!!errors.email}
                             />
                             {errors.email && (
-                              <p className="mt-1 font-inter text-[11px] text-crimson">{errors.email}</p>
+                              <p className="mt-1 font-inter text-[11px] font-medium text-crimson">{errors.email}</p>
                             )}
                           </div>
                         </div>
 
-                        {/* Row 2: Company / Organization */}
-                        <div>
-                          <label htmlFor="c-company" className={labelClass}>
-                            {tx({ EN: "Company / Organization Name", JP: "貴社名・ご所属" })}
-                          </label>
-                          <input
-                            id="c-company"
-                            value={form.company}
-                            onChange={(e) => setForm({ ...form, company: e.target.value })}
-                            placeholder={tx({
-                              EN: "e.g. Enterprise Global Corp. / 日本法人名",
-                              JP: "例：株式会社日本グローバルソリューションズ",
-                            })}
-                            className={cn(inputClass, "border-white/15")}
-                          />
+                        {/* Row 2: Company + Phone / WhatsApp (2 cols on tablet/desktop) */}
+                        <div className="grid gap-3.5 sm:grid-cols-2">
+                          <div>
+                            <label htmlFor="c-company" className={labelClass}>
+                              <span>{tx({ EN: "Company / Organization", JP: "貴社名・ご所属" })}</span>
+                              <span className="text-[10px] text-slate-400 font-normal lowercase">{tx({ EN: "optional", JP: "任意" })}</span>
+                            </label>
+                            <input
+                              id="c-company"
+                              value={form.company}
+                              onChange={(e) => setForm({ ...form, company: e.target.value })}
+                              placeholder={tx({
+                                EN: "e.g. Nihon Global Systems Inc.",
+                                JP: "例：株式会社日本グローバルソリューションズ",
+                              })}
+                              className={inputClass}
+                            />
+                          </div>
+
+                          <div>
+                            <label htmlFor="c-phone" className={labelClass}>
+                              <span>{tx({ EN: "Direct Phone / WhatsApp", JP: "直通電話番号 / WhatsApp" })}</span>
+                              <span className="text-[10px] text-slate-400 font-normal lowercase">{tx({ EN: "optional", JP: "任意" })}</span>
+                            </label>
+                            <input
+                              id="c-phone"
+                              type="tel"
+                              value={form.phone}
+                              onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                              placeholder={tx({
+                                EN: "e.g. +81 90-1234-5678",
+                                JP: "例：090-1234-5678（国番号可）",
+                              })}
+                              className={inputClass}
+                            />
+                          </div>
                         </div>
 
                         {/* Row 3: Subject */}
                         <div>
                           <label htmlFor="c-subject" className={labelClass}>
-                            {t("contact.form.subject")}
+                            <span>{tx({ EN: "Inquiry Subject / Topic", JP: "ご相談件名" })}</span>
                           </label>
                           <input
                             id="c-subject"
                             value={form.subject}
                             onChange={(e) => setForm({ ...form, subject: e.target.value })}
                             placeholder={tx({
-                              EN: "e.g. Dedicated 6-Pax Suite & Legal Incorporation",
+                              EN: "e.g. Dedicated 6-Pax Suite & Legal Entity Incorporation",
                               JP: "例：専用オフィス入居と法人設立のご相談",
                             })}
-                            className={cn(inputClass, "border-white/15")}
+                            className={inputClass}
                           />
                         </div>
 
                         {/* Row 4: Message */}
                         <div>
                           <label htmlFor="c-message" className={labelClass}>
-                            {t("contact.form.message")} <span className="text-crimson">*</span>
+                            <span>{tx({ EN: "Requirements & Timeline Details", JP: "ご相談詳細・ご要望" })}</span>
+                            <span className="text-crimson font-bold text-xs">*</span>
                           </label>
                           <textarea
                             id="c-message"
@@ -613,56 +733,40 @@ export default function ContactPage() {
                             value={form.message}
                             onChange={(e) => setForm({ ...form, message: e.target.value })}
                             placeholder={tx({
-                              EN: "Tell us about your target launch timeline, team size, or specific requirements in Hyderabad...",
+                              EN: "Tell us about your target launch timeline, planned team headcount, entity setup scope, or specific questions for Resident Director Tanji...",
                               JP: "進出時期、希望席数、法人設立やITエンジニア採用のご要望など、お気軽にご記入ください...",
                             })}
                             className={cn(
                               inputClass,
                               "resize-none",
-                              errors.message ? "border-crimson ring-1 ring-crimson" : "border-white/15"
+                              errors.message && "border-crimson ring-1 ring-crimson"
                             )}
                             aria-invalid={!!errors.message}
                           />
                           {errors.message && (
-                            <p className="mt-1 font-inter text-[11px] text-crimson">{errors.message}</p>
+                            <p className="mt-1 font-inter text-[11px] font-medium text-crimson">{errors.message}</p>
                           )}
                         </div>
 
-                        {/* Language Preference Toggle */}
-                        <div>
-                          <label className={cn(labelClass, "flex items-center gap-1.5")}>
-                            <Languages className="h-3.5 w-3.5 text-saffron" />
-                            {tx({ EN: "Preferred Response Language", JP: "ご返信希望言語" })}
-                          </label>
-                          <div className="grid grid-cols-2 gap-2">
-                            <button
-                              type="button"
-                              onClick={() => setForm({ ...form, lang: "JP" })}
-                              aria-pressed={form.lang === "JP"}
-                              className={cn(
-                                "flex items-center justify-center gap-2 rounded-xl border px-3 py-2.5 font-sans-jp text-[12.5px] font-semibold transition-all",
-                                form.lang === "JP"
-                                  ? "border-saffron bg-saffron/20 text-saffron shadow-sm"
-                                  : "border-white/12 text-mist hover:border-white/25 hover:text-white"
-                              )}
-                            >
-                              <span className="font-serif-jp text-sm font-bold">日</span>
-                              {tx({ EN: "Reply in 日本語 (Japanese)", JP: "日本語で返信" })}
-                            </button>
-                            <button
-                              type="button"
-                              onClick={() => setForm({ ...form, lang: "EN" })}
-                              aria-pressed={form.lang === "EN"}
-                              className={cn(
-                                "flex items-center justify-center gap-2 rounded-xl border px-3 py-2.5 font-inter text-[12.5px] font-semibold transition-all",
-                                form.lang === "EN"
-                                  ? "border-saffron bg-saffron/20 text-saffron shadow-sm"
-                                  : "border-white/12 text-mist hover:border-white/25 hover:text-white"
-                              )}
-                            >
-                              <Globe2 className="h-3.5 w-3.5" />
-                              {tx({ EN: "Reply in English", JP: "英語で返信" })}
-                            </button>
+                        {/* Institutional Trust & Guarantee Badges Strip */}
+                        <div className="grid grid-cols-3 gap-2 rounded-xl bg-slate-50 dark:bg-white/[0.03] border border-slate-200/80 dark:border-white/10 p-2.5 text-center">
+                          <div className="flex flex-col items-center justify-center gap-1">
+                            <Clock className="h-4 w-4 text-crimson dark:text-rose-400" />
+                            <span className="font-inter text-[10px] sm:text-[10.5px] font-bold text-slate-700 dark:text-slate-300">
+                              {tx({ EN: "24-Hour SLA", JP: "24時間以内返信" })}
+                            </span>
+                          </div>
+                          <div className="flex flex-col items-center justify-center gap-1 border-x border-slate-200/80 dark:border-white/10">
+                            <Lock className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                            <span className="font-inter text-[10px] sm:text-[10.5px] font-bold text-slate-700 dark:text-slate-300">
+                              {tx({ EN: "Mutual NDA Protected", JP: "NDA秘密保持厳守" })}
+                            </span>
+                          </div>
+                          <div className="flex flex-col items-center justify-center gap-1">
+                            <BadgeCheck className="h-4 w-4 text-saffron-dark dark:text-saffron" />
+                            <span className="font-inter text-[10px] sm:text-[10.5px] font-bold text-slate-700 dark:text-slate-300">
+                              {tx({ EN: "Director Reviewed", JP: "常駐代表が直接確認" })}
+                            </span>
                           </div>
                         </div>
 
@@ -670,7 +774,7 @@ export default function ContactPage() {
                         <button
                           type="submit"
                           disabled={submitting}
-                          className="btn-shine flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3.5 font-inter text-sm sm:text-base font-semibold text-white shadow-xl shadow-crimson/30 hover:shadow-crimson/50 transition-all duration-300 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70 mt-2"
+                          className="btn-shine flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3.5 font-inter text-sm sm:text-base font-semibold text-white shadow-xl shadow-crimson/25 hover:shadow-crimson/40 transition-all duration-300 hover:-translate-y-0.5 disabled:cursor-not-allowed disabled:opacity-70 mt-1 cursor-pointer"
                         >
                           {submitting ? (
                             <>
@@ -680,16 +784,15 @@ export default function ContactPage() {
                           ) : (
                             <>
                               <Send className="h-4 w-4" />
-                              {tx({ EN: "Send Confidential Inquiry", JP: "お問い合わせを送信する" })}
+                              {tx({ EN: "Dispatch Executive Consultation Request", JP: "コンサルテーションを申し込む" })}
                             </>
                           )}
                         </button>
 
-                        <p className="flex items-center justify-center gap-1.5 pt-1 text-center font-inter text-[11px] text-mist/70">
-                          <Clock className="h-3 w-3" />
+                        <p className="text-center font-inter text-[11px] text-slate-500 dark:text-slate-400 pt-1">
                           {tx({
-                            EN: "Bilingual support · 24-hour response guarantee · Mon-Fri JST / IST",
-                            JP: "バイリンガル対応 · 24時間以内返信保証 · 月〜金 JST/IST",
+                            EN: "Bilingual support in Japanese & English · Official Bilateral Corridor · Cyber Gateway",
+                            JP: "日本語・英語対応 · 日印二国間公式デスク · Cyber Gateway",
                           })}
                         </p>
                       </form>

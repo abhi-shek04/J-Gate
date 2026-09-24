@@ -330,14 +330,14 @@ export default function ContactPage() {
                       {/* Action buttons for Tanji */}
                       <div className="mt-2.5 grid grid-cols-2 gap-2">
                         <a
-                          href="tel:+919910360648"
+                          href="tel:+817040321282"
                           className="flex items-center justify-center gap-1.5 rounded-lg border border-slate-200 dark:border-white/10 bg-white dark:bg-[#142036] px-2.5 py-2 font-mono text-[11.5px] font-bold text-ink dark:text-white hover:text-crimson hover:border-crimson/40 transition-colors shadow-xs"
                         >
                           <Phone className="h-3 w-3 text-crimson dark:text-rose-400" />
-                          +91-9910360648
+                          +81 70-4032-1282
                         </a>
                         <a
-                          href="https://wa.me/919910360648?text=Hello%20Tanji-san%2C%20I%20would%20like%20to%20inquire%20about%20J-Gate."
+                          href="https://wa.me/817040321282?text=Hello%20Tanji-san%2C%20I%20would%20like%20to%20inquire%20about%20J-Gate."
                           target="_blank"
                           rel="noopener noreferrer"
                           className="flex items-center justify-center gap-1.5 rounded-lg border border-emerald-300/80 dark:border-emerald-600/40 bg-emerald-500/10 dark:bg-emerald-950/40 px-2.5 py-2 font-inter text-[11.5px] font-bold text-emerald-800 dark:text-emerald-300 hover:bg-emerald-500/20 transition-colors shadow-xs"

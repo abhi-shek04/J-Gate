@@ -115,7 +115,7 @@ const OPS_TEAM: OpsMember[] = [
     subtitle: "Bilateral Business Facilitator | Indobox Inc.",
     flag: "🇯🇵",
     country: "Japan",
-    phone: "+91-9910360648",
+    phone: "+81 70-4032-1282",
     email: "contact@indobox.co.jp",
     image: "/team/tanji.png",
     desc: "Directs J-Gate's bilateral bridge, connecting Indian engineering powerhouses with Japanese corporate headquarters.",

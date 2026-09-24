@@ -101,7 +101,7 @@ export function Footer() {
               <span className="font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 block mb-2.5">
                 {tx({ EN: "AN INITIATIVE OF", JP: "共同事業・提携母体" })}
               </span>
-              <div className="inline-flex items-center gap-2 sm:gap-2.5 rounded-xl border border-slate-200/90 dark:border-white/12 bg-slate-50/80 dark:bg-white/[0.04] px-3 py-2 sm:px-3.5 sm:py-2.5 shadow-2xs backdrop-blur-sm max-w-full flex-nowrap">
+              <div className="inline-flex items-center gap-2 sm:gap-2.5 rounded-xl border border-slate-200/90 dark:border-white/12 bg-slate-50/80 dark:bg-white/[0.04] px-3 py-2 sm:px-3.5 sm:py-2.5 shadow-2xs backdrop-blur-sm whitespace-nowrap">
                 {/* Indobox Inc. */}
                 <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
                   <img
@@ -124,12 +124,15 @@ export function Footer() {
                 </div>
 
                 {/* Genesys Info X */}
-                <div className="flex items-center shrink-0">
+                <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
                   <img
                     src="/logos/genesys-info-x.png"
                     alt="Genesys Info X"
-                    className="h-7 sm:h-8 w-auto object-contain shrink-0 max-w-[110px] sm:max-w-[130px] dark:brightness-125"
+                    className="h-6 w-6 sm:h-7 sm:w-7 object-contain shrink-0 dark:brightness-125"
                   />
+                  <span className="font-inter text-[12.5px] sm:text-[13px] font-bold text-ink dark:text-white whitespace-nowrap">
+                    Genesys Info X
+                  </span>
                 </div>
               </div>
             </div>

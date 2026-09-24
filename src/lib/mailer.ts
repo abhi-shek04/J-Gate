@@ -20,12 +20,19 @@ export type SendEmailOptions = {
 
 export async function sendNotificationEmail(options: SendEmailOptions) {
   const adminEmail = options.to || process.env.ADMIN_EMAIL || "contact@indobox.co.jp";
-  const smtpFrom = process.env.SMTP_FROM || `"J-Gate System" <noreply@j-gate.com>`;
+  const smtpFrom = process.env.SMTP_FROM || `"J-Gate System" <contact@indobox.co.jp>`;
 
   // 1. Channel 1: Resend HTTP API (Fastest for Vercel/Serverless)
   const resendApiKey = process.env.RESEND_API_KEY;
   if (resendApiKey) {
     try {
+      // Free Resend accounts must use 'onboarding@resend.dev' unless a custom domain is verified
+      const resendFrom =
+        process.env.RESEND_FROM ||
+        (process.env.SMTP_FROM && !process.env.SMTP_FROM.includes("j-gate.com")
+          ? process.env.SMTP_FROM
+          : "J-Gate <onboarding@resend.dev>");
+
       const res = await fetch("https://api.resend.com/emails", {
         method: "POST",
         headers: {
@@ -33,7 +40,7 @@ export async function sendNotificationEmail(options: SendEmailOptions) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          from: smtpFrom.includes("<") ? smtpFrom : `J-Gate <${smtpFrom}>`,
+          from: resendFrom,
           to: [adminEmail],
           reply_to: options.replyTo,
           subject: options.subject,
@@ -41,13 +48,14 @@ export async function sendNotificationEmail(options: SendEmailOptions) {
           text: options.text,
         }),
       });
+
       if (res.ok) {
         const data = await res.json();
-        console.log(`[mailer:resend] Email delivered to ${adminEmail} (ID: ${data.id})`);
+        console.log(`[mailer:resend] Success! Email dispatched to ${adminEmail} (ID: ${data.id})`);
         return { ok: true, provider: "resend", id: data.id };
       } else {
-        const errText = await res.text();
-        console.error(`[mailer:resend] Error:`, errText);
+        const errJson = await res.json().catch(() => null);
+        console.error(`[mailer:resend] Resend API rejected message:`, errJson || res.statusText);
       }
     } catch (err: any) {
       console.error(`[mailer:resend] Request error:`, err.message);

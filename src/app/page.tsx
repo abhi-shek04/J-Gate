@@ -181,7 +181,7 @@ export default function HomePage() {
     {
       num: "01",
       kanji: "基盤",
-      title: tx({ EN: "Turnkey Operational Infrastructure", JP: "即日稼働の事業基盤" }),
+      title: tx({ EN: "Ready-to-Use Operational Infrastructure", JP: "即日稼働の事業基盤" }),
       body: tx({
         EN: "Dedicated office space at Cyber Gateway, Hyderabad. Move in with high-speed internet, meeting rooms, lockable storage, registered address, and 24/7 security access without upfront renovation costs.",
         JP: "Cyber Gateway（ハイデラバード）のオフィス環境を確保。高速光回線、会議室、施錠キャビネット、法人登記住所、24時間セキュリティを完備。",
@@ -364,10 +364,10 @@ export default function HomePage() {
         <div className="container-jg relative z-10 pt-4 pb-12 sm:pt-8 sm:pb-16 text-center max-w-5xl mx-auto">
           {/* 1. Pre-title: Japan × India Talent & Business Bridge */}
           <Reveal>
-            <div className="flex items-center justify-center gap-2.5 font-inter text-[11.5px] sm:text-[12.5px] font-bold uppercase tracking-[0.22em] text-crimson dark:text-rose-400">
-              <span className="hidden sm:inline-block h-px w-8 bg-crimson/30 dark:bg-rose-400/30" />
+            <div className="flex items-center justify-center gap-2.5 font-inter text-[11.5px] sm:text-[12.5px] font-bold uppercase tracking-[0.22em] text-[#d60000]">
+              <span className="hidden sm:inline-block h-px w-8 bg-[#d60000]/30" />
               <span>Japan × India Talent &amp; Business Bridge</span>
-              <span className="hidden sm:inline-block h-px w-8 bg-crimson/30 dark:bg-rose-400/30" />
+              <span className="hidden sm:inline-block h-px w-8 bg-[#d60000]/30" />
             </div>
           </Reveal>
 
@@ -379,14 +379,14 @@ export default function HomePage() {
             >
               Birth of a Dedicated
               <br />
-              <span className="text-crimson dark:text-rose-400">Working Hub for Japanese Companies</span>
+              <span className="text-[#d60000]">Working Hub for Japanese Companies</span>
             </h1>
           </Reveal>
 
           {/* 3. Japanese Tagline: 「日本企業専用のワーキングハブ誕生」 */}
           <Reveal delay={140}>
             <div className="mt-4 flex items-center justify-center">
-              <span className="inline-flex items-center gap-2 rounded-full bg-crimson/[0.06] dark:bg-rose-950/40 border border-crimson/20 dark:border-rose-400/30 px-4 py-1.5 font-serif-jp text-[13.5px] sm:text-[15px] font-bold text-crimson dark:text-rose-300 tracking-wide shadow-2xs backdrop-blur-sm">
+              <span className="inline-flex items-center gap-2 rounded-full bg-[#d60000]/[0.08] dark:bg-[#d60000]/20 border border-[#d60000]/25 dark:border-[#d60000]/40 px-4 py-1.5 font-serif-jp text-[13.5px] sm:text-[15px] font-bold text-[#d60000] dark:text-[#ff4d4d] tracking-wide shadow-2xs backdrop-blur-sm">
                 <Sparkles className="h-3.5 w-3.5 text-saffron" />
                 <span>「日本企業専用のワーキングハブ誕生」</span>
               </span>
@@ -457,13 +457,13 @@ export default function HomePage() {
       <BilateralCorridorVisualizer />
 
       {/* ════════════════════════════════════════════════════════════
-          4. TURNKEY BUSINESS SOLUTIONS — 6 Enterprise Capabilities
+          4. CORE BUSINESS SOLUTIONS — 6 Enterprise Capabilities
          ════════════════════════════════════════════════════════════ */}
       <section className="section-pad bg-ivory dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto mb-8 max-w-3xl text-center">
-              <Eyebrow>{tx({ EN: "Turnkey Operating Capabilities", JP: "包括的な進出支援サービス" })}</Eyebrow>
+              <Eyebrow>{tx({ EN: "Core Business Capabilities", JP: "包括的な進出支援サービス" })}</Eyebrow>
               <h2
                 className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink dark:text-white"
                 style={{ fontSize: "clamp(1.625rem, 3vw, 2.25rem)" }}
@@ -527,7 +527,7 @@ export default function HomePage() {
                 style={{ fontSize: "clamp(0.9rem, 1.3vw, 1.05rem)" }}
               >
                 {tx({
-                  EN: "Turnkey workspace infrastructure, on-site Japanese advisory, and direct connections to Hyderabad's business ecosystem.",
+                  EN: "Ready workspace infrastructure, on-site Japanese advisory, and direct connections to Hyderabad's business ecosystem.",
                   JP: "即日稼働のオフィス設備、現地常駐の日本人サポート、そして現地のビジネスネットワークを通じて円滑な立ち上げを支援します。",
                 })}
               </p>

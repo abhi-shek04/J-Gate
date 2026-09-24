@@ -271,9 +271,9 @@ const INDOBOX_COMPETENCIES = [
 const GENESYS_COMPETENCIES = [
   {
     icon: Building2,
-    title: { EN: "Turnkey Physical Workspace at Cyber Gateway", JP: "Cyber Gateway執務空間・施設総合管理" },
+    title: { EN: "Ready-to-Use Workspace at Cyber Gateway", JP: "Cyber Gateway執務空間・施設総合管理" },
     detail: {
-      EN: "Turnkey office cabins, ergonomic furnishings, acoustic suites, and full building facility operations.",
+      EN: "Private office cabins, ergonomic furnishings, acoustic suites, and full building facility operations.",
       JP: "Cyber Gateway内の専用個室、人間工学什器、防音ブースなど高品質オフィス設備の保守運営。",
     },
     tag: { EN: "Hitech City Hub", JP: "最高級オフィス" },
@@ -312,7 +312,7 @@ const GENESYS_COMPETENCIES = [
       EN: "Central air-conditioning, professional housekeeping, waste management, and cafeteria services.",
       JP: "快適なセントラル空調制御、プロ清掃員による日常美化、パントリー・カフェテリアの快適維持。",
     },
-    tag: { EN: "Turnkey Care", JP: "日常美化管理" },
+    tag: { EN: "Facility Care", JP: "日常美化管理" },
   },
   {
     icon: Scale,
@@ -337,7 +337,7 @@ export default function ServicesPage() {
         eyebrowKey="services.eyebrow"
         titleNode={
           <>
-            {tx({ EN: "Turnkey Expansion &", JP: "包括的インド進出支援・" })}
+            {tx({ EN: "Comprehensive Setup &", JP: "包括的インド進出支援・" })}
             <br />
             <span className="text-gradient-saffron">
               {tx({ EN: "Operational Solutions", JP: "サービス仕様・運営基盤" })}
@@ -430,7 +430,7 @@ export default function ServicesPage() {
               </h2>
               <p className="mt-2 font-inter text-[13px] sm:text-[13.5px] leading-relaxed text-slate-600 dark:text-slate-300">
                 {tx({
-                  EN: "A structured, reliable operational foundation combining turnkey office workspace, statutory corporate legal setup, resident Japanese executive advisory, and qualified local talent recruitment.",
+                  EN: "A structured, reliable operational foundation combining ready-to-use office workspace, statutory corporate legal setup, resident Japanese executive advisory, and qualified local talent recruitment.",
                   JP: "公式登記住所・法人設立から、専用オフィス環境、日本人による日常よろず相談、優秀な現地人材の採用まで、インド進出に必要なすべてを一貫して支援します。",
                 })}
               </p>
@@ -669,7 +669,7 @@ export default function ServicesPage() {
                     </p>
                     <p className="text-[12px] sm:text-[12.5px] text-slate-600 dark:text-slate-300 font-inter mt-2 sm:mt-2.5 leading-relaxed">
                       {tx({
-                        EN: "Turnkey workspace suites, high-speed fiber connectivity, 100% UPS & generator power backup, 24/7 biometric security, and facilities care.",
+                        EN: "Fully equipped workspace suites, high-speed fiber connectivity, 100% UPS & generator power backup, 24/7 biometric security, and facilities care.",
                         JP: "Cyber Gateway物理空間提供・高速光回線・無停電電源装置・24時間生体認証警備・日常施設清掃管理。",
                       })}
                     </p>

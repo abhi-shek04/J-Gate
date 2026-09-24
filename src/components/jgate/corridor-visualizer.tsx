@@ -74,7 +74,7 @@ const STEPS = [
     },
     icon: Rocket,
     points: [
-      { EN: "Turnkey workspace & infrastructure ready", JP: "即日入居可能な高規格インフラ完備" },
+      { EN: "Ready-to-use workspace & infrastructure", JP: "即日入居可能な高規格インフラ完備" },
       { EN: "Resident Japanese advisory & ecosystem ties", JP: "日本人ディレクター常駐・事業拡大支援" },
     ],
   },

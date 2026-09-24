@@ -255,7 +255,7 @@ export function PrecisionWhyPage() {
 
             <div className="w-full border-t border-[rgba(184,146,74,0.15)] pt-3 mt-2 flex justify-between items-center text-[10px] font-mono text-[#9A98A4]">
               <span>OPS + RESIDENT + NETWORK</span>
-              <span className="text-[#B8924A]">TURNKEY</span>
+              <span className="text-[#B8924A]">READY TO USE</span>
             </div>
           </div>
         </div>
@@ -1097,7 +1097,7 @@ export function PrecisionWhyPage() {
             </h2>
             <p className="mt-2 font-sans text-[14px] sm:text-[15px] font-light text-[#9A98A4] max-w-2xl">
               {tx({
-                EN: "Eliminate hefty capex, lengthy commercial leases, and setup delays with J-Gate's turnkey infrastructure.",
+                EN: "Eliminate hefty capex, lengthy commercial leases, and setup delays with J-Gate's ready-to-use infrastructure.",
                 JP: "初期投資や長期不動産契約の負担を大幅に削減。初日から即戦力として機能する拠点コストをご確認ください。",
               })}
             </p>

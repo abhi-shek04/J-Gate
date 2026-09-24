@@ -52,7 +52,7 @@ const FAQ_LIST: FAQItem[] = [
       JP: "即日入居は可能ですか？また最短契約期間はどれくらいですか？",
     },
     a: {
-      EN: "Yes, J-Gate provides 100% turnkey, plug-and-play spaces at Cyber Gateway, Hitech City, Hyderabad. Once your enterprise membership agreement is signed, your team can begin operating immediately with smart RFID keycards. We offer flexible arrangements ranging from month-to-month exploratory satellite memberships to multi-year dedicated private suite leases.",
+      EN: "Yes, J-Gate provides fully furnished, plug-and-play spaces at Cyber Gateway, Hitech City, Hyderabad. Once your enterprise membership agreement is signed, your team can begin operating immediately with smart RFID keycards. We offer flexible arrangements ranging from month-to-month exploratory satellite memberships to multi-year dedicated private suite leases.",
       JP: "はい、ハイデラバード・ハイテックシティのCyber Gatewayにて即日稼働可能な完全家具・IT設備付きワークスペースをご用意しています。契約締結後、スマートキーカードですぐにご利用いただけます。1ヶ月単位の柔軟なサテライト契約から、複数年の専用プライベートオフィスまで柔軟に対応可能です。",
     },
     highlights: [

@@ -89,10 +89,10 @@ const BILATERAL_SYNERGIES = [
   },
   {
     icon: Rocket,
-    badge: { EN: "Turnkey Execution", JP: "即日稼働" },
+    badge: { EN: "Ready-to-Use Setup", JP: "即日稼働" },
     title: { EN: "Fast-Track Entry & Talent Pipelines", JP: "迅速な法人設立と高度IT人材の確保" },
     desc: {
-      EN: "Eliminating expansion friction with turnkey workspace infrastructure, official corporate registration (MCA/GST), and direct access to top engineering talent.",
+      EN: "Eliminating expansion friction with ready-to-use workspace infrastructure, official corporate registration (MCA/GST), and direct access to top engineering talent.",
       JP: "法人登記、銀行口座開設、即日利用可能な執務環境、そして名門大学からのトップエンジニア採用を一気通貫で支援します。",
     },
   },
@@ -298,7 +298,7 @@ export default function AboutPage() {
                   <div className="mt-3 pt-3 border-t border-white/10 grid grid-cols-3 gap-2 text-center text-white">
                     <div className="rounded-xl bg-white/[0.04] p-2 border border-white/5">
                       <span className="block font-inter text-[9.5px] font-bold text-saffron uppercase tracking-wider">
-                        {tx({ EN: "Turnkey", JP: "即日稼働" })}
+                        {tx({ EN: "Ready Space", JP: "即日稼働" })}
                       </span>
                       <span className="block font-inter text-[11.5px] font-semibold text-white mt-0.5">
                         Cyber Gateway

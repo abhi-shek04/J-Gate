@@ -111,10 +111,10 @@ function TeamCard({
   linkedin: string;
 }) {
   return (
-    <article className="luxury-light-card card-sheen group relative flex h-full flex-col justify-between items-center rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-6 sm:p-7 text-center shadow-card hover:shadow-2xl hover:border-crimson/40 dark:hover:border-crimson/50 transition-all duration-300">
+    <article className="group relative flex h-full flex-col justify-between items-center rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-5 text-center shadow-xs hover:shadow-lg hover:border-crimson/40 dark:hover:border-crimson/50 transition-all duration-300">
       {/* Circular Avatar */}
-      <div className="relative">
-        <div className="h-28 w-28 rounded-full overflow-hidden border-2 border-slate-200 dark:border-white/20 bg-slate-50 dark:bg-white/5 shadow-md mx-auto transition-transform duration-300 group-hover:scale-105 group-hover:border-crimson/60">
+      <div className="relative mt-1">
+        <div className="h-20 w-20 sm:h-22 sm:w-22 rounded-full overflow-hidden border-2 border-slate-200 dark:border-white/20 bg-slate-50 dark:bg-white/5 shadow-md mx-auto transition-transform duration-300 group-hover:scale-105 group-hover:border-crimson/60">
           <img
             src={image}
             alt={name}
@@ -125,34 +125,34 @@ function TeamCard({
       </div>
 
       {/* Role Eyebrow */}
-      <span className="mt-4 font-inter text-[11px] font-bold uppercase tracking-widest text-crimson dark:text-rose-400">
+      <span className="mt-3 font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-crimson dark:text-rose-400">
         {role}
       </span>
 
       {/* Name & JP Name */}
-      <h3 className="mt-1 font-serif-jp text-[18px] sm:text-[19px] font-bold text-ink dark:text-white leading-tight group-hover:text-crimson dark:group-hover:text-rose-400 transition-colors">
+      <h3 className="mt-1 font-serif-jp text-[16px] sm:text-[17px] font-bold text-ink dark:text-white leading-tight group-hover:text-crimson dark:group-hover:text-rose-400 transition-colors">
         {name}
       </h3>
-      <p className="mt-0.5 font-sans-jp text-[11.5px] text-slate-500 dark:text-slate-400">
+      <p className="mt-0.5 font-sans-jp text-[11px] text-slate-500 dark:text-slate-400">
         {jpName}
       </p>
 
       {/* Subtitle / Headline with Pipe Dividers */}
-      <p className="mt-2 font-inter text-[12px] sm:text-[12.5px] font-semibold text-slate-800 dark:text-slate-200 leading-snug">
+      <p className="mt-1.5 font-inter text-[11.5px] sm:text-[12px] font-semibold text-slate-800 dark:text-slate-200 leading-snug">
         {subtitle}
       </p>
 
       {/* Short Bio */}
-      <p className="mt-2.5 font-inter text-[12px] sm:text-[12.5px] leading-relaxed text-slate-600 dark:text-slate-300 flex-1">
+      <p className="mt-2 font-inter text-[11.5px] sm:text-[12px] leading-relaxed text-slate-600 dark:text-slate-300 flex-1">
         {desc}
       </p>
 
       {/* Skill / Domain Pill Tags */}
-      <div className="mt-4 flex flex-wrap items-center justify-center gap-1.5 w-full">
+      <div className="mt-3 flex flex-wrap items-center justify-center gap-1 w-full">
         {tags.map((tag, ti) => (
           <span
             key={ti}
-            className="rounded px-2.5 py-1 font-inter text-[10px] sm:text-[10.5px] font-semibold bg-slate-100 dark:bg-white/5 border border-slate-200/70 dark:border-white/10 text-slate-600 dark:text-slate-300"
+            className="rounded px-2 py-0.5 font-inter text-[9.5px] sm:text-[10px] font-medium bg-slate-100 dark:bg-white/5 border border-slate-200/70 dark:border-white/10 text-slate-600 dark:text-slate-300"
           >
             {tag}
           </span>
@@ -160,13 +160,13 @@ function TeamCard({
       </div>
 
       {/* Bottom Action: in CONNECT */}
-      <div className="mt-4 pt-3.5 border-t border-slate-100 dark:border-white/10 w-full flex items-center justify-center">
+      <div className="mt-3.5 pt-3 border-t border-slate-100 dark:border-white/10 w-full flex items-center justify-center">
         <a
           href={linkedin || "#"}
           target={linkedin ? "_blank" : undefined}
           rel={linkedin ? "noopener noreferrer" : undefined}
           onClick={linkedin ? undefined : (e) => e.preventDefault()}
-          className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-200/80 dark:border-white/15 bg-slate-50 dark:bg-white/5 px-3.5 py-1.5 font-inter text-[11px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 hover:border-[#0A66C2] hover:bg-[#0A66C2]/10 hover:text-[#0A66C2] dark:hover:text-[#388bfd] transition-all shadow-2xs"
+          className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-200/80 dark:border-white/15 bg-slate-50 dark:bg-white/5 px-2.5 py-1 font-inter text-[10.5px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 hover:border-[#0A66C2] hover:bg-[#0A66C2]/10 hover:text-[#0A66C2] dark:hover:text-[#388bfd] transition-all shadow-2xs"
         >
           <span className="flex h-3.5 w-3.5 items-center justify-center rounded bg-[#0A66C2] text-white text-[8.5px] font-black">
             in

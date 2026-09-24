@@ -64,16 +64,19 @@ export async function POST(req: NextRequest) {
       console.warn("[brochure/submit] DB write warning (e.g. serverless read-only SQLite):", dbErr);
     }
 
-    // Dispatch admin notification asynchronously (non-blocking)
-    sendAdminNotification({
-      fullName: fullName.trim(),
-      organization: organization.trim(),
-      email: email.trim(),
-      questions: questions?.trim() || "",
-      sourceIp,
-      timestamp: new Date().toISOString(),
-      leadId,
-    }).catch((mailErr) => {
+    // Await notification dispatch so serverless runtime does not terminate before transmission
+    await Promise.race([
+      sendAdminNotification({
+        fullName: fullName.trim(),
+        organization: organization.trim(),
+        email: email.trim(),
+        questions: questions?.trim() || "",
+        sourceIp,
+        timestamp: new Date().toISOString(),
+        leadId,
+      }),
+      new Promise((resolve) => setTimeout(resolve, 3500)),
+    ]).catch((mailErr) => {
       console.warn("[brochure/submit] Background notification error:", mailErr);
     });
 

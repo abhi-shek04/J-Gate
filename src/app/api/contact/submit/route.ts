@@ -58,17 +58,20 @@ export async function POST(req: NextRequest) {
       console.warn("[contact/submit] DB write warning (e.g. serverless read-only SQLite):", dbErr);
     }
 
-    // Send admin notification to Indobox asynchronously (non-blocking)
-    sendContactNotification({
-      name: name.trim(),
-      email: email.trim(),
-      subject: subject?.trim() || "General Inquiry",
-      message: message.trim(),
-      lang: lang || "JP",
-      sourceIp,
-      timestamp: new Date().toISOString(),
-      inquiryId,
-    }).catch((mailErr) => {
+    // Await notification dispatch so serverless runtime does not terminate before transmission
+    await Promise.race([
+      sendContactNotification({
+        name: name.trim(),
+        email: email.trim(),
+        subject: subject?.trim() || "General Inquiry",
+        message: message.trim(),
+        lang: lang || "JP",
+        sourceIp,
+        timestamp: new Date().toISOString(),
+        inquiryId,
+      }),
+      new Promise((resolve) => setTimeout(resolve, 3500)),
+    ]).catch((mailErr) => {
       console.warn("[contact/submit] Background notification error:", mailErr);
     });
 

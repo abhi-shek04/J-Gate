@@ -6,9 +6,13 @@ import { JGateLogo, LinkedInIcon, InstagramIcon } from "./icons";
 import { useI18n } from "@/lib/i18n";
 
 const ECOSYSTEM = [
-  { name: "Genesys Info X", logo: "/logos/genesys-info-x.png" },
-  { name: "T-Hub", logo: "/logos/thub.png" },
-  { name: "Woxsen University", logo: "/logos/woxsen.png" },
+  "Data Intelligence",
+  "Kodryx.ai",
+  "YANC",
+  "Daakia",
+  "Fingerprint Films",
+  "MXC",
+  "Hyderabad Anime Club",
 ] as const;
 
 export function Footer() {
@@ -59,21 +63,16 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Col 2 (3 cols) — Partners & Network */}
+          {/* Col 2 (3 cols) — Ecosystem Partners */}
           <div className="lg:col-span-3">
             <h3 className="font-inter text-[11px] sm:text-[11.5px] font-bold uppercase tracking-wider text-ink dark:text-white">
               {tx({ EN: "ECOSYSTEM PARTNERS", JP: "エコシステムパートナー" })}
             </h3>
-            <ul className="mt-4 space-y-3">
-              {ECOSYSTEM.map((e) => (
-                <li key={e.name} className="flex items-center gap-2.5">
-                  <img
-                    src={e.logo}
-                    alt={e.name}
-                    className="h-5 w-5 object-contain shrink-0 dark:brightness-110"
-                  />
-                  <span className="font-inter text-[12.5px] sm:text-[13px] font-medium text-slate-700 dark:text-slate-300">
-                    {e.name}
+            <ul className="mt-4 space-y-2">
+              {ECOSYSTEM.map((name) => (
+                <li key={name}>
+                  <span className="font-inter text-[12.5px] sm:text-[13px] text-slate-600 dark:text-slate-400">
+                    {name}
                   </span>
                 </li>
               ))}

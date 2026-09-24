@@ -58,8 +58,8 @@ export async function POST(req: NextRequest) {
       console.warn("[contact/submit] DB write warning (e.g. serverless read-only SQLite):", dbErr);
     }
 
-    // Send admin notification to Indobox
-    await sendContactNotification({
+    // Send admin notification to Indobox asynchronously (non-blocking)
+    sendContactNotification({
       name: name.trim(),
       email: email.trim(),
       subject: subject?.trim() || "General Inquiry",
@@ -68,12 +68,14 @@ export async function POST(req: NextRequest) {
       sourceIp,
       timestamp: new Date().toISOString(),
       inquiryId,
+    }).catch((mailErr) => {
+      console.warn("[contact/submit] Background notification error:", mailErr);
     });
 
     return NextResponse.json({
       ok: true,
       inquiryId,
-      message: "Inquiry saved and dispatched to Indobox",
+      message: "Inquiry received successfully",
     });
   } catch (err) {
     console.error("[contact/submit] error:", err);

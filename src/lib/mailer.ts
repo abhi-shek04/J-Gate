@@ -1,12 +1,11 @@
 import nodemailer from "nodemailer";
-import dns from "node:dns/promises";
 
 /* ============================================================
    J-Gate Unified Mailer
-   - Sends real emails to contact@indobox.co.jp
-   - Supports configured SMTP (Gmail, Google Workspace, AWS SES, Brevo, etc.)
-   - If SMTP credentials are not present, resolves the recipient MX server
-     (e.g., smtp.google.com for indobox.co.jp) and delivers directly via port 25!
+   - Sends real emails to contact@indobox.co.jp when SMTP is configured
+   - Configurable via SMTP_HOST, SMTP_USER, SMTP_PASS, SMTP_PORT
+   - If SMTP is not configured, logs cleanly and returns instantly (<1ms)
+     without blocking on dead port 25 MX connections.
    ============================================================ */
 
 export type SendEmailOptions = {
@@ -22,54 +21,41 @@ export async function sendNotificationEmail(options: SendEmailOptions) {
   const smtpHost = process.env.SMTP_HOST;
   const smtpUser = process.env.SMTP_USER;
   const smtpPass = process.env.SMTP_PASS;
+  const smtpPort = Number(process.env.SMTP_PORT || 587);
   const smtpFrom = process.env.SMTP_FROM || `"J-Gate Portal" <noreply@j-gate.com>`;
 
-  let transporter: nodemailer.Transporter;
-
+  // 1. If SMTP credentials are configured, send real email with strict timeout
   if (smtpHost && smtpUser && smtpPass) {
-    // 1. Authenticated SMTP Transporter
-    transporter = nodemailer.createTransport({
-      host: smtpHost,
-      port: Number(process.env.SMTP_PORT || 587),
-      secure: process.env.SMTP_SECURE === "true",
-      auth: { user: smtpUser, pass: smtpPass },
-    });
-  } else {
-    // 2. Direct MX Delivery Transporter (connects directly to recipient MX server)
-    const domain = adminEmail.split("@")[1] || "indobox.co.jp";
-    let mxHost = "smtp.google.com"; // default for indobox.co.jp
     try {
-      const records = await dns.resolveMx(domain);
-      if (records && records.length > 0) {
-        records.sort((a, b) => a.priority - b.priority);
-        mxHost = records[0].exchange;
-      }
-    } catch (err) {
-      console.warn(`[mailer] MX resolution for ${domain} failed, using ${mxHost}:`, err);
+      const transporter = nodemailer.createTransport({
+        host: smtpHost,
+        port: smtpPort,
+        secure: process.env.SMTP_SECURE === "true" || smtpPort === 465,
+        auth: { user: smtpUser, pass: smtpPass },
+        connectionTimeout: 4000,
+        greetingTimeout: 4000,
+        socketTimeout: 5000,
+      });
+
+      const info = await transporter.sendMail({
+        from: smtpFrom,
+        to: adminEmail,
+        replyTo: options.replyTo,
+        subject: options.subject,
+        html: options.html,
+        text: options.text,
+      });
+
+      console.log(`[mailer] Email delivered to ${adminEmail} (MsgID: ${info.messageId})`);
+      return { ok: true, info };
+    } catch (err: any) {
+      console.error(`[mailer] SMTP error sending email to ${adminEmail}:`, err.message);
+      return { ok: false, error: err.message };
     }
-
-    transporter = nodemailer.createTransport({
-      host: mxHost,
-      port: 25,
-      secure: false,
-      tls: { rejectUnauthorized: false },
-    });
   }
 
-  try {
-    const info = await transporter.sendMail({
-      from: smtpFrom,
-      to: adminEmail,
-      replyTo: options.replyTo,
-      subject: options.subject,
-      html: options.html,
-      text: options.text,
-    });
-
-    console.log(`[mailer] Email delivered to ${adminEmail} (MsgID: ${info.messageId}, Status: ${info.response})`);
-    return { ok: true, info };
-  } catch (err: any) {
-    console.error(`[mailer] Error sending email to ${adminEmail}:`, err.message);
-    return { ok: false, error: err.message };
-  }
+  // 2. Mock/Dev logging fallback (instant, 0 delay, no blocking port 25 timeouts)
+  console.log(`[mailer:mock] Admin notification for ${adminEmail} | Subject: "${options.subject}"`);
+  return { ok: true, mocked: true };
 }
+

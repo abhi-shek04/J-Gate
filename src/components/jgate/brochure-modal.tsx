@@ -35,7 +35,7 @@ export function BrochureModal() {
   });
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [downloadUrl, setDownloadUrl] = useState<string>("/api/brochure/download");
+  const [downloadUrl, setDownloadUrl] = useState<string>("/J-Gate-Brochure.pdf");
 
   // Lock body scroll when open
   useEffect(() => {
@@ -102,21 +102,24 @@ export function BrochureModal() {
         setStatus("error");
         return;
       }
-      const url = data.downloadUrl || "/api/brochure/download";
+      const url = data.downloadUrl || "/J-Gate-Brochure.pdf";
       setDownloadUrl(url);
       setStatus("success");
 
-      // Auto-trigger download reliably on both PC and mobile viewports
+      // Auto-trigger direct native download
       try {
-        const iframe = document.createElement("iframe");
-        iframe.style.display = "none";
-        iframe.src = "/api/brochure/download";
-        document.body.appendChild(iframe);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "J-Gate-Brochure.pdf";
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        document.body.appendChild(link);
+        link.click();
         setTimeout(() => {
-          if (document.body.contains(iframe)) document.body.removeChild(iframe);
-        }, 60000);
+          if (document.body.contains(link)) document.body.removeChild(link);
+        }, 1500);
       } catch {
-        window.location.assign("/api/brochure/download");
+        window.open(url, "_blank");
       }
     } catch {
       setErrors({ form: tx({ EN: "Network error. Please try again.", JP: "通信エラーが発生しました。もう一度お試しください。" }) });
@@ -197,7 +200,10 @@ export function BrochureModal() {
               </p>
               <div className="mt-5 flex w-full flex-col gap-2">
                 <a
-                  href="/api/brochure/download"
+                  href="/J-Gate-Brochure.pdf"
+                  download="J-Gate-Brochure.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="btn-shine flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3 font-inter text-sm font-semibold text-white transition-all hover:-translate-y-0.5 shadow-lg shadow-crimson/30"
                 >
                   <Download className="h-4 w-4" />
@@ -322,7 +328,13 @@ export function BrochureModal() {
               <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[11px] text-mist/70">
                 <span>{tx({ EN: "Direct access:", JP: "直接アクセス：" })}</span>
                 <div className="flex items-center gap-2 font-medium">
-                  <a href="/api/brochure/download" className="text-saffron hover:underline inline-flex items-center gap-1">
+                  <a
+                    href="/J-Gate-Brochure.pdf"
+                    download="J-Gate-Brochure.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-saffron hover:underline inline-flex items-center gap-1"
+                  >
                     <Download className="h-3 w-3" />
                     {tx({ EN: "Direct Download", JP: "直接DL" })}
                   </a>

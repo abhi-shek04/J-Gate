@@ -51,7 +51,7 @@ export default function BrochureAuthPage() {
   });
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
-  const [downloadUrl, setDownloadUrl] = useState<string>("/api/brochure/download");
+  const [downloadUrl, setDownloadUrl] = useState<string>("/J-Gate-Brochure.pdf");
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "instant" });
@@ -99,21 +99,24 @@ export default function BrochureAuthPage() {
         setStatus("error");
         return;
       }
-      const url = data.downloadUrl || "/api/brochure/download";
+      const url = data.downloadUrl || "/J-Gate-Brochure.pdf";
       setDownloadUrl(url);
       setStatus("success");
 
-      // Auto-trigger download reliably on both PC and mobile viewports
+      // Auto-trigger direct native download
       try {
-        const iframe = document.createElement("iframe");
-        iframe.style.display = "none";
-        iframe.src = "/api/brochure/download";
-        document.body.appendChild(iframe);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "J-Gate-Brochure.pdf";
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        document.body.appendChild(link);
+        link.click();
         setTimeout(() => {
-          if (document.body.contains(iframe)) document.body.removeChild(iframe);
-        }, 60000);
+          if (document.body.contains(link)) document.body.removeChild(link);
+        }, 1500);
       } catch {
-        window.location.assign("/api/brochure/download");
+        window.open(url, "_blank");
       }
     } catch {
       setErrors({ form: tx({ EN: "Network error. Please try again.", JP: "通信エラーが発生しました。もう一度お試しください。" }) });
@@ -347,7 +350,13 @@ export default function BrochureAuthPage() {
                 <div className="mt-3.5 pt-3 border-t border-white/10 flex flex-wrap items-center justify-between gap-2 text-[11px] text-mist/70">
                   <span>{tx({ EN: "Already submitted or need direct access?", JP: "即時閲覧または再ダウンロード希望の方：" })}</span>
                   <div className="flex items-center gap-2 font-medium">
-                    <a href="/api/brochure/download" className="text-saffron hover:underline inline-flex items-center gap-1">
+                    <a
+                      href="/J-Gate-Brochure.pdf"
+                      download="J-Gate-Brochure.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-saffron hover:underline inline-flex items-center gap-1"
+                    >
                       <Download className="h-3 w-3" />
                       {tx({ EN: "Direct Download", JP: "直接DL" })}
                     </a>
@@ -410,7 +419,7 @@ function SuccessState({
 
   const handleCopyLink = async () => {
     try {
-      const fullUrl = `${window.location.origin}/api/brochure/download`;
+      const fullUrl = `${window.location.origin}/J-Gate-Brochure.pdf`;
       await navigator.clipboard.writeText(fullUrl);
       setCopied(true);
       setTimeout(() => setCopied(false), 2200);
@@ -448,7 +457,10 @@ function SuccessState({
       <div className="mt-5 sm:mt-6 flex w-full flex-col gap-2.5">
         {/* Primary Download Button */}
         <a
-          href="/api/brochure/download"
+          href="/J-Gate-Brochure.pdf"
+          download="J-Gate-Brochure.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
           className="btn-shine flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3.5 font-inter text-[13.5px] sm:text-sm font-semibold text-white shadow-xl shadow-crimson/30 hover:shadow-crimson/50 transition-all hover:-translate-y-0.5"
         >
           <Download className="h-4.5 w-4.5" />

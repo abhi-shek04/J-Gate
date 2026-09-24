@@ -64,8 +64,8 @@ export async function POST(req: NextRequest) {
       console.warn("[brochure/submit] DB write warning (e.g. serverless read-only SQLite):", dbErr);
     }
 
-    // Send admin notification email
-    await sendAdminNotification({
+    // Dispatch admin notification asynchronously (non-blocking)
+    sendAdminNotification({
       fullName: fullName.trim(),
       organization: organization.trim(),
       email: email.trim(),
@@ -73,13 +73,15 @@ export async function POST(req: NextRequest) {
       sourceIp,
       timestamp: new Date().toISOString(),
       leadId,
+    }).catch((mailErr) => {
+      console.warn("[brochure/submit] Background notification error:", mailErr);
     });
 
     return NextResponse.json({
       ok: true,
       leadId,
-      downloadUrl: "/api/brochure/download",
-      message: "Lead saved and admin notified",
+      downloadUrl: "/J-Gate-Brochure.pdf",
+      message: "Lead saved successfully",
     });
   } catch (err) {
     console.error("[brochure/submit] error:", err);

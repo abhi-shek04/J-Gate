@@ -6,15 +6,14 @@ import { JGateLogo, LinkedInIcon, InstagramIcon } from "./icons";
 import { useI18n } from "@/lib/i18n";
 
 const ECOSYSTEM = [
-  { name: "Indobox Inc.", loc: { EN: "Tokyo, Japan", JP: "東京" }, role: { EN: "Founding Entity", JP: "創業母体" } },
-  { name: "Genesys Info X", loc: { EN: "Hyderabad", JP: "ハイデラバード" }, role: { EN: "Operations Partner", JP: "運営パートナー" } },
-  { name: "T-Hub", loc: { EN: "Hyderabad", JP: "ハイデラバード" }, role: { EN: "Innovation Ecosystem", JP: "イノベーション連携" } },
-  { name: "Woxsen University", loc: { EN: "Hyderabad", JP: "ハイデラバード" }, role: { EN: "Academic Alliance", JP: "産学連携" } },
-  { name: "Cyber Gateway", loc: { EN: "HITEC City", JP: "ハイテックシティ" }, role: { EN: "Facility Campus", JP: "施設拠点" } },
+  { name: "Indobox Inc.", logo: "/logos/indobox-icon.png" },
+  { name: "Genesys Info X", logo: "/logos/genesys-info-x.png" },
+  { name: "T-Hub", logo: "/logos/thub.png" },
+  { name: "Woxsen University", logo: "/logos/woxsen.png" },
 ] as const;
 
 export function Footer() {
-  const { t, tx, lang } = useI18n();
+  const { tx, lang } = useI18n();
 
   return (
     <footer className="relative mt-auto overflow-hidden border-t border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#070c16] text-ink dark:text-white transition-colors duration-300">
@@ -66,14 +65,16 @@ export function Footer() {
             <h3 className="font-inter text-[11px] sm:text-[11.5px] font-bold uppercase tracking-wider text-ink dark:text-white">
               {tx({ EN: "PARTNERS & NETWORK", JP: "提携企業・ネットワーク" })}
             </h3>
-            <ul className="mt-4 space-y-2.5">
+            <ul className="mt-4 space-y-3">
               {ECOSYSTEM.map((e) => (
-                <li key={e.name} className="flex items-baseline justify-between gap-2">
-                  <span className="font-inter text-[12.5px] sm:text-[13px] font-semibold text-slate-700 dark:text-slate-200">
+                <li key={e.name} className="flex items-center gap-2.5">
+                  <img
+                    src={e.logo}
+                    alt={e.name}
+                    className="h-5 w-5 object-contain shrink-0 dark:brightness-110"
+                  />
+                  <span className="font-inter text-[12.5px] sm:text-[13px] font-medium text-slate-700 dark:text-slate-300">
                     {e.name}
-                  </span>
-                  <span className="font-inter text-[10.5px] text-slate-400 dark:text-slate-500 whitespace-nowrap">
-                    {tx(e.loc)}
                   </span>
                 </li>
               ))}

@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Download, ArrowRight, Mail, Phone, MapPin, Sparkles } from "lucide-react";
+import { Download, ArrowRight, Mail, MapPin, Sparkles } from "lucide-react";
 import { Reveal } from "./shared";
 import { ToriiWatermark } from "./icons";
 import { useI18n } from "@/lib/i18n";
@@ -87,20 +87,13 @@ export function WhyCTA() {
             </div>
 
             {/* Verified Contact Strip */}
-            <div className="mt-10 grid grid-cols-1 gap-3 border-t border-white/10 pt-8 sm:grid-cols-3">
+            <div className="mt-10 grid grid-cols-1 gap-3 border-t border-white/10 pt-8 sm:grid-cols-2">
               <a
                 href="mailto:contact@indobox.co.jp"
                 className="flex items-center justify-center gap-2 rounded-xl bg-white/[0.04] p-3 font-inter text-[12px] text-slate-300 transition-colors hover:bg-white/[0.08] hover:text-white border border-white/5"
               >
                 <Mail className="h-4 w-4 text-saffron shrink-0" />
                 <span className="truncate">contact@indobox.co.jp</span>
-              </a>
-              <a
-                href="tel:+817040321282"
-                className="flex items-center justify-center gap-2 rounded-xl bg-white/[0.04] p-3 font-inter text-[12px] text-slate-300 transition-colors hover:bg-white/[0.08] hover:text-white border border-white/5"
-              >
-                <Phone className="h-4 w-4 text-saffron shrink-0" />
-                <span className="truncate">+81 70-4032-1282 (Tanji)</span>
               </a>
               <div className="flex items-center justify-center gap-2 rounded-xl bg-white/[0.04] p-3 text-center font-inter text-[12px] text-slate-300 border border-white/5">
                 <MapPin className="h-4 w-4 text-saffron shrink-0" />

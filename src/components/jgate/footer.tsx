@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { MapPin, Mail, Phone } from "lucide-react";
+import { MapPin, Mail } from "lucide-react";
 import { JGateLogo, LinkedInIcon, InstagramIcon } from "./icons";
 import { useI18n } from "@/lib/i18n";
 
@@ -157,15 +157,6 @@ export function Footer() {
                     className="font-inter text-[12.5px] sm:text-[13px] font-medium text-slate-700 dark:text-slate-300 transition-colors hover:text-crimson dark:hover:text-crimson"
                   >
                     contact@indobox.co.jp
-                  </a>
-                </div>
-                <div className="flex items-center gap-2.5">
-                  <Phone className="h-4 w-4 text-crimson shrink-0" />
-                  <a
-                    href="tel:+817040321282"
-                    className="font-inter text-[12.5px] sm:text-[13px] font-medium text-slate-700 dark:text-slate-300 transition-colors hover:text-crimson dark:hover:text-crimson"
-                  >
-                    +81 70-4032-1282 (Tanji)
                   </a>
                 </div>
               </div>

@@ -1313,7 +1313,7 @@ export function PrecisionWhyPage() {
               Cyber Gateway, HITEC City, Hyderabad · Telangana, India
             </div>
             <div className="font-mono text-[12px] text-[#9A98A4]">
-              contact@indobox.co.jp · +81 70-4032-1282 (Director Tanji)
+              contact@indobox.co.jp
             </div>
           </div>
 

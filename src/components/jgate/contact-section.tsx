@@ -387,20 +387,20 @@ export function ContactSection({ id }: { id?: string }) {
                       {/* Action buttons for Tanji */}
                       <div className="mt-2.5 grid grid-cols-2 gap-2">
                         <a
-                          href="tel:+817040321282"
-                          className="flex items-center justify-center gap-1.5 rounded-lg border border-slate-200 dark:border-white/10 bg-white dark:bg-[#142036] px-2.5 py-2 font-mono text-[11.5px] font-bold text-ink dark:text-white hover:text-crimson hover:border-crimson/40 transition-colors shadow-xs"
+                          href="mailto:contact@indobox.co.jp?subject=Inquiry%20for%20Director%20Tanji"
+                          className="flex items-center justify-center gap-1.5 rounded-lg border border-slate-200 dark:border-white/10 bg-white dark:bg-[#142036] px-2.5 py-2 font-inter text-[11.5px] font-bold text-ink dark:text-white hover:text-crimson hover:border-crimson/40 transition-colors shadow-xs"
                         >
-                          <Phone className="h-3 w-3 text-crimson dark:text-rose-400" />
-                          +81 70-4032-1282
+                          <Mail className="h-3 w-3 text-crimson dark:text-rose-400" />
+                          contact@indobox.co.jp
                         </a>
                         <a
-                          href="https://wa.me/817040321282?text=Hello%20Tanji-san%2C%20I%20would%20like%20to%20inquire%20about%20J-Gate."
+                          href="https://www.linkedin.com/in/daisuke-tanji/"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex items-center justify-center gap-1.5 rounded-lg border border-emerald-300/80 dark:border-emerald-600/40 bg-emerald-500/10 dark:bg-emerald-950/40 px-2.5 py-2 font-inter text-[11.5px] font-bold text-emerald-800 dark:text-emerald-300 hover:bg-emerald-500/20 transition-colors shadow-xs"
+                          className="flex items-center justify-center gap-1.5 rounded-lg border border-sky-300/80 dark:border-sky-600/40 bg-sky-500/10 dark:bg-sky-950/40 px-2.5 py-2 font-inter text-[11.5px] font-bold text-sky-800 dark:text-sky-300 hover:bg-sky-500/20 transition-colors shadow-xs"
                         >
-                          <MessageCircle className="h-3 w-3 text-emerald-600 dark:text-emerald-400" />
-                          {tx({ EN: "WhatsApp Chat", JP: "WhatsAppで相談" })}
+                          <ExternalLink className="h-3 w-3 text-sky-600 dark:text-sky-400" />
+                          {tx({ EN: "LinkedIn Profile", JP: "LinkedIn プロフィール" })}
                         </a>
                       </div>
                     </div>

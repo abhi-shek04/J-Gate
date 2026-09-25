@@ -197,8 +197,11 @@ export function TeamSection({ id }: { id?: string }) {
     <div id={id} className="scroll-mt-20">
       <PageHero
         eyebrowKey="team.eyebrow"
-        titleNode={tx({ EN: "Leadership & Advisory", JP: "リーダーシップ＆諮問委員会" })}
-        subtitleKey="team.subtitle"
+        titleNode={tx({ EN: "Leadership & Advisory", JP: "日印両国を知り尽くした経営陣・アドバイザー" })}
+        subtitleNode={tx({
+          EN: "Unlocking new possibilities for your business through collaboration with India.",
+          JP: "インドとの協業により、貴社ビジネスの新たな可能性を切り拓くプロフェッショナルチーム。",
+        })}
       />
 
       {/* ════════════════════════════════════════════════════════════

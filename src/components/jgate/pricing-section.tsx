@@ -335,14 +335,17 @@ export function PricingSection({ id }: { id?: string }) {
         eyebrowKey="pricing.eyebrow"
         titleNode={
           <>
-            {tx({ EN: "Membership Fee Plans", JP: "ハイデラバード拠点" })}
-            <br />
+            {tx({ EN: "Membership Fee Plans ", JP: "ハイデラバード拠点 " })}
+            <br className="hidden sm:inline" />
             <span className="text-gradient-saffron">
               {tx({ EN: "— Hyderabad Operating Hub", JP: "メンバーシップ料金プラン" })}
             </span>
           </>
         }
-        subtitleKey="pricing.subtitle"
+        subtitleNode={tx({
+          EN: "Designed as a high cost-performance strategic investment — replacing typical India expansion costs of ¥15M–¥20M annually per expat.",
+          JP: "駐在員1人あたり年間1,500万〜2,000万円かかる従来のインド進出コストを、高いコストパフォーマンスの戦略拠点モデルで大幅削減。",
+        })}
       />
 
       {/* ───────────────────────────────────────────────────────────

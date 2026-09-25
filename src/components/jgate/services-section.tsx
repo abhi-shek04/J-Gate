@@ -337,14 +337,17 @@ export function ServicesSection({ id }: { id?: string }) {
         eyebrowKey="services.eyebrow"
         titleNode={
           <>
-            {tx({ EN: "Comprehensive Setup &", JP: "包括的インド進出支援・" })}
-            <br />
+            {tx({ EN: "Comprehensive Setup & ", JP: "包括的インド進出支援・" })}
+            <br className="hidden sm:inline" />
             <span className="text-gradient-saffron">
               {tx({ EN: "Operational Solutions", JP: "サービス仕様・運営基盤" })}
             </span>
           </>
         }
-        subtitleKey="services.title"
+        subtitleNode={tx({
+          EN: "Indobox's unique comprehensive market entry support & talent development — Hyderabad's dedicated end-to-end platform for Japanese enterprises.",
+          JP: "Indobox独自の包括的進出支援と高度人材育成。ハイデラバード拠点の日本企業専用エンドツーエンドプラットフォーム。",
+        })}
       />
 
       {/* ───────────────────────────────────────────────────────────

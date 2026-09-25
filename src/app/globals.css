@@ -413,7 +413,7 @@
 
 /* ── Text gradients ── */
 .text-gradient-saffron {
-  background: linear-gradient(90deg, #e8a01a, #ffc84a);
+  background: linear-gradient(90deg, #b45309, #d97706);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

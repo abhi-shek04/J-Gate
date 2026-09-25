@@ -114,14 +114,17 @@ export function AboutSection({ id }: { id?: string }) {
         eyebrowKey="about.eyebrow"
         titleNode={
           <>
-            {tx({ EN: "From India Entry Spark", JP: "インド展開の" })}
-            <br />
+            {tx({ EN: "From India Entry Spark ", JP: "インド展開の" })}
+            <br className="hidden sm:inline" />
             <span className="text-gradient-saffron">
               {tx({ EN: "to Talent Development", JP: "きっかけ作りから育成まで" })}
             </span>
           </>
         }
-        subtitleKey="about.title"
+        subtitleNode={tx({
+          EN: "Operated by Indobox India — a dedicated working hub for Japanese enterprises in Hyderabad.",
+          JP: "Indobox Indiaが運営する、ハイデラバードの日本企業専用ワーキングハブ。",
+        })}
       />
 
       {/* ════════════════════════════════════════════════════════════
@@ -129,25 +132,7 @@ export function AboutSection({ id }: { id?: string }) {
          ════════════════════════════════════════════════════════════ */}
       <section className="section-pad bg-ivory dark:bg-[#0b111e] transition-colors duration-300">
         <div className="container-jg">
-          <Reveal>
-            <div className="mx-auto max-w-3xl text-center">
-              <Eyebrow>{t("about.purpose.eyebrow")}</Eyebrow>
-              <h2
-                className="mt-2 font-serif-jp font-bold leading-[1.2] text-ink dark:text-white"
-                style={{ fontSize: "clamp(1.625rem,3vw,2.25rem)" }}
-              >
-                {t("about.purpose.title")}
-              </h2>
-              <p
-                className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300"
-                style={{ fontSize: "clamp(0.9rem,1.3vw,1.05rem)" }}
-              >
-                {t("about.purpose.subtitle")}
-              </p>
-            </div>
-          </Reveal>
-
-          <div className="mt-7 sm:mt-10 lg:mt-12 grid gap-4 sm:gap-6 md:grid-cols-3">
+          <div className="grid gap-4 sm:gap-6 md:grid-cols-3">
             {PILLARS.map((p, i) => (
               <Reveal key={p.num} delay={i * 100}>
                 <article className="luxury-light-card card-sheen gold-hairline group relative h-full flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-6 lg:p-7.5 shadow-card dark:shadow-2xl hover:shadow-2xl hover:border-crimson/35 dark:hover:border-rose-400/40 transition-all duration-300">

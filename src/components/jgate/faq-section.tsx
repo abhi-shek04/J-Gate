@@ -291,7 +291,10 @@ export function FAQSection({ id }: { id?: string }) {
             })}
           </span>
         }
-        subtitleKey="faq.subtitle"
+        subtitleNode={tx({
+          EN: "Clear, authoritative answers regarding workspace options, resident Japan Desk operations, Indian incorporation, talent acquisition, and bilateral growth.",
+          JP: "拠点利用、常駐ジャパンデスク、法人設立、人材採用、日印共創に関する疑問にお答えします。",
+        })}
       />
 
       {/* 2. REASSURANCE PODS (4 PILLARS) */}

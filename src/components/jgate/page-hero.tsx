@@ -1,59 +1,80 @@
 "use client";
 
-import { Reveal, Eyebrow } from "./shared";
+import { Reveal } from "./shared";
 import { useI18n } from "@/lib/i18n";
-import { JapanFlag, IndiaFlag, ToriiWatermark } from "./icons";
 import type { ReactNode } from "react";
 
 /* ============================================================
-   PageHero — reusable hero banner for sub-pages
-   Used on /about, /why-jgate, /services, /team, /blogs, /contact
+   PageHero — Master Executive Section Header
+   Light/dark theme adaptive, sleek luxury corporate presence.
+   Seamlessly integrates as a cohesive header across sections.
    ============================================================ */
+
+export type PageHeroProps = {
+  eyebrowKey?: string;
+  eyebrowNode?: ReactNode;
+  titleNode: ReactNode;
+  subtitleKey?: string;
+  subtitleNode?: ReactNode;
+};
+
 export function PageHero({
   eyebrowKey,
+  eyebrowNode,
   titleNode,
   subtitleKey,
-}: {
-  eyebrowKey: string;
-  titleNode: ReactNode;
-  subtitleKey: string;
-}) {
+  subtitleNode,
+}: PageHeroProps) {
   const { t } = useI18n();
+
+  const eyebrowContent = eyebrowNode ?? (eyebrowKey ? t(eyebrowKey) : null);
+  const subtitleContent = subtitleNode ?? (subtitleKey ? t(subtitleKey) : null);
+
   return (
-    <section className="relative flex min-h-[30vh] sm:min-h-[38vh] lg:min-h-[44vh] items-center justify-center overflow-hidden bg-midnight pt-14 pb-8 sm:pt-20 sm:pb-12">
-      <div className="pattern-asanoha-dark absolute inset-0 opacity-60" />
+    <div className="relative overflow-hidden bg-slate-50/80 via-white to-slate-50/50 dark:from-[#080d17] dark:via-[#0c1424] dark:to-[#080d17] border-b border-slate-200/70 dark:border-white/10 pt-10 pb-7 sm:pt-14 sm:pb-9 transition-colors duration-300">
+      {/* Subtle decorative background radial warm light */}
       <div
-        className="absolute inset-0"
+        className="pointer-events-none absolute inset-0 opacity-40 dark:opacity-20"
         style={{
           background:
-            "radial-gradient(ellipse at 70% 40%, rgba(188,26,44,0.10) 0%, transparent 60%), radial-gradient(ellipse at 20% 70%, rgba(232,160,26,0.06) 0%, transparent 50%)",
+            "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(188, 26, 44, 0.04) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 85% 100%, rgba(232, 160, 26, 0.03) 0%, transparent 60%)",
         }}
+        aria-hidden
       />
-      <ToriiWatermark
-        className="torii-watermark"
-        style={{ width: "50vw", maxWidth: "600px", right: "5%", top: "15%" }}
-      />
-      <div className="container-jg relative z-10 text-center">
+
+      <div className="container-jg relative z-10 text-center max-w-4xl mx-auto px-4">
         <Reveal>
-          <span className="inline-flex items-center gap-1.5 sm:gap-2 rounded-md bg-crimson px-3 py-1 sm:px-4 sm:py-1.5 font-inter text-[11px] sm:text-[12px] font-medium text-white shadow-crimp" style={{ letterSpacing: "0.1em" }}>
-            <JapanFlag className="h-3 w-4 sm:h-3.5 sm:w-5" />
-            {t(eyebrowKey)}
-            <IndiaFlag className="h-3 w-4 sm:h-3.5 sm:w-5" />
-          </span>
-          <h1
-            className="mx-auto mt-3.5 sm:mt-6 font-serif-jp font-bold leading-[1.1] text-white"
-            style={{ fontSize: "clamp(1.65rem,3.8vw,3rem)" }}
+          {eyebrowContent && (
+            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200/90 dark:border-white/15 bg-white/90 dark:bg-white/[0.06] px-4 py-1 shadow-2xs backdrop-blur-sm">
+              <span className="h-1.5 w-1.5 rounded-full bg-crimson animate-pulse" />
+              <span className="font-inter text-[11px] sm:text-[11.5px] font-bold tracking-[0.18em] uppercase text-crimson dark:text-rose-400">
+                {eyebrowContent}
+              </span>
+            </div>
+          )}
+
+          <h2
+            className="mx-auto mt-3 sm:mt-3.5 font-serif-jp font-extrabold leading-[1.2] text-ink dark:text-white tracking-tight"
+            style={{ fontSize: "clamp(1.65rem, 3.2vw, 2.45rem)" }}
           >
             {titleNode}
-          </h1>
-          <p
-            className="mx-auto mt-2.5 sm:mt-5 max-w-2xl font-inter font-light leading-relaxed text-mist"
-            style={{ fontSize: "clamp(0.85rem,1.2vw,1.05rem)" }}
-          >
-            {t(subtitleKey)}
-          </p>
+          </h2>
+
+          {subtitleContent && (
+            <p className="mx-auto mt-2.5 sm:mt-3.5 max-w-2xl font-inter text-[13.5px] sm:text-[14.5px] font-normal leading-relaxed text-slate-600 dark:text-slate-300">
+              {subtitleContent}
+            </p>
+          )}
+
+          {/* Minimalist Japanese Architectural Accent Mark */}
+          <div className="mx-auto mt-4 sm:mt-5 flex items-center justify-center gap-2" aria-hidden>
+            <div className="h-px w-10 bg-gradient-to-r from-transparent via-slate-300 dark:via-white/20 to-transparent" />
+            <div className="h-1 w-1 rounded-full bg-saffron" />
+            <div className="h-px w-10 bg-gradient-to-r from-transparent via-slate-300 dark:via-white/20 to-transparent" />
+          </div>
         </Reveal>
       </div>
-    </section>
+    </div>
   );
 }
+

@@ -513,14 +513,17 @@ export function BlogsSection({ id }: { id?: string }) {
         eyebrowKey="nav.blogs"
         titleNode={
           <>
-            {tx({ EN: "Office & Facilities", JP: "オフィス写真・" })}
-            <br />
+            {tx({ EN: "Office & Facilities ", JP: "オフィス写真・" })}
+            <br className="hidden sm:inline" />
             <span className="text-gradient-saffron">
               {tx({ EN: "Cyber Gateway, Hyderabad", JP: "施設ギャラリー" })}
             </span>
           </>
         }
-        subtitleKey="hero.subtitle"
+        subtitleNode={tx({
+          EN: "A dedicated co-working space at Cyber Gateway, Hyderabad for Japanese businesses. Dedicated desks, private cabins, resident Japan Desk support, and full office infrastructure.",
+          JP: "Cyber Gateway内に位置する日本企業専用スペース。専用デスク、個室、ジャパンデスク常駐環境を写真でご紹介。",
+        })}
       />
 
       {/* ───────────────────────────────────────────────────────────
@@ -528,29 +531,14 @@ export function BlogsSection({ id }: { id?: string }) {
          ─────────────────────────────────────────────────────────── */}
       <section className="section-pad bg-ivory-warm dark:bg-[#080d17]">
         <div className="container-jg">
-          {/* Header with View Mode Switcher */}
+          {/* View Mode Switcher Bar */}
           <Reveal>
-            <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-200/80 dark:border-white/10">
-              <div>
-                <div className="inline-flex items-center gap-2 rounded-full border border-crimson/25 dark:border-crimson/40 bg-crimson/10 dark:bg-crimson/20 px-3.5 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-crimson dark:text-rose-400">
-                  <Building2 className="h-3.5 w-3.5" />
-                  {tx({ EN: "Office Photography", JP: "オフィス施設写真" })}
-                </div>
-                <h2
-                  className="mt-2 font-serif-jp font-bold text-ink dark:text-white leading-tight"
-                  style={{ fontSize: "clamp(1.75rem,3.2vw,2.3rem)" }}
-                >
-                  {tx({
-                    EN: "J-Gate Office Facilities",
-                    JP: "オフィス設備と環境のご案内",
-                  })}
-                </h2>
-                <p className="mt-1 font-inter text-[13.5px] text-slate dark:text-slate-300 max-w-2xl">
-                  {tx({
-                    EN: "Official photography of J-Gate workspaces, meeting rooms, and amenities at Cyber Gateway Phase 2, Hitech City, Hyderabad.",
-                    JP: "ハイデラバード・ハイテックシティ Phase 2のCyber Gateway内にあるオフィスの写真と設備仕様。",
-                  })}
-                </p>
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 border-b border-slate-200/80 dark:border-white/10">
+              <div className="flex items-center gap-2">
+                <Building2 className="h-4 w-4 text-crimson dark:text-rose-400" />
+                <span className="font-inter text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300">
+                  {tx({ EN: "Filter Workspace Photos by Zone:", JP: "ゾーンで写真を絞り込み:" })}
+                </span>
               </div>
 
               {/* View Mode Toggle */}

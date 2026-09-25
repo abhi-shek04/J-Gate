@@ -55,13 +55,13 @@ const STEPS = [
     tag: { EN: "Step 3 · Establishment", JP: "ステップ 3 · 法人設立・採用" },
     title: { EN: "Company Setup & Hiring", JP: "法人設立とスタッフ採用" },
     desc: {
-      EN: "Incorporate your legal entity in India, secure tax and bank accounts, and recruit core staff.",
-      JP: "インドでの現地法人設立、税務登録・銀行口座開設を完了し、優秀な現地コアスタッフを採用します。",
+      EN: "Incorporate your legal entity in India, secure tax and bank accounts, and recruit core staff with full statutory compliance, payroll structure, and smooth operational onboarding.",
+      JP: "インドでの現地法人設立、税務登録・銀行口座開設を完了し、現地労働法準拠の雇用契約と給与計算設定のもと、優秀なコアスタッフを採用・オンボーディングします。",
     },
     icon: Building2,
     points: [
       { EN: "MCA legal incorporation & bank accounts", JP: "公式登記住所・法人口座・税務登録" },
-      { EN: "Core staff & talent recruitment", JP: "現地コア人材・スタッフの直接採用" },
+      { EN: "Core staff recruitment & payroll setup", JP: "現地コア人材の採用・労務給与整備" },
     ],
   },
   {

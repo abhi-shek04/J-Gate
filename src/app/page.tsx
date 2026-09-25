@@ -165,8 +165,6 @@ export default function HomePage() {
         { EN: "Meeting Suites & Event Canteen", JP: "会議室・専用カフェテリア" },
         { EN: "24/7 Security & High-Speed Wi-Fi", JP: "24時間生体認証・高速回線" },
       ],
-      link: "/why-jgate",
-      linkLabel: { EN: "Explore Office Specs", JP: "オフィス詳細を見る" },
     },
     {
       num: "02",
@@ -183,8 +181,6 @@ export default function HomePage() {
         { EN: "Everyday Business Consultation", JP: "日々の実務相談・トラブル対応" },
         { EN: "Vetted Accounting & Legal Introductions", JP: "現地提携専門家（法務・会計）紹介" },
       ],
-      link: "/contact",
-      linkLabel: { EN: "Meet Resident Team", JP: "常駐チームに相談" },
     },
     {
       num: "03",
@@ -201,8 +197,6 @@ export default function HomePage() {
         { EN: "Corporate Banking & FDI Assistance", JP: "法人口座開設・送金サポート" },
         { EN: "Senior Developers & Bilingual PMs", JP: "ITエンジニア・バイリンガル採用" },
       ],
-      link: "/services",
-      linkLabel: { EN: "View Setup Services", JP: "設立支援サービスを見る" },
     },
   ];
 
@@ -463,17 +457,6 @@ export default function HomePage() {
                             </div>
                           ))}
                         </div>
-                      </div>
-
-                      {/* Action Link */}
-                      <div className="mt-5 pt-3 border-t border-slate-100 dark:border-white/10">
-                        <Link
-                          href={p.link}
-                          className="inline-flex items-center gap-1.5 font-inter text-[12px] font-bold text-crimson dark:text-rose-400 group-hover:translate-x-1 transition-transform"
-                        >
-                          <span>{tx(p.linkLabel)}</span>
-                          <ArrowRight className="h-3.5 w-3.5" />
-                        </Link>
                       </div>
                     </div>
                   </article>

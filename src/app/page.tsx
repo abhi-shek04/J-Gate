@@ -33,7 +33,6 @@ import { LogoMarquee } from "@/components/jgate/logo-marquee";
 import { Photo } from "@/components/jgate/photo";
 import { cn } from "@/lib/utils";
 import { BilateralCorridorVisualizer } from "@/components/jgate/corridor-visualizer";
-import { WorkspaceExplorer } from "@/components/jgate/workspace-explorer";
 import { AboutSection } from "@/components/jgate/about-section";
 import { WhyJGateSection } from "@/components/jgate/why-jgate-section";
 import { ServicesSection } from "@/components/jgate/services-section";
@@ -484,11 +483,6 @@ export default function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* ════════════════════════════════════════════════════════════
-          4. INTERACTIVE WORKSPACE BENTO TOUR & SPEC EXPLORER
-         ════════════════════════════════════════════════════════════ */}
-      <WorkspaceExplorer />
 
       {/* ════════════════════════════════════════════════════════════
           6. HYDERABAD LOCATION — 2-Column Strategic Map & Details

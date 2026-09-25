@@ -1,14 +1,11 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import {
   ChevronDown,
-  HelpCircle,
   Building2,
   ShieldCheck,
-  Users,
   Landmark,
-  Globe2,
   CheckCircle2,
   MessageSquare,
 } from "lucide-react";
@@ -21,8 +18,6 @@ import { cn } from "@/lib/utils";
    /faq — Dedicated J-Gate Executive FAQ & Knowledge Base
    ============================================================ */
 
-type CategoryKey = "all" | "workspace" | "japandesk" | "incorporation" | "talent" | "ecosystem";
-
 interface FAQItem {
   id: string;
   category: "workspace" | "japandesk" | "incorporation" | "talent" | "ecosystem";
@@ -31,15 +26,6 @@ interface FAQItem {
   a: { EN: string; JP: string };
   highlights?: { EN: string; JP: string }[];
 }
-
-const CATEGORIES: { id: CategoryKey; label: { EN: string; JP: string }; icon: any }[] = [
-  { id: "all", label: { EN: "All Questions", JP: "すべて" }, icon: HelpCircle },
-  { id: "workspace", label: { EN: "Facility & Workspace", JP: "施設・ワークスペース" }, icon: Building2 },
-  { id: "japandesk", label: { EN: "Japan Desk & Expat", JP: "ジャパンデスク・生活支援" }, icon: ShieldCheck },
-  { id: "incorporation", label: { EN: "Incorporation & Tax", JP: "法人設立・法務税務" }, icon: Landmark },
-  { id: "talent", label: { EN: "Talent & Staffing", JP: "IT人材採用・研修" }, icon: Users },
-  { id: "ecosystem", label: { EN: "T-Hub & Ecosystem Ties", JP: "T-Hub・エコシステム提携" }, icon: Globe2 },
-];
 
 const FAQ_LIST: FAQItem[] = [
   /* ── 1. WORKSPACE & FACILITY ── */
@@ -269,7 +255,6 @@ const FAQ_LIST: FAQItem[] = [
 
 export function FAQSection({ id }: { id?: string }) {
   const { tx } = useI18n();
-  const [selectedCategory, setSelectedCategory] = useState<CategoryKey>("all");
   const [openIds, setOpenIds] = useState<Record<string, boolean>>({});
 
   // Toggle single accordion
@@ -292,13 +277,6 @@ export function FAQSection({ id }: { id?: string }) {
   const collapseAll = () => {
     setOpenIds({});
   };
-
-  // Filter items based on category
-  const filteredList = useMemo(() => {
-    return FAQ_LIST.filter((item) => {
-      return selectedCategory === "all" || item.category === selectedCategory;
-    });
-  }, [selectedCategory]);
 
   return (
     <div id={id} className="scroll-mt-20">
@@ -358,55 +336,17 @@ export function FAQSection({ id }: { id?: string }) {
         </div>
       </section>
 
-      {/* 3. MAIN FAQ SEARCH & ACCORDION SYSTEM */}
-      <section className="py-8 sm:py-12 lg:py-16 bg-ivory dark:bg-[#0b111e] transition-colors">
-        <div className="container-jg max-w-5xl">
-          {/* Category Filter Pills */}
-          <Reveal>
-            <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
-              {CATEGORIES.map((cat) => {
-                const Icon = cat.icon;
-                const isSelected = selectedCategory === cat.id;
-                const count =
-                  cat.id === "all"
-                    ? FAQ_LIST.length
-                    : FAQ_LIST.filter((i) => i.category === cat.id).length;
-
-                return (
-                  <button
-                    key={cat.id}
-                    onClick={() => setSelectedCategory(cat.id)}
-                    className={cn(
-                      "group inline-flex items-center gap-1.5 sm:gap-2 rounded-full px-3 py-1.5 sm:px-3.5 sm:py-2 font-inter text-[11px] sm:text-[12px] font-semibold transition-all duration-200 cursor-pointer",
-                      isSelected
-                        ? "bg-crimson text-white shadow-md shadow-crimson/25 ring-2 ring-crimson/20"
-                        : "border border-slate-200 dark:border-white/12 bg-white dark:bg-[#132038] text-slate-700 dark:text-slate-200 hover:border-crimson/40 dark:hover:border-white/25 hover:bg-slate-50 dark:hover:bg-[#182846]"
-                    )}
-                  >
-                    <Icon className={cn("h-3 w-3 sm:h-3.5 sm:w-3.5", isSelected ? "text-white" : "text-slate-500 dark:text-slate-400 group-hover:text-crimson dark:group-hover:text-rose-400")} />
-                    <span>{tx(cat.label)}</span>
-                    <span
-                      className={cn(
-                        "rounded-full px-1.5 py-0.2 text-[10px] sm:text-[10.5px] font-bold",
-                        isSelected ? "bg-white/20 text-white" : "bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300"
-                      )}
-                    >
-                      {count}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          </Reveal>
-
-          {/* Results Summary Bar + Expand/Collapse Buttons */}
-          <div className="mt-4 sm:mt-6 flex flex-wrap items-center justify-between gap-2.5 sm:gap-3 border-b border-slate-200 dark:border-white/10 pb-2 sm:pb-2.5 font-inter text-[11px] sm:text-[12px] text-slate-600 dark:text-slate-400">
-            <div>
+      {/* 3. MAIN FAQ ACCORDION SYSTEM */}
+      <section className="py-6 sm:py-10 bg-ivory dark:bg-[#0b111e] transition-colors">
+        <div className="container-jg max-w-4xl">
+          {/* Header Row: Count Summary + Expand/Collapse Buttons */}
+          <div className="mb-3.5 flex flex-wrap items-center justify-between gap-2.5 border-b border-slate-200/80 dark:border-white/10 pb-2.5 font-inter text-[11.5px] text-slate-500 dark:text-slate-400">
+            <span className="font-semibold text-slate-700 dark:text-slate-300">
               {tx({
-                EN: `Showing ${filteredList.length} of ${FAQ_LIST.length} questions`,
-                JP: `${FAQ_LIST.length}件中 ${filteredList.length}件の質問を表示`,
+                EN: `Frequently Asked Questions (${FAQ_LIST.length})`,
+                JP: `よくあるご質問（全${FAQ_LIST.length}件）`,
               })}
-            </div>
+            </span>
             <div className="flex items-center gap-3 font-medium">
               <button
                 onClick={expandAll}
@@ -424,103 +364,80 @@ export function FAQSection({ id }: { id?: string }) {
             </div>
           </div>
 
-          {/* FAQ Accordion List */}
-          <div className="mt-3.5 sm:mt-5 space-y-2 sm:space-y-3">
-            {filteredList.length === 0 ? (
-              <div className="rounded-2xl sm:rounded-3xl border border-dashed border-slate-300 dark:border-white/20 bg-white dark:bg-[#101a2c] py-10 sm:py-14 text-center">
-                <HelpCircle className="mx-auto h-9 w-9 sm:h-11 sm:w-11 text-slate-300 dark:text-slate-600" />
-                <h3 className="mt-3 font-serif-jp text-base sm:text-lg font-bold text-ink dark:text-white">
-                  {tx({ EN: "No matching questions found", JP: "該当する質問が見つかりませんでした" })}
-                </h3>
-                <p className="mx-auto mt-2 max-w-md font-inter text-[12px] sm:text-[13px] text-slate-600 dark:text-slate-300 px-4">
-                  {tx({
-                    EN: "Try using different keywords, or reach out to our resident Japan Desk for immediate personal consultation.",
-                    JP: "キーワードを変更して再検索いただくか、常駐ジャパンデスクまで直接お問い合わせください。",
-                  })}
-                </p>
-                <button
-                  onClick={() => {
-                    setSelectedCategory("all");
-                  }}
-                  className="mt-4 inline-flex items-center gap-2 rounded-xl bg-slate-100 dark:bg-white/10 px-4 py-2 font-inter text-[12px] font-semibold text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-white/20 transition-colors cursor-pointer"
-                >
-                  {tx({ EN: "View All Questions", JP: "すべての質問を表示" })}
-                </button>
-              </div>
-            ) : (
-              filteredList.map((item, idx) => {
-                const isOpen = !!openIds[item.id];
-                return (
-                  <Reveal key={item.id} delay={idx * 30}>
-                    <div
-                      className={cn(
-                        "group overflow-hidden rounded-xl sm:rounded-2xl border bg-white dark:bg-[#101a2c] transition-all duration-300 shadow-xs",
-                        isOpen
-                          ? "border-crimson/50 dark:border-rose-500/50 shadow-md ring-1 ring-crimson/15 dark:ring-rose-500/20"
-                          : "border-slate-200/90 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20 hover:shadow-xs"
-                      )}
+          {/* Compact FAQ Accordion List */}
+          <div className="space-y-2">
+            {FAQ_LIST.map((item, idx) => {
+              const isOpen = !!openIds[item.id];
+              return (
+                <Reveal key={item.id} delay={idx * 15}>
+                  <div
+                    className={cn(
+                      "group overflow-hidden rounded-xl border bg-white dark:bg-[#101a2c] transition-all duration-200 shadow-xs",
+                      isOpen
+                        ? "border-crimson/40 dark:border-rose-500/40 ring-1 ring-crimson/15 dark:ring-rose-500/20 shadow-sm"
+                        : "border-slate-200/80 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20"
+                    )}
+                  >
+                    <button
+                      onClick={() => toggleItem(item.id)}
+                      className="flex w-full items-center justify-between gap-3 px-3.5 py-2.5 sm:px-4 sm:py-3 text-left transition-colors cursor-pointer"
+                      aria-expanded={isOpen}
                     >
-                      <button
-                        onClick={() => toggleItem(item.id)}
-                        className="flex w-full items-start justify-between gap-3 sm:gap-4 p-3.5 sm:p-4.5 text-left transition-colors cursor-pointer"
-                        aria-expanded={isOpen}
-                      >
-                        <div className="flex-1 space-y-1">
-                          <span className="inline-flex items-center gap-1 rounded-md bg-slate-100 dark:bg-white/10 px-2 py-0.5 font-inter text-[10px] sm:text-[10.5px] font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wide">
-                            {tx(item.categoryLabel)}
-                          </span>
-                          <h3
-                            className={cn(
-                              "font-serif-jp font-bold leading-snug transition-colors",
-                              isOpen ? "text-crimson dark:text-rose-400" : "text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400"
-                            )}
-                            style={{ fontSize: "clamp(0.92rem, 1.25vw, 1.1rem)" }}
-                          >
-                            {tx(item.q)}
-                          </h3>
-                        </div>
-
-                        <div
+                      <div className="flex items-center gap-2 flex-1 min-w-0 pr-1">
+                        <span className="inline-block shrink-0 rounded bg-slate-100 dark:bg-white/10 px-1.5 py-0.5 font-inter text-[9px] sm:text-[9.5px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                          {tx(item.categoryLabel)}
+                        </span>
+                        <h3
                           className={cn(
-                            "flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-full transition-transform duration-300",
+                            "font-serif-jp font-semibold text-[13px] sm:text-[14px] leading-snug transition-colors",
                             isOpen
-                              ? "bg-crimson text-white rotate-180 shadow-xs shadow-crimson/30"
-                              : "bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300 group-hover:bg-slate-200 dark:group-hover:bg-white/20"
+                              ? "text-crimson dark:text-rose-400"
+                              : "text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400"
                           )}
                         >
-                          <ChevronDown className="h-3.5 w-3.5" />
-                        </div>
-                      </button>
+                          {tx(item.q)}
+                        </h3>
+                      </div>
 
-                      {isOpen && (
-                        <div className="border-t border-slate-100 dark:border-white/10 bg-gradient-to-b from-slate-50/40 to-white dark:from-white/[0.02] dark:to-transparent px-3.5 pb-3.5 pt-2.5 sm:px-5 sm:pb-5 sm:pt-3 animate-in fade-in-50 duration-200">
-                          <p className="font-inter text-[12px] sm:text-[13.5px] leading-relaxed text-slate-700 dark:text-slate-300">
-                            {tx(item.a)}
-                          </p>
+                      <div
+                        className={cn(
+                          "flex h-6 w-6 sm:h-6.5 sm:w-6.5 shrink-0 items-center justify-center rounded-md transition-transform duration-200",
+                          isOpen
+                            ? "bg-crimson text-white rotate-180 shadow-xs"
+                            : "bg-slate-100 dark:bg-white/10 text-slate-500 dark:text-slate-400 group-hover:bg-slate-200 dark:group-hover:bg-white/20"
+                        )}
+                      >
+                        <ChevronDown className="h-3.5 w-3.5" />
+                      </div>
+                    </button>
 
-                          {/* Optional highlight checkpoints */}
-                          {item.highlights && item.highlights.length > 0 && (
-                            <div className="mt-3 sm:mt-4 grid gap-1.5 sm:gap-2 sm:grid-cols-3 pt-2.5 sm:pt-3 border-t border-slate-100 dark:border-white/10">
-                              {item.highlights.map((h, hIdx) => (
-                                <div
-                                  key={hIdx}
-                                  className="flex items-center gap-2 rounded-lg bg-ivory/80 dark:bg-white/[0.05] px-2.5 py-1.5 sm:px-3 sm:py-2 border border-slate-200/60 dark:border-white/10"
-                                >
-                                  <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-crimson dark:text-rose-400" />
-                                  <span className="font-inter text-[11px] sm:text-[11.5px] font-medium text-slate-700 dark:text-slate-300 leading-tight">
-                                    {tx(h)}
-                                  </span>
-                                </div>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  </Reveal>
-                );
-              })
-            )}
+                    {isOpen && (
+                      <div className="border-t border-slate-100 dark:border-white/10 bg-slate-50/50 dark:bg-white/[0.02] px-3.5 pb-3 pt-2 sm:px-4 sm:pb-3.5 sm:pt-2.5 animate-in fade-in-50 duration-150">
+                        <p className="font-inter text-[12px] sm:text-[12.5px] leading-relaxed text-slate-700 dark:text-slate-300">
+                          {tx(item.a)}
+                        </p>
+
+                        {item.highlights && item.highlights.length > 0 && (
+                          <div className="mt-2.5 flex flex-wrap gap-1.5 pt-2 border-t border-slate-100 dark:border-white/10">
+                            {item.highlights.map((h, hIdx) => (
+                              <div
+                                key={hIdx}
+                                className="inline-flex items-center gap-1.5 rounded-md bg-white dark:bg-white/[0.06] px-2 py-1 border border-slate-200/70 dark:border-white/10"
+                              >
+                                <CheckCircle2 className="h-3 w-3 shrink-0 text-crimson dark:text-rose-400" />
+                                <span className="font-inter text-[10.5px] sm:text-[11px] font-medium text-slate-700 dark:text-slate-300">
+                                  {tx(h)}
+                                </span>
+                              </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>

@@ -10,7 +10,6 @@ import {
   AlertCircle,
   Banknote,
   Receipt,
-  TrendingDown,
   ShieldCheck,
   Users,
   Compass,
@@ -21,7 +20,6 @@ import {
   ChevronUp,
   CheckCircle2,
   Clock,
-  Zap,
 } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -348,96 +346,7 @@ export function PricingSection({ id }: { id?: string }) {
       />
 
       {/* ───────────────────────────────────────────────────────────
-          2. Executive ROI Benchmark Strip & Interactive Controls
-         ─────────────────────────────────────────────────────────── */}
-      <section className="relative mt-1 sm:-mt-9 z-20 container-jg">
-        <Reveal>
-          <div className="rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white/95 dark:bg-[#101a2c] p-3.5 sm:p-5 shadow-[0_16px_40px_-12px_rgba(8,15,26,0.08)] backdrop-blur-md transition-colors">
-            <div className="flex flex-col xl:flex-row items-center justify-between gap-4">
-              {/* ROI Benchmark Metric */}
-              <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2.5 text-center sm:text-left">
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200/80 dark:border-emerald-700/40 px-3 py-1 text-emerald-800 dark:text-emerald-300 font-inter text-[11px] font-bold">
-                  <TrendingDown className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" />
-                  <span>{tx({ EN: "Cost Benchmark", JP: "費用対効果の検証" })}</span>
-                </span>
-                <div className="text-[12.5px] font-inter text-slate-500 dark:text-slate-400">
-                  <span className="line-through mr-2">
-                    {tx({ EN: "Traditional Expat: ¥15M–¥20M/yr", JP: "従来型駐在: 年間¥15M〜¥20M" })}
-                  </span>
-                  <span className="inline-flex items-center gap-1 font-bold text-ink dark:text-amber-200 bg-amber-50/90 dark:bg-amber-950/40 border border-amber-200/70 dark:border-amber-700/40 px-2.5 py-0.5 rounded-md">
-                    <Zap className="h-3 w-3 text-saffron fill-saffron" />
-                    {tx({
-                      EN: "J-Gate Hub: From ₹15,000/mo (~¥27,000) · 90%+ Cost Efficiency",
-                      JP: "J-Gate: 月額1.5万INR〜（~¥27,000）90%以上のコスト削減",
-                    })}
-                  </span>
-                </div>
-              </div>
-
-              {/* Interactive Dual Switcher (Currency + Billing Period) */}
-              <div className="flex flex-wrap items-center justify-center gap-3">
-                {/* Billing Cycle Toggle */}
-                <div className="flex items-center bg-slate-100/90 dark:bg-white/10 p-1 rounded-xl border border-slate-200/80 dark:border-white/10 text-[11.5px] font-inter font-bold">
-                  <button
-                    type="button"
-                    onClick={() => setBillingCycle("monthly")}
-                    className={`px-3 py-1 rounded-lg transition-all duration-200 cursor-pointer ${
-                      !isAnnual
-                        ? "bg-white dark:bg-[#182846] text-ink dark:text-white shadow-xs border border-slate-200/80 dark:border-white/20"
-                        : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                    }`}
-                  >
-                    {tx({ EN: "Monthly", JP: "月払い" })}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setBillingCycle("annual")}
-                    className={`flex items-center gap-1.5 px-3 py-1 rounded-lg transition-all duration-200 cursor-pointer ${
-                      isAnnual
-                        ? "bg-white dark:bg-[#182846] text-crimson dark:text-rose-400 shadow-xs border border-slate-200/80 dark:border-white/20"
-                        : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                    }`}
-                  >
-                    <span>{tx({ EN: "Annual", JP: "年払い" })}</span>
-                    <span className="rounded bg-emerald-100 dark:bg-emerald-950/60 text-emerald-800 dark:text-emerald-300 text-[10px] px-1.5 py-0.2">
-                      -15%
-                    </span>
-                  </button>
-                </div>
-
-                {/* Currency Toggle */}
-                <div className="flex items-center bg-slate-100/90 dark:bg-white/10 p-1 rounded-xl border border-slate-200/80 dark:border-white/10 text-[11.5px] font-inter font-bold">
-                  <button
-                    type="button"
-                    onClick={() => setCurrency("INR")}
-                    className={`px-3 py-1 rounded-lg transition-all duration-200 cursor-pointer ${
-                      currency === "INR"
-                        ? "bg-white dark:bg-[#182846] text-crimson dark:text-rose-400 shadow-xs border border-slate-200/80 dark:border-white/20"
-                        : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                    }`}
-                  >
-                    ₹ INR
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setCurrency("JPY")}
-                    className={`px-3 py-1 rounded-lg transition-all duration-200 cursor-pointer ${
-                      currency === "JPY"
-                        ? "bg-white dark:bg-[#182846] text-crimson dark:text-rose-400 shadow-xs border border-slate-200/80 dark:border-white/20"
-                        : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                    }`}
-                  >
-                    ¥ JPY (円)
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </Reveal>
-      </section>
-
-      {/* ───────────────────────────────────────────────────────────
-          3. Three Executive Plan Cards
+          2. Three Executive Plan Cards
          ─────────────────────────────────────────────────────────── */}
       <section className="py-6 sm:py-10 lg:py-12 bg-ivory-warm dark:bg-[#0f1728] relative overflow-hidden transition-colors">
         {/* Ambient subtle warm lighting */}
@@ -818,20 +727,6 @@ export function PricingSection({ id }: { id?: string }) {
                     </div>
                   );
                 })}
-              </div>
-
-              {/* Guarantees Strip */}
-              <div className="mt-4 sm:mt-5 rounded-xl sm:rounded-2xl border border-emerald-200/90 dark:border-emerald-700/40 bg-emerald-50/60 dark:bg-emerald-950/30 p-3.5 sm:p-5 flex items-start sm:items-center gap-3">
-                <CheckCircle2 className="h-4.5 w-4.5 sm:h-5 sm:w-5 shrink-0 text-emerald-600 dark:text-emerald-400 mt-0.5 sm:mt-0" />
-                <p className="font-inter text-[11.5px] sm:text-[12.5px] leading-relaxed text-slate-700 dark:text-slate-300">
-                  <span className="font-bold text-ink dark:text-white">
-                    {tx({ EN: "Universal Plan Guarantee: ", JP: "全プラン共通の安心保証: " })}
-                  </span>
-                  {tx({
-                    EN: "No hidden Common Area Maintenance (CAM) or utility fees. All tiers include 24/7 keycard access, redundant fiber internet, video meeting rooms, and resident Japanese director coordination.",
-                    JP: "追加の施設共益費や隠れコストはありません。全プランに24時間入館、高速Wi-Fi、会議室、日本人常駐サポートが完備されています。",
-                  })}
-                </p>
               </div>
             </div>
           </Reveal>

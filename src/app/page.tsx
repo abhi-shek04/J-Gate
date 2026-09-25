@@ -112,7 +112,7 @@ function GlassBadge({
           <img
             src={imageSrc}
             alt={primary}
-            className="h-6 w-6 object-contain shrink-0"
+            className="h-6 w-6 sm:h-7 sm:w-7 object-contain shrink-0"
           />
         ) : textBadge ? (
           <span className="font-mono text-xs font-black tracking-tight text-slate-700 dark:text-slate-200">
@@ -345,7 +345,7 @@ export default function HomePage() {
                 accent="slate"
               />
               <GlassBadge
-                textBadge="GX"
+                imageSrc="/logos/genesys-info-x.png"
                 primary="Genesys info X"
                 secondary={tx({ EN: "Infrastructure Partner", JP: "現地インフラ提携" })}
                 accent="slate"

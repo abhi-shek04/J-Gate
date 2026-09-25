@@ -18,7 +18,7 @@ type Logo = {
 const ECOSYSTEM_ROW_1: Logo[] = [
   { name: "T-Hub", src: "/logos/thub.png", category: "INNOVATION HUB", desc: "World's Largest Innovation Center" },
   { name: "Woxsen University", src: "/logos/woxsen.png", category: "ACADEMIC PARTNER", desc: "Executive Talent & Research" },
-  { name: "Genesys info X", src: "", category: "MoU PARTNER", desc: "Global Digital Solutions" },
+  { name: "Genesys info X", src: "/logos/genesys-info-x.png", category: "MoU PARTNER", desc: "Global Digital Solutions" },
   { name: "Kodryx.ai", src: "/logos/kodryx.png", category: "DATA INTELLIGENCE", desc: "Enterprise AI & Analytics" },
   { name: "Daakia", src: "/logos/daakia.png", category: "COMMUNICATIONS", desc: "Bridging Distance with AI" },
 ];

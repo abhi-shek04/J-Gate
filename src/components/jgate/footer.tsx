@@ -120,6 +120,11 @@ export function Footer() {
 
                 {/* Genesys info X */}
                 <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
+                  <img
+                    src="/logos/genesys-info-x.png"
+                    alt="Genesys info X"
+                    className="h-6 w-6 sm:h-7 sm:w-7 object-contain shrink-0 dark:brightness-125"
+                  />
                   <span className="font-inter text-[12.5px] sm:text-[13px] font-bold text-ink dark:text-white whitespace-nowrap">
                     Genesys info X
                   </span>

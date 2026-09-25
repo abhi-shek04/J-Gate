@@ -27,13 +27,13 @@ const STEPS = [
     tag: { EN: "Step 1 · Feasibility", JP: "ステップ 1 · 事前調査" },
     title: { EN: "Feasibility Study", JP: "フィージビリティ調査" },
     desc: {
-      EN: "Evaluate Indian market potential, regulatory requirements, competitor landscape, and operational viability through tailored feasibility research.",
-      JP: "インド市場の規模、法規制要件、競合環境、現地展開の実現可能性を多角的に分析し、進出の確実な根拠を構築します。",
+      EN: "Evaluate Indian market potential, regulatory requirements, and identify reliable local partners to establish a viable expansion foundation.",
+      JP: "インド市場の規模、法規制要件を分析し、最適な現地パートナーの特定・選定を通じて進出の確実な根拠を構築します。",
     },
     icon: Compass,
     points: [
       { EN: "Market & regulatory feasibility analysis", JP: "市場規模・規制・リスク事前調査" },
-      { EN: "Local ecosystem & competitor mapping", JP: "現地競合・エコシステムの検証" },
+      { EN: "Identify & evaluate local partners", JP: "最適な現地提携パートナーの特定・選定" },
     ],
   },
   {
@@ -55,13 +55,13 @@ const STEPS = [
     tag: { EN: "Step 3 · Establishment", JP: "ステップ 3 · 法人設立・採用" },
     title: { EN: "Company Setup & Hiring", JP: "法人設立とスタッフ採用" },
     desc: {
-      EN: "Incorporate your legal entity at Cyber Gateway, secure tax and bank accounts, and recruit core software engineers and bilingual executives.",
-      JP: "Cyber Gatewayでの法人登記、税務登録・銀行口座開設を完了し、優秀なエンジニアと現地実務スタッフを採用します。",
+      EN: "Incorporate your legal entity in India, secure tax and bank accounts, and recruit core staff.",
+      JP: "インドでの現地法人設立、税務登録・銀行口座開設を完了し、優秀な現地コアスタッフを採用します。",
     },
     icon: Building2,
     points: [
       { EN: "MCA legal incorporation & bank accounts", JP: "公式登記住所・法人口座・税務登録" },
-      { EN: "Talent recruitment & leadership hiring", JP: "ITエンジニア・幹部人材の直接採用" },
+      { EN: "Core staff & talent recruitment", JP: "現地コア人材・スタッフの直接採用" },
     ],
   },
   {
@@ -69,12 +69,12 @@ const STEPS = [
     tag: { EN: "Step 4 · Execution", JP: "ステップ 4 · 事業開始・運用" },
     title: { EN: "Start Operations", JP: "本格稼働・事業開始" },
     desc: {
-      EN: "Launch on-ground operations immediately with fully equipped facilities, resident Japanese advisory, and ecosystem partnership support.",
-      JP: "即日稼働可能なオフィス環境、常駐日本人ディレクターによる伴走、現地エコシステム連携でスムーズに事業を開始します。",
+      EN: "Launch on-ground operations immediately with a safe and secure workspace in India, resident Japanese advisory, and ecosystem partnership support.",
+      JP: "安心・安全な高規格オフィス環境でインド事業を即日開始。常駐日本人ディレクターによる伴走と現地エコシステム連携でスムーズに運用します。",
     },
     icon: Rocket,
     points: [
-      { EN: "Ready-to-use workspace & infrastructure", JP: "即日入居可能な高規格インフラ完備" },
+      { EN: "Safe & secure workspace in India", JP: "安心・安全なインド現地の執務オフィス環境" },
       { EN: "Resident Japanese advisory & ecosystem ties", JP: "日本人ディレクター常駐・事業拡大支援" },
     ],
   },

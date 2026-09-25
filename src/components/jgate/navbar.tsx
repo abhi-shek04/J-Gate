@@ -12,7 +12,7 @@ import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
   { href: "/", key: "nav.home" },
-  { href: "/about", key: "nav.about" },
+  { href: "/#about", key: "nav.about" },
   { href: "/why-jgate", key: "nav.why" },
   { href: "/services", key: "nav.services" },
   { href: "/team", key: "nav.team" },
@@ -50,11 +50,37 @@ export function Navbar() {
     setOpen(false);
   }, [pathname]);
 
+  // Handle hash scrolling on page navigation or initial hash
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      const id = window.location.hash.replace("#", "");
+      const elem = document.getElementById(id);
+      if (elem) {
+        setTimeout(() => {
+          elem.scrollIntoView({ behavior: "smooth" });
+        }, 150);
+      }
+    }
+  }, [pathname]);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith("/#") && pathname === "/") {
+      e.preventDefault();
+      const targetId = href.replace("/#", "");
+      const elem = document.getElementById(targetId);
+      if (elem) {
+        elem.scrollIntoView({ behavior: "smooth" });
+        window.history.pushState(null, "", href);
+      }
+    }
+  };
+
   const isDark = mounted && (resolvedTheme === "dark" || theme === "dark");
 
   // Determine if a nav link is active
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
+    if (href === "/#about") return pathname === "/about";
     return pathname.startsWith(href);
   };
 
@@ -107,6 +133,7 @@ export function Navbar() {
             <li key={link.href} className="shrink-0">
               <Link
                 href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
                 className={cn(
                   "relative px-1.5 xl:px-2.5 py-1.5 font-inter text-[12.5px] xl:text-[13.5px] font-medium transition-colors whitespace-nowrap",
                   useLightNavText
@@ -226,7 +253,10 @@ export function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  onClick={() => setOpen(false)}
+                  onClick={(e) => {
+                    handleNavClick(e, link.href);
+                    setOpen(false);
+                  }}
                   className={cn(
                     "flex w-full items-center justify-between rounded-xl px-4 py-3 font-serif-jp text-[15.5px] font-medium transition-all duration-200 border",
                     active

@@ -34,6 +34,7 @@ import { Photo } from "@/components/jgate/photo";
 import { cn } from "@/lib/utils";
 import { BilateralCorridorVisualizer } from "@/components/jgate/corridor-visualizer";
 import { WorkspaceExplorer } from "@/components/jgate/workspace-explorer";
+import { AboutSection } from "@/components/jgate/about-section";
 
 /* ============================================================
    J-Gate Home — Executive Corporate Homepage
@@ -662,6 +663,11 @@ export default function HomePage() {
           </Reveal>
         </div>
       </section>
+
+      {/* ════════════════════════════════════════════════════════════
+          8. ABOUT J-GATE — Continuous Scroll
+         ════════════════════════════════════════════════════════════ */}
+      <AboutSection id="about" />
     </>
   );
 }

@@ -13,13 +13,13 @@ import { cn } from "@/lib/utils";
 const NAV_LINKS = [
   { href: "/", key: "nav.home" },
   { href: "/#about", key: "nav.about" },
-  { href: "/why-jgate", key: "nav.why" },
-  { href: "/services", key: "nav.services" },
-  { href: "/team", key: "nav.team" },
-  { href: "/pricing", key: "nav.pricing" },
-  { href: "/faq", key: "nav.faq" },
-  { href: "/blogs", key: "nav.blogs" },
-  { href: "/contact", key: "nav.contact" },
+  { href: "/#why-jgate", key: "nav.why" },
+  { href: "/#services", key: "nav.services" },
+  { href: "/#team", key: "nav.team" },
+  { href: "/#pricing", key: "nav.pricing" },
+  { href: "/#faq", key: "nav.faq" },
+  { href: "/#blogs", key: "nav.blogs" },
+  { href: "/#contact", key: "nav.contact" },
 ] as const;
 
 export function Navbar() {
@@ -75,13 +75,60 @@ export function Navbar() {
     }
   };
 
+  const [activeSection, setActiveSection] = useState<string>("home");
+
+  useEffect(() => {
+    if (pathname !== "/") return;
+
+    const sectionIds = [
+      "about",
+      "why-jgate",
+      "services",
+      "team",
+      "pricing",
+      "faq",
+      "blogs",
+      "contact",
+    ];
+
+    const handleScroll = () => {
+      const scrollPos = window.scrollY + 180;
+      let current = "home";
+
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.offsetTop;
+          if (scrollPos >= top) {
+            current = id;
+          }
+        }
+      }
+      setActiveSection(current);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [pathname]);
+
   const isDark = mounted && (resolvedTheme === "dark" || theme === "dark");
 
   // Determine if a nav link is active
   const isActive = (href: string) => {
-    if (href === "/") return pathname === "/";
-    if (href === "/#about") return pathname === "/about";
-    return pathname.startsWith(href);
+    if (pathname === "/") {
+      if (href === "/") return activeSection === "home";
+      if (href.startsWith("/#")) {
+        const id = href.replace("/#", "");
+        return activeSection === id;
+      }
+      return false;
+    }
+    if (href.startsWith("/#")) {
+      const route = "/" + href.replace("/#", "");
+      return pathname.startsWith(route);
+    }
+    return pathname === href;
   };
 
   // On auth page, navbar is transparent over dark content

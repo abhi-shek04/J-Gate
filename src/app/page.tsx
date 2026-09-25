@@ -35,6 +35,13 @@ import { cn } from "@/lib/utils";
 import { BilateralCorridorVisualizer } from "@/components/jgate/corridor-visualizer";
 import { WorkspaceExplorer } from "@/components/jgate/workspace-explorer";
 import { AboutSection } from "@/components/jgate/about-section";
+import { WhyJGateSection } from "@/components/jgate/why-jgate-section";
+import { ServicesSection } from "@/components/jgate/services-section";
+import { TeamSection } from "@/components/jgate/team-section";
+import { PricingSection } from "@/components/jgate/pricing-section";
+import { FAQSection } from "@/components/jgate/faq-section";
+import { BlogsSection } from "@/components/jgate/blogs-section";
+import { ContactSection } from "@/components/jgate/contact-section";
 
 /* ============================================================
    J-Gate Home — Executive Corporate Homepage
@@ -665,9 +672,44 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          8. ABOUT J-GATE — Continuous Scroll
+          ABOUT J-GATE — Continuous Scroll
          ════════════════════════════════════════════════════════════ */}
       <AboutSection id="about" />
+
+      {/* ════════════════════════════════════════════════════════════
+          WHY J-GATE — Continuous Scroll
+         ════════════════════════════════════════════════════════════ */}
+      <WhyJGateSection id="why-jgate" />
+
+      {/* ════════════════════════════════════════════════════════════
+          SERVICES & SOLUTIONS — Continuous Scroll
+         ════════════════════════════════════════════════════════════ */}
+      <ServicesSection id="services" />
+
+      {/* ════════════════════════════════════════════════════════════
+          LEADERSHIP & ADVISORY TEAM — Continuous Scroll
+         ════════════════════════════════════════════════════════════ */}
+      <TeamSection id="team" />
+
+      {/* ════════════════════════════════════════════════════════════
+          PRICING & MEMBERSHIP PLANS — Continuous Scroll
+         ════════════════════════════════════════════════════════════ */}
+      <PricingSection id="pricing" />
+
+      {/* ════════════════════════════════════════════════════════════
+          FREQUENTLY ASKED QUESTIONS — Continuous Scroll
+         ════════════════════════════════════════════════════════════ */}
+      <FAQSection id="faq" />
+
+      {/* ════════════════════════════════════════════════════════════
+          FACILITIES & OFFICE GALLERY — Continuous Scroll
+         ════════════════════════════════════════════════════════════ */}
+      <BlogsSection id="blogs" />
+
+      {/* ════════════════════════════════════════════════════════════
+          CONTACT & JAPAN DESK CONSOLE — Continuous Scroll
+         ════════════════════════════════════════════════════════════ */}
+      <ContactSection id="contact" />
     </>
   );
 }

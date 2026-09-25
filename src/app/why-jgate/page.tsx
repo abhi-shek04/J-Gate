@@ -1,21 +1,10 @@
-"use client";
+﻿import { WhyJGateSection } from "@/components/jgate/why-jgate-section";
 
-import { PageHero } from "@/components/jgate/page-hero";
-import { ComparisonTable } from "@/components/jgate/comparison-table";
-import { PillarsDetail } from "@/components/jgate/pillars-detail";
-import { useI18n } from "@/lib/i18n";
+export const metadata = {
+  title: "Why J-Gate | Bilateral Incubation Advantage",
+  description: "Discover why Japanese companies choose J-Gate in Hyderabad.",
+};
 
 export default function WhyJGatePage() {
-  const { tx } = useI18n();
-  return (
-    <>
-      <PageHero
-        eyebrowKey="why.eyebrow"
-        titleNode={tx({ EN: "Why J-Gate", JP: "J-Gateの強み" })}
-        subtitleKey="why.title"
-      />
-      <ComparisonTable />
-      <PillarsDetail />
-    </>
-  );
+  return <WhyJGateSection />;
 }

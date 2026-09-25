@@ -197,11 +197,17 @@ export function TeamSection({ id }: { id?: string }) {
     <div id={id} className="scroll-mt-20">
       <PageHero
         eyebrowKey="team.eyebrow"
+        layout="center"
         titleNode={tx({ EN: "Leadership & Advisory", JP: "日印両国を知り尽くした経営陣・アドバイザー" })}
         subtitleNode={tx({
           EN: "Unlocking new possibilities for your business through collaboration with India.",
           JP: "インドとの協業により、貴社ビジネスの新たな可能性を切り拓くプロフェッショナルチーム。",
         })}
+        tags={[
+          { EN: "Bilateral Veterans", JP: "日印実務のスペシャリスト" },
+          { EN: "Resident Director Support", JP: "日本人常駐ディレクター" },
+          { EN: "T-Hub & IIT Network", JP: "T-Hub・IIT連携" },
+        ]}
       />
 
       {/* ════════════════════════════════════════════════════════════

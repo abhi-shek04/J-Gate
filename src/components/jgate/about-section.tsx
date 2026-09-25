@@ -112,6 +112,7 @@ export function AboutSection({ id }: { id?: string }) {
     <div id={id} className="scroll-mt-16">
       <PageHero
         eyebrowKey="about.eyebrow"
+        layout="split"
         titleNode={
           <>
             {tx({ EN: "From India Entry Spark ", JP: "インド展開の" })}
@@ -125,6 +126,11 @@ export function AboutSection({ id }: { id?: string }) {
           EN: "Operated by Indobox India — a dedicated working hub for Japanese enterprises in Hyderabad.",
           JP: "Indobox Indiaが運営する、ハイデラバードの日本企業専用ワーキングハブ。",
         })}
+        tags={[
+          { EN: "Flagship Hub at HITEC City", JP: "HITEC City 旗艦拠点" },
+          { EN: "100% Japanese On-Site", JP: "現地日本人常駐" },
+          { EN: "Turnkey Incorporation", JP: "法人設立ワンストップ" },
+        ]}
       />
 
       {/* ════════════════════════════════════════════════════════════

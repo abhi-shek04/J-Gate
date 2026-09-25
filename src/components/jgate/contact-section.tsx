@@ -107,11 +107,17 @@ export function ContactSection({ id }: { id?: string }) {
     <div id={id} className="scroll-mt-20">
       <PageHero
         eyebrowKey="contact.eyebrow"
+        layout="center"
         titleNode={tx({ EN: "Get in Touch with Our Team", JP: "現地運営チームへのご相談・お問い合わせ" })}
         subtitleNode={tx({
           EN: "Unlocking new possibilities for your business through collaboration with India — talk to the J-Gate operations team.",
           JP: "インド事業の立ち上げ、現地視察、料金プランのご相談など、日本人常駐チームがお答えします。",
         })}
+        tags={[
+          { EN: "Fast 24-Hour Inquiry Response", JP: "原則24時間以内回答" },
+          { EN: "Japanese Language Support", JP: "日本語完全対応" },
+          { EN: "On-Site Tour Available", JP: "現地視察予約受付中" },
+        ]}
       />
 
       <section className="section-pad bg-ivory dark:bg-[#080d17]">

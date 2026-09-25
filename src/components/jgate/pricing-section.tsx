@@ -333,6 +333,7 @@ export function PricingSection({ id }: { id?: string }) {
          ─────────────────────────────────────────────────────────── */}
       <PageHero
         eyebrowKey="pricing.eyebrow"
+        layout="split"
         titleNode={
           <>
             {tx({ EN: "Membership Fee Plans ", JP: "ハイデラバード拠点 " })}
@@ -346,6 +347,11 @@ export function PricingSection({ id }: { id?: string }) {
           EN: "Designed as a high cost-performance strategic investment — replacing typical India expansion costs of ¥15M–¥20M annually per expat.",
           JP: "駐在員1人あたり年間1,500万〜2,000万円かかる従来のインド進出コストを、高いコストパフォーマンスの戦略拠点モデルで大幅削減。",
         })}
+        tags={[
+          { EN: "Flexible Desk & Suite Plans", JP: "柔軟なデスク・個室プラン" },
+          { EN: "Transparent Monthly Billing", JP: "明朗な月額費用" },
+          { EN: "Enterprise Infrastructure Included", JP: "完全インフラ込み" },
+        ]}
       />
 
       {/* ───────────────────────────────────────────────────────────

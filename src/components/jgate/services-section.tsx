@@ -335,6 +335,7 @@ export function ServicesSection({ id }: { id?: string }) {
          ─────────────────────────────────────────────────────────── */}
       <PageHero
         eyebrowKey="services.eyebrow"
+        layout="split"
         titleNode={
           <>
             {tx({ EN: "Comprehensive Setup & ", JP: "包括的インド進出支援・" })}
@@ -348,6 +349,11 @@ export function ServicesSection({ id }: { id?: string }) {
           EN: "Indobox's unique comprehensive market entry support & talent development — Hyderabad's dedicated end-to-end platform for Japanese enterprises.",
           JP: "Indobox独自の包括的進出支援と高度人材育成。ハイデラバード拠点の日本企業専用エンドツーエンドプラットフォーム。",
         })}
+        tags={[
+          { EN: "Dedicated Desks & Cabins", JP: "専用デスク・個室キャビン" },
+          { EN: "Everyday Japanese Advisory", JP: "日々の日本語業務相談" },
+          { EN: "Elite Tech Talent Recruitment", JP: "高度ITエンジニア採用" },
+        ]}
       />
 
       {/* ───────────────────────────────────────────────────────────

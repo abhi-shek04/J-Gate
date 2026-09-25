@@ -283,6 +283,7 @@ export function FAQSection({ id }: { id?: string }) {
       {/* 1. HERO BANNER */}
       <PageHero
         eyebrowKey="faq.eyebrow"
+        layout="center"
         titleNode={
           <span>
             {tx({
@@ -295,6 +296,11 @@ export function FAQSection({ id }: { id?: string }) {
           EN: "Clear, authoritative answers regarding workspace options, resident Japan Desk operations, Indian incorporation, talent acquisition, and bilateral growth.",
           JP: "拠点利用、常駐ジャパンデスク、法人設立、人材採用、日印共創に関する疑問にお答えします。",
         })}
+        tags={[
+          { EN: "Incorporation & Tax Compliance", JP: "法人登記・税務関係" },
+          { EN: "Workspace & Resident Support", JP: "拠点利用・常駐支援" },
+          { EN: "Talent Acquisition", JP: "ITエンジニア採用" },
+        ]}
       />
 
       {/* 2. REASSURANCE PODS (4 PILLARS) */}

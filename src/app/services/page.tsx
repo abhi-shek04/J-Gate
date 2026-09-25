@@ -652,18 +652,14 @@ export default function ServicesPage() {
                       <span>{tx({ EN: "India Infrastructure Backbone", JP: "インド現地インフラ・施設管理" })}</span>
                     </div>
 
-                    {/* Logo Showcase Box */}
+                    {/* Name Showcase Box */}
                     <div className="h-16 sm:h-20 md:h-24 w-full rounded-xl bg-white dark:bg-white/95 border border-slate-200/80 dark:border-white/10 p-3 sm:p-4 flex items-center justify-center shadow-xs mb-3 sm:mb-4 group-hover:scale-[1.02] transition-transform">
-                      <Image
-                        src="/logos/genesys-info-x.png"
-                        alt="Genesys Info X Logo"
-                        width={280}
-                        height={70}
-                        className="h-11 sm:h-14 md:h-16 w-auto object-contain"
-                      />
+                      <span className="font-serif-jp text-xl sm:text-2xl font-black text-slate-800 tracking-tight">
+                        Genesys <span className="text-amber-600 font-sans font-extrabold uppercase text-lg sm:text-xl">info X</span>
+                      </span>
                     </div>
 
-                    <h3 className="font-serif-jp text-base sm:text-lg font-bold text-ink dark:text-white">Genesys Info X</h3>
+                    <h3 className="font-serif-jp text-base sm:text-lg font-bold text-ink dark:text-white">Genesys info X</h3>
                     <p className="font-mono text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
                       {tx({ EN: "Cyber Gateway Tier-3 Facility Operator", JP: "Cyber Gateway Tier-3物理施設運営主体" })}
                     </p>

@@ -18,7 +18,7 @@ type Logo = {
 const ECOSYSTEM_ROW_1: Logo[] = [
   { name: "T-Hub", src: "/logos/thub.png", category: "INNOVATION HUB", desc: "World's Largest Innovation Center" },
   { name: "Woxsen University", src: "/logos/woxsen.png", category: "ACADEMIC PARTNER", desc: "Executive Talent & Research" },
-  { name: "Genesys Info X", src: "/logos/genesys-info-x.png", category: "MoU PARTNER", desc: "Global Digital Solutions" },
+  { name: "Genesys info X", src: "", category: "MoU PARTNER", desc: "Global Digital Solutions" },
   { name: "Kodryx.ai", src: "/logos/kodryx.png", category: "DATA INTELLIGENCE", desc: "Enterprise AI & Analytics" },
   { name: "Daakia", src: "/logos/daakia.png", category: "COMMUNICATIONS", desc: "Bridging Distance with AI" },
 ];
@@ -52,12 +52,23 @@ function PartnerCard({ logo, variant = "light" }: { logo: Logo; variant?: "light
             : "border border-slate-100 dark:border-white/10 bg-slate-50/90 dark:bg-white/[0.08]"
         )}
       >
-        <img
-          src={logo.src}
-          alt={`${logo.name} logo`}
-          className="max-h-7 sm:max-h-10 max-w-[48px] sm:max-w-[78px] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-105"
-          loading="lazy"
-        />
+        {logo.src ? (
+          <img
+            src={logo.src}
+            alt={`${logo.name} logo`}
+            className="max-h-7 sm:max-h-10 max-w-[48px] sm:max-w-[78px] w-auto h-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
+        ) : (
+          <div className="flex flex-col items-center justify-center text-center px-1">
+            <span className="font-serif-jp text-[10px] sm:text-[11.5px] font-extrabold tracking-tight text-slate-800 dark:text-white leading-tight">
+              Genesys
+            </span>
+            <span className="font-inter text-[8px] sm:text-[9px] font-bold text-crimson dark:text-rose-400 tracking-wider uppercase">
+              info X
+            </span>
+          </div>
+        )}
       </div>
       <div className="min-w-0 flex-1">
         <span

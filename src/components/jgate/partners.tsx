@@ -88,12 +88,23 @@ export function Partners() {
                 {/* Real logo card */}
                 <div className="w-32 shrink-0 bg-white sm:w-40">
                   <div className="flex h-full min-h-[140px] items-center justify-center p-5">
-                    <img
-                      src={p.name === "T-Hub" ? "/logos/thub.png" : p.name === "Woxsen University" ? "/logos/woxsen.png" : "/logos/genesys-info-x.png"}
-                      alt={`${p.name} official logo`}
-                      className="max-h-20 w-full max-w-[120px] object-contain"
-                      loading="lazy"
-                    />
+                    {p.name.toLowerCase().includes("genesys") ? (
+                      <div className="flex flex-col items-center justify-center text-center">
+                        <span className="font-serif-jp text-lg font-black text-ink leading-tight">
+                          Genesys
+                        </span>
+                        <span className="font-inter text-xs font-bold text-crimson uppercase tracking-wider">
+                          info X
+                        </span>
+                      </div>
+                    ) : (
+                      <img
+                        src={p.name === "T-Hub" ? "/logos/thub.png" : "/logos/woxsen.png"}
+                        alt={`${p.name} official logo`}
+                        className="max-h-20 w-full max-w-[120px] object-contain"
+                        loading="lazy"
+                      />
+                    )}
                   </div>
                 </div>
                 <div className="flex-1 p-6">

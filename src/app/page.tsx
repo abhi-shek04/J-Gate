@@ -28,7 +28,6 @@ import { useI18n } from "@/lib/i18n";
 import {
   ToriiWatermark,
   JapanFlag,
-  IndiaFlag,
 } from "@/components/jgate/icons";
 import { LogoMarquee } from "@/components/jgate/logo-marquee";
 import { Photo } from "@/components/jgate/photo";
@@ -74,6 +73,7 @@ function GlassBadge({
   icon: Icon,
   flag,
   imageSrc,
+  textBadge,
   primary,
   secondary,
   accent,
@@ -81,6 +81,7 @@ function GlassBadge({
   icon?: React.ComponentType<{ className?: string }>;
   flag?: React.ReactNode;
   imageSrc?: string;
+  textBadge?: string;
   primary: string;
   secondary: string;
   accent: "saffron" | "crimson" | "slate";
@@ -110,9 +111,13 @@ function GlassBadge({
         {imageSrc ? (
           <img
             src={imageSrc}
-            alt="Indobox"
+            alt={primary}
             className="h-6 w-6 object-contain shrink-0"
           />
+        ) : textBadge ? (
+          <span className="font-mono text-xs font-black tracking-tight text-slate-700 dark:text-slate-200">
+            {textBadge}
+          </span>
         ) : flag ? (
           <span className="shrink-0 scale-110">{flag}</span>
         ) : Icon ? (
@@ -330,19 +335,19 @@ export default function HomePage() {
             </p>
           </Reveal>
 
-          {/* 5. The 2 Floating Glass Badges: Telangana State & Indobox */}
+          {/* 5. Co-Operating Partners Badges: Indobox & Genesys info X */}
           <Reveal delay={260}>
             <div className="mt-7 sm:mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
               <GlassBadge
-                flag={<IndiaFlag className="h-4 w-6 rounded-[2px] shadow-2xs" />}
-                primary={tx({ EN: "Telangana State", JP: "テランガナ州" })}
-                secondary={tx({ EN: "Hyderabad · Cyber Gateway", JP: "ハイデラバード・サイバーゲートウェイ" })}
-                accent="saffron"
-              />
-              <GlassBadge
                 imageSrc="/logos/indobox-icon.png"
                 primary={tx({ EN: "Indobox India Pvt. Ltd.", JP: "Indobox India Pvt. Ltd." })}
-                secondary={tx({ EN: "Operator", JP: "運営" })}
+                secondary={tx({ EN: "Japan Operator", JP: "日本側運営主体" })}
+                accent="slate"
+              />
+              <GlassBadge
+                textBadge="GX"
+                primary="Genesys info X"
+                secondary={tx({ EN: "Infrastructure Partner", JP: "現地インフラ提携" })}
                 accent="slate"
               />
             </div>

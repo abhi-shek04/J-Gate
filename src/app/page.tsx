@@ -360,9 +360,9 @@ export default function HomePage() {
             </div>
           </Reveal>
 
-          {/* 6. Primary Action Button: Discover J-Gate */}
+          {/* 6. Primary Action Button & Executive Proof Strip */}
           <Reveal delay={320}>
-            <div className="mt-7 sm:mt-9 flex items-center justify-center">
+            <div className="mt-7 sm:mt-9 flex flex-col items-center justify-center gap-6">
               <Link
                 href="/why-jgate"
                 className="btn-shine group inline-flex items-center justify-center gap-2.5 rounded-xl bg-crimson hover:bg-crimson-deep px-7 py-3.5 sm:px-8 sm:py-4 font-inter text-[14px] sm:text-[15px] font-bold text-white shadow-lg shadow-crimson/20 hover:shadow-xl hover:shadow-crimson/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
@@ -370,6 +370,34 @@ export default function HomePage() {
                 <span>{tx({ EN: "Discover J-Gate", JP: "J-Gate を詳しく見る" })}</span>
                 <ArrowRight className="h-4.5 w-4.5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
+
+              {/* Stat Proof Cards Bar */}
+              <div className="w-full pt-4 border-t border-slate-200/70 dark:border-white/10 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto">
+                <div className="p-3 rounded-xl bg-white/80 dark:bg-white/5 border border-slate-200/70 dark:border-white/10 text-center shadow-2xs backdrop-blur-sm">
+                  <span className="block font-mono text-xl sm:text-2xl font-black text-crimson dark:text-rose-400">100%</span>
+                  <span className="mt-0.5 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
+                    {tx({ EN: "Japanese Director On-Site", JP: "日本人ディレクター現地常駐" })}
+                  </span>
+                </div>
+                <div className="p-3 rounded-xl bg-white/80 dark:bg-white/5 border border-slate-200/70 dark:border-white/10 text-center shadow-2xs backdrop-blur-sm">
+                  <span className="block font-mono text-xl sm:text-2xl font-black text-ink dark:text-white">Tier-3</span>
+                  <span className="mt-0.5 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
+                    {tx({ EN: "Cyber Gateway Facility", JP: "高規格ファシリティ" })}
+                  </span>
+                </div>
+                <div className="p-3 rounded-xl bg-white/80 dark:bg-white/5 border border-slate-200/70 dark:border-white/10 text-center shadow-2xs backdrop-blur-sm">
+                  <span className="block font-mono text-xl sm:text-2xl font-black text-emerald-600 dark:text-emerald-400">40%+</span>
+                  <span className="mt-0.5 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
+                    {tx({ EN: "Operational Savings", JP: "拠点開設・運営費削減" })}
+                  </span>
+                </div>
+                <div className="p-3 rounded-xl bg-white/80 dark:bg-white/5 border border-slate-200/70 dark:border-white/10 text-center shadow-2xs backdrop-blur-sm">
+                  <span className="block font-mono text-xl sm:text-2xl font-black text-ink dark:text-white">Turnkey</span>
+                  <span className="mt-0.5 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
+                    {tx({ EN: "MCA Setup & Talent Hiring", JP: "登記・会計・採用ワンストップ" })}
+                  </span>
+                </div>
+              </div>
             </div>
           </Reveal>
         </div>

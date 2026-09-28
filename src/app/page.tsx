@@ -295,10 +295,10 @@ export default function HomePage() {
         <div className="container-jg relative z-10 pt-4 pb-12 sm:pt-8 sm:pb-16 text-center max-w-5xl mx-auto">
           {/* 1. Pre-title: Japan × India Talent & Business Bridge */}
           <Reveal>
-            <div className="flex items-center justify-center gap-2.5 font-inter text-[11.5px] sm:text-[12.5px] font-bold uppercase tracking-[0.22em] text-[#d60000]">
-              <span className="hidden sm:inline-block h-px w-8 bg-[#d60000]/30" />
-              <span>Japan × India Talent &amp; Business Bridge</span>
-              <span className="hidden sm:inline-block h-px w-8 bg-[#d60000]/30" />
+            <div className="flex items-center justify-center gap-2.5 font-inter text-[11.5px] sm:text-[12.5px] font-bold uppercase tracking-[0.22em] text-crimson dark:text-rose-400">
+              <span className="hidden sm:inline-block h-px w-8 bg-crimson/30 dark:bg-rose-400/30" />
+              <span>{tx({ EN: "Japan × India Talent & Business Bridge", JP: "日印高度人材・ビジネス架け橋" })}</span>
+              <span className="hidden sm:inline-block h-px w-8 bg-crimson/30 dark:bg-rose-400/30" />
             </div>
           </Reveal>
 
@@ -308,18 +308,24 @@ export default function HomePage() {
               className="mx-auto mt-4 max-w-4xl font-serif-jp font-extrabold leading-[1.15] text-ink dark:text-white tracking-tight"
               style={{ fontSize: "clamp(2.1rem, 4.8vw, 3.4rem)" }}
             >
-              Birth of a Dedicated
-              <br />
-              <span className="text-[#d60000]">Working Hub for Japanese Companies</span>
+              {tx({
+                EN: "Birth of a Dedicated Working Hub for Japanese Companies",
+                JP: "日本企業専用のワーキングハブ誕生",
+              })}
             </h1>
           </Reveal>
 
-          {/* 3. Japanese Tagline: 「日本企業専用のワーキングハブ誕生」 */}
+          {/* 3. Executive Tagline Badge */}
           <Reveal delay={140}>
             <div className="mt-4 flex items-center justify-center">
-              <span className="inline-flex items-center gap-2 rounded-full bg-[#d60000]/[0.08] dark:bg-[#d60000]/20 border border-[#d60000]/25 dark:border-[#d60000]/40 px-4 py-1.5 font-serif-jp text-[13.5px] sm:text-[15px] font-bold text-[#d60000] dark:text-[#ff4d4d] tracking-wide shadow-2xs backdrop-blur-sm">
-                <Sparkles className="h-3.5 w-3.5 text-saffron" />
-                <span>「日本企業専用のワーキングハブ誕生」</span>
+              <span className="inline-flex items-center gap-2 rounded-full bg-slate-100 dark:bg-white/10 border border-slate-200 dark:border-white/15 px-4 py-1.5 font-inter text-[13px] sm:text-[14px] font-semibold text-slate-700 dark:text-slate-200 tracking-wide shadow-2xs backdrop-blur-sm">
+                <Sparkles className="h-3.5 w-3.5 text-crimson dark:text-rose-400" />
+                <span>
+                  {tx({
+                    EN: "Enterprise Grade Workspace & Resident Japanese Advisory in Hyderabad",
+                    JP: "ハイデラバード拠点の日本企業専用・完全日本語伴走型ワーキングハブ",
+                  })}
+                </span>
               </span>
             </div>
           </Reveal>

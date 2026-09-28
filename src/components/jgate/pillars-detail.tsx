@@ -132,7 +132,7 @@ const STATS = [
 ];
 
 export function PillarsDetail() {
-  const { tx } = useI18n();
+  const { tx, lang } = useI18n();
 
   return (
     <section
@@ -200,9 +200,11 @@ export function PillarsDetail() {
                     </div>
 
                     <div className="mt-3.5 sm:mt-4">
-                      <span className="font-serif-jp text-[12px] sm:text-[13px] font-bold text-saffron-deep dark:text-saffron-light tracking-wide block">
-                        {p.jp}
-                      </span>
+                      {lang === "JP" && (
+                        <span className="font-serif-jp text-[12px] sm:text-[13px] font-bold text-saffron-deep dark:text-saffron-light tracking-wide block">
+                          {p.jp}
+                        </span>
+                      )}
                       <h3 className="mt-1 font-serif-jp text-[17px] sm:text-[19px] font-bold text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400 transition-colors">
                         {tx(p.en)}
                       </h3>

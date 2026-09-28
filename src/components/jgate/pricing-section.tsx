@@ -481,7 +481,7 @@ export function PricingSection({ id }: { id?: string }) {
                                 : `¥${displayJPY.toLocaleString()}`}
                             </span>
                             <span className="font-inter text-[11px] font-semibold text-slate-500 dark:text-slate-400">
-                              {currency === "INR" ? "/mo" : "/月"}
+                              {currency === "INR" ? "/mo" : lang === "JP" ? "/月" : "/mo"}
                             </span>
                           </div>
 
@@ -499,7 +499,7 @@ export function PricingSection({ id }: { id?: string }) {
                         <div className="mt-1 flex items-center justify-between text-[10.5px] font-inter text-slate-500 dark:text-slate-400">
                           <span>
                             {currency === "INR"
-                              ? `Approx. ¥${displayJPY.toLocaleString()}/月`
+                              ? `Approx. ¥${displayJPY.toLocaleString()}${lang === "JP" ? "/月" : "/mo"}`
                               : `Base ₹${displayINR.toLocaleString()} INR`}
                           </span>
                           {isAnnual && (

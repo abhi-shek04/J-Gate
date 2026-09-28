@@ -71,8 +71,8 @@ const ADVISORY_ROW_2 = [
   },
   {
     id: "isogai",
-    name: "Tomio Isogai (磯貝 富雄)",
-    jpName: "元シャープ・インディア社長",
+    name: "Tomio Isogai",
+    jpName: "磯貝 富雄 · 元シャープ・インディア社長",
     title: "Former MD, Sharp India | Indobox Corporate Advisor",
     desc: "Over 35 years directing Japanese manufacturing & consumer electronics in India. Dean of Indo-Japan corporate harmony and cross-cultural synergy.",
     image: "/advisory/isogai.png",
@@ -589,7 +589,7 @@ export function TeamSection({ id }: { id?: string }) {
               <div className="relative rounded-xl sm:rounded-2xl border border-saffron/50 dark:border-saffron/40 bg-amber-50/60 dark:bg-[#121b2d] p-3.5 sm:p-4 text-center shadow-xs">
                 <div className="flex flex-wrap items-center justify-center gap-1.5 mb-2">
                   <span className="inline-block rounded-full bg-saffron/20 dark:bg-amber-950/60 border border-saffron/40 dark:border-amber-400/30 px-2 py-0.5 font-inter text-[9px] sm:text-[9.5px] font-bold uppercase tracking-wider text-saffron-dark dark:text-amber-300">
-                    BILINGUAL CONCIERGE · バイリンガル対応
+                    {tx({ EN: "BILINGUAL CONCIERGE SUPPORT", JP: "BILINGUAL CONCIERGE · バイリンガル対応" })}
                   </span>
                   <span className="inline-flex items-center gap-1 rounded-full bg-crimson/10 dark:bg-rose-950/60 border border-crimson/20 dark:border-rose-400/30 px-2 py-0.5 font-inter text-[9px] sm:text-[9.5px] font-bold text-crimson dark:text-rose-300">
                     <Sparkles className="h-2.5 w-2.5" />
@@ -598,7 +598,7 @@ export function TeamSection({ id }: { id?: string }) {
                 </div>
 
                 <h4 className="font-serif-jp text-[14px] sm:text-[15px] font-bold text-ink dark:text-white leading-snug">
-                  なんでもお気軽にご相談ください。日本語でご対応致します。
+                  {tx({ EN: "Feel free to reach out to us anytime in English or Japanese.", JP: "なんでもお気軽にご相談ください。日本語でご対応致します。" })}
                 </h4>
 
                 <p className="mt-1.5 font-inter text-[11px] sm:text-[11.5px] leading-relaxed text-slate-600 dark:text-slate-300 max-w-xl mx-auto">

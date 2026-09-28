@@ -120,7 +120,7 @@ const CORE_SERVICES: ServiceItem[] = [
     },
     points: [
       {
-        EN: "Daily in-person 'Yorozu' (何でも相談) consultation in Japanese",
+        EN: "Daily in-person executive consultation and business advisory in Japanese",
         JP: "オフィス内常駐デスクでの日本語による日常業務の対面相談（よろず相談）",
       },
       {

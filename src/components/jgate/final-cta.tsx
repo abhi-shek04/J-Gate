@@ -3,8 +3,10 @@
 import { ArrowRight } from "lucide-react";
 import { Reveal, Eyebrow } from "./shared";
 import { ToriiWatermark } from "./icons";
+import { useI18n } from "@/lib/i18n";
 
 export function FinalCta() {
+  const { tx } = useI18n();
   const scrollTo = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
@@ -44,8 +46,11 @@ export function FinalCta() {
               <br />
               Begins Here.
             </h2>
-            <p className="mt-5 font-serif-jp text-[18px] text-saffron/70">
-              日本企業向け専用ワーキングスペース — A New Horizon for India-Japan Business
+            <p className="mt-5 font-serif-jp text-[16px] sm:text-[18px] text-saffron/80">
+              {tx({
+                EN: "A New Horizon for India-Japan Business",
+                JP: "日本企業向け専用ワーキングスペース — 日印ビジネスの新しい地平",
+              })}
             </p>
             <p className="mx-auto mt-5 max-w-[520px] font-inter font-light leading-relaxed text-mist" style={{ fontSize: "clamp(0.95rem,1.6vw,1.125rem)" }}>
               Whether you are exploring, ready to establish operations, or
@@ -67,7 +72,7 @@ export function FinalCta() {
                 onClick={() => scrollTo("contact")}
                 className="flex w-full items-center justify-center gap-1.5 rounded-md border border-white/15 bg-white/10 px-9 py-4 font-inter text-[15px] font-semibold text-white backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/20 sm:w-auto"
               >
-                Contact Us in Japanese 日本語
+                {tx({ EN: "Contact Support in Japanese", JP: "日本語でお問い合わせ" })}
               </button>
             </div>
           </div>

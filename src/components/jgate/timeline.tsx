@@ -32,7 +32,7 @@ const EVENTS = [
     icon: "🎌",
     date: "Omotenashi",
     title: "Omotenashi Experience",
-    desc: "Guests were welcomed with Daifuku Mochi (大福餅) — Japan's traditional confection whose name means \"Great Fortune\" — paired with authentic Japanese green tea. A gesture that set the cultural tone for everything J-Gate represents.",
+    desc: "Guests were welcomed with Daifuku Mochi — Japan's traditional confection whose name means \"Great Fortune\" — paired with authentic Japanese green tea. A gesture that set the cultural tone for everything J-Gate represents.",
   },
   {
     icon: "🏢",

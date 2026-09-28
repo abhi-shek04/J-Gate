@@ -768,7 +768,7 @@ export function PrecisionWhyPage() {
 
                 <div className="relative z-10 pt-6">
                   <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#B8924A]">
-                    ワークスペース
+                    {tx({ EN: "WORKSPACE", JP: "ワークスペース" })}
                   </div>
                   {/* Custom Minimal Stroke SVG (Desk + Monitor) */}
                   <div className="mt-4 w-10 h-10 flex items-center justify-center">
@@ -809,7 +809,7 @@ export function PrecisionWhyPage() {
 
                 <div className="relative z-10 pt-6">
                   <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#B8924A]">
-                    インフラ
+                    {tx({ EN: "INFRASTRUCTURE", JP: "インフラ" })}
                   </div>
                   {/* Custom Stroke SVG (Server Rack + Wifi) */}
                   <div className="mt-4 w-10 h-10 flex items-center justify-center">
@@ -856,7 +856,7 @@ export function PrecisionWhyPage() {
 
                 <div className="relative z-10 pt-6">
                   <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#B8924A]">
-                    ジャパンデスク
+                    {tx({ EN: "JAPAN DESK", JP: "ジャパンデスク" })}
                   </div>
                   {/* Custom Stroke SVG (Speech Bubble with 日) */}
                   <div className="mt-4 w-10 h-10 flex items-center justify-center">
@@ -872,7 +872,7 @@ export function PrecisionWhyPage() {
                   </h3>
                   <p className="mt-2 font-sans text-[13px] text-[#9A98A4] leading-relaxed">
                     {tx({
-                      EN: "A Japanese-speaking expert available daily on-site — legal, HR, cultural, and operational questions answered in Japanese (何でも相談).",
+                      EN: "A Japanese-speaking expert available daily on-site — legal, HR, cultural, and operational questions answered in English or Japanese.",
                       JP: "現地常駐の日本人専門家が日々の疑問に対応。法務・人事・商習慣・現場トラブルまで母国語で解決（よろず相談）。",
                     })}
                   </p>
@@ -900,7 +900,7 @@ export function PrecisionWhyPage() {
 
                 <div className="relative z-10 pt-6">
                   <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#B8924A]">
-                    会社設立
+                    {tx({ EN: "INCORPORATION", JP: "会社設立" })}
                   </div>
                   {/* Custom Stroke SVG (Document + Gear) */}
                   <div className="mt-4 w-10 h-10 flex items-center justify-center">
@@ -947,7 +947,7 @@ export function PrecisionWhyPage() {
 
                 <div className="relative z-10 pt-6">
                   <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#B8924A]">
-                    ネットワーク
+                    {tx({ EN: "NETWORK", JP: "ネットワーク" })}
                   </div>
                   {/* Custom Stroke SVG (3 Connected Nodes) */}
                   <div className="mt-4 w-10 h-10 flex items-center justify-center">
@@ -993,7 +993,7 @@ export function PrecisionWhyPage() {
 
                 <div className="relative z-10 pt-6">
                   <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#B8924A]">
-                    勉強会
+                    {tx({ EN: "STUDY SESSIONS", JP: "勉強会" })}
                   </div>
                   {/* Custom Stroke SVG (Open Book + Bookmark) */}
                   <div className="mt-4 w-10 h-10 flex items-center justify-center">
@@ -1033,7 +1033,7 @@ export function PrecisionWhyPage() {
 
                 <div className="relative z-10 pt-6">
                   <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#B8924A]">
-                    人材採用
+                    {tx({ EN: "TALENT RECRUITMENT", JP: "人材採用" })}
                   </div>
                   {/* Custom Stroke SVG (Person Silhouette + Checkmark) */}
                   <div className="mt-4 w-10 h-10 flex items-center justify-center">

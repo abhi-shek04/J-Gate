@@ -107,12 +107,12 @@ const FAQ_LIST: FAQItem[] = [
       JP: "常駐ジャパンデスクでは具体的にどのような日常サポートを受けられますか？",
     },
     a: {
-      EN: "Our on-ground Japan Desk is staffed by resident Japanese directors and bilingual professionals fluent in Japanese business practices (Horenso, Nemawashi). We provide: (1) Daily 'Yorozu' (よろず相談) business consultations; (2) Local market intelligence and regulatory advisory; (3) Vetted partner introductions (tier-1 legal, accounting, audit, recruitment); and (4) High-stakes meeting interpretation and cultural alignment.",
+      EN: "Our on-ground Japan Desk is staffed by resident Japanese directors and bilingual professionals fluent in Japanese business practices (Horenso, Nemawashi). We provide: (1) Daily 'Yorozu' executive business consultations; (2) Local market intelligence and regulatory advisory; (3) Vetted partner introductions (tier-1 legal, accounting, audit, recruitment); and (4) High-stakes meeting interpretation and cultural alignment.",
       JP: "日本人常駐ディレクターおよび日印ビジネスに精通したバイリンガル担当者がサポートします：(1) 日々の「よろず相談」（商習慣、契約、労務、事業展開）、(2) 現地市場調査・法規制アドバイザリー、(3) 信頼できる現地提携先（大手監査法人・法律事務所・採用機関）の紹介、(4) 重要商談の同席・通訳および文化的すり合わせを行います。",
     },
     highlights: [
       { EN: "Native Japanese directors permanently on-ground", JP: "日本人ディレクターが現地常駐" },
-      { EN: "Daily 'Yorozu' (よろず) business advisory sessions", JP: "日々の「よろず経営相談」に無料対応" },
+      { EN: "Daily 'Yorozu' business advisory sessions", JP: "日々の「よろず経営相談」に無料対応" },
       { EN: "Bilingual negotiation & meeting support", JP: "商談通訳・文化差の架け橋サポート" },
     ],
   },

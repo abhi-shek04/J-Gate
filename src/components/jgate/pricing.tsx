@@ -43,7 +43,6 @@ const PLANS: Plan[] = [
     annual: "Contact for Pricing",
     note: "Your permanent seat in Hyderabad's premier Japan hub",
     borderTop: "border-top-crimson",
-    badge: { text: "MOST POPULAR", bg: "bg-crimson" },
     cta: "Join Now →",
     ctaStyle: "filled-crimson",
     features: [

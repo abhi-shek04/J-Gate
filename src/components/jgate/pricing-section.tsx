@@ -438,16 +438,6 @@ export function PricingSection({ id }: { id?: string }) {
                       isSelected ? "ring-2 ring-saffron/70" : ""
                     )}
                   >
-                    {/* Featured Top Badge */}
-                    {isFeatured && (
-                      <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-                        <span className="inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-crimson to-crimson-deep px-3 py-0.5 font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-white shadow-md shadow-crimson/30">
-                          <Sparkles className="h-3 w-3 text-amber-300 fill-amber-300" />
-                          <span>{tx({ EN: "Most Popular Hub", JP: "一番人気 · 主力プラン" })}</span>
-                        </span>
-                      </div>
-                    )}
-
                     {/* Top Content Area */}
                     <div>
                       {/* Header Row: Icon + Title + Capacity Badge */}

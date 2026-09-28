@@ -205,34 +205,34 @@ export default function HomePage() {
     {
       num: "01",
       title: {
-        EN: "Heart of Asia's Silicon Corridor",
-        JP: "アジア屈指のIT集積地・ハイテックシティの中心",
+        EN: "Premier Tech Ecosystem in HITEC City",
+        JP: "グローバルIT企業が集結するHITEC Cityの中心",
       },
       desc: {
-        EN: "Cyber Gateway in HITEC City is surrounded by global technology leaders including Microsoft, Google, and Amazon, providing Japanese firms with immediate prestige and corporate credibility.",
-        JP: "HITEC CityのCyber Gateway周辺にはグローバル大手IT企業が集結し、認知度と信頼性の高いビジネス拠点を確保できます。",
+        EN: "Located inside Cyber Gateway Phase 2 alongside global tech leaders (Google, Microsoft, Amazon), giving Japanese enterprises instant corporate prestige, strategic partner proximity, and market credibility.",
+        JP: "Cyber Gateway Phase 2内に位置し、GoogleやMicrosoftなど大手IT企業が集結する環境で、日本企業の信頼性とネットワークを強固にします。",
       },
     },
     {
       num: "02",
       title: {
-        EN: "Optimal Operational Cost Efficiency",
-        JP: "優れたコスト効率とインフラ環境",
+        EN: "Strategic Connectivity & Cost Advantage",
+        JP: "優れたアクセスと最適化された運営コスト",
       },
       desc: {
-        EN: "Over 40% operational savings compared to Mumbai, Bengaluru, or Tokyo, with seamless 2-minute walk to Cyber Towers Metro and 35 minutes to Rajiv Gandhi International Airport.",
-        JP: "ムンバイやバンガロールと比較してオフィス運営費を抑えられ、最寄りメトロ駅徒歩2分、国際空港車で35分の優れたアクセス性を誇ります。",
+        EN: "2-minute walk to Cyber Towers Metro Station, 35 minutes to Rajiv Gandhi International Airport, and over 40% operational cost savings compared to Tokyo, Tokyo Bay, or Mumbai.",
+        JP: "最寄りのメトロ駅から徒歩2分、国際空港まで車で35分。東京やムンバイと比較して拠点運営費を40%以上削減できます。",
       },
     },
     {
       num: "03",
       title: {
-        EN: "Dedicated Japanese Enterprise Standard",
-        JP: "日系ビジネスに最適化されたセキュリティと品質",
+        EN: "Dedicated Japanese Security & Infrastructure",
+        JP: "日系ビジネスに最適化された高水準インフラ",
       },
       desc: {
-        EN: "Level 4 dedicated corridor featuring biometric access, enterprise quiet zones, dual high-speed fiber feeds, and 100% generator backup for uninterrupted business continuity.",
-        JP: "4階の日系企業専用フロアは、厳格な入退室管理、防音会議室、無停電電源、二重化光回線を完備し、情報管理と業務の継続性を保証します。",
+        EN: "Dedicated Japanese enterprise suite featuring biometric access control, 24/7 generator power backup, dual high-speed enterprise fiber feeds, and private meeting rooms for uninterrupted business continuity.",
+        JP: "日系企業専用フロアに生体認証セキュリティ、24時間無停電電源、二重化光回線、完全個室会議室を完備し、安全かつ円滑な事業運営を保証します。",
       },
     },
   ];
@@ -474,14 +474,14 @@ export default function HomePage() {
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto mb-10 max-w-3xl text-center">
-              <Eyebrow>{tx({ EN: "Strategic Hub Location", JP: "戦略的拠点立地" })}</Eyebrow>
+              <Eyebrow>{tx({ EN: "Strategic Location Advantage", JP: "戦略的立地の優位性" })}</Eyebrow>
               <h2
                 className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink dark:text-white"
                 style={{ fontSize: "clamp(1.625rem, 3vw, 2.25rem)" }}
               >
                 {tx({
-                  EN: "Why Hyderabad: India's Premier Innovation Capital",
-                  JP: "なぜハイデラバードなのか：インド最大のIT・イノベーション拠点",
+                  EN: "Hyderabad: India's Premier Innovation Capital",
+                  JP: "インド最大のIT・イノベーション拠点 ハイデラバード",
                 })}
               </h2>
               <p
@@ -489,8 +489,8 @@ export default function HomePage() {
                 style={{ fontSize: "clamp(0.9rem, 1.3vw, 1.05rem)" }}
               >
                 {tx({
-                  EN: "Located in Hitech City, Cyber Gateway provides practical access to tech talent, office infrastructure, and bilateral business networks.",
-                  JP: "ハイデラバードのIT集積地に位置するCyber GatewayのJ-Gate。技術人材、オフィス環境、日印のビジネスネットワークへのアクセスを提供します。",
+                  EN: "Situated in the heart of HITEC City, J-Gate at Cyber Gateway delivers a strategic operational base with direct access to elite software engineering talent, enterprise infrastructure, and bilateral business networks.",
+                  JP: "ハイデラバード・HITEC Cityの中心に位置するJ-Gate。優秀なIT人材、最新のオフィス環境、そして日印の強力なビジネスネットワークへのアクセスを提供します。",
                 })}
               </p>
             </div>
@@ -564,14 +564,14 @@ export default function HomePage() {
                   </span>
                   <h3 className="mt-1 sm:mt-1.5 font-serif-jp text-xl sm:text-2xl lg:text-3xl font-bold text-ink dark:text-white leading-tight">
                     {tx({
-                      EN: "At the Center of India's Silicon Corridor",
-                      JP: "インドのシリコン回廊の中心に位置する拠点",
+                      EN: "Prime Enterprise Base at Cyber Gateway, HITEC City",
+                      JP: "HITEC Cityの中心で展開する日本企業専用ビジネス拠点",
                     })}
                   </h3>
                   <p className="mt-2 sm:mt-2.5 font-inter text-[13px] sm:text-[13.5px] leading-relaxed text-slate dark:text-slate-300">
                     {tx({
-                      EN: "Hyderabad is a major IT and business hub with modern commercial infrastructure and active government support. J-Gate at Cyber Gateway provides Japanese businesses with a fully equipped workspace and local advisory to operate with confidence.",
-                      JP: "ハイデラバードは、整った都市インフラ、比較的抑えられた運営コスト、手厚い州政府支援が揃ったインド有数のIT都市です。Cyber GatewayのJ-Gateは、日本企業が安心して事業を進められるオフィス環境と伴走支援を提供します。",
+                      EN: "Hyderabad is India's fastest-growing technology metropolis, recognized for modern commercial infrastructure, high quality of living, and pro-business government policies. J-Gate offers a fully managed Japanese enterprise workspace with resident Japan Desk advisory.",
+                      JP: "ハイデラバードは、整備された都市インフラと州政府の手厚い支援により、インドで最も急速に発展するIT・イノベーション都市です。J-Gateは、日本人常駐チームによる伴走支援と高品質なオフィス環境を提供し、日本企業の確実な進出をサポートします。",
                     })}
                   </p>
                 </div>

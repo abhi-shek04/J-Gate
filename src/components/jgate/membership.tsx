@@ -58,7 +58,6 @@ const PLANS: Plan[] = [
     fallback: "grad-plan-dedicated",
     initials: "MB",
     borderTop: "border-top-crimson",
-    badge: { text: "MOST POPULAR", bg: "bg-crimson", color: "text-white" },
     cta: "Join Now →",
     ctaStyle: "filled-crimson",
     features: [

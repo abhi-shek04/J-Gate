@@ -342,8 +342,8 @@ export function PricingSection({ id }: { id?: string }) {
           </>
         }
         subtitleNode={tx({
-          EN: "Designed as a high cost-performance strategic investment — replacing typical India expansion costs of ¥15M–¥20M annually per expat.",
-          JP: "駐在員1人あたり年間1,500万〜2,000万円かかる従来のインド進出コストを、高いコストパフォーマンスの戦略拠点モデルで大幅削減。",
+          EN: "Designed as a high cost-performance strategic investment — providing Japanese enterprises with a dedicated operating hub and resident advisory in Hyderabad.",
+          JP: "日系企業に最適化された戦略的拠点モデル — ハイデラバードでの専用執務環境と日本人常駐サポートを提供。",
         })}
         tags={[
           { EN: "Flexible Desk & Suite Plans", JP: "柔軟なデスク・個室プラン" },

@@ -209,8 +209,8 @@ export default function HomePage() {
         JP: "グローバルIT企業が集結するHITEC Cityの中心",
       },
       desc: {
-        EN: "Located inside Cyber Gateway Phase 2 alongside global tech leaders (Google, Microsoft, Amazon), giving Japanese enterprises instant corporate prestige, strategic partner proximity, and market credibility.",
-        JP: "Cyber Gateway Phase 2内に位置し、GoogleやMicrosoftなど大手IT企業が集結する環境で、日本企業の信頼性とネットワークを強固にします。",
+        EN: "Located in HITEC City, Hyderabad alongside global tech leaders (Google, Microsoft, Amazon), giving Japanese enterprises instant corporate prestige, strategic partner proximity, and market credibility.",
+        JP: "HITEC Cityに位置し、GoogleやMicrosoftなど大手IT企業が集結する環境で、日本企業の信頼性とネットワークを強固にします。",
       },
     },
     {
@@ -523,7 +523,7 @@ export default function HomePage() {
                 style={{ fontSize: "clamp(0.9rem, 1.3vw, 1.05rem)" }}
               >
                 {tx({
-                  EN: "Situated in the heart of HITEC City, J-Gate at Cyber Gateway delivers a strategic operational base with direct access to elite software engineering talent, enterprise infrastructure, and bilateral business networks.",
+                  EN: "Situated in the heart of HITEC City, Hyderabad, J-Gate delivers a strategic operational base with direct access to elite software engineering talent, enterprise infrastructure, and bilateral business networks.",
                   JP: "ハイデラバード・HITEC Cityの中心に位置するJ-Gate。優秀なIT人材、最新のオフィス環境、そして日印の強力なビジネスネットワークへのアクセスを提供します。",
                 })}
               </p>
@@ -544,7 +544,7 @@ export default function HomePage() {
                     </span>
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-success px-2.5 py-0.5 sm:px-3 sm:py-1 font-inter text-[10px] sm:text-[10.5px] font-bold uppercase text-white shadow-sm">
                       <span className="radar-beacon h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-white text-emerald-300" />
-                      {tx({ EN: "LIVE · Cyber Gateway", JP: "稼働中 · Cyber Gateway" })}
+                      {tx({ EN: "LIVE · Hyderabad, India", JP: "稼働中 · インド・ハイデラバード" })}
                     </span>
                   </div>
 
@@ -594,11 +594,11 @@ export default function HomePage() {
               <Reveal delay={80}>
                 <div>
                   <span className="font-inter text-[11px] sm:text-[11.5px] font-bold uppercase tracking-wider text-crimson dark:text-rose-400">
-                    {tx({ EN: "Cyber Gateway, Phase 2, Hitech City", JP: "サイバーゲートウェイ Phase 2・ハイテックシティ" })}
+                    {tx({ EN: "HITEC City, Hyderabad, India", JP: "ハイテックシティ・ハイデラバード" })}
                   </span>
                   <h3 className="mt-1 sm:mt-1.5 font-serif-jp text-xl sm:text-2xl lg:text-3xl font-bold text-ink dark:text-white leading-tight">
                     {tx({
-                      EN: "Prime Enterprise Base at Cyber Gateway, HITEC City",
+                      EN: "Prime Enterprise Base in HITEC City, Hyderabad",
                       JP: "HITEC Cityの中心で展開する日本企業専用ビジネス拠点",
                     })}
                   </h3>

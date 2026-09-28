@@ -379,8 +379,8 @@ export const translations: Dictionary = {
     JP: "「[ハイデラバード] メンバーシップ料金プラン」",
   },
   "pricing.subtitle": {
-    EN: "Designed as a high cost-performance strategic investment — replacing typical India expansion costs of ¥15M–¥20M annually per expat.",
-    JP: "高い費用対効果の戦略的投資として設計 — 年間¥15M〜¥20Mかかる典型的な駐在員コストを代替。",
+    EN: "Designed as a high cost-performance strategic investment — providing Japanese enterprises with a dedicated operating hub and resident advisory in Hyderabad.",
+    JP: "日系企業に最適化された戦略的拠点モデル — ハイデラバードでの専用執務環境と日本人常駐サポートを提供。",
   },
 
   // Brochure Modal

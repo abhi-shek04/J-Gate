@@ -14,13 +14,13 @@ export function WhyJGateSection({ id }: { id?: string }) {
         layout="center"
         titleNode={tx({ EN: "The Strategic Investment Advantage", JP: "戦略的投資の優位性" })}
         subtitleNode={tx({
-          EN: "Designed as a high cost-performance strategic investment — replacing typical India expansion costs of ¥15M–¥20M annually per expat.",
-          JP: "駐在員1人あたり年間1,500万〜2,000万円かかる従来のインド進出コストを、高いコストパフォーマンスの戦略拠点モデルで大幅削減。",
+          EN: "Designed as a high cost-performance strategic investment — providing Japanese enterprises with a dedicated operating hub and resident advisory in Hyderabad.",
+          JP: "日系企業に最適化された戦略的拠点モデル — ハイデラバードでの専用執務環境と日本人常駐サポートを提供。",
         })}
         tags={[
-          { EN: "¥15M–¥20M Expat Cost Replaced", JP: "駐在員コスト1500万〜2000万円削減" },
-          { EN: "Zero Renovation CapEx", JP: "初期内装投資ゼロ" },
-          { EN: "Immediate Day 1 Start", JP: "即日稼働スタート" },
+          { EN: "Strategic Operational Efficiency", JP: "最適化された運営コスト" },
+          { EN: "Dedicated Executive Workspace", JP: "日系企業専用執務環境" },
+          { EN: "Resident Japanese Advisory", JP: "現地日本人常駐サポート" },
         ]}
       />
       <ComparisonTable />

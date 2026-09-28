@@ -64,8 +64,8 @@ const PLANS: Plan[] = [
       JP: "低コスト進出・サテライト拠点",
     },
     tagline: {
-      EN: "Agile, low-overhead hub in Cyber Gateway for visiting executives & remote directors",
-      JP: "サイバーゲートウェイに低コストで拠点を確保。出張・遠隔ディレクター向け",
+      EN: "Agile, low-overhead hub in HITEC City, Hyderabad for visiting executives & remote directors",
+      JP: "ハイデラバードIT特区に低コストで拠点を確保。出張・遠隔ディレクター向け",
     },
     priceINRMonthly: 15000,
     priceINRAnnual: 12750, // 15% discount
@@ -99,7 +99,7 @@ const PLANS: Plan[] = [
       },
       {
         title: { EN: "Official Registered Address", JP: "公式登記住所利用" },
-        desc: { EN: "Cyber Gateway, Hitech City commercial address for MCA/GST", JP: "サイバーゲートウェイ（Hitech City）公式住所" },
+        desc: { EN: "HITEC City, Hyderabad commercial address for MCA/GST", JP: "ハイデラバード（Hitech City）公式住所" },
       },
       {
         title: { EN: "Bilateral Community Access", JP: "日印コミュニティ参加" },
@@ -220,7 +220,7 @@ const MATRIX_FEATURES = [
     category: { EN: "1. Workspace & Physical Infrastructure", JP: "1. ワークスペース・利用環境" },
     items: [
       {
-        name: { EN: "Cyber Gateway, Hitech City Location", JP: "サイバーゲートウェイ（Hitech City）拠点" },
+        name: { EN: "HITEC City, Hyderabad Location", JP: "ハイデラバード（Hitech City）拠点" },
         satellite: "✓ Included",
         standard: "✓ Included",
         advance: "✓ Included",
@@ -383,8 +383,8 @@ export function PricingSection({ id }: { id?: string }) {
               </h2>
               <p className="mx-auto mt-1.5 max-w-2xl font-inter text-[12px] sm:text-[13px] leading-relaxed text-slate dark:text-slate-300">
                 {tx({
-                  EN: "All tiers include full Cyber Gateway workspace infrastructure, 1Gbps connectivity, and on-site Japanese leadership guidance.",
-                  JP: "すべてのプランにサイバーゲートウェイのオフィス利用、1Gbps光回線、常駐日本人ディレクターによるサポートが含まれています。",
+                  EN: "All tiers include full Hyderabad workspace infrastructure, 1Gbps connectivity, and on-site Japanese leadership guidance.",
+                  JP: "すべてのプランにハイデラバードオフィスの利用、1Gbps光回線、常駐日本人ディレクターによるサポートが含まれています。",
                 })}
               </p>
 

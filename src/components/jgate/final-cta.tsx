@@ -50,7 +50,7 @@ export function FinalCta() {
             <p className="mx-auto mt-5 max-w-[520px] font-inter font-light leading-relaxed text-mist" style={{ fontSize: "clamp(0.95rem,1.6vw,1.125rem)" }}>
               Whether you are exploring, ready to establish operations, or
               looking to scale — J-Gate is your partner at every stage. Book a
-              private tour of our Cyber Gateway workspace, or contact us to
+              private tour of our Hyderabad workspace, or contact us to
               receive a custom membership proposal in English or Japanese.
             </p>
 

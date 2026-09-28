@@ -283,7 +283,7 @@ export function AboutSection({ id }: { id?: string }) {
                         {tx({ EN: "Ready Space", JP: "即日稼働" })}
                       </span>
                       <span className="block font-inter text-[11.5px] font-semibold text-white mt-0.5">
-                        Cyber Gateway
+                        Hyderabad, India
                       </span>
                     </div>
                     <div className="rounded-xl bg-white/[0.04] p-2 border border-white/5">

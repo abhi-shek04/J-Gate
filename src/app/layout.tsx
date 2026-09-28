@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     
     "Japan India business",
     "Indobox India",
-    "Cyber Gateway Hyderabad",
+    "Hyderabad India Workspace",
   ],
   authors: [{ name: "Indobox India Private Limited" }],
   icons: {

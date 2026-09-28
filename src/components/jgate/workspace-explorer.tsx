@@ -23,8 +23,8 @@ const SPACES = [
     src: "/gallery/workspace-wide.jpg",
     fallback: "grad-office-desks",
     headline: {
-      EN: "Dedicated Desks at Cyber Gateway",
-      JP: "Cyber Gatewayの専用固定デスク",
+      EN: "Dedicated Desks in HITEC City, Hyderabad",
+      JP: "ハイデラバードオフィスの専用固定デスク",
     },
     desc: {
       EN: "Fixed desks equipped with lockable storage, ergonomic chairs, power outlets, and 24/7 keycard access for your team.",

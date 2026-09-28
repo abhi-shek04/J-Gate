@@ -16,7 +16,7 @@ const NEWS = [
   {
     tag: "INAUGURATION",
     tagColor: "bg-crimson/10 text-crimson",
-    title: "J-Gate Opens at Cyber Gateway, Hyderabad",
+    title: "J-Gate Opens in HITEC City, Hyderabad",
     date: "June 22, 2026 · Hyderabad",
     excerpt: "A landmark ceremony that brought together tech leaders, T-Hub alumni, university students, Japanese business travelers, and Hyderabad's most influential entrepreneurs — marking the official launch of India's most significant Japan-business hub.",
   },
@@ -24,7 +24,7 @@ const NEWS = [
     tag: "PARTNERSHIP",
     tagColor: "bg-saffron/15 text-[#a06d00]",
     title: "MoU Signed with Genesys Info X",
-    date: "June 22, 2026 · Cyber Gateway",
+    date: "June 22, 2026 · HITEC City",
     excerpt: "The Memorandum of Understanding between Indobox India and Genesys Info X creates the structural backbone of J-Gate's operations, combining Japan-side expertise with deep local Hyderabad networks.",
   },
   {

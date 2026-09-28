@@ -44,8 +44,8 @@ export const translations: Dictionary = {
   "hero.title1": { EN: "Birth of a Dedicated", JP: "Birth of a Dedicated" },
   "hero.title2": { EN: "Working Hub for Japanese Companies", JP: "Working Hub for Japanese Companies" },
   "hero.subtitle": {
-    EN: "A dedicated co-working space at Cyber Gateway, Hyderabad for Japanese businesses. Dedicated desks, private cabins, resident Japan Desk support, and full office infrastructure to start operations smoothly in India.",
-    JP: "ハイデラバード・サイバーゲートウェイにある日本企業向けのコワーキングスペース。専用デスク、個室キャビン、日本人常駐サポート、オフィス設備を備え、インドでの事業開始を支援します。",
+    EN: "A dedicated co-working space in HITEC City, Hyderabad for Japanese businesses. Dedicated desks, private cabins, resident Japan Desk support, and full office infrastructure to start operations smoothly in India.",
+    JP: "ハイデラバード・ハイテックシティにある日本企業向けのコワーキングスペース。専用デスク、個室キャビン、日本人常駐サポート、オフィス設備を備え、インドでの事業開始を支援します。",
   },
   "hero.jptag": { EN: "「日本企業専用のワーキングハブ誕生」", JP: "「日本企業専用のワーキングハブ誕生」" },
   "hero.entag": { EN: "Birth of a Dedicated Working Hub for Japanese Companies in Hyderabad", JP: "Birth of a Dedicated Working Hub for Japanese Companies in Hyderabad" },
@@ -56,7 +56,7 @@ export const translations: Dictionary = {
   "hero.badge3": { EN: "End-to-End India Setup", JP: "エンドツーエンド進出支援" },
   "hero.scroll": { EN: "Discover J-Gate", JP: "J-Gateを知る" },
   "hero.founded": { EN: "Est. June 2026", JP: "2026年6月開設" },
-  "hero.location": { EN: "Cyber Gateway, Hyderabad", JP: "Cyber Gateway、ハイデラバード" },
+  "hero.location": { EN: "HITEC City, Hyderabad", JP: "HITEC City、ハイデラバード" },
   "hero.operator": { EN: "Operated by Indobox India Pvt. Ltd.", JP: "Indobox India Pvt. Ltd. が運営" },
 
   // Home page sections
@@ -67,7 +67,7 @@ export const translations: Dictionary = {
   "home.overview.title": { EN: "Explore the J-Gate Ecosystem", JP: "J-Gateエコシステムを探る" },
   "home.overview.subtitle": { EN: "Each dimension of J-Gate is a dedicated experience. Dive deeper into what matters to you.", JP: "J-Gateの各側面は専用の体験です。あなたにとって重要なものを深く掘り下げてください。" },
   "home.cta.title": { EN: "Experience J-Gate's Premium Workspace", JP: "J-Gateのプレミアムワークスペースを体験する" },
-  "home.cta.subtitle": { EN: "Book a tour of our Cyber Gateway facility. See your dedicated desk, meeting rooms, and the Japan Desk in person.", JP: "Cyber Gateway施設のツアーを予約。専用デスク、会議室、ジャパンデスクを実際にご覧ください。" },
+  "home.cta.subtitle": { EN: "Book a tour of our Hyderabad facility. See your dedicated desk, meeting rooms, and the Japan Desk in person.", JP: "ハイデラバード施設のツアーを予約。専用デスク、会議室、ジャパンデスクを実際にご覧ください。" },
 
   // About — pure corporate identity
   "about.eyebrow": { EN: "About J-Gate", JP: "J-Gateについて" },

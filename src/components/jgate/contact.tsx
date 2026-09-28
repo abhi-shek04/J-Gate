@@ -20,14 +20,14 @@ export function Contact() {
     {
       flag: <JapanFlag className="h-5 w-8" />,
       title: t("contact.tokyo"),
-      address: "Indobox India Pvt. Ltd. — Resident Japan Desk, Cyber Gateway, Hyderabad",
+      address: "Indobox India Pvt. Ltd. — Resident Japan Desk, Hyderabad, India",
       email: "japan.desk@j-gate.asia",
       phone: "+91 40-4567-8900",
     },
     {
       flag: <IndiaFlag className="h-5 w-8" />,
       title: t("contact.india"),
-      address: "Genesys info X — Cyber Gateway, Hitech City, Hyderabad, Telangana 500081, India",
+      address: "Genesys info X — HITEC City, Hyderabad, Telangana 500081, India",
       email: "hyderabad@j-gate.asia",
       phone: "+91 40-1234-5678",
     },
@@ -146,10 +146,10 @@ export function Contact() {
                 <span className="flex h-9 w-9 animate-pulse-soft items-center justify-center rounded-full bg-saffron text-ink shadow-hover">
                   <Building2 className="h-4 w-4" />
                 </span>
-                <span className="mt-1 whitespace-nowrap rounded bg-midnight/80 px-2 py-0.5 font-inter text-[11px] font-semibold text-white">J-Gate Cyber Gateway Hub</span>
+                <span className="mt-1 whitespace-nowrap rounded bg-midnight/80 px-2 py-0.5 font-inter text-[11px] font-semibold text-white">J-Gate Hyderabad Hub</span>
               </div>
               <div className="absolute bottom-4 left-4 rounded-md bg-midnight/70 px-3 py-2 backdrop-blur">
-                <p className="font-inter text-[11px] text-white/80">📍 Cyber Gateway, Hitech City, Hyderabad</p>
+                <p className="font-inter text-[11px] text-white/80">📍 HITEC City, Hyderabad</p>
                 <p className="font-inter text-[10px] text-mist">Japan-India Dedicated Enterprise Hub</p>
               </div>
             </div>

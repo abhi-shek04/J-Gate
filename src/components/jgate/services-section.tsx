@@ -51,13 +51,13 @@ const CORE_SERVICES: ServiceItem[] = [
       JP: "進出準備・ローカルアドバイザリーサポート",
     },
     desc: {
-      EN: "We assist Japanese companies with location setup at Cyber Gateway, introduce vetted local accounting and legal partners for company incorporation (Pvt. Ltd.) and statutory tax registrations (PAN/TAN/GSTIN), and provide local banking guidance.",
-      JP: "Cyber Gatewayでの拠点準備、現地提携の専門家（会計事務所・弁護士）を通じた会社設立（Pvt. Ltd.）および税務登録（PAN/TAN/GSTIN）の手続きサポート、現地口座開設アドバイザリーを包括支援します。",
+      EN: "We assist Japanese companies with location setup in HITEC City, Hyderabad, introduce vetted local accounting and legal partners for company incorporation (Pvt. Ltd.) and statutory tax registrations (PAN/TAN/GSTIN), and provide local banking guidance.",
+      JP: "ハイデラバードIT特区での拠点準備、現地提携の専門家（会計事務所・弁護士）を通じた会社設立（Pvt. Ltd.）および税務登録（PAN/TAN/GSTIN）の手続きサポート、現地口座開設アドバイザリーを包括支援します。",
     },
     points: [
       {
-        EN: "Official business location setup support at Cyber Gateway, Hitech City",
-        JP: "Cyber Gateway（Hitech City）での拠点準備・入居手続サポート",
+        EN: "Official business location setup support in HITEC City, Hyderabad",
+        JP: "ハイデラバードIT特区での拠点準備・入居手続サポート",
       },
       {
         EN: "Introductions to vetted accounting & legal partners for company setup",
@@ -83,8 +83,8 @@ const CORE_SERVICES: ServiceItem[] = [
       JP: "即日入居可能な専用オフィス・執務設備",
     },
     desc: {
-      EN: "Move in immediately into fully furnished lockable private cabins and dedicated desks at Cyber Gateway. Includes high-speed redundant fiber internet, 100% UPS and generator backup, equipped meeting rooms, and 24/7 smart keycard security.",
-      JP: "Cyber Gateway内に専用施錠個室キャビンと人間工学デスクを完備。二重冗長化の高速光回線、100%無停電電源（UPS＋自家発電）、プレゼン設備付き会議室、24時間セキュリティを完備し、すぐ業務を開始できます。",
+      EN: "Move in immediately into fully furnished lockable private cabins and dedicated desks in HITEC City, Hyderabad. Includes high-speed redundant fiber internet, 100% UPS and generator backup, equipped meeting rooms, and 24/7 smart keycard security.",
+      JP: "ハイデラバード専用オフィス内に施錠個室キャビンと人間工学デスクを完備。二重冗長化の高速光回線、100%無停電電源（UPS＋自家発電）、プレゼン設備付き会議室、24時間セキュリティを完備し、すぐ業務を開始できます。",
     },
     points: [
       {
@@ -115,8 +115,8 @@ const CORE_SERVICES: ServiceItem[] = [
       JP: "日本人役員常駐・日常のよろず相談窓口",
     },
     desc: {
-      EN: "Native Japanese directors and bilingual staff work inside the Cyber Gateway office daily. We offer direct in-person consultation in Japanese for day-to-day business matters, curated introductions to local accounting and legal firms, and meeting accompaniment.",
-      JP: "日本人役員およびバイリンガル実務スタッフがCyber Gatewayオフィスに毎日常駐。日常の業務課題（よろず相談）から現地専門家（会計・法務）の紹介、重要商談への同席まで、すべて日本語で対面支援します。",
+      EN: "Native Japanese directors and bilingual staff work inside our Hyderabad office daily. We offer direct in-person consultation in Japanese for day-to-day business matters, curated introductions to local accounting and legal firms, and meeting accompaniment.",
+      JP: "日本人役員およびバイリンガル実務スタッフがハイデラバードオフィスに毎日常駐。日常の業務課題（よろず相談）から現地専門家（会計・法務）の紹介、重要商談への同席まで、すべて日本語で対面支援します。",
     },
     points: [
       {
@@ -186,8 +186,8 @@ const DEPLOYMENT_STEPS = [
     step: "02",
     title: { EN: "Official Address & Incorporation", JP: "公式登記住所の確定・設立申請" },
     desc: {
-      EN: "Allocate your Cyber Gateway commercial address and coordinate SPICe+ MCA filing and bank paperwork.",
-      JP: "Cyber Gateway公式登記住所を発行し、MCA法人登記手続きおよび銀行口座申請を開始します。",
+      EN: "Allocate your Hyderabad commercial address and coordinate SPICe+ MCA filing and bank paperwork.",
+      JP: "ハイデラバード公式登記住所を発行し、MCA法人登記手続きおよび銀行口座申請を開始します。",
     },
     duration: { EN: "Week 1–3", JP: "1〜3週目" },
   },
@@ -272,10 +272,10 @@ const INDOBOX_COMPETENCIES = [
 const GENESYS_COMPETENCIES = [
   {
     icon: Building2,
-    title: { EN: "Ready-to-Use Workspace at Cyber Gateway", JP: "Cyber Gateway執務空間・施設総合管理" },
+    title: { EN: "Ready-to-Use Workspace in HITEC City, Hyderabad", JP: "ハイデラバード執務空間・施設総合管理" },
     detail: {
       EN: "Private office cabins, ergonomic furnishings, acoustic suites, and full building facility operations.",
-      JP: "Cyber Gateway内の専用個室、人間工学什器、防音ブースなど高品質オフィス設備の保守運営。",
+      JP: "ハイデラバードオフィス内の専用個室、人間工学什器、防音ブースなど高品質オフィス設備の保守運営。",
     },
     tag: { EN: "Hitech City Hub", JP: "最高級オフィス" },
   },
@@ -366,7 +366,7 @@ export function ServicesSection({ id }: { id?: string }) {
                 {
                   icon: Building2,
                   badge: tx({ EN: "Day 1 Ready", JP: "即日稼働可能" }),
-                  title: tx({ EN: "Cyber Gateway Hub", JP: "Cyber Gateway拠点" }),
+                  title: tx({ EN: "Hyderabad Hub", JP: "ハイデラバード拠点" }),
                   desc: tx({ EN: "Dedicated suites & high-speed fiber", JP: "専用キャビン・高速光回線" }),
                   accent: "text-crimson dark:text-rose-400 bg-crimson/10 dark:bg-rose-950/50 border-crimson/20 dark:border-rose-400/30",
                 },
@@ -596,7 +596,7 @@ export function ServicesSection({ id }: { id?: string }) {
               <p className="mx-auto mt-2 sm:mt-3 max-w-2xl font-inter text-[13px] sm:text-[14px] leading-relaxed text-slate-600 dark:text-slate-300">
                 {tx({
                   EN: "J-Gate is powered by an intentional bilateral alliance between Indobox India Pvt. Ltd. and Genesys Info X — uniting Japanese corporate governance with Tier-1 Indian physical office infrastructure to guarantee frictionless expansion.",
-                  JP: "J-Gateは、日本企業ガバナンスを担うIndoboxと、Cyber Gatewayのオフィス施設・物理インフラを担うGenesys Info Xの戦略的共同事業です。役割分担を一元化し、進出に伴うあらゆる摩擦をゼロにします。",
+                  JP: "J-Gateは、日本企業ガバナンスを担うIndoboxと、ハイデラバードのオフィス施設・物理インフラを担うGenesys Info Xの戦略的共同事業です。役割分担を一元化し、進出に伴うあらゆる摩擦をゼロにします。",
                 })}
               </p>
             </div>

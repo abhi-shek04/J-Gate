@@ -27,8 +27,8 @@ const FAQS = [
     a: "Yes. Through our partner network of legal and compliance professionals with specific Japan-India experience, we can guide you through company incorporation, GST registration, banking, and all regulatory requirements for operating in India.",
   },
   {
-    q: "Is the Cyber Gateway address usable as my official business address?",
-    a: "Yes. All membership tiers include the right to use J-Gate's Cyber Gateway address as your registered and operational business address in India — including mail handling and document receipt.",
+    q: "Is the J-Gate Hyderabad address usable as my official business address?",
+    a: "Yes. All membership tiers include the right to use J-Gate's HITEC City, Hyderabad address as your registered and operational business address in India — including mail handling and document receipt.",
   },
   {
     q: "How many companies are currently members?",

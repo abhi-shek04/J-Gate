@@ -97,7 +97,7 @@ export function WhyCTA() {
               </a>
               <div className="flex items-center justify-center gap-2 rounded-xl bg-white/[0.04] p-3 text-center font-inter text-[12px] text-slate-300 border border-white/5">
                 <MapPin className="h-4 w-4 text-saffron shrink-0" />
-                <span className="truncate">Cyber Gateway, Hyderabad</span>
+                <span className="truncate">HITEC City, Hyderabad</span>
               </div>
             </div>
           </div>

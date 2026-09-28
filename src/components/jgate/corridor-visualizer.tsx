@@ -118,7 +118,7 @@ export function BilateralCorridorVisualizer() {
             </h2>
             <p className="mt-1.5 sm:mt-2 font-inter text-[12.5px] sm:text-[14px] leading-relaxed text-slate-100 max-w-2xl mx-auto drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
               {tx({
-                EN: "From initial feasibility study to GTM strategy, company setup, and live operations — full executive support at Cyber Gateway, Hyderabad.",
+                EN: "From initial feasibility study to GTM strategy, company setup, and live operations — full executive support in HITEC City, Hyderabad.",
                 JP: "フィージビリティ調査からGTM戦略策定、法人設立・採用、そして本格稼働まで — ハイデラバード現地から一貫して伴走します。",
               })}
             </p>
@@ -209,8 +209,8 @@ export function BilateralCorridorVisualizer() {
                 </span>
                 <span className="mt-0.5 block font-inter text-[12px] sm:text-[13px] font-semibold text-white">
                   {tx({
-                    EN: "Cyber Gateway, Hitech City, Hyderabad",
-                    JP: "ハイデラバードIT特区 · Cyber Gateway",
+                    EN: "HITEC City, Hyderabad, India",
+                    JP: "ハイデラバードIT特区 · インド",
                   })}
                 </span>
               </div>

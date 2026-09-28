@@ -433,8 +433,8 @@ export function TeamSection({ id }: { id?: string }) {
                 style={{ fontSize: "clamp(0.95rem, 1.4vw, 1.05rem)" }}
               >
                 {tx({
-                  EN: "Bilingual professionals based on-ground at Cyber Gateway, Hyderabad — ensuring flawless operations, bespoke member support, and executive conciergerie.",
-                  JP: "ハイデラバード・サイバーゲートウェイ現地に常駐するバイリンガルプロフェッショナル陣が、日々の快適な拠点運営と個別支援を徹底サポート。",
+                  EN: "Bilingual professionals based on-ground in HITEC City, Hyderabad — ensuring flawless operations, bespoke member support, and executive conciergerie.",
+                  JP: "ハイデラバード現地に常駐するバイリンガルプロフェッショナル陣が、日々の快適な拠点運営と個別支援を徹底サポート。",
                 })}
               </p>
             </div>

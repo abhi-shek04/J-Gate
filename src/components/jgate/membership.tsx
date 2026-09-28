@@ -40,7 +40,7 @@ const PLANS: Plan[] = [
       { text: "Shared hot desk — 5 days/week", included: true },
       { text: "High-speed fiber WiFi", included: true },
       { text: "4 meeting room hours/month", included: true },
-      { text: "Business address — Cyber Gateway", included: true },
+      { text: "Business address — HITEC City, Hyderabad", included: true },
       { text: "Mail handling", included: true },
       { text: "Community events access", included: true },
       { text: "Basic partner introductions", included: true },
@@ -65,7 +65,7 @@ const PLANS: Plan[] = [
       { text: "Your own locked dedicated desk", included: true },
       { text: "Enterprise fiber WiFi", included: true },
       { text: "12 meeting room hours/month", included: true },
-      { text: "Business address — Cyber Gateway", included: true },
+      { text: "Business address — HITEC City, Hyderabad", included: true },
       { text: "Mail & courier management", included: true },
       { text: "Priority partner introductions (legal, HR, finance, tech)", included: true },
       { text: "1hr/month strategic business consultation", included: true },
@@ -126,7 +126,7 @@ export function Membership() {
               Choose Your <span className="text-crimson">Base of Operations</span>
             </h2>
             <p className="mx-auto mt-5 max-w-2xl font-inter leading-relaxed text-slate" style={{ fontSize: "clamp(0.95rem,1.6vw,1.125rem)" }}>
-              Every plan includes your Cyber Gateway business address, partner
+              Every plan includes your HITEC City business address, partner
               network access, and the J-Gate community. The difference is how
               deep you go.
             </p>

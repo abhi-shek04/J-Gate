@@ -155,7 +155,7 @@ export default function HomePage() {
       kanji: "拠点",
       icon: Building2,
       badge: { EN: "Ready Workspace", JP: "即日利用オフィス" },
-      title: tx({ EN: "Plug-and-Play Hub at Cyber Gateway", JP: "Cyber Gateway 即日稼働オフィス" }),
+      title: tx({ EN: "Plug-and-Play Hub in Hyderabad", JP: "ハイデラバード即日稼働オフィス" }),
       desc: tx({
         EN: "Dedicated desks, private suites, enterprise fiber internet, meeting suites, and 24/7 biometric security at HITEC City. Start operating on Day 1 without capital renovation costs or deposit delays.",
         JP: "専用デスク、個室キャビン、高速光回線、会議室、24時間セキュリティを完備。初期内装投資や長期契約の負担なく、最短即日でインド拠点を立ち上げ可能です。",
@@ -220,7 +220,7 @@ export default function HomePage() {
         JP: "優れたアクセスと最適化された運営コスト",
       },
       desc: {
-        EN: "2-minute walk to Cyber Towers Metro Station, 35 minutes to Rajiv Gandhi International Airport, and over 40% operational cost savings compared to Tokyo, Tokyo Bay, or Mumbai.",
+        EN: "2-minute walk to HITEC City Metro Station, 35 minutes to Rajiv Gandhi International Airport, and over 40% operational cost savings compared to Tokyo, Tokyo Bay, or Mumbai.",
         JP: "最寄りのメトロ駅から徒歩2分、国際空港まで車で35分。東京やムンバイと比較して拠点運営費を40%以上削減できます。",
       },
     },
@@ -336,8 +336,8 @@ export default function HomePage() {
               className="mx-auto mt-4 sm:mt-5 max-w-[680px] font-inter font-normal leading-relaxed text-slate-600 dark:text-slate-300 text-[14.5px] sm:text-[15.5px]"
             >
               {tx({
-                EN: "A dedicated co-working space at Cyber Gateway, Hyderabad for Japanese businesses. Dedicated desks, private cabins, resident Japan Desk support, and full office infrastructure to start operations smoothly in India.",
-                JP: "ハイデラバード・Cyber Gatewayに誕生した日本企業専用コワーキングスペース。専用デスク、個室キャビン、常駐ジャパンデスク、充実したオフィスインフラで、インド事業の円滑な立ち上げを包括支援。",
+                EN: "A dedicated co-working space in Hyderabad, India for Japanese businesses. Dedicated desks, private cabins, resident Japan Desk support, and full office infrastructure to start operations smoothly in India.",
+                JP: "ハイデラバードに誕生した日本企業専用コワーキングスペース。専用デスク、個室キャビン、常駐ジャパンデスク、充実したオフィスインフラで、インド事業の円滑な立ち上げを包括支援。",
               })}
             </p>
           </Reveal>
@@ -382,7 +382,7 @@ export default function HomePage() {
                 <div className="p-3 rounded-xl bg-white/80 dark:bg-white/5 border border-slate-200/70 dark:border-white/10 text-center shadow-2xs backdrop-blur-sm">
                   <span className="block font-mono text-xl sm:text-2xl font-black text-ink dark:text-white">Enterprise</span>
                   <span className="mt-0.5 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
-                    {tx({ EN: "Cyber Gateway Facility", JP: "高規格ファシリティ" })}
+                    {tx({ EN: "Hyderabad Hub Facility", JP: "高規格ファシリティ" })}
                   </span>
                 </div>
                 <div className="p-3 rounded-xl bg-white/80 dark:bg-white/5 border border-slate-200/70 dark:border-white/10 text-center shadow-2xs backdrop-blur-sm">

@@ -168,12 +168,12 @@ export function ContactSection({ id }: { id?: string }) {
                         {tx({ EN: "Office", JP: "オフィス" })}
                       </p>
                       <p className="font-inter text-sm text-ink dark:text-white leading-relaxed">
-                        Cyber Gateway, HITEC City
+                        HITEC City, Hyderabad
                         <br />
-                        Hyderabad, Telangana 500081
+                        Telangana 500081, India
                       </p>
                       <a
-                        href="https://maps.google.com/?q=Cyber+Gateway+Hitec+City+Hyderabad"
+                        href="https://maps.google.com/?q=Hitec+City+Hyderabad"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="mt-1.5 inline-flex items-center gap-1 font-inter text-xs font-medium text-crimson dark:text-rose-400 hover:underline"

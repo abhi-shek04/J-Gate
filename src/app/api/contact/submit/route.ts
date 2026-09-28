@@ -124,7 +124,7 @@ async function sendContactNotification(data: {
       </table>
     </div>
     <div style="background: #080f1a; padding: 16px 32px; text-align: center;">
-      <p style="color: #64748b; font-size: 11px; margin: 0;">© 2026 J-Gate · Indobox India Private Limited · Cyber Gateway, Hyderabad</p>
+      <p style="color: #64748b; font-size: 11px; margin: 0;">© 2026 J-Gate · Indobox India Private Limited · HITEC City, Hyderabad</p>
       <p style="color: #475569; font-size: 10px; margin: 4px 0 0;">Delivering to: ${escapeHtml(adminEmail)}</p>
     </div>
   </div>

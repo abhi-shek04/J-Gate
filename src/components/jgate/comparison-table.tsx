@@ -175,7 +175,7 @@ function Cell({
 }
 
 export function ComparisonTable() {
-  const { tx } = useI18n();
+  const { tx, lang } = useI18n();
 
   return (
     <section
@@ -249,9 +249,11 @@ export function ComparisonTable() {
                   <span className="font-serif-jp text-lg font-bold tracking-tight block">
                     J-Gate
                   </span>
-                  <p className="font-sans-jp text-[11.5px] text-white/80 font-normal mt-0.5">
-                    ジェーゲート
-                  </p>
+                  {lang === "JP" && (
+                    <p className="font-sans-jp text-[11.5px] text-white/80 font-normal mt-0.5">
+                      ジェーゲート
+                    </p>
+                  )}
                 </div>
 
                 <div className="border-b border-slate-200/80 dark:border-white/10 bg-slate-50/90 dark:bg-white/5 px-5 py-5 flex items-center">
@@ -326,7 +328,7 @@ export function ComparisonTable() {
                 <span
                   className="font-inter text-[11px] font-bold uppercase tracking-wider text-crimson dark:text-rose-400 block"
                 >
-                  {tx({ EN: "The Definitive Verdict · 総合評価", JP: "結論 · THE VERDICT" })}
+                  {tx({ EN: "The Definitive Verdict", JP: "結論 · THE VERDICT" })}
                 </span>
                 <p
                   className="mt-1 font-serif-jp text-ink dark:text-white font-bold leading-relaxed text-[15px] sm:text-[17px]"

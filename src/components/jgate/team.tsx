@@ -110,6 +110,8 @@ function TeamCard({
   tags: string[];
   linkedin: string;
 }) {
+  const { lang } = useI18n();
+
   return (
     <article className="group relative flex h-full flex-col justify-between items-center rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-5 text-center shadow-xs hover:shadow-lg hover:border-crimson/40 dark:hover:border-crimson/50 transition-all duration-300">
       {/* Circular Avatar */}
@@ -133,9 +135,11 @@ function TeamCard({
       <h3 className="mt-1 font-serif-jp text-[16px] sm:text-[17px] font-bold text-ink dark:text-white leading-tight group-hover:text-crimson dark:group-hover:text-rose-400 transition-colors">
         {name}
       </h3>
-      <p className="mt-0.5 font-sans-jp text-[11px] text-slate-500 dark:text-slate-400">
-        {jpName}
-      </p>
+      {lang === "JP" && (
+        <p className="mt-0.5 font-sans-jp text-[11px] text-slate-500 dark:text-slate-400">
+          {jpName}
+        </p>
+      )}
 
       {/* Subtitle / Headline with Pipe Dividers */}
       <p className="mt-1.5 font-inter text-[11.5px] sm:text-[12px] font-semibold text-slate-800 dark:text-slate-200 leading-snug">

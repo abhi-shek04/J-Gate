@@ -107,7 +107,7 @@ const VISION = {
 } as const;
 
 export function AboutSection({ id }: { id?: string }) {
-  const { t, tx } = useI18n();
+  const { t, tx, lang } = useI18n();
 
   return (
     <div id={id} className="scroll-mt-16">
@@ -162,10 +162,14 @@ export function AboutSection({ id }: { id?: string }) {
                       >
                         {t(p.tagKey)}
                       </span>
-                      <span className="text-slate-300 dark:text-white/20">·</span>
-                      <span className="font-serif-jp text-[12px] sm:text-[13px] font-bold text-saffron-dark dark:text-saffron">
-                        {t(p.jpKey)}
-                      </span>
+                      {lang === "JP" && (
+                        <>
+                          <span className="text-slate-300 dark:text-white/20">·</span>
+                          <span className="font-serif-jp text-[12px] sm:text-[13px] font-bold text-saffron-dark dark:text-saffron">
+                            {t(p.jpKey)}
+                          </span>
+                        </>
+                      )}
                     </div>
                     {/* Title */}
                     <h3

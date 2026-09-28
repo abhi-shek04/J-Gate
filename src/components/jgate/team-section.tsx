@@ -192,7 +192,7 @@ const OPS_TEAM: OpsMember[] = [
 ];
 
 export function TeamSection({ id }: { id?: string }) {
-  const { tx } = useI18n();
+  const { tx, lang } = useI18n();
 
   return (
     <div id={id} className="scroll-mt-20">
@@ -279,7 +279,7 @@ export function TeamSection({ id }: { id?: string }) {
                   <h3 className="mt-1 font-serif-jp text-[16px] sm:text-[17px] font-bold text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-saffron-light transition-colors leading-tight">
                     {adv.name}
                   </h3>
-                  <p className="mt-0.5 font-sans-jp text-[11px] text-slate-500 dark:text-slate-400">{adv.jpName}</p>
+                  {lang === "JP" && <p className="mt-0.5 font-sans-jp text-[11px] text-slate-500 dark:text-slate-400">{adv.jpName}</p>}
 
                   {/* Subtitle / Headline with Pipe Dividers */}
                   <p className="mt-1.5 font-inter text-[11.5px] sm:text-[12px] font-semibold text-crimson dark:text-saffron leading-snug">
@@ -352,7 +352,7 @@ export function TeamSection({ id }: { id?: string }) {
                   <h3 className="mt-1 font-serif-jp text-[16px] sm:text-[17px] font-bold text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-saffron-light transition-colors leading-tight">
                     {adv.name}
                   </h3>
-                  <p className="mt-0.5 font-sans-jp text-[11px] text-slate-500 dark:text-slate-400">{adv.jpName}</p>
+                  {lang === "JP" && <p className="mt-0.5 font-sans-jp text-[11px] text-slate-500 dark:text-slate-400">{adv.jpName}</p>}
 
                   {/* Subtitle / Headline with Pipe Dividers */}
                   <p className="mt-1.5 font-inter text-[11.5px] sm:text-[12px] font-semibold text-crimson dark:text-saffron leading-snug">
@@ -407,7 +407,7 @@ export function TeamSection({ id }: { id?: string }) {
           <div className="flex items-center gap-3">
             <span className="h-px w-20 bg-crimson/30" />
             <span className="font-serif-jp text-[11.5px] font-bold uppercase tracking-widest text-crimson dark:text-rose-400">
-              {tx({ EN: "OPERATIONS & EXECUTION · 運営体制", JP: "運営・執行体制 · OPERATIONS" })}
+              {tx({ EN: "OPERATIONS & EXECUTION", JP: "運営・執行体制 · OPERATIONS" })}
             </span>
             <span className="h-px w-20 bg-crimson/30" />
           </div>
@@ -499,9 +499,11 @@ export function TeamSection({ id }: { id?: string }) {
                     <h3 className="mt-1 font-serif-jp text-[16px] sm:text-[17px] font-bold leading-tight text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400 transition-colors">
                       {m.name}
                     </h3>
-                    <p className="mt-0.5 font-sans-jp text-[11px] font-medium text-slate-500 dark:text-slate-400">
-                      {m.jpName}
-                    </p>
+                    {lang === "JP" && (
+                      <p className="mt-0.5 font-sans-jp text-[11px] font-medium text-slate-500 dark:text-slate-400">
+                        {m.jpName}
+                      </p>
+                    )}
 
                     {/* Subtitle / Headline with Pipe Dividers */}
                     <p className="mt-1.5 font-inter text-[11.5px] sm:text-[12px] font-semibold text-slate-800 dark:text-slate-200 leading-snug">

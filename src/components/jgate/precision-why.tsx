@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useI18n } from "@/lib/i18n";
 
 export function PrecisionWhyPage() {
-  const { tx } = useI18n();
+  const { tx, lang } = useI18n();
 
   // --- Calculator State ---
   const [selectedPlan, setSelectedPlan] = useState<"satellite" | "standard" | "advance">("standard");
@@ -151,10 +151,10 @@ export function PrecisionWhyPage() {
       <div className="relative z-20 w-full h-[40px] bg-[#0F0F18] border-b border-[rgba(184,146,74,0.35)] overflow-hidden flex items-center">
         <div className="ticker-track flex whitespace-nowrap will-change-transform animate-ticker">
           <span className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-[#B8924A] px-4 flex items-center gap-4">
-            <span>J-GATE</span> · <span>HYDERABAD OPERATIONS HUB</span> · <span>INDOBOX INDIA</span> · <span>ジェーゲート</span> · <span>THE JAPAN-INDIA CORRIDOR</span> · <span>2-4 PERSONS PER COMPANY</span> · <span>7 CORE PILLARS</span> · <span>FROM ¥90,000 /MO</span> · <span>CYBER GATEWAY</span> · <span>LAUNCHED JUNE 2026</span> ·
+            <span>J-GATE</span> · <span>HYDERABAD OPERATIONS HUB</span> · <span>INDOBOX INDIA</span> · {lang === "JP" && <><span>ジェーゲート</span> · </>}<span>THE JAPAN-INDIA CORRIDOR</span> · <span>2-4 PERSONS PER COMPANY</span> · <span>7 CORE PILLARS</span> · <span>FROM ¥90,000 /MO</span> · <span>CYBER GATEWAY</span> · <span>LAUNCHED JUNE 2026</span> ·
           </span>
           <span className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-[#B8924A] px-4 flex items-center gap-4" aria-hidden="true">
-            <span>J-GATE</span> · <span>HYDERABAD OPERATIONS HUB</span> · <span>INDOBOX INDIA</span> · <span>ジェーゲート</span> · <span>THE JAPAN-INDIA CORRIDOR</span> · <span>2-4 PERSONS PER COMPANY</span> · <span>7 CORE PILLARS</span> · <span>FROM ¥90,000 /MO</span> · <span>CYBER GATEWAY</span> · <span>LAUNCHED JUNE 2026</span> ·
+            <span>J-GATE</span> · <span>HYDERABAD OPERATIONS HUB</span> · <span>INDOBOX INDIA</span> · {lang === "JP" && <><span>ジェーゲート</span> · </>}<span>THE JAPAN-INDIA CORRIDOR</span> · <span>2-4 PERSONS PER COMPANY</span> · <span>7 CORE PILLARS</span> · <span>FROM ¥90,000 /MO</span> · <span>CYBER GATEWAY</span> · <span>LAUNCHED JUNE 2026</span> ·
           </span>
         </div>
       </div>
@@ -173,7 +173,7 @@ export function PrecisionWhyPage() {
             <div className="flex items-center gap-3 animate-fade-in">
               <div className="w-[2px] h-[16px] bg-[#B8924A]" />
               <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#B8924A]">
-                {tx({ EN: "WHY J-GATE · THE STRATEGIC ADVANTAGE", JP: "WHY J-GATE · 戦略的投資メリット" })}
+                {tx({ EN: "WHY J-GATE — THE STRATEGIC ADVANTAGE", JP: "WHY J-GATE — 戦略的投資メリット" })}
               </span>
             </div>
 
@@ -280,7 +280,7 @@ export function PrecisionWhyPage() {
               <div className="flex items-center gap-3">
                 <div className="w-[2px] h-[16px] bg-[#B8924A]" />
                 <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#B8924A]">
-                  {tx({ EN: "SIDE-BY-SIDE COMPARISON · 比較表", JP: "SIDE-BY-SIDE COMPARISON · 徹底比較表" })}
+                  {tx({ EN: "SIDE-BY-SIDE COMPARISON", JP: "SIDE-BY-SIDE COMPARISON · 徹底比較表" })}
                 </span>
               </div>
               <h2 className="mt-4 font-serif text-[38px] sm:text-[52px] lg:text-[56px] font-light text-[#F0EDE6] leading-[1.08]">
@@ -330,10 +330,10 @@ export function PrecisionWhyPage() {
                   {/* J-Gate Column Header with Persistent Gold Left Border & Recommended Badge */}
                   <th className="w-[26%] px-5 py-4 relative bg-[#161622] align-middle" style={{ boxShadow: "inset 1px 0 0 #B8924A" }}>
                     <div className="inline-block bg-[#C8392B] text-[#F0EDE6] font-mono text-[9px] font-bold px-2 py-0.5 rounded-[2px] tracking-widest uppercase mb-1">
-                      {tx({ EN: "RECOMMENDED · 推奨", JP: "RECOMMENDED · 推奨" })}
+                      {tx({ EN: "RECOMMENDED", JP: "RECOMMENDED · 推奨" })}
                     </div>
                     <div className="font-sans text-[14.5px] font-medium text-[#F0EDE6] tracking-wide">
-                      J-Gate <span className="text-[11px] font-normal text-[#9A98A4]">ジェーゲート</span>
+                      J-Gate {lang === "JP" && <span className="text-[11px] font-normal text-[#9A98A4]">ジェーゲート</span>}
                     </div>
                   </th>
                   <th className="w-[17%] px-4 py-4 font-sans text-[13px] font-normal text-[#9A98A4] text-center align-middle">
@@ -649,7 +649,7 @@ export function PrecisionWhyPage() {
                       <div className="space-y-2 max-w-3xl">
                         <div className="flex items-center gap-2 text-[#B8924A] font-mono text-[11px] font-bold tracking-[0.2em] uppercase">
                           <span>▌</span>
-                          <span>{tx({ EN: "THE DEFINITIVE VERDICT · 総合評価", JP: "THE DEFINITIVE VERDICT · 総合評価" })}</span>
+                          <span>{tx({ EN: "THE DEFINITIVE VERDICT", JP: "THE DEFINITIVE VERDICT · 総合評価" })}</span>
                         </div>
                         <p className="font-sans text-[14.5px] sm:text-[15.5px] font-normal leading-relaxed text-[#F0EDE6]">
                           {tx({
@@ -694,7 +694,7 @@ export function PrecisionWhyPage() {
             <div className="flex items-center gap-3">
               <div className="w-[2px] h-[16px] bg-[#B8924A]" />
               <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#B8924A]">
-                {tx({ EN: "7 CORE VALUE PILLARS · 価値提案", JP: "7 CORE VALUE PILLARS · 7つの提供価値" })}
+                {tx({ EN: "7 CORE VALUE PILLARS", JP: "7 CORE VALUE PILLARS · 7つの提供価値" })}
               </span>
             </div>
             <h2 className="mt-4 font-serif text-[38px] sm:text-[52px] lg:text-[56px] font-light text-[#F0EDE6] leading-[1.08]">
@@ -1089,7 +1089,7 @@ export function PrecisionWhyPage() {
             <div className="flex items-center gap-3">
               <div className="w-[2px] h-[16px] bg-[#B8924A]" />
               <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#B8924A]">
-                {tx({ EN: "SMART INVESTMENT ESTIMATOR · ROI 計算機", JP: "SMART INVESTMENT ESTIMATOR · 投資対効果シミュレーター" })}
+                {tx({ EN: "SMART INVESTMENT ESTIMATOR", JP: "SMART INVESTMENT ESTIMATOR · 投資対効果シミュレーター" })}
               </span>
             </div>
             <h2 className="mt-4 font-serif text-[38px] sm:text-[52px] font-light text-[#F0EDE6] leading-[1.08]">

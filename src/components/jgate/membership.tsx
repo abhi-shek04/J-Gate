@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Check, X } from "lucide-react";
 import { Reveal, Eyebrow } from "./shared";
 import { Photo } from "./photo";
+import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
 type Plan = {
@@ -107,6 +108,7 @@ const PLANS: Plan[] = [
 
 export function Membership() {
   const [annual, setAnnual] = useState(false);
+  const { lang } = useI18n();
 
   const scrollTo = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -242,8 +244,12 @@ export function Membership() {
             All memberships subject to availability. Pricing customized by
             duration, team size, and service scope. Proposals available in
             English and Japanese.
-            <br />
-            <span className="font-sans-jp">価格はご要望に応じてカスタマイズいたします。</span>
+            {lang === "JP" && (
+              <>
+                <br />
+                <span className="font-sans-jp">価格はご要望に応じてカスタマイズいたします。</span>
+              </>
+            )}
           </p>
         </Reveal>
       </div>

@@ -318,7 +318,7 @@ const MATRIX_FEATURES = [
 ];
 
 export function PricingSection({ id }: { id?: string }) {
-  const { tx } = useI18n();
+  const { tx, lang } = useI18n();
   const [currency, setCurrency] = useState<"INR" | "JPY">("INR");
   const [billingCycle, setBillingCycle] = useState<"monthly" | "annual">("monthly");
   const [selectedFilter, setSelectedFilter] = useState<"all" | "1-2" | "3-4" | "enterprise">("all");
@@ -459,9 +459,11 @@ export function PricingSection({ id }: { id?: string }) {
                                 {plan.enName}
                               </h3>
                             </div>
-                            <span className="text-[11px] sm:text-[11.5px] font-medium text-slate-500 dark:text-slate-400 font-sans-jp">
-                              {plan.jpName}
-                            </span>
+                            {lang === "JP" && (
+                              <span className="text-[11px] sm:text-[11.5px] font-medium text-slate-500 dark:text-slate-400 font-sans-jp">
+                                {plan.jpName}
+                              </span>
+                            )}
                           </div>
                         </div>
 

@@ -107,9 +107,12 @@ export function Hero() {
           {t("hero.subtitle")}
         </p>
 
-        {/* Japanese + English taglines */}
-        <p className="mt-3 font-serif-jp text-base text-saffron/70">{t("hero.jptag")}</p>
-        <p className="mt-1 font-sans-jp text-[13px] text-mist/70">{t("hero.entag")}</p>
+        {/* Japanese / English tagline depending on active language */}
+        {lang === "JP" ? (
+          <p className="mt-3 font-serif-jp text-base text-saffron/90">{t("hero.jptag")}</p>
+        ) : (
+          <p className="mt-2 font-inter text-[13.5px] text-mist/80">{t("hero.entag")}</p>
+        )}
 
         {/* CTAs */}
         <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">

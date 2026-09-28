@@ -92,8 +92,8 @@ const FAQ_LIST: FAQItem[] = [
       JP: "会議室やテレビ会議設備の利用は含まれていますか？",
     },
     a: {
-      EN: "Yes. All membership tiers include monthly credits for fully acoustic-isolated conference rooms and boardrooms. Facilities feature 4K interactive presentation screens, enterprise video-conferencing systems (Zoom, Teams, Google Meet), polycom conference speakerphones, and Japanese-standard video adapters.",
-      JP: "はい。すべてのプランに防音仕様の会議室・役員用ボードルームの無料利用クレジットが含まれています。4K大型ディスプレイ、高品質Web会議システム（Zoom/Teams等）、Polycom集音マイク、各種変換アダプターを完備し、日本本社とのオンライン重役会議もストレスなく実施可能です。",
+      EN: "Yes. All membership tiers include monthly credits for fully acoustic-isolated conference rooms and boardrooms. Facilities feature interactive presentation screens, enterprise video-conferencing systems (Zoom, Teams, Google Meet), polycom conference speakerphones, and Japanese-standard video adapters.",
+      JP: "はい。すべてのプランに防音仕様の会議室・役員用ボードルームの無料利用クレジットが含まれています。大型ディスプレイ、高品質Web会議システム（Zoom/Teams等）、Polycom集音マイク、各種変換アダプターを完備し、日本本社とのオンライン重役会議もストレスなく実施可能です。",
     },
   },
 

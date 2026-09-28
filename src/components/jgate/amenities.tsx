@@ -20,8 +20,8 @@ const GROUPS = [
     heading: "Meeting & Collaboration",
     items: [
       "Fully equipped conference rooms (4-person to 20-person)",
-      "4K presentation displays and video conferencing setup",
-      "Soundproofed phone booths for private calls",
+      "Presentation displays and video conferencing setup",
+      "Meeting areas for client discussions and calls",
       "Whiteboard rooms for strategy sessions",
       "Event space for launches, workshops, and seminars",
     ],
@@ -41,7 +41,7 @@ const GROUPS = [
 ];
 
 const CARDS = [
-  { id: "photo-amenity-meeting", label: "Conference Rooms", desc: "Seats up to 20 · 4K display", fallback: "grad-amenity", initials: "CR" },
+  { id: "photo-amenity-meeting", label: "Conference Rooms", desc: "Seats up to 20 · Presentation display", fallback: "grad-amenity", initials: "CR" },
   { id: "photo-amenity-lounge", label: "Canteen & Lounge", desc: "Japanese and Indian menu", fallback: "grad-amenity", initials: "CN" },
   { id: "photo-amenity-cabin", label: "Private Cabins", desc: "Fully furnished, brandable", fallback: "grad-amenity", initials: "PC" },
 ];

@@ -186,16 +186,16 @@ export default function HomePage() {
       num: "03",
       kanji: "展開",
       icon: Users,
-      badge: { EN: "Turnkey Growth", JP: "法人設立・人材採用" },
-      title: tx({ EN: "Turnkey Setup & Elite Tech Talent", JP: "法人設立登記・高度IT人材採用" }),
+      badge: { EN: "Setup & Talent Advisory", JP: "進出準備・人材採用支援" },
+      title: tx({ EN: "Incorporation Guidance & Tech Talent Advisory", JP: "法人設立手続支援・IT人材採用相談" }),
       desc: tx({
-        EN: "End-to-end guidance for Private Limited (Pvt Ltd) company formation, corporate bank accounts with leading institutions, and direct recruitment pipelines to Telangana's premier software talent.",
-        JP: "現地法人（Pvt Ltd）設立、PAN/TAN/GST税務登録、大手商業銀行での法人口座開設、そして名門大学やT-Hubと連携した高度ITエンジニアの採用を支援します。",
+        EN: "Guidance for Private Limited (Pvt Ltd) company formation, local accounting & legal partner introductions, banking facilitation, and advisory support for recruiting software talent in Telangana.",
+        JP: "現地法人（Pvt Ltd）設立アドバイザリー、提携専門家（会計・法務）の紹介、銀行口座開設支援、および名門大学やT-Hubと連携した高度ITエンジニアの採用相談に対応します。",
       }),
       highlights: [
-        { EN: "MCA Incorporation & GST Registration", JP: "法人登記・税務登録代行" },
-        { EN: "Corporate Banking & FDI Assistance", JP: "法人口座開設・送金サポート" },
-        { EN: "Senior Developers & Bilingual PMs", JP: "ITエンジニア・バイリンガル採用" },
+        { EN: "Incorporation & GST Advisory Support", JP: "法人登記・税務手続支援" },
+        { EN: "Corporate Banking & Financial Introductions", JP: "法人口座開設・実務アドバイス" },
+        { EN: "Software Developers & PM Advisory", JP: "ITエンジニア採用サポート" },
       ],
     },
   ];
@@ -380,7 +380,7 @@ export default function HomePage() {
                   </span>
                 </div>
                 <div className="p-3 rounded-xl bg-white/80 dark:bg-white/5 border border-slate-200/70 dark:border-white/10 text-center shadow-2xs backdrop-blur-sm">
-                  <span className="block font-mono text-xl sm:text-2xl font-black text-ink dark:text-white">Tier-3</span>
+                  <span className="block font-mono text-xl sm:text-2xl font-black text-ink dark:text-white">Enterprise</span>
                   <span className="mt-0.5 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
                     {tx({ EN: "Cyber Gateway Facility", JP: "高規格ファシリティ" })}
                   </span>
@@ -392,9 +392,9 @@ export default function HomePage() {
                   </span>
                 </div>
                 <div className="p-3 rounded-xl bg-white/80 dark:bg-white/5 border border-slate-200/70 dark:border-white/10 text-center shadow-2xs backdrop-blur-sm">
-                  <span className="block font-mono text-xl sm:text-2xl font-black text-ink dark:text-white">Turnkey</span>
+                  <span className="block font-mono text-xl sm:text-2xl font-black text-ink dark:text-white">Full Support</span>
                   <span className="mt-0.5 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
-                    {tx({ EN: "MCA Setup & Talent Hiring", JP: "登記・会計・採用ワンストップ" })}
+                    {tx({ EN: "Setup Advisory & Hiring Support", JP: "登記・会計・採用サポート" })}
                   </span>
                 </div>
               </div>
@@ -422,13 +422,13 @@ export default function HomePage() {
       <BilateralCorridorVisualizer />
 
       {/* ════════════════════════════════════════════════════════════
-          3. CORE AGENDA — The 3 Turnkey Capabilities
+          3. CORE AGENDA — The 3 Bilateral Capabilities
          ════════════════════════════════════════════════════════════ */}
       <section className="section-pad bg-ivory dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto mb-8 sm:mb-12 max-w-3xl text-center">
-              <Eyebrow>{tx({ EN: "Turnkey Bilateral Capabilities", JP: "ワンストップ進出支援" })}</Eyebrow>
+              <Eyebrow>{tx({ EN: "Bilateral Expansion Support", JP: "ワンストップ進出支援" })}</Eyebrow>
               <h2
                 className="mt-2.5 font-serif-jp font-bold leading-[1.18] text-ink dark:text-white"
                 style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.5rem)" }}
@@ -442,8 +442,8 @@ export default function HomePage() {
                 className="mx-auto mt-2.5 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300 text-[13px] sm:text-[14.5px]"
               >
                 {tx({
-                  EN: "Physical office infrastructure, resident Japanese advisory, and turnkey company formation with talent hiring — coordinated under one roof.",
-                  JP: "オフィス確保、現地常駐の日本語サポート、そして法人設立と高度IT人材採用まで、ワンストップで完結します。",
+                  EN: "Physical office workspace, resident Japanese advisory, and local setup guidance with talent hiring advice — coordinated under one roof.",
+                  JP: "オフィス確保、現地常駐の日本語サポート、そして各種設立手続支援と高度IT人材採用まで、ワンストップで完結します。",
                 })}
               </p>
             </div>

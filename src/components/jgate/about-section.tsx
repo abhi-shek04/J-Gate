@@ -79,7 +79,7 @@ const BILATERAL_SYNERGIES = [
   {
     icon: ShieldCheck,
     badge: { EN: "Single Window", JP: "窓口一本化" },
-    title: { EN: "Unified Bilateral SLA & Accountability", JP: "日印共同体制によるワンストップ保証" },
+    title: { EN: "Unified Bilateral Accountability & Support", JP: "日印共同体制によるワンストップ支援" },
     desc: {
       EN: "Co-operated by Indobox India and Genesys Info X — providing a single contract window that eliminates vendor fragmentation and cross-border risk.",
       JP: "IndoboxとGenesys Info Xの共同運営により、複数業者との個別交渉を排除。契約から日常運用まで一元管理で支援します。",
@@ -91,7 +91,7 @@ const BILATERAL_SYNERGIES = [
 const MISSION = {
   title: { EN: "Our Mission", JP: "ミッション" },
   body: {
-    EN: "To eliminate every friction point of India expansion for Japanese enterprises by providing turnkey workspace, resident Japanese advisory, and statutory execution in Hyderabad.",
+    EN: "To eliminate every friction point of India expansion for Japanese enterprises by providing ready workspace, resident Japanese advisory, and statutory guidance in Hyderabad.",
     JP: "即日利用可能な執務環境、現地常駐の日本語支援、そして確実な法人登記・行政手続きを通じて、日本企業のインド進出におけるあらゆる摩擦をゼロにすること。",
   },
   tag: { EN: "Execution Today", JP: "私たちの使命" },
@@ -128,7 +128,7 @@ export function AboutSection({ id }: { id?: string }) {
         tags={[
           { EN: "Flagship Hub at HITEC City", JP: "HITEC City 旗艦拠点" },
           { EN: "100% Japanese On-Site", JP: "現地日本人常駐" },
-          { EN: "Turnkey Incorporation", JP: "法人設立ワンストップ" },
+          { EN: "Incorporation Support", JP: "法人設立サポート" },
         ]}
       />
 

@@ -88,7 +88,7 @@ const SPACES = [
     },
     specs: [
       { label: { EN: "Room Types", JP: "部屋タイプ" }, val: { EN: "4-Pax / 10-Pax Boardroom", JP: "4名用 / 10名用ボードルーム" } },
-      { label: { EN: "Display", JP: "映像設備" }, val: { EN: "4K Smart Screen & VC Cam", JP: "4Kスマートスクリーン・VCカメラ" } },
+      { label: { EN: "Display", JP: "映像設備" }, val: { EN: "Presentation Screen & VC Cam", JP: "大型スマートスクリーン・VCカメラ" } },
       { label: { EN: "Acoustics", JP: "音響" }, val: { EN: "Sound-Dampened Privacy", JP: "吸音・プライバシー保護設計" } },
       { label: { EN: "Booking", JP: "予約" }, val: { EN: "Instant Member App / Desk", JP: "アプリ・受付即時予約" } },
     ],

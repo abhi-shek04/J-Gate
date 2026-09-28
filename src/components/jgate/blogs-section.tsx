@@ -224,14 +224,14 @@ const ALL_REAL_PHOTOS: RealPhotoItem[] = [
     alt: "16-seat International Executive Boardroom with multinational flags",
     title: { EN: "16-Seat Boardroom", JP: "16名用 国際会議室" },
     subtitle: {
-      EN: "Conference room with 16-seat table, executive leather chairs, 4K screen, and 8 international flags.",
-      JP: "16席のテーブル、レザーチェア、4Kモニター、国際旗を備えた大会議室。",
+      EN: "Conference room with 16-seat table, executive leather chairs, presentation screen, and 8 international flags.",
+      JP: "16席のテーブル、レザーチェア、大型モニター、国際旗を備えた大会議室。",
     },
     badge: { EN: "16-Seat Boardroom", JP: "16名会議室" },
     location: { EN: "Conference Wing, 2nd Floor", JP: "2階 会議室エリア" },
     specs: [
       { label: { EN: "Capacity", JP: "定員" }, val: { EN: "16 Executive Seats", JP: "16席" } },
-      { label: { EN: "Display", JP: "映像" }, val: { EN: "4K Screen & Video Cam", JP: "4K大型モニター・カメラ" } },
+      { label: { EN: "Display", JP: "映像" }, val: { EN: "Presentation Screen & VC Cam", JP: "大型モニター・カメラ" } },
       { label: { EN: "Flags", JP: "国旗" }, val: { EN: "8 Multinational Flags", JP: "8カ国旗常設" } },
       { label: { EN: "Walls", JP: "遮音" }, val: { EN: "Sound-Dampened Walls", JP: "遮音壁構造" } },
     ],
@@ -410,12 +410,12 @@ const ZONES: ZoneDef[] = [
     tag: { EN: "Meeting Rooms", JP: "会議室・面談室" },
     title: { EN: "16-Seat Boardroom & 4-Seat Discussion Room", JP: "16名用 国際会議室＆4名用面談室" },
     lead: {
-      EN: "Meeting rooms designed for executive meetings, video conferences, and private interviews. Fitted with national flags, 4K displays, and whiteboards.",
-      JP: "役員会議、オンライン会議、採用面接に対応する会議室。多国籍旗、4Kモニター、ホワイトボードを完備。",
+      EN: "Meeting rooms designed for executive meetings, video conferences, and private interviews. Fitted with national flags, presentation displays, and whiteboards.",
+      JP: "役員会議、オンライン会議、採用面接に対応する会議室。多国籍旗、大型モニター、ホワイトボードを完備。",
     },
     icon: Flag,
     highlights: [
-      { EN: "16-Seat Boardroom with 8 international flags and 4K screen", JP: "8カ国旗と4K画面を備えた16名用大会議室" },
+      { EN: "16-Seat Boardroom with 8 international flags and presentation screen", JP: "8カ国旗と大型画面を備えた16名用大会議室" },
       { EN: "4-Seat discussion room with round table and whiteboard", JP: "少人数の面談や討議に適した4名用円卓個室" },
       { EN: "Reservation coordination via member desk", JP: "事前・即時予約対応" },
     ],

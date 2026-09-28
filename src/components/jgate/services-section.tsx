@@ -45,31 +45,31 @@ const CORE_SERVICES: ServiceItem[] = [
     num: "01",
     id: "setup",
     icon: FileCheck2,
-    badge: { EN: "Setup & Legal", JP: "法人設立・登記" },
+    badge: { EN: "Setup & Local Advisory", JP: "現地展開・アドバイザリー支援" },
     title: {
-      EN: "Company Setup & Corporate Banking",
-      JP: "法人設立登記・公式住所・法人口座開設",
+      EN: "Company Setup & Local Business Advisory",
+      JP: "進出準備・ローカルアドバイザリーサポート",
     },
     desc: {
-      EN: "We provide an official commercial registered address at Cyber Gateway, handle full MCA Private Limited (Pvt. Ltd.) incorporation, obtain statutory PAN/TAN/GSTIN tax registrations, and assist with corporate bank accounts at MUFG, SBI, or HDFC.",
-      JP: "Cyber Gateway公式商業登記住所の提供、インド会社法に基づく現地法人（Pvt. Ltd.）設立、PAN・TAN・GSTIN等の法定税務登録、および日系提携銀行や大手商業銀行での法人口座開設を一貫して代行・支援します。",
+      EN: "We assist Japanese companies with location setup at Cyber Gateway, introduce vetted local accounting and legal partners for company incorporation (Pvt. Ltd.) and statutory tax registrations (PAN/TAN/GSTIN), and provide local banking guidance.",
+      JP: "Cyber Gatewayでの拠点準備、現地提携の専門家（会計事務所・弁護士）を通じた会社設立（Pvt. Ltd.）および税務登録（PAN/TAN/GSTIN）の手続きサポート、現地口座開設アドバイザリーを包括支援します。",
     },
     points: [
       {
-        EN: "Official commercial registered address in Cyber Gateway, Hitech City",
-        JP: "Cyber Gateway公式商業登記住所の発行（MCA・GST申請対応）",
+        EN: "Official business location setup support at Cyber Gateway, Hitech City",
+        JP: "Cyber Gateway（Hitech City）での拠点準備・入居手続サポート",
       },
       {
-        EN: "Complete MCA SPICe+ filing: COI, DIN & Digital Signatures (DSC)",
-        JP: "社名予約、取締役番号（DIN）、電子署名、設立証明書（COI）の取得",
+        EN: "Introductions to vetted accounting & legal partners for company setup",
+        JP: "現地提携専門家（会計・法務）の紹介と進出アドバイザリー",
       },
       {
-        EN: "Statutory tax registrations (Corporate PAN, withholding TAN & GSTIN)",
-        JP: "法人税務番号（PAN）、源泉税番号（TAN）、GSTINの取得手続き",
+        EN: "Assistance and guidance for local tax registration procedures (PAN/TAN/GSTIN)",
+        JP: "税務登録（PAN/TAN/GSTIN）に関する情報提供・各種手続支援",
       },
       {
-        EN: "Corporate bank account opening & RBI foreign remittance reporting",
-        JP: "日系提携行・大手商業銀行での口座開設および外資受入（RBI）報告支援",
+        EN: "Local corporate banking guidance and advisory support",
+        JP: "現地提携行・商業銀行での法人口座開設に関する相談・同席支援",
       },
     ],
   },
@@ -83,8 +83,8 @@ const CORE_SERVICES: ServiceItem[] = [
       JP: "即日入居可能な専用オフィス・執務設備",
     },
     desc: {
-      EN: "Move in immediately into fully furnished lockable private cabins and dedicated desks at Cyber Gateway. Includes high-speed redundant fiber internet, 100% UPS and generator backup, 4K meeting rooms, and 24/7 smart keycard security.",
-      JP: "Cyber Gateway内に専用施錠個室キャビンと人間工学デスクを完備。二重冗長化の高速光回線、100%無停電電源（UPS＋自家発電）、役員用会議室、防音ブース、24時間セキュリティを完備し、契約後すぐに業務を開始できます。",
+      EN: "Move in immediately into fully furnished lockable private cabins and dedicated desks at Cyber Gateway. Includes high-speed redundant fiber internet, 100% UPS and generator backup, equipped meeting rooms, and 24/7 smart keycard security.",
+      JP: "Cyber Gateway内に専用施錠個室キャビンと人間工学デスクを完備。二重冗長化の高速光回線、100%無停電電源（UPS＋自家発電）、プレゼン設備付き会議室、24時間セキュリティを完備し、すぐ業務を開始できます。",
     },
     points: [
       {
@@ -100,8 +100,8 @@ const CORE_SERVICES: ServiceItem[] = [
         JP: "瞬停も防ぐ大型無停電電源装置（UPS）と自家発電機の二重バックアップ",
       },
       {
-        EN: "24/7 keycard access, CCTV monitoring, 4K boardrooms & focus phone booths",
-        JP: "24時間入退館管理、CCTV監視、役員用4K会議室、個別防音ブース",
+        EN: "24/7 keycard access, CCTV monitoring, and equipped client meeting rooms",
+        JP: "24時間入退館管理、CCTV監視、プレゼン設備完備の会議室",
       },
     ],
   },
@@ -260,12 +260,12 @@ const INDOBOX_COMPETENCIES = [
   },
   {
     icon: ShieldCheck,
-    title: { EN: "Tenant Success & Bilateral SLA Management", JP: "入居テナント伴走・SLA品質保証" },
+    title: { EN: "Tenant Success & Japanese Support Management", JP: "入居テナント伴走・サポート品質管理" },
     detail: {
       EN: "Ongoing executive oversight of facility satisfaction, confidential reviews, and rapid issue escalation.",
       JP: "入居企業の満足度管理、守秘ミーティングの調整、緊急時の迅速なエスカレーション対応。",
     },
-    tag: { EN: "Executive SLA", JP: "品質保証管理" },
+    tag: { EN: "Executive Support", JP: "品質サポート管理" },
   },
 ];
 
@@ -284,7 +284,7 @@ const GENESYS_COMPETENCIES = [
     title: { EN: "Dual 1Gbps Redundant Enterprise Fiber Backbone", JP: "二重冗長化 1Gbps対称高速光回線" },
     detail: {
       EN: "Dedicated enterprise bandwidth with redundant carrier failover, optimized for Tokyo business hours.",
-      JP: "二重化された専用高速光回線。日本本社との大容量データ通信・4Kビデオ会議の無停電接続。",
+      JP: "二重化された専用高速光回線。日本本社との大容量データ通信・ビデオ会議の無停電接続。",
     },
     tag: { EN: "99.9% Uptime", JP: "二重回線保証" },
   },
@@ -648,7 +648,7 @@ export function ServicesSection({ id }: { id?: string }) {
                       </div>
                     </div>
                     <span className="text-[9px] sm:text-[9.5px] font-mono font-bold tracking-widest text-slate-500 dark:text-slate-400 uppercase mt-1.5 sm:mt-2 text-center">
-                      JOINT SLA
+                      JOINT MODEL
                     </span>
                   </div>
 
@@ -692,7 +692,7 @@ export function ServicesSection({ id }: { id?: string }) {
                     </span>
                     <div>
                       <h4 className="font-serif-jp text-[14.5px] font-bold text-ink dark:text-white">
-                        {tx({ EN: "Single-Window Contract & SLA Accountability", JP: "ワンストップ契約＆一元管理保証" })}
+                        {tx({ EN: "Single-Window Contract & Unified Accountability", JP: "ワンストップ契約＆一元管理保証" })}
                       </h4>
                       <p className="font-inter text-[12.5px] text-slate-600 dark:text-slate-300 leading-snug">
                         {tx({
@@ -735,7 +735,7 @@ export function ServicesSection({ id }: { id?: string }) {
                     </div>
                   </div>
                   <span className="font-mono text-[10px] sm:text-[11px] text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-white/5 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded border border-slate-200/70 dark:border-white/10 font-semibold">
-                    6 SLA LANES
+                    6 CAPABILITIES
                   </span>
                 </div>
 
@@ -788,7 +788,7 @@ export function ServicesSection({ id }: { id?: string }) {
                     </div>
                   </div>
                   <span className="font-mono text-[10px] sm:text-[11px] text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-white/5 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded border border-slate-200/70 dark:border-white/10 font-semibold">
-                    6 SLA LANES
+                    6 CAPABILITIES
                   </span>
                 </div>
 

@@ -3,6 +3,8 @@
 import { PageHero } from "@/components/jgate/page-hero";
 import { ComparisonTable } from "@/components/jgate/comparison-table";
 import { PillarsDetail } from "@/components/jgate/pillars-detail";
+import { USPMatrix } from "@/components/jgate/usp-matrix";
+import { GatewayDiagram } from "@/components/jgate/gateway-diagram";
 import { useI18n } from "@/lib/i18n";
 
 export function WhyJGateSection({ id }: { id?: string }) {
@@ -23,6 +25,8 @@ export function WhyJGateSection({ id }: { id?: string }) {
           { EN: "Immediate Day 1 Start", JP: "即日稼働スタート" },
         ]}
       />
+      <USPMatrix />
+      <GatewayDiagram />
       <ComparisonTable />
       <PillarsDetail />
     </section>

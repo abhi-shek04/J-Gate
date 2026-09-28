@@ -67,8 +67,7 @@ export function Timeline() {
               className="mt-4 font-serif-jp font-bold leading-[1.18] text-white"
               style={{ fontSize: "clamp(1.875rem, 4vw, 2.5rem)" }}
             >
-              The Launch of J-Gate —{" "}
-              <span className="text-gradient-saffron">June 22, 2026</span>
+              The Launch of J-Gate — June 22, 2026
             </h2>
           </div>
         </Reveal>

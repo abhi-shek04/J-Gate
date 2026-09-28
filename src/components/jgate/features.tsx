@@ -80,8 +80,7 @@ export function Features() {
               className="mt-4 font-serif-jp font-bold leading-[1.18] text-white"
               style={{ fontSize: "clamp(1.875rem, 4vw, 2.625rem)" }}
             >
-              Everything You Need to{" "}
-              <span className="text-gradient-saffron">Succeed in India</span>
+              Everything You Need to Succeed in India
             </h2>
           </div>
         </Reveal>

@@ -516,9 +516,7 @@ export function BlogsSection({ id }: { id?: string }) {
           <>
             {tx({ EN: "Office & Facilities ", JP: "オフィス写真・" })}
             <br className="hidden sm:inline" />
-            <span className="text-gradient-saffron">
-              {tx({ EN: "Cyber Gateway, Hyderabad", JP: "施設ギャラリー" })}
-            </span>
+            {tx({ EN: "Cyber Gateway, Hyderabad", JP: "施設ギャラリー" })}
           </>
         }
         subtitleNode={tx({

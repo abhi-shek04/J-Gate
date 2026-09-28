@@ -42,7 +42,7 @@ export function FinalCta() {
             >
               Your India Journey
               <br />
-              <span className="text-gradient-saffron">Begins Here.</span>
+              Begins Here.
             </h2>
             <p className="mt-5 font-serif-jp text-[18px] text-saffron/70">
               日本企業向け専用ワーキングスペース — A New Horizon for India-Japan Business

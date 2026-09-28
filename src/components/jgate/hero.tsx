@@ -1,7 +1,7 @@
 "use client";
 
 import { Download, ArrowRight } from "lucide-react";
-import { ToriiWatermark, JapanFlag, IndiaFlag, HyderabadSkyline } from "./icons";
+import { ToriiWatermark, HyderabadSkyline } from "./icons";
 import { useI18n } from "@/lib/i18n";
 import { useBrochure } from "@/lib/brochure-context";
 
@@ -83,10 +83,8 @@ export function Hero() {
       {/* Content */}
       <div className="container-jg relative z-10 pt-28 pb-32 text-center">
         {/* Eyebrow */}
-        <span className="inline-flex items-center gap-2 rounded-md bg-crimson px-4 py-1.5 font-inter text-[13px] font-medium text-white shadow-crimp" style={{ letterSpacing: "0.1em" }}>
-          <JapanFlag className="h-3.5 w-5" />
+        <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-1.5 font-inter text-[12px] font-semibold uppercase text-white backdrop-blur-md" style={{ letterSpacing: "0.15em" }}>
           {t("hero.eyebrow")}
-          <IndiaFlag className="h-3.5 w-5" />
         </span>
 
         {/* H1 */}
@@ -96,7 +94,7 @@ export function Hero() {
         >
           {t("hero.title1")}
           <br />
-          <span className="text-gradient-saffron">{t("hero.title2")}</span>
+          {t("hero.title2")}
         </h1>
 
         {/* Subtitle */}

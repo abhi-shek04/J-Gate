@@ -62,8 +62,7 @@ export function Amenities() {
               className="mt-4 font-serif-jp font-bold leading-[1.18] text-white"
               style={{ fontSize: "clamp(1.875rem, 4vw, 2.5rem)" }}
             >
-              Every Detail Designed for{" "}
-              <span className="text-gradient-saffron">Japanese Professionals</span>
+              Every Detail Designed for Japanese Professionals
             </h2>
           </div>
         </Reveal>

@@ -52,7 +52,7 @@ export function Events() {
               className="mt-4 font-serif-jp font-bold leading-[1.18] text-white"
               style={{ fontSize: "clamp(1.875rem, 4vw, 2.375rem)" }}
             >
-              Life Inside <span className="text-gradient-saffron">J-Gate</span>
+              Life Inside J-Gate
             </h2>
             <p className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-mist" style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}>
               J-Gate is not just where you work — it&apos;s where you belong.

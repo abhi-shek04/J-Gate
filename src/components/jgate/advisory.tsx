@@ -43,8 +43,7 @@ export function Advisory() {
               className="mt-4 font-serif-jp font-bold leading-[1.18] text-white"
               style={{ fontSize: "clamp(1.875rem, 4vw, 2.5rem)" }}
             >
-              Guided by India&apos;s{" "}
-              <span className="text-gradient-saffron">Most Respected Business Leaders</span>
+              Guided by India&apos;s Most Respected Business Leaders
             </h2>
             <p className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-mist" style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}>
               J-Gate&apos;s Advisory Council brings together former leaders of

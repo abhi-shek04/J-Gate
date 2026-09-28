@@ -2,7 +2,6 @@
 
 import { Reveal } from "./shared";
 import { useI18n } from "@/lib/i18n";
-import { JapanFlag, IndiaFlag } from "./icons";
 import { Sparkles, CheckCircle2 } from "lucide-react";
 import type { ReactNode } from "react";
 import { cn } from "@/lib/utils";
@@ -61,19 +60,10 @@ export function PageHero({
             <div className="lg:col-span-7 text-left space-y-3.5">
               <Reveal variant="left">
                 {eyebrowContent && (
-                  <div className="inline-flex items-center gap-2.5 rounded-full border border-slate-200/90 dark:border-white/15 bg-white/90 dark:bg-white/[0.06] px-4 py-1.5 shadow-2xs backdrop-blur-md">
-                    <span className="flex h-2 w-2 relative">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-crimson opacity-75" />
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-crimson" />
-                    </span>
-                    <span className="font-inter text-[11px] sm:text-[12px] font-extrabold tracking-[0.18em] uppercase text-crimson dark:text-rose-400">
+                  <div className="inline-flex items-center gap-2 rounded-full border border-slate-200/90 dark:border-white/15 bg-white/90 dark:bg-white/[0.06] px-3.5 py-1 shadow-2xs backdrop-blur-md">
+                    <span className="font-inter text-[11px] sm:text-[12px] font-bold tracking-[0.14em] uppercase text-crimson dark:text-rose-400">
                       {eyebrowContent}
                     </span>
-                    <span className="hidden sm:inline-block h-3 w-px bg-slate-200 dark:bg-white/20" />
-                    <div className="hidden sm:flex items-center gap-1">
-                      <JapanFlag className="h-3 w-4 rounded-2xs shadow-2xs" />
-                      <IndiaFlag className="h-3 w-4 rounded-2xs shadow-2xs" />
-                    </div>
                   </div>
                 )}
 
@@ -82,12 +72,6 @@ export function PageHero({
                 >
                   {titleNode}
                 </h2>
-
-                {/* Minimalist Accent Line */}
-                <div className="flex items-center gap-2 pt-1" aria-hidden>
-                  <div className="h-1 w-1 rounded-full bg-crimson" />
-                  <div className="h-0.5 w-14 bg-gradient-to-r from-crimson via-saffron to-transparent" />
-                </div>
               </Reveal>
             </div>
 
@@ -140,16 +124,10 @@ export function PageHero({
       <div className="container-jg relative z-10 text-center max-w-4xl mx-auto px-4">
         <Reveal>
           {eyebrowContent && (
-            <div className="inline-flex items-center gap-2.5 rounded-full border border-slate-200/90 dark:border-white/15 bg-white/90 dark:bg-white/[0.06] px-4 py-1.5 shadow-2xs backdrop-blur-md">
-              <JapanFlag className="h-3 w-4 rounded-2xs shadow-2xs shrink-0" />
-              <span className="flex h-2 w-2 relative shrink-0">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-crimson opacity-75" />
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-crimson" />
-              </span>
-              <span className="font-inter text-[11px] sm:text-[12px] font-extrabold tracking-[0.18em] uppercase text-crimson dark:text-rose-400">
+            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200/90 dark:border-white/15 bg-white/90 dark:bg-white/[0.06] px-3.5 py-1 shadow-2xs backdrop-blur-md">
+              <span className="font-inter text-[11px] sm:text-[12px] font-bold tracking-[0.14em] uppercase text-crimson dark:text-rose-400">
                 {eyebrowContent}
               </span>
-              <IndiaFlag className="h-3 w-4 rounded-2xs shadow-2xs shrink-0" />
             </div>
           )}
 
@@ -178,13 +156,6 @@ export function PageHero({
               ))}
             </div>
           )}
-
-          {/* Minimalist Japanese Architectural Accent Mark */}
-          <div className="mx-auto mt-5 sm:mt-6 flex items-center justify-center gap-2.5" aria-hidden>
-            <div className="h-px w-12 bg-gradient-to-r from-transparent via-slate-300 dark:via-white/25 to-transparent" />
-            <div className="h-1.5 w-1.5 rotate-45 bg-saffron shadow-2xs" />
-            <div className="h-px w-12 bg-gradient-to-r from-transparent via-slate-300 dark:via-white/25 to-transparent" />
-          </div>
         </Reveal>
       </div>
     </div>

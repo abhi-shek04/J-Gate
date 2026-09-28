@@ -341,9 +341,7 @@ export function ServicesSection({ id }: { id?: string }) {
           <>
             {tx({ EN: "Comprehensive Setup & ", JP: "包括的インド進出支援・" })}
             <br className="hidden sm:inline" />
-            <span className="text-gradient-saffron">
-              {tx({ EN: "Operational Solutions", JP: "サービス仕様・運営基盤" })}
-            </span>
+            {tx({ EN: "Operational Solutions", JP: "サービス仕様・運営基盤" })}
           </>
         }
         subtitleNode={tx({

@@ -69,8 +69,7 @@ export function Partners() {
               className="mt-4 font-serif-jp font-bold leading-[1.18] text-white"
               style={{ fontSize: "clamp(1.875rem, 4vw, 2.5rem)" }}
             >
-              Backed by Hyderabad&apos;s{" "}
-              <span className="text-gradient-saffron">Most Powerful Network</span>
+              Backed by Hyderabad&apos;s Most Powerful Network
             </h2>
             <p className="mx-auto mt-4 max-w-[640px] font-inter leading-relaxed text-mist" style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}>
               J-Gate is not a standalone space. It is embedded inside an

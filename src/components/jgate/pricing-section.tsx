@@ -338,9 +338,7 @@ export function PricingSection({ id }: { id?: string }) {
           <>
             {tx({ EN: "Membership Fee Plans ", JP: "ハイデラバード拠点 " })}
             <br className="hidden sm:inline" />
-            <span className="text-gradient-saffron">
-              {tx({ EN: "— Hyderabad Operating Hub", JP: "メンバーシップ料金プラン" })}
-            </span>
+            {tx({ EN: "— Hyderabad Operating Hub", JP: "メンバーシップ料金プラン" })}
           </>
         }
         subtitleNode={tx({

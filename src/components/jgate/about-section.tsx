@@ -118,9 +118,7 @@ export function AboutSection({ id }: { id?: string }) {
           <>
             {tx({ EN: "From India Entry Spark ", JP: "インド展開の" })}
             <br className="hidden sm:inline" />
-            <span className="text-gradient-saffron">
-              {tx({ EN: "to Talent Development", JP: "きっかけ作りから育成まで" })}
-            </span>
+            {tx({ EN: "to Talent Development", JP: "きっかけ作りから育成まで" })}
           </>
         }
         subtitleNode={tx({

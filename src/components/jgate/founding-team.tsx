@@ -14,7 +14,7 @@ const FOUNDERS = [
     accent: "from-crimson to-midnight",
     border: "border-left-crimson",
     flag: "jp" as const,
-    badge: "🇯🇵 Japanese National, India-based (10+ years)",
+    badge: "Japanese National, India-based (10+ years)",
     tags: ["Business Strategy", "Career Placement", "Bilateral Relations"],
     linkedin: "https://www.linkedin.com/in/daisuke-tanji/",
     bio: [
@@ -32,7 +32,7 @@ const FOUNDERS = [
     accent: "from-saffron to-navy",
     border: "border-left-saffron-thin",
     flag: "in" as const,
-    badge: "🇮🇳 Hyderabad-based Business Leader",
+    badge: "Hyderabad-based Business Leader",
     tags: ["Digital Transformation", "MoU Partnerships", "Market Entry"],
     linkedin: "https://www.linkedin.com/in/dr-viinay-sarikonda-5b23261a/",
     bio: [

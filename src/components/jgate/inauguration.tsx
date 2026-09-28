@@ -2,6 +2,7 @@
 
 import { Reveal, Eyebrow } from "./shared";
 import { Photo, useLightbox, type PhotoItem } from "./photo";
+import { Calendar, Users, Mic, Sparkles, Handshake, Building2, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const PHOTOS: PhotoItem[] = [
@@ -13,13 +14,13 @@ const PHOTOS: PhotoItem[] = [
 ];
 
 const TIMELINE = [
-  { icon: "📅", date: "June 22, 2026", title: "Doors Open", desc: "J-Gate officially inaugurated at Cyber Gateway, Hyderabad." },
-  { icon: "👥", date: "Launch Day", title: "50+ Distinguished Guests", desc: "Global business leaders, entrepreneurs, state officials, university representatives, Japanese expatriates, and students — all present." },
-  { icon: "🎤", date: "Keynote", title: "Inaugural Keynote", desc: "Distinguished guests deliver congratulatory addresses, affirming strong bilateral support for J-Gate's mission in Hyderabad." },
-  { icon: "🍡", date: "Omotenashi", title: "Omotenashi Moment", desc: "Guests welcomed with Daifuku Mochi (大福餅 — \"Great Fortune\") and authentic Japanese green tea. The philosophy of wholehearted hospitality, made tangible." },
-  { icon: "🤝", date: "Partnership", title: "MoU Signed", desc: "Mr. Daisuke Tanji and Mr. Viinay Sarikonda formalize the Indobox × Genesys Info X partnership — the operational backbone of J-Gate." },
-  { icon: "🏛", date: "Council", title: "Advisory Council Inaugurated", desc: "Mr. Sujit Jagirdar and Mr. Srinivas Rao Mahankali (former CIO and CEO of T-Hub) join the Advisory Council and pledge their full support." },
-  { icon: "🇯🇵", date: "Day 1", title: "Two Founding Members Join", desc: "Two Japanese companies announce membership on Day 1 — proof that demand existed before the doors even opened." },
+  { icon: Calendar, date: "June 22, 2026", title: "Doors Open", desc: "J-Gate officially inaugurated at Cyber Gateway, Hyderabad." },
+  { icon: Users, date: "Launch Day", title: "50+ Distinguished Guests", desc: "Global business leaders, entrepreneurs, state officials, university representatives, Japanese expatriates, and students — all present." },
+  { icon: Mic, date: "Keynote", title: "Inaugural Keynote", desc: "Distinguished guests deliver congratulatory addresses, affirming strong bilateral support for J-Gate's mission in Hyderabad." },
+  { icon: Sparkles, date: "Omotenashi", title: "Omotenashi Moment", desc: "Guests welcomed with Daifuku Mochi (大福餅 — \"Great Fortune\") and authentic Japanese green tea. The philosophy of wholehearted hospitality, made tangible." },
+  { icon: Handshake, date: "Partnership", title: "MoU Signed", desc: "Mr. Daisuke Tanji and Mr. Viinay Sarikonda formalize the Indobox × Genesys Info X partnership — the operational backbone of J-Gate." },
+  { icon: Building2, date: "Council", title: "Advisory Council Inaugurated", desc: "Mr. Sujit Jagirdar and Mr. Srinivas Rao Mahankali (former CIO and CEO of T-Hub) join the Advisory Council and pledge their full support." },
+  { icon: CheckCircle2, date: "Day 1", title: "Two Founding Members Join", desc: "Two Japanese companies announce membership on Day 1 — proof that demand existed before the doors even opened." },
 ];
 
 export function Inauguration() {
@@ -115,6 +116,7 @@ export function Inauguration() {
           <ol className="space-y-8">
             {TIMELINE.map((e, i) => {
               const isLeft = i % 2 === 0;
+              const IconComp = e.icon;
               return (
                 <li
                   key={e.title}
@@ -124,10 +126,10 @@ export function Inauguration() {
                   )}
                 >
                   <span
-                    className="absolute left-5 top-3 z-10 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full border-2 border-crimson bg-ivory-warm text-lg shadow-crimp sm:left-1/2"
+                    className="absolute left-5 top-3 z-10 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full border-2 border-crimson bg-white dark:bg-[#101826] text-crimson shadow-md sm:left-1/2"
                     aria-hidden
                   >
-                    {e.icon}
+                    <IconComp className="h-4.5 w-4.5 text-crimson dark:text-rose-400" />
                   </span>
                   <Reveal
                     variant={isLeft ? "left" : "right"}

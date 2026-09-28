@@ -25,6 +25,7 @@ import {
   Lock,
   Handshake,
 } from "lucide-react";
+import { JapanFlag, IndiaFlag } from "./icons";
 
 type Bilingual = { EN: string; JP: string };
 
@@ -612,7 +613,7 @@ export function ServicesSection({ id }: { id?: string }) {
                   <div className="md:col-span-5 rounded-xl sm:rounded-2xl border border-crimson/20 dark:border-crimson/30 bg-gradient-to-b from-rose-50/40 via-white to-slate-50/50 dark:from-rose-950/20 dark:via-[#101a2c] dark:to-[#0b111e] p-4 sm:p-6 text-center relative overflow-hidden group hover:border-crimson/50 hover:shadow-md transition-all duration-300">
                     <span className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson to-crimson-deep" />
                     <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-crimson/10 dark:bg-rose-950/50 border border-crimson/20 dark:border-rose-400/30 text-crimson dark:text-rose-400 text-[10.5px] sm:text-[11px] font-bold font-inter mb-3 sm:mb-4">
-                      <span>🇯🇵</span>
+                      <JapanFlag className="h-3.5 w-5 rounded-xs shrink-0" />
                       <span>{tx({ EN: "Japan Governance & Strategy", JP: "日本側ガバナンス・戦略統括" })}</span>
                     </div>
 
@@ -657,7 +658,7 @@ export function ServicesSection({ id }: { id?: string }) {
                   <div className="md:col-span-5 rounded-xl sm:rounded-2xl border border-saffron/25 dark:border-amber-400/30 bg-gradient-to-b from-amber-50/40 via-white to-slate-50/50 dark:from-amber-950/20 dark:via-[#101a2c] dark:to-[#0b111e] p-4 sm:p-6 text-center relative overflow-hidden group hover:border-saffron/50 hover:shadow-md transition-all duration-300">
                     <span className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-saffron to-[#c9881a]" />
                     <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-amber-100 dark:bg-amber-950/50 border border-amber-300/60 dark:border-amber-700/40 text-amber-900 dark:text-amber-300 text-[10.5px] sm:text-[11px] font-bold font-inter mb-3 sm:mb-4">
-                      <span>🇮🇳</span>
+                      <IndiaFlag className="h-3.5 w-5 rounded-xs shrink-0" />
                       <span>{tx({ EN: "India Infrastructure Backbone", JP: "インド現地インフラ・施設管理" })}</span>
                     </div>
 

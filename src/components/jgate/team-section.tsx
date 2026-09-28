@@ -5,6 +5,7 @@ import { PageHero } from "@/components/jgate/page-hero";
 import { LogoMarquee } from "@/components/jgate/logo-marquee";
 import { useI18n } from "@/lib/i18n";
 import { Phone, Mail, Sparkles } from "lucide-react";
+import { JapanFlag, IndiaFlag } from "./icons";
 import Link from "next/link";
 
 /* ============================================================
@@ -472,7 +473,7 @@ export function TeamSection({ id }: { id?: string }) {
 
                       {/* Flag Tag */}
                       <span className="absolute bottom-0 right-0 flex items-center gap-1 rounded-full bg-white/95 dark:bg-navy/95 px-1.5 py-0.5 text-[9px] font-bold text-slate-700 dark:text-slate-200 shadow-sm border border-slate-200/80 dark:border-white/15 backdrop-blur-sm">
-                        <span>{m.flag}</span>
+                        {m.country === "Japan" ? <JapanFlag className="h-3 w-4.5 rounded-xs shrink-0" /> : <IndiaFlag className="h-3 w-4.5 rounded-xs shrink-0" />}
                         <span className="text-[8.5px] tracking-wide uppercase font-inter">{m.country}</span>
                       </span>
 

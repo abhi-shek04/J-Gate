@@ -14,6 +14,7 @@ import {
   Building2,
   Sparkles,
 } from "lucide-react";
+import { JapanFlag, IndiaFlag } from "./icons";
 
 /* ============================================================
    About J-Gate — Executive Corporate Profile & Section
@@ -244,10 +245,10 @@ export function AboutSection({ id }: { id?: string }) {
                     {/* Floating Top Badge */}
                     <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none">
                       <span className="inline-flex items-center gap-1.5 rounded-full bg-midnight/90 border border-white/15 px-3 py-1 text-[10.5px] font-bold text-white shadow-lg backdrop-blur-md">
-                        <span className="text-[13px]">🇯🇵</span>
+                        <JapanFlag className="h-3.5 w-5 rounded-xs shrink-0" />
                         <span>Japan</span>
                         <span className="text-saffron font-bold">↔</span>
-                        <span className="text-[13px]">🇮🇳</span>
+                        <IndiaFlag className="h-3.5 w-5 rounded-xs shrink-0" />
                         <span>India</span>
                       </span>
                       <span className="inline-flex items-center gap-1.5 rounded-full bg-crimson/90 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-md">

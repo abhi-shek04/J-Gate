@@ -56,22 +56,27 @@ export function PageHero({
 
         <div className="container-jg relative z-10">
           <div className="grid lg:grid-cols-12 gap-6 sm:gap-8 items-center max-w-6xl mx-auto">
-            {/* Left Column: Eyebrow + Main Title */}
+            {/* Left Column: Eyebrow + Vertical Indicator Accent + Main Title */}
             <div className="lg:col-span-7 text-left space-y-3.5">
               <Reveal variant="left">
-                {eyebrowContent && (
-                  <div className="inline-flex items-center gap-2 rounded-full border border-slate-200/90 dark:border-white/15 bg-white/90 dark:bg-white/[0.06] px-3.5 py-1 shadow-2xs backdrop-blur-md">
-                    <span className="font-inter text-[11px] sm:text-[12px] font-bold tracking-[0.14em] uppercase text-crimson dark:text-rose-400">
-                      {eyebrowContent}
-                    </span>
-                  </div>
-                )}
+                <div className="flex gap-4 sm:gap-5 items-start">
+                  <div className="hidden sm:block h-12 w-1 rounded-full bg-gradient-to-b from-crimson to-crimson-deep dark:from-rose-500 dark:to-rose-700 shrink-0 mt-2 shadow-sm" />
+                  <div className="space-y-2.5">
+                    {eyebrowContent && (
+                      <div className="inline-flex items-center gap-2 rounded-full border border-slate-200/90 dark:border-white/15 bg-white/90 dark:bg-white/[0.06] px-3.5 py-1 shadow-2xs backdrop-blur-md">
+                        <span className="font-inter text-[11px] sm:text-[12px] font-bold tracking-[0.14em] uppercase text-crimson dark:text-rose-400">
+                          {eyebrowContent}
+                        </span>
+                      </div>
+                    )}
 
-                <h2
-                  className="font-serif-jp font-extrabold leading-[1.18] text-ink dark:text-white tracking-tight drop-shadow-2xs text-[26px] sm:text-[34px] lg:text-[40px] mt-2"
-                >
-                  {titleNode}
-                </h2>
+                    <h2
+                      className="font-serif-jp font-extrabold leading-[1.18] text-ink dark:text-white tracking-tight drop-shadow-2xs text-[26px] sm:text-[34px] lg:text-[40px]"
+                    >
+                      {titleNode}
+                    </h2>
+                  </div>
+                </div>
               </Reveal>
             </div>
 
@@ -124,15 +129,19 @@ export function PageHero({
       <div className="container-jg relative z-10 text-center max-w-4xl mx-auto px-4">
         <Reveal>
           {eyebrowContent && (
-            <div className="inline-flex items-center gap-2 rounded-full border border-slate-200/90 dark:border-white/15 bg-white/90 dark:bg-white/[0.06] px-3.5 py-1 shadow-2xs backdrop-blur-md">
-              <span className="font-inter text-[11px] sm:text-[12px] font-bold tracking-[0.14em] uppercase text-crimson dark:text-rose-400">
-                {eyebrowContent}
-              </span>
+            <div className="mx-auto mb-3 flex items-center justify-center gap-3">
+              <span className="h-px w-8 bg-slate-300 dark:bg-white/20" />
+              <div className="inline-flex items-center gap-2 rounded-full border border-slate-200/90 dark:border-white/15 bg-white/90 dark:bg-white/[0.06] px-3.5 py-1 shadow-2xs backdrop-blur-md">
+                <span className="font-inter text-[11px] sm:text-[12px] font-bold tracking-[0.14em] uppercase text-crimson dark:text-rose-400">
+                  {eyebrowContent}
+                </span>
+              </div>
+              <span className="h-px w-8 bg-slate-300 dark:bg-white/20" />
             </div>
           )}
 
           <h2
-            className="mx-auto mt-3.5 sm:mt-4 font-serif-jp font-extrabold leading-[1.2] text-ink dark:text-white tracking-tight drop-shadow-2xs text-[26px] sm:text-[34px] lg:text-[40px] max-w-4xl"
+            className="mx-auto mt-2.5 sm:mt-3 font-serif-jp font-extrabold leading-[1.2] text-ink dark:text-white tracking-tight drop-shadow-2xs text-[26px] sm:text-[34px] lg:text-[40px] max-w-4xl"
           >
             {titleNode}
           </h2>

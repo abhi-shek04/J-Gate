@@ -102,17 +102,23 @@ export function SectionHeading({
   return (
     <div className={cn("max-w-3xl", align === "center" ? "mx-auto text-center" : "text-left")}>
       {eyebrow && (
-        <span
-          className={cn("inline-block text-[11px] font-semibold uppercase", light ? "text-saffron" : "text-crimson")}
-          style={{ letterSpacing: "0.2em" }}
-        >
-          {eyebrow}
-        </span>
+        <div className={cn("mb-3 flex items-center gap-2.5", align === "center" ? "justify-center" : "justify-start")}>
+          {align === "center" && <span className={cn("h-px w-6 sm:w-8", light ? "bg-white/30" : "bg-crimson/30")} />}
+          <span
+            className={cn(
+              "inline-block rounded-full px-3 py-0.5 text-[11px] font-bold uppercase tracking-[0.18em]",
+              light ? "bg-white/10 text-saffron border border-white/15" : "bg-crimson/10 text-crimson border border-crimson/20"
+            )}
+          >
+            {eyebrow}
+          </span>
+          {align === "center" && <span className={cn("h-px w-6 sm:w-8", light ? "bg-white/30" : "bg-crimson/30")} />}
+        </div>
       )}
       <h2
         className={cn(
-          "mt-4 font-serif-jp font-bold leading-[1.15]",
-          light ? "text-white" : "text-ink",
+          "mt-2 font-serif-jp font-bold leading-[1.18]",
+          light ? "text-white" : "text-ink dark:text-white",
           "text-[clamp(1.875rem,4vw,2.75rem)]",
           align === "center" ? "mx-auto" : ""
         )}
@@ -122,8 +128,8 @@ export function SectionHeading({
       {subtitle && (
         <p
           className={cn(
-            "mt-4 font-inter leading-relaxed",
-            light ? "text-mist" : "text-slate",
+            "mt-3 sm:mt-4 font-inter leading-relaxed",
+            light ? "text-mist" : "text-slate-600 dark:text-slate-300",
             "text-[clamp(0.9rem,1.6vw,1.0625rem)]",
             align === "center" ? "mx-auto max-w-2xl" : "max-w-xl"
           )}

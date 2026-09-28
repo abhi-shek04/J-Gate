@@ -131,8 +131,8 @@ const CORE_SERVICES: ServiceItem[] = [
         JP: "現地企業との重要商談や州政府機関訪問への日本人役員同席サポート",
       },
       {
-        EN: "Tokyo headquarters reporting alignment & local contract dispute mediation",
-        JP: "東京本社向け業務報告書の作成助言および現地取引先との円滑な調整支援",
+        EN: "Japan parent company reporting alignment & local contract dispute advisory",
+        JP: "日本本社向け業務報告書の作成助言および現地取引先との円滑な調整支援",
       },
     ],
   },
@@ -146,8 +146,8 @@ const CORE_SERVICES: ServiceItem[] = [
       JP: "優秀な現地人材の採用支援・組織育成研修",
     },
     desc: {
-      EN: "Source and recruit qualified Indian professionals across management, sales, operations, and specialized domains. We assist with candidate pre-screening, train local hires in Japanese business etiquette (Horenso & Kaizen) via Indobox Academy, and structure compliant employment contracts.",
-      JP: "現地の名門大学や労働市場から、マネジメント・営業・実務・専門職の優秀な現地人材を採用支援。事前面接、Indobox Academyによる日系ビジネスマナー（報連相・改善）研修、現地労働法に準拠した雇用契約締結まで包括支援します。",
+      EN: "Source and recruit qualified Indian professionals across management, sales, operations, and specialized domains. We assist with candidate pre-screening, train local hires in Japanese business etiquette (Horenso & Kaizen) via Indobox business orientation, and structure compliant employment contracts.",
+      JP: "現地の名門大学や労働市場から、マネジメント・営業・実務・専門職の優秀な現地人材を採用支援。事前面接、Indoboxビジネスオリエンテーションによる日系ビジネスマナー（報連相・改善）研修、現地労働法に準拠した雇用契約締結まで包括支援します。",
     },
     points: [
       {
@@ -159,7 +159,7 @@ const CORE_SERVICES: ServiceItem[] = [
         JP: "候補者の事前スクリーニング、スキル評価、経歴・身元照会代行",
       },
       {
-        EN: "Indobox Academy training: Japanese Horenso, Kaizen & workplace protocols",
+        EN: "Indobox business orientation: Japanese Horenso, Kaizen & workplace protocols",
         JP: "採用スタッフに対する日本の報連相文化・品質意識・ビジネスマナー集中指導",
       },
       {
@@ -214,12 +214,12 @@ const DEPLOYMENT_STEPS = [
 const INDOBOX_COMPETENCIES = [
   {
     icon: Briefcase,
-    title: { EN: "Enterprise Client Relations & Tokyo Liaison", JP: "日本企業クライアント統括・東京本社連携" },
+    title: { EN: "Enterprise Client Relations & Japan HQ Liaison", JP: "日本企業クライアント統括・日本本社連携" },
     detail: {
-      EN: "Direct communication with Tokyo headquarters, ensuring smooth corporate approvals and reporting alignment.",
-      JP: "東京本社との直接対話窓口。稟議申請や日本本社報告基準に沿った円滑なコミュニケーションを担保。",
+      EN: "Direct communication with Japanese headquarters, ensuring smooth corporate approvals and reporting alignment.",
+      JP: "日本本社との直接対話窓口。稟議申請や日本本社報告基準に沿った円滑なコミュニケーションを担保。",
     },
-    tag: { EN: "Tokyo Integration", JP: "東京本社直結" },
+    tag: { EN: "Japan HQ Alignment", JP: "日本本社直結" },
   },
   {
     icon: Compass,
@@ -241,12 +241,12 @@ const INDOBOX_COMPETENCIES = [
   },
   {
     icon: GraduationCap,
-    title: { EN: "Indobox Academy: Japanese Business Protocol", JP: "Indobox Academy：日系企業マナー研修" },
+    title: { EN: "Indobox Business & Talent Orientation", JP: "Indobox ビジネスマナー・人材研修" },
     detail: {
       EN: "Structured training for Indian employees and local hires in Horenso, Kaizen, and Japanese corporate standards.",
       JP: "採用した現地社員・スタッフに対し、日本の報連相文化、品質意識、ビジネスマナーを集中指導。",
     },
-    tag: { EN: "Accredited Program", JP: "独自教育基盤" },
+    tag: { EN: "Orientation Program", JP: "独自教育基盤" },
   },
   {
     icon: Handshake,
@@ -629,12 +629,12 @@ export function ServicesSection({ id }: { id?: string }) {
 
                     <h3 className="font-serif-jp text-base sm:text-lg font-bold text-ink dark:text-white">Indobox India Pvt. Ltd.</h3>
                     <p className="font-mono text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
-                      {tx({ EN: "Tokyo HQ & Cyber Gateway Corridor", JP: "東京本社 ＆ Cyber Gateway常駐デスク" })}
+                      {tx({ EN: "Japan-India Operations & Resident Japan Desk", JP: "日印事業統括・現地常駐ジャパンデスク" })}
                     </p>
                     <p className="text-[12px] sm:text-[12.5px] text-slate-600 dark:text-slate-300 font-inter mt-2 sm:mt-2.5 leading-relaxed">
                       {tx({
-                        EN: "Japanese director leadership, resident Japan Desk, cross-cultural arbitration, tenant care, and Indobox Academy curriculum.",
-                        JP: "日本人取締役常駐・日々のよろず相談・商習慣調整・日本本社報告支援・Indobox Academy企業文化研修。",
+                        EN: "Japanese director leadership, resident Japan Desk daily advisory, business orientation, tenant care, and parent company reporting alignment.",
+                        JP: "日本人取締役常駐・日々のよろず相談・ビジネスアドバイザリー・日本本社報告支援・現地入居企業サポート。",
                       })}
                     </p>
                   </div>
@@ -674,12 +674,12 @@ export function ServicesSection({ id }: { id?: string }) {
 
                     <h3 className="font-serif-jp text-base sm:text-lg font-bold text-ink dark:text-white">Genesys info X</h3>
                     <p className="font-mono text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
-                      {tx({ EN: "Cyber Gateway Tier-3 Facility Operator", JP: "Cyber Gateway Tier-3物理施設運営主体" })}
+                      {tx({ EN: "Hyderabad Workspace & Facilities Operator", JP: "ハイデラバード 拠点施設運営パートナー" })}
                     </p>
                     <p className="text-[12px] sm:text-[12.5px] text-slate-600 dark:text-slate-300 font-inter mt-2 sm:mt-2.5 leading-relaxed">
                       {tx({
                         EN: "Fully equipped workspace suites, high-speed fiber connectivity, 100% UPS & generator power backup, 24/7 biometric security, and facilities care.",
-                        JP: "Cyber Gateway物理空間提供・高速光回線・無停電電源装置・24時間生体認証警備・日常施設清掃管理。",
+                        JP: "完全家具付きオフィス、高速光回線、24時間無停電電源・発電設備、スマート生体認証セキュリティ、施設保守管理。",
                       })}
                     </p>
                   </div>

@@ -62,7 +62,7 @@ const BILATERAL_SYNERGIES = [
     badge: { EN: "Corporate Alignment", JP: "商習慣の調和" },
     title: { EN: "Cultural & Strategic Governance", JP: "日本品質ガバナンスと現地推進力の融合" },
     desc: {
-      EN: "Harmonizing Japanese standards of meticulous quality, compliance, and Tokyo HQ reporting with India's agile execution speed.",
+      EN: "Harmonizing Japanese standards of meticulous quality, compliance, and Japan parent company reporting with India's agile execution speed.",
       JP: "日本の高い品質基準・コンプライアンス・本社報告基準と、インド現地の圧倒的な実行スピードを高度に調和させます。",
     },
   },

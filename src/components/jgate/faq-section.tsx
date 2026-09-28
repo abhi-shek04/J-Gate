@@ -191,8 +191,8 @@ const FAQ_LIST: FAQItem[] = [
       JP: "インドの優秀なITエンジニアの採用はどのようにサポートされますか？",
     },
     a: {
-      EN: "Hyderabad produces over 100,000 engineering and tech graduates each year. J-Gate, through our operator Indobox and ties with premier institutions (IIT Hyderabad, IIIT Hyderabad, Indobox Academy), provides direct talent recruitment: pre-screening candidates in Full-Stack, AI/ML, Cloud/DevOps, and Embedded Systems, alongside cross-cultural orientation in Japanese working expectations.",
-      JP: "ハイデラバードは年間10万人超の工学系卒業生を輩出するインド屈指のIT人材供給地です。J-Gateは運営母体Indoboxおよび名門工科大学（IITハイデラバード、IIITハイデラバード）、Indobox Academyとのパイプを活かし、AI/ML・クラウド・Web開発・組込み分野のトップエンジニアを厳選採用。日本の品質意識や報連相プロトコルの事前研修も実施可能です。",
+      EN: "Hyderabad produces over 100,000 engineering and tech graduates each year. J-Gate, through our operator Indobox and ties with premier institutions (IIT Hyderabad, IIIT Hyderabad), provides direct talent recruitment: pre-screening candidates in Full-Stack, AI/ML, Cloud/DevOps, and Embedded Systems, alongside cross-cultural orientation in Japanese working expectations via Indobox business orientation.",
+      JP: "ハイデラバードは年間10万人超の工学系卒業生を輩出するインド屈指のIT人材供給地です。J-Gateは運営母体Indoboxおよび名門工科大学（IITハイデラバード、IIITハイデラバード）とのパイプを活かし、AI/ML・クラウド・Web開発・組込み分野のトップエンジニアを厳選採用。Indoboxビジネスオリエンテーションによる日本の品質意識や報連相プロトコルの事前研修も実施可能です。",
     },
     highlights: [
       { EN: "Direct sourcing from IIT Hyderabad & IIIT Hyderabad", JP: "IIT/IIITハイデラバード等の名門工科大学と直結" },

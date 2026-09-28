@@ -22,7 +22,7 @@ const FEATURES = [
   {
     icon: Wifi,
     title: "Enterprise Fiber Internet",
-    desc: "Dedicated high-speed fiber connectivity ensuring your team stays connected to Tokyo headquarters, global clients, and cloud systems with zero compromise.",
+    desc: "Dedicated high-speed fiber connectivity ensuring your team stays connected to Japan headquarters, global clients, and cloud systems with zero compromise.",
   },
   {
     icon: Mic,

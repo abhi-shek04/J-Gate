@@ -31,8 +31,8 @@ const TESTIMONIALS = [
   },
   {
     quote: {
-      EN: "From the smart key card entry to the secure lockers, everything feels enterprise-grade. The Indobox Academy sessions in the workspace gave us practical insights into Indian business customs.",
-      JP: "スマートキーカードの入退室からセキュアなロッカーまで、すべてがエンタープライズ級です。ワークスペースで開催されるIndobox Academyのセッションは、インドのビジネス習慣に関する実践的な知見を与えてくれました。",
+      EN: "From the smart key card entry to the secure lockers, everything feels enterprise-grade. The Indobox business orientation sessions in the workspace gave us practical insights into Indian business customs.",
+      JP: "スマートキーカードの入退室からセキュアなロッカーまで、すべてがエンタープライズ級です。ワークスペースで開催されるIndoboxビジネスオリエンテーションのセッションは、インドのビジネス習慣に関する実践的な知見を与えてくれました。",
     },
     author: { EN: "Branch Manager", JP: "ブランチマネージャー" },
     role: { EN: "Japanese Enterprise", JP: "日本企業" },

@@ -1,8 +1,8 @@
-﻿import { ContactSection } from "@/components/jgate/contact-section";
+import { ContactSection } from "@/components/jgate/contact-section";
 
 export const metadata = {
   title: "Contact & Consultation | J-Gate Bilateral Desk",
-  description: "Connect directly with J-Gate's Japan Desk in Hyderabad and Tokyo.",
+  description: "Connect directly with J-Gate's Resident Japan Desk and executive leadership in Hyderabad.",
 };
 
 export default function ContactPage() {

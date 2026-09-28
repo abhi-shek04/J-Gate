@@ -155,7 +155,7 @@ export default function HomePage() {
       kanji: "拠点",
       icon: Building2,
       badge: { EN: "Ready Workspace", JP: "即日利用オフィス" },
-      title: tx({ EN: "Plug-and-Play Executive Hub in Hyderabad", JP: "ハイデラバード 即日稼働オフィス" }),
+      title: tx({ EN: "Plug-and-Play Hub at Cyber Gateway", JP: "Cyber Gateway 即日稼働オフィス" }),
       desc: tx({
         EN: "Dedicated desks, private suites, enterprise fiber internet, meeting suites, and 24/7 biometric security at HITEC City. Start operating on Day 1 without capital renovation costs or deposit delays.",
         JP: "専用デスク、個室キャビン、高速光回線、会議室、24時間セキュリティを完備。初期内装投資や長期契約の負担なく、最短即日でインド拠点を立ち上げ可能です。",
@@ -330,8 +330,8 @@ export default function HomePage() {
               className="mx-auto mt-4 sm:mt-5 max-w-[680px] font-inter font-normal leading-relaxed text-slate-600 dark:text-slate-300 text-[14.5px] sm:text-[15.5px]"
             >
               {tx({
-                EN: "A dedicated co-working space in Hyderabad for Japanese businesses. Dedicated desks, private cabins, resident Japan Desk support, and full office infrastructure to start operations smoothly in India.",
-                JP: "ハイデラバードに誕生した日本企業専用コワーキングスペース。専用デスク、個室キャビン、常駐ジャパンデスク、充実したオフィスインフラで、インド事業の円滑な立ち上げを包括支援。",
+                EN: "A dedicated co-working space at Cyber Gateway, Hyderabad for Japanese businesses. Dedicated desks, private cabins, resident Japan Desk support, and full office infrastructure to start operations smoothly in India.",
+                JP: "ハイデラバード・Cyber Gatewayに誕生した日本企業専用コワーキングスペース。専用デスク、個室キャビン、常駐ジャパンデスク、充実したオフィスインフラで、インド事業の円滑な立ち上げを包括支援。",
               })}
             </p>
           </Reveal>
@@ -510,7 +510,7 @@ export default function HomePage() {
                     </span>
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-success px-2.5 py-0.5 sm:px-3 sm:py-1 font-inter text-[10px] sm:text-[10.5px] font-bold uppercase text-white shadow-sm">
                       <span className="radar-beacon h-1.5 w-1.5 sm:h-2 sm:w-2 rounded-full bg-white text-emerald-300" />
-                      {tx({ EN: "LIVE · Hyderabad Hub", JP: "稼働中 · ハイデラバード拠点" })}
+                      {tx({ EN: "LIVE · Cyber Gateway", JP: "稼働中 · Cyber Gateway" })}
                     </span>
                   </div>
 
@@ -560,11 +560,11 @@ export default function HomePage() {
               <Reveal delay={80}>
                 <div>
                   <span className="font-inter text-[11px] sm:text-[11.5px] font-bold uppercase tracking-wider text-crimson dark:text-rose-400">
-                    {tx({ EN: "HITEC City, Hyderabad, India", JP: "ハイテックシティ・ハイデラバード" })}
+                    {tx({ EN: "Cyber Gateway, Phase 2, Hitech City", JP: "サイバーゲートウェイ Phase 2・ハイテックシティ" })}
                   </span>
                   <h3 className="mt-1 sm:mt-1.5 font-serif-jp text-xl sm:text-2xl lg:text-3xl font-bold text-ink dark:text-white leading-tight">
                     {tx({
-                      EN: "Prime Enterprise Base in HITEC City, Hyderabad",
+                      EN: "Prime Enterprise Base at Cyber Gateway, HITEC City",
                       JP: "HITEC Cityの中心で展開する日本企業専用ビジネス拠点",
                     })}
                   </h3>

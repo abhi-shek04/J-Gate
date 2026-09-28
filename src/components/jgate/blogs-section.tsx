@@ -517,16 +517,16 @@ export function BlogsSection({ id }: { id?: string }) {
             {tx({ EN: "Office & Facilities ", JP: "オフィス写真・" })}
             <br className="hidden sm:inline" />
             <span className="text-gradient-saffron">
-              {tx({ EN: "Hyderabad Hub", JP: "施設ギャラリー" })}
+              {tx({ EN: "Cyber Gateway, Hyderabad", JP: "施設ギャラリー" })}
             </span>
           </>
         }
         subtitleNode={tx({
-          EN: "A dedicated co-working space in Hyderabad for Japanese businesses. Dedicated desks, private cabins, resident Japan Desk support, and full office infrastructure.",
-          JP: "ハイデラバードに位置する日本企業専用スペース。専用デスク、個室、ジャパンデスク常駐環境を写真でご紹介。",
+          EN: "A dedicated co-working space at Cyber Gateway, Hyderabad for Japanese businesses. Dedicated desks, private cabins, resident Japan Desk support, and full office infrastructure.",
+          JP: "Cyber Gateway内に位置する日本企業専用スペース。専用デスク、個室、ジャパンデスク常駐環境を写真でご紹介。",
         })}
         tags={[
-          { EN: "HITEC City, Hyderabad", JP: "HITEC City・ハイデラバード" },
+          { EN: "Cyber Gateway Phase 2", JP: "Cyber Gateway Phase 2" },
           { EN: "24/7 Biometric Access", JP: "24時間生体認証アクセス" },
           { EN: "High-Speed Dual Fiber", JP: "二重化高速光回線" },
         ]}

@@ -9,11 +9,11 @@ const GROUPS = [
     heading: "Workspace",
     items: [
       "Dedicated personal desks with lockable storage",
-      "Private furnished cabins (2–6 seats, brandable)",
+      "Private furnished offices (2–6 seats, custom branding available)",
       "24/7 access with secure key-card entry",
       "Ergonomic chairs and height-adjustable desks",
-      "Enterprise fiber broadband (dedicated line available)",
-      "UPS power backup — zero downtime guarantee",
+      "High-speed fiber broadband (dedicated line available)",
+      "UPS power backup — uninterrupted backup power",
     ],
   },
   {
@@ -22,16 +22,16 @@ const GROUPS = [
       "Fully equipped conference rooms (4-person to 20-person)",
       "Presentation displays and video conferencing setup",
       "Meeting areas for client discussions and calls",
-      "Whiteboard rooms for strategy sessions",
+      "Meeting rooms with whiteboards",
       "Event space for launches, workshops, and seminars",
     ],
   },
   {
     heading: "Lifestyle & Culture",
     items: [
-      "Canteen with Japanese and Indian cuisine options",
+      "Cafeteria with Japanese and Indian cuisine options",
       "Japanese green tea and premium coffee stations",
-      "Daifuku Mochi and cultural refreshments — Omotenashi standard",
+      "Daifuku Mochi and cultural refreshments — traditional Japanese hospitality",
       "Lounge area for informal conversations",
       "Bilingual signage throughout (English + Japanese)",
       "Prayer/meditation room",
@@ -42,8 +42,8 @@ const GROUPS = [
 
 const CARDS = [
   { id: "photo-amenity-meeting", label: "Conference Rooms", desc: "Seats up to 20 · Presentation display", fallback: "grad-amenity", initials: "CR" },
-  { id: "photo-amenity-lounge", label: "Canteen & Lounge", desc: "Japanese and Indian menu", fallback: "grad-amenity", initials: "CN" },
-  { id: "photo-amenity-cabin", label: "Private Cabins", desc: "Fully furnished, brandable", fallback: "grad-amenity", initials: "PC" },
+  { id: "photo-amenity-lounge", label: "Cafeteria & Lounge", desc: "Japanese and Indian menu", fallback: "grad-amenity", initials: "CN" },
+  { id: "photo-amenity-cabin", label: "Private Offices", desc: "Fully furnished, custom branding available", fallback: "grad-amenity", initials: "PC" },
 ];
 
 export function Amenities() {

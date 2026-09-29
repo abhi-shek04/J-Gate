@@ -37,8 +37,8 @@ export function WhyHyderabad() {
               landing point for Japanese enterprises.
             </p>
             <p className="mt-4 max-w-[700px] font-inter text-[15px] leading-relaxed text-mist">
-              J-Gate is positioned at the heart of this ecosystem — in
-              Hyderabad&apos;s most prestigious commercial district —
+              J-Gate is positioned at the center of this growth — in
+              Hyderabad&apos;s prime commercial district —
               giving members immediate access to the city&apos;s most powerful
               networks.
             </p>
@@ -74,7 +74,7 @@ export function WhyHyderabad() {
                   </span>
                 </div>
                 <h3 className="mt-4 font-serif-jp text-[clamp(1.5rem,3vw,2rem)] font-bold text-white">
-                  Your Prestigious Address
+                  A Prime Business Address
                 </h3>
                 <p className="mt-4 font-inter text-[15px] leading-relaxed text-mist">
                   One of Hyderabad&apos;s most recognized business districts —

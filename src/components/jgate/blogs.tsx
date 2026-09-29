@@ -16,7 +16,7 @@ const ARTICLES = [
 const GALLERY: (PhotoItem & { gKey: string })[] = [
   { id: "photo-gallery-1", alt: "J-Gate main workspace", label: "Main Workspace", fallback: "grad-office-main", initials: "JG", gKey: "blogs.g1" },
   { id: "photo-gallery-2", alt: "Dedicated desks at J-Gate", label: "Dedicated Desks", fallback: "grad-office-desks", initials: "DG", gKey: "blogs.g2" },
-  { id: "photo-gallery-3", alt: "Canteen and lounge at J-Gate", label: "Canteen & Lounge", fallback: "grad-canteen-main", initials: "CN", gKey: "blogs.g3" },
+  { id: "photo-gallery-3", alt: "Canteen and lounge at J-Gate", label: "Cafeteria & Lounge", fallback: "grad-canteen-main", initials: "CN", gKey: "blogs.g3" },
   { id: "photo-gallery-4", alt: "Conference room at J-Gate", label: "Conference Room", fallback: "grad-office-meeting", initials: "CR", gKey: "blogs.g4" },
   { id: "photo-gallery-5", alt: "Team celebrations at J-Gate", label: "Team Celebrations", fallback: "grad-inauguration", initials: "TC", gKey: "blogs.g5" },
   { id: "photo-gallery-6", alt: "Candidate workshops at J-Gate", label: "Candidate Workshops", fallback: "grad-event", initials: "WS", gKey: "blogs.g6" },

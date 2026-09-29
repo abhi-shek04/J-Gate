@@ -5,33 +5,33 @@ import { Reveal, Eyebrow } from "./shared";
 const FEATURES = [
   {
     icon: "🕸",
-    title: "Local Network, Instantly",
-    desc: "Your membership connects you immediately to vetted legal advisors, HR specialists, financial consultants, and business introducers — all with Japan-India expertise. This takes years to build alone.",
+    title: "Immediate Access to Local Networks",
+    desc: "Your membership connects you immediately to vetted legal advisors, HR specialists, financial consultants, and business liaisons — all with Japan-India expertise. relationships that would take years to build independently.",
   },
   {
     icon: "⚖️",
-    title: "Legal & Compliance Navigator",
-    desc: "Company registration, GST, RBI, employment law — India's regulatory landscape is complex. Our partner legal network has specific Japan-India cross-border expertise. You don't navigate it alone.",
+    title: "Legal & Compliance Guidance",
+    desc: "Company registration, GST, RBI, employment law — India's regulatory landscape is complex. Our partner legal network has specific Japan-India cross-border expertise. to guide you at every step.",
   },
   {
     icon: "👥",
-    title: "Bilingual Talent Pipeline",
-    desc: "Access to Indobox India's curated talent network — bilingual professionals, Japanese-culture-literate hires, and a sourcing pipeline from intern to C-suite, all screened for Japan-India compatibility.",
+    title: "Bilingual Talent Recruitment",
+    desc: "Access to Indobox India's talent network — bilingual professionals, candidates experienced with Japanese business practices, and a candidates ranging from entry-level to executive roles, all screened for Japan-India compatibility.",
   },
   {
     icon: "🏛",
-    title: "Government & Innovation Interface",
-    desc: "Our strategic alignment with the Telangana State Government IT promotion cell and T-Hub gives members institutional backing, policy support, and high-level enterprise introductions.",
+    title: "Government & Industry Relations",
+    desc: "Our strategic alignment with the Telangana State Government IT promotion cell and T-Hub gives members government support, policy support, and introductions to key industry leaders.",
   },
   {
     icon: "🎌",
-    title: "Cultural Intelligence",
-    desc: "Regular workshops on Indian business etiquette for your Japan-based teams, and Japanese culture briefings for local hires. The gap that sinks most cross-cultural expansions — we close it proactively.",
+    title: "Cross-Cultural Training",
+    desc: "Regular workshops on Indian business etiquette for your Japan-based teams, and Japanese culture briefings for local hires. preventing misunderstandings before they arise.",
   },
   {
     icon: "📈",
-    title: "Market Entry, End to End",
-    desc: "From your first exploratory visit to your first Indian client contract — J-Gate and Indobox India can support every step: registration, banking, hiring, compliance, and business development.",
+    title: "Comprehensive Market Entry Support",
+    desc: "From your initial exploratory visit to your first Indian client contract — J-Gate and Indobox India can support every step: registration, banking, hiring, compliance, and business development.",
   },
 ];
 
@@ -46,12 +46,12 @@ export function WhyBeyond() {
       <div className="container-jg relative">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
-            <Eyebrow light>More Than a Workspace</Eyebrow>
+            <Eyebrow light>Beyond Office Space</Eyebrow>
             <h2
               className="mt-4 font-serif-jp font-bold leading-[1.15] text-white"
               style={{ fontSize: "clamp(2rem, 4.5vw, 2.75rem)" }}
             >
-              The desk is the least important thing we offer.
+              Complete Business Support Built Around Your Workspace.
             </h2>
             <p className="mx-auto mt-6 max-w-[660px] font-inter leading-relaxed text-mist" style={{ fontSize: "clamp(0.95rem,1.6vw,1.125rem)" }}>
               Every coworking space has desks, WiFi, and meeting rooms. J-Gate

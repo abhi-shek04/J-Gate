@@ -9,9 +9,9 @@ const GALLERY: PhotoItem[] = [
   { id: "photo-office-desks", alt: "Dedicated desk area at J-Gate", label: "Dedicated Desks", fallback: "grad-office-desks", initials: "DG" },
   { id: "photo-office-lounge", alt: "Member lounge at J-Gate", label: "Member Lounge", fallback: "grad-office-lounge", initials: "LG" },
   { id: "photo-office-meeting", alt: "Conference room at J-Gate Hyderabad", label: "Conference Room", fallback: "grad-office-meeting", initials: "CR" },
-  { id: "photo-office-cabin", alt: "Private cabin at J-Gate", label: "Private Cabin", fallback: "grad-office-cabin", initials: "PC" },
+  { id: "photo-office-cabin", alt: "Private office at J-Gate", label: "Private Cabin", fallback: "grad-office-cabin", initials: "PC" },
   { id: "photo-office-reception", alt: "J-Gate reception area", label: "Reception & Welcome Area", fallback: "grad-office-reception", initials: "RC" },
-  { id: "photo-canteen-main", alt: "J-Gate canteen and break area", label: "Canteen & Break Area", fallback: "grad-canteen-main", initials: "CN" },
+  { id: "photo-canteen-main", alt: "J-Gate canteen and break area", label: "Cafeteria & Break Area", fallback: "grad-canteen-main", initials: "CN" },
   { id: "photo-canteen-japanese", alt: "Japanese tea and refreshments at J-Gate", label: "Japanese Omotenashi Refreshments", fallback: "grad-canteen-japanese", initials: "🍵" },
 ];
 

@@ -110,13 +110,13 @@ export function ContactSection({ id }: { id?: string }) {
         layout="center"
         titleNode={tx({ EN: "Get in Touch with Our Team", JP: "現地運営チームへのご相談・お問い合わせ" })}
         subtitleNode={tx({
-          EN: "Unlocking new possibilities for your business through collaboration with India — talk to the J-Gate operations team.",
+          EN: "Contact our on-site team to discuss workspace options, company setup, or business partnerships in India — talk to the J-Gate operations team.",
           JP: "インド事業の立ち上げ、現地視察、料金プランのご相談など、日本人常駐チームがお答えします。",
         })}
         tags={[
-          { EN: "Fast 24-Hour Inquiry Response", JP: "原則24時間以内回答" },
+          { EN: "24-Hour Response Time", JP: "原則24時間以内回答" },
           { EN: "Japanese Language Support", JP: "日本語完全対応" },
-          { EN: "On-Site Tour Available", JP: "現地視察予約受付中" },
+          { EN: "On-Site Tours Available", JP: "現地視察予約受付中" },
         ]}
       />
 

@@ -34,7 +34,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "J-Gate | Bridging Japan & India — Talent, Training, Business",
+  title: "J-Gate | Connecting Japan and India — Talent, Training, Business",
   description:
     "J-Gate bridges global and Indian talent with Japan's enterprise opportunities through dedicated workspaces, Japan Desk support, and bilateral business consulting. Operated by Indobox India Pvt. Ltd.",
   keywords: [
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "J-Gate | Bridging Japan & India",
+    title: "J-Gate | Connecting Japan and India",
     description: "Talent, training, and bilateral business consulting for the Japan-India corridor.",
     siteName: "J-Gate",
     type: "website",

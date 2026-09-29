@@ -27,7 +27,7 @@ export function Contact() {
     {
       flag: <IndiaFlag className="h-5 w-8" />,
       title: t("contact.india"),
-      address: "Genesys info X — Hyderabad, Telangana 500081, India",
+      address: "Genesys Info X — Hyderabad, Telangana 500081, India",
       email: "hyderabad@j-gate.asia",
       phone: "+91 40-1234-5678",
     },

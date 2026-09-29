@@ -32,9 +32,9 @@ const SPACES = [
     },
     specs: [
       { label: { EN: "Capacity", JP: "利用人数" }, val: { EN: "1 to 20+ Desks", JP: "1席〜20席以上" } },
-      { label: { EN: "Internet", JP: "通信回線" }, val: { EN: "Dedicated 1 Gbps Fiber", JP: "専用1Gbps光ファイバー" } },
+      { label: { EN: "Internet", JP: "通信回線" }, val: { EN: "Dedicated 1 Gbps Fiber", JP: "専用1 Gbps光ファイバー" } },
       { label: { EN: "Storage", JP: "収納" }, val: { EN: "Private Lockable Cabinet", JP: "個人用施錠キャビネット" } },
-      { label: { EN: "Access", JP: "利用時間" }, val: { EN: "24/7 Smart Keycard", JP: "24時間スマートカード" } },
+      { label: { EN: "Access", JP: "利用時間" }, val: { EN: "24/7 Keycard", JP: "24時間スマートカード" } },
     ],
     features: [
       { EN: "Ergonomic executive chairs & spacious wood desks", JP: "人間工学エグゼクティブチェア＆広々デスク" },
@@ -107,8 +107,8 @@ const SPACES = [
     src: "/gallery/cafeteria.jpg",
     fallback: "grad-canteen-japanese",
     headline: {
-      EN: "TASTY FOOD JUNCTION — Dining & Refreshment Lounge",
-      JP: "TASTY FOOD JUNCTION — 食堂＆リフレッシュラウンジ",
+      EN: "Tasty Food Junction — Dining & Refreshment Lounge",
+      JP: "Tasty Food Junction — 食堂＆リフレッシュラウンジ",
     },
     desc: {
       EN: "Shared dining lounge providing daily fresh meals, beverages, and casual seating for lunch breaks and informal discussions.",

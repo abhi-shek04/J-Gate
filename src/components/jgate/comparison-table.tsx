@@ -23,7 +23,7 @@ type Row = {
 const ROWS: Row[] = [
   {
     label: { EN: "Target Audience", JP: "対象顧客" },
-    jgate: { EN: "Mid-size, SMEs, Startups & Regional Banks", JP: "中堅・中小・スタートアップ・地方銀行" },
+    jgate: { EN: "SMEs, Startups & Regional Banks", JP: "中堅・中小・スタートアップ・地方銀行" },
     consult: { EN: "Large enterprises only", JP: "大企業のみ" },
     cowork: { EN: "Local companies & freelancers", JP: "現地企業・フリーランス" },
     publicOrg: { EN: "General / All", JP: "一般・全対象" },
@@ -44,7 +44,7 @@ const ROWS: Row[] = [
     publicType: "optimal",
   },
   {
-    label: { EN: "Physical Base", JP: "物理拠点" },
+    label: { EN: "Dedicated Office Space", JP: "物理拠点" },
     jgate: { EN: "Dedicated workspace in Hyderabad", JP: "ハイデラバードIT特区に専用拠点" },
     consult: { EN: "None — separate contract", JP: "なし（別契約）" },
     cowork: { EN: "Shared space only", JP: "共有スペースのみ" },
@@ -55,9 +55,9 @@ const ROWS: Row[] = [
     publicType: "cross",
   },
   {
-    label: { EN: "Resident Japanese Expert", JP: "常駐日本語専門家" },
-    jgate: { EN: "Japan Desk — 100% Japanese, on-site", JP: "ジャパンデスク — 100%日本語・常駐" },
-    consult: { EN: "Dispatched per occasion", JP: "都度派遣" },
+    label: { EN: "On-Site Japanese Support", JP: "常駐日本語専門家" },
+    jgate: { EN: "Japan Desk — Full Japanese language support on-site", JP: "ジャパンデスク — 100%日本語・常駐" },
+    consult: { EN: "Available on request", JP: "都度派遣" },
     cowork: { EN: "None", JP: "なし" },
     publicOrg: { EN: "Local staff only", JP: "現地スタッフのみ" },
     jgateType: "check",
@@ -67,10 +67,10 @@ const ROWS: Row[] = [
   },
   {
     label: { EN: "Hands-on Support", JP: "実務サポート" },
-    jgate: { EN: "Covers actual operations", JP: "実務まで対応" },
+    jgate: { EN: "Covers day-to-day business operations", JP: "実務まで対応" },
     consult: { EN: "Mainly advisory", JP: "主に助言" },
     cowork: { EN: "No business support", JP: "ビジネス支援なし" },
-    publicOrg: { EN: "Info and advice only", JP: "情報・助言のみ" },
+    publicOrg: { EN: "Information and advice only", JP: "情報・助言のみ" },
     jgateType: "check",
     consultType: "warn",
     coworkType: "cross",
@@ -78,7 +78,7 @@ const ROWS: Row[] = [
   },
   {
     label: { EN: "Japanese Language", JP: "日本語対応" },
-    jgate: { EN: "Fully supported (Native on-ground)", JP: "完全対応（現地常駐）" },
+    jgate: { EN: "Fully supported (Native Japanese speakers on-site)", JP: "完全対応（現地常駐）" },
     consult: { EN: "High cost", JP: "高コスト" },
     cowork: { EN: "None", JP: "なし" },
     publicOrg: { EN: "Limited", JP: "限定的" },
@@ -89,7 +89,7 @@ const ROWS: Row[] = [
   },
   {
     label: { EN: "Hiring Support", JP: "採用支援" },
-    jgate: { EN: "Full IndiGate partnership", JP: "IndiGateと完全連携" },
+    jgate: { EN: "Full recruitment support via Indobox", JP: "Indoboxと完全連携" },
     consult: { EN: "Referral only — expensive", JP: "紹介のみ・高額" },
     cowork: { EN: "None", JP: "なし" },
     publicOrg: { EN: "None", JP: "なし" },
@@ -101,9 +101,9 @@ const ROWS: Row[] = [
   {
     label: { EN: "Network & Alliances", JP: "提携ネットワーク" },
     jgate: { EN: "T-Hub, IIT Hyderabad, Woxsen, Genesys", JP: "T-Hub・IITハイデラバード・Woxsen・Genesys" },
-    consult: { EN: "Govt agencies & large firms", JP: "政府機関・大企業" },
-    cowork: { EN: "General users", JP: "一般利用者" },
-    publicOrg: { EN: "Govt agencies", JP: "政府機関" },
+    consult: { EN: "Government agencies and large firms", JP: "政府機関・大企業" },
+    cowork: { EN: "Local coworkers and freelancers", JP: "一般利用者" },
+    publicOrg: { EN: "Government agencies", JP: "政府機関" },
     jgateType: "text",
     consultType: "text",
     coworkType: "text",
@@ -115,7 +115,7 @@ const LEGEND = [
   { color: "bg-success", label: { EN: "Fully Available", JP: "完全対応" } },
   { color: "bg-crimson", label: { EN: "Not Available", JP: "非対応" } },
   { color: "bg-saffron", label: { EN: "Partial", JP: "一部対応" } },
-  { color: "bg-sky-500", label: { EN: "Optimal Cost", JP: "最適コスト" } },
+  { color: "bg-sky-500", label: { EN: "Best Value", JP: "最適コスト" } },
 ];
 
 function IndicatorIcon({ type }: { type: Indicator }) {
@@ -268,7 +268,7 @@ export function ComparisonTable() {
                 </div>
                 <div className="border-b border-slate-200/80 dark:border-white/10 bg-slate-50/90 dark:bg-white/5 px-5 py-5 flex items-center">
                   <span className="font-inter text-[13px] font-bold text-ink dark:text-white">
-                    {tx({ EN: "Public Orgs", JP: "公的機関" })}
+                    {tx({ EN: "Public Organizations", JP: "公的機関" })}
                   </span>
                 </div>
               </div>
@@ -328,13 +328,13 @@ export function ComparisonTable() {
                 <span
                   className="font-inter text-[11px] font-bold uppercase tracking-wider text-crimson dark:text-rose-400 block"
                 >
-                  {tx({ EN: "The Definitive Verdict", JP: "結論 · THE VERDICT" })}
+                  {tx({ EN: "The Key Conclusion", JP: "結論 · THE VERDICT" })}
                 </span>
                 <p
                   className="mt-1 font-serif-jp text-ink dark:text-white font-bold leading-relaxed text-[15px] sm:text-[17px]"
                 >
                   {tx({
-                    EN: "J-Gate is the only option that combines a physical base, resident Japanese expertise, hands-on operational support, and direct hiring — at a cost-justifiable investment level.",
+                    EN: "J-Gate is the only option that combines a physical base, resident Japanese expertise, hands-on operational support, and direct hiring — at a predictable, affordable cost.",
                     JP: "J-Gateは、専用拠点・常駐日本語専門家・実務オペレーション・直接採用支援をワンストップで兼ね備え、かつ投資対効果が圧倒的に高い唯一の選択肢です。",
                   })}
                 </p>

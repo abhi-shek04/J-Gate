@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 /* ============================================================
    BrochureModal — Streamlined Lead Capture
-   Fields: Name, Organization, E-Mail, Questions
+   Fields: Name, Organization, Email, Questions
    - On submit → /api/brochure/submit → DB + admin email
    - Reliable streaming download via /api/brochure/download
    - Preview in browser fallback
@@ -169,7 +169,7 @@ export function BrochureModal() {
           <h2 className="font-serif-jp text-lg sm:text-xl font-bold text-white pr-8">
             {status === "success"
               ? tx({ EN: "Your Download Has Started", JP: "ダウンロードを開始しました" })
-              : tx({ EN: "Download Official Brochure", JP: "公式パンフレットのダウンロード" })}
+              : tx({ EN: "Download Brochure", JP: "公式パンフレットのダウンロード" })}
           </h2>
           <p className="mt-1 text-[12px] sm:text-[12.5px] leading-relaxed text-mist">
             {status === "success"
@@ -178,7 +178,7 @@ export function BrochureModal() {
                   JP: "自動的に始まらない場合は、下のボタンから直接ダウンロードまたはブラウザで閲覧いただけます。",
                 })
               : tx({
-                  EN: "Please provide your details below to download the comprehensive J-Gate India Expansion brochure (PDF, 55MB).",
+                  EN: "Please provide your details below to download the J-Gate India expansion guide (PDF, 55MB).",
                   JP: "下記の必要事項をご入力いただくと、J-Gateインド進出支援パンフレット（公式PDF・55MB）をダウンロードいただけます。",
                 })}
           </p>
@@ -194,7 +194,7 @@ export function BrochureModal() {
               </div>
               <p className="mt-4 max-w-xs font-inter text-[13px] sm:text-[13.5px] leading-relaxed text-mist">
                 {tx({
-                  EN: "Your download has been triggered. Our bilingual directors are also available for private consultation.",
+                  EN: "Your download has started. Our bilingual directors are also available for private consultation.",
                   JP: "資料のダウンロードを開始しました。現地進出やオフィス見学のご相談はいつでもお気軽にお問い合わせください。",
                 })}
               </p>
@@ -207,7 +207,7 @@ export function BrochureModal() {
                   className="btn-shine flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3 font-inter text-sm font-semibold text-white transition-all hover:-translate-y-0.5 shadow-lg shadow-crimson/30"
                 >
                   <Download className="h-4 w-4" />
-                  {tx({ EN: "Save / Download PDF (55MB)", JP: "PDF資料をダウンロード (55MB)" })}
+                  {tx({ EN: "Download PDF (55MB)", JP: "PDF資料をダウンロード (55MB)" })}
                 </a>
                 <div className="grid grid-cols-2 gap-2">
                   <a
@@ -232,7 +232,7 @@ export function BrochureModal() {
               </div>
             </div>
           ) : (
-            /* Streamlined 4-Field Form: Name, Organization, E-Mail, Questions */
+            /* Streamlined 4-Field Form: Name, Organization, Email, Questions */
             <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-3.5">
               {errors.form && (
                 <div className="flex items-center gap-2 rounded-xl border border-crimson/30 bg-crimson/10 px-3 py-2 font-inter text-[12px] text-crimson">
@@ -271,10 +271,10 @@ export function BrochureModal() {
                 {errors.organization && <p className="mt-1 font-inter text-[11px] text-crimson">{errors.organization}</p>}
               </div>
 
-              {/* 3. E-Mail */}
+              {/* 3. Email */}
               <div>
                 <label htmlFor="br-modal-email" className={labelClass}>
-                  {tx({ EN: "E-Mail", JP: "メールアドレス" })} <span className="text-crimson">*</span>
+                  {tx({ EN: "Email", JP: "メールアドレス" })} <span className="text-crimson">*</span>
                 </label>
                 <input
                   id="br-modal-email"
@@ -319,7 +319,7 @@ export function BrochureModal() {
                 ) : (
                   <>
                     <Download className="h-4 w-4" />
-                    <span>{tx({ EN: "Download Official Brochure", JP: "公式パンフレットをダウンロード" })}</span>
+                    <span>{tx({ EN: "Download Brochure", JP: "公式パンフレットをダウンロード" })}</span>
                   </>
                 )}
               </button>

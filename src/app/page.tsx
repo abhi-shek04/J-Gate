@@ -178,7 +178,7 @@ export default function HomePage() {
       highlights: [
         { EN: "Native Japanese Director On-Site", JP: "日本人ディレクター現地常駐" },
         { EN: "Everyday Business Consultation", JP: "日々の実務相談・トラブル対応" },
-        { EN: "Vetted Accounting & Legal Introductions", JP: "現地提携専門家（法務・会計）紹介" },
+        { EN: "Verified Accounting & Legal Introductions", JP: "現地提携専門家（法務・会計）紹介" },
       ],
     },
     {
@@ -292,23 +292,23 @@ export default function HomePage() {
         />
 
         <div className="container-jg relative z-10 pt-4 pb-12 sm:pt-8 sm:pb-16 text-center max-w-5xl mx-auto">
-          {/* 1. Pre-title: Japan × India Talent & Business Bridge */}
+          {/* 1. Pre-title: Japan–India Business & Talent Hub */}
           <Reveal>
             <div className="flex items-center justify-center gap-2.5 font-inter text-[11.5px] sm:text-[12.5px] font-bold uppercase tracking-[0.22em] text-crimson dark:text-rose-400">
               <span className="hidden sm:inline-block h-px w-8 bg-crimson/30 dark:bg-rose-400/30" />
-              <span>{tx({ EN: "Japan × India Talent & Business Bridge", JP: "日印高度人材・ビジネス架け橋" })}</span>
+              <span>{tx({ EN: "Japan–India Business & Talent Hub", JP: "日印高度人材・ビジネス架け橋" })}</span>
               <span className="hidden sm:inline-block h-px w-8 bg-crimson/30 dark:bg-rose-400/30" />
             </div>
           </Reveal>
 
-          {/* 2. Main H1 Title: Birth of a Dedicated Working Hub for Japanese Companies */}
+          {/* 2. Main H1 Title: A Dedicated Workspace for Japanese Companies in India */}
           <Reveal delay={80}>
             <h1
               className="mx-auto mt-4 max-w-4xl font-serif-jp font-extrabold leading-[1.15] text-ink dark:text-white tracking-tight"
               style={{ fontSize: "clamp(2.1rem, 4.8vw, 3.4rem)" }}
             >
               {tx({
-                EN: "Birth of a Dedicated Working Hub for Japanese Companies",
+                EN: "A Dedicated Workspace for Japanese Companies in India",
                 JP: "日本企業専用のワーキングハブ誕生",
               })}
             </h1>
@@ -335,13 +335,13 @@ export default function HomePage() {
               className="mx-auto mt-4 sm:mt-5 max-w-[680px] font-inter font-normal leading-relaxed text-slate-600 dark:text-slate-300 text-[14.5px] sm:text-[15.5px]"
             >
               {tx({
-                EN: "A dedicated co-working space in Hyderabad, India for Japanese businesses. Dedicated desks, private cabins, resident Japan Desk support, and full office infrastructure to start operations smoothly in India.",
+                EN: "A dedicated co-working space in Hyderabad, India for Japanese businesses. Dedicated desks, private offices, resident Japan Desk support, and full office infrastructure to start operations smoothly in India.",
                 JP: "ハイデラバードに誕生した日本企業専用コワーキングスペース。専用デスク、個室キャビン、常駐ジャパンデスク、充実したオフィスインフラで、インド事業の円滑な立ち上げを包括支援。",
               })}
             </p>
           </Reveal>
 
-          {/* 5. Co-Operating Partners Badges: Indobox & Genesys info X */}
+          {/* 5. Co-Operating Partners Badges: Indobox & Genesys Info X */}
           <Reveal delay={260}>
             <div className="mt-7 sm:mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
               <GlassBadge
@@ -352,7 +352,7 @@ export default function HomePage() {
               />
               <GlassBadge
                 imageSrc="/logos/genesys-info-x.png"
-                primary="Genesys info X"
+                primary="Genesys Info X"
                 secondary={tx({ EN: "Infrastructure Partner", JP: "現地インフラ提携" })}
                 accent="slate"
               />

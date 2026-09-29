@@ -11,7 +11,7 @@ const ADVISORS = [
     title: "Advisory Council Member — J-Gate",
     former: "Chief Information Officer, T-Hub",
     accent: "from-navy to-crimson",
-    bio: "Mr. Jagirdar brings to J-Gate an extraordinary depth of experience in technology leadership and innovation ecosystem building. During his tenure as CIO of T-Hub — India's largest and most globally connected startup hub — he oversaw the digital infrastructure and technology strategy that enabled thousands of startups to scale. His commitment to J-Gate reflects a belief that the India-Japan business corridor represents one of the most significant opportunities of this decade, and he is personally invested in ensuring that Japanese companies navigating this corridor have access to world-class strategic guidance.",
+    bio: "Mr. Jagirdar brings to J-Gate an extraordinary depth of experience in technology leadership and technology sector building. During his tenure as CIO of T-Hub — India's largest and most globally connected startup hub — he oversaw the digital infrastructure and technology strategy that enabled thousands of startups to scale. His commitment to J-Gate reflects a belief that the India-Japan business corridor represents one of the most significant opportunities of this decade, and he is personally invested in ensuring that Japanese companies navigating this corridor have access to world-class strategic guidance.",
     quote: "Japanese companies bring a quality of discipline and innovation that India needs. J-Gate is the platform that makes that partnership possible at scale.",
   },
   {
@@ -21,7 +21,7 @@ const ADVISORS = [
     former: "Chief Executive Officer, T-Hub",
     accent: "from-navy to-saffron",
     bio: "As former CEO of T-Hub, Mr. Mahankali led one of India's most consequential innovation institutions at its most critical growth phase — building it into a globally recognized platform for startups, corporate innovation, and government-industry collaboration. He brings to J-Gate an unrivaled understanding of how to connect global businesses with India's opportunity ecosystem. His advisory role is a direct expression of his conviction in Mr. Daisuke Tanji's vision and in the transformative potential of the India-Japan business relationship.",
-    quote: "What Daisuke has built with J-Gate is what Hyderabad has been waiting for — a real, trusted bridge for Japanese companies that respects both cultures and delivers results.",
+    quote: "What Daisuke has built with J-Gate is what Hyderabad has been waiting for — a real, trusted partner for Japanese companies that respects both cultures and delivers results.",
   },
 ];
 

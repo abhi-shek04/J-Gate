@@ -28,7 +28,7 @@ export async function POST(req: NextRequest) {
     const body = (await req.json()) as LeadInput;
     const { fullName, organization, email, questions, authMethod } = body;
 
-    // Validation (Only Name, Organization, E-Mail required; questions optional)
+    // Validation (Only Name, Organization, Email required; questions optional)
     const errors: Record<string, string> = {};
     if (!fullName || !fullName.trim()) errors.fullName = "Name is required";
     if (!organization || !organization.trim()) errors.organization = "Organization is required";

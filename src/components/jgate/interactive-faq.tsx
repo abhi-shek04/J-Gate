@@ -14,7 +14,7 @@ const FAQ_ITEMS = [
       JP: "即日入居は可能ですか？また最短契約期間はどれくらいですか？",
     },
     a: {
-      EN: "Yes, J-Gate provides ready-to-use workspaces in Hyderabad. Once your membership agreement is signed, you can start operating immediately with smart keycard access. We offer flexible terms ranging from month-to-month flexible arrangements to multi-year enterprise leases.",
+      EN: "Yes, J-Gate provides ready-to-use workspaces in Hyderabad. Once your membership agreement is signed, you can start operating immediately with keycard access. We offer flexible terms ranging from month-to-month flexible arrangements to multi-year enterprise leases.",
       JP: "はい、ハイデラバードにて即時稼働可能なワークスペースをご用意しています。契約締結後、スマートキーカードですぐにご利用いただけます。1ヶ月単位の柔軟なサテライト契約から複数年の長期利用まで対応可能です。",
     },
   },
@@ -47,8 +47,8 @@ const FAQ_ITEMS = [
       JP: "セキュリティおよび通信環境はどのようになっていますか？",
     },
     a: {
-      EN: "The facility is equipped with dedicated redundant 1Gbps fiber connections, enterprise firewall protection, 24/7 security personnel, biometric/smart card access, and full power backup with uninterruptible power supplies (UPS).",
-      JP: "二重化された専用1Gbps光ファイバー回線、エンタープライズファイアウォール、24時間常駐セキュリティ、ICカード入退室管理、UPS無停電電源装置を完備し、日本企業の高いセキュリティ基準を満たしています。",
+      EN: "The facility is equipped with dedicated redundant 1 Gbps fiber connections, enterprise firewall protection, 24/7 security personnel, biometric/smart card access, and full power backup with uninterruptible power supplies (UPS).",
+      JP: "二重化された専用1 Gbps光ファイバー回線、エンタープライズファイアウォール、24時間常駐セキュリティ、ICカード入退室管理、UPS無停電電源装置を完備し、日本企業の高いセキュリティ基準を満たしています。",
     },
   },
   {

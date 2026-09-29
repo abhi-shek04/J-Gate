@@ -29,7 +29,7 @@ export function Footer() {
             </Link>
             <p className="font-inter text-[12.5px] sm:text-[13px] font-medium leading-relaxed text-slate-700 dark:text-slate-300">
               {tx({
-                EN: "J-Gate | Bridging Japan & India — Talent, Training, Business",
+                EN: "J-Gate | Connecting Japan and India — Talent, Training, Business",
                 JP: "J-Gate | 日本とインドを繋ぐ — 人材・育成・ビジネス",
               })}
             </p>
@@ -66,7 +66,7 @@ export function Footer() {
           {/* Col 2 (2 cols) — Ecosystem Partners */}
           <div className="lg:col-span-2">
             <h3 className="font-inter text-[11px] sm:text-[11.5px] font-bold uppercase tracking-wider text-ink dark:text-white">
-              {tx({ EN: "ECOSYSTEM PARTNERS", JP: "エコシステムパートナー" })}
+              {tx({ EN: "OUR PARTNERS", JP: "エコシステムパートナー" })}
             </h3>
             <ul className="mt-3.5 space-y-1.5">
               {ECOSYSTEM.map((name) => (
@@ -118,15 +118,15 @@ export function Footer() {
                   <span className="h-3 w-px bg-slate-300 dark:bg-white/20" />
                 </div>
 
-                {/* Genesys info X */}
+                {/* Genesys Info X */}
                 <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
                   <img
                     src="/logos/genesys-info-x.png"
-                    alt="Genesys info X"
+                    alt="Genesys Info X"
                     className="h-6 w-6 sm:h-7 sm:w-7 object-contain shrink-0 dark:brightness-125"
                   />
                   <span className="font-inter text-[12.5px] sm:text-[13px] font-bold text-ink dark:text-white whitespace-nowrap">
-                    Genesys info X
+                    Genesys Info X
                   </span>
                 </div>
               </div>
@@ -136,13 +136,13 @@ export function Footer() {
           {/* Col 4 (3 cols) — Main Facility Location & Contacts */}
           <div className="lg:col-span-3 lg:pl-2 xl:pl-4 space-y-3">
             <h3 className="font-inter text-[11px] sm:text-[11.5px] font-bold uppercase tracking-wider text-ink dark:text-white">
-              {tx({ EN: "LOCATION & DESK", JP: "所在地・窓口" })}
+              {tx({ EN: "OFFICE LOCATION", JP: "所在地・窓口" })}
             </h3>
             <div className="space-y-3 pt-1">
               <div className="flex items-start gap-2.5">
                 <MapPin className="h-4.5 w-4.5 text-crimson shrink-0 mt-0.5" />
                 <div className="font-inter text-[12.5px] sm:text-[13px] leading-relaxed text-slate-600 dark:text-slate-400">
-                  <p className="font-semibold text-ink dark:text-white">Hyderabad Enterprise Base</p>
+                  <p className="font-semibold text-ink dark:text-white">Hyderabad Office</p>
                   <p>2nd Floor, Genesys Info X, Block B, Wing 1</p>
                   <p>Madhapur, Hyderabad</p>
                   <p>Telangana 500081, India</p>

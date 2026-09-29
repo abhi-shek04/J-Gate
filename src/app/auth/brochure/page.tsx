@@ -23,7 +23,7 @@ import Link from "next/link";
 /* ============================================================
    /auth/brochure — Full-page gated brochure download
    Streamlined layout with:
-     • 4 fields: Name, Organization, E-Mail, Questions
+     • 4 fields: Name, Organization, Email, Questions
      • Submit → POST /api/brochure/submit → DB + admin email
      • Reliable multi-device download:
        - Direct streaming download (/api/brochure/download)
@@ -189,7 +189,7 @@ export default function BrochureAuthPage() {
               <h1 className="mt-4 sm:mt-5 font-serif-jp text-xl sm:text-2xl font-bold leading-snug text-white">
                 {status === "success"
                   ? tx({ EN: "Your Download Has Started", JP: "ダウンロードを開始しました" })
-                  : tx({ EN: "Download Official Brochure", JP: "公式パンフレットのダウンロード" })}
+                  : tx({ EN: "Download Brochure", JP: "公式パンフレットのダウンロード" })}
               </h1>
               <p className="mt-1.5 sm:mt-2 font-inter text-[12.5px] sm:text-[13px] leading-relaxed text-mist">
                 {status === "success"
@@ -198,7 +198,7 @@ export default function BrochureAuthPage() {
                       JP: "ご登録ありがとうございます。ダウンロードが自動的に始まらない場合は、下のボタンから直接ダウンロードまたはブラウザで閲覧いただけます。",
                     })
                   : tx({
-                      EN: "Please provide your details below to download the comprehensive J-Gate India Expansion brochure.",
+                      EN: "Please provide your details below to download the J-Gate India expansion guide.",
                       JP: "下記の必要事項をご入力いただくと、J-Gateインド進出支援パンフレット（PDF）をダウンロードいただけます。",
                     })}
               </p>
@@ -233,7 +233,7 @@ export default function BrochureAuthPage() {
                 tx={tx}
               />
             ) : (
-              /* Streamlined 4-Field Form: Name, Organization, E-Mail, Questions */
+              /* Streamlined 4-Field Form: Name, Organization, Email, Questions */
               <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4" noValidate>
                 {errors.form && (
                   <div
@@ -287,10 +287,10 @@ export default function BrochureAuthPage() {
                   )}
                 </div>
 
-                {/* 3. E-Mail */}
+                {/* 3. Email */}
                 <div>
                   <label htmlFor="br-email" className={labelClass}>
-                    {tx({ EN: "E-Mail", JP: "メールアドレス" })} <span className="text-crimson">*</span>
+                    {tx({ EN: "Email", JP: "メールアドレス" })} <span className="text-crimson">*</span>
                   </label>
                   <input
                     id="br-email"
@@ -341,7 +341,7 @@ export default function BrochureAuthPage() {
                   ) : (
                     <>
                       <Download className="h-4 w-4" />
-                      <span>{tx({ EN: "Download Official Brochure", JP: "公式パンフレットをダウンロード" })}</span>
+                      <span>{tx({ EN: "Download Brochure", JP: "公式パンフレットをダウンロード" })}</span>
                     </>
                   )}
                 </button>
@@ -464,7 +464,7 @@ function SuccessState({
           className="btn-shine flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3.5 font-inter text-[13.5px] sm:text-sm font-semibold text-white shadow-xl shadow-crimson/30 hover:shadow-crimson/50 transition-all hover:-translate-y-0.5"
         >
           <Download className="h-4.5 w-4.5" />
-          {tx({ EN: "Save / Download PDF Brochure (55MB)", JP: "公式PDF資料をダウンロード (55MB)" })}
+          {tx({ EN: "Download PDF Brochure (55MB)", JP: "公式PDF資料をダウンロード (55MB)" })}
         </a>
 
         {/* Secondary Options: Preview & Copy Link */}

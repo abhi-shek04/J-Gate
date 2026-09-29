@@ -17,12 +17,12 @@ const FEATURES = [
   {
     icon: Building2,
     title: "Premium Workspace",
-    desc: "Fully furnished dedicated desks and private cabins inside Hyderabad — Hyderabad's most prestigious business district. 24/7 access, ergonomic setups, and enterprise-grade facilities.",
+    desc: "Fully furnished dedicated desks and private offices inside Hyderabad — Hyderabad's most prestigious business district. 24/7 access, ergonomic furniture, and modern facilities.",
   },
   {
     icon: Wifi,
     title: "Enterprise Fiber Internet",
-    desc: "Dedicated high-speed fiber connectivity ensuring your team stays connected to Japan headquarters, global clients, and cloud systems with zero compromise.",
+    desc: "Dedicated high-speed fiber connectivity ensuring your team stays connected to Japan headquarters, global clients, and cloud systems .",
   },
   {
     icon: Mic,
@@ -36,8 +36,8 @@ const FEATURES = [
   },
   {
     icon: Users,
-    title: "Bilingual Talent Pipeline",
-    desc: "Access to Indobox India's curated talent network — professionals fluent in Japanese business culture, bilingual staff, and a sourcing pipeline for roles from interns to C-suite.",
+    title: "Bilingual Talent Recruitment",
+    desc: "Access to Indobox India's talent network — professionals fluent in Japanese business culture, bilingual staff, and a candidates ranging from entry-level to executive roles.",
   },
   {
     icon: BarChart3,
@@ -47,17 +47,17 @@ const FEATURES = [
   {
     icon: Flag,
     title: "Japanese Business Culture Support",
-    desc: "Regular workshops on Indian business etiquette for your Japan-based teams, and Japanese business culture briefings for your local hires — we bridge the gap that sinks most cross-cultural expansions.",
+    desc: "Regular workshops on Indian business etiquette for your Japan-based teams, and Japanese business culture briefings for your local hires — ensuring smooth day-to-day collaboration.",
   },
   {
     icon: Landmark,
     title: "Government & Industry Interface",
-    desc: "Our alignment with the Telangana State Government IT Promotion Department gives you access to institutional backing, industry incentives, and regulatory facilitation.",
+    desc: "Our alignment with the Telangana State Government IT Promotion Department gives you access to government support, industry incentives, and regulatory facilitation.",
   },
   {
     icon: Globe2,
     title: "J-Gate Member Community",
-    desc: "Monthly networking events, bilateral business dinners, industry speaker sessions, and cultural exchange programs that connect you to Hyderabad's most influential business community.",
+    desc: "Monthly networking events, business dinners, industry speaker sessions, and cultural exchange programs that connect you to the local business community.",
   },
 ];
 
@@ -75,7 +75,7 @@ export function Features() {
       <div className="container-jg relative">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
-            <Eyebrow light>Full Feature Breakdown</Eyebrow>
+            <Eyebrow light>Full Overview of Features & Services</Eyebrow>
             <h2
               className="mt-4 font-serif-jp font-bold leading-[1.18] text-white"
               style={{ fontSize: "clamp(1.875rem, 4vw, 2.625rem)" }}

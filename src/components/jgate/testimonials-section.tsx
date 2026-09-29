@@ -23,18 +23,18 @@ const TESTIMONIALS: Testimonial[] = [
     initials: "HY",
     name: "H. Yamamoto",
     role: { EN: "Operations Director", JP: "オペレーション・ディレクター" },
-    company: { EN: "Japanese Manufacturing SME", JP: "日本の製造業中堅企業" },
+    company: { EN: "Japanese Manufacturing Company", JP: "日本の製造業中堅企業" },
     gradient: "from-crimson to-crimson-deep",
   },
   {
     quote: {
-      EN: "The difference is the ecosystem. We met our T-Hub partners, engineers, and legal counsel — all in the same building.",
+      EN: "The difference is the community and network. We met our T-Hub partners, engineers, and legal counsel — all in the same building.",
       JP: "違いはエコシステムです。T-Hubのパートナー、エンジニア、法律顧問 — すべて同じ建物で出会えました。",
     },
     initials: "PN",
     name: "P. Nishimura",
     role: { EN: "Country Manager", JP: "カントリーマネージャー" },
-    company: { EN: "Japanese Software Enterprise", JP: "日本のソフトウェア企業" },
+    company: { EN: "Japanese Software Company", JP: "日本のソフトウェア企業" },
     gradient: "from-saffron to-[#c9881a]",
   },
   {
@@ -67,7 +67,7 @@ export function TestimonialsSection() {
     <section
       id="why-testimonials"
       className="section-pad relative overflow-hidden bg-navy text-white"
-      aria-label="Corporate testimonials"
+      aria-label="Client testimonials"
     >
       <div className="pattern-asanoha-navy absolute inset-0 opacity-60" />
       <div
@@ -83,13 +83,13 @@ export function TestimonialsSection() {
           <div className="mx-auto max-w-3xl text-center">
             <span className="inline-flex items-center gap-2 rounded-full border border-saffron/30 bg-saffron/10 px-4 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-saffron">
               <MessageSquareQuote className="h-3.5 w-3.5" />
-              {tx({ EN: "Corporate Testimonials", JP: "利用企業の声" })}
+              {tx({ EN: "Member Testimonials", JP: "利用企業の声" })}
             </span>
             <h2
               className="mt-3 font-serif-jp font-bold leading-[1.18] text-white"
               style={{ fontSize: "clamp(1.875rem, 3.8vw, 2.75rem)" }}
             >
-              {tx({ EN: "Heard from J-Gate Members", JP: "入居企業からのメッセージ" })}
+              {tx({ EN: "What J-Gate Members Say", JP: "入居企業からのメッセージ" })}
             </h2>
             <p
               className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-mist"

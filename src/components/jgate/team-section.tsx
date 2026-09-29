@@ -27,21 +27,21 @@ const ADVISORY_ROW_1 = [
     name: "Srinivas Rao Mahankali (MSR)",
     jpName: "スリニヴァス・ラオ・マハンカリ",
     title: "Former CEO, T-Hub | IT Enterprise Leader",
-    desc: "Spearheaded the world's largest startup incubator. Decades of enterprise leadership across global IT corridors and startup innovation.",
+    desc: "Led T-Hub, the world's largest startup incubator. Brings decades of senior leadership experience across international IT markets and startup ventures.",
     image: "/advisory/mahankali.png",
     badge: "T-HUB LEADERSHIP",
-    tags: ["Startup Incubation", "Enterprise IT", "Global Corridors"],
+    tags: ["Startup Incubation", "Enterprise IT", "Global Business"],
     linkedin: "https://www.linkedin.com/in/mahankali-srinivas-rao-msr-3112662/",
   },
   {
     id: "jagirdar",
     name: "Sujit Jagirdar",
     jpName: "スジット・ジャギルダー",
-    title: "Former CIO, T-Hub | Innovation Ecosystem Strategist",
-    desc: "Key strategist behind Telangana's innovation architecture and cross-border incubation alliances between India and global markets.",
+    title: "Former CIO, T-Hub | Technology & Innovation Advisor",
+    desc: "Helped design Telangana's startup initiatives and built international incubation partnerships between India and global tech centers.",
     image: "/advisory/jagirdar.png",
-    badge: "INNOVATION ARCHITECT",
-    tags: ["Innovation Strategy", "Cross-Border Alliances", "Ecosystem Architecture"],
+    badge: "TECHNOLOGY STRATEGIST",
+    tags: ["Innovation Strategy", "International Partnerships", "Startup Programs"],
     linkedin: "https://www.linkedin.com/in/sujitjagirdar/",
   },
   {
@@ -49,10 +49,10 @@ const ADVISORY_ROW_1 = [
     name: "Dr. Uday B. Desai",
     jpName: "ウダイ・B・デサイ博士",
     title: "Founding Director, IIT Hyderabad | Academic Leader",
-    desc: "Pioneered Japan-India academic collaboration and deep-tech talent pipelines across semiconductor, wireless communications, and AI.",
+    desc: "Pioneered Japan-India academic collaboration and specialized engineering talent across semiconductor, wireless communications, and AI.",
     image: "/advisory/desai.png",
     badge: "IIT FOUNDING DIRECTOR",
-    tags: ["Academic Leadership", "Semiconductor & AI", "Deep-Tech Pipelines"],
+    tags: ["Academic Leadership", "Semiconductor & AI", "Engineering Talent"],
     linkedin: "https://www.linkedin.com/in/uday-desai-4752b04/",
   },
 ];
@@ -62,11 +62,11 @@ const ADVISORY_ROW_2 = [
     id: "sarikonda",
     name: "Dr. Viinay Sarikonda",
     jpName: "ヴィーナイ・サリコンダ博士",
-    title: "CEO, Genesys Info X | Bilateral Enterprise Strategist",
-    desc: "Bilateral enterprise strategist driving digital transformation, MoU partnerships, and market entry for Japanese multinationals.",
+    title: "CEO, Genesys Info X | Strategic Enterprise Advisor",
+    desc: "Bilateral enterprise strategist driving digital transformation, strategic partnerships, and market entry for Japanese multinationals.",
     image: "/advisory/sarikonda.png",
     badge: "GENESYS INFO X",
-    tags: ["Digital Transformation", "MoU Partnerships", "Market Entry"],
+    tags: ["Digital Transformation", "Strategic Partnerships", "Market Entry"],
     linkedin: "https://www.linkedin.com/in/dr-viinay-sarikonda-5b23261a/",
   },
   {
@@ -74,10 +74,10 @@ const ADVISORY_ROW_2 = [
     name: "Tomio Isogai",
     jpName: "磯貝 富雄 · 元シャープ・インディア社長",
     title: "Former MD, Sharp India | Indobox Corporate Advisor",
-    desc: "Over 35 years directing Japanese manufacturing & consumer electronics in India. Dean of Indo-Japan corporate harmony and cross-cultural synergy.",
+    desc: "Over 35 years directing Japanese manufacturing & consumer electronics in India. specializing in cross-cultural business collaboration.",
     image: "/advisory/isogai.png",
     badge: "EX-SHARP INDIA MD",
-    tags: ["Corporate Advisory", "Manufacturing", "Bilateral Harmony"],
+    tags: ["Corporate Advisory", "Manufacturing", "Cross-Cultural Management"],
     linkedin: "https://www.linkedin.com/in/tomio-isogai-416b9b16/",
   },
 ];
@@ -113,13 +113,13 @@ const OPS_TEAM: OpsMember[] = [
     name: "Daisuke TANJI",
     jpName: "丹治 大佑",
     role: "DIRECTOR",
-    subtitle: "Bilateral Business Facilitator | Indobox Inc.",
+    subtitle: "Director of Business Development | Indobox Inc.",
     flag: "🇯🇵",
     country: "Japan",
     email: "contact@indobox.co.jp",
     image: "/team/tanji.png",
-    desc: "Directs J-Gate's bilateral bridge, connecting Indian engineering powerhouses with Japanese corporate headquarters.",
-    tags: ["Business Strategy", "Career Placement", "Bilateral Relations"],
+    desc: "Directs J-Gate's initiatives connecting skilled Indian engineering talent with Japanese corporate headquarters.",
+    tags: ["Business Strategy", "Career Placement", "Japan-India Relations"],
     linkedin: "https://www.linkedin.com/in/daisuke-tanji/",
     languages: [
       { EN: "Japanese", JP: "日本語", highlight: true },
@@ -138,7 +138,7 @@ const OPS_TEAM: OpsMember[] = [
     email: "contact@indobox.co.jp",
     image: "/team/hanaoka.png",
     desc: "Native Japanese educator leading business Japanese, JLPT/NAT curriculum, and cultural orientation programs.",
-    tags: ["Curriculum Design", "Pedagogy", "Cultural Orientation"],
+    tags: ["Curriculum Design", "Language Training", "Cultural Orientation"],
     linkedin: "https://www.linkedin.com/in/marikohanaoka/",
     languages: [
       { EN: "Japanese", JP: "日本語", highlight: true },
@@ -153,13 +153,13 @@ const OPS_TEAM: OpsMember[] = [
     jpName: "ディラジ・ヤンネティ",
     role: "COMMUNITY MANAGER",
     badge: "CONCIERGE LEAD",
-    subtitle: "Operations Head | Admissions Specialist",
+    subtitle: "Operations Head | Member Experience",
     flag: "🇮🇳",
     country: "India",
     phone: "+91-98498 11543",
     email: "contact@indobox.co.jp",
     image: "/team/dheeraj.png",
-    desc: "Manages day-to-day workspace operations, member admissions, bilingual concierge services, and enterprise client relations.",
+    desc: "Manages day-to-day workspace operations, member onboarding, bilingual support services, and enterprise client relations.",
     tags: ["Operations", "Admissions", "Client Relations"],
     linkedin: "https://www.linkedin.com/in/dheeraj-yenneti-41866531b/",
     languages: [
@@ -179,7 +179,7 @@ const OPS_TEAM: OpsMember[] = [
     country: "India",
     email: "contact@indobox.co.jp",
     image: "/team/abhishek.png",
-    desc: "Oversees smart access infrastructure, IT facility support, and technology integrations across the Hyderabad hub.",
+    desc: "Oversees building access systems, IT support, and technology infrastructure at the Hyderabad office.",
     tags: ["Tech Support", "IT Infrastructure", "Smart Access"],
     linkedin: "https://www.linkedin.com/in/buduru-abhishek/",
     languages: [
@@ -201,11 +201,11 @@ export function TeamSection({ id }: { id?: string }) {
         layout="center"
         titleNode={tx({ EN: "Leadership & Advisory", JP: "日印両国を知り尽くした経営陣・アドバイザー" })}
         subtitleNode={tx({
-          EN: "Unlocking new possibilities for your business through collaboration with India.",
+          EN: "Experienced leaders and on-site specialists dedicated to supporting your business in India.",
           JP: "インドとの協業により、貴社ビジネスの新たな可能性を切り拓くプロフェッショナルチーム。",
         })}
         tags={[
-          { EN: "Bilateral Veterans", JP: "日印実務のスペシャリスト" },
+          { EN: "Japan-India Business Specialists", JP: "日印実務のスペシャリスト" },
           { EN: "Resident Director Support", JP: "日本人常駐ディレクター" },
           { EN: "T-Hub & IIT Network", JP: "T-Hub・IIT連携" },
         ]}
@@ -421,19 +421,19 @@ export function TeamSection({ id }: { id?: string }) {
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
-              <Eyebrow>{tx({ EN: "Operations & On-Ground Team", JP: "現地運営チーム" })}</Eyebrow>
+              <Eyebrow>{tx({ EN: "Operations & On-Site Team", JP: "現地運営チーム" })}</Eyebrow>
               <h2
                 className="mt-3 font-serif-jp font-bold text-ink dark:text-white"
                 style={{ fontSize: "clamp(1.875rem, 3.8vw, 2.75rem)" }}
               >
-                {tx({ EN: "Organizing & Execution Team", JP: "J-Gate 運営チーム" })}
+                {tx({ EN: "Operations Management Team", JP: "J-Gate 運営チーム" })}
               </h2>
               <p
                 className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300"
                 style={{ fontSize: "clamp(0.95rem, 1.4vw, 1.05rem)" }}
               >
                 {tx({
-                  EN: "Bilingual professionals based on-ground in Hyderabad — ensuring flawless operations, bespoke member support, and executive conciergerie.",
+                  EN: "Bilingual professionals based on-site in Hyderabad — ensuring daily operations, member support, and executive concierge services.",
                   JP: "ハイデラバード現地に常駐するバイリンガルプロフェッショナル陣が、日々の快適な拠点運営と個別支援を徹底サポート。",
                 })}
               </p>
@@ -603,7 +603,7 @@ export function TeamSection({ id }: { id?: string }) {
 
                 <p className="mt-1.5 font-inter text-[11px] sm:text-[11.5px] leading-relaxed text-slate-600 dark:text-slate-300 max-w-xl mx-auto">
                   {tx({
-                    EN: "Whether exploring hub memberships, enterprise private suites, company incorporation, or bilateral business partnerships — our team provides dedicated support in Japanese and English.",
+                    EN: "Whether exploring office memberships, private suites, company incorporation, or business partnerships — our team provides dedicated support in Japanese and English.",
                     JP: "オフィス視察、現地法人設立、人材採用、市場調査など、経験豊富な現地スタッフが日本語・英語で迅速かつ丁寧に対応いたします。",
                   })}
                 </p>
@@ -614,24 +614,24 @@ export function TeamSection({ id }: { id?: string }) {
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          4. ECOSYSTEM PARTNERS — Infinite Side-Scrolling Company Marquee
+          4. OUR PARTNERS — Infinite Side-Scrolling Company Marquee
          ════════════════════════════════════════════════════════════ */}
       <section className="section-pad relative overflow-hidden bg-ivory-warm dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10 transition-colors duration-300">
         <div className="container-jg mb-8 sm:mb-10">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">
-              <Eyebrow>{tx({ EN: "Bilateral Ecosystem", JP: "提携エコシステム" })}</Eyebrow>
+              <Eyebrow>{tx({ EN: "Partner Network", JP: "提携エコシステム" })}</Eyebrow>
               <h2
                 className="mt-3 font-serif-jp font-bold text-ink dark:text-white"
                 style={{ fontSize: "clamp(1.875rem, 3.8vw, 2.75rem)" }}
               >
-                {tx({ EN: "Our Ecosystem Partner Network", JP: "提携エコシステムネットワーク" })}
+                {tx({ EN: "Our Partner Network", JP: "提携エコシステムネットワーク" })}
               </h2>
               <p
                 className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300 text-[13px] sm:text-[15px]"
               >
                 {tx({
-                  EN: "Government trade organizations, premier incubators, universities, and enterprise enablers powering member success.",
+                  EN: "Government trade organizations, premier incubators, universities, and industry partners to help our members succeed.",
                   JP: "政府機関、アジア最大級のインキュベーション施設、トップ大学、そして先進テクノロジー企業との緊密な連携基盤。",
                 })}
               </p>

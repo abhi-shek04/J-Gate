@@ -83,7 +83,7 @@ const CORE_SERVICES: ServiceItem[] = [
       JP: "即日入居可能な専用オフィス・執務設備",
     },
     desc: {
-      EN: "Move in immediately into fully furnished lockable private cabins and dedicated desks in Hyderabad. Includes high-speed redundant fiber internet, 100% UPS and generator backup, equipped meeting rooms, and 24/7 smart keycard security.",
+      EN: "Move immediately into fully furnished lockable private offices and dedicated desks in Hyderabad. Includes high-speed backup fiber internet, 100% UPS and generator backup, equipped meeting rooms, and 24/7 keycard security.",
       JP: "ハイデラバード専用オフィス内に施錠個室キャビンと人間工学デスクを完備。二重冗長化の高速光回線、100%無停電電源（UPS＋自家発電）、プレゼン設備付き会議室、24時間セキュリティを完備し、すぐ業務を開始できます。",
     },
     points: [
@@ -92,7 +92,7 @@ const CORE_SERVICES: ServiceItem[] = [
         JP: "人間工学什器・施錠キャビネット完備の専用個室キャビン（2〜50席以上）",
       },
       {
-        EN: "Dual-carrier redundant high-speed internet with zero Tokyo-hours downtime",
+        EN: "High-speed internet with dual-provider backup during Japan business hours",
         JP: "日本本社との時差業務・国際ビデオ会議に対応する二重化高速光回線",
       },
       {
@@ -115,7 +115,7 @@ const CORE_SERVICES: ServiceItem[] = [
       JP: "日本人役員常駐・日常のよろず相談窓口",
     },
     desc: {
-      EN: "Native Japanese directors and bilingual staff work inside our Hyderabad office daily. We offer direct in-person consultation in Japanese for day-to-day business matters, curated introductions to local accounting and legal firms, and meeting accompaniment.",
+      EN: "Native Japanese directors and bilingual staff work inside our Hyderabad office daily. We offer direct in-person consultation in Japanese for day-to-day business matters, curated introductions to local accounting and legal firms, and meeting support.",
       JP: "日本人役員およびバイリンガル実務スタッフがハイデラバードオフィスに毎日常駐。日常の業務課題（よろず相談）から現地専門家（会計・法務）の紹介、重要商談への同席まで、すべて日本語で対面支援します。",
     },
     points: [
@@ -124,15 +124,15 @@ const CORE_SERVICES: ServiceItem[] = [
         JP: "オフィス内常駐デスクでの日本語による日常業務の対面相談（よろず相談）",
       },
       {
-        EN: "Curated referrals to trusted local chartered accountants & corporate lawyers",
+        EN: "Direct introductions to trusted local chartered accountants & corporate lawyers",
         JP: "J-Gateが厳選した信頼できる現地会計士・税務アドバイザー・弁護士の紹介",
       },
       {
-        EN: "Executive meeting accompaniment on critical partner and government talks",
+        EN: "Executive meeting support on critical partner and government talks",
         JP: "現地企業との重要商談や州政府機関訪問への日本人役員同席サポート",
       },
       {
-        EN: "Japan parent company reporting alignment & local contract dispute advisory",
+        EN: "Japan reporting coordination with Japan headquarters & local contract dispute advisory",
         JP: "日本本社向け業務報告書の作成助言および現地取引先との円滑な調整支援",
       },
     ],
@@ -152,7 +152,7 @@ const CORE_SERVICES: ServiceItem[] = [
     },
     points: [
       {
-        EN: "Recruitment pipelines to premier universities and professional talent pools",
+        EN: "Recruitment channels connecting to leading universities and professional networks",
         JP: "名門大学卒業生および現地実務経験者への求人アプローチ・採用支援",
       },
       {
@@ -160,7 +160,7 @@ const CORE_SERVICES: ServiceItem[] = [
         JP: "候補者の事前スクリーニング、スキル評価、経歴・身元照会代行",
       },
       {
-        EN: "Indobox business orientation: Japanese Horenso, Kaizen & workplace protocols",
+        EN: "Indobox business orientation: Japanese Horenso, Kaizen & workplace practices",
         JP: "採用スタッフに対する日本の報連相文化・品質意識・ビジネスマナー集中指導",
       },
       {
@@ -180,31 +180,31 @@ const DEPLOYMENT_STEPS = [
       EN: "Align on team capacity, expansion timeline, and select the optimal Satellite, Standard, or Advance tier.",
       JP: "進出目的、利用人数、スケジュールをヒアリングし、最適なメンバーシッププランを決定します。",
     },
-    duration: { EN: "Day 1–3", JP: "1〜3日" },
+    duration: { EN: "Days 1–3", JP: "1〜3日" },
   },
   {
     step: "02",
     title: { EN: "Official Address & Incorporation", JP: "公式登記住所の確定・設立申請" },
     desc: {
-      EN: "Allocate your Hyderabad commercial address and coordinate SPICe+ MCA filing and bank paperwork.",
+      EN: "Allocate your Hyderabad commercial address and coordinate company incorporation filings and bank paperwork.",
       JP: "ハイデラバード公式登記住所を発行し、MCA法人登記手続きおよび銀行口座申請を開始します。",
     },
-    duration: { EN: "Week 1–3", JP: "1〜3週目" },
+    duration: { EN: "Weeks 1–3", JP: "1〜3週目" },
   },
   {
     step: "03",
-    title: { EN: "Private Suite Allocation & Office Setup", JP: "専用執務室の配備・入居環境整備" },
+    title: { EN: "Private Office Setup & Office Setup", JP: "専用執務室の配備・入居環境整備" },
     desc: {
-      EN: "Configure your private cabin, assign 24/7 keycards, and provision high-speed connectivity and ergonomic furnishings.",
+      EN: "Prepare your private office, assign 24/7 keycards, and set up high-speed internet and office furniture.",
       JP: "執務デスクの配置、専用施錠キー、高速通信回線およびスマート入退室カードを発行します。",
     },
     duration: { EN: "Immediate", JP: "即日〜数日" },
   },
   {
     step: "04",
-    title: { EN: "Move-In & Daily Advisory Launch", JP: "即日稼働開始・ジャパンデスク伴走" },
+    title: { EN: "Move-In & Daily Operational Support", JP: "即日稼働開始・ジャパンデスク伴走" },
     desc: {
-      EN: "Begin operations on Day 1 with resident Japanese director 'Yorozu' guidance, partner introductions, and hiring.",
+      EN: "Begin operations on Day 1 with on-site guidance from Japanese directors, partner introductions, and hiring.",
       JP: "入居初日から常駐日本人ディレクターによる「よろず相談」、現地専門家の紹介、採用支援を開始します。",
     },
     duration: { EN: "Day 1 Onward", JP: "初日から即稼働" },
@@ -226,7 +226,7 @@ export function ServicesSection({ id }: { id?: string }) {
           <>
             {tx({ EN: "Comprehensive Setup & ", JP: "包括的インド進出支援・" })}
             <br className="hidden sm:inline" />
-            {tx({ EN: "Operational Solutions", JP: "サービス仕様・運営基盤" })}
+            {tx({ EN: "Business Operations", JP: "サービス仕様・運営基盤" })}
           </>
         }
         subtitleNode={tx({
@@ -234,9 +234,9 @@ export function ServicesSection({ id }: { id?: string }) {
           JP: "Indobox独自の包括的進出支援と高度人材育成。ハイデラバード拠点の日本企業専用エンドツーエンドプラットフォーム。",
         })}
         tags={[
-          { EN: "Dedicated Desks & Cabins", JP: "専用デスク・個室キャビン" },
-          { EN: "Everyday Japanese Advisory", JP: "日々の日本語業務相談" },
-          { EN: "Elite Tech Talent Recruitment", JP: "高度ITエンジニア採用" },
+          { EN: "Dedicated Desks & Private Offices", JP: "専用デスク・個室キャビン" },
+          { EN: "Daily Japanese Advisory", JP: "日々の日本語業務相談" },
+          { EN: "Technical & Professional Recruitment", JP: "高度ITエンジニア採用" },
         ]}
       />
 
@@ -266,14 +266,14 @@ export function ServicesSection({ id }: { id?: string }) {
                   icon: Compass,
                   badge: tx({ EN: "On-Site Support", JP: "常駐対面伴走" }),
                   title: tx({ EN: "Resident Japan Desk", JP: "日本人常駐サポート" }),
-                  desc: tx({ EN: "Daily in-person 'Yorozu' advisory", JP: "日本語による日常業務よろず相談" }),
+                  desc: tx({ EN: "Daily in-person Japanese advisory", JP: "日本語による日常業務よろず相談" }),
                   accent: "text-crimson dark:text-rose-400 bg-crimson/10 dark:bg-rose-950/50 border-crimson/20 dark:border-rose-400/30",
                 },
                 {
                   icon: Users,
                   badge: tx({ EN: "Local Talent", JP: "現地人材採用" }),
                   title: tx({ EN: "Recruitment Support", JP: "優秀人材採用・育成" }),
-                  desc: tx({ EN: "University pipelines & candidate vetting", JP: "名門大学・現地専門職の採用支援" }),
+                  desc: tx({ EN: "University pipelines & background checks", JP: "名門大学・現地専門職の採用支援" }),
                   accent: "text-amber-900 dark:text-amber-300 bg-amber-100 dark:bg-amber-950/50 border-amber-200 dark:border-amber-700/40",
                 },
               ].map((pod, i) => {
@@ -386,7 +386,7 @@ export function ServicesSection({ id }: { id?: string }) {
                         href={`/contact?service=${srv.id}`}
                         className="inline-flex items-center gap-1.5 font-inter text-[12px] font-semibold text-slate-800 dark:text-slate-200 hover:text-crimson dark:hover:text-rose-400 transition-colors"
                       >
-                        <span>{tx({ EN: "Inquire about this", JP: "詳細・相談" })}</span>
+                        <span>{tx({ EN: "Learn More", JP: "詳細・相談" })}</span>
                         <ArrowRight className="h-3.5 w-3.5" />
                       </Link>
                     </div>
@@ -407,17 +407,17 @@ export function ServicesSection({ id }: { id?: string }) {
             <div className="mx-auto max-w-3xl text-center mb-10">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 px-3 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
                 <Clock className="h-3.5 w-3.5 text-crimson dark:text-rose-400" />
-                {tx({ EN: "Rapid Onboarding Process", JP: "進出の流れ・導入ステップ" })}
+                {tx({ EN: "Fast Setup Process", JP: "進出の流れ・導入ステップ" })}
               </span>
               <h3 className="mt-2.5 font-serif-jp text-xl sm:text-2xl font-bold text-ink dark:text-white">
                 {tx({
-                  EN: "From Initial Consultation to Day 1 Operations",
+                  EN: "From Initial Consultation to Starting Operations",
                   JP: "初回相談から初日の事業開始までのステップ",
                 })}
               </h3>
               <p className="mt-1.5 text-[13px] font-inter text-slate-500 dark:text-slate-400">
                 {tx({
-                  EN: "A structured, friction-free deployment timeline designed for rapid corporate setup.",
+                  EN: "A structured, efficient timeline designed for rapid corporate setup.",
                   JP: "無駄な手続きや遅延を排除した、日本企業のための迅速な立ち上げプロセス。",
                 })}
               </p>
@@ -467,20 +467,20 @@ export function ServicesSection({ id }: { id?: string }) {
             <div className="mx-auto max-w-3xl text-center mb-8 sm:mb-12">
               <span className="inline-flex items-center gap-2 rounded-full border border-amber-900/15 dark:border-amber-400/30 bg-amber-50/90 dark:bg-amber-950/40 px-3.5 py-0.5 sm:px-4 sm:py-1 font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-amber-900 dark:text-amber-300 shadow-xs">
                 <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                {tx({ EN: "Bilateral Co-Operating Model", JP: "日印共同運営アーキテクチャ" })}
+                {tx({ EN: "Joint Operating Partnership", JP: "日印共同運営アーキテクチャ" })}
               </span>
               <h2
                 className="mt-3 sm:mt-4 font-serif-jp font-bold text-ink dark:text-white tracking-tight"
                 style={{ fontSize: "clamp(1.65rem, 3.6vw, 2.75rem)" }}
               >
                 {tx({
-                  EN: "Two Specialized Operators, One Unified Engine",
+                  EN: "Two Specialized Partners, One Complete Solution",
                   JP: "二つの専門運営主体、ひとつの統合エンジン",
                 })}
               </h2>
               <p className="mx-auto mt-2 sm:mt-3 max-w-2xl font-inter text-[13px] sm:text-[14px] leading-relaxed text-slate-600 dark:text-slate-300">
                 {tx({
-                  EN: "J-Gate is powered by an intentional bilateral alliance between Indobox India Pvt. Ltd. and Genesys Info X — uniting Japanese corporate governance with Tier-1 Indian physical office infrastructure to guarantee smooth and efficient expansion.",
+                  EN: "J-Gate is powered by an joint partnership between Indobox India Pvt. Ltd. and Genesys Info X — uniting Japanese corporate governance with professional office infrastructure in Hyderabad to guarantee smooth and efficient expansion.",
                   JP: "J-Gateは、日本企業ガバナンスを担うIndoboxと、ハイデラバードのオフィス施設・物理インフラを担うGenesys Info Xの戦略的共同事業です。役割分担を一元化し、進出に伴うあらゆる摩擦をゼロにします。",
                 })}
               </p>
@@ -513,7 +513,7 @@ export function ServicesSection({ id }: { id?: string }) {
                       </h4>
                       <p className="text-[12px] sm:text-[12.5px] text-slate-600 dark:text-slate-300 font-inter mt-2 sm:mt-2.5 leading-relaxed">
                         {tx({
-                          EN: "Japanese director leadership, resident Japan Desk daily advisory, business orientation, tenant care, and parent company reporting alignment.",
+                          EN: "Japanese director leadership, resident Japan Desk daily advisory, business orientation, member support, and reporting coordination with Japan headquarters.",
                           JP: "日本人取締役常駐・日々のよろず相談・ビジネスアドバイザリー・日本本社報告支援・現地入居企業サポート。",
                         })}
                       </p>
@@ -530,11 +530,11 @@ export function ServicesSection({ id }: { id?: string }) {
                       </div>
                     </div>
                     <span className="text-[9px] sm:text-[9.5px] font-mono font-bold tracking-widest text-slate-500 dark:text-slate-400 uppercase mt-2 text-center whitespace-nowrap">
-                      STRATEGIC ALLIANCE
+                      STRATEGIC PARTNERSHIP
                     </span>
                   </div>
 
-                  {/* Right Pedestal: Genesys info X */}
+                  {/* Right Pedestal: Genesys Info X */}
                   <div className="md:col-span-5 rounded-xl sm:rounded-2xl border border-saffron/25 dark:border-amber-400/30 bg-gradient-to-b from-amber-50/40 via-white to-slate-50/50 dark:from-amber-950/20 dark:via-[#101a2c] dark:to-[#0b111e] p-5 sm:p-7 text-center relative overflow-hidden group hover:border-saffron/50 hover:shadow-md transition-all duration-300 flex flex-col items-center justify-between">
                     <span className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-saffron to-[#c9881a]" />
 
@@ -542,7 +542,7 @@ export function ServicesSection({ id }: { id?: string }) {
                     <div className="h-20 sm:h-24 w-full rounded-xl bg-white dark:bg-white/95 border border-slate-200/80 dark:border-white/10 p-4 flex items-center justify-center shadow-xs mb-3 group-hover:scale-[1.02] transition-transform">
                       <Image
                         src="/logos/genesys-info-x.png"
-                        alt="Genesys info X"
+                        alt="Genesys Info X"
                         width={280}
                         height={70}
                         className="h-12 sm:h-15 md:h-16 w-auto object-contain"
@@ -555,7 +555,7 @@ export function ServicesSection({ id }: { id?: string }) {
                       </h4>
                       <p className="text-[12px] sm:text-[12.5px] text-slate-600 dark:text-slate-300 font-inter mt-2 sm:mt-2.5 leading-relaxed">
                         {tx({
-                          EN: "Fully equipped workspace suites, high-speed fiber connectivity, 100% UPS & generator power backup, 24/7 biometric security, and facilities care.",
+                          EN: "Fully equipped workspace suites, high-speed fiber connectivity, 100% UPS & generator power backup, 24/7 biometric security, and facility maintenance.",
                           JP: "完全家具付きオフィス、高速光回線、24時間無停電電源・発電設備、スマート生体認証セキュリティ、施設保守管理。",
                         })}
                       </p>
@@ -571,11 +571,11 @@ export function ServicesSection({ id }: { id?: string }) {
                     </span>
                     <div>
                       <h4 className="font-serif-jp text-[14.5px] font-bold text-ink dark:text-white">
-                        {tx({ EN: "Single-Window Contract & Unified Accountability", JP: "ワンストップ契約＆一元管理保証" })}
+                        {tx({ EN: "Single Point of Contact & One Simple Agreement", JP: "ワンストップ契約＆一元管理保証" })}
                       </h4>
                       <p className="font-inter text-[12.5px] text-slate-600 dark:text-slate-300 leading-snug">
                         {tx({
-                          EN: "One unified agreement. Zero vendor fragmentation, zero language friction, and direct executive escalation.",
+                          EN: "One unified agreement. No need to manage multiple vendors, no language barriers, and direct communication with senior leadership.",
                           JP: "窓口一本化。複数業者との個別交渉不要、言語障壁なし、日本品質基準での確実な実行体制を保証。",
                         })}
                       </p>

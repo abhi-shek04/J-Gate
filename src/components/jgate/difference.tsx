@@ -6,20 +6,20 @@ import { Reveal, Eyebrow } from "./shared";
 const DIFFERENTIATORS = [
   {
     icon: Brain,
-    title: "Local Knowledge, Global Standard",
+    title: "Local Expertise, Japanese Standards",
     copy: "We speak both languages — not just Japanese and English, but the language of Indian business and the precision of Japanese corporate culture. Every member benefits from that translation.",
     accent: "text-crimson",
   },
   {
     icon: Network,
-    title: "A Network You Cannot Build Alone",
+    title: "An Established Partner Network",
     copy: "From T-Hub to IIT Hyderabad, from Woxsen University to Genesys Info X — your membership connects you instantly to an ecosystem that would take years to build independently.",
     accent: "text-saffron",
   },
   {
     icon: ShieldCheck,
-    title: "Omotenashi in a Business Context",
-    copy: "The Japanese philosophy of wholehearted hospitality guides everything we do. You arrive as a guest and grow into a leader, with support every step of the way.",
+    title: "Japanese Service Standards",
+    copy: "The Japanese philosophy of wholehearted hospitality guides everything we do. our team provides attentive, reliable support at every step of your India expansion.",
     accent: "text-success",
   },
 ];
@@ -54,7 +54,7 @@ export function Difference() {
             </p>
             <p className="mx-auto mt-4 max-w-[640px] font-inter text-[15px] leading-relaxed text-mist">
               Operated by Indobox India Private Limited in Hyderabad —
-              India&apos;s premier tech corridor — J-Gate is your
+              India&apos;s leading technology center — J-Gate is your
               trusted local base, your partner network, and your launchpad into
               one of the world&apos;s fastest-growing economies.
             </p>

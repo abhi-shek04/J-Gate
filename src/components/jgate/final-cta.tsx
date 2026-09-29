@@ -37,7 +37,7 @@ export function FinalCta() {
       <div className="container-jg relative">
         <Reveal>
           <div className="mx-auto max-w-[700px] text-center">
-            <Eyebrow light>Your India Journey Begins Here</Eyebrow>
+            <Eyebrow light>Start in India with J-Gate</Eyebrow>
             <h2
               className="mt-4 font-serif-jp font-bold leading-[1.12] text-white"
               style={{ fontSize: "clamp(2.5rem, 5vw, 4.5rem)" }}
@@ -48,7 +48,7 @@ export function FinalCta() {
             </h2>
             <p className="mt-5 font-serif-jp text-[16px] sm:text-[18px] text-saffron/80">
               {tx({
-                EN: "A New Horizon for India-Japan Business",
+                EN: "A Dedicated Workspace and Support Hub for Japanese Companies",
                 JP: "日本企業向け専用ワーキングスペース — 日印ビジネスの新しい地平",
               })}
             </p>
@@ -56,7 +56,7 @@ export function FinalCta() {
               Whether you are exploring, ready to establish operations, or
               looking to scale — J-Gate is your partner at every stage. Book a
               private tour of our Hyderabad workspace, or contact us to
-              receive a custom membership proposal in English or Japanese.
+              receive a tailored proposal in English or Japanese.
             </p>
 
             {/* 2 CTAs */}
@@ -72,7 +72,7 @@ export function FinalCta() {
                 onClick={() => scrollTo("contact")}
                 className="flex w-full items-center justify-center gap-1.5 rounded-md border border-white/15 bg-white/10 px-9 py-4 font-inter text-[15px] font-semibold text-white backdrop-blur transition-all duration-300 hover:-translate-y-0.5 hover:bg-white/20 sm:w-auto"
               >
-                {tx({ EN: "Contact Support in Japanese", JP: "日本語でお問い合わせ" })}
+                {tx({ EN: "Speak with Our Japan Desk", JP: "日本語でお問い合わせ" })}
               </button>
             </div>
           </div>

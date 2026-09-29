@@ -46,7 +46,7 @@ export function WhyCTA() {
             <p
               className="mt-6 font-inter text-[11px] font-bold uppercase tracking-widest text-saffron"
             >
-              {tx({ EN: "Ready to see the difference", JP: "違いを確かめる準備はできましたか" })}
+              {tx({ EN: "Take the Next Step", JP: "違いを確かめる準備はできましたか" })}
             </p>
 
             <h2
@@ -54,7 +54,7 @@ export function WhyCTA() {
               style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)" }}
             >
               {tx({
-                EN: "Download the Brochure. See the Difference.",
+                EN: "Download the J-Gate Brochure",
                 JP: "パンフレットをダウンロード。違いを確かめてください。",
               })}
             </h2>
@@ -63,7 +63,7 @@ export function WhyCTA() {
               className="mx-auto mt-4 max-w-xl font-inter font-light leading-relaxed text-mist/90 text-[14px] sm:text-[15px]"
             >
               {tx({
-                EN: "Full PDF brochure with membership tiers, workspace photos, Japan Desk details, and partner ecosystem — or talk to our team in Japanese.",
+                EN: "Full PDF brochure with membership tiers, workspace photos, Japan Desk details, and partner network — or talk to our team in Japanese.",
                 JP: "会員プラン・ワークスペース写真・ジャパンデスク詳細・パートナーエコシステムを収録したPDFパンフレット、または日本語でチームにお問い合わせください。",
               })}
             </p>

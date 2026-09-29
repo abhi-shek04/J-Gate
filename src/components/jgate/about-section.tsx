@@ -61,9 +61,9 @@ const BILATERAL_SYNERGIES = [
   {
     icon: Handshake,
     badge: { EN: "Corporate Alignment", JP: "商習慣の調和" },
-    title: { EN: "Cultural & Strategic Governance", JP: "日本品質ガバナンスと現地推進力の融合" },
+    title: { EN: "Quality Standards & Local Execution", JP: "日本品質ガバナンスと現地推進力の融合" },
     desc: {
-      EN: "Harmonizing Japanese standards of meticulous quality, compliance, and Japan parent company reporting with India's agile execution speed.",
+      EN: "Combining Japanese standards for quality, compliance, and Japan parent company reporting with India's fast execution.",
       JP: "日本の高い品質基準・コンプライアンス・本社報告基準と、インド現地の圧倒的な実行スピードを高度に調和させます。",
     },
   },
@@ -72,7 +72,7 @@ const BILATERAL_SYNERGIES = [
     badge: { EN: "Institutional Network", JP: "公的・産学連携" },
     title: { EN: "Direct Institutional & Government Ties", JP: "州政府・T-Hub・学術機関との直接連携" },
     desc: {
-      EN: "Direct institutional ties with the Telangana Government IT Department, T-Hub (India's premier tech incubator), and premier engineering universities.",
+      EN: "Direct institutional ties with the Telangana Government IT Department, T-Hub (India's largest technology incubator), and leading engineering universities.",
       JP: "テランガナ州政府IT局、インド最大のイノベーション拠点T-Hub、名門大学との直結ネットワークにより、安心の事業展開基盤を構築します。",
     },
   },
@@ -81,7 +81,7 @@ const BILATERAL_SYNERGIES = [
     badge: { EN: "Single Window", JP: "窓口一本化" },
     title: { EN: "Unified Bilateral Accountability & Support", JP: "日印共同体制によるワンストップ支援" },
     desc: {
-      EN: "Co-operated by Indobox India and Genesys Info X — providing a single contract window that eliminates vendor fragmentation and cross-border risk.",
+      EN: "Co-operated by Indobox India and Genesys Info X — providing a single contract so you avoid managing multiple vendors or cross-border coordination alone.",
       JP: "IndoboxとGenesys Info Xの共同運営により、複数業者との個別交渉を排除。契約から日常運用まで一元管理で支援します。",
     },
   },
@@ -91,16 +91,16 @@ const BILATERAL_SYNERGIES = [
 const MISSION = {
   title: { EN: "Our Mission", JP: "ミッション" },
   body: {
-    EN: "To eliminate every friction point of India expansion for Japanese enterprises by providing ready workspace, resident Japanese advisory, and statutory guidance in Hyderabad.",
+    EN: "To remove every barrier of India expansion for Japanese enterprises by providing ready workspace, resident Japanese advisory, and statutory guidance in Hyderabad.",
     JP: "即日利用可能な執務環境、現地常駐の日本語支援、そして確実な法人登記・行政手続きを通じて、日本企業のインド進出におけるあらゆる摩擦をゼロにすること。",
   },
-  tag: { EN: "Execution Today", JP: "私たちの使命" },
+  tag: { EN: "Current Focus", JP: "私たちの使命" },
 } as const;
 
 const VISION = {
   title: { EN: "Our Vision", JP: "ビジョン" },
   body: {
-    EN: "To serve as the premier bilateral launchpad between Japan and India — accelerating cross-border innovation, elite engineering exchange, and sustainable enterprise growth.",
+    EN: "To serve as the primary bridge between Japan and India — accelerating cross-border innovation, technical talent exchange, and long-term business growth.",
     JP: "日印両国を結ぶ永続的な共創基盤となり、国境を越えたイノベーション、高度IT人材の交流、そして企業の持続的成長を加速させること。",
   },
   tag: { EN: "Long-Term Vision", JP: "私たちが目指す未来" },
@@ -126,8 +126,8 @@ export function AboutSection({ id }: { id?: string }) {
           JP: "Indobox Indiaが運営する、ハイデラバードの日本企業専用ワーキングハブ。",
         })}
         tags={[
-          { EN: "Flagship Hub in Hyderabad", JP: "Hyderabad 旗艦拠点" },
-          { EN: "100% Japanese On-Site", JP: "現地日本人常駐" },
+          { EN: "Main Office in Hyderabad", JP: "Hyderabad 旗艦拠点" },
+          { EN: "On-Site Japanese Support", JP: "現地日本人常駐" },
           { EN: "Incorporation Support", JP: "法人設立サポート" },
         ]}
       />
@@ -206,20 +206,20 @@ export function AboutSection({ id }: { id?: string }) {
             <div className="mx-auto max-w-3xl text-center">
               <span className="inline-flex items-center gap-2 rounded-full border border-saffron/30 bg-saffron/10 px-3.5 py-1 font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-saffron shadow-sm">
                 <Sparkles className="h-3.5 w-3.5" />
-                {tx({ EN: "Bilateral Alliance & Trust", JP: "日印の信頼と共創" })}
+                {tx({ EN: "Japan–India Partnership", JP: "日印の信頼と共創" })}
               </span>
               <h2
                 className="mt-2.5 sm:mt-3 font-serif-jp font-bold text-white"
                 style={{ fontSize: "clamp(1.65rem, 3.4vw, 2.75rem)" }}
               >
                 {tx({
-                  EN: "Bridging Two Nations. Empowering Global Enterprises.",
+                  EN: "Connecting Two Nations. Supporting Global Businesses.",
                   JP: "日印の架け橋となり、企業のグローバル展開を加速する",
                 })}
               </h2>
               <p className="mt-2 sm:mt-2.5 font-inter text-[12.5px] sm:text-[13.5px] leading-relaxed text-mist max-w-2xl mx-auto">
                 {tx({
-                  EN: "J-Gate unites Japanese corporate precision, governance, and trust with India's vibrant technological power, vast talent pool, and rapid market execution.",
+                  EN: "J-Gate unites Japanese corporate precision, governance, and trust with India's strong technology sector, skilled workforce, and fast-growing market.",
                   JP: "日本の卓越した品質・ガバナンスと、インドの高度な技術力・豊富な人材・ダイナミックな市場推進力をシームレスに融合します。",
                 })}
               </p>
@@ -255,7 +255,7 @@ export function AboutSection({ id }: { id?: string }) {
                       </span>
                       <span className="inline-flex items-center gap-1.5 rounded-full bg-crimson/90 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-md">
                         <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
-                        {tx({ EN: "LIVE CORRIDOR", JP: "常時連携" })}
+                        {tx({ EN: "ACTIVE PARTNERSHIP", JP: "常時連携" })}
                       </span>
                     </div>
 
@@ -263,13 +263,13 @@ export function AboutSection({ id }: { id?: string }) {
                     <div className="absolute bottom-4 left-4 right-4 text-white">
                       <p className="font-serif-jp text-[14px] sm:text-[15px] font-bold leading-snug text-white drop-shadow-md">
                         {tx({
-                          EN: "Executive Partnership & Strategic Mutual Trust",
+                          EN: "Executive Partnership & Shared Trust",
                           JP: "確固たる信頼と共創に基づく日印エグゼクティブ・アライアンス",
                         })}
                       </p>
                       <p className="mt-1 font-inter text-[11px] text-mist/90 line-clamp-2">
                         {tx({
-                          EN: "Deepening business, technological, and cultural ties between Japanese enterprises and India's fastest-growing innovation ecosystem.",
+                          EN: "Deepening business, technological, and cultural ties between Japanese enterprises and India's fastest-growing technology sector.",
                           JP: "日本企業とインド急成長イノベーションエコシステムを結ぶ、強固なビジネス・技術・人材の連携基盤。",
                         })}
                       </p>
@@ -280,7 +280,7 @@ export function AboutSection({ id }: { id?: string }) {
                   <div className="mt-3 pt-3 border-t border-white/10 grid grid-cols-3 gap-2 text-center text-white">
                     <div className="rounded-xl bg-white/[0.04] p-2 border border-white/5">
                       <span className="block font-inter text-[9.5px] font-bold text-saffron uppercase tracking-wider">
-                        {tx({ EN: "Ready Space", JP: "即日稼働" })}
+                        {tx({ EN: "Move-in Ready", JP: "即日稼働" })}
                       </span>
                       <span className="block font-inter text-[11.5px] font-semibold text-white mt-0.5">
                         Hyderabad, India
@@ -353,14 +353,14 @@ export function AboutSection({ id }: { id?: string }) {
                 className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink dark:text-white"
                 style={{ fontSize: "clamp(1.625rem,3vw,2.25rem)" }}
               >
-                {tx({ EN: "What We Exist To Do", JP: "私たちの存在意義" })}
+                {tx({ EN: "Our Purpose", JP: "私たちの存在意義" })}
               </h2>
               <p
                 className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300"
                 style={{ fontSize: "clamp(0.9rem,1.3vw,1.05rem)" }}
               >
                 {tx({
-                  EN: "Two statements — one for what we do today, one for what we are building toward.",
+                  EN: "Our commitments today and our vision for the future.",
                   JP: "二つの声明 — 今日私たちが行うことと、私たちが構築している未来。",
                 })}
               </p>

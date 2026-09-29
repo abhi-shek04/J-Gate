@@ -28,8 +28,8 @@ export function PrecisionWhyPage() {
       market: 120000,
       saving: 105000,
       pct: 87,
-      name: { EN: "Satellite Plan", JP: "サテライトプラン" },
-      desc: { EN: "Entry-level presence — solo rep or initial setup", JP: "初期調査・駐在員1名からのエントリー拠点" },
+      name: { EN: "Starter Plan", JP: "サテライトプラン" },
+      desc: { EN: "For a single representative or initial market research — solo rep or initial setup", JP: "初期調査・駐在員1名からのエントリー拠点" },
     },
     standard: {
       jGate: 50000,
@@ -46,7 +46,7 @@ export function PrecisionWhyPage() {
       market: 480000,
       saving: 360000,
       pct: 75,
-      name: { EN: "Advance Plan", JP: "アドバンスプラン" },
+      name: { EN: "Advanced Plan", JP: "アドバンスプラン" },
       desc: { EN: "Full entity operations hub — maximum support", JP: "現地法人登記・本格事業拡大エンタープライズ" },
     },
   };
@@ -151,10 +151,10 @@ export function PrecisionWhyPage() {
       <div className="relative z-20 w-full h-[40px] bg-[#0F0F18] border-b border-[rgba(184,146,74,0.35)] overflow-hidden flex items-center">
         <div className="ticker-track flex whitespace-nowrap will-change-transform animate-ticker">
           <span className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-[#B8924A] px-4 flex items-center gap-4">
-            <span>J-GATE</span> · <span>HYDERABAD OPERATIONS HUB</span> · <span>INDOBOX INDIA</span> · {lang === "JP" && <><span>ジェーゲート</span> · </>}<span>THE JAPAN-INDIA CORRIDOR</span> · <span>2-4 PERSONS PER COMPANY</span> · <span>7 CORE PILLARS</span> · <span>FROM ¥90,000 /MO</span> · <span>HYDERABAD HUB</span> · <span>LAUNCHED JUNE 2026</span> ·
+            <span>J-GATE</span> · <span>HYDERABAD OFFICE</span> · <span>INDOBOX INDIA</span> · {lang === "JP" && <><span>ジェーゲート</span> · </>}<span>CONNECTING JAPAN & INDIA</span> · <span>TEAMS OF 2–4</span> · <span>7 CORE SERVICES</span> · <span>FROM ¥90,000 /MO</span> · <span>HYDERABAD HUB</span> · <span>LAUNCHED JUNE 2026</span> ·
           </span>
           <span className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-[#B8924A] px-4 flex items-center gap-4" aria-hidden="true">
-            <span>J-GATE</span> · <span>HYDERABAD OPERATIONS HUB</span> · <span>INDOBOX INDIA</span> · {lang === "JP" && <><span>ジェーゲート</span> · </>}<span>THE JAPAN-INDIA CORRIDOR</span> · <span>2-4 PERSONS PER COMPANY</span> · <span>7 CORE PILLARS</span> · <span>FROM ¥90,000 /MO</span> · <span>HYDERABAD HUB</span> · <span>LAUNCHED JUNE 2026</span> ·
+            <span>J-GATE</span> · <span>HYDERABAD OFFICE</span> · <span>INDOBOX INDIA</span> · {lang === "JP" && <><span>ジェーゲート</span> · </>}<span>CONNECTING JAPAN & INDIA</span> · <span>TEAMS OF 2–4</span> · <span>7 CORE SERVICES</span> · <span>FROM ¥90,000 /MO</span> · <span>HYDERABAD HUB</span> · <span>LAUNCHED JUNE 2026</span> ·
           </span>
         </div>
       </div>
@@ -173,7 +173,7 @@ export function PrecisionWhyPage() {
             <div className="flex items-center gap-3 animate-fade-in">
               <div className="w-[2px] h-[16px] bg-[#B8924A]" />
               <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#B8924A]">
-                {tx({ EN: "WHY J-GATE — THE STRATEGIC ADVANTAGE", JP: "WHY J-GATE — 戦略的投資メリット" })}
+                {tx({ EN: "WHY CHOOSE J-GATE", JP: "WHY J-GATE — 戦略的投資メリット" })}
               </span>
             </div>
 
@@ -193,7 +193,7 @@ export function PrecisionWhyPage() {
             {/* Sub-headline */}
             <p className="max-w-2xl font-sans text-[15px] sm:text-[17px] font-light leading-relaxed text-[#9A98A4]">
               {tx({
-                EN: "“The only option that combines a physical base, resident Japanese expertise, and direct hiring — at a cost-justifiable investment level.”",
+                EN: "“The only option that combines a dedicated office, on-site Japanese advisors, and direct hiring support — at a predictable, affordable cost.”",
                 JP: "「専用拠点・常駐日本語専門家・直接採用支援をワンストップで兼ね備え、圧倒的な投資対効果を実現する唯一の選択肢」",
               })}
             </p>
@@ -205,7 +205,7 @@ export function PrecisionWhyPage() {
                 className="group inline-flex items-center gap-3 px-6 py-3.5 bg-transparent border border-[rgba(184,146,74,0.35)] hover:border-[#B8924A] hover:bg-[rgba(184,146,74,0.08)] text-[#F0EDE6] rounded-[2px] font-mono text-[11px] uppercase tracking-[0.2em] transition-all duration-300"
               >
                 <span className="w-[2px] h-[12px] bg-[#B8924A] group-hover:scale-y-125 transition-transform" />
-                <span>{tx({ EN: "DISCOVER THE DIFFERENCE ↓", JP: "他選択肢との違いを見る ↓" })}</span>
+                <span>{tx({ EN: "SEE THE COMPARISON ↓", JP: "他選択肢との違いを見る ↓" })}</span>
               </a>
 
               <Link
@@ -221,7 +221,7 @@ export function PrecisionWhyPage() {
           {/* Hero Right: Precision Comparison Meter */}
           <div className="lg:col-span-4 hidden lg:flex flex-col items-center justify-center p-8 bg-[#0F0F18] border border-[rgba(184,146,74,0.2)] rounded-[2px] relative">
             <div className="absolute top-3 left-4 font-mono text-[9px] uppercase tracking-[0.2em] text-[#5C5A68]">
-              {tx({ EN: "STRATEGIC FIT INDEX", JP: "適合性インデックス" })}
+              {tx({ EN: "SERVICE COMPARISON", JP: "適合性インデックス" })}
             </div>
             <div className="w-full flex items-end justify-center gap-12 h-[220px] pt-8 pb-4">
               {/* J-Gate Bar */}
@@ -254,7 +254,7 @@ export function PrecisionWhyPage() {
             </div>
 
             <div className="w-full border-t border-[rgba(184,146,74,0.15)] pt-3 mt-2 flex justify-between items-center text-[10px] font-mono text-[#9A98A4]">
-              <span>OPS + RESIDENT + NETWORK</span>
+              <span>OFFICE + ADVISORS + NETWORK</span>
               <span className="text-[#B8924A]">READY TO USE</span>
             </div>
           </div>
@@ -343,7 +343,7 @@ export function PrecisionWhyPage() {
                     {tx({ EN: "Local Coworking", JP: "現地コワーキング" })}
                   </th>
                   <th className="w-[18%] px-4 py-4 font-sans text-[13px] font-normal text-[#9A98A4] text-center align-middle">
-                    {tx({ EN: "Public Orgs", JP: "公的支援機関" })}
+                    {tx({ EN: "Public Organizations", JP: "公的支援機関" })}
                   </th>
                 </tr>
               </thead>
@@ -360,7 +360,7 @@ export function PrecisionWhyPage() {
                       <svg className="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="#2D7A5F" /></svg>
                       <div>
                         <div className="font-sans font-medium text-[#F0EDE6]">
-                          {tx({ EN: "Mid-size, SMEs, Startups & Regional Banks", JP: "中堅・中小・スタートアップ・地方銀行" })}
+                          {tx({ EN: "SMEs, Startups & Regional Banks", JP: "中堅・中小・スタートアップ・地方銀行" })}
                         </div>
                       </div>
                     </div>
@@ -423,10 +423,10 @@ export function PrecisionWhyPage() {
                   </td>
                 </tr>
 
-                {/* Row 3: Physical Base */}
+                {/* Row 3: Dedicated Office Space */}
                 <tr className="bg-[#0F0F18] hover:bg-[#1E1E2E] transition-colors group">
                   <td className="px-5 py-4 font-sans font-normal text-[#9A98A4]">
-                    {tx({ EN: "Physical Base", JP: "物理的拠点" })}
+                    {tx({ EN: "Dedicated Office Space", JP: "物理的拠点" })}
                   </td>
                   <td className="px-5 py-4 bg-[#161622] group-hover:bg-[rgba(184,146,74,0.06)] transition-colors" style={{ boxShadow: "inset 1px 0 0 #B8924A" }}>
                     <div className="flex items-start gap-2.5">
@@ -461,10 +461,10 @@ export function PrecisionWhyPage() {
                   </td>
                 </tr>
 
-                {/* Row 4: Resident Japanese Expert */}
+                {/* Row 4: On-Site Japanese Support */}
                 <tr className="bg-[#161622] hover:bg-[#1E1E2E] transition-colors group">
                   <td className="px-5 py-4 font-sans font-normal text-[#9A98A4]">
-                    {tx({ EN: "Resident Japanese Expert", JP: "常駐日本語専門家" })}
+                    {tx({ EN: "On-Site Japanese Support", JP: "常駐日本語専門家" })}
                   </td>
                   <td className="px-5 py-4 bg-[#161622] group-hover:bg-[rgba(184,146,74,0.06)] transition-colors" style={{ boxShadow: "inset 1px 0 0 #B8924A" }}>
                     <div className="flex items-start gap-2.5">
@@ -474,7 +474,7 @@ export function PrecisionWhyPage() {
                           {tx({ EN: "Japan Desk", JP: "ジャパンデスク" })}
                         </div>
                         <div className="font-mono text-[10px] text-[#B8924A] mt-0.5">
-                          {tx({ EN: "100% Japanese, on-site", JP: "100%日本語・常駐対面対応" })}
+                          {tx({ EN: "Full Japanese language support on-site", JP: "100%日本語・常駐対面対応" })}
                         </div>
                       </div>
                     </div>
@@ -482,7 +482,7 @@ export function PrecisionWhyPage() {
                   <td className="px-4 py-4 text-center text-[#9A98A4]">
                     <div className="flex items-center justify-center gap-1.5">
                       <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 16 16"><path d="M8 2A6 6 0 0 1 8 14" fill="#B8924A" /><circle cx="8" cy="8" r="6" fill="none" stroke="#B8924A" strokeWidth="1.5" /></svg>
-                      <span>{tx({ EN: "Dispatched per occasion", JP: "都度派遣" })}</span>
+                      <span>{tx({ EN: "Available on request", JP: "都度派遣" })}</span>
                     </div>
                   </td>
                   <td className="px-4 py-4 text-center text-[#9A98A4]">
@@ -509,7 +509,7 @@ export function PrecisionWhyPage() {
                       <svg className="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="#2D7A5F" /></svg>
                       <div>
                         <div className="font-sans font-medium text-[#F0EDE6]">
-                          {tx({ EN: "Covers actual operations", JP: "実務オペレーションまで対応" })}
+                          {tx({ EN: "Covers day-to-day business operations", JP: "実務オペレーションまで対応" })}
                         </div>
                       </div>
                     </div>
@@ -529,7 +529,7 @@ export function PrecisionWhyPage() {
                   <td className="px-4 py-4 text-center text-[#9A98A4]">
                     <div className="flex items-center justify-center gap-1.5">
                       <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 16 16"><path d="M8 2A6 6 0 0 1 8 14" fill="#B8924A" /><circle cx="8" cy="8" r="6" fill="none" stroke="#B8924A" strokeWidth="1.5" /></svg>
-                      <span>{tx({ EN: "Info and advice only", JP: "情報・相談のみ" })}</span>
+                      <span>{tx({ EN: "Information and advice only", JP: "情報・相談のみ" })}</span>
                     </div>
                   </td>
                 </tr>
@@ -547,7 +547,7 @@ export function PrecisionWhyPage() {
                           {tx({ EN: "Fully supported", JP: "完全対応" })}
                         </div>
                         <div className="font-mono text-[10px] text-[#B8924A] mt-0.5">
-                          {tx({ EN: "Native on-ground", JP: "現地日本人による母国語サポート" })}
+                          {tx({ EN: "Native Japanese speakers on-site", JP: "現地日本人による母国語サポート" })}
                         </div>
                       </div>
                     </div>
@@ -582,7 +582,7 @@ export function PrecisionWhyPage() {
                       <svg className="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="#2D7A5F" /></svg>
                       <div>
                         <div className="font-sans font-medium text-[#F0EDE6]">
-                          {tx({ EN: "Full IndiGate partnership", JP: "IndiGateと完全連携" })}
+                          {tx({ EN: "Full recruitment support via Indobox", JP: "Indoboxと完全連携" })}
                         </div>
                       </div>
                     </div>
@@ -617,7 +617,7 @@ export function PrecisionWhyPage() {
                       <svg className="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="#2D7A5F" /></svg>
                       <div>
                         <div className="font-sans font-medium text-[#F0EDE6]">
-                          {tx({ EN: "T-Hub, IIT Hyd, Woxsen, Genesys", JP: "T-Hub・IITハイデラバード・Woxsen・Genesys" })}
+                          {tx({ EN: "T-Hub, IIT Hyderabad, Woxsen, Genesys", JP: "T-Hub・IITハイデラバード・Woxsen・Genesys" })}
                         </div>
                       </div>
                     </div>
@@ -625,35 +625,35 @@ export function PrecisionWhyPage() {
                   <td className="px-4 py-4 text-center text-[#9A98A4]">
                     <div className="flex items-center justify-center gap-1.5">
                       <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 16 16"><path d="M8 2A6 6 0 0 1 8 14" fill="#B8924A" /><circle cx="8" cy="8" r="6" fill="none" stroke="#B8924A" strokeWidth="1.5" /></svg>
-                      <span>{tx({ EN: "Govt agencies & large firms", JP: "政府機関・大企業中心" })}</span>
+                      <span>{tx({ EN: "Government agencies and large firms", JP: "政府機関・大企業中心" })}</span>
                     </div>
                   </td>
                   <td className="px-4 py-4 text-center text-[#9A98A4]">
                     <div className="flex items-center justify-center gap-1.5">
                       <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 16 16"><path d="M8 2A6 6 0 0 1 8 14" fill="#B8924A" /><circle cx="8" cy="8" r="6" fill="none" stroke="#B8924A" strokeWidth="1.5" /></svg>
-                      <span>{tx({ EN: "General users", JP: "一般利用者" })}</span>
+                      <span>{tx({ EN: "Local coworkers and freelancers", JP: "一般利用者" })}</span>
                     </div>
                   </td>
                   <td className="px-4 py-4 text-center text-[#9A98A4]">
                     <div className="flex items-center justify-center gap-1.5">
                       <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 16 16"><path d="M8 2A6 6 0 0 1 8 14" fill="#B8924A" /><circle cx="8" cy="8" r="6" fill="none" stroke="#B8924A" strokeWidth="1.5" /></svg>
-                      <span>{tx({ EN: "Govt agencies", JP: "政府機関" })}</span>
+                      <span>{tx({ EN: "Government agencies", JP: "政府機関" })}</span>
                     </div>
                   </td>
                 </tr>
 
-                {/* THE DEFINITIVE VERDICT ROW */}
+                {/* KEY CONCLUSION ROW */}
                 <tr className="bg-[rgba(184,146,74,0.06)] border-t-2 border-[rgba(184,146,74,0.35)]">
                   <td colSpan={5} className="p-6 sm:p-8">
                     <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
                       <div className="space-y-2 max-w-3xl">
                         <div className="flex items-center gap-2 text-[#B8924A] font-mono text-[11px] font-bold tracking-[0.2em] uppercase">
                           <span>▌</span>
-                          <span>{tx({ EN: "THE DEFINITIVE VERDICT", JP: "THE DEFINITIVE VERDICT · 総合評価" })}</span>
+                          <span>{tx({ EN: "KEY CONCLUSION", JP: "KEY CONCLUSION · 総合評価" })}</span>
                         </div>
                         <p className="font-sans text-[14.5px] sm:text-[15.5px] font-normal leading-relaxed text-[#F0EDE6]">
                           {tx({
-                            EN: "“J-Gate is the only option that combines a physical base, resident Japanese expertise, hands-on operational support, and direct hiring — at a cost-justifiable investment level.”",
+                            EN: "“J-Gate is the only option that combines a physical base, resident Japanese expertise, hands-on operational support, and direct hiring — at a predictable, affordable cost.”",
                             JP: "「J-Gateは、専用拠点・常駐日本語専門家・実務オペレーション・直接採用支援をワンストップで兼ね備え、圧倒的な投資対効果を実現する唯一の選択肢です。」",
                           })}
                         </p>
@@ -682,7 +682,7 @@ export function PrecisionWhyPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 3 — 7 CORE VALUE PILLARS
+          SECTION 3 — 7 CORE SERVICES
           ───────────────────────────────────────────────────────────── */}
       <section
         id="why-pillars"
@@ -694,11 +694,11 @@ export function PrecisionWhyPage() {
             <div className="flex items-center gap-3">
               <div className="w-[2px] h-[16px] bg-[#B8924A]" />
               <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#B8924A]">
-                {tx({ EN: "7 CORE VALUE PILLARS", JP: "7 CORE VALUE PILLARS · 7つの提供価値" })}
+                {tx({ EN: "7 CORE SERVICES", JP: "7 CORE SERVICES · 7つの提供価値" })}
               </span>
             </div>
             <h2 className="mt-4 font-serif text-[38px] sm:text-[52px] lg:text-[56px] font-light text-[#F0EDE6] leading-[1.08]">
-              {tx({ EN: "Value Proposition of J-Gate", JP: "J-Gateが選ばれる7つの柱" })}
+              {tx({ EN: "What J-Gate Offers Your Business", JP: "J-Gateが選ばれる7つの柱" })}
             </h2>
             <p className="mt-2 font-sans text-[14px] sm:text-[15px] font-light text-[#9A98A4] max-w-2xl">
               {tx({
@@ -719,10 +719,10 @@ export function PrecisionWhyPage() {
                 2–{statCounts.persons || 4}
               </div>
               <div className="font-mono text-[10px] uppercase tracking-[0.15em] text-[#B8924A] mt-2">
-                {tx({ EN: "PERSONS PER COMPANY", JP: "1社あたり利用規模" })}
+                {tx({ EN: "PEOPLE PER COMPANY", JP: "1社あたり利用規模" })}
               </div>
               <div className="font-sans text-[12px] text-[#9A98A4] mt-1">
-                {tx({ EN: "Dedicated executive desk pods", JP: "専用エグゼクティブデスク" })}
+                {tx({ EN: "Dedicated desk spaces", JP: "専用エグゼクティブデスク" })}
               </div>
             </div>
 
@@ -732,10 +732,10 @@ export function PrecisionWhyPage() {
                 {statCounts.pillars || 7}
               </div>
               <div className="font-mono text-[10px] uppercase tracking-[0.15em] text-[#B8924A] mt-2">
-                {tx({ EN: "CORE VALUE PILLARS", JP: "コアバリュー柱" })}
+                {tx({ EN: "CORE SERVICES", JP: "コアバリュー柱" })}
               </div>
               <div className="font-sans text-[12px] text-[#9A98A4] mt-1">
-                {tx({ EN: "End-to-end strategic corridor", JP: "包括的進出支援体制" })}
+                {tx({ EN: "Complete support from setup to daily operations", JP: "包括的進出支援体制" })}
               </div>
             </div>
 
@@ -748,7 +748,7 @@ export function PrecisionWhyPage() {
                 {tx({ EN: "BILINGUAL SUPPORT", JP: "日本語常駐サポート" })}
               </div>
               <div className="font-sans text-[12px] text-[#9A98A4] mt-1">
-                {tx({ EN: "Native on-site Japan Desk", JP: "日本人エキスパート常駐" })}
+                {tx({ EN: "Native Japanese advisors on-site", JP: "日本人エキスパート常駐" })}
               </div>
             </div>
           </div>
@@ -784,7 +784,7 @@ export function PrecisionWhyPage() {
                   </h3>
                   <p className="mt-2 font-sans text-[13px] text-[#9A98A4] leading-relaxed">
                     {tx({
-                      EN: "Dedicated desk space for 2–4 persons per company — your personal workspace in a shared professional environment.",
+                      EN: "Dedicated desk space for 2–4 people per company — your personal workspace in a shared professional environment.",
                       JP: "1社あたり2〜4名の専用デスクスペース。共有プロフェッショナル環境内に貴社専用の執務空間を確保。",
                     })}
                   </p>
@@ -880,13 +880,13 @@ export function PrecisionWhyPage() {
 
                 <div className="relative z-10 mt-6 pt-4 border-t border-[rgba(184,146,74,0.15)] flex flex-wrap gap-1.5">
                   <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-[#B8924A] border border-[rgba(184,146,74,0.35)] px-2 py-0.5 rounded-[2px]">
-                    100% JAPANESE
+                    NATIVE JAPANESE SUPPORT
                   </span>
                   <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-[#B8924A] border border-[rgba(184,146,74,0.35)] px-2 py-0.5 rounded-[2px]">
                     DAILY ON-SITE
                   </span>
                   <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-[#B8924A] border border-[rgba(184,146,74,0.35)] px-2 py-0.5 rounded-[2px]">
-                    MULTI-TOPIC
+                    FULL ADVISORY
                   </span>
                 </div>
               </div>
@@ -919,7 +919,7 @@ export function PrecisionWhyPage() {
                   </h3>
                   <p className="mt-2 font-sans text-[13px] text-[#9A98A4] leading-relaxed">
                     {tx({
-                      EN: "Step-by-step guidance from workspace registration to full corporate entity establishment — end-to-end.",
+                      EN: "Step-by-step guidance from workspace registration to legal incorporation — end-to-end.",
                       JP: "拠点住所登録から現地法人登記（MCA・GST）、銀行口座開設まで一気通貫で伴走支援。",
                     })}
                   </p>
@@ -930,7 +930,7 @@ export function PrecisionWhyPage() {
                     STEP-BY-STEP
                   </span>
                   <span className="font-mono text-[9px] uppercase tracking-[0.12em] text-[#B8924A] border border-[rgba(184,146,74,0.35)] px-2 py-0.5 rounded-[2px]">
-                    END-TO-END
+                    FULL SUPPORT
                   </span>
                 </div>
               </div>
@@ -993,7 +993,7 @@ export function PrecisionWhyPage() {
 
                 <div className="relative z-10 pt-6">
                   <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#B8924A]">
-                    {tx({ EN: "STUDY SESSIONS", JP: "勉強会" })}
+                    {tx({ EN: "MARKET SEMINARS", JP: "勉強会" })}
                   </div>
                   {/* Custom Stroke SVG (Open Book + Bookmark) */}
                   <div className="mt-4 w-10 h-10 flex items-center justify-center">
@@ -1004,11 +1004,11 @@ export function PrecisionWhyPage() {
                     </svg>
                   </div>
                   <h3 className="mt-4 font-serif text-[22px] font-normal text-[#F0EDE6] group-hover:text-[#B8924A] transition-colors">
-                    {tx({ EN: "Study Sessions", JP: "インド市場勉強会" })}
+                    {tx({ EN: "Market Briefings & Seminars", JP: "インド市場勉強会" })}
                   </h3>
                   <p className="mt-2 font-sans text-[13px] text-[#9A98A4] leading-relaxed">
                     {tx({
-                      EN: "Ongoing India market seminars held at the workspace — not one-off sessions, but continuous learning.",
+                      EN: "Ongoing India market seminars held at the workspace — scheduled regularly to keep your team informed.",
                       JP: "拠点内で定期開催されるインド市場実務セミナー。単発イベントにとどまらない継続的な知見共有。",
                     })}
                   </p>
@@ -1048,7 +1048,7 @@ export function PrecisionWhyPage() {
                   </h3>
                   <p className="mt-2 font-sans text-[13px] text-[#9A98A4] leading-relaxed">
                     {tx({
-                      EN: "Payroll, hiring, translation, and meal delivery — arranged through the workspace as a single point of contact.",
+                      EN: "Payroll, hiring, translation, and meal delivery — all arranged directly through our on-site team.",
                       JP: "給与計算、ITエンジニア採用、ビジネス通訳・翻訳、和風ケータリングまでワンストップ手配。",
                     })}
                   </p>
@@ -1077,7 +1077,7 @@ export function PrecisionWhyPage() {
       </section>
 
       {/* ─────────────────────────────────────────────────────────────
-          SECTION 4 — SMART INVESTMENT ESTIMATOR (Fully Functional)
+          SECTION 4 — COST & SAVINGS ESTIMATOR (Fully Functional)
           ───────────────────────────────────────────────────────────── */}
       <section
         id="why-estimator"
@@ -1089,15 +1089,15 @@ export function PrecisionWhyPage() {
             <div className="flex items-center gap-3">
               <div className="w-[2px] h-[16px] bg-[#B8924A]" />
               <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#B8924A]">
-                {tx({ EN: "SMART INVESTMENT ESTIMATOR", JP: "SMART INVESTMENT ESTIMATOR · 投資対効果シミュレーター" })}
+                {tx({ EN: "COST & SAVINGS ESTIMATOR", JP: "COST & SAVINGS ESTIMATOR · 投資対効果シミュレーター" })}
               </span>
             </div>
             <h2 className="mt-4 font-serif text-[38px] sm:text-[52px] font-light text-[#F0EDE6] leading-[1.08]">
-              {tx({ EN: "Calculate Your Membership & Savings", JP: "拠点開設コストと削減効果を試算" })}
+              {tx({ EN: "Calculate Your Membership Costs & Potential Savings", JP: "拠点開設コストと削減効果を試算" })}
             </h2>
             <p className="mt-2 font-sans text-[14px] sm:text-[15px] font-light text-[#9A98A4] max-w-2xl">
               {tx({
-                EN: "Eliminate hefty capex, lengthy commercial leases, and setup delays with J-Gate's ready-to-use infrastructure.",
+                EN: "Eliminate large upfront capital investments, lengthy commercial leases, and setup delays with J-Gate's fully furnished offices.",
                 JP: "初期投資や長期不動産契約の負担を大幅に削減。初日から即戦力として機能する拠点コストをご確認ください。",
               })}
             </p>
@@ -1192,28 +1192,28 @@ export function PrecisionWhyPage() {
                         <rect x="0.5" y="0.5" width="13" height="13" rx="1.5" stroke="#B8924A" strokeWidth="1" />
                         <polyline points="3.5,7 5.5,9.5 10.5,4" stroke="#B8924A" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                      <span>{tx({ EN: "High-speed 1Gbps fiber internet & Xerox printing", JP: "1Gbps光回線＆ゼロックス複合機完備" })}</span>
+                      <span>{tx({ EN: "High-speed 1 Gbps fiber internet & multifunction printing", JP: "1 Gbps光回線＆ゼロックス複合機完備" })}</span>
                     </div>
                     <div className="flex items-center gap-2.5">
                       <svg className="w-3.5 h-3.5 shrink-0 stroke-[#B8924A]" viewBox="0 0 14 14" fill="none">
                         <rect x="0.5" y="0.5" width="13" height="13" rx="1.5" stroke="#B8924A" strokeWidth="1" />
                         <polyline points="3.5,7 5.5,9.5 10.5,4" stroke="#B8924A" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                      <span>{tx({ EN: "Resident bilingual Japan Desk consultation included", JP: "常駐ジャパンデスクによる日々のバイリンガル相談" })}</span>
+                      <span>{tx({ EN: "Daily consultations with our on-site bilingual Japan Desk", JP: "常駐ジャパンデスクによる日々のバイリンガル相談" })}</span>
                     </div>
                     <div className="flex items-center gap-2.5">
                       <svg className="w-3.5 h-3.5 shrink-0 stroke-[#B8924A]" viewBox="0 0 14 14" fill="none">
                         <rect x="0.5" y="0.5" width="13" height="13" rx="1.5" stroke="#B8924A" strokeWidth="1" />
                         <polyline points="3.5,7 5.5,9.5 10.5,4" stroke="#B8924A" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                      <span>{tx({ EN: "24/7 smart keycard access to Hyderabad workspace", JP: "ハイデラバードオフィスへの24時間スマートカード入館" })}</span>
+                      <span>{tx({ EN: "24/7 secure keycard access to the Hyderabad office", JP: "ハイデラバードオフィスへの24時間スマートカード入館" })}</span>
                     </div>
                     <div className="flex items-center gap-2.5">
                       <svg className="w-3.5 h-3.5 shrink-0 stroke-[#B8924A]" viewBox="0 0 14 14" fill="none">
                         <rect x="0.5" y="0.5" width="13" height="13" rx="1.5" stroke="#B8924A" strokeWidth="1" />
                         <polyline points="3.5,7 5.5,9.5 10.5,4" stroke="#B8924A" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" />
                       </svg>
-                      <span>{tx({ EN: "All meeting rooms & canteen access included", JP: "会議室利用・併設カフェテリア利用権利込み" })}</span>
+                      <span>{tx({ EN: "All meeting rooms & dining facilities included", JP: "会議室利用・併設カフェテリア利用権利込み" })}</span>
                     </div>
                   </div>
                 </div>
@@ -1255,7 +1255,7 @@ export function PrecisionWhyPage() {
                   <div className="pb-3 border-b border-[rgba(184,146,74,0.2)] flex items-end justify-between">
                     <div>
                       <span className="block font-mono text-[10px] uppercase tracking-wider text-[#5C5A68]">
-                        {tx({ EN: "Standalone Lease (Market Rate)", JP: "単独オフィス開設（相場費用）" })}
+                        {tx({ EN: "Traditional Office Rental (Market Rate)", JP: "単独オフィス開設（相場費用）" })}
                       </span>
                       <span className="font-mono text-[9px] text-[#5C5A68] mt-0.5">
                         COMMERCIAL LEASE + STAFF + SETUP
@@ -1270,10 +1270,10 @@ export function PrecisionWhyPage() {
                   <div className="pt-2 flex items-end justify-between">
                     <div>
                       <span className="block font-mono text-[10.5px] uppercase tracking-wider text-[#2D7A5F] font-bold">
-                        {tx({ EN: "Monthly Net Saving", JP: "月間経費削減額（推定）" })}
+                        {tx({ EN: "Estimated Monthly Savings", JP: "月間経費削減額（推定）" })}
                       </span>
                       <span className="font-mono text-[9px] text-[#2D7A5F] mt-0.5">
-                        COST ELIMINATED MONTHLY
+                        TOTAL ESTIMATED MONTHLY SAVINGS
                       </span>
                     </div>
                     <div className="text-right font-serif text-[40px] font-light text-[#2D7A5F] leading-none">
@@ -1307,7 +1307,7 @@ export function PrecisionWhyPage() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="space-y-1">
             <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-[#B8924A]">
-              {tx({ EN: "DIRECT OPERATIONS DESK", JP: "現地直通お問い合わせ窓口" })}
+              {tx({ EN: "DIRECT CONTACT", JP: "現地直通お問い合わせ窓口" })}
             </div>
             <div className="font-serif text-[24px] text-[#F0EDE6] font-light">
               Hyderabad · Telangana, India
@@ -1322,7 +1322,7 @@ export function PrecisionWhyPage() {
               href="/contact"
               className="px-6 py-3 bg-[#B8924A] hover:bg-[#a07d39] text-[#08080E] font-mono text-[11px] uppercase tracking-widest font-bold rounded-[2px] transition-all"
             >
-              {tx({ EN: "INQUIRE / CONTACT", JP: "お問い合わせ・個別相談" })}
+              {tx({ EN: "CONTACT US", JP: "お問い合わせ・個別相談" })}
             </Link>
             <Link
               href="/pricing"

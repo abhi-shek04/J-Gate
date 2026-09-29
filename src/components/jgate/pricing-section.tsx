@@ -58,13 +58,13 @@ const PLANS: Plan[] = [
     id: "satellite",
     icon: Compass,
     jpName: "サテライトプラン",
-    enName: "Satellite Plan",
+    enName: "Starter Plan",
     tierSubtitle: {
-      EN: "Agile Operating Base",
+      EN: "Flexible Office Base",
       JP: "低コスト進出・サテライト拠点",
     },
     tagline: {
-      EN: "Agile, low-overhead hub in Hyderabad for visiting executives & remote directors",
+      EN: "A cost-effective base in Hyderabad for visiting executives & remote directors",
       JP: "ハイデラバードIT特区に低コストで拠点を確保。出張・遠隔ディレクター向け",
     },
     priceINRMonthly: 15000,
@@ -77,8 +77,8 @@ const PLANS: Plan[] = [
     accentColor: "slate",
     specs: {
       term: { EN: "Flexible / Monthly", JP: "月単位・柔軟契約" },
-      access: { EN: "24/7 Smart Keycard", JP: "24時間入退室管理" },
-      support: { EN: "Concierge & Network", JP: "受付案内・コミュニティ" },
+      access: { EN: "24/7 Keycard", JP: "24時間入退室管理" },
+      support: { EN: "Reception & Community Access", JP: "受付案内・コミュニティ" },
     },
     target: {
       EN: "Existing India entities, solo consultants & visiting remote directors needing a physical executive presence in Hyderabad.",
@@ -87,23 +87,23 @@ const PLANS: Plan[] = [
     features: [
       {
         title: { EN: "Workspace Access", JP: "ワークスペース利用" },
-        desc: { EN: "Unlimited executive desk usage for up to 2 team members", JP: "最大2名までの執務デスク無制限利用" },
+        desc: { EN: "Unlimited desk access for up to 2 team members", JP: "最大2名までの執務デスク無制限利用" },
       },
       {
-        title: { EN: "1 Gbps Redundant Fiber", JP: "1Gbps光回線・UPS電源" },
-        desc: { EN: "Dual-carrier enterprise internet with zero Tokyo-hours downtime", JP: "東京業務時間にも対応する二重化光回線" },
+        title: { EN: "1 Gbps High-Speed Fiber", JP: "1 Gbps光回線・UPS電源" },
+        desc: { EN: "High-speed internet with dual-provider backup during Japan business hours", JP: "東京業務時間にも対応する二重化光回線" },
       },
       {
         title: { EN: "Meeting Room Credits", JP: "会議室・プレゼン設備" },
-        desc: { EN: "Acoustically treated video booths & client meeting rooms", JP: "オンライン商談ブースおよび会議室利用枠" },
+        desc: { EN: "Soundproof video call booths & client meeting rooms", JP: "オンライン商談ブースおよび会議室利用枠" },
       },
       {
         title: { EN: "Official Registered Address", JP: "公式登記住所利用" },
         desc: { EN: "Hyderabad commercial address for MCA/GST", JP: "ハイデラバード（Hyderabad）公式住所" },
       },
       {
-        title: { EN: "Bilateral Community Access", JP: "日印コミュニティ参加" },
-        desc: { EN: "Invitations to Japan-India networking mixers & roundtables", JP: "日印ネットワーキング・交流会への定期招待" },
+        title: { EN: "Japan-India Community Access", JP: "日印コミュニティ参加" },
+        desc: { EN: "Invitations to Japan-India networking events and discussions", JP: "日印ネットワーキング・交流会への定期招待" },
       },
     ],
   },
@@ -130,11 +130,11 @@ const PLANS: Plan[] = [
     accentColor: "crimson",
     specs: {
       term: { EN: "Flexible / Monthly", JP: "月単位・柔軟契約" },
-      access: { EN: "24/7 Smart Keycard", JP: "24時間入退室管理" },
+      access: { EN: "24/7 Keycard", JP: "24時間入退室管理" },
       support: { EN: "Daily In-Person Desk", JP: "常駐日本人ディレクター" },
     },
     target: {
-      EN: "Japanese SMEs, high-growth startups & corporate venture arms entering the Indian market with local staff.",
+      EN: "Japanese SMEs, high-growth startups & corporate investment teams entering the Indian market with local staff.",
       JP: "インド市場へ本格参入する日本の中小企業・急成長スタートアップ、現地コアチームの立ち上げに最適。",
     },
     features: [
@@ -143,7 +143,7 @@ const PLANS: Plan[] = [
         desc: { EN: "Full workspace amenities with expanded seating for up to 4 members", JP: "最大4名まで利用可能な拡張ワークスペース" },
       },
       {
-        title: { EN: "Daily 'Yorozu' Consultation", JP: "日々の対面「よろず相談」" },
+        title: { EN: "Daily Japanese Business Advisory", JP: "日々の対面「よろず相談」" },
         desc: { EN: "Direct in-person strategic guidance with resident Japanese directors", JP: "常駐日本人ディレクターによる対面ビジネス相談" },
       },
       {
@@ -151,12 +151,12 @@ const PLANS: Plan[] = [
         desc: { EN: "Workshops covering RBI/FDI compliance, GST & labor laws", JP: "月例インド進出・法務規制勉強会への優先参加" },
       },
       {
-        title: { EN: "Vetted Professional Introductions", JP: "厳選現地専門家の紹介" },
-        desc: { EN: "Curated referrals to trusted local tax, audit & legal practitioners", JP: "信頼できる現地会計事務所・弁護士の直接紹介" },
+        title: { EN: "Verified Professional Introductions", JP: "厳選現地専門家の紹介" },
+        desc: { EN: "Direct introductions to trusted local tax, audit & legal practitioners", JP: "信頼できる現地会計事務所・弁護士の直接紹介" },
       },
       {
-        title: { EN: "Priority Boardroom Allocation", JP: "ボードルーム優先予約" },
-        desc: { EN: "Generous booking allocation for high-stakes investor & partner meetings", JP: "重要商談・来客対応用の会議室優先予約枠" },
+        title: { EN: "Priority Meeting Room Booking", JP: "ボードルーム優先予約" },
+        desc: { EN: "Generous booking allocation for key client and investor meetings", JP: "重要商談・来客対応用の会議室優先予約枠" },
       },
     ],
   },
@@ -164,13 +164,13 @@ const PLANS: Plan[] = [
     id: "advance",
     icon: Building2,
     jpName: "アドバンスプラン",
-    enName: "Advance Plan",
+    enName: "Advanced Plan",
     tierSubtitle: {
-      EN: "Hands-on GTM & Consulting",
+      EN: "Hands-on Market Entry & Consulting",
       JP: "実践コンサル・商談同席付きプラン",
     },
     tagline: {
-      EN: "Hands-on entry consulting & monthly business meeting accompaniment by Indobox leadership",
+      EN: "Hands-on entry consulting & monthly business meeting support by Indobox leadership",
       JP: "Indobox実践コンサルティング＆月1回の現地重要商談同席支援付き",
     },
     priceINRMonthly: 120000,
@@ -183,33 +183,33 @@ const PLANS: Plan[] = [
     accentColor: "saffron",
     specs: {
       term: { EN: "Custom / Annual", JP: "年間または個別設計" },
-      access: { EN: "24/7 Smart Keycard", JP: "24時間入退室管理" },
+      access: { EN: "24/7 Keycard", JP: "24時間入退室管理" },
       support: { EN: "Hands-on Partner + VIP", JP: "実践コンサル＋VIP窓口" },
     },
     target: {
-      EN: "Large corporations, regional banks & governmental delegations requiring hands-on partner vetting and executive accompaniment.",
+      EN: "Large corporations, regional banks & governmental delegations requiring hands-on partner evaluation and executive meeting support.",
       JP: "大手企業・地方銀行・自治体の本格的なインド事業推進、提携先開拓、重要商談の同行支援向け。",
     },
     features: [
       {
-        title: { EN: "Tailored Executive Layout", JP: "個別最適化デスク仕様" },
+        title: { EN: "Custom Office Layout", JP: "個別最適化デスク仕様" },
         desc: { EN: "Everything in Standard Plan with customized seating & team branding", JP: "スタンダード全特典＋個別レイアウト最適化" },
       },
       {
         title: { EN: "Hands-on Market Entry Consulting", JP: "初期実践ハンズオンコンサル" },
-        desc: { EN: "Direct strategic roadmap design with senior Indobox specialists", JP: "Indobox専任チームによる参入戦略ハンズオン" },
+        desc: { EN: "Direct market entry strategy planning with senior Indobox specialists", JP: "Indobox専任チームによる参入戦略ハンズオン" },
       },
       {
-        title: { EN: "Meeting Accompaniment (1×/mo)", JP: "現地重要商談への同席" },
+        title: { EN: "Meeting Support (1×/mo)", JP: "現地重要商談への同席" },
         desc: { EN: "Director accompaniment on strategic negotiations and government visits", JP: "現地重要商談・政府機関訪問への月1回同席支援" },
       },
       {
-        title: { EN: "T-Hub & Academic Pipeline", JP: "T-Hub・大学連携パイプライン" },
+        title: { EN: "T-Hub & University Partnerships", JP: "T-Hub・大学連携パイプライン" },
         desc: { EN: "Priority matchmaking with T-Hub incubators & Woxsen University", JP: "T-HubおよびWoxsen大学との産学連携パイプライン" },
       },
       {
         title: { EN: "Custom Partner Due Diligence", JP: "詳細デューデリジェンス" },
-        desc: { EN: "In-depth candidate vetting and operational risk assessments", JP: "提携候補先の詳細調査およびリスク検証支援" },
+        desc: { EN: "In-depth background checks and operational risk assessments", JP: "提携候補先の詳細調査およびリスク検証支援" },
       },
     ],
   },
@@ -226,19 +226,19 @@ const MATRIX_FEATURES = [
         advance: "✓ Included",
       },
       {
-        name: { EN: "Team Capacity Allowance", JP: "利用可能人数" },
-        satellite: "Up to 2 Pax",
-        standard: "Up to 4 Pax",
+        name: { EN: "Team Capacity", JP: "利用可能人数" },
+        satellite: "Up to 2 people",
+        standard: "Up to 4 people",
         advance: "Custom Enterprise",
       },
       {
-        name: { EN: "24/7 Smart Keycard Security", JP: "24時間入退室管理・セキュリティ" },
+        name: { EN: "24/7 Keycard Security", JP: "24時間入退室管理・セキュリティ" },
         satellite: "✓ Included",
         standard: "✓ Included",
         advance: "✓ Included",
       },
       {
-        name: { EN: "1 Gbps Redundant Fiber & UPS Backup", JP: "1Gbps光回線・無停電電源" },
+        name: { EN: "1 Gbps High-Speed Fiber & UPS Backup", JP: "1 Gbps光回線・無停電電源" },
         satellite: "✓ Included",
         standard: "✓ Included",
         advance: "✓ Included",
@@ -267,27 +267,27 @@ const MATRIX_FEATURES = [
         advance: "✓ Included",
       },
       {
-        name: { EN: "Daily 'Yorozu' Consultation (何でも相談)", JP: "日々の対面ビジネス「よろず相談」" },
+        name: { EN: "Daily Japanese Business Advisory (何でも相談)", JP: "日々の対面ビジネス「よろず相談」" },
         satellite: "—",
         standard: "✓ Daily Unlimited",
         advance: "✓ Daily Unlimited",
       },
       {
-        name: { EN: "Monthly Regulatory & Tax Study Sessions", JP: "月例インド進出・法務税務勉強会" },
+        name: { EN: "Monthly Regulatory & Tax Market Briefings & Seminars", JP: "月例インド進出・法務税務勉強会" },
         satellite: "—",
         standard: "✓ Included",
         advance: "✓ Included",
       },
       {
-        name: { EN: "Vetted Accounting & Legal Introductions", JP: "信頼できる現地専門家（会計・法務）紹介" },
+        name: { EN: "Verified Accounting & Legal Introductions", JP: "信頼できる現地専門家（会計・法務）紹介" },
         satellite: "On Request",
         standard: "✓ Included",
-        advance: "✓ VIP Fast-Track",
+        advance: "✓ Priority Introduction",
       },
     ],
   },
   {
-    category: { EN: "3. Strategic GTM & Ecosystem Acceleration", JP: "3. 実践コンサル・アライアンス支援" },
+    category: { EN: "3. Market Entry & Business Development", JP: "3. 実践コンサル・アライアンス支援" },
     items: [
       {
         name: { EN: "Indobox Hands-on Market Entry Consulting", JP: "Indoboxによる初期実践コンサル" },
@@ -296,13 +296,13 @@ const MATRIX_FEATURES = [
         advance: "✓ Included",
       },
       {
-        name: { EN: "Business Meeting Accompaniment (商談同席)", JP: "重要商談・現地企業訪問への同席支援" },
+        name: { EN: "Business Meeting Support (商談同席)", JP: "重要商談・現地企業訪問への同席支援" },
         satellite: "—",
         standard: "—",
         advance: "1× / Month Included",
       },
       {
-        name: { EN: "Institutional Pipeline (T-Hub, Woxsen)", JP: "T-Hub・大学連携パイプライン" },
+        name: { EN: "Incubator & University Access (T-Hub, Woxsen)", JP: "T-Hub・大学連携パイプライン" },
         satellite: "Standard",
         standard: "Priority",
         advance: "Dedicated VIP",
@@ -342,7 +342,7 @@ export function PricingSection({ id }: { id?: string }) {
           </>
         }
         subtitleNode={tx({
-          EN: "Designed as a high cost-performance strategic investment — providing Japanese enterprises with a dedicated operating hub and resident advisory in Hyderabad.",
+          EN: "Designed as a cost-effective solution — providing Japanese enterprises with a dedicated workspace and resident advisory in Hyderabad.",
           JP: "日系企業に最適化された戦略的拠点モデル — ハイデラバードでの専用執務環境と日本人常駐サポートを提供。",
         })}
         tags={[
@@ -370,21 +370,21 @@ export function PricingSection({ id }: { id?: string }) {
             <div className="mx-auto max-w-3xl text-center mb-5 sm:mb-7">
               <span className="inline-flex items-center gap-1.5 rounded-full border border-crimson/30 bg-crimson/10 px-3.5 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-crimson dark:text-rose-400">
                 <Briefcase className="h-3.5 w-3.5" />
-                {tx({ EN: "Transparent Operating Memberships", JP: "透明で明瞭なメンバーシップ体系" })}
+                {tx({ EN: "Membership Plans", JP: "透明で明瞭なメンバーシップ体系" })}
               </span>
               <h2
                 className="mt-2.5 font-serif-jp font-bold text-ink dark:text-white"
                 style={{ fontSize: "clamp(1.5rem, 2.8vw, 2.25rem)" }}
               >
                 {tx({
-                  EN: "Choose Your India Expansion Tier",
+                  EN: "Choose Your Membership Plan",
                   JP: "進出段階に合わせて選べる3つのプラン",
                 })}
               </h2>
               <p className="mx-auto mt-1.5 max-w-2xl font-inter text-[12px] sm:text-[13px] leading-relaxed text-slate dark:text-slate-300">
                 {tx({
-                  EN: "All tiers include full Hyderabad workspace infrastructure, 1Gbps connectivity, and on-site Japanese leadership guidance.",
-                  JP: "すべてのプランにハイデラバードオフィスの利用、1Gbps光回線、常駐日本人ディレクターによるサポートが含まれています。",
+                  EN: "All tiers include full Hyderabad workspace infrastructure, 1 Gbps connectivity, and on-site Japanese leadership guidance.",
+                  JP: "すべてのプランにハイデラバードオフィスの利用、1 Gbps光回線、常駐日本人ディレクターによるサポートが含まれています。",
                 })}
               </p>
 
@@ -525,7 +525,7 @@ export function PricingSection({ id }: { id?: string }) {
                         <span className="truncate flex-1 font-medium text-crimson dark:text-rose-400 font-semibold">{tx(plan.specs.support)}</span>
                       </div>
 
-                      {/* Compact Deliverables Checklist */}
+                      {/* Compact Features Checklist */}
                       <div className="mt-3 pt-2.5 border-t border-slate-100 dark:border-white/8">
                         <ul className="space-y-1.5 sm:space-y-2">
                           {plan.features.map((feat, fi) => (
@@ -562,7 +562,7 @@ export function PricingSection({ id }: { id?: string }) {
                         <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" />
                       </Link>
                       <p className="mt-1.5 text-center font-inter text-[10px] text-slate-400 dark:text-slate-500">
-                        {tx({ EN: "Free consultation · Rapid onboarding", JP: "初回相談無料 · 最短即日利用可" })}
+                        {tx({ EN: "Free consultation · Fast setup", JP: "初回相談無料 · 最短即日利用可" })}
                       </p>
                     </div>
                   </div>
@@ -582,7 +582,7 @@ export function PricingSection({ id }: { id?: string }) {
               <span>
                 {showMatrix
                   ? tx({ EN: "Hide Detailed Feature Matrix", JP: "詳細比較表を閉じる" })
-                  : tx({ EN: "Compare All 15 Deliverables Side-by-Side ↓", JP: "全プラン詳細比較表を見る ↓" })}
+                  : tx({ EN: "Compare All 15 Features Side-by-Side ↓", JP: "全プラン詳細比較表を見る ↓" })}
               </span>
               {showMatrix ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
             </button>
@@ -594,11 +594,11 @@ export function PricingSection({ id }: { id?: string }) {
               <div className="border-b border-slate-200 dark:border-white/10 pb-4 mb-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                 <div>
                   <h3 className="font-serif-jp text-xl font-bold text-ink dark:text-white">
-                    {tx({ EN: "Full Deliverable Comparison Matrix", JP: "全プラン項目別 詳細比較表" })}
+                    {tx({ EN: "Full Feature Comparison Table", JP: "全プラン項目別 詳細比較表" })}
                   </h3>
                   <p className="font-inter text-[12.5px] text-slate-500 dark:text-slate-400">
                     {tx({
-                      EN: "Clear deliverables across physical facilities, resident Japan Desk advisory, and strategic GTM consulting.",
+                      EN: "Clear features across physical facilities, resident Japan Desk advisory, and strategic GTM consulting.",
                       JP: "オフィス設備、常駐相談、実践コンサルティング支援の項目別詳細。",
                     })}
                   </p>
@@ -612,7 +612,7 @@ export function PricingSection({ id }: { id?: string }) {
                 <table className="w-full text-left border-collapse min-w-[650px]">
                   <thead>
                     <tr className="border-b-2 border-slate-200 dark:border-white/10 text-[12.5px] font-inter uppercase text-slate-500 dark:text-slate-400">
-                      <th className="py-3 px-4 w-2/5 font-bold">{tx({ EN: "Deliverable / Feature", JP: "項目・サポート内容" })}</th>
+                      <th className="py-3 px-4 w-2/5 font-bold">{tx({ EN: "Feature / Service", JP: "項目・サポート内容" })}</th>
                       <th className="py-3 px-4 text-center w-1/5 bg-slate-50/70 dark:bg-white/5 rounded-t-lg font-bold text-slate-700 dark:text-slate-200">
                         Satellite
                       </th>
@@ -687,7 +687,7 @@ export function PricingSection({ id }: { id?: string }) {
                     icon: Receipt,
                     title: { EN: "Base Operating Fees", JP: "基本料金のみ" },
                     desc: {
-                      EN: "Amounts reflect predictable monthly hub membership. Entity incorporation and recruitment services are scoped separately.",
+                      EN: "Amounts reflect predictable monthly office membership. Entity incorporation and recruitment services are priced separately based on your requirements.",
                       JP: "記載価格は月額基本料金です。法人設立手続きや人材紹介の手数料は実費・別途請求となります。",
                     },
                   },
@@ -695,7 +695,7 @@ export function PricingSection({ id }: { id?: string }) {
                     icon: Banknote,
                     title: { EN: "INR & JPY Settlement", JP: "INR / JPY決済対応" },
                     desc: {
-                      EN: "Invoicing is denominated in INR. Tokyo entity settlement in Japanese Yen (JPY) is fully supported with prevailing rates.",
+                      EN: "Invoicing is denominated in INR. Payments in Japanese Yen (JPY) by your Japan entity are fully supported using current exchange rates.",
                       JP: "請求はINR基準です。東京法人経由での日本円（JPY）決済にも対応しております（為替換算適用）。",
                     },
                   },
@@ -703,7 +703,7 @@ export function PricingSection({ id }: { id?: string }) {
                     icon: ShieldCheck,
                     title: { EN: "Compliant Tax Invoices", JP: "GST（消費税）別" },
                     desc: {
-                      EN: "All membership rates exclude 18% India GST, itemized on compliant monthly tax invoices with input tax credit eligibility.",
+                      EN: "All membership rates exclude 18% India GST, itemized on compliant monthly tax invoices with eligible for input tax credit.",
                       JP: "すべての料金表示はインドGST（18%）別となっております。正規のTax Invoiceを発行します。",
                     },
                   },

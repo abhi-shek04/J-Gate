@@ -12,7 +12,7 @@ const LOGO_MAP: Record<string, { src: string; type: "image" | "text" }> = {
   // Ecosystem Partners (Innovation hubs, academia, platforms)
   "T-Hub": { src: "/logos/thub.png", type: "image" },
   "Woxsen University": { src: "/logos/woxsen.png", type: "image" },
-  "Genesys info X": { src: "/logos/genesys-info-x.png", type: "image" },
+  "Genesys Info X": { src: "/logos/genesys-info-x.png", type: "image" },
   "Genesys Info X": { src: "/logos/genesys-info-x.png", type: "image" },
   // Ecosystem Partners (client brochure)
   "MXC": { src: "/logos/mxc.png", type: "image" },

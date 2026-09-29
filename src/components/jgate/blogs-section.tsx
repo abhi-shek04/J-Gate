@@ -170,7 +170,7 @@ const ALL_REAL_PHOTOS: RealPhotoItem[] = [
     specs: [
       { label: { EN: "Desks", JP: "席数" }, val: { EN: "40+ Assigned Desks", JP: "40席以上の固定席" } },
       { label: { EN: "Seating", JP: "チェア" }, val: { EN: "High-Back Mesh Chairs", JP: "ハイバックメッシュ" } },
-      { label: { EN: "Internet", JP: "回線" }, val: { EN: "1 Gbps Dedicated Fiber", JP: "専用1Gbps光回線" } },
+      { label: { EN: "Internet", JP: "回線" }, val: { EN: "1 Gbps Dedicated Fiber", JP: "専用1 Gbps光回線" } },
       { label: { EN: "Climate", JP: "空調" }, val: { EN: "Central Air Conditioning", JP: "全館集中空調" } },
     ],
   },
@@ -383,7 +383,7 @@ const ZONES: ZoneDef[] = [
     highlights: [
       { EN: "World timezone clocks (Tokyo, London, NYC, Delhi)", JP: "東京・ロンドン・NY・デリーの世界時計" },
       { EN: "Acrylic J-Gate signage for official office address", JP: "公式オフィス看板（法人登記可能）" },
-      { EN: "RFID smart keycard entry system for secure access", JP: "RFIDスマートカードによる入退館管理" },
+      { EN: "RFID keycard entry system for secure access", JP: "RFIDスマートカードによる入退館管理" },
     ],
     photoIds: ["reception-desk", "acrylic-signage", "wing1-entry"],
   },
@@ -394,12 +394,12 @@ const ZONES: ZoneDef[] = [
     title: { EN: "40+ Dedicated Workstations Floor", JP: "40席規模 固定専用デスクフロア" },
     lead: {
       EN: "Air-conditioned open floor office configured with 40+ dedicated desks. Each desk is assigned with ergonomic mesh chairs, personal lockable drawer units, and 1 Gbps fiber internet.",
-      JP: "40席以上の固定専用デスクを備えた冷暖房完備の執務フロア。各席に人間工学メッシュチェア、鍵付き3段キャビネット、専用1Gbps光回線を配備。",
+      JP: "40席以上の固定専用デスクを備えた冷暖房完備の執務フロア。各席に人間工学メッシュチェア、鍵付き3段キャビネット、専用1 Gbps光回線を配備。",
     },
     icon: Building2,
     highlights: [
       { EN: "40+ Dedicated desks with ergonomic high-back mesh chairs", JP: "40席以上の固定専用席・メッシュチェア完備" },
-      { EN: "Dedicated 1 Gbps fiber internet with LAN ports and WiFi", JP: "有線LANポートおよびWi-Fi対応の1Gbps専用回線" },
+      { EN: "Dedicated 1 Gbps fiber internet with LAN ports and WiFi", JP: "有線LANポートおよびWi-Fi対応の1 Gbps専用回線" },
       { EN: "Individual key-locked 3-drawer pedestal unit per desk", JP: "全席に個人用鍵付き3段キャビネット配備" },
     ],
     photoIds: ["workspace-hall", "desk-bilateral", "workspace-clusters"],
@@ -520,7 +520,7 @@ export function BlogsSection({ id }: { id?: string }) {
           </>
         }
         subtitleNode={tx({
-          EN: "A dedicated co-working space at Cyber Gateway, Hyderabad for Japanese businesses. Dedicated desks, private cabins, resident Japan Desk support, and full office infrastructure.",
+          EN: "A dedicated co-working space at Cyber Gateway, Hyderabad for Japanese businesses. Dedicated desks, private offices, resident Japan Desk support, and full office infrastructure.",
           JP: "Cyber Gateway内に位置する日本企業専用スペース。専用デスク、個室、ジャパンデスク常駐環境を写真でご紹介。",
         })}
         tags={[

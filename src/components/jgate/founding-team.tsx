@@ -15,7 +15,7 @@ const FOUNDERS = [
     border: "border-left-crimson",
     flag: "jp" as const,
     badge: "Japanese National, India-based (10+ years)",
-    tags: ["Business Strategy", "Career Placement", "Bilateral Relations"],
+    tags: ["Business Strategy", "Career Placement", "Japan-India Relations"],
     linkedin: "https://www.linkedin.com/in/daisuke-tanji/",
     bio: [
       "Mr. Daisuke Tanji is the architect of J-Gate and the driving force behind Indobox India Private Limited — a business consultancy and market entry firm dedicated specifically to the India-Japan business corridor.",
@@ -33,7 +33,7 @@ const FOUNDERS = [
     border: "border-left-saffron-thin",
     flag: "in" as const,
     badge: "Hyderabad-based Business Leader",
-    tags: ["Digital Transformation", "MoU Partnerships", "Market Entry"],
+    tags: ["Digital Transformation", "Strategic Partnerships", "Market Entry"],
     linkedin: "https://www.linkedin.com/in/dr-viinay-sarikonda-5b23261a/",
     bio: [
       "Dr. Viinay Sarikonda is the CEO of Genesys Info X and the strategic local force behind J-Gate's operational infrastructure and business network in Hyderabad. His MoU partnership with Indobox India forms the structural backbone of J-Gate.",

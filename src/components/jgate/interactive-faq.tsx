@@ -14,7 +14,7 @@ const FAQ_ITEMS = [
       JP: "即日入居は可能ですか？また最短契約期間はどれくらいですか？",
     },
     a: {
-      EN: "Yes, J-Gate provides plug-and-play workspaces in Hyderabad. Once your membership agreement is signed, you can start operating immediately with smart keycard access. We offer flexible terms ranging from month-to-month satellite arrangements to multi-year enterprise leases.",
+      EN: "Yes, J-Gate provides ready-to-use workspaces in Hyderabad. Once your membership agreement is signed, you can start operating immediately with smart keycard access. We offer flexible terms ranging from month-to-month flexible arrangements to multi-year enterprise leases.",
       JP: "はい、ハイデラバードにて即時稼働可能なワークスペースをご用意しています。契約締結後、スマートキーカードですぐにご利用いただけます。1ヶ月単位の柔軟なサテライト契約から複数年の長期利用まで対応可能です。",
     },
   },

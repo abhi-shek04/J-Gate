@@ -38,11 +38,11 @@ const FAQ_LIST: FAQItem[] = [
       JP: "即日入居は可能ですか？また最短契約期間はどれくらいですか？",
     },
     a: {
-      EN: "Yes, J-Gate provides fully furnished, plug-and-play spaces in Hyderabad. Once your enterprise membership agreement is signed, your team can begin operating immediately with smart RFID keycards. We offer flexible arrangements ranging from month-to-month exploratory satellite memberships to multi-year dedicated private suite leases.",
+      EN: "Yes, J-Gate provides fully furnished, ready-to-use spaces in Hyderabad. Once your enterprise membership agreement is signed, your team can begin operating immediately with smart RFID keycards. We offer flexible arrangements ranging from month-to-month flexible exploratory memberships to multi-year dedicated private suite leases.",
       JP: "はい、ハイデラバードにて即日稼働可能な完全家具・IT設備付きワークスペースをご用意しています。契約締結後、スマートキーカードですぐにご利用いただけます。1ヶ月単位の柔軟なサテライト契約から、複数年の専用プライベートオフィスまで柔軟に対応可能です。",
     },
     highlights: [
-      { EN: "Plug-and-Play ready from Day 1", JP: "1日目から即日稼働可能" },
+      { EN: "Immediate operational readiness from Day 1", JP: "1日目から即日稼働可能" },
       { EN: "Flexible terms from 1 month to multi-year", JP: "1ヶ月の短期から複数年契約まで対応" },
       { EN: "Biometric & RFID smart keycard access", JP: "生体認証＆ICカードによる入退室" },
     ],
@@ -316,7 +316,7 @@ export function FAQSection({ id }: { id?: string }) {
               {
                 icon: Building2,
                 title: tx({ EN: "Hyderabad Hub", JP: "ハイデラバード拠点" }),
-                desc: tx({ EN: "Plug-and-play ready enterprise facilities", JP: "即日稼働可能な完全インフラ" }),
+                desc: tx({ EN: "Fully operational enterprise facilities", JP: "即日稼働可能な完全インフラ" }),
               },
               {
                 icon: Landmark,

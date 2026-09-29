@@ -595,7 +595,7 @@ export function ServicesSection({ id }: { id?: string }) {
               </h2>
               <p className="mx-auto mt-2 sm:mt-3 max-w-2xl font-inter text-[13px] sm:text-[14px] leading-relaxed text-slate-600 dark:text-slate-300">
                 {tx({
-                  EN: "J-Gate is powered by an intentional bilateral alliance between Indobox India Pvt. Ltd. and Genesys Info X — uniting Japanese corporate governance with Tier-1 Indian physical office infrastructure to guarantee frictionless expansion.",
+                  EN: "J-Gate is powered by an intentional bilateral alliance between Indobox India Pvt. Ltd. and Genesys Info X — uniting Japanese corporate governance with Tier-1 Indian physical office infrastructure to guarantee smooth and efficient expansion.",
                   JP: "J-Gateは、日本企業ガバナンスを担うIndoboxと、ハイデラバードのオフィス施設・物理インフラを担うGenesys Info Xの戦略的共同事業です。役割分担を一元化し、進出に伴うあらゆる摩擦をゼロにします。",
                 })}
               </p>

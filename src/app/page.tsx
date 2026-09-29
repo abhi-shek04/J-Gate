@@ -148,14 +148,14 @@ function GlassBadge({
 export default function HomePage() {
   const { t, tx } = useI18n();
 
-  /* 3 Core Turnkey Capabilities — Clear, non-overlapping, punchy */
+  /* 3 Core Capabilities — Clear, non-overlapping, executive */
   const coreAgenda = [
     {
       num: "01",
       kanji: "拠点",
       icon: Building2,
       badge: { EN: "Ready Workspace", JP: "即日利用オフィス" },
-      title: tx({ EN: "Plug-and-Play Hub in Hyderabad", JP: "ハイデラバード即日稼働オフィス" }),
+      title: tx({ EN: "Ready-to-Use Enterprise Hub in Hyderabad", JP: "ハイデラバード即日稼働オフィス" }),
       desc: tx({
         EN: "Dedicated desks, private suites, enterprise fiber internet, meeting suites, and 24/7 biometric security in Hyderabad. Start operating on Day 1 without capital renovation costs or deposit delays.",
         JP: "専用デスク、個室キャビン、高速光回線、会議室、24時間セキュリティを完備。初期内装投資や長期契約の負担なく、最短即日でインド拠点を立ち上げ可能です。",

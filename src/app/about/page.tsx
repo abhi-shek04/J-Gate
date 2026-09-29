@@ -3,7 +3,7 @@
 export const metadata = {
   title: "About Us | J-Gate Incubation Corridor",
   description:
-    "Learn about J-Gate's mission, bilateral alliance with Genesys, and turnkey incubation corridor connecting Japan and India.",
+    "Learn about J-Gate's mission, bilateral alliance with Genesys, and fully managed incubation corridor connecting Japan and India.",
 };
 
 export default function AboutPage() {

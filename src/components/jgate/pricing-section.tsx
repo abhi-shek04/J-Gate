@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { Reveal, Eyebrow } from "@/components/jgate/shared";
+import { Reveal, SectionHeading, Eyebrow } from "@/components/jgate/shared";
 import { PageHero } from "@/components/jgate/page-hero";
 import { useI18n } from "@/lib/i18n";
 import {
@@ -367,77 +367,68 @@ export function PricingSection({ id }: { id?: string }) {
 
         <div className="container-jg relative z-10">
           <Reveal>
-            <div className="mx-auto max-w-3xl text-center mb-5 sm:mb-7">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-crimson/30 bg-crimson/10 px-3.5 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-crimson dark:text-rose-400">
-                <Briefcase className="h-3.5 w-3.5" />
-                {tx({ EN: "Membership Plans", JP: "透明で明瞭なメンバーシップ体系" })}
-              </span>
-              <h2
-                className="mt-2.5 font-serif-jp font-bold text-ink dark:text-white"
-                style={{ fontSize: "clamp(1.5rem, 2.8vw, 2.25rem)" }}
-              >
-                {tx({
-                  EN: "Choose Your Membership Plan",
-                  JP: "進出段階に合わせて選べる3つのプラン",
-                })}
-              </h2>
-              <p className="mx-auto mt-1.5 max-w-2xl font-inter text-[12px] sm:text-[13px] leading-relaxed text-slate dark:text-slate-300">
-                {tx({
-                  EN: "All tiers include full Hyderabad workspace infrastructure, 1 Gbps connectivity, and on-site Japanese leadership guidance.",
-                  JP: "すべてのプランにハイデラバードオフィスの利用、1 Gbps光回線、常駐日本人ディレクターによるサポートが含まれています。",
-                })}
-              </p>
+            <SectionHeading
+              icon={<Briefcase className="h-3.5 w-3.5 text-crimson dark:text-rose-400" />}
+              eyebrow={tx({ EN: "Membership Plans", JP: "透明で明瞭なメンバーシップ体系" })}
+              title={tx({
+                EN: "Choose Your Membership Plan",
+                JP: "進出段階に合わせて選べる3つのプラン",
+              })}
+              subtitle={tx({
+                EN: "All tiers include full Hyderabad workspace infrastructure, 1 Gbps connectivity, and on-site Japanese leadership guidance.",
+                JP: "すべてのプランにハイデラバードオフィスの利用、1 Gbps光回線、常駐日本人ディレクターによるサポートが含まれています。",
+              })}
+            />
 
-              {/* Interactive Currency & Team Size Selector Bar */}
-              <div className="mt-4 sm:mt-5 flex flex-wrap items-center justify-center gap-3">
-                {/* Currency Switcher */}
-                <div className="inline-flex items-center bg-white/90 dark:bg-[#101a2c] p-1 rounded-2xl border border-slate-200/80 dark:border-white/10 shadow-xs">
+            {/* Interactive Currency & Team Size Selector Bar */}
+            <div className="mt-4 sm:mt-5 flex flex-wrap items-center justify-center gap-3">
+              {/* Currency Switcher */}
+              <div className="inline-flex items-center bg-white/90 dark:bg-[#101a2c] p-1 rounded-2xl border border-slate-200/80 dark:border-white/10 shadow-xs">
+                <button
+                  type="button"
+                  onClick={() => setCurrency("INR")}
+                  className={`px-3 py-1 rounded-xl text-[11.5px] font-inter font-bold transition-all cursor-pointer ${
+                    currency === "INR"
+                      ? "bg-crimson text-white shadow-xs"
+                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                  }`}
+                >
+                  INR (₹)
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setCurrency("JPY")}
+                  className={`px-3 py-1 rounded-xl text-[11.5px] font-inter font-bold transition-all cursor-pointer ${
+                    currency === "JPY"
+                      ? "bg-crimson text-white shadow-xs"
+                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                  }`}
+                >
+                  JPY (¥)
+                </button>
+              </div>
+
+              {/* Team Filter */}
+              <div className="inline-flex flex-wrap items-center justify-center gap-1 bg-white/90 dark:bg-[#101a2c] p-1 rounded-2xl border border-slate-200/80 dark:border-white/10 shadow-xs">
+                {[
+                  { id: "all", label: { EN: "Show All (3)", JP: "すべて (3)" } },
+                  { id: "1-2", label: { EN: "1–2 Members", JP: "1〜2名利用" } },
+                  { id: "3-4", label: { EN: "3–4 Members", JP: "3〜4名利用" } },
+                  { id: "enterprise", label: { EN: "Enterprise", JP: "企業・特注規模" } },
+                ].map((tab) => (
                   <button
+                    key={tab.id}
                     type="button"
-                    onClick={() => setCurrency("INR")}
-                    className={`px-3 py-1 rounded-xl text-[11.5px] font-inter font-bold transition-all cursor-pointer ${
-                      currency === "INR"
-                        ? "bg-crimson text-white shadow-xs"
-                        : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                    onClick={() => setSelectedFilter(tab.id as any)}
+                    className={`px-3 py-1 rounded-xl text-[11.5px] font-inter font-semibold transition-all duration-200 cursor-pointer ${
+                      selectedFilter === tab.id
+                        ? "bg-slate-800 dark:bg-white/20 text-white shadow-xs"
+                        : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-white/10"
                     }`}
                   >
-                    INR (₹)
+                    {tx(tab.label)}
                   </button>
-                  <button
-                    type="button"
-                    onClick={() => setCurrency("JPY")}
-                    className={`px-3 py-1 rounded-xl text-[11.5px] font-inter font-bold transition-all cursor-pointer ${
-                      currency === "JPY"
-                        ? "bg-crimson text-white shadow-xs"
-                        : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
-                    }`}
-                  >
-                    JPY (¥)
-                  </button>
-                </div>
-
-                {/* Team Filter */}
-                <div className="inline-flex flex-wrap items-center justify-center gap-1 bg-white/90 dark:bg-[#101a2c] p-1 rounded-2xl border border-slate-200/80 dark:border-white/10 shadow-xs">
-                  {[
-                    { id: "all", label: { EN: "Show All (3)", JP: "すべて (3)" } },
-                    { id: "1-2", label: { EN: "1–2 Members", JP: "1〜2名利用" } },
-                    { id: "3-4", label: { EN: "3–4 Members", JP: "3〜4名利用" } },
-                    { id: "enterprise", label: { EN: "Enterprise", JP: "企業・特注規模" } },
-                  ].map((tab) => (
-                    <button
-                      key={tab.id}
-                      type="button"
-                      onClick={() => setSelectedFilter(tab.id as any)}
-                      className={`px-3 py-1 rounded-xl text-[11.5px] font-inter font-semibold transition-all duration-200 cursor-pointer ${
-                        selectedFilter === tab.id
-                          ? "bg-slate-800 dark:bg-white/20 text-white shadow-xs"
-                          : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-white/10"
-                      }`}
-                    >
-                      {tx(tab.label)}
-                    </button>
-                  ))}
-                </div>
+                ))}
               </div>
             </div>
           </Reveal>

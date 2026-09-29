@@ -1,6 +1,6 @@
 "use client";
 
-import { Reveal, Eyebrow } from "@/components/jgate/shared";
+import { Reveal, SectionHeading, Eyebrow } from "@/components/jgate/shared";
 import { PageHero } from "@/components/jgate/page-hero";
 import { LogoMarquee } from "@/components/jgate/logo-marquee";
 import { useI18n } from "@/lib/i18n";
@@ -223,27 +223,15 @@ export function TeamSection({ id }: { id?: string }) {
 
         <div className="container-jg relative z-10">
           <Reveal>
-            <div className="mx-auto max-w-3xl text-center">
-              <span className="inline-flex items-center gap-2 rounded-full border border-saffron/40 dark:border-saffron/30 bg-saffron/10 dark:bg-saffron/10 px-3.5 py-1 font-inter text-[11px] sm:text-[11.5px] font-bold uppercase tracking-wider text-saffron-dark dark:text-saffron shadow-2xs">
-                <Sparkles className="h-3 w-3" />
-                {tx({ EN: "Strategic Guidance", JP: "戦略的ガイダンス" })}
-              </span>
-              <h2
-                className="mt-3 font-serif-jp font-bold leading-[1.2] text-ink dark:text-white"
-                style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.4rem)" }}
-              >
-                {tx({ EN: "Advisory Council", JP: "諮問委員会（アドバイザリー・カウンシル）" })}
-              </h2>
-              <p
-                className="mx-auto mt-2.5 max-w-2xl font-inter leading-relaxed text-slate-600 dark:text-slate-300"
-                style={{ fontSize: "clamp(0.9rem, 1.2vw, 0.975rem)" }}
-              >
-                {tx({
-                  EN: "Visionary leaders from premier government innovation bodies, top engineering institutions, and cross-border enterprise directing the Japan-India corridor.",
-                  JP: "政府機関、トップアカデミア、そして日印二国間ビジネスを牽引してきた最高峰のリーダー陣が戦略を監修。",
-                })}
-              </p>
-            </div>
+            <SectionHeading
+              icon={<Sparkles className="h-3.5 w-3.5 text-saffron" />}
+              eyebrow={tx({ EN: "Strategic Guidance", JP: "戦略的ガイダンス" })}
+              title={tx({ EN: "Advisory Council", JP: "諮問委員会（アドバイザリー・カウンシル）" })}
+              subtitle={tx({
+                EN: "Visionary leaders from premier government innovation bodies, top engineering institutions, and cross-border enterprise directing the Japan-India corridor.",
+                JP: "政府機関、トップアカデミア、そして日印二国間ビジネスを牽引してきた最高峰のリーダー陣が戦略を監修。",
+              })}
+            />
           </Reveal>
 
           {/* Row 1 — 3 Advisors across */}
@@ -416,24 +404,14 @@ export function TeamSection({ id }: { id?: string }) {
       <section className="section-pad bg-ivory dark:bg-[#0c1424]">
         <div className="container-jg">
           <Reveal>
-            <div className="mx-auto max-w-3xl text-center">
-              <Eyebrow>{tx({ EN: "Operations & On-Site Team", JP: "現地運営チーム" })}</Eyebrow>
-              <h2
-                className="mt-3 font-serif-jp font-bold text-ink dark:text-white"
-                style={{ fontSize: "clamp(1.875rem, 3.8vw, 2.75rem)" }}
-              >
-                {tx({ EN: "Operations Management Team", JP: "J-Gate 運営チーム" })}
-              </h2>
-              <p
-                className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300"
-                style={{ fontSize: "clamp(0.95rem, 1.4vw, 1.05rem)" }}
-              >
-                {tx({
-                  EN: "Bilingual professionals based on-site in Hyderabad — ensuring daily operations, member support, and executive concierge services.",
-                  JP: "ハイデラバード現地に常駐するバイリンガルプロフェッショナル陣が、日々の快適な拠点運営と個別支援を徹底サポート。",
-                })}
-              </p>
-            </div>
+            <SectionHeading
+              eyebrow={tx({ EN: "Operations & On-Site Team", JP: "現地運営チーム" })}
+              title={tx({ EN: "Operations Management Team", JP: "J-Gate 運営チーム" })}
+              subtitle={tx({
+                EN: "Bilingual professionals based on-site in Hyderabad — ensuring daily operations, member support, and executive concierge services.",
+                JP: "ハイデラバード現地に常駐するバイリンガルプロフェッショナル陣が、日々の快適な拠点運営と個別支援を徹底サポート。",
+              })}
+            />
           </Reveal>
 
           {/* 4 Profile Cards across matching reference */}

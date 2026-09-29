@@ -92,45 +92,59 @@ export function SectionHeading({
   subtitle,
   align = "center",
   light = false,
+  icon,
 }: {
   eyebrow?: string;
   title: ReactNode;
   subtitle?: ReactNode;
   align?: "center" | "left";
   light?: boolean;
+  icon?: ReactNode;
 }) {
   return (
     <div className={cn("max-w-3xl", align === "center" ? "mx-auto text-center" : "text-left")}>
       {eyebrow && (
         <div className={cn("mb-3 flex items-center gap-2.5", align === "center" ? "justify-center" : "justify-start")}>
-          {align === "center" && <span className={cn("h-px w-6 sm:w-8", light ? "bg-white/30" : "bg-crimson/30")} />}
           <span
             className={cn(
-              "inline-block rounded-full px-3 py-0.5 text-[11px] font-bold uppercase tracking-[0.18em]",
-              light ? "bg-white/10 text-saffron border border-white/15" : "bg-crimson/10 text-crimson border border-crimson/20"
+              "inline-flex items-center gap-2 rounded-full px-4 py-1 text-[11px] sm:text-[11.5px] font-bold uppercase tracking-[0.18em] shadow-2xs backdrop-blur-md transition-all",
+              light
+                ? "bg-white/10 text-saffron border border-white/20 shadow-black/20"
+                : "bg-crimson/8 dark:bg-rose-950/40 text-crimson dark:text-rose-400 border border-crimson/20 dark:border-rose-800/40"
             )}
           >
-            {eyebrow}
+            {icon ? (
+              icon
+            ) : (
+              <span className={cn("h-1.5 w-1.5 rounded-full animate-pulse", light ? "bg-saffron" : "bg-crimson dark:bg-rose-400")} />
+            )}
+            <span>{eyebrow}</span>
           </span>
-          {align === "center" && <span className={cn("h-px w-6 sm:w-8", light ? "bg-white/30" : "bg-crimson/30")} />}
         </div>
       )}
+
       <h2
         className={cn(
-          "mt-2 font-serif-jp font-bold leading-[1.18]",
-          light ? "text-white" : "text-ink dark:text-white",
-          "text-[clamp(1.875rem,4vw,2.75rem)]",
+          "font-serif-jp font-bold leading-[1.16] tracking-tight",
+          light ? "text-white drop-shadow-sm" : "text-ink dark:text-white",
+          "text-[clamp(2rem,4.2vw,3rem)]",
           align === "center" ? "mx-auto" : ""
         )}
       >
         {title}
       </h2>
+
+      {/* Subtle Hairline Accent Indicator Bar */}
+      <div className={cn("my-3.5 flex items-center gap-1.5", align === "center" ? "justify-center" : "justify-start")}>
+        <span className={cn("h-[2.5px] w-12 sm:w-16 rounded-full bg-gradient-to-r", light ? "from-saffron via-amber-300 to-transparent" : "from-crimson via-saffron to-transparent")} />
+      </div>
+
       {subtitle && (
         <p
           className={cn(
-            "mt-3 sm:mt-4 font-inter leading-relaxed",
+            "mt-2.5 font-inter leading-relaxed",
             light ? "text-mist" : "text-slate-600 dark:text-slate-300",
-            "text-[clamp(0.9rem,1.6vw,1.0625rem)]",
+            "text-[clamp(0.95rem,1.4vw,1.0625rem)]",
             align === "center" ? "mx-auto max-w-2xl" : "max-w-xl"
           )}
         >

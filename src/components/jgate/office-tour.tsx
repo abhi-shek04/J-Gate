@@ -1,6 +1,6 @@
 "use client";
 
-import { Reveal, Eyebrow } from "./shared";
+import { Reveal, SectionHeading } from "./shared";
 import { Photo, useLightbox, type PhotoItem } from "./photo";
 import { Camera } from "lucide-react";
 
@@ -67,24 +67,15 @@ export function OfficeTour() {
     <section id="office-tour" className="section-pad bg-ivory">
       <div className="container-jg">
         <Reveal>
-          <div className="mx-auto max-w-3xl text-center">
-            <Eyebrow>The Workspace</Eyebrow>
-            <h2
-              className="mt-4 font-serif-jp font-bold leading-[1.15] text-ink"
-              style={{ fontSize: "clamp(2rem, 4.5vw, 2.75rem)" }}
-            >
-              Your India Headquarters{" "}
-              <span className="text-crimson">Awaits</span>
-            </h2>
-            <p
-              className="mx-auto mt-5 max-w-[600px] font-inter leading-relaxed text-slate"
-              style={{ fontSize: "clamp(0.95rem, 1.6vw, 1.125rem)" }}
-            >
-              Step inside J-Gate in Hyderabad — Hyderabad&apos;s most
-              prestigious business address. Every room is designed around how
-              Japanese companies actually work.
-            </p>
-          </div>
+          <SectionHeading
+            eyebrow="OFFICE & FACILITY TOUR"
+            title={
+              <>
+                Your India Headquarters <span className="text-crimson dark:text-rose-400">Awaits</span>
+              </>
+            }
+            subtitle="Step inside J-Gate in Hyderabad — Hyderabad's most prestigious business address. Every room is designed around how Japanese companies actually work."
+          />
         </Reveal>
 
         {/* Masonry editorial grid */}

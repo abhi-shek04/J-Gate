@@ -1,6 +1,6 @@
 "use client";
 
-import { Reveal, Eyebrow } from "./shared";
+import { Reveal, SectionHeading } from "./shared";
 import { useI18n } from "@/lib/i18n";
 import {
   Zap,
@@ -124,27 +124,15 @@ export function PillarsDetail() {
       <div className="container-jg">
         {/* Header */}
         <Reveal>
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="inline-flex items-center gap-2 rounded-full border border-saffron/30 dark:border-amber-400/40 bg-saffron/10 dark:bg-amber-950/40 px-4 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-saffron-dark dark:text-amber-300">
-              <Layers className="h-3.5 w-3.5" />
-              {tx({ EN: "Strategic Problem Solving", JP: "インド進出の課題を解消" })}
-            </span>
-            <h2
-              className="mt-3 font-serif-jp font-bold leading-[1.18] text-ink dark:text-white"
-              style={{ fontSize: "clamp(1.875rem, 3.8vw, 2.75rem)" }}
-            >
-              {tx({ EN: "How J-Gate Eliminates Expansion Friction", JP: "J-Gateが解決する4つの進出障壁" })}
-            </h2>
-            <p
-              className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300"
-              style={{ fontSize: "clamp(0.95rem, 1.4vw, 1.05rem)" }}
-            >
-              {tx({
-                EN: "Traditional India expansion is slow, bureaucratic, and risky. J-Gate replaces friction with proven, ready-to-use bilateral infrastructure.",
-                JP: "従来のインド進出に伴う長期契約、言語の壁、税務リスク、人材採用の難しさを、J-Gateのワンストップ基盤が解消します。",
-              })}
-            </p>
-          </div>
+          <SectionHeading
+            icon={<Layers className="h-3.5 w-3.5 text-crimson dark:text-rose-400" />}
+            eyebrow={tx({ EN: "Strategic Problem Solving", JP: "インド進出の課題を解消" })}
+            title={tx({ EN: "How J-Gate Eliminates Expansion Friction", JP: "J-Gateが解決する4つの進出障壁" })}
+            subtitle={tx({
+              EN: "Traditional India expansion is slow, bureaucratic, and risky. J-Gate replaces friction with proven, ready-to-use bilateral infrastructure.",
+              JP: "従来のインド進出に伴う長期契約、言語の壁、税務リスク、人材採用の難しさを、J-Gateのワンストップ基盤が解消します。",
+            })}
+          />
         </Reveal>
 
         {/* 4 Strategic Problem-Solution Cards (2x2 Grid) */}

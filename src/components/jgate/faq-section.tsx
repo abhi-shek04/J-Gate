@@ -10,7 +10,7 @@ import {
   MessageSquare,
 } from "lucide-react";
 import { PageHero } from "@/components/jgate/page-hero";
-import { Reveal } from "@/components/jgate/shared";
+import { Reveal, SectionHeading } from "@/components/jgate/shared";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
@@ -348,6 +348,20 @@ export function FAQSection({ id }: { id?: string }) {
       {/* 3. MAIN FAQ ACCORDION SYSTEM */}
       <section className="py-8 sm:py-14 bg-ivory dark:bg-[#0b111e] transition-colors">
         <div className="container-jg max-w-4xl">
+          <Reveal className="mb-8">
+            <SectionHeading
+              eyebrow={tx({ EN: "Executive Knowledge Base", JP: "詳細情報・FAQ" })}
+              title={tx({
+                EN: "Everything You Need to Know About Expansion",
+                JP: "インド進出・拠点運営に関するFAQ",
+              })}
+              subtitle={tx({
+                EN: "Detailed guidance on workspace options, resident Japan Desk support, company incorporation, and local hiring.",
+                JP: "ハイデラバード拠点、ジャパンデスク伴走、現地法人設立、採用支援に関するよくある質問。",
+              })}
+            />
+          </Reveal>
+
           {/* Header Row: Count Summary + Expand/Collapse Buttons */}
           <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border-b border-slate-200/80 dark:border-white/10 pb-3 font-inter text-[12px] text-slate-500 dark:text-slate-400">
             <span className="font-bold text-slate-800 dark:text-slate-200">

@@ -9,7 +9,7 @@ import {
   ExternalLink,
   ArrowRight,
 } from "lucide-react";
-import { Reveal } from "@/components/jgate/shared";
+import { Reveal, SectionHeading } from "@/components/jgate/shared";
 import { PageHero } from "@/components/jgate/page-hero";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
@@ -124,6 +124,20 @@ export function ContactSection({ id }: { id?: string }) {
 
       <section className="section-pad bg-ivory dark:bg-[#080d17]">
         <div className="container-jg">
+          <Reveal className="mb-10 sm:mb-12">
+            <SectionHeading
+              eyebrow={tx({ EN: "Get In Touch", JP: "お問い合わせ・ご相談" })}
+              title={tx({
+                EN: "Start Your India Expansion Journey Today",
+                JP: "初回面談・現地視察のご予約",
+              })}
+              subtitle={tx({
+                EN: "Send us a message or schedule a consultation with our resident Japanese management team in Hyderabad.",
+                JP: "J-Gateに関するご質問、料金プランの相談、現地視察のご希望はお気軽にご連絡ください。",
+              })}
+            />
+          </Reveal>
+
           <div className="mx-auto max-w-4xl grid md:grid-cols-5 gap-10 md:gap-14 items-start">
 
             {/* Left — Contact Info */}

@@ -14,7 +14,6 @@ import {
   Building2,
   Sparkles,
 } from "lucide-react";
-import { JapanFlag, IndiaFlag } from "./icons";
 
 /* ============================================================
    About J-Gate — Executive Corporate Profile & Section
@@ -76,10 +75,10 @@ const BILATERAL_SYNERGIES = [
   {
     icon: Building2,
     badge: { EN: "Institutional Network", JP: "公的・産学連携" },
-    title: { EN: "Direct Institutional & Government Ties", JP: "州政府・T-Hub・学術機関との直接連携" },
+    title: { EN: "Direct Institutional & Ecosystem Ties", JP: "エコシステム・T-Hub・学術機関との直接連携" },
     desc: {
-      EN: "Direct institutional ties with the Telangana Government IT Department, T-Hub (India's largest technology incubator), and leading engineering universities.",
-      JP: "テランガナ州政府IT局、インド最大のイノベーション拠点T-Hub、名門大学との直結ネットワークにより、安心の事業展開基盤を構築します。",
+      EN: "Direct institutional ties with the Telangana Ecosystem, T-Hub (India's largest technology incubator), and leading engineering universities.",
+      JP: "テランガナ・エコシステム、インド最大のイノベーション拠点T-Hub、名門大学との直結ネットワークにより、安心の事業展開基盤を構築します。",
     },
   },
   {
@@ -234,117 +233,33 @@ export function AboutSection({ id }: { id?: string }) {
             </div>
           </Reveal>
 
-          {/* 2-Column Luxury Bento Grid */}
-          <div className="mt-7 sm:mt-10 lg:mt-12 grid lg:grid-cols-12 gap-5 sm:gap-8 items-center max-w-6xl mx-auto">
-            {/* Left: Framed Strategic Photographic Feature Card */}
-            <div className="lg:col-span-5">
-              <Reveal variant="scale">
-                <div className="luxury-glass-card group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-white/20 bg-white/[0.04] p-2.5 sm:p-4 shadow-2xl backdrop-blur-xl">
-                  {/* Image Frame with glowing border */}
-                  <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-black/40">
-                    <img
-                      src="/japan-india-handshake.jpg"
-                      alt="Japanese and Indian business leaders shaking hands in front of Japan and India national flags"
-                      className="w-full aspect-[4/3] sm:aspect-[1/1] lg:aspect-[4/3] object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                      loading="lazy"
-                    />
-
-                    {/* Gradient Overlay for Text Readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
-
-                    {/* Floating Top Badge */}
-                    <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between pointer-events-none">
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-midnight/90 border border-white/15 px-3 py-1 text-[10.5px] font-bold text-white shadow-lg backdrop-blur-md">
-                        <JapanFlag className="h-3.5 w-5 rounded-xs shrink-0" />
-                        <span>Japan</span>
-                        <span className="text-saffron font-bold">↔</span>
-                        <IndiaFlag className="h-3.5 w-5 rounded-xs shrink-0" />
-                        <span>India</span>
-                      </span>
-                      <span className="inline-flex items-center gap-1.5 rounded-full bg-crimson/90 px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider text-white shadow-md">
-                        <span className="h-1.5 w-1.5 rounded-full bg-white animate-pulse" />
-                        {tx({ EN: "ACTIVE PARTNERSHIP", JP: "常時連携" })}
-                      </span>
-                    </div>
-
-                    {/* Bottom Caption Overlay */}
-                    <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <p className="font-serif-jp text-[14px] sm:text-[15px] font-bold leading-snug text-white drop-shadow-md">
-                        {tx({
-                          EN: "Executive Partnership & Shared Trust",
-                          JP: "確固たる信頼と共創に基づく日印エグゼクティブ・アライアンス",
-                        })}
-                      </p>
-                      <p className="mt-1 font-inter text-[11px] text-mist/90 line-clamp-2">
-                        {tx({
-                          EN: "Deepening business, technological, and cultural ties between Japanese enterprises and India's fastest-growing technology sector.",
-                          JP: "日本企業とインド急成長イノベーションエコシステムを結ぶ、強固なビジネス・技術・人材の連携基盤。",
-                        })}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Micro Trust Strip under photo */}
-                  <div className="mt-3 pt-3 border-t border-white/10 grid grid-cols-3 gap-2 text-center text-white">
-                    <div className="rounded-xl bg-white/[0.04] p-2 border border-white/5">
-                      <span className="block font-inter text-[9.5px] font-bold text-saffron uppercase tracking-wider">
-                        {tx({ EN: "Move-in Ready", JP: "即日稼働" })}
-                      </span>
-                      <span className="block font-inter text-[11.5px] font-semibold text-white mt-0.5">
-                        Hyderabad, India
-                      </span>
-                    </div>
-                    <div className="rounded-xl bg-white/[0.04] p-2 border border-white/5">
-                      <span className="block font-inter text-[9.5px] font-bold text-saffron uppercase tracking-wider">
-                        {tx({ EN: "Advisory", JP: "支援体制" })}
-                      </span>
-                      <span className="block font-inter text-[11.5px] font-semibold text-white mt-0.5">
-                        Japan Desk
-                      </span>
-                    </div>
-                    <div className="rounded-xl bg-white/[0.04] p-2 border border-white/5">
-                      <span className="block font-inter text-[9.5px] font-bold text-saffron uppercase tracking-wider">
-                        {tx({ EN: "Network", JP: "提携基盤" })}
-                      </span>
-                      <span className="block font-inter text-[11.5px] font-semibold text-crimson-light mt-0.5">
-                        T-Hub & State Gov
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-            </div>
-
-            {/* Right: 3 Strategic Value Pillars */}
-            <div className="lg:col-span-7 space-y-3 sm:space-y-3.5">
-              {BILATERAL_SYNERGIES.map((item, idx) => {
-                const Icon = item.icon;
-                return (
-                  <Reveal key={idx} delay={idx * 70}>
-                    <div className="luxury-glass-card group rounded-2xl border border-white/15 bg-white/[0.03] p-4 sm:p-5 transition-all duration-300 hover:bg-white/[0.07] hover:border-white/30 hover:-translate-y-0.5 shadow-lg">
-                      <div className="flex items-start gap-4">
-                        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-crimson/30 to-crimson-deep/40 text-saffron border border-crimson/40 mt-0.5 group-hover:scale-105 transition-transform">
-                          <Icon className="h-5 w-5" />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2">
-                            <span className="inline-block rounded-full bg-saffron/15 border border-saffron/25 px-2 py-0.5 font-inter text-[9.5px] font-bold uppercase tracking-wider text-saffron">
-                              {tx(item.badge)}
-                            </span>
-                          </div>
-                          <h4 className="mt-1.5 font-serif-jp text-[15.5px] sm:text-[17px] font-bold text-white group-hover:text-saffron transition-colors leading-snug">
-                            {tx(item.title)}
-                          </h4>
-                          <p className="mt-1.5 font-inter text-[12.5px] sm:text-[13px] leading-relaxed text-mist/90">
-                            {tx(item.desc)}
-                          </p>
-                        </div>
+          {/* 3 Strategic Value Pillars Grid */}
+          <div className="mt-7 sm:mt-10 lg:mt-12 grid md:grid-cols-3 gap-5 sm:gap-6 max-w-6xl mx-auto">
+            {BILATERAL_SYNERGIES.map((item, idx) => {
+              const Icon = item.icon;
+              return (
+                <Reveal key={idx} delay={idx * 70}>
+                  <div className="luxury-glass-card group h-full flex flex-col justify-between rounded-2xl border border-white/15 bg-white/[0.03] p-5 sm:p-6 transition-all duration-300 hover:bg-white/[0.07] hover:border-white/30 hover:-translate-y-0.5 shadow-lg">
+                    <div>
+                      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-crimson/30 to-crimson-deep/40 text-saffron border border-crimson/40 group-hover:scale-105 transition-transform mb-4">
+                        <Icon className="h-5.5 w-5.5" />
                       </div>
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="inline-block rounded-full bg-saffron/15 border border-saffron/25 px-2.5 py-0.5 font-inter text-[10px] font-bold uppercase tracking-wider text-saffron">
+                          {tx(item.badge)}
+                        </span>
+                      </div>
+                      <h4 className="font-serif-jp text-[16.5px] sm:text-[18px] font-bold text-white group-hover:text-saffron transition-colors leading-snug">
+                        {tx(item.title)}
+                      </h4>
+                      <p className="mt-2.5 font-inter text-[12.5px] sm:text-[13.5px] leading-relaxed text-mist/90">
+                        {tx(item.desc)}
+                      </p>
                     </div>
-                  </Reveal>
-                );
-              })}
-            </div>
+                  </div>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>

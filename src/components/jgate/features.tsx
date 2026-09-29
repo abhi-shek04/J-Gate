@@ -51,8 +51,8 @@ const FEATURES = [
   },
   {
     icon: Landmark,
-    title: "Government & Industry Interface",
-    desc: "Our alignment with the Telangana State Government IT Promotion Department gives you access to government support, industry incentives, and regulatory facilitation.",
+    title: "Ecosystem & Industry Interface",
+    desc: "Our alignment with the Telangana Ecosystem gives you access to regional tech support, industry incentives, and regulatory facilitation.",
   },
   {
     icon: Globe2,

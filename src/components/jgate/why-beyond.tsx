@@ -20,8 +20,8 @@ const FEATURES = [
   },
   {
     icon: "🏛",
-    title: "Government & Industry Relations",
-    desc: "Our strategic alignment with the Telangana State Government IT promotion cell and T-Hub gives members government support, policy support, and introductions to key industry leaders.",
+    title: "Ecosystem & Industry Relations",
+    desc: "Our strategic alignment with the Telangana Ecosystem and T-Hub gives members strategic support, policy guidance, and introductions to key industry leaders.",
   },
   {
     icon: "🎌",

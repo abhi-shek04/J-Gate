@@ -58,8 +58,8 @@ const FAQ_ITEMS = [
       JP: "T-HubやWoxsen大学などの現地提携機関とはどのように連携できますか？",
     },
     a: {
-      EN: "J-Gate members receive exclusive invitations to bilateral mixers, startup demo days at T-Hub, academic talent pipelines from Woxsen University, and briefings with Telangana government leaders.",
-      JP: "J-Gate会員は、日印ビジネスマッチング会、T-Hubでのスタートアップデモデイ、Woxsen大学からの優秀な工学・MBA人材採用パイプライン、テランガナ州政府との意見交換会へ優先的に参加・連携いただけます。",
+      EN: "J-Gate members receive exclusive invitations to bilateral mixers, startup demo days at T-Hub, academic talent pipelines from Woxsen University, and briefings with Telangana ecosystem leaders.",
+      JP: "J-Gate会員は、日印ビジネスマッチング会、T-Hubでのスタートアップデモデイ、Woxsen大学からの優秀な工学・MBA人材採用パイプライン、テランガナ・エコシステムとの意見交換会へ優先的に参加・連携いただけます。",
     },
   },
 ];

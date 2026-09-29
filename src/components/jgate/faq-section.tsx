@@ -223,25 +223,25 @@ const FAQ_LIST: FAQItem[] = [
   {
     id: "eco-thub",
     category: "ecosystem",
-    categoryLabel: { EN: "Partnerships & Government Relations", JP: "T-Hub・エコシステム提携" },
+    categoryLabel: { EN: "Partnerships & Ecosystem Relations", JP: "T-Hub・エコシステム提携" },
     q: {
-      EN: "How does J-Gate connect Japanese companies with T-Hub and the Telangana Government?",
-      JP: "T-Hubやテランガナ州政府などの有力イノベーション機関とはどのように連携できますか？",
+      EN: "How does J-Gate connect Japanese companies with T-Hub and the Telangana Ecosystem?",
+      JP: "T-Hubやテランガナ州などの有力イノベーションエコシステムとはどのように連携できますか？",
     },
     a: {
-      EN: "J-Gate holds close relationships with key institutions in Hyderabad: (1) Facilitating direct introductions to the Telangana State IT & Industries Department; (2) Arranging startup scouting, pilot projects, and technology events at T-Hub (the world's largest startup incubator); and (3) Coordinating with academic centers like IIT Hyderabad and Woxsen University for R&D and professional networking.",
-      JP: "J-Gateはハイデラバードの有力エコシステムと連携しています：(1) テランガナ州政府IT・商工省との対話窓口、(2) 世界最大規模のスタートアップ支援施設「T-Hub」でのスタートアップ発掘・PoC（実証実験）コーディネート、(3) IITハイデラバードやWoxsen大学との産学共同研究・技術連携の機会を提供します。",
+      EN: "J-Gate holds close relationships with key institutions in Hyderabad: (1) Facilitating direct introductions to the Telangana Ecosystem; (2) Arranging startup scouting, pilot projects, and technology events at T-Hub (the world's largest startup incubator); and (3) Coordinating with academic centers like IIT Hyderabad and Woxsen University for R&D and professional networking.",
+      JP: "J-Gateはハイデラバードの有力エコシステムと連携しています：(1) テランガナ・エコシステムとの対話窓口、(2) 世界最大規模のスタートアップ支援施設「T-Hub」でのスタートアップ発掘・PoC（実証実験）コーディネート、(3) IITハイデラバードやWoxsen大学との産学共同研究・技術連携の機会を提供します。",
     },
     highlights: [
       { EN: "Access to the world's largest startup incubator, T-Hub", JP: "世界最大級のインキュベーターT-Hubとの連携" },
-      { EN: "Telangana State IT Department liaison", JP: "テランガナ州政府IT局との円滑な対話窓口" },
+      { EN: "Telangana Ecosystem liaison", JP: "テランガナ・エコシステムとの円滑な対話窓口" },
       { EN: "IIT Hyderabad & academic R&D networks", JP: "IITハイデラバード等の産学連携ネットワーク" },
     ],
   },
   {
     id: "eco-tour",
     category: "ecosystem",
-    categoryLabel: { EN: "Partnerships & Government Relations", JP: "T-Hub・エコシステム提携" },
+    categoryLabel: { EN: "Partnerships & Ecosystem Relations", JP: "T-Hub・エコシステム提携" },
     q: {
       EN: "Can we schedule an on-site or virtual tour of J-Gate before making a commitment?",
       JP: "契約前に現地オフィスの見学やオンラインでの事前相談は可能ですか？",

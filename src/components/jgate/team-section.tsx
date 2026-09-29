@@ -228,8 +228,8 @@ export function TeamSection({ id }: { id?: string }) {
               eyebrow={tx({ EN: "Strategic Guidance", JP: "戦略的ガイダンス" })}
               title={tx({ EN: "Advisory Council", JP: "諮問委員会（アドバイザリー・カウンシル）" })}
               subtitle={tx({
-                EN: "Visionary leaders from premier government innovation bodies, top engineering institutions, and cross-border enterprise directing the Japan-India corridor.",
-                JP: "政府機関、トップアカデミア、そして日印二国間ビジネスを牽引してきた最高峰のリーダー陣が戦略を監修。",
+                EN: "Visionary leaders from premier innovation bodies, top engineering institutions, and cross-border enterprise directing the Japan-India corridor.",
+                JP: "最先端イノベーション機関、トップアカデミア、そして日印二国間ビジネスを牽引してきた最高峰のリーダー陣が戦略を監修。",
               })}
             />
           </Reveal>

@@ -101,7 +101,7 @@ const PLANS: Plan[] = [
       { text: "Priority booking for hosting events", included: true },
       { text: "Custom branding inside J-Gate premises", included: true },
       { text: "Full recruitment and hiring support from Indobox", included: true },
-      { text: "Telangana State government liaison", included: true },
+      { text: "Telangana Ecosystem liaison", included: true },
     ],
   },
 ];

@@ -20,7 +20,7 @@ const FAQS = [
   },
   {
     q: "How does the T-Hub and Telangana ecosystem partnership benefit members?",
-    a: "T-Hub — the world's largest innovation hub — provides members with access to startup scouting, corporate pilot programs, deep-tech research talent, and strategic integration with the proactive Telangana State Government IT promotion cell.",
+    a: "T-Hub — the world's largest innovation hub — provides members with access to startup scouting, corporate pilot programs, deep-tech research talent, and strategic integration with the proactive Telangana Ecosystem.",
   },
   {
     q: "Can J-Gate help with company registration in India?",

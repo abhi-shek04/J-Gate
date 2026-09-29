@@ -499,10 +499,10 @@ export function ServicesSection({ id }: { id?: string }) {
                     {/* Official Brand Logo Box */}
                     <div className="h-20 sm:h-24 w-full rounded-xl bg-white dark:bg-white/95 border border-slate-200/80 dark:border-white/10 p-4 flex items-center justify-center shadow-xs mb-3 group-hover:scale-[1.02] transition-transform">
                       <Image
-                        src="/logos/indobox.svg"
+                        src="/logos/indobox.png"
                         alt="Indobox India Pvt. Ltd."
-                        width={400}
-                        height={80}
+                        width={280}
+                        height={70}
                         className="h-10 sm:h-12 md:h-14 w-auto object-contain"
                       />
                     </div>

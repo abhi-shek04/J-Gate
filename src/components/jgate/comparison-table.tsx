@@ -38,10 +38,10 @@ const ROWS: Row[] = [
     consult: { EN: "¥500K – ¥1M+", JP: "50万〜100万円+" },
     cowork: { EN: "10K – 60K INR", JP: "10,000〜60,000 INR" },
     publicOrg: { EN: "Free – Low cost", JP: "無料〜低額" },
-    jgateType: "optimal",
+    jgateType: "check",
     consultType: "cross",
-    coworkType: "text",
-    publicType: "optimal",
+    coworkType: "warn",
+    publicType: "warn",
   },
   {
     label: { EN: "Dedicated Office Space", JP: "物理拠点" },
@@ -115,7 +115,6 @@ const LEGEND = [
   { color: "bg-success", label: { EN: "Fully Available", JP: "完全対応" } },
   { color: "bg-crimson", label: { EN: "Not Available", JP: "非対応" } },
   { color: "bg-saffron", label: { EN: "Partial", JP: "一部対応" } },
-  { color: "bg-sky-500", label: { EN: "Best Value", JP: "最適コスト" } },
 ];
 
 function IndicatorIcon({ type }: { type: Indicator }) {

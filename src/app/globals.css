@@ -146,7 +146,7 @@
     -moz-osx-font-smoothing: grayscale;
   }
   h1, h2, h3, h4 {
-    font-family: var(--font-inter), system-ui, sans-serif;
+    font-family: Georgia, "Hiragino Mincho ProN", "Yu Gothic", serif;
     letter-spacing: -0.01em;
   }
   /* Focus-visible for accessibility */
@@ -163,19 +163,19 @@
    Photo-First · Team-Showcased · Immersive
    ============================================================ */
 
-.font-serif-jp { font-family: var(--font-noto-serif-jp), "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Shippori Mincho", "MS PMincho", "Noto Serif JP", serif; }
-.font-sans-jp  { font-family: var(--font-noto-sans-jp), "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Meiryo", "Noto Sans JP", sans-serif; }
+.font-serif-jp { font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Shippori Mincho", "MS PMincho", Georgia, serif; }
+.font-sans-jp  { font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Meiryo", var(--font-inter), sans-serif; }
 .font-inter    { font-family: var(--font-inter), system-ui, sans-serif; }
 
 /* Authentic Japanese fonts applied ONLY when Japanese language is selected */
 html[lang="ja"] body {
-  font-family: var(--font-noto-sans-jp), "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Meiryo", sans-serif;
+  font-family: "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Meiryo", sans-serif;
 }
 html[lang="ja"] h1,
 html[lang="ja"] h2,
 html[lang="ja"] h3,
 html[lang="ja"] h4 {
-  font-family: var(--font-noto-serif-jp), "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Shippori Mincho", "MS PMincho", serif;
+  font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Shippori Mincho", "MS PMincho", serif;
 }
 
 /* ============================================================

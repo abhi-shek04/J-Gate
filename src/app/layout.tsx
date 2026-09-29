@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter, Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
@@ -15,19 +15,13 @@ const inter = Inter({
   display: "swap",
 });
 
-const notoSerifJP = Noto_Serif_JP({
+const notoSerifJP = {
   variable: "--font-noto-serif-jp",
-  subsets: ["latin"],
-  weight: ["400", "600", "700", "900"],
-  display: "swap",
-});
+};
 
-const notoSansJP = Noto_Sans_JP({
+const notoSansJP = {
   variable: "--font-noto-sans-jp",
-  subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  display: "swap",
-});
+};
 
 export const viewport: Viewport = {
   width: "device-width",

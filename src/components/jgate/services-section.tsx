@@ -498,6 +498,10 @@ export function ServicesSection({ id }: { id?: string }) {
                   <div className="md:col-span-5 rounded-xl sm:rounded-2xl border border-crimson/20 dark:border-crimson/30 bg-gradient-to-b from-rose-50/40 via-white to-slate-50/50 dark:from-rose-950/20 dark:via-[#101a2c] dark:to-[#0b111e] p-5 sm:p-7 text-center relative overflow-hidden group hover:border-crimson/50 hover:shadow-md transition-all duration-300 flex flex-col items-center justify-between">
                     <span className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson to-crimson-deep" />
 
+                    <span className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-rose-200/90 dark:border-rose-800/40 bg-rose-50/90 dark:bg-rose-950/50 px-3.5 py-1 text-[11.5px] font-bold text-rose-800 dark:text-rose-300 shadow-2xs font-inter">
+                      🇯🇵 {tx({ EN: "Japan Governance & Strategy", JP: "日本企業ガバナンス・戦略統括" })}
+                    </span>
+
                     {/* Official Brand Logo Box */}
                     <div className="h-20 sm:h-24 w-full rounded-xl bg-white dark:bg-white/95 border border-slate-200/80 dark:border-white/10 p-4 flex items-center justify-center shadow-xs mb-3 group-hover:scale-[1.02] transition-transform">
                       <Image
@@ -510,12 +514,15 @@ export function ServicesSection({ id }: { id?: string }) {
                     </div>
 
                     <div>
-                      <h4 className="font-serif-jp text-sm sm:text-base font-bold text-ink dark:text-white">
-                        {tx({ EN: "Japan Operations & Resident Advisory", JP: "日印事業統括・現地常駐ジャパンデスク" })}
+                      <h4 className="font-inter text-lg sm:text-xl font-bold text-ink dark:text-white">
+                        Indobox India Pvt. Ltd.
                       </h4>
-                      <p className="text-[12px] sm:text-[12.5px] text-slate-600 dark:text-slate-300 font-inter mt-2 sm:mt-2.5 leading-relaxed">
+                      <p className="font-inter text-[13px] font-semibold text-slate-500 dark:text-slate-400 mt-0.5">
+                        {tx({ EN: "Japan-India Operations & Resident Japan Desk", JP: "日印事業統括・現地常駐ジャパンデスク" })}
+                      </p>
+                      <p className="text-[12.5px] text-slate-600 dark:text-slate-300 font-inter mt-2.5 leading-relaxed">
                         {tx({
-                          EN: "Japanese director leadership, resident Japan Desk daily advisory, business orientation, member support, and reporting coordination with Japan headquarters.",
+                          EN: "Japanese director leadership, resident Japan Desk daily advisory, business orientation, tenant care, and parent company reporting alignment.",
                           JP: "日本人取締役常駐・日々のよろず相談・ビジネスアドバイザリー・日本本社報告支援・現地入居企業サポート。",
                         })}
                       </p>
@@ -524,18 +531,21 @@ export function ServicesSection({ id }: { id?: string }) {
 
                   {/* Center Bilateral Fusion Medallion */}
                   <div className="md:col-span-1 flex flex-col items-center justify-center my-3 md:my-0">
-                    <div className="relative flex items-center justify-center">
-                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-crimson via-amber-400 to-saffron p-[2px] shadow-md">
-                        <div className="w-full h-full rounded-full bg-white dark:bg-[#101a2c] flex items-center justify-center font-bold text-base sm:text-lg text-ink dark:text-white">
-                          ×
-                        </div>
-                      </div>
+                    <div className="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border-2 border-saffron bg-white dark:bg-[#101a2c] font-bold text-base text-ink dark:text-white shadow-md">
+                      ×
                     </div>
+                    <span className="mt-2 font-inter text-[10px] font-bold tracking-widest text-slate-400 dark:text-slate-500 uppercase">
+                      JOINT MODEL
+                    </span>
                   </div>
 
                   {/* Right Pedestal: Genesys Info X */}
                   <div className="md:col-span-5 rounded-xl sm:rounded-2xl border border-saffron/25 dark:border-amber-400/30 bg-gradient-to-b from-amber-50/40 via-white to-slate-50/50 dark:from-amber-950/20 dark:via-[#101a2c] dark:to-[#0b111e] p-5 sm:p-7 text-center relative overflow-hidden group hover:border-saffron/50 hover:shadow-md transition-all duration-300 flex flex-col items-center justify-between">
                     <span className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-saffron to-[#c9881a]" />
+
+                    <span className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-amber-200/90 dark:border-amber-800/40 bg-amber-50/90 dark:bg-amber-950/50 px-3.5 py-1 text-[11.5px] font-bold text-amber-900 dark:text-amber-300 shadow-2xs font-inter">
+                      🇮🇳 {tx({ EN: "India Infrastructure Backbone", JP: "インド現地インフラ・拠点運営" })}
+                    </span>
 
                     {/* Official Brand Logo Box */}
                     <div className="h-20 sm:h-24 w-full rounded-xl bg-white dark:bg-white/95 border border-slate-200/80 dark:border-white/10 p-4 flex items-center justify-center shadow-xs mb-3 group-hover:scale-[1.02] transition-transform">
@@ -549,12 +559,15 @@ export function ServicesSection({ id }: { id?: string }) {
                     </div>
 
                     <div>
-                      <h4 className="font-serif-jp text-sm sm:text-base font-bold text-ink dark:text-white">
-                        {tx({ EN: "Hyderabad Workspace & Facilities Operator", JP: "ハイデラバード 拠点施設運営パートナー" })}
+                      <h4 className="font-inter text-lg sm:text-xl font-bold text-ink dark:text-white">
+                        Genesys info X
                       </h4>
-                      <p className="text-[12px] sm:text-[12.5px] text-slate-600 dark:text-slate-300 font-inter mt-2 sm:mt-2.5 leading-relaxed">
+                      <p className="font-inter text-[13px] font-semibold text-slate-500 dark:text-slate-400 mt-0.5">
+                        {tx({ EN: "Hyderabad Workspace & Facilities Operator", JP: "ハイデラバード 拠点施設運営パートナー" })}
+                      </p>
+                      <p className="text-[12.5px] text-slate-600 dark:text-slate-300 font-inter mt-2.5 leading-relaxed">
                         {tx({
-                          EN: "Fully equipped workspace suites, high-speed fiber connectivity, 100% UPS & generator power backup, 24/7 biometric security, and facility maintenance.",
+                          EN: "Fully equipped workspace suites, high-speed fiber connectivity, 100% UPS & generator power backup, 24/7 biometric security, and facilities care.",
                           JP: "完全家具付きオフィス、高速光回線、24時間無停電電源・発電設備、スマート生体認証セキュリティ、施設保守管理。",
                         })}
                       </p>

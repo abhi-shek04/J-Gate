@@ -110,16 +110,16 @@ type OpsMember = {
 const OPS_TEAM: OpsMember[] = [
   {
     id: "tanji",
-    name: "Daisuke TANJI",
+    name: "Daisuke Tanji",
     jpName: "丹治 大佑",
     role: "DIRECTOR",
-    subtitle: "Director of Business Development | Indobox Inc.",
+    subtitle: "Bilateral Business Facilitator | Indobox Inc.",
     flag: "🇯🇵",
     country: "Japan",
     email: "contact@indobox.co.jp",
     image: "/team/tanji.png",
-    desc: "Directs J-Gate's initiatives connecting skilled Indian engineering talent with Japanese corporate headquarters.",
-    tags: ["Business Strategy", "Career Placement", "Japan-India Relations"],
+    desc: "Bilateral business facilitator linking India and Japan. Directing the vision to connect Indian talent with career opportunities.",
+    tags: ["Business Strategy", "Career Placement", "Bilateral Relations"],
     linkedin: "https://www.linkedin.com/in/daisuke-tanji/",
     languages: [
       { EN: "Japanese", JP: "日本語", highlight: true },
@@ -129,7 +129,7 @@ const OPS_TEAM: OpsMember[] = [
   },
   {
     id: "hanaoka",
-    name: "Mariko HANAOKA",
+    name: "Mariko Hanaoka",
     jpName: "花岡 真理子",
     role: "DIRECTOR",
     subtitle: "Native Educator | 9+ Years Exp. in India",
@@ -137,52 +137,49 @@ const OPS_TEAM: OpsMember[] = [
     country: "Japan",
     email: "contact@indobox.co.jp",
     image: "/team/hanaoka.png",
-    desc: "Native Japanese educator leading business Japanese, JLPT/NAT curriculum, and cultural orientation programs.",
-    tags: ["Curriculum Design", "Language Training", "Cultural Orientation"],
+    desc: "Japanese Language Teacher at IIT Palakkad. Qualified educator teaching in India since 2015. Leading academic direction, native pedagogy, and bicultural curriculum design.",
+    tags: ["Curriculum Design", "Pedagogy", "N4 & N3"],
     linkedin: "https://www.linkedin.com/in/marikohanaoka/",
     languages: [
       { EN: "Japanese", JP: "日本語", highlight: true },
       { EN: "English", JP: "英語" },
       { EN: "Tamil", JP: "タミル語" },
-      { EN: "Bengali", JP: "ベンガル語" },
+    ],
+  },
+  {
+    id: "isogai",
+    name: "Tomio Isogai",
+    jpName: "磯貝 富雄",
+    role: "SENIOR ADVISOR",
+    subtitle: "Former MD, Sharp India | Corporate Advisor",
+    flag: "🇯🇵",
+    country: "Japan",
+    email: "contact@indobox.co.jp",
+    image: "/advisory/isogai.png",
+    desc: "Former Managing Director of Sharp India. Advising on corporate relations, Japanese business customs, and strategic partnerships.",
+    tags: ["Corporate Relations", "Strategic Partnerships", "Business Customs"],
+    linkedin: "https://www.linkedin.com/in/tomio-isogai-416b9b16/",
+    languages: [
+      { EN: "Japanese", JP: "日本語", highlight: true },
+      { EN: "English", JP: "英語" },
     ],
   },
   {
     id: "dheeraj",
-    name: "Dheeraj YANNETI",
+    name: "Dheeraj Yenneti",
     jpName: "ディラジ・ヤンネティ",
-    role: "COMMUNITY MANAGER",
-    subtitle: "Operations Head | Member Experience",
+    role: "ADMINISTRATOR",
+    subtitle: "Operations Head | Admissions Specialist",
     flag: "🇮🇳",
     country: "India",
     phone: "+91-98498 11543",
     email: "contact@indobox.co.jp",
     image: "/team/dheeraj.png",
-    desc: "Manages day-to-day workspace operations, member onboarding, bilingual support services, and enterprise client relations.",
-    tags: ["Operations", "Admissions", "Client Relations"],
+    desc: "Directing admissions, operational infrastructure, and enrollment pipelines for hybrid offline and online learning batches.",
+    tags: ["Admissions", "Operations", "Hybrid Learning"],
     linkedin: "https://www.linkedin.com/in/dheeraj-yenneti-41866531b/",
     languages: [
       { EN: "Japanese", JP: "日本語", highlight: true },
-      { EN: "English", JP: "英語" },
-      { EN: "Telugu", JP: "テルグ語" },
-      { EN: "Hindi", JP: "ヒンディー語" },
-    ],
-  },
-  {
-    id: "abhishek",
-    name: "Abhishek BUDURU",
-    jpName: "アブシェーク・ブドゥル",
-    role: "TECH OPERATIONS",
-    subtitle: "Smart Access & IT Infrastructure Specialist",
-    flag: "🇮🇳",
-    country: "India",
-    email: "contact@indobox.co.jp",
-    image: "/team/abhishek.png",
-    desc: "Oversees building access systems, IT support, and technology infrastructure at the Hyderabad office.",
-    tags: ["Tech Support", "IT Infrastructure", "Smart Access"],
-    linkedin: "https://www.linkedin.com/in/buduru-abhishek/",
-    languages: [
-      { EN: "Japanese (N3)", JP: "日本語 (N3)", highlight: true },
       { EN: "English", JP: "英語" },
       { EN: "Telugu", JP: "テルグ語" },
       { EN: "Hindi", JP: "ヒンディー語" },
@@ -442,14 +439,13 @@ export function TeamSection({ id }: { id?: string }) {
           {/* 4 Profile Cards across matching reference */}
           <div className="mt-6 sm:mt-8 lg:mt-9 grid grid-cols-1 gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {OPS_TEAM.map((m, i) => {
-              const isDheeraj = m.id === "dheeraj";
+              const isTanji = m.id === "tanji";
               return (
                 <Reveal key={m.id} delay={i * 80}>
                   <article
-                    id={isDheeraj ? "team-dheeraj" : undefined}
                     className={`group relative flex h-full flex-col justify-between items-center rounded-2xl border bg-white dark:bg-[#101a2c] p-4 sm:p-5 text-center shadow-xs transition-all duration-300 hover:shadow-lg ${
-                      isDheeraj
-                        ? "border-saffron/90 dark:border-saffron/60 ring-2 ring-saffron/20 hover:border-saffron shadow-sm shadow-saffron/5"
+                      isTanji
+                        ? "border-crimson/30 dark:border-rose-500/40 shadow-sm shadow-crimson/5"
                         : "border-slate-200/90 dark:border-white/10 hover:border-crimson/40 dark:hover:border-crimson/50"
                     }`}
                   >
@@ -457,8 +453,8 @@ export function TeamSection({ id }: { id?: string }) {
                     <div className="relative mt-1">
                       <div
                         className={`h-20 w-20 sm:h-22 sm:w-22 rounded-full overflow-hidden border-2 bg-slate-50 dark:bg-white/5 shadow-md mx-auto transition-transform duration-300 group-hover:scale-105 ${
-                          isDheeraj
-                            ? "border-saffron group-hover:border-saffron"
+                          isTanji
+                            ? "border-crimson/60 group-hover:border-crimson"
                             : "border-slate-200/90 dark:border-white/20 group-hover:border-crimson/60"
                         }`}
                       >
@@ -475,27 +471,15 @@ export function TeamSection({ id }: { id?: string }) {
                         {m.country === "Japan" ? <JapanFlag className="h-3 w-4.5 rounded-xs shrink-0" /> : <IndiaFlag className="h-3 w-4.5 rounded-xs shrink-0" />}
                         <span className="text-[8.5px] tracking-wide uppercase font-inter">{m.country}</span>
                       </span>
-
-                      {/* Spotlight Concierge Lead Badge for Dheeraj */}
-                      {isDheeraj && (
-                        <span className="absolute -top-2 left-1/2 -translate-x-1/2 flex items-center gap-1 rounded-full bg-saffron px-2 py-0.5 text-[8.5px] font-bold text-ink shadow-sm border border-saffron-dark/20 uppercase tracking-wider font-inter">
-                          <Sparkles className="h-2.5 w-2.5 text-ink" />
-                          <span>{m.badge}</span>
-                        </span>
-                      )}
                     </div>
 
                     {/* Role Eyebrow */}
-                    <span
-                      className={`mt-3 font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider ${
-                        isDheeraj ? "text-saffron-dark dark:text-saffron" : "text-crimson dark:text-rose-400"
-                      }`}
-                    >
+                    <span className="mt-3 font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-widest text-crimson dark:text-rose-400">
                       {m.role}
                     </span>
 
                     {/* Executive Name */}
-                    <h3 className="mt-1 font-serif-jp text-[16px] sm:text-[17px] font-bold leading-tight text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400 transition-colors">
+                    <h3 className={`mt-1 font-serif-jp text-lg sm:text-[20px] font-bold leading-tight ${isTanji ? "text-crimson dark:text-rose-400" : "text-ink dark:text-white"}`}>
                       {m.name}
                     </h3>
                     {lang === "JP" && (

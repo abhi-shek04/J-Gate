@@ -560,7 +560,7 @@ export function ServicesSection({ id }: { id?: string }) {
 
                     <div>
                       <h4 className="font-inter text-lg sm:text-xl font-bold text-ink dark:text-white">
-                        Genesys info X
+                        Genesys Info X
                       </h4>
                       <p className="font-inter text-[13px] font-semibold text-slate-500 dark:text-slate-400 mt-0.5">
                         {tx({ EN: "Hyderabad Workspace & Facilities Operator", JP: "ハイデラバード 拠点施設運営パートナー" })}

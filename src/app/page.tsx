@@ -131,7 +131,7 @@ function GlassBadge({
         ) : null}
       </div>
       <div className="flex flex-col leading-tight min-w-0">
-        <span className={cn("font-serif-jp text-[13.5px] sm:text-[14.5px] font-bold tracking-tight truncate group-hover:text-crimson dark:group-hover:text-rose-400 transition-colors", primaryColor)}>
+        <span className={cn("font-inter text-[13.5px] sm:text-[14.5px] font-bold tracking-tight truncate group-hover:text-crimson dark:group-hover:text-rose-400 transition-colors", primaryColor)}>
           {primary}
         </span>
         <span className="mt-0.5 font-inter text-[11px] sm:text-[12px] font-medium text-slate-600 dark:text-slate-300 truncate">

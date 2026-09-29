@@ -492,30 +492,31 @@ export function ServicesSection({ id }: { id?: string }) {
             <Reveal>
               <div className="rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-6 lg:p-9 shadow-[0_12px_36px_-12px_rgba(8,15,26,0.08)]">
                 <div className="grid md:grid-cols-11 items-center gap-4 sm:gap-6 lg:gap-8">
-                  {/* Left Pedestal: Indobox India Pvt. Ltd. */}
-                  <div className="md:col-span-5 rounded-xl sm:rounded-2xl border border-crimson/20 dark:border-crimson/30 bg-gradient-to-b from-rose-50/40 via-white to-slate-50/50 dark:from-rose-950/20 dark:via-[#101a2c] dark:to-[#0b111e] p-4 sm:p-6 text-center relative overflow-hidden group hover:border-crimson/50 hover:shadow-md transition-all duration-300">
+                  {/* Left Pedestal: Indobox India Private Limited. */}
+                  <div className="md:col-span-5 rounded-xl sm:rounded-2xl border border-crimson/20 dark:border-crimson/30 bg-gradient-to-b from-rose-50/40 via-white to-slate-50/50 dark:from-rose-950/20 dark:via-[#101a2c] dark:to-[#0b111e] p-5 sm:p-7 text-center relative overflow-hidden group hover:border-crimson/50 hover:shadow-md transition-all duration-300">
                     <span className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson to-crimson-deep" />
-                    <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-crimson/10 dark:bg-rose-950/50 border border-crimson/20 dark:border-rose-400/30 text-crimson dark:text-rose-400 text-[10.5px] sm:text-[11px] font-bold font-inter mb-3 sm:mb-4">
-                      <JapanFlag className="h-3.5 w-5 rounded-xs shrink-0" />
-                      <span>{tx({ EN: "Japan Governance & Strategy", JP: "日本側ガバナンス・戦略統括" })}</span>
-                    </div>
 
                     {/* Logo Showcase Box */}
-                    <div className="h-16 sm:h-20 md:h-24 w-full rounded-xl bg-white dark:bg-white/95 border border-slate-200/80 dark:border-white/10 p-3 sm:p-4 flex items-center justify-center shadow-xs mb-3 sm:mb-4 group-hover:scale-[1.02] transition-transform">
+                    <div className="h-16 sm:h-20 md:h-24 w-full rounded-xl bg-white dark:bg-white/95 border border-slate-200/80 dark:border-white/10 p-3 sm:p-4 flex items-center justify-center shadow-xs mb-4 group-hover:scale-[1.02] transition-transform">
                       <Image
                         src="/logos/indobox.png"
-                        alt="Indobox Logo"
+                        alt="Indobox India Private Limited"
                         width={280}
                         height={70}
                         className="h-9 sm:h-11 md:h-12 w-auto object-contain"
                       />
                     </div>
 
-                    <h3 className="font-serif-jp text-base sm:text-lg font-bold text-ink dark:text-white">Indobox India Pvt. Ltd.</h3>
-                    <p className="font-mono text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+                    <h3 className="font-inter text-lg sm:text-xl font-bold tracking-tight text-ink dark:text-white">
+                      Indobox India
+                      <span className="block text-[12px] font-medium text-slate-500 dark:text-slate-400 tracking-normal mt-0.5">
+                        Private Limited.
+                      </span>
+                    </h3>
+                    <p className="font-mono text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 mt-1">
                       {tx({ EN: "Japan-India Operations & Resident Japan Desk", JP: "日印事業統括・現地常駐ジャパンデスク" })}
                     </p>
-                    <p className="text-[12px] sm:text-[12.5px] text-slate-600 dark:text-slate-300 font-inter mt-2 sm:mt-2.5 leading-relaxed">
+                    <p className="text-[12px] sm:text-[12.5px] text-slate-600 dark:text-slate-300 font-inter mt-2.5 sm:mt-3 leading-relaxed">
                       {tx({
                         EN: "Japanese director leadership, resident Japan Desk daily advisory, business orientation, tenant care, and parent company reporting alignment.",
                         JP: "日本人取締役常駐・日々のよろず相談・ビジネスアドバイザリー・日本本社報告支援・現地入居企業サポート。",
@@ -524,7 +525,7 @@ export function ServicesSection({ id }: { id?: string }) {
                   </div>
 
                   {/* Center Bilateral Fusion Medallion */}
-                  <div className="md:col-span-1 flex flex-col items-center justify-center my-2 md:my-0">
+                  <div className="md:col-span-1 flex flex-col items-center justify-center my-3 md:my-0">
                     <div className="relative flex items-center justify-center">
                       <div className="w-10 h-10 sm:w-13 sm:h-13 rounded-full bg-gradient-to-br from-crimson via-amber-400 to-saffron p-[2px] shadow-md">
                         <div className="w-full h-full rounded-full bg-white dark:bg-[#101a2c] flex items-center justify-center font-bold text-base sm:text-lg text-ink dark:text-white">
@@ -532,21 +533,17 @@ export function ServicesSection({ id }: { id?: string }) {
                         </div>
                       </div>
                     </div>
-                    <span className="text-[9px] sm:text-[9.5px] font-mono font-bold tracking-widest text-slate-500 dark:text-slate-400 uppercase mt-1.5 sm:mt-2 text-center">
-                      JOINT MODEL
+                    <span className="text-[9px] sm:text-[9.5px] font-mono font-bold tracking-widest text-slate-500 dark:text-slate-400 uppercase mt-2 text-center whitespace-nowrap">
+                      STRATEGIC ALLIANCE
                     </span>
                   </div>
 
-                  {/* Right Pedestal: Genesys Info X */}
-                  <div className="md:col-span-5 rounded-xl sm:rounded-2xl border border-saffron/25 dark:border-amber-400/30 bg-gradient-to-b from-amber-50/40 via-white to-slate-50/50 dark:from-amber-950/20 dark:via-[#101a2c] dark:to-[#0b111e] p-4 sm:p-6 text-center relative overflow-hidden group hover:border-saffron/50 hover:shadow-md transition-all duration-300">
+                  {/* Right Pedestal: Genesys info X */}
+                  <div className="md:col-span-5 rounded-xl sm:rounded-2xl border border-saffron/25 dark:border-amber-400/30 bg-gradient-to-b from-amber-50/40 via-white to-slate-50/50 dark:from-amber-950/20 dark:via-[#101a2c] dark:to-[#0b111e] p-5 sm:p-7 text-center relative overflow-hidden group hover:border-saffron/50 hover:shadow-md transition-all duration-300">
                     <span className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-saffron to-[#c9881a]" />
-                    <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-amber-100 dark:bg-amber-950/50 border border-amber-300/60 dark:border-amber-700/40 text-amber-900 dark:text-amber-300 text-[10.5px] sm:text-[11px] font-bold font-inter mb-3 sm:mb-4">
-                      <IndiaFlag className="h-3.5 w-5 rounded-xs shrink-0" />
-                      <span>{tx({ EN: "India Infrastructure Backbone", JP: "インド現地インフラ・施設管理" })}</span>
-                    </div>
 
                     {/* Logo Showcase Box */}
-                    <div className="h-16 sm:h-20 md:h-24 w-full rounded-xl bg-white dark:bg-white/95 border border-slate-200/80 dark:border-white/10 p-3 sm:p-4 flex items-center justify-center shadow-xs mb-3 sm:mb-4 group-hover:scale-[1.02] transition-transform">
+                    <div className="h-16 sm:h-20 md:h-24 w-full rounded-xl bg-white dark:bg-white/95 border border-slate-200/80 dark:border-white/10 p-3 sm:p-4 flex items-center justify-center shadow-xs mb-4 group-hover:scale-[1.02] transition-transform">
                       <Image
                         src="/logos/genesys-info-x.png"
                         alt="Genesys info X Logo"
@@ -556,11 +553,16 @@ export function ServicesSection({ id }: { id?: string }) {
                       />
                     </div>
 
-                    <h3 className="font-serif-jp text-base sm:text-lg font-bold text-ink dark:text-white">Genesys info X</h3>
-                    <p className="font-mono text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+                    <h3 className="font-inter text-lg sm:text-xl font-bold tracking-tight text-ink dark:text-white">
+                      Genesys info X
+                      <span className="block text-[12px] font-medium text-slate-500 dark:text-slate-400 tracking-normal mt-0.5">
+                        Private Limited.
+                      </span>
+                    </h3>
+                    <p className="font-mono text-[10px] sm:text-[11px] text-slate-500 dark:text-slate-400 mt-1">
                       {tx({ EN: "Hyderabad Workspace & Facilities Operator", JP: "ハイデラバード 拠点施設運営パートナー" })}
                     </p>
-                    <p className="text-[12px] sm:text-[12.5px] text-slate-600 dark:text-slate-300 font-inter mt-2 sm:mt-2.5 leading-relaxed">
+                    <p className="text-[12px] sm:text-[12.5px] text-slate-600 dark:text-slate-300 font-inter mt-2.5 sm:mt-3 leading-relaxed">
                       {tx({
                         EN: "Fully equipped workspace suites, high-speed fiber connectivity, 100% UPS & generator power backup, 24/7 biometric security, and facilities care.",
                         JP: "完全家具付きオフィス、高速光回線、24時間無停電電源・発電設備、スマート生体認証セキュリティ、施設保守管理。",

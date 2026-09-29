@@ -525,15 +525,12 @@ export function ServicesSection({ id }: { id?: string }) {
                   {/* Center Bilateral Fusion Medallion */}
                   <div className="md:col-span-1 flex flex-col items-center justify-center my-3 md:my-0">
                     <div className="relative flex items-center justify-center">
-                      <div className="w-10 h-10 sm:w-13 sm:h-13 rounded-full bg-gradient-to-br from-crimson via-amber-400 to-saffron p-[2px] shadow-md">
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gradient-to-br from-crimson via-amber-400 to-saffron p-[2px] shadow-md">
                         <div className="w-full h-full rounded-full bg-white dark:bg-[#101a2c] flex items-center justify-center font-bold text-base sm:text-lg text-ink dark:text-white">
                           ×
                         </div>
                       </div>
                     </div>
-                    <span className="text-[9px] sm:text-[9.5px] font-mono font-bold tracking-widest text-slate-500 dark:text-slate-400 uppercase mt-2 text-center whitespace-nowrap">
-                      STRATEGIC PARTNERSHIP
-                    </span>
                   </div>
 
                   {/* Right Pedestal: Genesys Info X */}

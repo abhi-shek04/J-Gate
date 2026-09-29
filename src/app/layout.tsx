@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
-import localFont from "next/font/local";
+import { Inter, Noto_Sans_JP, Noto_Serif_JP } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
@@ -10,21 +9,25 @@ import { LightboxProvider } from "@/components/jgate/photo";
 import { Navbar } from "@/components/jgate/navbar";
 import { Footer } from "@/components/jgate/footer";
 
-// Use Inter from Google (it loads fine), fallback for JP fonts with system fonts
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
 });
 
-// Fallback: use system serif/sans fonts instead of Google-hosted Noto JP
-// which times out in this environment. CSS variables still defined for compatibility.
-const notoSerifJP = {
+const notoSerifJP = Noto_Serif_JP({
   variable: "--font-noto-serif-jp",
-};
-const notoSansJP = {
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "900"],
+  display: "swap",
+});
+
+const notoSansJP = Noto_Sans_JP({
   variable: "--font-noto-sans-jp",
-};
+  subsets: ["latin"],
+  weight: ["400", "500", "700"],
+  display: "swap",
+});
 
 export const viewport: Viewport = {
   width: "device-width",

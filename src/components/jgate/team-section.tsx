@@ -152,7 +152,6 @@ const OPS_TEAM: OpsMember[] = [
     name: "Dheeraj YANNETI",
     jpName: "ディラジ・ヤンネティ",
     role: "COMMUNITY MANAGER",
-    badge: "CONCIERGE LEAD",
     subtitle: "Operations Head | Member Experience",
     flag: "🇮🇳",
     country: "India",

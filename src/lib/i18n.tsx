@@ -4,6 +4,7 @@ import {
   createContext,
   useCallback,
   useContext,
+  useEffect,
   useState,
   type ReactNode,
 } from "react";
@@ -41,8 +42,8 @@ export const translations: Dictionary = {
 
   // Hero — REAL PDF content (Slide 1: Cover Page)
   "hero.eyebrow": { EN: "Japan–India Business & Talent Hub", JP: "日本×インド 人材・ビジネスの架け橋" },
-  "hero.title1": { EN: "A Dedicated", JP: "A Dedicated" },
-  "hero.title2": { EN: "Workspace for Japanese Companies in India", JP: "Workspace for Japanese Companies in India" },
+  "hero.title1": { EN: "A Dedicated Workspace for", JP: "日本企業のインド進出を支える" },
+  "hero.title2": { EN: "Japanese Companies in India", JP: "ハイデラバード専用ワーキングハブ" },
   "hero.subtitle": {
     EN: "A dedicated co-working space in Hyderabad for Japanese businesses. Dedicated desks, private offices, resident Japan Desk support, and full office infrastructure to start operations smoothly in India.",
     JP: "ハイデラバードにある日本企業向けのコワーキングスペース。専用デスク、個室キャビン、日本人常駐サポート、オフィス設備を備え、インドでの事業開始を支援します。",
@@ -453,6 +454,12 @@ const I18nContext = createContext<I18nContextType | null>(null);
 
 export function I18nProvider({ children }: { children: ReactNode }) {
   const [lang, setLang] = useState<Lang>("EN");
+
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      document.documentElement.lang = lang === "JP" ? "ja" : "en";
+    }
+  }, [lang]);
 
   const toggle = useCallback(() => {
     setLang((l) => (l === "EN" ? "JP" : "EN"));

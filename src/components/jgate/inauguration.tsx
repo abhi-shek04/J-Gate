@@ -14,7 +14,7 @@ const PHOTOS: PhotoItem[] = [
 ];
 
 const TIMELINE = [
-  { icon: Calendar, date: "June 22, 2026", title: "Doors Open", desc: "J-Gate officially inaugurated in HITEC City, Hyderabad." },
+  { icon: Calendar, date: "June 22, 2026", title: "Doors Open", desc: "J-Gate officially inaugurated in Hyderabad." },
   { icon: Users, date: "Launch Day", title: "50+ Distinguished Guests", desc: "Global business leaders, entrepreneurs, state officials, university representatives, Japanese expatriates, and students — all present." },
   { icon: Mic, date: "Keynote", title: "Inaugural Keynote", desc: "Distinguished guests deliver congratulatory addresses, affirming strong bilateral support for J-Gate's mission in Hyderabad." },
   { icon: Sparkles, date: "Omotenashi", title: "Omotenashi Moment", desc: "Guests welcomed with Daifuku Mochi (Great Fortune confections) and authentic Japanese green tea. The philosophy of wholehearted hospitality, made tangible." },

@@ -151,10 +151,10 @@ export function PrecisionWhyPage() {
       <div className="relative z-20 w-full h-[40px] bg-[#0F0F18] border-b border-[rgba(184,146,74,0.35)] overflow-hidden flex items-center">
         <div className="ticker-track flex whitespace-nowrap will-change-transform animate-ticker">
           <span className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-[#B8924A] px-4 flex items-center gap-4">
-            <span>J-GATE</span> · <span>HYDERABAD OPERATIONS HUB</span> · <span>INDOBOX INDIA</span> · {lang === "JP" && <><span>ジェーゲート</span> · </>}<span>THE JAPAN-INDIA CORRIDOR</span> · <span>2-4 PERSONS PER COMPANY</span> · <span>7 CORE PILLARS</span> · <span>FROM ¥90,000 /MO</span> · <span>HITEC CITY HYDERABAD</span> · <span>LAUNCHED JUNE 2026</span> ·
+            <span>J-GATE</span> · <span>HYDERABAD OPERATIONS HUB</span> · <span>INDOBOX INDIA</span> · {lang === "JP" && <><span>ジェーゲート</span> · </>}<span>THE JAPAN-INDIA CORRIDOR</span> · <span>2-4 PERSONS PER COMPANY</span> · <span>7 CORE PILLARS</span> · <span>FROM ¥90,000 /MO</span> · <span>HYDERABAD HUB</span> · <span>LAUNCHED JUNE 2026</span> ·
           </span>
           <span className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-[#B8924A] px-4 flex items-center gap-4" aria-hidden="true">
-            <span>J-GATE</span> · <span>HYDERABAD OPERATIONS HUB</span> · <span>INDOBOX INDIA</span> · {lang === "JP" && <><span>ジェーゲート</span> · </>}<span>THE JAPAN-INDIA CORRIDOR</span> · <span>2-4 PERSONS PER COMPANY</span> · <span>7 CORE PILLARS</span> · <span>FROM ¥90,000 /MO</span> · <span>HITEC CITY HYDERABAD</span> · <span>LAUNCHED JUNE 2026</span> ·
+            <span>J-GATE</span> · <span>HYDERABAD OPERATIONS HUB</span> · <span>INDOBOX INDIA</span> · {lang === "JP" && <><span>ジェーゲート</span> · </>}<span>THE JAPAN-INDIA CORRIDOR</span> · <span>2-4 PERSONS PER COMPANY</span> · <span>7 CORE PILLARS</span> · <span>FROM ¥90,000 /MO</span> · <span>HYDERABAD HUB</span> · <span>LAUNCHED JUNE 2026</span> ·
           </span>
         </div>
       </div>
@@ -433,7 +433,7 @@ export function PrecisionWhyPage() {
                       <svg className="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="#2D7A5F" /></svg>
                       <div>
                         <div className="font-sans font-medium text-[#F0EDE6]">
-                          {tx({ EN: "HITEC City, Hyderabad", JP: "ハイデラバードIT特区" })}
+                          {tx({ EN: "Hyderabad", JP: "ハイデラバードIT特区" })}
                         </div>
                         <div className="font-mono text-[10px] text-[#B8924A] mt-0.5">
                           {tx({ EN: "Dedicated workspace", JP: "専用固定ワークスペース" })}
@@ -1310,7 +1310,7 @@ export function PrecisionWhyPage() {
               {tx({ EN: "DIRECT OPERATIONS DESK", JP: "現地直通お問い合わせ窓口" })}
             </div>
             <div className="font-serif text-[24px] text-[#F0EDE6] font-light">
-              HITEC City, Hyderabad · Telangana, India
+              Hyderabad · Telangana, India
             </div>
             <div className="font-mono text-[12px] text-[#9A98A4]">
               contact@indobox.co.jp

@@ -44,8 +44,8 @@ export const translations: Dictionary = {
   "hero.title1": { EN: "Birth of a Dedicated", JP: "Birth of a Dedicated" },
   "hero.title2": { EN: "Working Hub for Japanese Companies", JP: "Working Hub for Japanese Companies" },
   "hero.subtitle": {
-    EN: "A dedicated co-working space in HITEC City, Hyderabad for Japanese businesses. Dedicated desks, private cabins, resident Japan Desk support, and full office infrastructure to start operations smoothly in India.",
-    JP: "ハイデラバード・ハイテックシティにある日本企業向けのコワーキングスペース。専用デスク、個室キャビン、日本人常駐サポート、オフィス設備を備え、インドでの事業開始を支援します。",
+    EN: "A dedicated co-working space in Hyderabad for Japanese businesses. Dedicated desks, private cabins, resident Japan Desk support, and full office infrastructure to start operations smoothly in India.",
+    JP: "ハイデラバードにある日本企業向けのコワーキングスペース。専用デスク、個室キャビン、日本人常駐サポート、オフィス設備を備え、インドでの事業開始を支援します。",
   },
   "hero.jptag": { EN: "「日本企業専用のワーキングハブ誕生」", JP: "「日本企業専用のワーキングハブ誕生」" },
   "hero.entag": { EN: "Birth of a Dedicated Working Hub for Japanese Companies in Hyderabad", JP: "Birth of a Dedicated Working Hub for Japanese Companies in Hyderabad" },
@@ -56,7 +56,7 @@ export const translations: Dictionary = {
   "hero.badge3": { EN: "End-to-End India Setup", JP: "エンドツーエンド進出支援" },
   "hero.scroll": { EN: "Discover J-Gate", JP: "J-Gateを知る" },
   "hero.founded": { EN: "Est. June 2026", JP: "2026年6月開設" },
-  "hero.location": { EN: "HITEC City, Hyderabad", JP: "HITEC City、ハイデラバード" },
+  "hero.location": { EN: "Hyderabad", JP: "Hyderabad、ハイデラバード" },
   "hero.operator": { EN: "Operated by Indobox India Pvt. Ltd.", JP: "Indobox India Pvt. Ltd. が運営" },
 
   // Home page sections

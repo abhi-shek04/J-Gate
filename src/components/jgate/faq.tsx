@@ -28,7 +28,7 @@ const FAQS = [
   },
   {
     q: "Is the J-Gate Hyderabad address usable as my official business address?",
-    a: "Yes. All membership tiers include the right to use J-Gate's HITEC City, Hyderabad address as your registered and operational business address in India — including mail handling and document receipt.",
+    a: "Yes. All membership tiers include the right to use J-Gate's Hyderabad address as your registered and operational business address in India — including mail handling and document receipt.",
   },
   {
     q: "How many companies are currently members?",

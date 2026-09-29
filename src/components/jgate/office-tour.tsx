@@ -5,7 +5,7 @@ import { Photo, useLightbox, type PhotoItem } from "./photo";
 import { Camera } from "lucide-react";
 
 const GALLERY: PhotoItem[] = [
-  { id: "photo-office-main", alt: "J-Gate main workspace, HITEC City Hyderabad", label: "Main Workspace · HITEC City", fallback: "grad-office-main", initials: "JG" },
+  { id: "photo-office-main", alt: "J-Gate main workspace, Hyderabad", label: "Main Workspace · Hyderabad", fallback: "grad-office-main", initials: "JG" },
   { id: "photo-office-desks", alt: "Dedicated desk area at J-Gate", label: "Dedicated Desks", fallback: "grad-office-desks", initials: "DG" },
   { id: "photo-office-lounge", alt: "Member lounge at J-Gate", label: "Member Lounge", fallback: "grad-office-lounge", initials: "LG" },
   { id: "photo-office-meeting", alt: "Conference room at J-Gate Hyderabad", label: "Conference Room", fallback: "grad-office-meeting", initials: "CR" },
@@ -80,7 +80,7 @@ export function OfficeTour() {
               className="mx-auto mt-5 max-w-[600px] font-inter leading-relaxed text-slate"
               style={{ fontSize: "clamp(0.95rem, 1.6vw, 1.125rem)" }}
             >
-              Step inside J-Gate in HITEC City — Hyderabad&apos;s most
+              Step inside J-Gate in Hyderabad — Hyderabad&apos;s most
               prestigious business address. Every room is designed around how
               Japanese companies actually work.
             </p>
@@ -163,7 +163,7 @@ export function OfficeTour() {
         {/* Caption */}
         <Reveal delay={120}>
           <p className="mt-8 text-center font-inter text-[14px] text-mist">
-            📍 HITEC City, Hyderabad · All photos of J-Gate&apos;s actual
+            📍 Hyderabad · All photos of J-Gate&apos;s actual
             workspace
           </p>
         </Reveal>

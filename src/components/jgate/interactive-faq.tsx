@@ -14,8 +14,8 @@ const FAQ_ITEMS = [
       JP: "即日入居は可能ですか？また最短契約期間はどれくらいですか？",
     },
     a: {
-      EN: "Yes, J-Gate provides plug-and-play workspaces in HITEC City, Hyderabad. Once your membership agreement is signed, you can start operating immediately with smart keycard access. We offer flexible terms ranging from month-to-month satellite arrangements to multi-year enterprise leases.",
-      JP: "はい、ハイデラバード・ハイテックシティにて即時稼働可能なワークスペースをご用意しています。契約締結後、スマートキーカードですぐにご利用いただけます。1ヶ月単位の柔軟なサテライト契約から複数年の長期利用まで対応可能です。",
+      EN: "Yes, J-Gate provides plug-and-play workspaces in Hyderabad. Once your membership agreement is signed, you can start operating immediately with smart keycard access. We offer flexible terms ranging from month-to-month satellite arrangements to multi-year enterprise leases.",
+      JP: "はい、ハイデラバードにて即時稼働可能なワークスペースをご用意しています。契約締結後、スマートキーカードですぐにご利用いただけます。1ヶ月単位の柔軟なサテライト契約から複数年の長期利用まで対応可能です。",
     },
   },
   {
@@ -36,8 +36,8 @@ const FAQ_ITEMS = [
       JP: "J-Gateを現地法人設立の登記住所として利用できますか？",
     },
     a: {
-      EN: "Yes. J-Gate in HITEC City, Hyderabad is fully certified and recognized for corporate registration (MCA, GST, PAN/TAN). We also assist with NOC issuance and bank account opening coordination.",
-      JP: "はい、ハイデラバード・ハイテックシティに位置するJ-Gateは、現地法人登記（MCA・GST・PAN/TAN）の公認住所としてご利用いただけます。登記に必要な承諾書（NOC）の発行や銀行口座開設も手厚くサポートします。",
+      EN: "Yes. J-Gate in Hyderabad is fully certified and recognized for corporate registration (MCA, GST, PAN/TAN). We also assist with NOC issuance and bank account opening coordination.",
+      JP: "はい、ハイデラバードに位置するJ-Gateは、現地法人登記（MCA・GST・PAN/TAN）の公認住所としてご利用いただけます。登記に必要な承諾書（NOC）の発行や銀行口座開設も手厚くサポートします。",
     },
   },
   {

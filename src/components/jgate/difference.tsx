@@ -53,7 +53,7 @@ export function Difference() {
               actually operate.
             </p>
             <p className="mx-auto mt-4 max-w-[640px] font-inter text-[15px] leading-relaxed text-mist">
-              Operated by Indobox India Private Limited in HITEC City, Hyderabad —
+              Operated by Indobox India Private Limited in Hyderabad —
               India&apos;s premier tech corridor — J-Gate is your
               trusted local base, your partner network, and your launchpad into
               one of the world&apos;s fastest-growing economies.

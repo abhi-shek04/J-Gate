@@ -51,12 +51,12 @@ const CORE_SERVICES: ServiceItem[] = [
       JP: "進出準備・ローカルアドバイザリーサポート",
     },
     desc: {
-      EN: "We assist Japanese companies with location setup in HITEC City, Hyderabad, introduce vetted local accounting and legal partners for company incorporation (Pvt. Ltd.) and statutory tax registrations (PAN/TAN/GSTIN), and provide local banking guidance.",
+      EN: "We assist Japanese companies with location setup in Hyderabad, introduce vetted local accounting and legal partners for company incorporation (Pvt. Ltd.) and statutory tax registrations (PAN/TAN/GSTIN), and provide local banking guidance.",
       JP: "ハイデラバードIT特区での拠点準備、現地提携の専門家（会計事務所・弁護士）を通じた会社設立（Pvt. Ltd.）および税務登録（PAN/TAN/GSTIN）の手続きサポート、現地口座開設アドバイザリーを包括支援します。",
     },
     points: [
       {
-        EN: "Official business location setup support in HITEC City, Hyderabad",
+        EN: "Official business location setup support in Hyderabad",
         JP: "ハイデラバードIT特区での拠点準備・入居手続サポート",
       },
       {
@@ -83,7 +83,7 @@ const CORE_SERVICES: ServiceItem[] = [
       JP: "即日入居可能な専用オフィス・執務設備",
     },
     desc: {
-      EN: "Move in immediately into fully furnished lockable private cabins and dedicated desks in HITEC City, Hyderabad. Includes high-speed redundant fiber internet, 100% UPS and generator backup, equipped meeting rooms, and 24/7 smart keycard security.",
+      EN: "Move in immediately into fully furnished lockable private cabins and dedicated desks in Hyderabad. Includes high-speed redundant fiber internet, 100% UPS and generator backup, equipped meeting rooms, and 24/7 smart keycard security.",
       JP: "ハイデラバード専用オフィス内に施錠個室キャビンと人間工学デスクを完備。二重冗長化の高速光回線、100%無停電電源（UPS＋自家発電）、プレゼン設備付き会議室、24時間セキュリティを完備し、すぐ業務を開始できます。",
     },
     points: [
@@ -272,12 +272,12 @@ const INDOBOX_COMPETENCIES = [
 const GENESYS_COMPETENCIES = [
   {
     icon: Building2,
-    title: { EN: "Ready-to-Use Workspace in HITEC City, Hyderabad", JP: "ハイデラバード執務空間・施設総合管理" },
+    title: { EN: "Ready-to-Use Workspace in Hyderabad", JP: "ハイデラバード執務空間・施設総合管理" },
     detail: {
       EN: "Private office cabins, ergonomic furnishings, acoustic suites, and full building facility operations.",
       JP: "ハイデラバードオフィス内の専用個室、人間工学什器、防音ブースなど高品質オフィス設備の保守運営。",
     },
-    tag: { EN: "Hitech City Hub", JP: "最高級オフィス" },
+    tag: { EN: "Hyderabad Hub", JP: "最高級オフィス" },
   },
   {
     icon: Wifi,

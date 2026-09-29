@@ -37,8 +37,8 @@ export function WhyHyderabad() {
               landing point for Japanese enterprises.
             </p>
             <p className="mt-4 max-w-[700px] font-inter text-[15px] leading-relaxed text-mist">
-              J-Gate is positioned at the heart of this ecosystem — in HITEC
-              City, Hyderabad&apos;s most prestigious commercial district —
+              J-Gate is positioned at the heart of this ecosystem — in
+              Hyderabad&apos;s most prestigious commercial district —
               giving members immediate access to the city&apos;s most powerful
               networks.
             </p>
@@ -61,7 +61,7 @@ export function WhyHyderabad() {
           ))}
         </div>
 
-        {/* HITEC City highlight banner */}
+        {/* Hyderabad highlight banner */}
         <Reveal delay={120}>
           <div className="mt-12 overflow-hidden rounded-2xl bg-navy">
             <div className="pattern-asanoha-navy grid items-center gap-8 p-8 md:grid-cols-2 md:p-12">
@@ -70,7 +70,7 @@ export function WhyHyderabad() {
                 <div className="flex items-center gap-2 text-saffron">
                   <MapPin className="h-5 w-5" />
                   <span className="font-inter text-sm font-semibold uppercase" style={{ letterSpacing: "0.1em" }}>
-                    HITEC City, Hyderabad
+                    Hyderabad
                   </span>
                 </div>
                 <h3 className="mt-4 font-serif-jp text-[clamp(1.5rem,3vw,2rem)] font-bold text-white">
@@ -79,7 +79,7 @@ export function WhyHyderabad() {
                 <p className="mt-4 font-inter text-[15px] leading-relaxed text-mist">
                   One of Hyderabad&apos;s most recognized business districts —
                   shared with Fortune 500 companies and India&apos;s leading
-                  technology firms. Your business card says HITEC City, Hyderabad. That
+                  technology firms. Your business card says Hyderabad. That
                   matters.
                 </p>
                 <button

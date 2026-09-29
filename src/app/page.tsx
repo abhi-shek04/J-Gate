@@ -157,7 +157,7 @@ export default function HomePage() {
       badge: { EN: "Ready Workspace", JP: "即日利用オフィス" },
       title: tx({ EN: "Plug-and-Play Hub in Hyderabad", JP: "ハイデラバード即日稼働オフィス" }),
       desc: tx({
-        EN: "Dedicated desks, private suites, enterprise fiber internet, meeting suites, and 24/7 biometric security at HITEC City. Start operating on Day 1 without capital renovation costs or deposit delays.",
+        EN: "Dedicated desks, private suites, enterprise fiber internet, meeting suites, and 24/7 biometric security in Hyderabad. Start operating on Day 1 without capital renovation costs or deposit delays.",
         JP: "専用デスク、個室キャビン、高速光回線、会議室、24時間セキュリティを完備。初期内装投資や長期契約の負担なく、最短即日でインド拠点を立ち上げ可能です。",
       }),
       highlights: [
@@ -205,12 +205,12 @@ export default function HomePage() {
     {
       num: "01",
       title: {
-        EN: "Premier Tech Ecosystem in HITEC City",
-        JP: "グローバルIT企業が集結するHITEC Cityの中心",
+        EN: "Premier Tech Ecosystem in Hyderabad",
+        JP: "グローバルIT企業が集結するHyderabadの中心",
       },
       desc: {
-        EN: "Located in HITEC City, Hyderabad alongside global tech leaders (Google, Microsoft, Amazon), giving Japanese enterprises instant corporate prestige, strategic partner proximity, and market credibility.",
-        JP: "HITEC Cityに位置し、GoogleやMicrosoftなど大手IT企業が集結する環境で、日本企業の信頼性とネットワークを強固にします。",
+        EN: "Located in Hyderabad alongside global tech leaders (Google, Microsoft, Amazon), giving Japanese enterprises instant corporate prestige, strategic partner proximity, and market credibility.",
+        JP: "Hyderabadに位置し、GoogleやMicrosoftなど大手IT企業が集結する環境で、日本企業の信頼性とネットワークを強固にします。",
       },
     },
     {
@@ -220,7 +220,7 @@ export default function HomePage() {
         JP: "優れたアクセスと最適化された運営コスト",
       },
       desc: {
-        EN: "2-minute walk to HITEC City Metro Station, 35 minutes to Rajiv Gandhi International Airport, and over 40% operational cost savings compared to Tokyo, Tokyo Bay, or Mumbai.",
+        EN: "2-minute walk to Metro Station, 35 minutes to Rajiv Gandhi International Airport, and over 40% operational cost savings compared to Tokyo, Tokyo Bay, or Mumbai.",
         JP: "最寄りのメトロ駅から徒歩2分、国際空港まで車で35分。東京やムンバイと比較して拠点運営費を40%以上削減できます。",
       },
     },
@@ -523,8 +523,8 @@ export default function HomePage() {
                 style={{ fontSize: "clamp(0.9rem, 1.3vw, 1.05rem)" }}
               >
                 {tx({
-                  EN: "Situated in the heart of HITEC City, Hyderabad, J-Gate delivers a strategic operational base with direct access to elite software engineering talent, enterprise infrastructure, and bilateral business networks.",
-                  JP: "ハイデラバード・HITEC Cityの中心に位置するJ-Gate。優秀なIT人材、最新のオフィス環境、そして日印の強力なビジネスネットワークへのアクセスを提供します。",
+                  EN: "Situated in the heart of Hyderabad, J-Gate delivers a strategic operational base with direct access to elite software engineering talent, enterprise infrastructure, and bilateral business networks.",
+                  JP: "ハイデラバード・Hyderabadの中心に位置するJ-Gate。優秀なIT人材、最新のオフィス環境、そして日印の強力なビジネスネットワークへのアクセスを提供します。",
                 })}
               </p>
             </div>
@@ -581,7 +581,7 @@ export default function HomePage() {
                         {tx({ EN: "District", JP: "地区" })}
                       </span>
                       <span className="block font-inter text-[10.5px] sm:text-[12px] font-bold text-crimson dark:text-rose-400 truncate mt-0.5">
-                        {tx({ EN: "Hitech City", JP: "IT特区" })}
+                        {tx({ EN: "Hyderabad", JP: "IT特区" })}
                       </span>
                     </div>
                   </div>
@@ -594,12 +594,12 @@ export default function HomePage() {
               <Reveal delay={80}>
                 <div>
                   <span className="font-inter text-[11px] sm:text-[11.5px] font-bold uppercase tracking-wider text-crimson dark:text-rose-400">
-                    {tx({ EN: "HITEC City, Hyderabad, India", JP: "ハイテックシティ・ハイデラバード" })}
+                    {tx({ EN: "Hyderabad, India", JP: "ハイデラバード" })}
                   </span>
                   <h3 className="mt-1 sm:mt-1.5 font-serif-jp text-xl sm:text-2xl lg:text-3xl font-bold text-ink dark:text-white leading-tight">
                     {tx({
-                      EN: "Prime Enterprise Base in HITEC City, Hyderabad",
-                      JP: "HITEC Cityの中心で展開する日本企業専用ビジネス拠点",
+                      EN: "Prime Enterprise Base in Hyderabad",
+                      JP: "Hyderabadの中心で展開する日本企業専用ビジネス拠点",
                     })}
                   </h3>
                   <p className="mt-2 sm:mt-2.5 font-inter text-[13px] sm:text-[13.5px] leading-relaxed text-slate dark:text-slate-300">

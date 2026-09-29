@@ -38,8 +38,8 @@ const FAQ_LIST: FAQItem[] = [
       JP: "即日入居は可能ですか？また最短契約期間はどれくらいですか？",
     },
     a: {
-      EN: "Yes, J-Gate provides fully furnished, plug-and-play spaces in HITEC City, Hyderabad. Once your enterprise membership agreement is signed, your team can begin operating immediately with smart RFID keycards. We offer flexible arrangements ranging from month-to-month exploratory satellite memberships to multi-year dedicated private suite leases.",
-      JP: "はい、ハイデラバード・ハイテックシティにて即日稼働可能な完全家具・IT設備付きワークスペースをご用意しています。契約締結後、スマートキーカードですぐにご利用いただけます。1ヶ月単位の柔軟なサテライト契約から、複数年の専用プライベートオフィスまで柔軟に対応可能です。",
+      EN: "Yes, J-Gate provides fully furnished, plug-and-play spaces in Hyderabad. Once your enterprise membership agreement is signed, your team can begin operating immediately with smart RFID keycards. We offer flexible arrangements ranging from month-to-month exploratory satellite memberships to multi-year dedicated private suite leases.",
+      JP: "はい、ハイデラバードにて即日稼働可能な完全家具・IT設備付きワークスペースをご用意しています。契約締結後、スマートキーカードですぐにご利用いただけます。1ヶ月単位の柔軟なサテライト契約から、複数年の専用プライベートオフィスまで柔軟に対応可能です。",
     },
     highlights: [
       { EN: "Plug-and-Play ready from Day 1", JP: "1日目から即日稼働可能" },
@@ -145,11 +145,11 @@ const FAQ_LIST: FAQItem[] = [
       JP: "J-Gateをインド現地法人の正式な登記住所として使用できますか？",
     },
     a: {
-      EN: "Yes, absolutely. J-Gate in HITEC City, Hyderabad is fully certified and legally compliant as a registered corporate office under the Ministry of Corporate Affairs (MCA). We provide verified No Objection Certificates (NOC), utility bills, and commercial lease deeds required for Certificate of Incorporation (CoI), GST registration, and PAN/TAN allotment.",
-      JP: "はい、もちろん可能です。ハイデラバード・ハイテックシティに位置するJ-Gateは、インド企業省（MCA）の公認登記住所として利用可能です。法人設立証明書（CoI）、GST（物品サービス税）登録、PAN/TAN（税金番号）取得に必要な家主承諾書（NOC）や公共料金領収書、正式な商業賃貸契約書を迅速に発行します。",
+      EN: "Yes, absolutely. J-Gate in Hyderabad is fully certified and legally compliant as a registered corporate office under the Ministry of Corporate Affairs (MCA). We provide verified No Objection Certificates (NOC), utility bills, and commercial lease deeds required for Certificate of Incorporation (CoI), GST registration, and PAN/TAN allotment.",
+      JP: "はい、もちろん可能です。ハイデラバードに位置するJ-Gateは、インド企業省（MCA）の公認登記住所として利用可能です。法人設立証明書（CoI）、GST（物品サービス税）登録、PAN/TAN（税金番号）取得に必要な家主承諾書（NOC）や公共料金領収書、正式な商業賃貸契約書を迅速に発行します。",
     },
     highlights: [
-      { EN: "MCA-compliant commercial address in HITEC City, Hyderabad", JP: "MCA認可のハイデラバード商業登記住所" },
+      { EN: "MCA-compliant commercial address in Hyderabad", JP: "MCA認可のハイデラバード商業登記住所" },
       { EN: "NOC and utility bills provided for GST registration", JP: "GST登録用のNOC承諾書・公共料金証明書を発行" },
       { EN: "Official mail handling & courier forwarding", JP: "郵便物受取・保管・日本への転送サービス" },
     ],
@@ -247,7 +247,7 @@ const FAQ_LIST: FAQItem[] = [
       JP: "契約前に現地オフィスの見学やオンラインでの事前相談は可能ですか？",
     },
     a: {
-      EN: "Yes, we encourage prospective enterprises to tour our facilities. We offer in-person guided tours in HITEC City, Hyderabad, as well as 30-minute interactive live video walkthroughs with our resident Japanese directors for decision-makers currently in Tokyo or elsewhere in Japan.",
+      EN: "Yes, we encourage prospective enterprises to tour our facilities. We offer in-person guided tours in Hyderabad, as well as 30-minute interactive live video walkthroughs with our resident Japanese directors for decision-makers currently in Tokyo or elsewhere in Japan.",
       JP: "はい、大歓迎です。ハイデラバード出張時の現地見学ツアーはもちろん、日本国内（東京・大阪等）にいらっしゃる企業様向けに、日本人ディレクターによるオンライン個別相談およびリアルタイム施設動画案内（30分）を随時承っております。",
     },
   },

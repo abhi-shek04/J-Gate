@@ -64,7 +64,7 @@ const PLANS: Plan[] = [
       JP: "低コスト進出・サテライト拠点",
     },
     tagline: {
-      EN: "Agile, low-overhead hub in HITEC City, Hyderabad for visiting executives & remote directors",
+      EN: "Agile, low-overhead hub in Hyderabad for visiting executives & remote directors",
       JP: "ハイデラバードIT特区に低コストで拠点を確保。出張・遠隔ディレクター向け",
     },
     priceINRMonthly: 15000,
@@ -99,7 +99,7 @@ const PLANS: Plan[] = [
       },
       {
         title: { EN: "Official Registered Address", JP: "公式登記住所利用" },
-        desc: { EN: "HITEC City, Hyderabad commercial address for MCA/GST", JP: "ハイデラバード（Hitech City）公式住所" },
+        desc: { EN: "Hyderabad commercial address for MCA/GST", JP: "ハイデラバード（Hyderabad）公式住所" },
       },
       {
         title: { EN: "Bilateral Community Access", JP: "日印コミュニティ参加" },
@@ -220,7 +220,7 @@ const MATRIX_FEATURES = [
     category: { EN: "1. Workspace & Physical Infrastructure", JP: "1. ワークスペース・利用環境" },
     items: [
       {
-        name: { EN: "HITEC City, Hyderabad Location", JP: "ハイデラバード（Hitech City）拠点" },
+        name: { EN: "Hyderabad Location", JP: "ハイデラバード（Hyderabad）拠点" },
         satellite: "✓ Included",
         standard: "✓ Included",
         advance: "✓ Included",

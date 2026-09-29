@@ -34,14 +34,14 @@ const PILLARS: Pillar[] = [
     jp: "即日稼働",
     en: { EN: "Day-1 Operational Readiness", JP: "最短即日での事業立ち上げ" },
     desc: {
-      EN: "Eliminate months of capital lockup, lease negotiation, and office renovation. Move into fully equipped dedicated desks or private suites in HITEC City, Hyderabad immediately.",
+      EN: "Eliminate months of capital lockup, lease negotiation, and office renovation. Move into fully equipped dedicated desks or private suites in Hyderabad immediately.",
       JP: "多額な初期敷金や内装工事などの投資、煩雑な不動産契約をゼロに。ハイデラバードオフィスの専用執務空間で、渡航当日からビジネスを開始できます。",
     },
     solutionBadge: { EN: "Zero Setup Lag", JP: "立ち上げ期間短縮" },
     tags: [
       { text: { EN: "Zero CapEx", JP: "初期投資ゼロ" }, tone: "crimson" },
       { text: { EN: "Day-1 Launch", JP: "即日稼働" }, tone: "saffron" },
-      { text: { EN: "HITEC City Hub", JP: "ハイデラバード拠点" }, tone: "slate" },
+      { text: { EN: "Hyderabad Hub", JP: "ハイデラバード拠点" }, tone: "slate" },
     ],
   },
   {

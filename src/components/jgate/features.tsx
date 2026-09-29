@@ -17,7 +17,7 @@ const FEATURES = [
   {
     icon: Building2,
     title: "Premium Workspace",
-    desc: "Fully furnished dedicated desks and private cabins inside HITEC City — Hyderabad's most prestigious business district. 24/7 access, ergonomic setups, and enterprise-grade facilities.",
+    desc: "Fully furnished dedicated desks and private cabins inside Hyderabad — Hyderabad's most prestigious business district. 24/7 access, ergonomic setups, and enterprise-grade facilities.",
   },
   {
     icon: Wifi,

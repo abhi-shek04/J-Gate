@@ -23,7 +23,7 @@ const SPACES = [
     src: "/gallery/workspace-wide.jpg",
     fallback: "grad-office-desks",
     headline: {
-      EN: "Dedicated Desks in HITEC City, Hyderabad",
+      EN: "Dedicated Desks in Hyderabad",
       JP: "ハイデラバードオフィスの専用固定デスク",
     },
     desc: {

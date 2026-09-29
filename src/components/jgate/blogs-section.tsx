@@ -29,7 +29,7 @@ import { cn } from "@/lib/utils";
 
 /* ============================================================
    J-Gate Official Office & Facilities Gallery
-   Location: Cyber Gateway, Phase 2, Hitech City, Hyderabad
+   Location: Cyber Gateway, Phase 2, Hyderabad
    Understated, minimalist architectural portfolio layout.
    ============================================================ */
 
@@ -55,16 +55,16 @@ const ALL_REAL_PHOTOS: RealPhotoItem[] = [
     src: "/gallery/cyber-gateway-facade.jpg",
     zone: "building",
     zoneNumber: "01",
-    alt: "Cyber Gateway building exterior in Hitech City, Hyderabad",
+    alt: "Cyber Gateway building exterior in Hyderabad",
     title: { EN: "Cyber Gateway Building Exterior", JP: "サイバーゲートウェイ 外観" },
     subtitle: {
-      EN: "Commercial office building located in Phase 2 of Hitech City, Hyderabad.",
-      JP: "ハイデラバード・ハイテックシティ第2フェーズに位置するオフィスビル。",
+      EN: "Commercial office building located in Phase 2, Hyderabad.",
+      JP: "ハイデラバード第2フェーズに位置するオフィスビル。",
     },
     badge: { EN: "Cyber Gateway Phase 2", JP: "Phase 2" },
-    location: { EN: "Phase 2, Hitech City, Hyderabad", JP: "ハイデラバード・ハイテックシティ" },
+    location: { EN: "Phase 2, Hyderabad", JP: "ハイデラバード" },
     specs: [
-      { label: { EN: "Location", JP: "所在地" }, val: { EN: "Hitech City, Hyderabad", JP: "ハイデラバード" } },
+      { label: { EN: "Location", JP: "所在地" }, val: { EN: "Hyderabad", JP: "ハイデラバード" } },
       { label: { EN: "Transit", JP: "交通" }, val: { EN: "2 min to Metro Station", JP: "メトロ駅徒歩2分" } },
       { label: { EN: "Power Backup", JP: "電源" }, val: { EN: "100% Dual DG Backup", JP: "発電機バックアップ" } },
       { label: { EN: "Security", JP: "警備" }, val: { EN: "24/7 Security", JP: "24時間警備" } },
@@ -359,12 +359,12 @@ const ZONES: ZoneDef[] = [
     tag: { EN: "Building & Exterior", JP: "ビル外観・共用部" },
     title: { EN: "Cyber Gateway Building & Courtyard", JP: "サイバーゲートウェイ ビル外観・中庭" },
     lead: {
-      EN: "Located in Phase 2 of Hitech City, Hyderabad, Cyber Gateway is an established office building with 24/7 security, 100% generator backup, and a central courtyard garden.",
-      JP: "ハイデラバード・ハイテックシティ第2フェーズに位置するサイバーゲートウェイ。24時間警備、100%発電機バックアップ、中央共用中庭を備えたオフィスビル。",
+      EN: "Located in Phase 2, Hyderabad, Cyber Gateway is an established office building with 24/7 security, 100% generator backup, and a central courtyard garden.",
+      JP: "ハイデラバード第2フェーズに位置するサイバーゲートウェイ。24時間警備、100%発電機バックアップ、中央共用中庭を備えたオフィスビル。",
     },
     icon: Building2,
     highlights: [
-      { EN: "Located in Hitech City Phase 2, 2 min to Metro", JP: "ハイテックシティ第2フェーズ、メトロ駅徒歩2分" },
+      { EN: "Located in Phase 2, 2 min to Metro", JP: "ハイデラバード第2フェーズ、メトロ駅徒歩2分" },
       { EN: "100% generator power backup for uninterrupted power", JP: "100%発電機バックアップ電源完備" },
       { EN: "Central open-air courtyard with fountain and palm trees", JP: "椰子の木と噴水がある中央共用中庭" },
     ],
@@ -820,7 +820,7 @@ export function BlogsSection({ id }: { id?: string }) {
             <div className="mt-8 sm:mt-12 rounded-xl sm:rounded-2xl border border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#101a2c] p-3.5 sm:p-5 text-center shadow-sm max-w-3xl mx-auto flex items-center justify-center gap-2.5 sm:gap-3">
               <MapPin className="h-4 w-4 text-crimson shrink-0" />
               <p className="font-inter text-[12px] sm:text-[13px] text-slate dark:text-slate-300">
-                <strong className="text-ink dark:text-white">J-Gate Office:</strong> 2nd Floor, Block B, Wing-1, Cyber Gateway, Phase 2, Hitech City, Hyderabad, Telangana 500081
+                <strong className="text-ink dark:text-white">J-Gate Office:</strong> 2nd Floor, Block B, Wing-1, Cyber Gateway, Phase 2, Hyderabad, Telangana 500081
               </p>
             </div>
           </Reveal>

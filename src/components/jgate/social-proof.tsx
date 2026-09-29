@@ -11,7 +11,7 @@ const PARTNER_LOGOS = ["T-Hub", "Woxsen University", "Genesys Info X", "Kodryx A
 const TESTIMONIALS = [
   {
     quote: {
-      EN: "J-Gate's workspace in HITEC City, Hyderabad is exactly what we needed — professional, well-equipped, and the Japan Desk resolved our operational questions within hours. The TASTY FOOD JUNCTION cafeteria became our favorite meeting spot.",
+      EN: "J-Gate's workspace in Hyderabad is exactly what we needed — professional, well-equipped, and the Japan Desk resolved our operational questions within hours. The TASTY FOOD JUNCTION cafeteria became our favorite meeting spot.",
       JP: "ハイデラバードのJ-Gateワークスペースは、まさに私たちが必要としていたものでした — プロフェッショナルで設備が整い、ジャパンデスクが数時間以内に運用上の質問を解決。TASTY FOOD JUNCTIONのカフェテリアはお気に入りの打ち合わせスポットになりました。",
     },
     author: { EN: "Operations Director", JP: "オペレーションディレクター" },

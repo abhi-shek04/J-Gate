@@ -27,7 +27,7 @@ export function Contact() {
     {
       flag: <IndiaFlag className="h-5 w-8" />,
       title: t("contact.india"),
-      address: "Genesys info X — HITEC City, Hyderabad, Telangana 500081, India",
+      address: "Genesys info X — Hyderabad, Telangana 500081, India",
       email: "hyderabad@j-gate.asia",
       phone: "+91 40-1234-5678",
     },
@@ -149,7 +149,7 @@ export function Contact() {
                 <span className="mt-1 whitespace-nowrap rounded bg-midnight/80 px-2 py-0.5 font-inter text-[11px] font-semibold text-white">J-Gate Hyderabad Hub</span>
               </div>
               <div className="absolute bottom-4 left-4 rounded-md bg-midnight/70 px-3 py-2 backdrop-blur">
-                <p className="font-inter text-[11px] text-white/80">📍 HITEC City, Hyderabad</p>
+                <p className="font-inter text-[11px] text-white/80">📍 Hyderabad</p>
                 <p className="font-inter text-[10px] text-mist">Japan-India Dedicated Enterprise Hub</p>
               </div>
             </div>

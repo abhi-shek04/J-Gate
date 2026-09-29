@@ -8,7 +8,7 @@ const EVENTS = [
     icon: "📅",
     date: "June 22, 2026",
     title: "Official Inauguration",
-    desc: "J-Gate is officially launched in HITEC City, Hyderabad. A landmark moment in India-Japan bilateral business relations.",
+    desc: "J-Gate is officially launched in Hyderabad. A landmark moment in India-Japan bilateral business relations.",
   },
   {
     icon: "👥",

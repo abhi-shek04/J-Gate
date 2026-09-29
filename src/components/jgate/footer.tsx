@@ -142,9 +142,9 @@ export function Footer() {
               <div className="flex items-start gap-2.5">
                 <MapPin className="h-4.5 w-4.5 text-crimson shrink-0 mt-0.5" />
                 <div className="font-inter text-[12.5px] sm:text-[13px] leading-relaxed text-slate-600 dark:text-slate-400">
-                  <p className="font-semibold text-ink dark:text-white">HITEC City Enterprise Base</p>
+                  <p className="font-semibold text-ink dark:text-white">Hyderabad Enterprise Base</p>
                   <p>2nd Floor, Genesys Info X, Block B, Wing 1</p>
-                  <p>HITEC City, Madhapur, Hyderabad</p>
+                  <p>Madhapur, Hyderabad</p>
                   <p>Telangana 500081, India</p>
                 </div>
               </div>

@@ -126,7 +126,7 @@ export function AboutSection({ id }: { id?: string }) {
           JP: "Indobox Indiaが運営する、ハイデラバードの日本企業専用ワーキングハブ。",
         })}
         tags={[
-          { EN: "Flagship Hub at HITEC City", JP: "HITEC City 旗艦拠点" },
+          { EN: "Flagship Hub in Hyderabad", JP: "Hyderabad 旗艦拠点" },
           { EN: "100% Japanese On-Site", JP: "現地日本人常駐" },
           { EN: "Incorporation Support", JP: "法人設立サポート" },
         ]}

@@ -58,7 +58,7 @@ export const translations: Dictionary = {
   "hero.scroll": { EN: "Discover J-Gate", JP: "J-Gateを知る" },
   "hero.founded": { EN: "Est. June 2026", JP: "2026年6月開設" },
   "hero.location": { EN: "Hyderabad", JP: "Hyderabad、ハイデラバード" },
-  "hero.operator": { EN: "Operated by Indobox India Pvt. Ltd.", JP: "Indobox India Pvt. Ltd. が運営" },
+  "hero.operator": { EN: "Operated by Indobox India Private Limited.", JP: "Indobox India Private Limited. が運営" },
 
   // Home page sections
   "home.logos.eyebrow": { EN: "Partner Network", JP: "提携エコシステム" },

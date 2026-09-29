@@ -482,7 +482,7 @@ export function ServicesSection({ id }: { id?: string }) {
               </h2>
               <p className="mx-auto mt-2 sm:mt-3 max-w-2xl font-inter text-[13px] sm:text-[14px] leading-relaxed text-slate-600 dark:text-slate-300">
                 {tx({
-                  EN: "J-Gate is powered by an joint partnership between Indobox India Pvt. Ltd. and Genesys Info X — uniting Japanese corporate governance with professional office infrastructure in Hyderabad to guarantee smooth and efficient expansion.",
+                  EN: "J-Gate is powered by an joint partnership between Indobox India Private Limited. and Genesys Info X — uniting Japanese corporate governance with professional office infrastructure in Hyderabad to guarantee smooth and efficient expansion.",
                   JP: "J-Gateは、日本企業ガバナンスを担うIndoboxと、ハイデラバードのオフィス施設・物理インフラを担うGenesys Info Xの戦略的共同事業です。役割分担を一元化し、進出に伴うあらゆる摩擦をゼロにします。",
                 })}
               </p>
@@ -506,7 +506,7 @@ export function ServicesSection({ id }: { id?: string }) {
                     <div className="h-20 sm:h-24 w-full rounded-xl bg-white dark:bg-white/95 border border-slate-200/80 dark:border-white/10 p-4 flex items-center justify-center shadow-xs mb-3 group-hover:scale-[1.02] transition-transform">
                       <Image
                         src="/logos/indobox.png"
-                        alt="Indobox India Pvt. Ltd."
+                        alt="Indobox India Private Limited."
                         width={280}
                         height={70}
                         className="h-10 sm:h-12 md:h-14 w-auto object-contain"
@@ -515,7 +515,7 @@ export function ServicesSection({ id }: { id?: string }) {
 
                     <div>
                       <h4 className="font-inter text-lg sm:text-xl font-bold text-ink dark:text-white">
-                        Indobox India Pvt. Ltd.
+                        Indobox India Private Limited.
                       </h4>
                       <p className="font-inter text-[13px] font-semibold text-slate-500 dark:text-slate-400 mt-0.5">
                         {tx({ EN: "Japan-India Operations & Resident Japan Desk", JP: "日印事業統括・現地常駐ジャパンデスク" })}

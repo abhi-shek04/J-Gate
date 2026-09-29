@@ -346,7 +346,7 @@ export default function HomePage() {
             <div className="mt-7 sm:mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
               <GlassBadge
                 imageSrc="/logos/indobox-icon.png"
-                primary={tx({ EN: "Indobox India Pvt. Ltd.", JP: "Indobox India Pvt. Ltd." })}
+                primary={tx({ EN: "Indobox India Private Limited.", JP: "Indobox India Private Limited." })}
                 secondary={tx({ EN: "Japan Operator", JP: "日本側運営主体" })}
                 accent="slate"
               />

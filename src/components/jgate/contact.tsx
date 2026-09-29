@@ -20,7 +20,7 @@ export function Contact() {
     {
       flag: <JapanFlag className="h-5 w-8" />,
       title: t("contact.tokyo"),
-      address: "Indobox India Pvt. Ltd. — Resident Japan Desk, Hyderabad, India",
+      address: "Indobox India Private Limited. — Resident Japan Desk, Hyderabad, India",
       email: "japan.desk@j-gate.asia",
       phone: "+91 40-4567-8900",
     },

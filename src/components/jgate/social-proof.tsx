@@ -52,18 +52,18 @@ export function SocialProof() {
   ];
 
   return (
-    <section id="proof" className="section-pad bg-ivory">
+    <section id="proof" className="section-pad bg-ivory dark:bg-[#0b111e] transition-colors">
       <div className="container-jg">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
             <Eyebrow>{t("proof.eyebrow")}</Eyebrow>
             <h2
-              className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink"
+              className="mt-4 font-serif-jp font-bold leading-[1.18] text-ink dark:text-white"
               style={{ fontSize: "clamp(1.875rem,4vw,2.5rem)" }}
             >
               {t("proof.title")}
             </h2>
-            <p className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate" style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}>
+            <p className="mx-auto mt-4 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300" style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}>
               {t("proof.subtitle")}
             </p>
           </div>
@@ -73,9 +73,9 @@ export function SocialProof() {
         <Reveal delay={80}>
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {stats.map((s) => (
-              <div key={s.key} className="lift-card rounded-lg border border-crimson/8 bg-pearl p-6 text-center shadow-card">
-                <div className="font-serif-jp text-[clamp(2rem,4vw,3rem)] font-bold text-crimson">{s.num}</div>
-                <div className="mt-2 font-inter text-[12px] font-medium uppercase text-slate" style={{ letterSpacing: "0.05em" }}>
+              <div key={s.key} className="luxury-light-card card-sheen rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-6 text-center shadow-card dark:shadow-2xl">
+                <div className="font-serif-jp text-[clamp(2.2rem,4vw,3.2rem)] font-black text-crimson dark:text-saffron">{s.num}</div>
+                <div className="mt-2 font-inter text-[12px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
                   {t(s.key)}
                 </div>
               </div>
@@ -96,23 +96,25 @@ export function SocialProof() {
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {TESTIMONIALS.map((tm, i) => (
             <Reveal key={i} delay={i * 100}>
-              <article className="lift-card relative h-full overflow-hidden rounded-lg bg-pearl p-7 shadow-card">
-                <QuoteMark className="absolute right-6 top-4 h-16 w-16 text-crimson/[0.10]" />
-                <div className="flex gap-0.5" aria-label="5 out of 5 stars">
-                  {Array.from({ length: 5 }).map((_, j) => (
-                    <StarIcon key={j} className="h-4 w-4 text-saffron" />
-                  ))}
+              <article className="luxury-light-card card-sheen relative h-full flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-7 shadow-card dark:shadow-2xl">
+                <QuoteMark className="absolute right-6 top-4 h-16 w-16 text-crimson/[0.08] dark:text-white/[0.04]" />
+                <div>
+                  <div className="flex gap-0.5" aria-label="5 out of 5 stars">
+                    {Array.from({ length: 5 }).map((_, j) => (
+                      <StarIcon key={j} className="h-4 w-4 text-saffron fill-saffron" />
+                    ))}
+                  </div>
+                  <blockquote className="relative mt-4 font-serif-jp text-[14.5px] sm:text-[15.5px] font-medium leading-relaxed text-ink dark:text-white">
+                    “{tx(tm.quote)}”
+                  </blockquote>
                 </div>
-                <blockquote className="relative mt-4 font-serif-jp text-[15px] font-medium leading-relaxed text-ink">
-                  “{tx(tm.quote)}”
-                </blockquote>
-                <figcaption className="mt-5 flex items-center gap-3 border-t border-crimson/8 pt-4">
-                  <span className={cn("flex h-11 w-11 items-center justify-center rounded-full bg-gradient-to-br font-serif-jp text-sm font-bold text-white shadow-card", tm.accent)}>
+                <figcaption className="mt-5 flex items-center gap-3 border-t border-slate-100 dark:border-white/10 pt-4">
+                  <span className={cn("flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br font-serif-jp text-sm font-bold text-white shadow-md", tm.accent)}>
                     {tm.initials}
                   </span>
                   <div>
-                    <div className="font-inter text-[13px] font-semibold text-ink">{tx(tm.author)}</div>
-                    <div className="font-inter text-[11px] text-mist">{tx(tm.role)}</div>
+                    <div className="font-inter text-[13.5px] font-bold text-ink dark:text-white">{tx(tm.author)}</div>
+                    <div className="font-inter text-[11.5px] text-slate-500 dark:text-slate-400">{tx(tm.role)}</div>
                   </div>
                 </figcaption>
               </article>

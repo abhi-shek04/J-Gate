@@ -895,5 +895,32 @@ section[id] { scroll-margin-top: 80px; }
   background: linear-gradient(180deg, #bc1a2c, #101a2c);
 }
 
+/* ── Extra Luxury UI Utilities ── */
+.timeline-connector {
+  position: relative;
+}
+@media (min-width: 1024px) {
+  .timeline-connector::after {
+    content: "";
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, #bc1a2c, #e8a01a);
+    z-index: 0;
+  }
+}
+
+.input-luxury {
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.input-luxury:focus {
+  border-color: #bc1a2c !important;
+  box-shadow: 0 0 0 4px rgba(188, 26, 44, 0.12), 0 4px 12px rgba(8, 15, 26, 0.05) !important;
+  transform: translateY(-1px);
+}
+
+
 
 

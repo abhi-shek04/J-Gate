@@ -225,3 +225,56 @@ export function useCounter(target: number, duration = 2000) {
 
   return { ref, count };
 }
+
+/* ============================================================
+   AnimatedCounter — Component wrapper for animated number
+   ============================================================ */
+export function AnimatedCounter({
+  target,
+  duration = 2000,
+  prefix = "",
+  suffix = "",
+  className = "",
+}: {
+  target: number;
+  duration?: number;
+  prefix?: string;
+  suffix?: string;
+  className?: string;
+}) {
+  const { ref, count } = useCounter(target, duration);
+  return (
+    <span ref={ref as any} className={className}>
+      {prefix}
+      {count.toLocaleString()}
+      {suffix}
+    </span>
+  );
+}
+
+/* ============================================================
+   SectionDivider — Japanese-inspired section separator
+   ============================================================ */
+export function SectionDivider({
+  light = false,
+  variant = "simple",
+}: {
+  light?: boolean;
+  variant?: "simple" | "torii" | "asanoha";
+}) {
+  return (
+    <div className="relative py-6 sm:py-8 overflow-hidden flex items-center justify-center">
+      <div className={cn("h-px w-full max-w-5xl", light ? "bg-gradient-to-r from-transparent via-white/20 to-transparent" : "bg-gradient-to-r from-transparent via-crimson/25 to-transparent")} />
+      {variant === "torii" && (
+        <div className="absolute left-1/2 -translate-x-1/2 bg-ivory dark:bg-midnight px-4 flex items-center gap-2">
+          <span className={cn("h-1.5 w-1.5 rounded-full", light ? "bg-saffron" : "bg-crimson")} />
+          <span className={cn("text-[10px] font-mono tracking-widest uppercase", light ? "text-white/40" : "text-slate-400")}>
+            J-GATE · CORRIDOR
+          </span>
+          <span className={cn("h-1.5 w-1.5 rounded-full", light ? "bg-saffron" : "bg-crimson")} />
+        </div>
+      )}
+    </div>
+  );
+}
+

@@ -388,30 +388,56 @@ export function PricingSection({ id }: { id?: string }) {
                 })}
               </p>
 
-              {/* Interactive Team Size Quick Selector */}
-              <div className="mt-4 sm:mt-5 inline-flex flex-wrap items-center justify-center gap-1.5 bg-white/90 dark:bg-[#101a2c] p-1.5 rounded-2xl border border-slate-200/80 dark:border-white/10 shadow-xs">
-                <span className="text-[11px] font-inter font-semibold text-slate-400 dark:text-slate-400 px-2.5">
-                  {tx({ EN: "Filter by Team:", JP: "チーム規模で絞り込み:" })}
-                </span>
-                {[
-                  { id: "all", label: { EN: "Show All (3)", JP: "すべて (3)" } },
-                  { id: "1-2", label: { EN: "1–2 Members", JP: "1〜2名利用" } },
-                  { id: "3-4", label: { EN: "3–4 Members", JP: "3〜4名利用" } },
-                  { id: "enterprise", label: { EN: "Enterprise", JP: "企業・特注規模" } },
-                ].map((tab) => (
+              {/* Interactive Currency & Team Size Selector Bar */}
+              <div className="mt-4 sm:mt-5 flex flex-wrap items-center justify-center gap-3">
+                {/* Currency Switcher */}
+                <div className="inline-flex items-center bg-white/90 dark:bg-[#101a2c] p-1 rounded-2xl border border-slate-200/80 dark:border-white/10 shadow-xs">
                   <button
-                    key={tab.id}
                     type="button"
-                    onClick={() => setSelectedFilter(tab.id as any)}
-                    className={`px-3 py-1 rounded-xl text-[11.5px] font-inter font-semibold transition-all duration-200 cursor-pointer ${
-                      selectedFilter === tab.id
+                    onClick={() => setCurrency("INR")}
+                    className={`px-3 py-1 rounded-xl text-[11.5px] font-inter font-bold transition-all cursor-pointer ${
+                      currency === "INR"
                         ? "bg-crimson text-white shadow-xs"
-                        : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-white/10"
+                        : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                     }`}
                   >
-                    {tx(tab.label)}
+                    INR (₹)
                   </button>
-                ))}
+                  <button
+                    type="button"
+                    onClick={() => setCurrency("JPY")}
+                    className={`px-3 py-1 rounded-xl text-[11.5px] font-inter font-bold transition-all cursor-pointer ${
+                      currency === "JPY"
+                        ? "bg-crimson text-white shadow-xs"
+                        : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                    }`}
+                  >
+                    JPY (¥)
+                  </button>
+                </div>
+
+                {/* Team Filter */}
+                <div className="inline-flex flex-wrap items-center justify-center gap-1 bg-white/90 dark:bg-[#101a2c] p-1 rounded-2xl border border-slate-200/80 dark:border-white/10 shadow-xs">
+                  {[
+                    { id: "all", label: { EN: "Show All (3)", JP: "すべて (3)" } },
+                    { id: "1-2", label: { EN: "1–2 Members", JP: "1〜2名利用" } },
+                    { id: "3-4", label: { EN: "3–4 Members", JP: "3〜4名利用" } },
+                    { id: "enterprise", label: { EN: "Enterprise", JP: "企業・特注規模" } },
+                  ].map((tab) => (
+                    <button
+                      key={tab.id}
+                      type="button"
+                      onClick={() => setSelectedFilter(tab.id as any)}
+                      className={`px-3 py-1 rounded-xl text-[11.5px] font-inter font-semibold transition-all duration-200 cursor-pointer ${
+                        selectedFilter === tab.id
+                          ? "bg-slate-800 dark:bg-white/20 text-white shadow-xs"
+                          : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-white/10"
+                      }`}
+                    >
+                      {tx(tab.label)}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           </Reveal>

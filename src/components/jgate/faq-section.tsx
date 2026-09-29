@@ -346,59 +346,59 @@ export function FAQSection({ id }: { id?: string }) {
       </section>
 
       {/* 3. MAIN FAQ ACCORDION SYSTEM */}
-      <section className="py-6 sm:py-10 bg-ivory dark:bg-[#0b111e] transition-colors">
+      <section className="py-8 sm:py-14 bg-ivory dark:bg-[#0b111e] transition-colors">
         <div className="container-jg max-w-4xl">
           {/* Header Row: Count Summary + Expand/Collapse Buttons */}
-          <div className="mb-3.5 flex flex-wrap items-center justify-between gap-2.5 border-b border-slate-200/80 dark:border-white/10 pb-2.5 font-inter text-[11.5px] text-slate-500 dark:text-slate-400">
-            <span className="font-semibold text-slate-700 dark:text-slate-300">
+          <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border-b border-slate-200/80 dark:border-white/10 pb-3 font-inter text-[12px] text-slate-500 dark:text-slate-400">
+            <span className="font-bold text-slate-800 dark:text-slate-200">
               {tx({
                 EN: `Frequently Asked Questions (${FAQ_LIST.length})`,
                 JP: `よくあるご質問（全${FAQ_LIST.length}件）`,
               })}
             </span>
-            <div className="flex items-center gap-3 font-medium">
+            <div className="flex items-center gap-3 font-semibold">
               <button
                 onClick={expandAll}
-                className="text-slate-600 dark:text-slate-300 hover:text-crimson dark:hover:text-rose-400 transition-colors cursor-pointer"
+                className="text-slate-700 dark:text-slate-300 hover:text-crimson dark:hover:text-rose-400 transition-colors cursor-pointer"
               >
                 {tx({ EN: "Expand All", JP: "すべて開く" })}
               </button>
               <span className="text-slate-300 dark:text-white/20">|</span>
               <button
                 onClick={collapseAll}
-                className="text-slate-600 dark:text-slate-300 hover:text-crimson dark:hover:text-rose-400 transition-colors cursor-pointer"
+                className="text-slate-700 dark:text-slate-300 hover:text-crimson dark:hover:text-rose-400 transition-colors cursor-pointer"
               >
                 {tx({ EN: "Collapse All", JP: "すべて閉じる" })}
               </button>
             </div>
           </div>
 
-          {/* Compact FAQ Accordion List */}
-          <div className="space-y-2">
+          {/* FAQ Accordion List */}
+          <div className="space-y-3">
             {FAQ_LIST.map((item, idx) => {
               const isOpen = !!openIds[item.id];
               return (
                 <Reveal key={item.id} delay={idx * 15}>
                   <div
                     className={cn(
-                      "group overflow-hidden rounded-xl border bg-white dark:bg-[#101a2c] transition-all duration-200 shadow-xs",
+                      "group overflow-hidden rounded-2xl border bg-white dark:bg-[#101a2c] transition-all duration-300 shadow-card",
                       isOpen
-                        ? "border-crimson/40 dark:border-rose-500/40 ring-1 ring-crimson/15 dark:ring-rose-500/20 shadow-sm"
-                        : "border-slate-200/80 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20"
+                        ? "border-crimson/50 dark:border-rose-500/40 ring-1 ring-crimson/20 dark:ring-rose-500/20 shadow-md"
+                        : "border-slate-200/90 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20"
                     )}
                   >
                     <button
                       onClick={() => toggleItem(item.id)}
-                      className="flex w-full items-center justify-between gap-3 px-3.5 py-2.5 sm:px-4 sm:py-3 text-left transition-colors cursor-pointer"
+                      className="flex w-full items-center justify-between gap-3.5 p-4 sm:p-5 text-left transition-colors cursor-pointer"
                       aria-expanded={isOpen}
                     >
-                      <div className="flex items-center gap-2 flex-1 min-w-0 pr-1">
-                        <span className="inline-block shrink-0 rounded bg-slate-100 dark:bg-white/10 px-1.5 py-0.5 font-inter text-[9px] sm:text-[9.5px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
+                      <div className="flex items-center gap-3 flex-1 min-w-0 pr-1">
+                        <span className="inline-block shrink-0 rounded-md bg-crimson/10 dark:bg-rose-950/50 px-2.5 py-1 font-inter text-[10.5px] font-bold text-crimson dark:text-rose-400 uppercase tracking-wider">
                           {tx(item.categoryLabel)}
                         </span>
                         <h3
                           className={cn(
-                            "font-serif-jp font-semibold text-[13px] sm:text-[14px] leading-snug transition-colors",
+                            "font-serif-jp font-bold text-[14.5px] sm:text-[16px] leading-snug transition-colors",
                             isOpen
                               ? "text-crimson dark:text-rose-400"
                               : "text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400"
@@ -410,31 +410,31 @@ export function FAQSection({ id }: { id?: string }) {
 
                       <div
                         className={cn(
-                          "flex h-6 w-6 sm:h-6.5 sm:w-6.5 shrink-0 items-center justify-center rounded-md transition-transform duration-200",
+                          "flex h-7 w-7 shrink-0 items-center justify-center rounded-lg transition-all duration-200",
                           isOpen
                             ? "bg-crimson text-white rotate-180 shadow-xs"
                             : "bg-slate-100 dark:bg-white/10 text-slate-500 dark:text-slate-400 group-hover:bg-slate-200 dark:group-hover:bg-white/20"
                         )}
                       >
-                        <ChevronDown className="h-3.5 w-3.5" />
+                        <ChevronDown className="h-4 w-4" />
                       </div>
                     </button>
 
                     {isOpen && (
-                      <div className="border-t border-slate-100 dark:border-white/10 bg-slate-50/50 dark:bg-white/[0.02] px-3.5 pb-3 pt-2 sm:px-4 sm:pb-3.5 sm:pt-2.5 animate-in fade-in-50 duration-150">
-                        <p className="font-inter text-[12px] sm:text-[12.5px] leading-relaxed text-slate-700 dark:text-slate-300">
+                      <div className="border-t border-slate-100 dark:border-white/10 bg-slate-50/50 dark:bg-white/[0.02] p-4 sm:p-5 pt-3 sm:pt-3.5 animate-in fade-in-50 duration-200">
+                        <p className="font-inter text-[13px] sm:text-[14px] leading-relaxed text-slate-700 dark:text-slate-300">
                           {tx(item.a)}
                         </p>
 
                         {item.highlights && item.highlights.length > 0 && (
-                          <div className="mt-2.5 flex flex-wrap gap-1.5 pt-2 border-t border-slate-100 dark:border-white/10">
+                          <div className="mt-3.5 grid gap-2 sm:grid-cols-3 pt-3 border-t border-slate-100 dark:border-white/10">
                             {item.highlights.map((h, hIdx) => (
                               <div
                                 key={hIdx}
-                                className="inline-flex items-center gap-1.5 rounded-md bg-white dark:bg-white/[0.06] px-2 py-1 border border-slate-200/70 dark:border-white/10"
+                                className="inline-flex items-center gap-2 rounded-xl bg-white dark:bg-white/[0.06] p-2.5 border border-slate-200/70 dark:border-white/10 shadow-2xs"
                               >
-                                <CheckCircle2 className="h-3 w-3 shrink-0 text-crimson dark:text-rose-400" />
-                                <span className="font-inter text-[10.5px] sm:text-[11px] font-medium text-slate-700 dark:text-slate-300">
+                                <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                                <span className="font-inter text-[11.5px] font-semibold text-slate-800 dark:text-slate-200">
                                   {tx(h)}
                                 </span>
                               </div>

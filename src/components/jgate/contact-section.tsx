@@ -100,8 +100,10 @@ export function ContactSection({ id }: { id?: string }) {
     setErrors({});
   };
 
+  const [inquiryType, setInquiryType] = useState<string>("workspace");
+
   const inputClass =
-    "w-full rounded-xl border border-slate-200 dark:border-white/12 bg-slate-50 dark:bg-white/[0.05] px-3.5 py-3 font-inter text-base sm:text-sm text-ink dark:text-white placeholder-slate-400 dark:placeholder-white/35 outline-none transition-all duration-200 focus:border-crimson dark:focus:border-saffron focus:bg-white dark:focus:bg-white/[0.08] focus:ring-2 focus:ring-crimson/15 dark:focus:ring-saffron/20";
+    "w-full rounded-xl border border-slate-200 dark:border-white/12 bg-slate-50 dark:bg-white/[0.05] px-3.5 py-3 font-inter text-base sm:text-sm text-ink dark:text-white placeholder-slate-400 dark:placeholder-white/35 outline-none input-luxury";
 
   return (
     <div id={id} className="scroll-mt-20">

@@ -1,9 +1,10 @@
 "use client";
 
-import { Download, ArrowRight } from "lucide-react";
+import { Download, ArrowRight, Target, BarChart3, ShieldCheck, CheckCircle2, Award, Zap } from "lucide-react";
 import { ToriiWatermark, HyderabadSkyline } from "./icons";
 import { useI18n } from "@/lib/i18n";
 import { useBrochure } from "@/lib/brochure-context";
+import { AnimatedCounter } from "./shared";
 
 function Particles() {
   const particles = Array.from({ length: 15 }).map((_, i) => ({
@@ -17,7 +18,7 @@ function Particles() {
       {particles.map((p, i) => (
         <span
           key={i}
-          className="absolute bottom-0 rounded-full bg-white"
+          className="absolute bottom-0 rounded-full bg-white opacity-20"
           style={{
             left: p.left,
             width: p.size,
@@ -37,10 +38,23 @@ export function Hero() {
   const scrollTo = (id: string) =>
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
+  const badgeIcons = [
+    <Target key="1" className="h-4 w-4 text-saffron" />,
+    <BarChart3 key="2" className="h-4 w-4 text-crimson" />,
+    <ShieldCheck key="3" className="h-4 w-4 text-emerald-400" />,
+  ];
+
   const badges = [
-    { emoji: "🎯", text: t("hero.badge1") },
-    { emoji: "📊", text: t("hero.badge2") },
-    { emoji: "🤝", text: t("hero.badge3") },
+    { icon: badgeIcons[0], text: t("hero.badge1") },
+    { icon: badgeIcons[1], text: t("hero.badge2") },
+    { icon: badgeIcons[2], text: t("hero.badge3") },
+  ];
+
+  const stats = [
+    { num: "100%", label: "Japanese Leadership" },
+    { num: "40%+", label: "Operating Savings" },
+    { num: "24/7", label: "Enterprise Security" },
+    { num: "Direct", label: "HQ Alignment" },
   ];
 
   return (
@@ -52,14 +66,14 @@ export function Hero() {
         className="absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, rgba(188,26,44,0.08) 0%, rgba(188,26,44,0.02) 40%, transparent 70%)",
+            "linear-gradient(180deg, rgba(188,26,44,0.12) 0%, rgba(188,26,44,0.03) 40%, transparent 70%)",
         }}
       />
       <div
         className="absolute inset-0"
         style={{
           background:
-            "radial-gradient(ellipse at 70% 50%, rgba(188,26,44,0.10) 0%, transparent 65%), radial-gradient(ellipse at 20% 80%, rgba(232,160,26,0.06) 0%, transparent 50%)",
+            "radial-gradient(ellipse at 70% 50%, rgba(188,26,44,0.14) 0%, transparent 65%), radial-gradient(ellipse at 20% 80%, rgba(232,160,26,0.08) 0%, transparent 50%)",
         }}
       />
 
@@ -83,7 +97,8 @@ export function Hero() {
       {/* Content */}
       <div className="container-jg relative z-10 pt-28 pb-32 text-center">
         {/* Eyebrow */}
-        <span className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-1.5 font-inter text-[12px] font-semibold uppercase text-white backdrop-blur-md" style={{ letterSpacing: "0.15em" }}>
+        <span className="inline-flex items-center gap-2 rounded-full border border-saffron/30 bg-white/10 px-4 py-1.5 font-inter text-[12px] font-semibold uppercase text-saffron backdrop-blur-md" style={{ letterSpacing: "0.15em" }}>
+          <span className="h-1.5 w-1.5 rounded-full bg-saffron animate-pulse" />
           {t("hero.eyebrow")}
         </span>
 
@@ -113,35 +128,47 @@ export function Hero() {
         )}
 
         {/* CTAs */}
-        <div className="mt-12 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
           <button
             onClick={openBrochure}
-            className="btn-shine flex items-center justify-center gap-2 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-8 py-4 font-inter text-[15px] font-semibold text-white shadow-[0_0_24px_rgba(188,26,44,0.45)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_32px_rgba(188,26,44,0.65)]"
+            className="btn-shine flex items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-crimson via-crimson to-crimson-deep px-8 py-4 font-inter text-[15px] font-semibold text-white shadow-[0_0_28px_rgba(188,26,44,0.45)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_36px_rgba(188,26,44,0.65)]"
           >
             <Download className="h-4 w-4" />
             {t("hero.cta1")}
           </button>
           <button
             onClick={() => scrollTo("services")}
-            className="rounded-md border border-white/40 px-8 py-4 font-inter text-[15px] font-semibold text-white transition-all hover:-translate-y-0.5 hover:bg-white/10"
+            className="flex items-center justify-center gap-2 rounded-xl border border-white/30 bg-white/5 px-8 py-4 font-inter text-[15px] font-semibold text-white backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:bg-white/15 hover:border-white/50"
           >
             {t("hero.cta2")}
-            <ArrowRight className="ml-1.5 inline h-4 w-4" />
+            <ArrowRight className="h-4 w-4 text-saffron" />
           </button>
         </div>
 
         {/* Trust badges */}
-        <div className="mx-auto mt-16 grid max-w-2xl gap-3 sm:grid-cols-3">
+        <div className="mx-auto mt-12 grid max-w-2xl gap-3 sm:grid-cols-3">
           {badges.map((b, i) => (
             <div
               key={i}
               className={
-                "glass-dark flex items-center justify-center gap-2 rounded-lg px-4 py-4 " +
+                "glass-dark flex items-center justify-center gap-2.5 rounded-xl border border-white/15 px-4 py-3.5 shadow-lg backdrop-blur-md transition-all duration-300 hover:border-saffron/40 " +
                 (i === 1 ? "animate-float-slow" : i === 0 ? "animate-float" : "animate-float-delay")
               }
             >
-              <span className="text-base" aria-hidden>{b.emoji}</span>
-              <span className="font-inter text-[13px] font-semibold text-white">{b.text}</span>
+              <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-white/10">
+                {b.icon}
+              </div>
+              <span className="font-inter text-[13px] font-semibold text-white/95">{b.text}</span>
+            </div>
+          ))}
+        </div>
+
+        {/* Proof Metrics Bar */}
+        <div className="mx-auto mt-12 grid max-w-3xl grid-cols-2 gap-4 rounded-2xl border border-white/10 bg-white/[0.03] p-4 backdrop-blur-xl sm:grid-cols-4">
+          {stats.map((s, i) => (
+            <div key={i} className="text-center">
+              <div className="font-serif-jp text-xl sm:text-2xl font-black text-saffron">{s.num}</div>
+              <div className="mt-0.5 font-inter text-[11px] font-medium text-mist uppercase tracking-wider">{s.label}</div>
             </div>
           ))}
         </div>

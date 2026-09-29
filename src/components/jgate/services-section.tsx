@@ -246,7 +246,7 @@ export function ServicesSection({ id }: { id?: string }) {
       <section className="relative -mt-9 z-20 container-jg">
         <Reveal>
           <div className="rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white/95 dark:bg-[#101a2c]/95 text-ink dark:text-white p-3.5 sm:p-6 shadow-[0_16px_40px_-12px_rgba(8,15,26,0.08)] backdrop-blur-md">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 sm:divide-x divide-slate-200/80 dark:divide-white/10">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:divide-x divide-slate-200/80 dark:divide-white/10">
               {[
                 {
                   icon: Building2,
@@ -279,7 +279,7 @@ export function ServicesSection({ id }: { id?: string }) {
               ].map((pod, i) => {
                 const Icon = pod.icon;
                 return (
-                  <div key={i} className={`flex items-start gap-2.5 sm:gap-3.5 ${i > 0 ? "sm:pl-4 lg:pl-5" : ""}`}>
+                  <div key={i} className={`flex items-start gap-2.5 sm:gap-3.5 p-2 rounded-xl bg-slate-50/50 dark:bg-white/[0.02] lg:bg-transparent lg:p-0 ${i > 0 ? "lg:pl-5" : ""}`}>
                     <div className="flex h-9 w-9 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-lg sm:rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-ink dark:text-white shadow-2xs">
                       <Icon className="h-4.5 w-4.5 sm:h-5 sm:w-5 text-crimson dark:text-rose-400" />
                     </div>
@@ -336,7 +336,7 @@ export function ServicesSection({ id }: { id?: string }) {
               const Icon = srv.icon;
               return (
                 <Reveal key={srv.id} delay={idx * 40} variant="up">
-                  <div className="h-full rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-6 md:p-7 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-md transition-all duration-200 flex flex-col justify-between">
+                  <div className="h-full luxury-light-card card-sheen rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-6 md:p-7 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
                     <div>
                       {/* Top Header */}
                       <div className="flex items-center justify-between gap-3 pb-3.5 border-b border-slate-100 dark:border-white/10">
@@ -423,18 +423,20 @@ export function ServicesSection({ id }: { id?: string }) {
               </p>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto">
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto timeline-connector">
               {DEPLOYMENT_STEPS.map((step, idx) => (
                 <div
                   key={idx}
-                  className="rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-5 shadow-xs hover:shadow-md transition-shadow relative overflow-hidden"
+                  className="rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-5 shadow-xs hover:shadow-lg transition-all relative overflow-hidden z-10"
                 >
-                  <span className="font-mono text-2xl font-black text-slate-200 dark:text-white/10 block mb-2">
-                    {step.step}
-                  </span>
-                  <span className="inline-flex items-center px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200/60 dark:border-emerald-700/40 text-emerald-800 dark:text-emerald-300 text-[10px] font-bold font-inter mb-2">
-                    {tx(step.duration)}
-                  </span>
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="font-mono text-2xl font-black text-crimson dark:text-saffron">
+                      {step.step}
+                    </span>
+                    <span className="inline-flex items-center px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200/60 dark:border-emerald-700/40 text-emerald-800 dark:text-emerald-300 text-[10px] font-bold font-inter">
+                      {tx(step.duration)}
+                    </span>
+                  </div>
                   <h4 className="font-serif-jp text-[14.5px] font-bold text-ink dark:text-white">
                     {tx(step.title)}
                   </h4>

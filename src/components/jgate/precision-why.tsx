@@ -219,7 +219,7 @@ export function PrecisionWhyPage() {
           </div>
 
           {/* Hero Right: Precision Comparison Meter */}
-          <div className="lg:col-span-4 hidden lg:flex flex-col items-center justify-center p-8 bg-[#0F0F18] border border-[rgba(184,146,74,0.2)] rounded-[2px] relative">
+          <div className="lg:col-span-4 mt-8 lg:mt-0 flex flex-col items-center justify-center p-6 sm:p-8 bg-[#0F0F18] border border-[rgba(184,146,74,0.2)] rounded-[2px] relative">
             <div className="absolute top-3 left-4 font-mono text-[9px] uppercase tracking-[0.2em] text-[#5C5A68]">
               {tx({ EN: "SERVICE COMPARISON", JP: "適合性インデックス" })}
             </div>

@@ -34,6 +34,8 @@ const PILLARS = [
     titleKey: "about.pillar1.title",
     jpKey: "about.pillar1.jp",
     descKey: "about.pillar1.desc",
+    accent: "from-crimson to-crimson-deep",
+    tagColor: "text-crimson dark:text-rose-400 bg-crimson/10 border-crimson/20",
   },
   {
     num: "02",
@@ -42,6 +44,8 @@ const PILLARS = [
     titleKey: "about.pillar2.title",
     jpKey: "about.pillar2.jp",
     descKey: "about.pillar2.desc",
+    accent: "from-saffron to-[#c9881a]",
+    tagColor: "text-saffron-dark dark:text-amber-300 bg-saffron/15 border-saffron/30",
   },
   {
     num: "03",
@@ -50,6 +54,8 @@ const PILLARS = [
     titleKey: "about.pillar3.title",
     jpKey: "about.pillar3.jp",
     descKey: "about.pillar3.desc",
+    accent: "from-emerald-600 to-teal-700",
+    tagColor: "text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/50 border-emerald-200 dark:border-emerald-800",
   },
 ] as const;
 
@@ -140,7 +146,9 @@ export function AboutSection({ id }: { id?: string }) {
           <div className="grid gap-4 sm:gap-6 md:grid-cols-3">
             {PILLARS.map((p, i) => (
               <Reveal key={p.num} delay={i * 100}>
-                <article className="luxury-light-card card-sheen gold-hairline group relative h-full flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-6 lg:p-7.5 shadow-card dark:shadow-2xl hover:shadow-2xl hover:border-crimson/35 dark:hover:border-rose-400/40 transition-all duration-300">
+                <article className="luxury-light-card card-sheen group relative h-full flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-6 lg:p-7.5 shadow-card dark:shadow-2xl hover:shadow-2xl hover:border-crimson/35 dark:hover:border-rose-400/40 transition-all duration-300">
+                  {/* Top gradient stripe */}
+                  <span className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${p.accent}`} />
                   {/* Faded large numeral */}
                   <span
                     className="pointer-events-none absolute -top-3 sm:-top-6 right-2 font-serif-jp font-black leading-none text-slate-100/80 dark:text-white/[0.04] select-none transition-transform duration-500 group-hover:scale-110 group-hover:text-crimson/10 text-[64px] sm:text-[96px] lg:text-[120px]"

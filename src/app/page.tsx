@@ -29,7 +29,6 @@ import {
   ToriiWatermark,
   JapanFlag,
 } from "@/components/jgate/icons";
-import { LogoMarquee } from "@/components/jgate/logo-marquee";
 import { Photo } from "@/components/jgate/photo";
 import { cn } from "@/lib/utils";
 import { BilateralCorridorVisualizer } from "@/components/jgate/corridor-visualizer";
@@ -652,33 +651,6 @@ export default function HomePage() {
               </Reveal>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* ════════════════════════════════════════════════════════════
-          7. ECOSYSTEM MARQUEE — Bilateral Innovation Network
-         ════════════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden border-t border-slate-200/60 dark:border-white/10 bg-ivory dark:bg-[#080d17] py-10 sm:py-16">
-        <div className="container-jg">
-          <Reveal>
-            <div className="mx-auto mb-6 sm:mb-10 max-w-3xl text-center">
-              <Eyebrow>{t("home.logos.eyebrow")}</Eyebrow>
-              <h2
-                className="mt-2.5 sm:mt-3 font-serif-jp font-bold text-ink dark:text-white"
-                style={{ fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)" }}
-              >
-                {t("home.logos.title")}
-              </h2>
-              <p
-                className="mx-auto mt-2 sm:mt-3 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300 text-[13px] sm:text-[15px]"
-              >
-                {t("home.logos.subtitle")}
-              </p>
-            </div>
-          </Reveal>
-          <Reveal delay={100}>
-            <LogoMarquee variant="light" />
-          </Reveal>
         </div>
       </section>
 

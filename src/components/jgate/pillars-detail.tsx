@@ -110,26 +110,7 @@ const TAG_TONES: Record<Pillar["tags"][number]["tone"], string> = {
   crimson: "border-crimson/30 dark:border-rose-400/30 text-crimson dark:text-rose-400 bg-crimson/8 dark:bg-rose-950/40",
   saffron: "border-saffron/35 dark:border-amber-400/30 text-saffron dark:text-amber-400 bg-saffron/10 dark:bg-amber-950/40",
   success: "border-success/30 dark:border-emerald-400/30 text-success dark:text-emerald-400 bg-success/10 dark:bg-emerald-950/40",
-  slate: "border-slate-300 dark:border-white/20 text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-white/10",
 };
-
-const STATS = [
-  {
-    value: "24–48h",
-    unit: "Setup",
-    label: { EN: "Time to Operational Launch", JP: "現地稼働開始までの時間" },
-  },
-  {
-    value: "100%",
-    unit: "Bilingual",
-    label: { EN: "Japanese On-Site Support", JP: "日本語常駐サポート" },
-  },
-  {
-    value: "40%+",
-    unit: "Savings",
-    label: { EN: "Operational Cost Reduction", JP: "従来の進出コスト削減率" },
-  },
-];
 
 export function PillarsDetail() {
   const { tx, lang } = useI18n();
@@ -224,35 +205,6 @@ export function PillarsDetail() {
             );
           })}
         </div>
-
-        {/* Stats Milestone Strip */}
-        <Reveal delay={140} variant="scale">
-          <div className="luxury-light-card card-sheen gold-hairline mt-8 sm:mt-12 grid grid-cols-1 divide-y divide-slate-100 dark:divide-white/10 overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] shadow-xl sm:grid-cols-3 sm:divide-x sm:divide-y-0 max-w-4xl mx-auto">
-            {STATS.map((s) => (
-              <div
-                key={s.label.EN}
-                className="flex flex-col items-center justify-center p-4 sm:p-6 text-center transition-colors hover:bg-slate-50/70 dark:hover:bg-white/5"
-              >
-                <div className="flex items-baseline gap-1.5">
-                  <span
-                    className="font-serif-jp font-black text-crimson drop-shadow-sm"
-                    style={{ fontSize: "clamp(1.85rem, 3.4vw, 2.75rem)" }}
-                  >
-                    {s.value}
-                  </span>
-                  <span className="font-inter text-[11px] sm:text-xs font-bold text-saffron-deep dark:text-saffron-light uppercase tracking-wider">
-                    {s.unit}
-                  </span>
-                </div>
-                <span
-                  className="mt-1 sm:mt-2 font-inter text-[11px] sm:text-[12px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300"
-                >
-                  {tx(s.label)}
-                </span>
-              </div>
-            ))}
-          </div>
-        </Reveal>
       </div>
     </section>
   );

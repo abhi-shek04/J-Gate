@@ -336,7 +336,7 @@ export function ServicesSection({ id }: { id?: string }) {
               const Icon = srv.icon;
               return (
                 <Reveal key={srv.id} delay={idx * 40} variant="up">
-                  <div className="h-full luxury-light-card card-sheen rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-6 md:p-7 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+                  <div className="h-full luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/16 bg-white dark:bg-[#101a2c] p-5 sm:p-7 shadow-card dark:shadow-2xl hover:shadow-2xl hover:border-crimson/40 dark:hover:border-saffron/40 transition-all duration-300 flex flex-col justify-between">
                     <div>
                       {/* Top Header */}
                       <div className="flex items-center justify-between gap-3 pb-3.5 border-b border-slate-100 dark:border-white/10">

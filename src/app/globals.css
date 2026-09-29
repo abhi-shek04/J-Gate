@@ -534,36 +534,51 @@ html[lang="ja"] .font-serif-jp {
 
 /* Luxury Glass Card with multi-layer sheen */
 .luxury-glass-card {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08) 0%, rgba(255, 255, 255, 0.02) 100%);
-  backdrop-filter: blur(18px) saturate(150%);
-  -webkit-backdrop-filter: blur(18px) saturate(150%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.07) 0%, rgba(255, 255, 255, 0.02) 100%);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  box-shadow: 0 16px 40px -10px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.luxury-glass-card:hover {
+  border-color: rgba(232, 160, 26, 0.45);
+  box-shadow: 0 24px 60px -12px rgba(0, 0, 0, 0.6), 0 0 30px rgba(188, 26, 44, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transform: translateY(-5px);
 }
 .luxury-glass-card::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, rgba(232, 160, 26, 0.6), rgba(188, 26, 44, 0.6), transparent);
 }
 
 /* Light Card with Warm Ivory Sheen & Multi-Layer Depth */
 .luxury-light-card {
   background: #ffffff;
-  border: 1px solid rgba(188, 26, 44, 0.1);
-  box-shadow: 0 4px 20px rgba(8, 15, 26, 0.05), 0 1px 3px rgba(8, 15, 26, 0.02), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(188, 26, 44, 0.14);
+  box-shadow: 0 6px 24px rgba(8, 15, 26, 0.06), 0 1px 4px rgba(8, 15, 26, 0.03), inset 0 1px 0 rgba(255, 255, 255, 0.95);
   position: relative;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: transform, box-shadow;
 }
+.dark .luxury-light-card {
+  background: #101a2c;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 10px 32px -8px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
 .luxury-light-card:hover {
-  border-color: rgba(188, 26, 44, 0.32);
-  box-shadow: 0 22px 50px -10px rgba(8, 15, 26, 0.14), 0 6px 18px -4px rgba(188, 26, 44, 0.1), inset 0 1px 0 rgba(255, 255, 255, 1);
+  border-color: rgba(188, 26, 44, 0.4);
+  box-shadow: 0 24px 54px -10px rgba(8, 15, 26, 0.16), 0 8px 22px -4px rgba(188, 26, 44, 0.15), inset 0 1px 0 rgba(255, 255, 255, 1);
   transform: translateY(-5px);
+}
+.dark .luxury-light-card:hover {
+  border-color: rgba(232, 160, 26, 0.45);
+  box-shadow: 0 28px 60px -12px rgba(0, 0, 0, 0.65), 0 0 25px rgba(188, 26, 44, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
 /* Interactive Card Sheen Reflection Sweep */

@@ -395,10 +395,10 @@ export function FAQSection({ id }: { id?: string }) {
                 <Reveal key={item.id} delay={idx * 15}>
                   <div
                     className={cn(
-                      "group overflow-hidden rounded-2xl border bg-white dark:bg-[#101a2c] transition-all duration-300 shadow-card",
+                      "group overflow-hidden rounded-2xl border bg-white dark:bg-[#101a2c] transition-all duration-300 shadow-card dark:shadow-2xl hover:-translate-y-0.5",
                       isOpen
-                        ? "border-crimson/50 dark:border-rose-500/40 ring-1 ring-crimson/20 dark:ring-rose-500/20 shadow-md"
-                        : "border-slate-200/90 dark:border-white/10 hover:border-slate-300 dark:hover:border-white/20"
+                        ? "border-crimson dark:border-rose-400/70 ring-2 ring-crimson/30 dark:ring-rose-400/30 shadow-lg"
+                        : "border-slate-200/90 dark:border-white/16 hover:border-crimson/40 dark:hover:border-saffron/50"
                     )}
                   >
                     <button

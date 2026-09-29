@@ -446,11 +446,11 @@ export function PricingSection({ id }: { id?: string }) {
                 <Reveal key={plan.id} delay={i * 80} variant="up">
                   <div
                     className={cn(
-                      "group relative flex h-full flex-col justify-between rounded-2xl bg-white dark:bg-[#0c1424] border transition-all duration-300 p-4 sm:p-5",
+                      "luxury-light-card card-sheen group relative flex h-full flex-col justify-between rounded-2xl bg-white dark:bg-[#101a2c] border transition-all duration-300 p-4 sm:p-5 sm:p-6",
                       isFeatured
-                        ? "border-crimson dark:border-crimson/80 shadow-[0_12px_36px_-10px_rgba(188,26,44,0.18)] dark:shadow-[0_16px_40px_-10px_rgba(188,26,44,0.35)] ring-1 ring-crimson/30 lg:-translate-y-1.5"
-                        : "border-slate-200/90 dark:border-white/10 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.4)] hover:shadow-lg dark:hover:shadow-[0_16px_36px_rgba(0,0,0,0.6)] hover:-translate-y-0.5",
-                      isSelected ? "ring-2 ring-saffron/70" : ""
+                        ? "border-crimson dark:border-rose-400/60 shadow-[0_16px_40px_-10px_rgba(188,26,44,0.22)] dark:shadow-[0_20px_50px_-10px_rgba(188,26,44,0.45)] ring-2 ring-crimson/40 lg:-translate-y-2"
+                        : "border-slate-200/90 dark:border-white/16 shadow-card dark:shadow-2xl hover:border-slate-300 dark:hover:border-saffron/40 hover:-translate-y-1",
+                      isSelected ? "ring-2 ring-saffron/80" : ""
                     )}
                   >
                     {/* Top Content Area */}

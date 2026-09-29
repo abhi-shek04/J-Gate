@@ -211,118 +211,74 @@ const DEPLOYMENT_STEPS = [
   },
 ];
 
-/* ── Indobox × Genesys Operational Competencies (Clean Light-Mode Engine) ── */
+/* ── Indobox × Genesys Operational Competencies (Clean Executive Model) ── */
 const INDOBOX_COMPETENCIES = [
   {
-    icon: Briefcase,
-    title: { EN: "Enterprise Client Relations & Japan HQ Liaison", JP: "日本企業クライアント統括・日本本社連携" },
-    detail: {
-      EN: "Direct communication with Japanese headquarters, ensuring smooth corporate approvals and reporting alignment.",
-      JP: "日本本社との直接対話窓口。稟議申請や日本本社報告基準に沿った円滑なコミュニケーションを担保。",
-    },
-    tag: { EN: "Japan HQ Alignment", JP: "日本本社直結" },
-  },
-  {
     icon: Compass,
-    title: { EN: "Resident Japan Desk & Daily Yorozu Advisory", JP: "常駐ジャパンデスク運営・日常のよろず相談" },
+    title: { EN: "Resident Japanese Executive", JP: "日本人役員の現地常駐" },
     detail: {
-      EN: "Native Japanese directors stationed daily in Hyderabad for immediate in-person guidance on business issues.",
-      JP: "日本人役員が現地オフィスに毎日常駐。法務、税務、銀行取引、商習慣の疑問を対面で即日解決。",
+      EN: "Stationed daily in Hyderabad to provide immediate in-person guidance and business support.",
+      JP: "日本人役員が現地に常駐し、日常業務や課題解決を対面で直接サポートします。",
     },
-    tag: { EN: "Daily In-Person", JP: "現地毎日常駐" },
-  },
-  {
-    icon: Globe2,
-    title: { EN: "Japan–India Cultural & Commercial Governance", JP: "日印文化・商習慣の橋渡しとガバナンス" },
-    detail: {
-      EN: "Eliminating cross-cultural friction in vendor contracts, operational expectations, and work styles.",
-      JP: "現地取引先との契約交渉や納期感覚の違いなど、日印間の商習慣ギャップを徹底的に解消。",
-    },
-    tag: { EN: "Cross-Cultural Bridge", JP: "商習慣調整" },
-  },
-  {
-    icon: GraduationCap,
-    title: { EN: "Indobox Business & Talent Orientation", JP: "Indobox ビジネスマナー・人材研修" },
-    detail: {
-      EN: "Structured training for Indian employees and local hires in Horenso, Kaizen, and Japanese corporate standards.",
-      JP: "採用した現地社員・スタッフに対し、日本の報連相文化、品質意識、ビジネスマナーを集中指導。",
-    },
-    tag: { EN: "Orientation Program", JP: "独自教育基盤" },
   },
   {
     icon: Handshake,
-    title: { EN: "Strategic Ecosystem Alliances & Matchmaking", JP: "戦略的アライアンス・公的機関連携推進" },
+    title: { EN: "Japan HQ Communication", JP: "日本本社との円滑な連携" },
     detail: {
-      EN: "Facilitating partnerships with universities, trade bodies, and state government business delegations.",
-      JP: "名門大学、経済団体、州政府機関とのパイプラインを活用した戦略的提携・現地視察のアレンジ。",
+      EN: "Direct liaison with Japanese headquarters for smooth reporting, approvals, and alignment.",
+      JP: "日本本社の報告基準や稟議手続きに合わせた確実な進捗報告と意思決定を支援します。",
     },
-    tag: { EN: "Bilateral Network", JP: "公的・産学連携" },
   },
   {
-    icon: ShieldCheck,
-    title: { EN: "Tenant Success & Japanese Support Management", JP: "入居テナント伴走・サポート品質管理" },
+    icon: Globe2,
+    title: { EN: "Cross-Cultural Management", JP: "日印の商習慣・文化調整" },
     detail: {
-      EN: "Ongoing executive oversight of facility satisfaction, confidential reviews, and rapid issue escalation.",
-      JP: "入居企業の満足度管理、守秘ミーティングの調整、緊急時の迅速なエスカレーション対応。",
+      EN: "Aligning local vendor contracts, work expectations, and business practices with Japanese standards.",
+      JP: "現地取引先との契約や納期調整など、日印間の商習慣のギャップを調整します。",
     },
-    tag: { EN: "Executive Support", JP: "品質サポート管理" },
+  },
+  {
+    icon: GraduationCap,
+    title: { EN: "Local Team Orientation", JP: "現地スタッフの日系研修" },
+    detail: {
+      EN: "Training Indian team members in Japanese business etiquette, Horenso, and quality expectations.",
+      JP: "採用した現地社員に対し、日本の報連相文化やビジネスマナーの研修を実施します。",
+    },
   },
 ];
 
 const GENESYS_COMPETENCIES = [
   {
     icon: Building2,
-    title: { EN: "Ready-to-Use Workspace in Hyderabad", JP: "ハイデラバード執務空間・施設総合管理" },
+    title: { EN: "Furnished Workspaces & Suites", JP: "専用プライベートオフィス" },
     detail: {
-      EN: "Private office cabins, ergonomic furnishings, acoustic suites, and full building facility operations.",
-      JP: "ハイデラバードオフィス内の専用個室、人間工学什器、防音ブースなど高品質オフィス設備の保守運営。",
+      EN: "Private lockable cabins and dedicated desks with ergonomic furniture and meeting rooms.",
+      JP: "施錠可能な専用個室キャビンや会議室など、すぐに業務を開始できる執務環境をご提供します。",
     },
-    tag: { EN: "Hyderabad Hub", JP: "最高級オフィス" },
-  },
-  {
-    icon: Wifi,
-    title: { EN: "Dual 1Gbps Redundant Enterprise Fiber Backbone", JP: "二重冗長化 1Gbps対称高速光回線" },
-    detail: {
-      EN: "Dedicated enterprise bandwidth with redundant carrier failover, optimized for Tokyo business hours.",
-      JP: "二重化された専用高速光回線。日本本社との大容量データ通信・ビデオ会議の無停電接続。",
-    },
-    tag: { EN: "99.9% Uptime", JP: "二重回線保証" },
   },
   {
     icon: Zap,
-    title: { EN: "100% Power Continuity (UPS Array + Diesel Backup)", JP: "無停電電源装置（UPS）＋自家発電機" },
+    title: { EN: "High-Speed Internet & Continuous Power", JP: "高速回線・無停電電源" },
     detail: {
-      EN: "Uninterrupted clean power supply protecting workstations, office equipment, and operations 24 hours a day, 365 days a year.",
-      JP: "瞬停も防ぐ大型UPSシステムとディーゼル発電機の完全二重化により、執務室内の全機器と業務を24時間保護。",
+      EN: "High-speed enterprise fiber connection and 100% generator power backup for uninterrupted operations.",
+      JP: "日本本社とのスムーズな通信を維持する高速光回線と、停電を防ぐ自家発電装置を完備しています。",
     },
-    tag: { EN: "24/7 Power Safe", JP: "100%電力供給" },
   },
   {
     icon: Lock,
-    title: { EN: "24/7 Smart Keycard Multi-Factor Access & CCTV", JP: "24時間生体認証セキュリティ・CCTV監視" },
+    title: { EN: "24/7 Security & Smart Access", JP: "24時間セキュリティ・ICカード入退室" },
     detail: {
-      EN: "Round-the-clock smart keycard entry, perimeter monitoring, and physical on-site security guards.",
-      JP: "スマートキーカードによる24時間入退館管理、CCTV監視カメラ網、常駐警備員による厳重警備。",
+      EN: "Round-the-clock smart keycard access, CCTV monitoring, and physical on-site security guards.",
+      JP: "スマートキーカードによる24時間入退館管理とCCTV監視で、安心のセキュリティを確保します。",
     },
-    tag: { EN: "Multi-Factor", JP: "常駐警備完備" },
   },
   {
-    icon: Server,
-    title: { EN: "Central HVAC Engineering & Environmental Care", JP: "空調管理・日常清掃・パントリー運営" },
+    icon: ShieldCheck,
+    title: { EN: "Building Maintenance & Compliance", JP: "ビル維持管理・現地法令遵守" },
     detail: {
-      EN: "Central air-conditioning, professional housekeeping, waste management, and cafeteria services.",
-      JP: "快適なセントラル空調制御、プロ清掃員による日常美化、パントリー・カフェテリアの快適維持。",
+      EN: "Professional housekeeping, central air-conditioning, and full municipal building compliance.",
+      JP: "快適な空調環境、日常清掃、および現地の消防・建築法規を遵守した安心のビル管理です。",
     },
-    tag: { EN: "Facility Care", JP: "日常美化管理" },
-  },
-  {
-    icon: Scale,
-    title: { EN: "Statutory Building Codes & Municipal Compliance", JP: "消防法・建築基準法・現地許認可遵守" },
-    detail: {
-      EN: "Strict compliance with Indian commercial building regulations, fire safety norms, and government approvals.",
-      JP: "インド消防基準、建築構造規格、商業施設自治体認可の完全遵守による安心の事業拠点。",
-    },
-    tag: { EN: "100% Code Valid", JP: "建築基準適合" },
   },
 ];
 
@@ -715,54 +671,46 @@ export function ServicesSection({ id }: { id?: string }) {
             </Reveal>
           </div>
 
-          {/* Unified Dual-Engine Operations Console: 6 Competencies Each */}
-          <div className="grid gap-4 sm:gap-6 lg:grid-cols-2 max-w-5xl mx-auto">
+          {/* Dual-Engine Operations Framework: Clean 4-Pillar Executive Model */}
+          <div className="grid gap-6 lg:grid-cols-2 max-w-5xl mx-auto">
             {/* Indobox Operational Engine (Left Column) */}
             <Reveal variant="left">
-              <div className="h-full rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 border-t-4 border-t-crimson bg-white dark:bg-[#101a2c] p-4 sm:p-6 md:p-7 shadow-xs">
-                <div className="flex items-center justify-between pb-3.5 sm:pb-5 border-b border-slate-100 dark:border-white/10">
-                  <div className="flex items-center gap-2.5 sm:gap-3">
-                    <span className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-crimson/10 dark:bg-rose-950/50 text-crimson dark:text-rose-400 border border-crimson/20 dark:border-rose-400/30">
-                      <Handshake className="h-4.5 w-4.5 sm:h-5 sm:w-5" />
+              <div className="h-full rounded-2xl border border-slate-200/90 dark:border-white/10 border-t-4 border-t-crimson bg-white dark:bg-[#101a2c] p-5 sm:p-7 shadow-sm">
+                <div className="pb-4 border-b border-slate-100 dark:border-white/10">
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-crimson/10 dark:bg-rose-950/50 text-crimson dark:text-rose-400 border border-crimson/20 dark:border-rose-400/30 shrink-0">
+                      <Handshake className="h-5 w-5" />
                     </span>
                     <div>
-                      <span className="font-mono text-[9.5px] sm:text-[10.5px] font-bold uppercase tracking-wider text-crimson dark:text-rose-400 block">
-                        JAPAN ENGINE · INDOBOX
+                      <span className="font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-crimson dark:text-rose-400 block">
+                        Indobox India
                       </span>
                       <h4 className="font-serif-jp text-base sm:text-lg font-bold text-ink dark:text-white">
-                        {tx({ EN: "Governance & Advisory Competencies", JP: "日本企業ガバナンス・伴走支援領域" })}
+                        {tx({ EN: "Japan Management & Advisory", JP: "日本企業ガバナンス・現地伴走支援" })}
                       </h4>
                     </div>
                   </div>
-                  <span className="font-mono text-[10px] sm:text-[11px] text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-white/5 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded border border-slate-200/70 dark:border-white/10 font-semibold">
-                    6 CAPABILITIES
-                  </span>
                 </div>
 
-                <div className="mt-4 sm:mt-5 space-y-2.5 sm:space-y-3.5">
+                <div className="mt-5 space-y-4">
                   {INDOBOX_COMPETENCIES.map((item, idx) => {
                     const ItemIcon = item.icon;
                     return (
                       <div
                         key={idx}
-                        className="rounded-xl border border-slate-200/70 dark:border-white/10 bg-slate-50/60 dark:bg-white/[0.03] p-2.5 sm:p-3.5 hover:border-crimson/40 hover:bg-white dark:hover:bg-white/[0.06] hover:shadow-xs transition-all"
+                        className="flex items-start gap-3.5 rounded-xl border border-slate-100 dark:border-white/5 bg-slate-50/50 dark:bg-white/[0.02] p-3.5 hover:border-crimson/30 hover:bg-white dark:hover:bg-white/[0.05] transition-all"
                       >
-                        <div className="flex items-center justify-between gap-2 mb-1">
-                          <div className="flex items-center gap-2 sm:gap-2.5">
-                            <span className="flex h-6 w-6 sm:h-7 sm:w-7 shrink-0 items-center justify-center rounded-lg bg-crimson/10 dark:bg-rose-950/50 text-crimson dark:text-rose-400">
-                              <ItemIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                            </span>
-                            <span className="font-serif-jp text-[12.5px] sm:text-[13.5px] font-bold text-ink dark:text-white">
-                              {tx(item.title)}
-                            </span>
-                          </div>
-                          <span className="font-mono text-[9px] sm:text-[9.5px] font-bold uppercase tracking-wider px-1.5 sm:px-2 py-0.5 rounded bg-crimson/10 dark:bg-rose-950/50 text-crimson dark:text-rose-400 border border-crimson/20 dark:border-rose-400/30 shrink-0">
-                            {tx(item.tag)}
-                          </span>
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-crimson/10 dark:bg-rose-950/50 text-crimson dark:text-rose-400 mt-0.5">
+                          <ItemIcon className="h-4 w-4" />
+                        </span>
+                        <div>
+                          <h5 className="font-serif-jp text-[14px] sm:text-[15px] font-bold text-ink dark:text-white">
+                            {tx(item.title)}
+                          </h5>
+                          <p className="mt-1 font-inter text-[12px] sm:text-[12.5px] text-slate-600 dark:text-slate-300 leading-relaxed">
+                            {tx(item.detail)}
+                          </p>
                         </div>
-                        <p className="font-inter text-[11.5px] sm:text-[12px] text-slate-600 dark:text-slate-300 leading-relaxed pl-8 sm:pl-9">
-                          {tx(item.detail)}
-                        </p>
                       </div>
                     );
                   })}
@@ -772,50 +720,42 @@ export function ServicesSection({ id }: { id?: string }) {
 
             {/* Genesys Operational Engine (Right Column) */}
             <Reveal variant="right" delay={80}>
-              <div className="h-full rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 border-t-4 border-t-saffron bg-white dark:bg-[#101a2c] p-4 sm:p-6 md:p-7 shadow-xs">
-                <div className="flex items-center justify-between pb-3.5 sm:pb-5 border-b border-slate-100 dark:border-white/10">
-                  <div className="flex items-center gap-2.5 sm:gap-3">
-                    <span className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-amber-100 dark:bg-amber-950/50 text-amber-900 dark:text-amber-300 border border-amber-300/60 dark:border-amber-700/40">
-                      <Building2 className="h-4.5 w-4.5 sm:h-5 sm:w-5" />
+              <div className="h-full rounded-2xl border border-slate-200/90 dark:border-white/10 border-t-4 border-t-saffron bg-white dark:bg-[#101a2c] p-5 sm:p-7 shadow-sm">
+                <div className="pb-4 border-b border-slate-100 dark:border-white/10">
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-100 dark:bg-amber-950/50 text-amber-900 dark:text-amber-300 border border-amber-300/60 dark:border-amber-700/40 shrink-0">
+                      <Building2 className="h-5 w-5" />
                     </span>
                     <div>
-                      <span className="font-mono text-[9.5px] sm:text-[10.5px] font-bold uppercase tracking-wider text-saffron-deep dark:text-amber-400 block">
-                        INDIA ENGINE · GENESYS INFO X
+                      <span className="font-mono text-[10px] sm:text-[11px] font-bold uppercase tracking-wider text-saffron-deep dark:text-amber-400 block">
+                        Genesys Info X
                       </span>
                       <h4 className="font-serif-jp text-base sm:text-lg font-bold text-ink dark:text-white">
-                        {tx({ EN: "Facilities & Operations Competencies", JP: "執務施設管理・セキュリティ・保全体制" })}
+                        {tx({ EN: "India Office & Infrastructure", JP: "現地執務空間・インフラ管理" })}
                       </h4>
                     </div>
                   </div>
-                  <span className="font-mono text-[10px] sm:text-[11px] text-slate-600 dark:text-slate-300 bg-slate-100 dark:bg-white/5 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded border border-slate-200/70 dark:border-white/10 font-semibold">
-                    6 CAPABILITIES
-                  </span>
                 </div>
 
-                <div className="mt-4 sm:mt-5 space-y-2.5 sm:space-y-3.5">
+                <div className="mt-5 space-y-4">
                   {GENESYS_COMPETENCIES.map((item, idx) => {
                     const ItemIcon = item.icon;
                     return (
                       <div
                         key={idx}
-                        className="rounded-xl border border-slate-200/70 dark:border-white/10 bg-slate-50/60 dark:bg-white/[0.03] p-2.5 sm:p-3.5 hover:border-saffron/40 hover:bg-white dark:hover:bg-white/[0.06] hover:shadow-xs transition-all"
+                        className="flex items-start gap-3.5 rounded-xl border border-slate-100 dark:border-white/5 bg-slate-50/50 dark:bg-white/[0.02] p-3.5 hover:border-saffron/30 hover:bg-white dark:hover:bg-white/[0.05] transition-all"
                       >
-                        <div className="flex items-center justify-between gap-2 mb-1">
-                          <div className="flex items-center gap-2 sm:gap-2.5">
-                            <span className="flex h-6 w-6 sm:h-7 sm:w-7 shrink-0 items-center justify-center rounded-lg bg-amber-100 dark:bg-amber-950/50 text-amber-900 dark:text-amber-300">
-                              <ItemIcon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                            </span>
-                            <span className="font-serif-jp text-[12.5px] sm:text-[13.5px] font-bold text-ink dark:text-white">
-                              {tx(item.title)}
-                            </span>
-                          </div>
-                          <span className="font-mono text-[9px] sm:text-[9.5px] font-bold uppercase tracking-wider px-1.5 sm:px-2 py-0.5 rounded bg-amber-100 dark:bg-amber-950/50 text-amber-900 dark:text-amber-300 border border-amber-200 dark:border-amber-700/40 shrink-0">
-                            {tx(item.tag)}
-                          </span>
+                        <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-amber-100 dark:bg-amber-950/50 text-amber-900 dark:text-amber-300 mt-0.5">
+                          <ItemIcon className="h-4 w-4" />
+                        </span>
+                        <div>
+                          <h5 className="font-serif-jp text-[14px] sm:text-[15px] font-bold text-ink dark:text-white">
+                            {tx(item.title)}
+                          </h5>
+                          <p className="mt-1 font-inter text-[12px] sm:text-[12.5px] text-slate-600 dark:text-slate-300 leading-relaxed">
+                            {tx(item.detail)}
+                          </p>
                         </div>
-                        <p className="font-inter text-[11.5px] sm:text-[12px] text-slate-600 dark:text-slate-300 leading-relaxed pl-8 sm:pl-9">
-                          {tx(item.detail)}
-                        </p>
                       </div>
                     );
                   })}

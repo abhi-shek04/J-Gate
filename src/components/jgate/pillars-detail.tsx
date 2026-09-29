@@ -182,14 +182,6 @@ export function PillarsDetail() {
                   </span>
 
                   <div className="relative z-10">
-                    {/* Problem / Friction Callout Badge */}
-                    <div className="rounded-lg bg-rose-50 dark:bg-rose-950/30 border border-rose-200/70 dark:border-rose-800/40 px-3 py-1.5 mb-4 text-[11px] sm:text-[11.5px] font-inter text-rose-800 dark:text-rose-300 flex items-center gap-1.5">
-                      <span className="font-bold uppercase tracking-wider text-[9.5px] bg-rose-200 dark:bg-rose-900/60 px-1.5 py-0.2 rounded text-rose-900 dark:text-rose-200 shrink-0">
-                        {tx({ EN: "Challenge", JP: "従来の課題" })}
-                      </span>
-                      <span className="line-clamp-1">{tx(p.friction)}</span>
-                    </div>
-
                     <div className="flex items-center justify-between">
                       <div className="icon-pod h-11 w-11 sm:h-12 sm:w-12 shrink-0">
                         <Icon className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.75} />

@@ -205,11 +205,11 @@ export default function HomePage() {
       num: "01",
       title: {
         EN: "Premier Tech Ecosystem in Hyderabad",
-        JP: "グローバルIT企業が集結するHyderabadの中心",
+        JP: "グローバルIT企業が集結するハイデラバードの中心",
       },
       desc: {
         EN: "Located in Hyderabad alongside global tech leaders (Google, Microsoft, Amazon), giving Japanese enterprises instant corporate prestige, strategic partner proximity, and market credibility.",
-        JP: "Hyderabadに位置し、GoogleやMicrosoftなど大手IT企業が集結する環境で、日本企業の信頼性とネットワークを強固にします。",
+        JP: "ハイデラバードに位置し、GoogleやMicrosoftなど大手IT企業が集結する環境で、日本企業の信頼性とネットワークを強固にします。",
       },
     },
     {
@@ -296,7 +296,7 @@ export default function HomePage() {
           <Reveal>
             <div className="flex items-center justify-center gap-2.5 font-inter text-[11.5px] sm:text-[12.5px] font-bold uppercase tracking-[0.22em] text-crimson dark:text-rose-400">
               <span className="hidden sm:inline-block h-px w-8 bg-crimson/30 dark:bg-rose-400/30" />
-              <span>{tx({ EN: "Japan–India Business & Talent Hub", JP: "日印高度人材・ビジネス架け橋" })}</span>
+              <span>{tx({ EN: "Japan–India Business & Talent Hub", JP: "日印ビジネス＆高度人材ハブ" })}</span>
               <span className="hidden sm:inline-block h-px w-8 bg-crimson/30 dark:bg-rose-400/30" />
             </div>
           </Reveal>
@@ -366,7 +366,7 @@ export default function HomePage() {
                 href="/why-jgate"
                 className="btn-shine group inline-flex items-center justify-center gap-2.5 rounded-xl bg-crimson hover:bg-crimson-deep px-7 py-3.5 sm:px-8 sm:py-4 font-inter text-[14px] sm:text-[15px] font-bold text-white shadow-lg shadow-crimson/20 hover:shadow-xl hover:shadow-crimson/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
               >
-                <span>{tx({ EN: "Discover J-Gate", JP: "J-Gate を詳しく見る" })}</span>
+                <span>{tx({ EN: "Discover J-Gate", JP: "J-Gateを詳しく見る" })}</span>
                 <ArrowRight className="h-4.5 w-4.5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
 

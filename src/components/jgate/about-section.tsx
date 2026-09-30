@@ -132,7 +132,7 @@ export function AboutSection({ id, hideHero }: { id?: string; hideHero?: boolean
             JP: "Indobox Indiaが運営する、ハイデラバードの日本企業専用ワーキングハブ。",
           })}
           tags={[
-            { EN: "Main Office in Hyderabad", JP: "Hyderabad 旗艦拠点" },
+            { EN: "Main Office in Hyderabad", JP: "ハイデラバード旗艦拠点" },
             { EN: "On-Site Japanese Support", JP: "現地日本人常駐" },
             { EN: "Incorporation Support", JP: "法人設立サポート" },
           ]}
@@ -286,7 +286,7 @@ export function AboutSection({ id, hideHero }: { id?: string; hideHero?: boolean
               >
                 {tx({
                   EN: "Our commitments today and our vision for the future.",
-                  JP: "二つの声明 — 今日私たちが行うことと、私たちが構築している未来。",
+                  JP: "現在提供する価値と、私たちが共に構築する日印の未来。",
                 })}
               </p>
             </div>

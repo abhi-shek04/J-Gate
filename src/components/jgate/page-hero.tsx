@@ -41,7 +41,7 @@ export function PageHero({
 
   if (layout === "split") {
     return (
-      <div className={cn("relative overflow-hidden bg-slate-50/90 via-white to-slate-50/70 dark:from-[#080d18] dark:via-[#0c1424] dark:to-[#080d18] border-b border-slate-200/80 dark:border-white/10 py-10 sm:py-14 lg:py-16 transition-colors duration-300", className)}>
+      <div className={cn("relative overflow-hidden bg-slate-50/90 via-white to-slate-50/70 dark:from-[#080d18] dark:via-[#0c1424] dark:to-[#080d18] border-b border-slate-200/80 dark:border-white/10 py-6 sm:py-8 lg:py-10 transition-colors duration-300", className)}>
         {/* Subtle decorative background light accents */}
         <div
           className="pointer-events-none absolute inset-0 opacity-40 dark:opacity-25"
@@ -114,7 +114,7 @@ export function PageHero({
 
   /* Centered Executive Shrine Layout (Default) */
   return (
-    <div className={cn("relative overflow-hidden bg-slate-50/90 via-white to-slate-50/60 dark:from-[#080d18] dark:via-[#0c1424] dark:to-[#080d18] border-b border-slate-200/80 dark:border-white/10 pt-11 pb-8 sm:pt-15 sm:pb-10 transition-colors duration-300", className)}>
+    <div className={cn("relative overflow-hidden bg-slate-50/90 via-white to-slate-50/60 dark:from-[#080d18] dark:via-[#0c1424] dark:to-[#080d18] border-b border-slate-200/80 dark:border-white/10 pt-6 pb-5 sm:pt-8 sm:pb-6 transition-colors duration-300", className)}>
       {/* Ambient warm layered glows */}
       <div
         className="pointer-events-none absolute inset-0 opacity-40 dark:opacity-25"

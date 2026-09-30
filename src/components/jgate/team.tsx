@@ -39,11 +39,11 @@ const CORE_LEADERSHIP = [
   {
     name: "Abhishek Buduru",
     jpName: "アブシェーク・ブドゥル",
-    role: "TECH OPERATIONS",
-    subtitle: "Smart Access & IT Infrastructure Specialist",
+    role: "IT & OPERATIONS",
+    subtitle: "IT Support & Workspace Operations",
     image: "/team/abhishek.png",
-    desc: "Oversees building access systems, IT support, and technology infrastructure at the Hyderabad office.",
-    tags: ["Tech Support", "IT Infrastructure", "Smart Access"],
+    desc: "Assists with IT setup, member support, and day-to-day workspace operations at J-Gate Hyderabad.",
+    tags: ["IT Support", "Workspace Operations"],
     linkedin: "https://www.linkedin.com/in/buduru-abhishek/",
   },
 ];

@@ -41,7 +41,7 @@ const COMMUNITY = [
   "Daakia",
   "Fingerprint Films",
   "YANC",
-  "Data Intelligence",
+  "DMI",
 ];
 
 const COMMUNITY_DESCS: Record<string, string> = {
@@ -51,10 +51,10 @@ const COMMUNITY_DESCS: Record<string, string> = {
   "Daakia": "Bridging Distance with AI",
   "Fingerprint Films": "Creative Studio & Brand Media",
   "YANC": "Young Minds Networking & Life Skills",
-  "Data Intelligence": "Market & Talent Analytics",
+  "DMI": "Market & Talent Analytics",
 };
 
-const MARQUEE = ["T-Hub", "Woxsen University", "Genesys Info X", "MXC", "Kodryx AI", "Hyderabad Anime Club", "Daakia", "Fingerprint Films", "YANC", "Data Intelligence"];
+const MARQUEE = ["T-Hub", "Woxsen University", "Genesys Info X", "MXC", "Kodryx AI", "Hyderabad Anime Club", "Daakia", "Fingerprint Films", "YANC", "DMI"];
 
 export function Partners() {
   const marquee = [...MARQUEE, ...MARQUEE];

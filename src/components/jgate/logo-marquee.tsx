@@ -29,7 +29,7 @@ const ECOSYSTEM_ROW_2: Logo[] = [
   { name: "Fingerprint Films", src: "/logos/fingerprint-films.png", category: "CREATIVE STUDIO", desc: "Brand Storytelling & Media" },
   { name: "Hyderabad Anime Club", src: "/logos/hyderabad-anime-club.png", category: "CULTURAL COMMUNITY", desc: "Cultural & Community Network" },
   { name: "YANC", src: "/logos/yanc.png", category: "NETWORKING", desc: "Young Minds Global Forum" },
-  { name: "Data Intelligence", src: "/logos/data-intelligence.png", category: "ANALYTICS", desc: "Market & Talent Intelligence" },
+  { name: "DMI", src: "/logos/dmi.png", category: "ANALYTICS", desc: "Market & Talent Intelligence" },
 ];
 
 function PartnerCard({ logo, variant = "light" }: { logo: Logo; variant?: "light" | "dark" }) {

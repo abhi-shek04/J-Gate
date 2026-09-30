@@ -222,7 +222,7 @@ export function FAQSection({ id }: { id?: string }) {
 
   return (
     <div id={id} className="scroll-mt-20">
-      <section className="py-10 sm:py-16 bg-ivory dark:bg-[#0b111e] transition-colors">
+      <section className="py-6 sm:py-10 bg-ivory dark:bg-[#0b111e] transition-colors">
         <div className="container-jg max-w-4xl">
           {/* Header styled matching reference layout */}
           <Reveal className="mb-8 sm:mb-10 text-center">

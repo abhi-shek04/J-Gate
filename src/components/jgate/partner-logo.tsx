@@ -21,7 +21,7 @@ const LOGO_MAP: Record<string, { src: string; type: "image" | "text" }> = {
   "Daakia": { src: "/logos/daakia.png", type: "image" },
   "Fingerprint Films": { src: "/logos/fingerprint-films.png", type: "image" },
   "YANC": { src: "/logos/yanc.png", type: "image" },
-  "Data Intelligence": { src: "/logos/data-intelligence.png", type: "image" },
+  "DMI": { src: "/logos/dmi.png", type: "image" },
 };
 
 export function PartnerLogo({

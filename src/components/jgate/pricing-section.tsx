@@ -355,7 +355,7 @@ export function PricingSection({ id }: { id?: string }) {
       {/* ───────────────────────────────────────────────────────────
           2. Three Executive Plan Cards
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-8 sm:py-12 lg:py-14 bg-ivory-warm dark:bg-[#0f1728] relative overflow-hidden transition-colors">
+      <section className="py-6 sm:py-8 lg:py-10 bg-ivory-warm dark:bg-[#0f1728] relative overflow-hidden transition-colors">
         {/* Ambient subtle warm lighting */}
         <div
           className="pointer-events-none absolute inset-0 opacity-35"
@@ -661,7 +661,7 @@ export function PricingSection({ id }: { id?: string }) {
       {/* ───────────────────────────────────────────────────────────
           4. Billing Notes & Transparent Guarantees
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-8 sm:py-12 lg:py-14 bg-ivory dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10">
+      <section className="py-6 sm:py-8 lg:py-10 bg-ivory dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-4xl">

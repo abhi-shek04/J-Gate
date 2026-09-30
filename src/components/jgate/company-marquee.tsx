@@ -38,7 +38,7 @@ const ECOSYSTEM_ROW_2_NAMES: CompanyName[] = [
   { text: "Fingerprint Films" },
   { text: "Hyderabad Anime Club" },
   { text: "YANC" },
-  { text: "Data Intelligence" },
+  { text: "DMI" },
 ];
 
 const STRATEGIC_NAMES = ECOSYSTEM_ROW_1_NAMES;

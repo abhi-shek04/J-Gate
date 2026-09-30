@@ -333,7 +333,7 @@ html[lang="ja"] .font-serif-jp {
 }
 
 /* Section padding — compact on mobile, executive and generous on desktop */
-.section-pad { @apply py-8 sm:py-12 md:py-16 lg:py-24; }
+.section-pad { @apply py-6 sm:py-8 md:py-10 lg:py-12; }
 
 /* Container */
 .container-jg {

@@ -171,14 +171,14 @@ const OPS_TEAM: OpsMember[] = [
     id: "abhishek",
     name: "Abhishek Buduru",
     jpName: "アブシェーク・ブドゥル",
-    role: "TECH OPERATIONS",
-    subtitle: "Smart Access & IT Infrastructure Specialist",
+    role: "IT & OPERATIONS",
+    subtitle: "IT Support & Workspace Operations",
     flag: "🇮🇳",
     country: "India",
     email: "contact@indobox.co.jp",
     image: "/team/abhishek.png",
-    desc: "Oversees smart access systems, IT support, workspace infrastructure, and digital systems at J-Gate Hyderabad.",
-    tags: ["Tech Support", "IT Infrastructure", "Smart Access"],
+    desc: "Assists with IT setup, member support, and day-to-day workspace operations at J-Gate Hyderabad.",
+    tags: ["IT Support", "Workspace Operations"],
     linkedin: "https://www.linkedin.com/in/buduru-abhishek/",
     languages: [
       { EN: "English", JP: "英語", highlight: true },
@@ -211,7 +211,7 @@ export function TeamSection({ id }: { id?: string }) {
       {/* ════════════════════════════════════════════════════════════
           1. ADVISORY COUNCIL — 3+2 Luxury Executive Grid (Light & Dark Support)
          ════════════════════════════════════════════════════════════ */}
-      <section className="py-8 sm:py-12 lg:py-14 relative overflow-hidden bg-slate-50/70 dark:bg-[#070d18] border-b border-slate-200/80 dark:border-white/10 text-ink dark:text-white transition-colors duration-300">
+      <section className="py-6 sm:py-8 lg:py-10 relative overflow-hidden bg-slate-50/70 dark:bg-[#070d18] border-b border-slate-200/80 dark:border-white/10 text-ink dark:text-white transition-colors duration-300">
         {/* Ambient subtle Japanese Asanoha lattice backdrop */}
         <div className="pattern-asanoha opacity-[0.03] dark:pattern-asanoha-dark dark:opacity-20 absolute inset-0 pointer-events-none" />
         <div
@@ -402,7 +402,7 @@ export function TeamSection({ id }: { id?: string }) {
       {/* ════════════════════════════════════════════════════════════
           3. OPERATIONS TEAM — 4-Card Executive Grid (Warm Ivory)
          ════════════════════════════════════════════════════════════ */}
-      <section className="py-8 sm:py-12 lg:py-14 bg-ivory dark:bg-[#0c1424]">
+      <section className="py-6 sm:py-8 lg:py-10 bg-ivory dark:bg-[#0c1424]">
         <div className="container-jg">
           <Reveal>
             <SectionHeading
@@ -578,7 +578,7 @@ export function TeamSection({ id }: { id?: string }) {
       {/* ════════════════════════════════════════════════════════════
           4. OUR PARTNERS — Infinite Side-Scrolling Company Marquee
          ════════════════════════════════════════════════════════════ */}
-      <section className="py-8 sm:py-12 lg:py-14 relative overflow-hidden bg-ivory-warm dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10 transition-colors duration-300">
+      <section className="py-6 sm:py-8 lg:py-10 relative overflow-hidden bg-ivory-warm dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10 transition-colors duration-300">
         <div className="container-jg mb-8 sm:mb-10">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">

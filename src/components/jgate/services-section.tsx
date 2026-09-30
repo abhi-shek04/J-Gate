@@ -305,7 +305,7 @@ export function ServicesSection({ id }: { id?: string }) {
       {/* ───────────────────────────────────────────────────────────
           3. Core Services (Simple, Clean, Professional Text Layout)
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-8 sm:py-12 lg:py-14 bg-ivory-warm dark:bg-[#0b111e]">
+      <section className="py-6 sm:py-8 lg:py-10 bg-ivory-warm dark:bg-[#0b111e]">
         <div className="container-jg max-w-5xl">
           <Reveal>
             <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
@@ -401,15 +401,11 @@ export function ServicesSection({ id }: { id?: string }) {
       {/* ───────────────────────────────────────────────────────────
           4. Deployment Roadmap (From Consultation to Operations)
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-8 sm:py-12 lg:py-14 bg-ivory dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10">
+      <section className="py-6 sm:py-8 lg:py-10 bg-ivory dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center mb-10">
-              <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 px-3 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
-                <Clock className="h-3.5 w-3.5 text-crimson dark:text-rose-400" />
-                {tx({ EN: "Fast Setup Process", JP: "進出の流れ・導入ステップ" })}
-              </span>
-              <h3 className="mt-2.5 font-serif-jp text-xl sm:text-2xl font-bold text-ink dark:text-white">
+              <h3 className="font-serif-jp text-xl sm:text-2xl font-bold text-ink dark:text-white">
                 {tx({
                   EN: "From Initial Consultation to Starting Operations",
                   JP: "初回相談から初日の事業開始までのステップ",
@@ -433,9 +429,6 @@ export function ServicesSection({ id }: { id?: string }) {
                     <span className="font-mono text-2xl font-black text-crimson dark:text-saffron">
                       {step.step}
                     </span>
-                    <span className="inline-flex items-center px-2 py-0.5 rounded bg-emerald-50 dark:bg-emerald-950/50 border border-emerald-200/60 dark:border-emerald-700/40 text-emerald-800 dark:text-emerald-300 text-[10px] font-bold font-inter">
-                      {tx(step.duration)}
-                    </span>
                   </div>
                   <h4 className="font-serif-jp text-[14.5px] font-bold text-ink dark:text-white">
                     {tx(step.title)}
@@ -454,7 +447,7 @@ export function ServicesSection({ id }: { id?: string }) {
           5. INDUSTRIAL-LEVEL BILATERAL GOVERNANCE ARCHITECTURE
              (Indobox × Genesys Info X — Luminous Mode Console)
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-8 sm:py-12 lg:py-14 bg-ivory-warm dark:bg-[#0b111e] text-ink dark:text-white relative overflow-hidden border-t border-slate-200/70 dark:border-white/10">
+      <section className="py-6 sm:py-8 lg:py-10 bg-ivory-warm dark:bg-[#0b111e] text-ink dark:text-white relative overflow-hidden border-t border-slate-200/70 dark:border-white/10">
         {/* Subtle ambient lighting */}
         <div
           className="pointer-events-none absolute inset-0 opacity-40"

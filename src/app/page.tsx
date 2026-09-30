@@ -244,7 +244,7 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════
           1. HERO — Ultra-Luxurious Japanese-Modern Executive Launchpad
          ════════════════════════════════════════════════════════════ */}
-      <section className="relative flex min-h-[80vh] sm:min-h-[85vh] items-center justify-center overflow-hidden bg-slate-50/70 dark:bg-[#070c16] py-14 sm:py-20 border-b border-slate-200/80 dark:border-white/10 transition-colors duration-300">
+      <section className="relative flex items-center justify-center overflow-hidden bg-slate-50/70 dark:bg-[#070c16] py-8 sm:py-12 border-b border-slate-200/80 dark:border-white/10 transition-colors duration-300">
         {/* Ambient warm layered glows — Clean Institutional Light & Dark */}
         <div
           className="absolute inset-0 dark:hidden pointer-events-none"
@@ -291,7 +291,7 @@ export default function HomePage() {
           className="pointer-events-none absolute bottom-0 left-0 h-[25%] w-full bg-gradient-to-b from-transparent via-slate-50/60 to-slate-50 dark:via-[#070c16]/60 dark:to-[#070c16]"
         />
 
-        <div className="container-jg relative z-10 pt-4 pb-12 sm:pt-8 sm:pb-16 text-center max-w-5xl mx-auto">
+        <div className="container-jg relative z-10 pt-4 pb-6 sm:pt-6 sm:pb-8 text-center max-w-5xl mx-auto">
           {/* 1. Pre-title: Japan–India Business & Talent Hub */}
           <Reveal>
             <div className="flex items-center justify-center gap-2.5 font-inter text-[11.5px] sm:text-[12.5px] font-bold uppercase tracking-[0.22em] text-crimson dark:text-rose-400">

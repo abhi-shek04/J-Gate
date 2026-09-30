@@ -140,7 +140,7 @@ export function AboutSection({ id }: { id?: string }) {
       {/* ════════════════════════════════════════════════════════════
           Section 1 — 3 Pillars Detailed
          ════════════════════════════════════════════════════════════ */}
-      <section className="py-8 sm:py-12 lg:py-14 bg-ivory dark:bg-[#0b111e] transition-colors duration-300">
+      <section className="py-6 sm:py-8 lg:py-10 bg-ivory dark:bg-[#0b111e] transition-colors duration-300">
         <div className="container-jg">
           <div className="grid gap-4 sm:gap-6 md:grid-cols-3">
             {PILLARS.map((p, i) => (
@@ -198,7 +198,7 @@ export function AboutSection({ id }: { id?: string }) {
       {/* ════════════════════════════════════════════════════════════
           Section 2 — Japan–India Bilateral Alliance & Executive Partnership
          ════════════════════════════════════════════════════════════ */}
-      <section className="py-8 sm:py-12 lg:py-14 relative overflow-hidden bg-midnight text-white border-t border-white/10">
+      <section className="py-6 sm:py-8 lg:py-10 relative overflow-hidden bg-midnight text-white border-t border-white/10">
         <div className="pattern-asanoha-dark absolute inset-0 opacity-50 pointer-events-none" />
         <div
           className="absolute inset-0 pointer-events-none"
@@ -267,7 +267,7 @@ export function AboutSection({ id }: { id?: string }) {
       {/* ════════════════════════════════════════════════════════════
           Section 3 — Mission & Vision — 2 side-by-side cards
          ════════════════════════════════════════════════════════════ */}
-      <section className="py-8 sm:py-12 lg:py-14 relative overflow-hidden bg-ivory-warm dark:bg-[#080d17] border-t border-slate-200/70 dark:border-white/10 transition-colors duration-300">
+      <section className="py-6 sm:py-8 lg:py-10 relative overflow-hidden bg-ivory-warm dark:bg-[#080d17] border-t border-slate-200/70 dark:border-white/10 transition-colors duration-300">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center mb-8 sm:mb-12">

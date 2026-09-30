@@ -7,14 +7,14 @@ import { useI18n } from "@/lib/i18n";
 const PILLARS = [
   { icon: Languages, key: "why.p1", gradient: "from-crimson to-crimson-deep" },
   { icon: Plane, key: "why.p2", gradient: "from-saffron to-[#c9881a]" },
-  { icon: BadgeCheck, key: "why.p3", gradient: "from-navy to-success" },
+  { icon: BadgeCheck, key: "why.p3", gradient: "from-black to-success" },
   { icon: Building2, key: "why.p4", gradient: "from-saffron to-crimson" },
 ] as const;
 
 export function WhyJGate() {
   const { t } = useI18n();
   return (
-    <section id="why" className="section-pad relative overflow-hidden bg-navy">
+    <section id="why" className="section-pad relative overflow-hidden bg-black">
       <div className="pattern-asanoha-navy absolute inset-0 opacity-60" />
       <div
         className="absolute inset-0"

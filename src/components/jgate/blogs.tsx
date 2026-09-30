@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 const ARTICLES = [
   { key: "blogs.b1", tagColor: "bg-crimson/10 text-crimson", readTime: "5 min", gradient: "from-crimson to-midnight" },
   { key: "blogs.b2", tagColor: "bg-saffron/15 text-[#a06d00]", readTime: "7 min", gradient: "from-saffron to-crimson" },
-  { key: "blogs.b3", tagColor: "bg-success/10 text-success", readTime: "6 min", gradient: "from-navy to-success" },
+  { key: "blogs.b3", tagColor: "bg-success/10 text-success", readTime: "6 min", gradient: "from-black to-success" },
 ] as const;
 
 const GALLERY: (PhotoItem & { gKey: string })[] = [
@@ -37,7 +37,7 @@ export function Blogs() {
   };
 
   return (
-    <section id="blogs" className="section-pad relative overflow-hidden bg-navy">
+    <section id="blogs" className="section-pad relative overflow-hidden bg-black">
       <div className="pattern-asanoha-navy absolute inset-0 opacity-60" />
       <div className="container-jg relative">
         <Reveal>

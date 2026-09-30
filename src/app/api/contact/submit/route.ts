@@ -111,7 +111,7 @@ async function sendContactNotification(data: {
       <h1 style="color: #ffffff; font-size: 22px; margin: 0 0 4px; font-weight: 700;">📩 New Contact Inquiry</h1>
       <p style="color: #8892a4; font-size: 13px; margin: 0;">J-Gate × Indobox — Direct Inquiry Alert</p>
     </div>
-    <div style="background: #0d1b2a; padding: 24px 32px;">
+    <div style="background: #000000; padding: 24px 32px;">
       <table style="width: 100%; color: #ffffff; font-size: 14px; border-collapse: collapse;">
         <tr><td style="padding: 10px 0; color: #8892a4; width: 140px;">Name</td><td style="padding: 10px 0; font-weight: 600; color: #ffffff;">${escapeHtml(data.name)}</td></tr>
         <tr><td style="padding: 10px 0; color: #8892a4;">Email</td><td style="padding: 10px 0;"><a href="mailto:${escapeHtml(data.email)}" style="color: #e8a01a; text-decoration: none; font-weight: 600;">${escapeHtml(data.email)}</a></td></tr>

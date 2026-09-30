@@ -29,7 +29,7 @@ const FOUNDERS = [
     title: "CEO, Genesys Info X | MoU Partner, J-Gate",
     image: "/advisory/sarikonda.png",
     initials: "VS",
-    accent: "from-saffron to-navy",
+    accent: "from-saffron to-black",
     border: "border-left-saffron-thin",
     flag: "in" as const,
     badge: "Hyderabad-based Business Leader",

@@ -38,7 +38,7 @@ export function Contact() {
   const labelClass = "mb-1.5 block font-inter text-[11px] font-semibold uppercase text-mist";
 
   return (
-    <section id="contact" className="section-pad relative overflow-hidden bg-navy">
+    <section id="contact" className="section-pad relative overflow-hidden bg-black">
       <div className="pattern-asanoha-navy absolute inset-0 opacity-60" />
       <div className="container-jg relative">
         <Reveal>

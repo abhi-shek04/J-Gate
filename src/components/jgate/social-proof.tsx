@@ -37,7 +37,7 @@ const TESTIMONIALS = [
     author: { EN: "Branch Manager", JP: "ブランチマネージャー" },
     role: { EN: "Japanese Enterprise", JP: "日本企業" },
     initials: "BM",
-    accent: "from-navy to-success",
+    accent: "from-black to-success",
   },
 ];
 

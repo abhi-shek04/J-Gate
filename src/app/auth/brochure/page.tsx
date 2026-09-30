@@ -171,13 +171,13 @@ export default function BrochureAuthPage() {
 
         {/* Auth card */}
         <div
-          className="relative w-full max-w-lg overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-navy shadow-2xl"
+          className="relative w-full max-w-lg overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-[#09090b] shadow-2xl"
           style={{ animation: "jg-modal-in 0.4s cubic-bezier(0.4,0,0.2,1)" }}
         >
           <style>{`@keyframes jg-modal-in { from { opacity:0; transform: translateY(24px) scale(0.97) } to { opacity:1; transform: translateY(0) scale(1) } }`}</style>
 
           {/* Header */}
-          <div className="relative overflow-hidden bg-gradient-to-br from-crimson/20 via-navy to-navy p-5 sm:p-8">
+          <div className="relative overflow-hidden bg-gradient-to-br from-crimson/20 via-black to-black p-5 sm:p-8">
             <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-saffron/10 blur-3xl" aria-hidden="true" />
             <div className="absolute -left-8 -bottom-8 h-32 w-32 rounded-full bg-crimson/15 blur-3xl" aria-hidden="true" />
             <div className="relative">

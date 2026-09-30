@@ -46,7 +46,7 @@ const TESTIMONIALS: Testimonial[] = [
     name: "K. Watanabe",
     role: { EN: "Branch Director", JP: "支店長" },
     company: { EN: "Regional Japanese Bank", JP: "地方銀行" },
-    gradient: "from-navy to-success",
+    gradient: "from-black to-success",
   },
 ];
 
@@ -66,7 +66,7 @@ export function TestimonialsSection() {
   return (
     <section
       id="why-testimonials"
-      className="section-pad relative overflow-hidden bg-navy text-white"
+      className="section-pad relative overflow-hidden bg-black text-white"
       aria-label="Client testimonials"
     >
       <div className="pattern-asanoha-navy absolute inset-0 opacity-60" />

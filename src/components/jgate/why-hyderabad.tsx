@@ -63,7 +63,7 @@ export function WhyHyderabad() {
 
         {/* Hyderabad highlight banner */}
         <Reveal delay={120}>
-          <div className="mt-12 overflow-hidden rounded-2xl bg-navy">
+          <div className="mt-12 overflow-hidden rounded-2xl bg-black">
             <div className="pattern-asanoha-navy grid items-center gap-8 p-8 md:grid-cols-2 md:p-12">
               {/* Left content */}
               <div>

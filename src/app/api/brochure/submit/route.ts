@@ -121,7 +121,7 @@ async function sendAdminNotification(data: {
       <h1 style="color: #ffffff; font-size: 22px; margin: 0 0 4px; font-weight: 700;">🎫 New Brochure Download Registration</h1>
       <p style="color: #8892a4; font-size: 13px; margin: 0;">J-Gate × Indobox — Lead Capture Alert</p>
     </div>
-    <div style="background: #0d1b2a; padding: 24px 32px;">
+    <div style="background: #000000; padding: 24px 32px;">
       <table style="width: 100%; color: #ffffff; font-size: 14px; border-collapse: collapse;">
         <tr><td style="padding: 10px 0; color: #8892a4; width: 140px;">Full Name</td><td style="padding: 10px 0; font-weight: 600; color: #ffffff;">${escapeHtml(data.fullName)}</td></tr>
         <tr><td style="padding: 10px 0; color: #8892a4;">Organization</td><td style="padding: 10px 0; font-weight: 600; color: #ffffff;">${escapeHtml(data.organization)}</td></tr>

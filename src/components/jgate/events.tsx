@@ -42,7 +42,7 @@ export function Events() {
   const openAt = (i: number) => open(EVENT_PHOTOS, i);
 
   return (
-    <section id="events" className="section-pad relative overflow-hidden bg-navy">
+    <section id="events" className="section-pad relative overflow-hidden bg-black">
       <div className="pattern-asanoha-navy absolute inset-0 opacity-60" />
       <div className="container-jg relative">
         <Reveal>

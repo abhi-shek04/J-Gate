@@ -247,7 +247,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
 
                   {/* Circular Portrait */}
                   <div className="relative mt-1">
-                    <div className="h-20 w-20 sm:h-22 sm:w-22 rounded-full overflow-hidden border-2 border-saffron/50 dark:border-saffron/60 bg-slate-50 dark:bg-navy/80 shadow-md transition-transform duration-300 group-hover:scale-105 group-hover:border-saffron mx-auto">
+                    <div className="h-20 w-20 sm:h-22 sm:w-22 rounded-full overflow-hidden border-2 border-saffron/50 dark:border-saffron/60 bg-slate-50 dark:bg-[#09090b] shadow-md transition-transform duration-300 group-hover:scale-105 group-hover:border-saffron mx-auto">
                       <img
                         src={adv.image}
                         alt={adv.name}
@@ -320,7 +320,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
 
                   {/* Circular Portrait */}
                   <div className="relative mt-1">
-                    <div className="h-20 w-20 sm:h-22 sm:w-22 rounded-full overflow-hidden border-2 border-saffron/50 dark:border-saffron/60 bg-slate-50 dark:bg-navy/80 shadow-md transition-transform duration-300 group-hover:scale-105 group-hover:border-saffron mx-auto">
+                    <div className="h-20 w-20 sm:h-22 sm:w-22 rounded-full overflow-hidden border-2 border-saffron/50 dark:border-saffron/60 bg-slate-50 dark:bg-[#09090b] shadow-md transition-transform duration-300 group-hover:scale-105 group-hover:border-saffron mx-auto">
                       <img
                         src={adv.image}
                         alt={adv.name}
@@ -388,7 +388,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
       {/* ════════════════════════════════════════════════════════════
           2. ARCHITECTURAL DIVIDER
          ════════════════════════════════════════════════════════════ */}
-      <div className="relative h-14 overflow-hidden bg-ivory dark:bg-[#0c1424]">
+      <div className="relative h-14 overflow-hidden bg-ivory dark:bg-black">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-crimson/40 to-transparent" />
         <div className="flex h-full items-center justify-center">
           <div className="flex items-center gap-3">
@@ -404,7 +404,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
       {/* ════════════════════════════════════════════════════════════
           3. OPERATIONS TEAM — 4-Card Executive Grid (Warm Ivory)
          ════════════════════════════════════════════════════════════ */}
-      <section className="py-6 sm:py-8 lg:py-10 bg-ivory dark:bg-[#0c1424]">
+      <section className="py-6 sm:py-8 lg:py-10 bg-ivory dark:bg-black">
         <div className="container-jg">
           <Reveal>
             <SectionHeading
@@ -448,7 +448,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                       </div>
 
                       {/* Flag Tag */}
-                      <span className="absolute bottom-0 right-0 flex items-center gap-1 rounded-full bg-white/95 dark:bg-navy/95 px-1.5 py-0.5 text-[9px] font-bold text-slate-700 dark:text-slate-200 shadow-sm border border-slate-200/80 dark:border-white/15 backdrop-blur-sm">
+                      <span className="absolute bottom-0 right-0 flex items-center gap-1 rounded-full bg-white/95 dark:bg-[#09090b]/95 px-1.5 py-0.5 text-[9px] font-bold text-slate-700 dark:text-slate-200 shadow-sm border border-slate-200/80 dark:border-white/15 backdrop-blur-sm">
                         {m.country === "Japan" ? <JapanFlag className="h-3 w-4.5 rounded-xs shrink-0" /> : <IndiaFlag className="h-3 w-4.5 rounded-xs shrink-0" />}
                         <span className="text-[8.5px] tracking-wide uppercase font-inter">{m.country}</span>
                       </span>

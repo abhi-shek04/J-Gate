@@ -10,7 +10,7 @@ const ADVISORS = [
     initials: "SJ",
     title: "Advisory Council Member — J-Gate",
     former: "Chief Information Officer, T-Hub",
-    accent: "from-navy to-crimson",
+    accent: "from-black to-crimson",
     bio: "Mr. Jagirdar brings to J-Gate an extraordinary depth of experience in technology leadership and technology sector building. During his tenure as CIO of T-Hub — India's largest and most globally connected startup hub — he oversaw the digital infrastructure and technology strategy that enabled thousands of startups to scale. His commitment to J-Gate reflects a belief that the India-Japan business corridor represents one of the most significant opportunities of this decade, and he is personally invested in ensuring that Japanese companies navigating this corridor have access to world-class strategic guidance.",
     quote: "Japanese companies bring a quality of discipline and innovation that India needs. J-Gate is the platform that makes that partnership possible at scale.",
   },
@@ -19,7 +19,7 @@ const ADVISORS = [
     initials: "SRM",
     title: "Advisory Council Member — J-Gate",
     former: "Chief Executive Officer, T-Hub",
-    accent: "from-navy to-saffron",
+    accent: "from-black to-saffron",
     bio: "As former CEO of T-Hub, Mr. Mahankali led one of India's most consequential innovation institutions at its most critical growth phase — building it into a globally recognized platform for startups, corporate innovation, and government-industry collaboration. He brings to J-Gate an unrivaled understanding of how to connect global businesses with India's opportunity ecosystem. His advisory role is a direct expression of his conviction in Mr. Daisuke Tanji's vision and in the transformative potential of the India-Japan business relationship.",
     quote: "What Daisuke has built with J-Gate is what Hyderabad has been waiting for — a real, trusted partner for Japanese companies that respects both cultures and delivers results.",
   },
@@ -27,7 +27,7 @@ const ADVISORS = [
 
 export function Advisory() {
   return (
-    <section id="advisory" className="section-pad relative overflow-hidden bg-navy">
+    <section id="advisory" className="section-pad relative overflow-hidden bg-black">
       <div className="pattern-asanoha-navy absolute inset-0 opacity-60" />
       <div
         className="absolute inset-0"
@@ -64,7 +64,7 @@ export function Advisory() {
                   <div className="relative shrink-0">
                     <div
                       className={cn(
-                        "flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br font-serif-jp text-2xl font-bold text-white shadow-hover ring-4 ring-navy/60",
+                        "flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br font-serif-jp text-2xl font-bold text-white shadow-hover ring-4 ring-black/60",
                         a.accent
                       )}
                     >

@@ -9,7 +9,7 @@ import { cn } from "@/lib/utils";
 const SERVICES = [
   { icon: Users, key: "services.s1", color: "from-crimson to-crimson-deep" },
   { icon: Handshake, key: "services.s2", color: "from-saffron to-[#c9881a]" },
-  { icon: BookOpen, key: "services.s3", color: "from-navy to-success" },
+  { icon: BookOpen, key: "services.s3", color: "from-black to-success" },
   { icon: Plane, key: "services.s4", color: "from-saffron to-crimson" },
 ] as const;
 

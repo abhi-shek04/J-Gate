@@ -48,7 +48,7 @@ const CARDS = [
 
 export function Amenities() {
   return (
-    <section id="amenities" className="section-pad relative overflow-hidden bg-navy">
+    <section id="amenities" className="section-pad relative overflow-hidden bg-black">
       <div className="pattern-asanoha-navy absolute inset-0 opacity-60" />
       <div
         className="absolute inset-0"

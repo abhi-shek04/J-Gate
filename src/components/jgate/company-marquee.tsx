@@ -48,7 +48,7 @@ function NameRow({
   names,
   direction = "left",
   duration = "38s",
-  bgFrom = "from-navy",
+  bgFrom = "from-black",
 }: {
   names: CompanyName[];
   direction?: "left" | "right";
@@ -117,7 +117,7 @@ export function CompanyMarquee({
   showLabels?: boolean;
 }) {
   return (
-    <div className={cn("relative bg-navy py-8", className)}>
+    <div className={cn("relative bg-black py-8", className)}>
       {/* Subtle asanoha texture overlay */}
       <div className="pattern-asanoha-navy pointer-events-none absolute inset-0 opacity-30" />
       {/* Soft top/bottom vignette */}
@@ -125,7 +125,7 @@ export function CompanyMarquee({
         className="pointer-events-none absolute inset-0"
         style={{
           background:
-            "linear-gradient(180deg, rgba(8,15,26,0.55) 0%, transparent 25%, transparent 75%, rgba(8,15,26,0.55) 100%)",
+            "linear-gradient(180deg, rgba(0,0,0,0.55) 0%, transparent 25%, transparent 75%, rgba(0,0,0,0.55) 100%)",
         }}
       />
 
@@ -146,7 +146,7 @@ export function CompanyMarquee({
           names={STRATEGIC_NAMES}
           direction="left"
           duration="38s"
-          bgFrom="from-navy"
+          bgFrom="from-black"
         />
 
         {/* Row 2 — Ecosystem Partners (scroll right) */}
@@ -154,7 +154,7 @@ export function CompanyMarquee({
           names={ECOSYSTEM_NAMES}
           direction="right"
           duration="42s"
-          bgFrom="from-navy"
+          bgFrom="from-black"
         />
       </div>
     </div>

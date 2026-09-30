@@ -170,12 +170,12 @@ export function HyderabadSkyline(props: SVGProps<SVGSVGElement>) {
     <svg viewBox="0 0 1440 320" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" {...props}>
       <defs>
         <linearGradient id="sky-far" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#0d1b2a" />
-          <stop offset="100%" stopColor="#080f1a" />
+          <stop offset="0%" stopColor="#000000" />
+          <stop offset="100%" stopColor="#09090b" />
         </linearGradient>
         <linearGradient id="sky-near" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#060d16" />
-          <stop offset="100%" stopColor="#04080f" />
+          <stop offset="0%" stopColor="#000000" />
+          <stop offset="100%" stopColor="#000000" />
         </linearGradient>
       </defs>
       <g fill="url(#sky-far)" opacity="0.6">

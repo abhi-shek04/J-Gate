@@ -59,7 +59,7 @@ const MARQUEE = ["T-Hub", "Woxsen University", "Genesys Info X", "MXC", "Kodryx 
 export function Partners() {
   const marquee = [...MARQUEE, ...MARQUEE];
   return (
-    <section id="partners" className="section-pad relative overflow-hidden bg-navy">
+    <section id="partners" className="section-pad relative overflow-hidden bg-black">
       <div className="pattern-asanoha-navy absolute inset-0 opacity-60" />
       <div className="container-jg relative">
         <Reveal>

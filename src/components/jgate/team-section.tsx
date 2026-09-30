@@ -386,39 +386,12 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          2. ARCHITECTURAL DIVIDER
+          2. OPERATIONS MANAGEMENT TEAM — Seamless Executive Cards Flow
          ════════════════════════════════════════════════════════════ */}
-      <div className="relative h-14 overflow-hidden bg-ivory dark:bg-black">
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-crimson/40 to-transparent" />
-        <div className="flex h-full items-center justify-center">
-          <div className="flex items-center gap-3">
-            <span className="h-px w-20 bg-crimson/30" />
-            <span className="font-serif-jp text-[11.5px] font-bold uppercase tracking-widest text-crimson dark:text-rose-400">
-              {tx({ EN: "OPERATIONS & EXECUTION", JP: "運営・執行体制 · OPERATIONS" })}
-            </span>
-            <span className="h-px w-20 bg-crimson/30" />
-          </div>
-        </div>
-      </div>
-
-      {/* ════════════════════════════════════════════════════════════
-          3. OPERATIONS TEAM — 4-Card Executive Grid (Warm Ivory)
-         ════════════════════════════════════════════════════════════ */}
-      <section className="py-6 sm:py-8 lg:py-10 bg-ivory dark:bg-black">
+      <section className="py-4 sm:py-6 lg:py-8 bg-ivory dark:bg-black border-t border-slate-200/60 dark:border-white/10 transition-colors duration-300">
         <div className="container-jg">
-          <Reveal>
-            <SectionHeading
-              eyebrow={tx({ EN: "Operations & On-Site Team", JP: "現地運営チーム" })}
-              title={tx({ EN: "Operations Management Team", JP: "J-Gate 運営チーム" })}
-              subtitle={tx({
-                EN: "Bilingual professionals based on-site in Hyderabad — ensuring daily operations, member support, and executive concierge services.",
-                JP: "ハイデラバード現地に常駐するバイリンガルプロフェッショナル陣が、日々の快適な拠点運営と個別支援を徹底サポート。",
-              })}
-            />
-          </Reveal>
-
           {/* 4 Profile Cards across matching reference */}
-          <div className="mt-6 sm:mt-8 lg:mt-9 grid grid-cols-1 gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {OPS_TEAM.map((m, i) => {
               const isTanji = m.id === "tanji";
               return (

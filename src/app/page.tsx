@@ -251,7 +251,7 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════
           1. HERO — Ultra-Luxurious Japanese-Modern Executive Launchpad
          ════════════════════════════════════════════════════════════ */}
-      <section className="relative flex items-center justify-center overflow-hidden bg-slate-50/70 dark:bg-black py-8 sm:py-12 border-b border-slate-200/80 dark:border-white/10 transition-colors duration-300">
+      <section className="relative flex items-center justify-center overflow-hidden bg-slate-50/70 dark:bg-black pt-24 sm:pt-32 pb-8 sm:pb-12 border-b border-slate-200/80 dark:border-white/10 transition-colors duration-300">
         {/* Ambient warm layered glows — Clean Institutional Light & Dark */}
         <div
           className="absolute inset-0 dark:hidden pointer-events-none"
@@ -298,7 +298,7 @@ export default function HomePage() {
           className="pointer-events-none absolute bottom-0 left-0 h-[25%] w-full bg-gradient-to-b from-transparent via-slate-50/60 to-slate-50 dark:via-[#070c16]/60 dark:to-[#070c16]"
         />
 
-        <div className="container-jg relative z-10 pt-4 pb-6 sm:pt-6 sm:pb-8 text-center max-w-5xl mx-auto">
+        <div className="container-jg relative z-10 pt-2 pb-6 sm:pt-4 sm:pb-8 text-center max-w-5xl mx-auto">
           {/* 1. Pre-title: Japan–India Business & Talent Hub */}
           <Reveal>
             <div className="flex items-center justify-center gap-2.5 font-inter text-[11.5px] sm:text-[12.5px] font-bold uppercase tracking-[0.22em] text-crimson dark:text-rose-400">
@@ -487,34 +487,6 @@ export default function HomePage() {
                       className="w-full max-h-[300px] sm:max-h-[360px] object-contain transition-transform duration-700 group-hover:scale-105"
                       loading="lazy"
                     />
-                  </div>
-
-                  {/* Connectivity Quick Strip */}
-                  <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-slate-100 dark:border-white/10 grid grid-cols-3 gap-1.5 sm:gap-2.5 text-center">
-                    <div className="bg-slate-50 dark:bg-white/5 rounded-lg sm:rounded-xl p-1.5 sm:p-2.5 border border-slate-200/60 dark:border-white/10 shadow-sm transition-transform duration-200 hover:scale-105">
-                      <span className="block font-inter text-[8.5px] sm:text-[9.5px] font-semibold text-slate-400 uppercase tracking-wider">
-                        {tx({ EN: "Metro", JP: "メトロ" })}
-                      </span>
-                      <span className="block font-inter text-[10.5px] sm:text-[12px] font-bold text-ink dark:text-white truncate mt-0.5">
-                        {tx({ EN: "2 Min Walk", JP: "徒歩2分" })}
-                      </span>
-                    </div>
-                    <div className="bg-slate-50 dark:bg-white/5 rounded-lg sm:rounded-xl p-1.5 sm:p-2.5 border border-slate-200/60 dark:border-white/10 shadow-sm transition-transform duration-200 hover:scale-105">
-                      <span className="block font-inter text-[8.5px] sm:text-[9.5px] font-semibold text-slate-400 uppercase tracking-wider">
-                        {tx({ EN: "Airport", JP: "空港" })}
-                      </span>
-                      <span className="block font-inter text-[10.5px] sm:text-[12px] font-bold text-ink dark:text-white truncate mt-0.5">
-                        {tx({ EN: "35 Min Drive", JP: "車で35分" })}
-                      </span>
-                    </div>
-                    <div className="bg-slate-50 dark:bg-white/5 rounded-lg sm:rounded-xl p-1.5 sm:p-2.5 border border-slate-200/60 dark:border-white/10 shadow-sm transition-transform duration-200 hover:scale-105">
-                      <span className="block font-inter text-[8.5px] sm:text-[9.5px] font-semibold text-slate-400 uppercase tracking-wider">
-                        {tx({ EN: "District", JP: "地区" })}
-                      </span>
-                      <span className="block font-inter text-[10.5px] sm:text-[12px] font-bold text-crimson dark:text-rose-400 truncate mt-0.5">
-                        {tx({ EN: "Hyderabad", JP: "IT特区" })}
-                      </span>
-                    </div>
                   </div>
                 </div>
               </Reveal>

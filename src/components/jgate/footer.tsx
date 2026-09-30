@@ -148,7 +148,7 @@ export function Footer() {
                 <div className="font-inter text-[12.5px] sm:text-[13px] leading-relaxed text-slate-600 dark:text-slate-400">
                   <p className="font-semibold text-ink dark:text-white">Hyderabad Office</p>
                   <p>2nd Floor, Genesys Info X, Block B, Wing 1</p>
-                  <p>Madhapur, Hyderabad</p>
+                  <p>Cyber Gateway, Madhapur, Hyderabad</p>
                   <p>Telangana 500081, India</p>
                 </div>
               </div>

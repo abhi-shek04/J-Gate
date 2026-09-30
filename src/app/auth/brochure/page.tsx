@@ -136,25 +136,25 @@ export default function BrochureAuthPage() {
   };
 
   const inputClass =
-    "w-full rounded-xl border bg-white/[0.05] px-3.5 py-2.5 sm:px-4 sm:py-3 font-inter text-base sm:text-sm text-white placeholder-white/35 outline-none transition-all duration-200 focus:border-crimson focus:bg-white/[0.08]";
+    "w-full rounded-xl border border-slate-200 dark:border-white/12 bg-slate-50/80 dark:bg-white/[0.05] px-3.5 py-2.5 sm:px-4 sm:py-3 font-inter text-base sm:text-sm text-ink dark:text-white placeholder-slate-400 dark:placeholder-white/35 outline-none transition-all duration-200 focus:border-crimson dark:focus:border-crimson focus:bg-white dark:focus:bg-white/[0.08]";
   const labelClass =
-    "mb-1 sm:mb-1.5 block font-inter text-[11px] sm:text-[11.5px] font-semibold uppercase tracking-wider text-mist";
+    "mb-1 sm:mb-1.5 block font-inter text-[11px] sm:text-[11.5px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300";
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-midnight">
+    <div className="relative min-h-screen overflow-hidden bg-slate-50 dark:bg-black transition-colors duration-300">
       {/* Ambient background glows */}
       <div
-        className="pointer-events-none absolute inset-0 opacity-40"
+        className="pointer-events-none absolute inset-0 opacity-40 dark:opacity-40"
         style={{
           background:
-            "radial-gradient(ellipse at top left, rgba(188,26,44,0.18) 0%, transparent 55%), radial-gradient(ellipse at bottom right, rgba(232,160,26,0.12) 0%, transparent 60%)",
+            "radial-gradient(ellipse at top left, rgba(188,26,44,0.12) 0%, transparent 55%), radial-gradient(ellipse at bottom right, rgba(232,160,26,0.1) 0%, transparent 60%)",
         }}
         aria-hidden="true"
       />
 
       {/* Japanese Torii watermark */}
-      <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 opacity-[0.04]">
-        <ToriiWatermark className="h-[600px] w-[600px] text-white" />
+      <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 opacity-[0.03] dark:opacity-[0.04]">
+        <ToriiWatermark className="h-[600px] w-[600px] text-ink dark:text-white" />
       </div>
 
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-3.5 py-10 sm:px-6 sm:py-16">
@@ -162,7 +162,7 @@ export default function BrochureAuthPage() {
         <div className="mb-4 sm:mb-6 w-full max-w-lg">
           <Link
             href="/"
-            className="inline-flex items-center gap-1.5 font-inter text-[12px] font-medium text-mist transition-colors hover:text-white"
+            className="inline-flex items-center gap-1.5 font-inter text-[12px] font-medium text-slate-600 dark:text-mist transition-colors hover:text-ink dark:hover:text-white"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             <span>{tx({ EN: "Back to Home", JP: "ホームに戻る" })}</span>
@@ -171,31 +171,36 @@ export default function BrochureAuthPage() {
 
         {/* Auth card */}
         <div
-          className="relative w-full max-w-lg overflow-hidden rounded-2xl sm:rounded-3xl border border-white/10 bg-[#09090b] shadow-2xl"
+          className="relative w-full max-w-lg overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-black shadow-xl dark:shadow-2xl transition-colors duration-300"
           style={{ animation: "jg-modal-in 0.4s cubic-bezier(0.4,0,0.2,1)" }}
         >
           <style>{`@keyframes jg-modal-in { from { opacity:0; transform: translateY(24px) scale(0.97) } to { opacity:1; transform: translateY(0) scale(1) } }`}</style>
 
           {/* Header */}
-          <div className="relative overflow-hidden bg-gradient-to-br from-crimson/20 via-black to-black p-5 sm:p-8">
+          <div className="relative overflow-hidden bg-gradient-to-br from-rose-50 via-white to-amber-50/40 dark:from-crimson/20 dark:via-black dark:to-black p-5 sm:p-8 border-b border-slate-200/80 dark:border-white/10">
             <div className="absolute -right-12 -top-12 h-40 w-40 rounded-full bg-saffron/10 blur-3xl" aria-hidden="true" />
-            <div className="absolute -left-8 -bottom-8 h-32 w-32 rounded-full bg-crimson/15 blur-3xl" aria-hidden="true" />
+            <div className="absolute -left-8 -bottom-8 h-32 w-32 rounded-full bg-crimson/10 dark:bg-crimson/15 blur-3xl" aria-hidden="true" />
             <div className="relative">
               {/* Logo */}
               <div className="flex items-center justify-between">
-                <JGateLogo variant="light" />
+                <div className="dark:hidden">
+                  <JGateLogo variant="dark" />
+                </div>
+                <div className="hidden dark:block">
+                  <JGateLogo variant="light" />
+                </div>
               </div>
 
-              <h1 className="mt-4 sm:mt-5 font-serif-jp text-xl sm:text-2xl font-bold leading-snug text-white">
+              <h1 className="mt-4 sm:mt-5 font-serif-jp text-xl sm:text-2xl font-bold leading-snug text-ink dark:text-white">
                 {status === "success"
                   ? tx({ EN: "Your Download Has Started", JP: "ダウンロードを開始しました" })
                   : tx({ EN: "Download Brochure", JP: "公式パンフレットのダウンロード" })}
               </h1>
-              <p className="mt-1.5 sm:mt-2 font-inter text-[12.5px] sm:text-[13px] leading-relaxed text-mist">
+              <p className="mt-1.5 sm:mt-2 font-inter text-[12.5px] sm:text-[13px] leading-relaxed text-slate-600 dark:text-slate-300">
                 {status === "success"
                   ? tx({
-                      EN: "Thank you for your interest. If the download did not start automatically, please use the direct download or browser preview options below.",
-                      JP: "ご登録ありがとうございます。ダウンロードが自動的に始まらない場合は、下のボタンから直接ダウンロードまたはブラウザで閲覧いただけます。",
+                      EN: "Thank you for your interest. If the download did not start automatically, please use the download option below.",
+                      JP: "ご登録ありがとうございます。ダウンロードが自動的に始まらない場合は、下のボタンから直接ダウンロードいただけます。",
                     })
                   : tx({
                       EN: "Please provide your details below to download the J-Gate India expansion guide.",
@@ -205,7 +210,7 @@ export default function BrochureAuthPage() {
 
               {/* Trust row */}
               {status !== "success" && (
-                <div className="mt-3.5 sm:mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 font-inter text-[10.5px] sm:text-[11px] text-mist/80">
+                <div className="mt-3.5 sm:mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 font-inter text-[10.5px] sm:text-[11px] text-slate-500 dark:text-slate-400">
                   <span className="flex items-center gap-1.5">
                     <Lock className="h-3 w-3 text-crimson" />
                     {tx({ EN: "Encrypted", JP: "暗号化済み" })}
@@ -331,7 +336,7 @@ export default function BrochureAuthPage() {
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="btn-shine mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3 sm:py-3.5 font-inter text-sm font-semibold text-white shadow-xl shadow-crimson/30 hover:shadow-crimson/50 transition-all hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
+                  className="btn-shine mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3 sm:py-3.5 font-inter text-sm font-semibold text-white shadow-xl shadow-crimson/25 hover:shadow-crimson/40 transition-all hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
                 >
                   {status === "submitting" ? (
                     <>
@@ -345,56 +350,9 @@ export default function BrochureAuthPage() {
                     </>
                   )}
                 </button>
-
-                {/* Direct Access Bypass */}
-                <div className="mt-3.5 pt-3 border-t border-white/10 flex flex-wrap items-center justify-between gap-2 text-[11px] text-mist/70">
-                  <span>{tx({ EN: "Already submitted or need direct access?", JP: "即時閲覧または再ダウンロード希望の方：" })}</span>
-                  <div className="flex items-center gap-2 font-medium">
-                    <a
-                      href="/J-Gate-Brochure.pdf"
-                      download="J-Gate-Brochure.pdf"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-saffron hover:underline inline-flex items-center gap-1"
-                    >
-                      <Download className="h-3 w-3" />
-                      {tx({ EN: "Direct Download", JP: "直接DL" })}
-                    </a>
-                    <span>·</span>
-                    <a href="/J-Gate-Brochure.pdf" target="_blank" rel="noopener noreferrer" className="text-mist hover:text-white inline-flex items-center gap-1">
-                      <ExternalLink className="h-3 w-3" />
-                      {tx({ EN: "Preview Online", JP: "ブラウザで開く" })}
-                    </a>
-                  </div>
-                </div>
-
-                <p className="pt-1 text-center font-inter text-[11px] text-mist/60">
-                  {tx({
-                    EN: "Your data is encrypted and handled in strict confidentiality.",
-                    JP: "お客様のデータは暗号化され、厳格に秘密保持されます。",
-                  })}
-                </p>
               </form>
             )}
           </div>
-
-          {/* Footer bar */}
-          {status !== "success" && (
-            <div className="border-t border-white/8 bg-midnight/60 px-5 py-3.5 sm:px-8">
-              <p className="text-center font-inter text-[11px] text-mist/70">
-                {tx({
-                  EN: "Prefer a direct briefing? Connect directly with our resident directors at",
-                  JP: "直接の個別相談をご希望ですか？日本人ディレクター直通：",
-                })}{" "}
-                <Link
-                  href="/contact"
-                  className="font-medium text-white underline underline-offset-2 hover:text-saffron"
-                >
-                  {tx({ EN: "Executive Japan Desk", JP: "公式窓口・現地デスク" })}
-                </Link>
-              </p>
-            </div>
-          )}
         </div>
       </div>
     </div>
@@ -435,18 +393,18 @@ function SuccessState({
           className="absolute inset-0 -m-4 rounded-full bg-emerald-500/20 blur-2xl"
           aria-hidden="true"
         />
-        <div className="relative flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-2xl bg-emerald-500/15 text-emerald-400 border border-emerald-400/30 shadow-xl shadow-emerald-500/15">
+        <div className="relative flex h-16 w-16 sm:h-20 sm:w-20 items-center justify-center rounded-2xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-400/30 shadow-xl shadow-emerald-500/15">
           <CheckCircle2 className="h-10 w-10 sm:h-12 sm:w-12" strokeWidth={1.5} />
         </div>
       </div>
 
-      <h2 className="mt-4 sm:mt-5 font-serif-jp text-lg sm:text-xl font-bold text-white">
+      <h2 className="mt-4 sm:mt-5 font-serif-jp text-lg sm:text-xl font-bold text-ink dark:text-white">
         {tx({
           EN: "Thank you! Your download has started.",
           JP: "ありがとうございます！ダウンロードを開始しました。",
         })}
       </h2>
-      <p className="mt-1.5 max-w-xs font-inter text-[12.5px] sm:text-[13px] leading-relaxed text-mist">
+      <p className="mt-1.5 max-w-xs font-inter text-[12.5px] sm:text-[13px] leading-relaxed text-slate-600 dark:text-slate-300">
         {tx({
           EN: "If your browser did not automatically save the file, please use the direct download or browser preview options below.",
           JP: "自動的に保存されない場合は、下のボタンから直接ダウンロードまたはプレビューをご利用ください。",
@@ -461,7 +419,7 @@ function SuccessState({
           download="J-Gate-Brochure.pdf"
           target="_blank"
           rel="noopener noreferrer"
-          className="btn-shine flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3.5 font-inter text-[13.5px] sm:text-sm font-semibold text-white shadow-xl shadow-crimson/30 hover:shadow-crimson/50 transition-all hover:-translate-y-0.5"
+          className="btn-shine flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3.5 font-inter text-[13.5px] sm:text-sm font-semibold text-white shadow-xl shadow-crimson/25 hover:shadow-crimson/40 transition-all hover:-translate-y-0.5"
         >
           <Download className="h-4.5 w-4.5" />
           {tx({ EN: "Download PDF Brochure (55MB)", JP: "公式PDF資料をダウンロード (55MB)" })}
@@ -473,7 +431,7 @@ function SuccessState({
             href="/J-Gate-Brochure.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/[0.06] px-4 py-2.5 font-inter text-[12px] font-semibold text-white hover:bg-white/10 transition-colors"
+            className="flex items-center justify-center gap-2 rounded-xl border border-slate-200 dark:border-white/20 bg-slate-100 dark:bg-white/[0.06] px-4 py-2.5 font-inter text-[12px] font-semibold text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-white/10 transition-colors"
           >
             <ExternalLink className="h-3.5 w-3.5 text-saffron" />
             {tx({ EN: "Preview in Browser", JP: "ブラウザで開く（プレビュー）" })}
@@ -481,9 +439,9 @@ function SuccessState({
           <button
             type="button"
             onClick={handleCopyLink}
-            className="flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/[0.06] px-4 py-2.5 font-inter text-[12px] font-semibold text-white hover:bg-white/10 transition-colors cursor-pointer"
+            className="flex items-center justify-center gap-2 rounded-xl border border-slate-200 dark:border-white/20 bg-slate-100 dark:bg-white/[0.06] px-4 py-2.5 font-inter text-[12px] font-semibold text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-white/10 transition-colors cursor-pointer"
           >
-            {copied ? <Check className="h-3.5 w-3.5 text-emerald-400" /> : <Copy className="h-3.5 w-3.5 text-slate-300" />}
+            {copied ? <Check className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" /> : <Copy className="h-3.5 w-3.5 text-slate-500 dark:text-slate-300" />}
             {copied ? tx({ EN: "Link Copied!", JP: "リンクをコピーしました" }) : tx({ EN: "Copy Download Link", JP: "ダウンロードURLをコピー" })}
           </button>
         </div>
@@ -492,14 +450,14 @@ function SuccessState({
         <div className="flex flex-col gap-2 sm:flex-row pt-2">
           <button
             onClick={onReset}
-            className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-white/15 px-4 py-2.5 font-inter text-[12px] font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all cursor-pointer"
+            className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-slate-200 dark:border-white/15 px-4 py-2.5 font-inter text-[12px] font-medium text-slate-700 dark:text-slate-300 hover:text-ink dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all cursor-pointer"
           >
             <ArrowLeft className="h-3.5 w-3.5" />
             {tx({ EN: "Submit another inquiry", JP: "別の内容で登録" })}
           </button>
           <Link
             href="/"
-            className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-white/15 px-4 py-2.5 font-inter text-[12px] font-medium text-slate-300 hover:text-white hover:bg-white/5 transition-all"
+            className="flex flex-1 items-center justify-center gap-1.5 rounded-xl border border-slate-200 dark:border-white/15 px-4 py-2.5 font-inter text-[12px] font-medium text-slate-700 dark:text-slate-300 hover:text-ink dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 transition-all"
           >
             {tx({ EN: "Back to Home", JP: "ホームに戻る" })}
             <ArrowRight className="h-3.5 w-3.5" />

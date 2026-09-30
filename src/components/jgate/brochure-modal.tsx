@@ -134,12 +134,12 @@ export function BrochureModal() {
   };
 
   const inputClass =
-    "w-full rounded-xl border bg-white/[0.05] px-3.5 py-2.5 sm:px-4 sm:py-3 font-inter text-base sm:text-sm text-white placeholder-white/35 outline-none transition-all duration-200 focus:border-crimson focus:bg-white/[0.08]";
-  const labelClass = "mb-1 sm:mb-1.5 block font-inter text-[11px] sm:text-[11.5px] font-semibold uppercase tracking-wider text-mist";
+    "w-full rounded-xl border border-slate-200 dark:border-white/12 bg-slate-50/80 dark:bg-white/[0.05] px-3.5 py-2.5 sm:px-4 sm:py-3 font-inter text-base sm:text-sm text-ink dark:text-white placeholder-slate-400 dark:placeholder-white/35 outline-none transition-all duration-200 focus:border-crimson dark:focus:border-crimson focus:bg-white dark:focus:bg-white/[0.08]";
+  const labelClass = "mb-1 sm:mb-1.5 block font-inter text-[11px] sm:text-[11.5px] font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-300";
 
   return (
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center overflow-y-auto bg-midnight/80 p-3.5 sm:p-4 backdrop-blur-md"
+      className="fixed inset-0 z-[9999] flex items-center justify-center overflow-y-auto bg-slate-900/60 dark:bg-black/80 p-3.5 sm:p-4 backdrop-blur-md transition-colors duration-300"
       onClick={(e) => {
         if (e.target === e.currentTarget && status !== "submitting") close();
       }}
@@ -148,7 +148,7 @@ export function BrochureModal() {
       aria-label="Download Brochure"
     >
       <div
-        className="relative w-full max-w-lg overflow-hidden rounded-2xl sm:rounded-3xl border border-white/15 bg-[#09090b] shadow-2xl my-auto"
+        className="relative w-full max-w-lg overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/15 bg-white dark:bg-black shadow-2xl my-auto transition-colors duration-300"
         style={{ animation: "jg-modal-in 0.3s cubic-bezier(0.4,0,0.2,1)" }}
       >
         <style>{`@keyframes jg-modal-in { from { opacity:0; transform: translateY(20px) scale(0.96) } to { opacity:1; transform: translateY(0) scale(1) } }`}</style>
@@ -157,21 +157,21 @@ export function BrochureModal() {
         <button
           onClick={close}
           disabled={status === "submitting"}
-          className="absolute right-3.5 top-3.5 sm:right-4 sm:top-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white/80 transition-colors hover:bg-white/20 hover:text-white disabled:opacity-40 cursor-pointer"
+          className="absolute right-3.5 top-3.5 sm:right-4 sm:top-4 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-white/80 transition-colors hover:bg-slate-200 dark:hover:bg-white/20 hover:text-ink dark:hover:text-white disabled:opacity-40 cursor-pointer"
           aria-label="Close modal"
         >
           <X className="h-5 w-5" />
         </button>
 
         {/* Header */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-crimson/25 via-black to-black p-4.5 sm:p-6 pb-3 sm:pb-4 border-b border-white/10">
+        <div className="relative overflow-hidden bg-gradient-to-br from-rose-50 via-white to-amber-50/40 dark:from-crimson/25 dark:via-black dark:to-black p-4.5 sm:p-6 pb-3 sm:pb-4 border-b border-slate-200/80 dark:border-white/10">
           <div className="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-saffron/10 blur-2xl" aria-hidden="true" />
-          <h2 className="font-serif-jp text-lg sm:text-xl font-bold text-white pr-8">
+          <h2 className="font-serif-jp text-lg sm:text-xl font-bold text-ink dark:text-white pr-8">
             {status === "success"
               ? tx({ EN: "Your Download Has Started", JP: "ダウンロードを開始しました" })
               : tx({ EN: "Download Brochure", JP: "公式パンフレットのダウンロード" })}
           </h2>
-          <p className="mt-1 text-[12px] sm:text-[12.5px] leading-relaxed text-mist">
+          <p className="mt-1 text-[12px] sm:text-[12.5px] leading-relaxed text-slate-600 dark:text-slate-300">
             {status === "success"
               ? tx({
                   EN: "If the download didn't start automatically, use the direct download or browser preview options below.",
@@ -189,10 +189,10 @@ export function BrochureModal() {
           {status === "success" ? (
             /* Success screen */
             <div className="flex flex-col items-center py-4 text-center">
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-500/15 text-emerald-400 border border-emerald-400/30 shadow-lg shadow-emerald-500/10">
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 border border-emerald-400/30 shadow-lg shadow-emerald-500/10">
                 <CheckCircle2 className="h-9 w-9" strokeWidth={1.5} />
               </div>
-              <p className="mt-4 max-w-xs font-inter text-[13px] sm:text-[13.5px] leading-relaxed text-mist">
+              <p className="mt-4 max-w-xs font-inter text-[13px] sm:text-[13.5px] leading-relaxed text-slate-600 dark:text-slate-300">
                 {tx({
                   EN: "Your download has started. Our bilingual directors are also available for private consultation.",
                   JP: "資料のダウンロードを開始しました。現地進出やオフィス見学のご相談はいつでもお気軽にお問い合わせください。",
@@ -204,7 +204,7 @@ export function BrochureModal() {
                   download="J-Gate-Brochure.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-shine flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3 font-inter text-sm font-semibold text-white transition-all hover:-translate-y-0.5 shadow-lg shadow-crimson/30"
+                  className="btn-shine flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3 font-inter text-sm font-semibold text-white transition-all hover:-translate-y-0.5 shadow-lg shadow-crimson/25"
                 >
                   <Download className="h-4 w-4" />
                   {tx({ EN: "Download PDF (55MB)", JP: "PDF資料をダウンロード (55MB)" })}
@@ -214,7 +214,7 @@ export function BrochureModal() {
                     href="/J-Gate-Brochure.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-1.5 rounded-xl border border-white/20 bg-white/[0.06] px-3 py-2.5 font-inter text-[12px] font-semibold text-white transition-colors hover:bg-white/10"
+                    className="flex items-center justify-center gap-1.5 rounded-xl border border-slate-200 dark:border-white/20 bg-slate-100 dark:bg-white/[0.06] px-3 py-2.5 font-inter text-[12px] font-semibold text-slate-800 dark:text-white transition-colors hover:bg-slate-200 dark:hover:bg-white/10"
                   >
                     <ExternalLink className="h-3.5 w-3.5 text-saffron" />
                     {tx({ EN: "Preview Online", JP: "ブラウザで開く" })}
@@ -224,7 +224,7 @@ export function BrochureModal() {
                       reset();
                       close();
                     }}
-                    className="rounded-xl border border-white/20 px-3 py-2.5 font-inter text-[12px] font-semibold text-white transition-colors hover:bg-white/10 cursor-pointer"
+                    className="rounded-xl border border-slate-200 dark:border-white/20 px-3 py-2.5 font-inter text-[12px] font-semibold text-slate-800 dark:text-white transition-colors hover:bg-slate-100 dark:hover:bg-white/10 cursor-pointer"
                   >
                     {tx({ EN: "Close", JP: "閉じる" })}
                   </button>
@@ -251,7 +251,7 @@ export function BrochureModal() {
                   value={form.fullName}
                   onChange={(e) => setForm({ ...form, fullName: e.target.value })}
                   placeholder={tx({ EN: "Your full name", JP: "山田 太郎" })}
-                  className={cn(inputClass, errors.fullName ? "border-crimson" : "border-white/12")}
+                  className={cn(inputClass, errors.fullName ? "border-crimson" : "")}
                 />
                 {errors.fullName && <p className="mt-1 font-inter text-[11px] text-crimson">{errors.fullName}</p>}
               </div>
@@ -266,7 +266,7 @@ export function BrochureModal() {
                   value={form.organization}
                   onChange={(e) => setForm({ ...form, organization: e.target.value })}
                   placeholder={tx({ EN: "Company or organization", JP: "株式会社インフォボックス" })}
-                  className={cn(inputClass, errors.organization ? "border-crimson" : "border-white/12")}
+                  className={cn(inputClass, errors.organization ? "border-crimson" : "")}
                 />
                 {errors.organization && <p className="mt-1 font-inter text-[11px] text-crimson">{errors.organization}</p>}
               </div>
@@ -282,7 +282,7 @@ export function BrochureModal() {
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
                   placeholder={tx({ EN: "name@company.com", JP: "yamada@company.co.jp" })}
-                  className={cn(inputClass, errors.email ? "border-crimson" : "border-white/12")}
+                  className={cn(inputClass, errors.email ? "border-crimson" : "")}
                 />
                 {errors.email && <p className="mt-1 font-inter text-[11px] text-crimson">{errors.email}</p>}
               </div>
@@ -301,7 +301,7 @@ export function BrochureModal() {
                     EN: "Any specific questions or inquiries (optional)...",
                     JP: "進出時期、関心のある支援内容など（任意）...",
                   })}
-                  className={cn(inputClass, "resize-none border-white/12")}
+                  className={cn(inputClass, "resize-none")}
                 />
               </div>
 
@@ -309,7 +309,7 @@ export function BrochureModal() {
               <button
                 type="submit"
                 disabled={status === "submitting"}
-                className="btn-shine mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3 sm:py-3.5 font-inter text-sm font-semibold text-white shadow-xl shadow-crimson/30 hover:shadow-crimson/50 transition-all hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
+                className="btn-shine mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3 sm:py-3.5 font-inter text-sm font-semibold text-white shadow-xl shadow-crimson/25 hover:shadow-crimson/40 transition-all hover:-translate-y-0.5 disabled:opacity-50 cursor-pointer"
               >
                 {status === "submitting" ? (
                   <>
@@ -323,28 +323,6 @@ export function BrochureModal() {
                   </>
                 )}
               </button>
-
-              {/* Direct access bypass */}
-              <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[11px] text-mist/70">
-                <span>{tx({ EN: "Direct access:", JP: "直接アクセス：" })}</span>
-                <div className="flex items-center gap-2 font-medium">
-                  <a
-                    href="/J-Gate-Brochure.pdf"
-                    download="J-Gate-Brochure.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-saffron hover:underline inline-flex items-center gap-1"
-                  >
-                    <Download className="h-3 w-3" />
-                    {tx({ EN: "Direct Download", JP: "直接DL" })}
-                  </a>
-                  <span>·</span>
-                  <a href="/J-Gate-Brochure.pdf" target="_blank" rel="noopener noreferrer" className="text-mist hover:text-white inline-flex items-center gap-1">
-                    <ExternalLink className="h-3 w-3" />
-                    {tx({ EN: "Preview", JP: "プレビュー" })}
-                  </a>
-                </div>
-              </div>
             </form>
           )}
         </div>

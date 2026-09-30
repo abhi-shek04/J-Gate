@@ -155,7 +155,9 @@ export function ContactSection({ id }: { id?: string }) {
                         {tx({ EN: "Office", JP: "オフィス" })}
                       </p>
                       <p className="font-inter text-sm text-ink dark:text-white leading-relaxed">
-                        Hyderabad
+                        2nd Floor, Genesys Info X, Block B, Wing 1
+                        <br />
+                        Cyber Gateway, Madhapur, Hyderabad
                         <br />
                         Telangana 500081, India
                       </p>

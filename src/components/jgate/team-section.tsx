@@ -211,7 +211,7 @@ export function TeamSection({ id }: { id?: string }) {
       {/* ════════════════════════════════════════════════════════════
           1. ADVISORY COUNCIL — 3+2 Luxury Executive Grid (Light & Dark Support)
          ════════════════════════════════════════════════════════════ */}
-      <section className="py-12 sm:py-16 lg:py-24 relative overflow-hidden bg-slate-50/70 dark:bg-[#070d18] border-b border-slate-200/80 dark:border-white/10 text-ink dark:text-white transition-colors duration-300">
+      <section className="py-8 sm:py-12 lg:py-14 relative overflow-hidden bg-slate-50/70 dark:bg-[#070d18] border-b border-slate-200/80 dark:border-white/10 text-ink dark:text-white transition-colors duration-300">
         {/* Ambient subtle Japanese Asanoha lattice backdrop */}
         <div className="pattern-asanoha opacity-[0.03] dark:pattern-asanoha-dark dark:opacity-20 absolute inset-0 pointer-events-none" />
         <div
@@ -402,7 +402,7 @@ export function TeamSection({ id }: { id?: string }) {
       {/* ════════════════════════════════════════════════════════════
           3. OPERATIONS TEAM — 4-Card Executive Grid (Warm Ivory)
          ════════════════════════════════════════════════════════════ */}
-      <section className="py-12 sm:py-16 lg:py-24 bg-ivory dark:bg-[#0c1424]">
+      <section className="py-8 sm:py-12 lg:py-14 bg-ivory dark:bg-[#0c1424]">
         <div className="container-jg">
           <Reveal>
             <SectionHeading
@@ -578,7 +578,7 @@ export function TeamSection({ id }: { id?: string }) {
       {/* ════════════════════════════════════════════════════════════
           4. OUR PARTNERS — Infinite Side-Scrolling Company Marquee
          ════════════════════════════════════════════════════════════ */}
-      <section className="py-12 sm:py-16 lg:py-24 relative overflow-hidden bg-ivory-warm dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10 transition-colors duration-300">
+      <section className="py-8 sm:py-12 lg:py-14 relative overflow-hidden bg-ivory-warm dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10 transition-colors duration-300">
         <div className="container-jg mb-8 sm:mb-10">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">

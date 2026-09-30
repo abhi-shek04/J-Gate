@@ -680,11 +680,6 @@ export default function HomePage() {
       <PricingSection id="pricing" />
 
       {/* ════════════════════════════════════════════════════════════
-          FREQUENTLY ASKED QUESTIONS — Continuous Scroll
-         ════════════════════════════════════════════════════════════ */}
-      <FAQSection id="faq" />
-
-      {/* ════════════════════════════════════════════════════════════
           FACILITIES & OFFICE GALLERY — Continuous Scroll
          ════════════════════════════════════════════════════════════ */}
       <BlogsSection id="blogs" />
@@ -693,6 +688,11 @@ export default function HomePage() {
           CONTACT & JAPAN DESK CONSOLE — Continuous Scroll
          ════════════════════════════════════════════════════════════ */}
       <ContactSection id="contact" />
+
+      {/* ════════════════════════════════════════════════════════════
+          FREQUENTLY ASKED QUESTIONS — Continuous Scroll
+         ════════════════════════════════════════════════════════════ */}
+      <FAQSection id="faq" />
     </>
   );
 }

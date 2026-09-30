@@ -355,7 +355,7 @@ export function PricingSection({ id }: { id?: string }) {
       {/* ───────────────────────────────────────────────────────────
           2. Three Executive Plan Cards
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-12 sm:py-16 lg:py-24 bg-ivory-warm dark:bg-[#0f1728] relative overflow-hidden transition-colors">
+      <section className="py-8 sm:py-12 lg:py-14 bg-ivory-warm dark:bg-[#0f1728] relative overflow-hidden transition-colors">
         {/* Ambient subtle warm lighting */}
         <div
           className="pointer-events-none absolute inset-0 opacity-35"
@@ -380,31 +380,33 @@ export function PricingSection({ id }: { id?: string }) {
               })}
             />
 
-            {/* Interactive Currency & Team Size Selector Bar */}
-            <div className="mt-4 sm:mt-5 flex flex-wrap items-center justify-center gap-3">
-              {/* Currency Switcher */}
-              <div className="inline-flex items-center bg-white/90 dark:bg-[#101a2c] p-1 rounded-2xl border border-slate-200/80 dark:border-white/10 shadow-xs">
+            {/* Premium Currency Switcher Bar */}
+            <div className="mt-6 mb-8 flex items-center justify-center">
+              <div className="inline-flex items-center gap-1.5 bg-white/90 dark:bg-[#101a2c] p-1.5 rounded-full border border-slate-200/90 dark:border-white/14 shadow-sm backdrop-blur-md">
+                <span className="px-3 text-[11px] font-bold font-mono tracking-wider text-slate-600 dark:text-slate-300 uppercase">
+                  {tx({ EN: "Currency:", JP: "表示通貨:" })}
+                </span>
                 <button
                   type="button"
                   onClick={() => setCurrency("INR")}
-                  className={`px-3 py-1 rounded-xl text-[11.5px] font-inter font-bold transition-all cursor-pointer ${
+                  className={`px-4 py-1.5 rounded-full text-[12px] font-inter font-bold transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
                     currency === "INR"
-                      ? "bg-crimson text-white shadow-xs"
-                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                      ? "bg-crimson text-white shadow-md shadow-crimson/25 scale-[1.02]"
+                      : "text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10"
                   }`}
                 >
-                  INR (₹)
+                  <span>🇮🇳</span> INR (₹)
                 </button>
                 <button
                   type="button"
                   onClick={() => setCurrency("JPY")}
-                  className={`px-3 py-1 rounded-xl text-[11.5px] font-inter font-bold transition-all cursor-pointer ${
+                  className={`px-4 py-1.5 rounded-full text-[12px] font-inter font-bold transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
                     currency === "JPY"
-                      ? "bg-crimson text-white shadow-xs"
-                      : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                      ? "bg-crimson text-white shadow-md shadow-crimson/25 scale-[1.02]"
+                      : "text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10"
                   }`}
                 >
-                  JPY (¥)
+                  <span>🇯🇵</span> JPY (¥)
                 </button>
               </div>
             </div>
@@ -659,7 +661,7 @@ export function PricingSection({ id }: { id?: string }) {
       {/* ───────────────────────────────────────────────────────────
           4. Billing Notes & Transparent Guarantees
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-12 sm:py-16 lg:py-24 bg-ivory dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10">
+      <section className="py-8 sm:py-12 lg:py-14 bg-ivory dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-4xl">

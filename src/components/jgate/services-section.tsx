@@ -305,7 +305,7 @@ export function ServicesSection({ id }: { id?: string }) {
       {/* ───────────────────────────────────────────────────────────
           3. Core Services (Simple, Clean, Professional Text Layout)
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-12 sm:py-16 lg:py-24 bg-ivory-warm dark:bg-[#0b111e]">
+      <section className="py-8 sm:py-12 lg:py-14 bg-ivory-warm dark:bg-[#0b111e]">
         <div className="container-jg max-w-5xl">
           <Reveal>
             <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
@@ -401,7 +401,7 @@ export function ServicesSection({ id }: { id?: string }) {
       {/* ───────────────────────────────────────────────────────────
           4. Deployment Roadmap (From Consultation to Operations)
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-12 sm:py-16 lg:py-24 bg-ivory dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10">
+      <section className="py-8 sm:py-12 lg:py-14 bg-ivory dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center mb-10">
@@ -454,7 +454,7 @@ export function ServicesSection({ id }: { id?: string }) {
           5. INDUSTRIAL-LEVEL BILATERAL GOVERNANCE ARCHITECTURE
              (Indobox × Genesys Info X — Luminous Mode Console)
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-12 sm:py-16 lg:py-24 bg-ivory-warm dark:bg-[#0b111e] text-ink dark:text-white relative overflow-hidden border-t border-slate-200/70 dark:border-white/10">
+      <section className="py-8 sm:py-12 lg:py-14 bg-ivory-warm dark:bg-[#0b111e] text-ink dark:text-white relative overflow-hidden border-t border-slate-200/70 dark:border-white/10">
         {/* Subtle ambient lighting */}
         <div
           className="pointer-events-none absolute inset-0 opacity-40"

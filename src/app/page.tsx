@@ -113,7 +113,14 @@ function GlassBadge({
         accentBorder
       )}
     >
-      <div className="flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 shadow-2xs group-hover:scale-105 transition-transform duration-300">
+      <div
+        className={cn(
+          "flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl border shadow-2xs group-hover:scale-105 transition-transform duration-300",
+          imageSrc
+            ? "bg-white border-slate-200 dark:border-white/20 p-1"
+            : "bg-slate-100 dark:bg-white/5 border-slate-200/80 dark:border-white/10"
+        )}
+      >
         {imageSrc ? (
           <img
             src={imageSrc}

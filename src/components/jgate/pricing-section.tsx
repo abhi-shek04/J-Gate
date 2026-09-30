@@ -532,7 +532,7 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
                                 <span className="font-semibold text-slate-900 dark:text-slate-100 mr-1">
                                   {tx(feat.title)}
                                 </span>
-                                <span className="text-slate-500 dark:text-slate-400 hidden sm:inline">
+                                <span className="text-slate-600 dark:text-slate-300 hidden sm:inline">
                                   — {tx(feat.desc)}
                                 </span>
                               </span>

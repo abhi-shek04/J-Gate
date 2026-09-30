@@ -63,7 +63,7 @@ export function FoundingTeam() {
         <div className="mt-12 grid gap-6 lg:grid-cols-5">
           {FOUNDERS.map((f, i) => (
             <Reveal key={f.name} delay={i * 140} variant={i === 0 ? "left" : "right"} className={f.span}>
-              <article className={cn("luxury-light-card card-sheen relative flex h-full flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-6 sm:p-8 shadow-card hover:shadow-2xl transition-all duration-300", f.border)}>
+              <article className={cn("luxury-light-card card-sheen relative flex h-full flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-6 sm:p-8 shadow-card hover:shadow-2xl transition-all duration-300", f.border)}>
                 <div>
                   <div className="flex flex-col sm:flex-row sm:items-start sm:gap-6">
                     {/* Circular Avatar */}

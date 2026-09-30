@@ -113,7 +113,7 @@ function TeamCard({
   const { lang } = useI18n();
 
   return (
-    <article className="group relative flex h-full flex-col justify-between items-center rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-5 text-center shadow-xs hover:shadow-lg hover:border-crimson/40 dark:hover:border-crimson/50 transition-all duration-300">
+    <article className="group relative flex h-full flex-col justify-between items-center rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-4 sm:p-5 text-center shadow-xs hover:shadow-lg hover:border-crimson/40 dark:hover:border-crimson/50 transition-all duration-300">
       {/* Circular Avatar */}
       <div className="relative mt-1">
         <div className="h-20 w-20 sm:h-22 sm:w-22 rounded-full overflow-hidden border-2 border-slate-200 dark:border-white/20 bg-slate-50 dark:bg-white/5 shadow-md mx-auto transition-transform duration-300 group-hover:scale-105 group-hover:border-crimson/60">

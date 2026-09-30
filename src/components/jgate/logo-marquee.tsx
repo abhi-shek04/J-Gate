@@ -41,13 +41,13 @@ function PartnerCard({ logo, variant = "light" }: { logo: Logo; variant?: "light
         "group flex h-14 sm:h-20 w-44 sm:w-68 shrink-0 items-center gap-2.5 sm:gap-3.5 rounded-xl sm:rounded-2xl border p-2 sm:p-3.5 transition-all duration-300 hover:-translate-y-1",
         isDark
           ? "border-white/10 bg-white/[0.04] backdrop-blur-sm hover:border-saffron/40 hover:bg-white/[0.07] hover:shadow-[0_8px_24px_rgba(0,0,0,0.35)]"
-          : "border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] shadow-card dark:shadow-xl hover:border-crimson/40 dark:hover:border-rose-400/40 hover:shadow-xl"
+          : "border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] shadow-card dark:shadow-xl hover:border-crimson/40 dark:hover:border-rose-400/40 hover:shadow-xl"
       )}
     >
       <div
         className={cn(
           "flex h-10 w-13 sm:h-14 sm:w-22 shrink-0 items-center justify-center rounded-lg sm:rounded-xl p-1 sm:p-2.5 transition-transform duration-300 group-hover:scale-[1.03]",
-          "border border-slate-200/90 dark:border-white/20 bg-white shadow-xs"
+          "border border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#121215] shadow-xs"
         )}
       >
         {logo.src ? (

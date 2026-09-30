@@ -318,7 +318,7 @@ export function ComparisonTable() {
 
         {/* Verdict Banner */}
         <Reveal delay={160} variant="scale">
-          <div className="mx-auto mt-10 max-w-4xl overflow-hidden rounded-2xl border-2 border-crimson/40 dark:border-crimson/60 bg-gradient-to-r from-red-50/90 via-white to-amber-50/80 dark:from-rose-950/40 dark:via-[#101a2c] dark:to-amber-950/30 p-6 sm:p-8 shadow-xl">
+          <div className="mx-auto mt-10 max-w-4xl overflow-hidden rounded-2xl border-2 border-crimson/40 dark:border-crimson/60 bg-gradient-to-r from-red-50/90 via-white to-amber-50/80 dark:from-rose-950/40 dark:via-[#09090b] dark:to-amber-950/30 p-6 sm:p-8 shadow-xl">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-crimson text-white shadow-crimp">
                 <ShieldCheck className="h-6 w-6" />

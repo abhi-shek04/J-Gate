@@ -63,7 +63,7 @@ export function Difference() {
         <div className="mt-14 grid gap-6 md:grid-cols-3">
           {DIFFERENTIATORS.map((d, i) => (
             <Reveal key={d.title} delay={i * 120}>
-              <article className="luxury-light-card card-sheen gold-hairline group h-full rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-6 sm:p-8 shadow-card dark:shadow-2xl transition-all duration-300 flex flex-col justify-between">
+              <article className="luxury-light-card card-sheen gold-hairline group h-full rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-6 sm:p-8 shadow-card dark:shadow-2xl transition-all duration-300 flex flex-col justify-between">
                 <div>
                   <div className="icon-pod h-12 w-12 shrink-0">
                     <d.icon className="h-6 w-6" strokeWidth={1.75} />

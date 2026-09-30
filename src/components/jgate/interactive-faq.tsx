@@ -124,7 +124,7 @@ export function InteractiveFAQ() {
             return (
               <Reveal key={i} delay={i * 60}>
                 <div
-                  className={`overflow-hidden rounded-2xl border transition-all duration-300 bg-white dark:bg-[#101a2c] ${
+                  className={`overflow-hidden rounded-2xl border transition-all duration-300 bg-white dark:bg-[#09090b] ${
                     isOpen
                       ? "border-crimson/40 dark:border-rose-500/50 shadow-xl"
                       : "border-slate-200/80 dark:border-white/10 shadow-sm hover:border-slate-300 dark:hover:border-white/20"

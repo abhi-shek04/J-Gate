@@ -101,7 +101,7 @@ export function Faq() {
         </Reveal>
 
         <Reveal delay={100}>
-          <div className="mx-auto mt-12 max-w-3xl rounded-2xl bg-white dark:bg-[#101a2c] p-6 shadow-card border border-slate-200/90 dark:border-white/10 sm:p-8">
+          <div className="mx-auto mt-12 max-w-3xl rounded-2xl bg-white dark:bg-[#09090b] p-6 shadow-card border border-slate-200/90 dark:border-white/10 sm:p-8">
             {FAQS.map((faq, i) => (
               <FaqItem
                 key={i}

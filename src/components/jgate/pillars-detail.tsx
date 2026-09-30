@@ -141,7 +141,7 @@ export function PillarsDetail() {
             const Icon = p.icon;
             return (
               <Reveal key={p.num} delay={i * 80} variant="scale">
-                <article className="luxury-light-card card-sheen gold-hairline group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-5 sm:p-7 shadow-lg hover:shadow-2xl transition-all duration-300 hover:border-crimson/40">
+                <article className="luxury-light-card card-sheen gold-hairline group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-5 sm:p-7 shadow-lg hover:shadow-2xl transition-all duration-300 hover:border-crimson/40">
                   {/* Faded Ghost Numeral Watermark */}
                   <span
                     aria-hidden="true"

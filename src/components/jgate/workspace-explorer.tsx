@@ -183,7 +183,7 @@ export function WorkspaceExplorer() {
         {/* Active Space Bento Preview Card */}
         <div className="mt-6 sm:mt-8 max-w-5xl mx-auto">
           <Reveal key={activeSpace.id} variant="scale">
-            <div className="luxury-light-card card-sheen gold-hairline overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-6 lg:p-8 hover:shadow-2xl transition-all duration-300">
+            <div className="luxury-light-card card-sheen gold-hairline overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-4 sm:p-6 lg:p-8 hover:shadow-2xl transition-all duration-300">
               <div className="grid lg:grid-cols-12 gap-5 sm:gap-8 items-center">
                 {/* Left: Photo with floating overlay badge */}
                 <div className="lg:col-span-6 relative">

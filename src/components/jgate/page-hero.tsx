@@ -83,7 +83,7 @@ export function PageHero({
             {/* Right Column: Subtitle Description in Glass Box + Tags */}
             <div className="lg:col-span-5 text-left">
               <Reveal variant="right" delay={100}>
-                <div className="luxury-light-card card-sheen relative rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white/95 dark:bg-[#101a2c]/90 p-5 sm:p-6 shadow-md backdrop-blur-xl">
+                <div className="luxury-light-card card-sheen relative rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white/95 dark:bg-[#09090b]/90 p-5 sm:p-6 shadow-md backdrop-blur-xl">
                   {subtitleContent && (
                     <p className="font-inter text-[13.5px] sm:text-[14.5px] font-normal leading-relaxed text-slate-600 dark:text-slate-300">
                       {subtitleContent}

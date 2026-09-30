@@ -504,7 +504,7 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
               <div className="rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-4 sm:p-6 lg:p-9 shadow-[0_12px_36px_-12px_rgba(8,15,26,0.08)]">
                 <div className="grid md:grid-cols-11 items-center gap-4 sm:gap-6 lg:gap-8">
                   {/* Left Pedestal: Indobox India Private Limited. */}
-                  <div className="md:col-span-5 rounded-xl sm:rounded-2xl border border-crimson/20 dark:border-crimson/30 bg-gradient-to-b from-rose-50/40 via-white to-slate-50/50 dark:from-rose-950/20 dark:via-[#101a2c] dark:to-[#0b111e] p-5 sm:p-7 text-center relative overflow-hidden group hover:border-crimson/50 hover:shadow-md transition-all duration-300 flex flex-col items-center justify-between">
+                  <div className="md:col-span-5 rounded-xl sm:rounded-2xl border border-crimson/20 dark:border-crimson/30 bg-gradient-to-b from-rose-50/40 via-white to-slate-50/50 dark:from-rose-950/20 dark:via-[#09090b] dark:to-[#000000] p-5 sm:p-7 text-center relative overflow-hidden group hover:border-crimson/50 hover:shadow-md transition-all duration-300 flex flex-col items-center justify-between">
                     <span className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson to-crimson-deep" />
 
                     <span className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-rose-200/90 dark:border-rose-800/40 bg-rose-50/90 dark:bg-rose-950/50 px-3.5 py-1 text-[11.5px] font-bold text-rose-800 dark:text-rose-300 shadow-2xs font-inter">
@@ -512,7 +512,7 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
                     </span>
 
                     {/* Official Brand Logo Box */}
-                    <div className="h-20 sm:h-24 w-full rounded-xl bg-white dark:bg-white/95 border border-slate-200/80 dark:border-white/10 p-4 flex items-center justify-center shadow-xs mb-3 group-hover:scale-[1.02] transition-transform">
+                    <div className="h-20 sm:h-24 w-full rounded-xl bg-white dark:bg-[#121215] border border-slate-200/80 dark:border-white/10 p-4 flex items-center justify-center shadow-xs mb-3 group-hover:scale-[1.02] transition-transform">
                       <Image
                         src="/logos/indobox.svg"
                         alt="Indobox India Private Limited."
@@ -549,7 +549,7 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
                   </div>
 
                   {/* Right Pedestal: Genesys Info X */}
-                  <div className="md:col-span-5 rounded-xl sm:rounded-2xl border border-saffron/25 dark:border-amber-400/30 bg-gradient-to-b from-amber-50/40 via-white to-slate-50/50 dark:from-amber-950/20 dark:via-[#101a2c] dark:to-[#0b111e] p-5 sm:p-7 text-center relative overflow-hidden group hover:border-saffron/50 hover:shadow-md transition-all duration-300 flex flex-col items-center justify-between">
+                  <div className="md:col-span-5 rounded-xl sm:rounded-2xl border border-saffron/25 dark:border-amber-400/30 bg-gradient-to-b from-amber-50/40 via-white to-slate-50/50 dark:from-amber-950/20 dark:via-[#09090b] dark:to-[#000000] p-5 sm:p-7 text-center relative overflow-hidden group hover:border-saffron/50 hover:shadow-md transition-all duration-300 flex flex-col items-center justify-between">
                     <span className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-saffron to-[#c9881a]" />
 
                     <span className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-amber-200/90 dark:border-amber-800/40 bg-amber-50/90 dark:bg-amber-950/50 px-3.5 py-1 text-[11.5px] font-bold text-amber-900 dark:text-amber-300 shadow-2xs font-inter">
@@ -557,7 +557,7 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
                     </span>
 
                     {/* Official Brand Logo Box */}
-                    <div className="h-20 sm:h-24 w-full rounded-xl bg-white dark:bg-white/95 border border-slate-200/80 dark:border-white/10 p-4 flex items-center justify-center shadow-xs mb-3 group-hover:scale-[1.02] transition-transform">
+                    <div className="h-20 sm:h-24 w-full rounded-xl bg-white dark:bg-[#121215] border border-slate-200/80 dark:border-white/10 p-4 flex items-center justify-center shadow-xs mb-3 group-hover:scale-[1.02] transition-transform">
                       <Image
                         src="/logos/genesys-info-x.png"
                         alt="Genesys Info X"

@@ -41,7 +41,7 @@ function PartnerCard({ logo, variant = "light" }: { logo: Logo; variant?: "light
         "group flex h-14 sm:h-20 w-44 sm:w-68 shrink-0 items-center gap-2.5 sm:gap-3.5 rounded-xl sm:rounded-2xl border p-2 sm:p-3.5 transition-all duration-300 hover:-translate-y-1",
         isDark
           ? "border-white/10 bg-white/[0.04] backdrop-blur-sm hover:border-saffron/40 hover:bg-white/[0.07] hover:shadow-[0_8px_24px_rgba(0,0,0,0.35)]"
-          : "border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] shadow-card dark:shadow-xl hover:border-crimson/40 dark:hover:border-rose-400/40 hover:shadow-xl"
+          : "border-slate-200/90 dark:border-white/10 bg-white dark:bg-black shadow-card dark:shadow-xl hover:border-crimson/40 dark:hover:border-rose-400/40 hover:shadow-xl"
       )}
     >
       <div

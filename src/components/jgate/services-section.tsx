@@ -501,17 +501,17 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
           {/* Master Collaborative Vitrine: Museum-Grade Logo Pedestals & Joint Hub Medallion */}
           <div className="max-w-5xl mx-auto mb-8 sm:mb-12">
             <Reveal>
-              <div className="rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-4 sm:p-6 lg:p-9 shadow-[0_12px_36px_-12px_rgba(8,15,26,0.08)]">
+              <div className="rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-black p-4 sm:p-6 lg:p-9 shadow-[0_12px_36px_-12px_rgba(8,15,26,0.08)]">
                 <div className="grid md:grid-cols-11 items-center gap-4 sm:gap-6 lg:gap-8">
                   {/* Left Pedestal: Indobox India Private Limited. */}
-                  <div className="md:col-span-5 rounded-xl sm:rounded-2xl border border-crimson/20 dark:border-crimson/30 bg-gradient-to-b from-rose-50/40 via-white to-slate-50/50 dark:from-rose-950/20 dark:via-[#09090b] dark:to-[#000000] p-5 sm:p-7 text-center relative overflow-hidden group hover:border-crimson/50 hover:shadow-md transition-all duration-300 flex flex-col items-center justify-between">
+                  <div className="md:col-span-5 rounded-xl sm:rounded-2xl border border-crimson/20 dark:border-crimson/30 bg-gradient-to-b from-rose-50/40 via-white to-slate-50/50 dark:from-rose-950/30 dark:via-black dark:to-black p-5 sm:p-7 text-center relative overflow-hidden group hover:border-crimson/50 hover:shadow-md transition-all duration-300 flex flex-col items-center justify-between">
                     <span className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-crimson to-crimson-deep" />
 
                     <span className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-rose-200/90 dark:border-rose-800/40 bg-rose-50/90 dark:bg-rose-950/50 px-3.5 py-1 text-[11.5px] font-bold text-rose-800 dark:text-rose-300 shadow-2xs font-inter">
                       🇯🇵 {tx({ EN: "Japan Governance & Strategy", JP: "日本企業ガバナンス・戦略統括" })}
                     </span>
 
-                    {/* Official Brand Logo Box */}
+                    {/* Official Brand Logo Box - Pure White tile for original light mode logo colors */}
                     <div className="h-20 sm:h-24 w-full rounded-xl bg-white border border-slate-200/80 p-4 flex items-center justify-center shadow-xs mb-3 group-hover:scale-[1.02] transition-transform">
                       <Image
                         src="/logos/indobox.svg"
@@ -540,7 +540,7 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
 
                   {/* Center Bilateral Fusion Medallion */}
                   <div className="md:col-span-1 flex flex-col items-center justify-center my-3 md:my-0">
-                    <div className="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border-2 border-saffron bg-white dark:bg-[#09090b] font-bold text-base text-ink dark:text-white shadow-md">
+                    <div className="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border-2 border-saffron bg-white dark:bg-black font-bold text-base text-ink dark:text-white shadow-md">
                       ×
                     </div>
                     <span className="mt-2 font-inter text-[9.5px] font-bold tracking-widest text-slate-500 dark:text-slate-400 uppercase text-center leading-tight">
@@ -549,14 +549,14 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
                   </div>
 
                   {/* Right Pedestal: Genesys Info X */}
-                  <div className="md:col-span-5 rounded-xl sm:rounded-2xl border border-saffron/25 dark:border-amber-400/30 bg-gradient-to-b from-amber-50/40 via-white to-slate-50/50 dark:from-amber-950/20 dark:via-[#09090b] dark:to-[#000000] p-5 sm:p-7 text-center relative overflow-hidden group hover:border-saffron/50 hover:shadow-md transition-all duration-300 flex flex-col items-center justify-between">
+                  <div className="md:col-span-5 rounded-xl sm:rounded-2xl border border-saffron/25 dark:border-amber-400/30 bg-gradient-to-b from-amber-50/40 via-white to-slate-50/50 dark:from-amber-950/30 dark:via-black dark:to-black p-5 sm:p-7 text-center relative overflow-hidden group hover:border-saffron/50 hover:shadow-md transition-all duration-300 flex flex-col items-center justify-between">
                     <span className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-saffron to-[#c9881a]" />
 
                     <span className="mb-3 inline-flex items-center gap-1.5 rounded-full border border-amber-200/90 dark:border-amber-800/40 bg-amber-50/90 dark:bg-amber-950/50 px-3.5 py-1 text-[11.5px] font-bold text-amber-900 dark:text-amber-300 shadow-2xs font-inter">
                       🇮🇳 {tx({ EN: "India Infrastructure Backbone", JP: "インド現地インフラ・拠点運営" })}
                     </span>
 
-                    {/* Official Brand Logo Box */}
+                    {/* Official Brand Logo Box - Pure White tile for original light mode logo colors */}
                     <div className="h-20 sm:h-24 w-full rounded-xl bg-white border border-slate-200/80 p-4 flex items-center justify-center shadow-xs mb-3 group-hover:scale-[1.02] transition-transform">
                       <Image
                         src="/logos/genesys-info-x.png"

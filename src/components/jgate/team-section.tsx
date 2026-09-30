@@ -241,13 +241,13 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
           <div className="mt-6 sm:mt-8 lg:mt-9 grid gap-4 sm:gap-5 md:grid-cols-3 items-stretch">
             {ADVISORY_ROW_1.map((adv, i) => (
               <Reveal key={adv.id} delay={i * 80}>
-                <article className="group relative flex h-full flex-col justify-between items-center overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/12 bg-white dark:bg-[#09090b] p-4 sm:p-5 text-center shadow-xs hover:shadow-lg hover:border-saffron/60 dark:hover:border-saffron/60 transition-all duration-300">
+                <article className="group relative flex h-full flex-col justify-between items-center overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/12 bg-white dark:bg-black p-4 sm:p-5 text-center shadow-xs hover:shadow-lg hover:border-saffron/60 dark:hover:border-saffron/60 transition-all duration-300">
                   {/* Top gold accent line */}
                   <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-saffron via-saffron-light to-transparent opacity-90" />
 
                   {/* Circular Portrait */}
                   <div className="relative mt-1">
-                    <div className="h-20 w-20 sm:h-22 sm:w-22 rounded-full overflow-hidden border-2 border-saffron/50 dark:border-saffron/60 bg-slate-50 dark:bg-[#09090b] shadow-md transition-transform duration-300 group-hover:scale-105 group-hover:border-saffron mx-auto">
+                    <div className="h-20 w-20 sm:h-22 sm:w-22 rounded-full overflow-hidden border-2 border-saffron/50 dark:border-saffron/60 bg-slate-50 dark:bg-black shadow-md transition-transform duration-300 group-hover:scale-105 group-hover:border-saffron mx-auto">
                       <img
                         src={adv.image}
                         alt={adv.name}
@@ -314,13 +314,13 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
           <div className="mt-4 sm:mt-5 grid gap-4 sm:gap-5 md:grid-cols-2 md:max-w-2xl lg:max-w-3xl md:mx-auto items-stretch">
             {ADVISORY_ROW_2.map((adv, i) => (
               <Reveal key={adv.id} delay={200 + i * 80}>
-                <article className="group relative flex h-full flex-col justify-between items-center overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/12 bg-white dark:bg-[#09090b] p-4 sm:p-5 text-center shadow-xs hover:shadow-lg hover:border-saffron/60 dark:hover:border-saffron/60 transition-all duration-300">
+                <article className="group relative flex h-full flex-col justify-between items-center overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/12 bg-white dark:bg-black p-4 sm:p-5 text-center shadow-xs hover:shadow-lg hover:border-saffron/60 dark:hover:border-saffron/60 transition-all duration-300">
                   {/* Top gold accent line */}
                   <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-saffron via-saffron-light to-transparent opacity-90" />
 
                   {/* Circular Portrait */}
                   <div className="relative mt-1">
-                    <div className="h-20 w-20 sm:h-22 sm:w-22 rounded-full overflow-hidden border-2 border-saffron/50 dark:border-saffron/60 bg-slate-50 dark:bg-[#09090b] shadow-md transition-transform duration-300 group-hover:scale-105 group-hover:border-saffron mx-auto">
+                    <div className="h-20 w-20 sm:h-22 sm:w-22 rounded-full overflow-hidden border-2 border-saffron/50 dark:border-saffron/60 bg-slate-50 dark:bg-black shadow-md transition-transform duration-300 group-hover:scale-105 group-hover:border-saffron mx-auto">
                       <img
                         src={adv.image}
                         alt={adv.name}
@@ -424,7 +424,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
               return (
                 <Reveal key={m.id} delay={i * 80}>
                   <article
-                    className={`group relative flex h-full flex-col justify-between items-center rounded-2xl border bg-white dark:bg-[#09090b] p-4 sm:p-5 text-center shadow-xs transition-all duration-300 hover:shadow-lg ${
+                    className={`group relative flex h-full flex-col justify-between items-center rounded-2xl border bg-white dark:bg-black p-4 sm:p-5 text-center shadow-xs transition-all duration-300 hover:shadow-lg ${
                       isTanji
                         ? "border-crimson/30 dark:border-rose-500/40 shadow-sm shadow-crimson/5"
                         : "border-slate-200/90 dark:border-white/10 hover:border-crimson/40 dark:hover:border-crimson/50"
@@ -433,7 +433,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                     {/* Top Circular Portrait with Flag Badge */}
                     <div className="relative mt-1">
                       <div
-                        className={`h-20 w-20 sm:h-22 sm:w-22 rounded-full overflow-hidden border-2 bg-slate-50 dark:bg-white/5 shadow-md mx-auto transition-transform duration-300 group-hover:scale-105 ${
+                        className={`h-20 w-20 sm:h-22 sm:w-22 rounded-full overflow-hidden border-2 bg-slate-50 dark:bg-black shadow-md mx-auto transition-transform duration-300 group-hover:scale-105 ${
                           isTanji
                             ? "border-crimson/60 group-hover:border-crimson"
                             : "border-slate-200/90 dark:border-white/20 group-hover:border-crimson/60"
@@ -448,7 +448,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                       </div>
 
                       {/* Flag Tag */}
-                      <span className="absolute bottom-0 right-0 flex items-center gap-1 rounded-full bg-white/95 dark:bg-[#09090b]/95 px-1.5 py-0.5 text-[9px] font-bold text-slate-700 dark:text-slate-200 shadow-sm border border-slate-200/80 dark:border-white/15 backdrop-blur-sm">
+                      <span className="absolute bottom-0 right-0 flex items-center gap-1 rounded-full bg-white/95 dark:bg-black/95 px-1.5 py-0.5 text-[9px] font-bold text-slate-700 dark:text-slate-200 shadow-sm border border-slate-200/80 dark:border-white/15 backdrop-blur-sm">
                         {m.country === "Japan" ? <JapanFlag className="h-3 w-4.5 rounded-xs shrink-0" /> : <IndiaFlag className="h-3 w-4.5 rounded-xs shrink-0" />}
                         <span className="text-[8.5px] tracking-wide uppercase font-inter">{m.country}</span>
                       </span>
@@ -550,9 +550,9 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
              ══════════════════════════════════════════════════════════ */}
           <Reveal delay={200}>
             <div className="mt-6 sm:mt-7 max-w-2xl mx-auto">
-              <div className="relative rounded-xl sm:rounded-2xl border border-saffron/50 dark:border-saffron/40 bg-amber-50/60 dark:bg-[#09090b] p-3.5 sm:p-4 text-center shadow-xs">
+              <div className="relative rounded-xl sm:rounded-2xl border border-saffron/50 dark:border-saffron/40 bg-amber-50/60 dark:bg-black p-3.5 sm:p-4 text-center shadow-xs">
                 <div className="flex flex-wrap items-center justify-center gap-1.5 mb-2">
-                  <span className="inline-block rounded-full bg-saffron/20 dark:bg-amber-950/60 border border-saffron/40 dark:border-amber-400/30 px-2 py-0.5 font-inter text-[9px] sm:text-[9.5px] font-bold uppercase tracking-wider text-saffron-dark dark:text-amber-300">
+                  <span className="inline-block rounded-full bg-saffron/20 dark:bg-black border border-saffron/40 dark:border-amber-400/30 px-2 py-0.5 font-inter text-[9px] sm:text-[9.5px] font-bold uppercase tracking-wider text-saffron-dark dark:text-amber-300">
                     {tx({ EN: "BILINGUAL CONCIERGE SUPPORT", JP: "BILINGUAL CONCIERGE · バイリンガル対応" })}
                   </span>
                   <span className="inline-flex items-center gap-1 rounded-full bg-crimson/10 dark:bg-rose-950/60 border border-crimson/20 dark:border-rose-400/30 px-2 py-0.5 font-inter text-[9px] sm:text-[9.5px] font-bold text-crimson dark:text-rose-300">

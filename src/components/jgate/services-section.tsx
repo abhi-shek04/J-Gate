@@ -304,7 +304,7 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
       {/* ───────────────────────────────────────────────────────────
           3. Core Services (Simple, Clean, Professional Text Layout)
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-6 sm:py-8 lg:py-10 bg-ivory-warm dark:bg-[#0b111e]">
+      <section className="py-6 sm:py-8 lg:py-10 bg-ivory-warm dark:bg-black">
         <div className="container-jg max-w-5xl">
           <Reveal>
             <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
@@ -512,7 +512,7 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
                     </span>
 
                     {/* Official Brand Logo Box */}
-                    <div className="h-20 sm:h-24 w-full rounded-xl bg-white dark:bg-[#121215] border border-slate-200/80 dark:border-white/10 p-4 flex items-center justify-center shadow-xs mb-3 group-hover:scale-[1.02] transition-transform">
+                    <div className="h-20 sm:h-24 w-full rounded-xl bg-white border border-slate-200/80 p-4 flex items-center justify-center shadow-xs mb-3 group-hover:scale-[1.02] transition-transform">
                       <Image
                         src="/logos/indobox.svg"
                         alt="Indobox India Private Limited."
@@ -557,7 +557,7 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
                     </span>
 
                     {/* Official Brand Logo Box */}
-                    <div className="h-20 sm:h-24 w-full rounded-xl bg-white dark:bg-[#121215] border border-slate-200/80 dark:border-white/10 p-4 flex items-center justify-center shadow-xs mb-3 group-hover:scale-[1.02] transition-transform">
+                    <div className="h-20 sm:h-24 w-full rounded-xl bg-white border border-slate-200/80 p-4 flex items-center justify-center shadow-xs mb-3 group-hover:scale-[1.02] transition-transform">
                       <Image
                         src="/logos/genesys-info-x.png"
                         alt="Genesys Info X"

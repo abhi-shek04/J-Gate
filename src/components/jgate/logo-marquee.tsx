@@ -47,7 +47,7 @@ function PartnerCard({ logo, variant = "light" }: { logo: Logo; variant?: "light
       <div
         className={cn(
           "flex h-10 w-13 sm:h-14 sm:w-22 shrink-0 items-center justify-center rounded-lg sm:rounded-xl p-1 sm:p-2.5 transition-transform duration-300 group-hover:scale-[1.03]",
-          "border border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#121215] shadow-xs"
+          "border border-slate-200/80 bg-white shadow-xs"
         )}
       >
         {logo.src ? (

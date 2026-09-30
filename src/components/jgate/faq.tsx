@@ -86,7 +86,7 @@ export function Faq() {
   const [open, setOpen] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="section-pad bg-ivory-warm dark:bg-[#080d17] transition-colors">
+    <section id="faq" className="section-pad bg-ivory-warm dark:bg-black transition-colors">
       <div className="container-jg">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">

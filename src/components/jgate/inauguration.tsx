@@ -126,7 +126,7 @@ export function Inauguration() {
                   )}
                 >
                   <span
-                    className="absolute left-5 top-3 z-10 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full border-2 border-crimson bg-white dark:bg-[#101826] text-crimson shadow-md sm:left-1/2"
+                    className="absolute left-5 top-3 z-10 flex h-10 w-10 -translate-x-1/2 items-center justify-center rounded-full border-2 border-crimson bg-white dark:bg-[#09090b] text-crimson shadow-md sm:left-1/2"
                     aria-hidden
                   >
                     <IconComp className="h-4.5 w-4.5 text-crimson dark:text-rose-400" />

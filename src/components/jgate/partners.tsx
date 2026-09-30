@@ -85,7 +85,7 @@ export function Partners() {
             <Reveal key={p.id} delay={(i % 3) * 120}>
               <article className="glass-dark lift-card flex h-full overflow-hidden rounded-lg">
                 {/* Real logo card */}
-                <div className="w-32 shrink-0 bg-white/95 dark:bg-[#121215] border-r border-slate-200/80 dark:border-white/10 sm:w-40">
+                <div className="w-32 shrink-0 bg-white border-r border-slate-200/80 sm:w-40">
                   <div className="flex h-full min-h-[140px] items-center justify-center p-5">
                     <img
                       src={p.name === "T-Hub" ? "/logos/thub.png" : p.name === "Woxsen University" ? "/logos/woxsen.png" : "/logos/genesys-info-x.png"}

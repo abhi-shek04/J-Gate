@@ -26,7 +26,7 @@ const DIFFERENTIATORS = [
 
 export function Difference() {
   return (
-    <section id="difference" className="section-pad bg-ivory dark:bg-[#0b111e] transition-colors">
+    <section id="difference" className="section-pad bg-ivory dark:bg-black transition-colors">
       <div className="container-jg">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">

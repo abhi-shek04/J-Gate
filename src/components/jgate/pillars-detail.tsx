@@ -118,7 +118,7 @@ export function PillarsDetail() {
   return (
     <section
       id="why-pillars"
-      className="section-pad bg-ivory dark:bg-[#080d17] relative overflow-hidden"
+      className="section-pad bg-ivory dark:bg-black relative overflow-hidden"
       aria-label="J-Gate 4 strategic solutions"
     >
       <div className="container-jg">

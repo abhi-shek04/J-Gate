@@ -45,7 +45,7 @@ const FOUNDERS = [
 
 export function FoundingTeam() {
   return (
-    <section id="team" className="section-pad bg-ivory dark:bg-[#0c1424]">
+    <section id="team" className="section-pad bg-ivory dark:bg-black">
       <div className="container-jg">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">

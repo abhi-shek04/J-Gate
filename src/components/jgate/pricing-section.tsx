@@ -327,7 +327,7 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
   const isAnnual = billingCycle === "annual";
 
   return (
-    <div id={id} className="bg-ivory dark:bg-[#0b111e] transition-colors scroll-mt-20">
+    <div id={id} className="bg-ivory dark:bg-black transition-colors scroll-mt-20">
       {!hideHero && (
         <PageHero
           eyebrowKey="pricing.eyebrow"
@@ -660,7 +660,7 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
       {/* ───────────────────────────────────────────────────────────
           4. Billing Notes & Transparent Guarantees
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-8 sm:py-10 lg:py-12 bg-ivory-warm dark:bg-[#080d17] border-t border-slate-200/70 dark:border-white/10 relative overflow-hidden">
+      <section className="py-8 sm:py-10 lg:py-12 bg-ivory-warm dark:bg-black border-t border-slate-200/70 dark:border-white/10 relative overflow-hidden">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-5xl">

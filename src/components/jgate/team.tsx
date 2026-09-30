@@ -186,7 +186,7 @@ export function Team() {
   const { tx } = useI18n();
 
   return (
-    <section id="team" className="section-pad bg-ivory-warm dark:bg-[#0c1424]">
+    <section id="team" className="section-pad bg-ivory-warm dark:bg-black">
       <div className="container-jg">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">

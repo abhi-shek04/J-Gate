@@ -142,7 +142,7 @@ export function AboutSection({ id, hideHero }: { id?: string; hideHero?: boolean
       {/* ════════════════════════════════════════════════════════════
           Section 1 — 3 Pillars Detailed
          ════════════════════════════════════════════════════════════ */}
-      <section className="py-6 sm:py-8 lg:py-10 bg-ivory dark:bg-[#0b111e] transition-colors duration-300">
+      <section className="py-6 sm:py-8 lg:py-10 bg-ivory dark:bg-black transition-colors duration-300">
         <div className="container-jg">
           <div className="grid gap-4 sm:gap-6 md:grid-cols-3">
             {PILLARS.map((p, i) => (
@@ -269,7 +269,7 @@ export function AboutSection({ id, hideHero }: { id?: string; hideHero?: boolean
       {/* ════════════════════════════════════════════════════════════
           Section 3 — Mission & Vision — 2 side-by-side cards
          ════════════════════════════════════════════════════════════ */}
-      <section className="py-6 sm:py-8 lg:py-10 relative overflow-hidden bg-ivory-warm dark:bg-[#050505] border-t border-slate-200/70 dark:border-white/10 transition-colors duration-300">
+      <section className="py-6 sm:py-8 lg:py-10 relative overflow-hidden bg-ivory-warm dark:bg-black border-t border-slate-200/70 dark:border-white/10 transition-colors duration-300">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center mb-8 sm:mb-12">

@@ -213,7 +213,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
       {/* ════════════════════════════════════════════════════════════
           1. ADVISORY COUNCIL — 3+2 Luxury Executive Grid (Light & Dark Support)
          ════════════════════════════════════════════════════════════ */}
-      <section className="py-6 sm:py-8 lg:py-10 relative overflow-hidden bg-slate-50/70 dark:bg-[#070d18] border-b border-slate-200/80 dark:border-white/10 text-ink dark:text-white transition-colors duration-300">
+      <section className="py-6 sm:py-8 lg:py-10 relative overflow-hidden bg-slate-50/70 dark:bg-black border-b border-slate-200/80 dark:border-white/10 text-ink dark:text-white transition-colors duration-300">
         {/* Ambient subtle Japanese Asanoha lattice backdrop */}
         <div className="pattern-asanoha opacity-[0.03] dark:pattern-asanoha-dark dark:opacity-20 absolute inset-0 pointer-events-none" />
         <div
@@ -241,7 +241,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
           <div className="mt-6 sm:mt-8 lg:mt-9 grid gap-4 sm:gap-5 md:grid-cols-3 items-stretch">
             {ADVISORY_ROW_1.map((adv, i) => (
               <Reveal key={adv.id} delay={i * 80}>
-                <article className="group relative flex h-full flex-col justify-between items-center overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/12 bg-white dark:bg-[#101826] p-4 sm:p-5 text-center shadow-xs hover:shadow-lg hover:border-saffron/60 dark:hover:border-saffron/60 transition-all duration-300">
+                <article className="group relative flex h-full flex-col justify-between items-center overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/12 bg-white dark:bg-[#09090b] p-4 sm:p-5 text-center shadow-xs hover:shadow-lg hover:border-saffron/60 dark:hover:border-saffron/60 transition-all duration-300">
                   {/* Top gold accent line */}
                   <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-saffron via-saffron-light to-transparent opacity-90" />
 
@@ -314,7 +314,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
           <div className="mt-4 sm:mt-5 grid gap-4 sm:gap-5 md:grid-cols-2 md:max-w-2xl lg:max-w-3xl md:mx-auto items-stretch">
             {ADVISORY_ROW_2.map((adv, i) => (
               <Reveal key={adv.id} delay={200 + i * 80}>
-                <article className="group relative flex h-full flex-col justify-between items-center overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/12 bg-white dark:bg-[#101826] p-4 sm:p-5 text-center shadow-xs hover:shadow-lg hover:border-saffron/60 dark:hover:border-saffron/60 transition-all duration-300">
+                <article className="group relative flex h-full flex-col justify-between items-center overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/12 bg-white dark:bg-[#09090b] p-4 sm:p-5 text-center shadow-xs hover:shadow-lg hover:border-saffron/60 dark:hover:border-saffron/60 transition-all duration-300">
                   {/* Top gold accent line */}
                   <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-saffron via-saffron-light to-transparent opacity-90" />
 
@@ -550,7 +550,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
              ══════════════════════════════════════════════════════════ */}
           <Reveal delay={200}>
             <div className="mt-6 sm:mt-7 max-w-2xl mx-auto">
-              <div className="relative rounded-xl sm:rounded-2xl border border-saffron/50 dark:border-saffron/40 bg-amber-50/60 dark:bg-[#121b2d] p-3.5 sm:p-4 text-center shadow-xs">
+              <div className="relative rounded-xl sm:rounded-2xl border border-saffron/50 dark:border-saffron/40 bg-amber-50/60 dark:bg-[#09090b] p-3.5 sm:p-4 text-center shadow-xs">
                 <div className="flex flex-wrap items-center justify-center gap-1.5 mb-2">
                   <span className="inline-block rounded-full bg-saffron/20 dark:bg-amber-950/60 border border-saffron/40 dark:border-amber-400/30 px-2 py-0.5 font-inter text-[9px] sm:text-[9.5px] font-bold uppercase tracking-wider text-saffron-dark dark:text-amber-300">
                     {tx({ EN: "BILINGUAL CONCIERGE SUPPORT", JP: "BILINGUAL CONCIERGE · バイリンガル対応" })}
@@ -580,7 +580,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
       {/* ════════════════════════════════════════════════════════════
           4. OUR PARTNERS — Infinite Side-Scrolling Company Marquee
          ════════════════════════════════════════════════════════════ */}
-      <section className="py-6 sm:py-8 lg:py-10 relative overflow-hidden bg-ivory-warm dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10 transition-colors duration-300">
+      <section className="py-6 sm:py-8 lg:py-10 relative overflow-hidden bg-ivory-warm dark:bg-black border-t border-slate-200/60 dark:border-white/10 transition-colors duration-300">
         <div className="container-jg mb-8 sm:mb-10">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">

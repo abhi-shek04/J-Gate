@@ -435,7 +435,7 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════
           4. HYDERABAD LOCATION — 2-Column Strategic Map & Value Pillars
          ════════════════════════════════════════════════════════════ */}
-      <section className="py-6 sm:py-8 lg:py-10 bg-ivory-warm dark:bg-[#050505] border-t border-slate-200/70 dark:border-white/10">
+      <section className="py-6 sm:py-8 lg:py-10 bg-ivory-warm dark:bg-black border-t border-slate-200/70 dark:border-white/10">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto mb-8 sm:mb-10 max-w-3xl text-center">

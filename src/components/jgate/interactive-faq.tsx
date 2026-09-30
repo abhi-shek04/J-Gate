@@ -74,7 +74,7 @@ export function InteractiveFAQ() {
   );
 
   return (
-    <section className="py-8 sm:py-12 relative overflow-hidden bg-ivory dark:bg-[#0b111e] transition-colors">
+    <section className="py-8 sm:py-12 relative overflow-hidden bg-ivory dark:bg-black transition-colors">
       <div className="container-jg">
         <Reveal>
           <div className="mx-auto max-w-3xl text-center">
@@ -110,7 +110,7 @@ export function InteractiveFAQ() {
               className={`rounded-full px-4 py-1.5 font-inter text-[12px] font-bold transition-all duration-300 cursor-pointer ${
                 filter === cat.id
                   ? "bg-crimson text-white shadow-md shadow-crimson/20"
-                  : "bg-white dark:bg-[#132038] text-slate dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-[#182846] border border-slate-200/80 dark:border-white/12"
+                  : "bg-white dark:bg-[#09090b] text-slate dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-white/10 border border-slate-200/80 dark:border-white/12"
               }`}
             >
               {tx(cat.label)}

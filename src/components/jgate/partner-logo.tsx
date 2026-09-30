@@ -61,12 +61,11 @@ export function PartnerLogo({
     );
   }
 
-  // Real logo image — clean padded card
+  // Real logo image — crisp white card for original brand logo colors
   return (
     <div
       className={cn(
-        "flex items-center justify-center rounded-lg bg-white/95 dark:bg-[#121215] border border-slate-200/80 dark:border-white/10 p-3",
-        variant === "dark" ? "shadow-card" : "shadow-card",
+        "flex items-center justify-center rounded-lg bg-white p-3 border border-slate-200/80 shadow-2xs",
         className
       )}
     >

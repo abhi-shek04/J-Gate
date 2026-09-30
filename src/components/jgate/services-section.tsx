@@ -505,11 +505,11 @@ export function ServicesSection({ id }: { id?: string }) {
                     {/* Official Brand Logo Box */}
                     <div className="h-20 sm:h-24 w-full rounded-xl bg-white dark:bg-white/95 border border-slate-200/80 dark:border-white/10 p-4 flex items-center justify-center shadow-xs mb-3 group-hover:scale-[1.02] transition-transform">
                       <Image
-                        src="/logos/indobox-official-brand.png"
+                        src="/logos/indobox.svg"
                         alt="Indobox India Private Limited."
                         width={280}
                         height={70}
-                        className="h-12 sm:h-15 md:h-16 w-auto object-contain"
+                        className="h-10 sm:h-12 md:h-14 w-auto object-contain"
                       />
                     </div>
 
@@ -534,8 +534,8 @@ export function ServicesSection({ id }: { id?: string }) {
                     <div className="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border-2 border-saffron bg-white dark:bg-[#101a2c] font-bold text-base text-ink dark:text-white shadow-md">
                       ×
                     </div>
-                    <span className="mt-2 font-inter text-[10px] font-bold tracking-widest text-slate-400 dark:text-slate-500 uppercase">
-                      JOINT MODEL
+                    <span className="mt-2 font-inter text-[9.5px] font-bold tracking-widest text-slate-500 dark:text-slate-400 uppercase text-center leading-tight">
+                      {tx({ EN: "STRATEGIC PARTNERS", JP: "戦略的パートナーシップ" })}
                     </span>
                   </div>
 

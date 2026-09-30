@@ -51,8 +51,8 @@ const FAQ_LIST: FAQItem[] = [
       JP: "拠点（ハブ）はどこにありますか？",
     },
     a: {
-      EN: "The main primary hub is located in Hyderabad, operational from June 2026. A second sub-hub in Gurgaon (Delhi NCR) is currently under preparation.",
-      JP: "メインハブはハイデラバードに位置し、2026年6月より本格稼働します。また、北インドの拠点としてグルガオン（デリー首都圏）サブハブの開設準備を進めています。",
+      EN: "The main primary hub is located in Hyderabad, operational from June 2026.",
+      JP: "メインハブはハイデラバードに位置し、2026年6月より本格稼働します。",
     },
   },
   {
@@ -181,19 +181,6 @@ const FAQ_LIST: FAQItem[] = [
     ],
   },
   {
-    id: "sup-academy",
-    category: "support",
-    categoryLabel: { EN: "Business Support & Relocation", JP: "法人設立・現地生活支援" },
-    q: {
-      EN: "What is Indobox Academy?",
-      JP: "Indobox Academy（勉強会）とはどのようなプログラムですか？",
-    },
-    a: {
-      EN: "Indobox Academy conducts 60-minute online workshops every 1–2 months, led by experts such as Tomio Isogai (former MD of Sharp India). It trains Japanese business representatives on Indian commercial customs, risk management, and market navigation.",
-      JP: "元シャープ・インディア社長の磯貝富雄氏をはじめとする専門家を講師に迎え、1〜2ヶ月ごとに60分間のオンライン講座を開催。インド特有の商習慣、リスク管理、事業開拓ノウハウを伝授します。",
-    },
-  },
-  {
     id: "sup-relocation",
     category: "support",
     categoryLabel: { EN: "Business Support & Relocation", JP: "法人設立・現地生活支援" },
@@ -235,27 +222,26 @@ export function FAQSection({ id }: { id?: string }) {
 
   return (
     <div id={id} className="scroll-mt-20">
-      {/* 1. HERO BANNER */}
-      <PageHero
-        eyebrowKey="faq.eyebrow"
-        layout="center"
-        titleNode={
-          <span>
-            {tx({
-              EN: "Frequently Asked Questions",
-              JP: "よくあるご質問",
-            })}
-          </span>
-        }
-        subtitleNode={tx({
-          EN: "Clear, authoritative answers regarding workspace options, resident Japan Desk operations, Indian incorporation, talent acquisition, and bilateral growth.",
-          JP: "拠点利用、常駐ジャパンデスク、法人設立、人材採用、日印共創に関する疑問にお答えします。",
-        })}
-      />
-
-      {/* MAIN FAQ ACCORDION SYSTEM */}
-      <section className="py-8 sm:py-12 bg-ivory dark:bg-[#0b111e] transition-colors">
+      <section className="py-10 sm:py-16 bg-ivory dark:bg-[#0b111e] transition-colors">
         <div className="container-jg max-w-4xl">
+          {/* Header styled matching reference layout */}
+          <Reveal className="mb-8 sm:mb-10 text-center">
+            <div className="flex justify-center mb-3">
+              <span className="inline-flex items-center gap-1.5 rounded-md bg-rose-100/90 dark:bg-rose-950/60 px-3 py-1 font-mono text-[11px] font-bold text-crimson dark:text-rose-400 tracking-wider uppercase">
+                <span className="h-2 w-2 bg-crimson dark:bg-rose-400 rounded-xs inline-block" />
+                {tx({ EN: "SUPPORT INFO", JP: "サポート情報" })}
+              </span>
+            </div>
+            <h2 className="font-serif-jp text-3xl sm:text-4xl lg:text-5xl font-bold text-ink dark:text-white tracking-tight">
+              {tx({ EN: "Frequently Asked Questions", JP: "よくあるご質問" })}
+            </h2>
+            <p className="mt-3 font-inter text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
+              {tx({
+                EN: "Everything you need to know about workspace options, resident Japan Desk support, company incorporation, and local hiring.",
+                JP: "ワークスペース利用、ジャパンデスクサポート、現地法人設立、採用支援に関するよくある質問とお答え。",
+              })}
+            </p>
+          </Reveal>
 
           {/* Header Row: Count Summary + Expand/Collapse Buttons */}
           <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border-b border-slate-200/80 dark:border-white/10 pb-3 font-inter text-[12px] text-slate-500 dark:text-slate-400">
@@ -282,7 +268,7 @@ export function FAQSection({ id }: { id?: string }) {
             </div>
           </div>
 
-          {/* FAQ Accordion List */}
+          {/* FAQ Accordion List (Matching Reference Card Layout) */}
           <div className="space-y-3">
             {FAQ_LIST.map((item, idx) => {
               const isOpen = !!openIds[item.id];
@@ -290,39 +276,32 @@ export function FAQSection({ id }: { id?: string }) {
                 <Reveal key={item.id} delay={idx * 15}>
                   <div
                     className={cn(
-                      "group overflow-hidden rounded-2xl border bg-white dark:bg-[#101a2c] transition-all duration-300 shadow-card dark:shadow-2xl hover:-translate-y-0.5",
+                      "group overflow-hidden rounded-xl border bg-white dark:bg-[#101a2c] transition-all duration-200 shadow-xs",
                       isOpen
-                        ? "border-crimson dark:border-rose-400/70 ring-2 ring-crimson/30 dark:ring-rose-400/30 shadow-lg"
-                        : "border-slate-200/90 dark:border-white/16 hover:border-crimson/40 dark:hover:border-saffron/50"
+                        ? "border-crimson dark:border-rose-400/70 ring-1 ring-crimson/20 dark:ring-rose-400/20"
+                        : "border-slate-200/80 dark:border-white/12 hover:border-slate-300 dark:hover:border-white/25"
                     )}
                   >
                     <button
                       onClick={() => toggleItem(item.id)}
-                      className="flex w-full items-center justify-between gap-3.5 p-4 sm:p-5 text-left transition-colors cursor-pointer"
+                      className="flex w-full items-center justify-between gap-4 p-4 sm:p-5 text-left transition-colors cursor-pointer"
                       aria-expanded={isOpen}
                     >
-                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 flex-1 min-w-0 pr-1">
-                        <span className="inline-block shrink-0 rounded-md bg-crimson/10 dark:bg-rose-950/50 px-2.5 py-1 font-inter text-[11.5px] sm:text-[12.5px] font-bold text-crimson dark:text-rose-400 uppercase tracking-wider max-w-full truncate">
-                          {tx(item.categoryLabel)}
-                        </span>
-                        <h3
-                          className={cn(
-                            "font-serif-jp font-bold text-[14.5px] sm:text-[16px] leading-snug transition-colors",
-                            isOpen
-                              ? "text-crimson dark:text-rose-400"
-                              : "text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400"
-                          )}
-                        >
-                          {tx(item.q)}
-                        </h3>
-                      </div>
+                      <h3
+                        className={cn(
+                          "font-serif-jp font-bold text-[15.5px] sm:text-[17px] leading-snug transition-colors pr-2",
+                          isOpen
+                            ? "text-crimson dark:text-rose-400"
+                            : "text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400"
+                        )}
+                      >
+                        {tx(item.q)}
+                      </h3>
 
                       <div
                         className={cn(
-                          "flex h-7 w-7 shrink-0 items-center justify-center rounded-lg transition-transform duration-300",
-                          isOpen
-                            ? "bg-crimson text-white rotate-180 shadow-xs"
-                            : "bg-slate-100 dark:bg-white/10 text-slate-500 dark:text-slate-400 group-hover:bg-slate-200 dark:group-hover:bg-white/20"
+                          "flex h-6 w-6 shrink-0 items-center justify-center transition-transform duration-300",
+                          isOpen ? "rotate-180 text-crimson dark:text-rose-400" : "text-slate-400"
                         )}
                       >
                         <ChevronDown className="h-4 w-4" />
@@ -336,8 +315,8 @@ export function FAQSection({ id }: { id?: string }) {
                       )}
                     >
                       <div className="overflow-hidden min-h-0">
-                        <div className="border-t border-slate-100 dark:border-white/10 bg-slate-50/50 dark:bg-white/[0.02] p-4 sm:p-5 pt-3 sm:pt-3.5">
-                          <p className="font-inter text-[13px] sm:text-[14px] leading-relaxed text-slate-700 dark:text-slate-300">
+                        <div className="border-t border-slate-100 dark:border-white/10 bg-slate-50/50 dark:bg-white/[0.02] p-4 sm:p-5 pt-3.5 sm:pt-4">
+                          <p className="font-inter text-[13.5px] sm:text-[14.5px] leading-relaxed text-slate-700 dark:text-slate-300 whitespace-pre-line">
                             {tx(item.a)}
                           </p>
 
@@ -346,7 +325,7 @@ export function FAQSection({ id }: { id?: string }) {
                               {item.highlights.map((h, hIdx) => (
                                 <div
                                   key={hIdx}
-                                  className="inline-flex items-center gap-2 rounded-xl bg-white dark:bg-white/[0.06] p-2.5 border border-slate-200/70 dark:border-white/10 shadow-2xs"
+                                  className="inline-flex items-center gap-2 rounded-lg bg-white dark:bg-white/[0.06] p-2.5 border border-slate-200/70 dark:border-white/10 shadow-2xs"
                                 >
                                   <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
                                   <span className="font-inter text-[11.5px] font-semibold text-slate-800 dark:text-slate-200">

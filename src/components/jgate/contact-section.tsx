@@ -107,38 +107,9 @@ export function ContactSection({ id }: { id?: string }) {
 
   return (
     <div id={id} className="scroll-mt-20">
-      <PageHero
-        eyebrowKey="contact.eyebrow"
-        layout="center"
-        titleNode={tx({ EN: "Get in Touch with Our Team", JP: "現地運営チームへのご相談・お問い合わせ" })}
-        subtitleNode={tx({
-          EN: "Contact our on-site team to discuss workspace options, company setup, or business partnerships in India — talk to the J-Gate operations team.",
-          JP: "インド事業の立ち上げ、現地視察、料金プランのご相談など、日本人常駐チームがお答えします。",
-        })}
-        tags={[
-          { EN: "24-Hour Response Time", JP: "原則24時間以内回答" },
-          { EN: "Japanese Language Support", JP: "日本語完全対応" },
-          { EN: "On-Site Tours Available", JP: "現地視察予約受付中" },
-        ]}
-      />
-
-      <section className="section-pad bg-ivory dark:bg-[#080d17]">
+      <section className="py-8 sm:py-12 bg-ivory dark:bg-[#080d17] transition-colors">
         <div className="container-jg">
-          <Reveal className="mb-10 sm:mb-12">
-            <SectionHeading
-              eyebrow={tx({ EN: "Get In Touch", JP: "お問い合わせ・ご相談" })}
-              title={tx({
-                EN: "Start Your India Expansion Journey Today",
-                JP: "初回面談・現地視察のご予約",
-              })}
-              subtitle={tx({
-                EN: "Send us a message or schedule a consultation with our resident Japanese management team in Hyderabad.",
-                JP: "J-Gateに関するご質問、料金プランの相談、現地視察のご希望はお気軽にご連絡ください。",
-              })}
-            />
-          </Reveal>
-
-          <div className="mx-auto max-w-4xl grid md:grid-cols-5 gap-10 md:gap-14 items-start">
+          <div className="mx-auto max-w-4xl grid md:grid-cols-5 gap-8 md:gap-12 items-start">
 
             {/* Left — Contact Info */}
             <div className="md:col-span-2 space-y-6">

@@ -211,34 +211,33 @@ const DEPLOYMENT_STEPS = [
   },
 ];
 
-export function ServicesSection({ id }: { id?: string }) {
+export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: boolean }) {
   const { tx } = useI18n();
 
   return (
-    <div id={id} className="min-h-screen bg-ivory dark:bg-[#080d17] scroll-mt-20">
-      {/* ───────────────────────────────────────────────────────────
-          1. Hero Banner
-         ─────────────────────────────────────────────────────────── */}
-      <PageHero
-        eyebrowKey="services.eyebrow"
-        layout="split"
-        titleNode={
-          <>
-            {tx({ EN: "Comprehensive Setup & ", JP: "包括的インド進出支援・" })}
-            <br className="hidden sm:inline" />
-            {tx({ EN: "Business Operations", JP: "サービス仕様・運営基盤" })}
-          </>
-        }
-        subtitleNode={tx({
-          EN: "Indobox's unique comprehensive market entry support & talent development — Hyderabad's dedicated end-to-end platform for Japanese enterprises.",
-          JP: "Indobox独自の包括的進出支援と高度人材育成。ハイデラバード拠点の日本企業専用エンドツーエンドプラットフォーム。",
-        })}
-        tags={[
-          { EN: "Dedicated Desks & Private Offices", JP: "専用デスク・個室キャビン" },
-          { EN: "Daily Japanese Advisory", JP: "日々の日本語業務相談" },
-          { EN: "Technical & Professional Recruitment", JP: "高度ITエンジニア採用" },
-        ]}
-      />
+    <div id={id} className="bg-ivory dark:bg-[#080d17] scroll-mt-20">
+      {!hideHero && (
+        <PageHero
+          eyebrowKey="services.eyebrow"
+          layout="split"
+          titleNode={
+            <>
+              {tx({ EN: "Comprehensive Setup & ", JP: "包括的インド進出支援・" })}
+              <br className="hidden sm:inline" />
+              {tx({ EN: "Business Operations", JP: "サービス仕様・運営基盤" })}
+            </>
+          }
+          subtitleNode={tx({
+            EN: "Indobox's unique comprehensive market entry support & talent development — Hyderabad's dedicated end-to-end platform for Japanese enterprises.",
+            JP: "Indobox独自の包括的進出支援と高度人材育成。ハイデラバード拠点の日本企業専用エンドツーエンドプラットフォーム。",
+          })}
+          tags={[
+            { EN: "Dedicated Desks & Private Offices", JP: "専用デスク・個室キャビン" },
+            { EN: "Daily Japanese Advisory", JP: "日々の日本語業務相談" },
+            { EN: "Technical & Professional Recruitment", JP: "高度ITエンジニア採用" },
+          ]}
+        />
+      )}
 
       {/* ───────────────────────────────────────────────────────────
           2. Executive Assurance Strip (4 Metric Pods)

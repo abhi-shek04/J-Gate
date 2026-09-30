@@ -188,25 +188,27 @@ const OPS_TEAM: OpsMember[] = [
   },
 ];
 
-export function TeamSection({ id }: { id?: string }) {
+export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean }) {
   const { tx, lang } = useI18n();
 
   return (
     <div id={id} className="scroll-mt-20">
-      <PageHero
-        eyebrowKey="team.eyebrow"
-        layout="center"
-        titleNode={tx({ EN: "Leadership & Advisory", JP: "日印両国を知り尽くした経営陣・アドバイザー" })}
-        subtitleNode={tx({
-          EN: "Experienced leaders and on-site specialists dedicated to supporting your business in India.",
-          JP: "インドとの協業により、貴社ビジネスの新たな可能性を切り拓くプロフェッショナルチーム。",
-        })}
-        tags={[
-          { EN: "Japan-India Business Specialists", JP: "日印実務のスペシャリスト" },
-          { EN: "Resident Director Support", JP: "日本人常駐ディレクター" },
-          { EN: "T-Hub & IIT Network", JP: "T-Hub・IIT連携" },
-        ]}
-      />
+      {!hideHero && (
+        <PageHero
+          eyebrowKey="team.eyebrow"
+          layout="center"
+          titleNode={tx({ EN: "Leadership & Advisory", JP: "日印両国を知り尽くした経営陣・アドバイザー" })}
+          subtitleNode={tx({
+            EN: "Experienced leaders and on-site specialists dedicated to supporting your business in India.",
+            JP: "インドとの協業により、貴社ビジネスの新たな可能性を切り拓くプロフェッショナルチーム。",
+          })}
+          tags={[
+            { EN: "Japan-India Business Specialists", JP: "日印実務のスペシャリスト" },
+            { EN: "Resident Director Support", JP: "日本人常駐ディレクター" },
+            { EN: "T-Hub & IIT Network", JP: "T-Hub・IIT連携" },
+          ]}
+        />
+      )}
 
       {/* ════════════════════════════════════════════════════════════
           1. ADVISORY COUNCIL — 3+2 Luxury Executive Grid (Light & Dark Support)

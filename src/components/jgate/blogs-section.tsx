@@ -443,7 +443,7 @@ const ZONES: ZoneDef[] = [
 type GalleryViewMode = "zones" | "mosaic";
 type ZoneFilter = "all" | "building" | "reception" | "workspace" | "meetings" | "dining";
 
-export function BlogsSection({ id }: { id?: string }) {
+export function BlogsSection({ id, hideHero }: { id?: string; hideHero?: boolean }) {
   const { tx } = useI18n();
   const [viewMode, setViewMode] = useState<GalleryViewMode>("zones");
   const [selectedZone, setSelectedZone] = useState<ZoneFilter>("all");
@@ -509,26 +509,28 @@ export function BlogsSection({ id }: { id?: string }) {
 
   return (
     <div id={id} className="scroll-mt-20">
-      <PageHero
-        eyebrowKey="nav.blogs"
-        layout="split"
-        titleNode={
-          <>
-            {tx({ EN: "Office & Facilities ", JP: "オフィス写真・" })}
-            <br className="hidden sm:inline" />
-            {tx({ EN: "Cyber Gateway, Hyderabad", JP: "施設ギャラリー" })}
-          </>
-        }
-        subtitleNode={tx({
-          EN: "A dedicated co-working space at Cyber Gateway, Hyderabad for Japanese businesses. Dedicated desks, private offices, resident Japan Desk support, and full office infrastructure.",
-          JP: "Cyber Gateway内に位置する日本企業専用スペース。専用デスク、個室、ジャパンデスク常駐環境を写真でご紹介。",
-        })}
-        tags={[
-          { EN: "Cyber Gateway Phase 2", JP: "Cyber Gateway Phase 2" },
-          { EN: "24/7 Biometric Access", JP: "24時間生体認証アクセス" },
-          { EN: "High-Speed Dual Fiber", JP: "二重化高速光回線" },
-        ]}
-      />
+      {!hideHero && (
+        <PageHero
+          eyebrowKey="nav.blogs"
+          layout="split"
+          titleNode={
+            <>
+              {tx({ EN: "Office & Facilities ", JP: "オフィス写真・" })}
+              <br className="hidden sm:inline" />
+              {tx({ EN: "Cyber Gateway, Hyderabad", JP: "施設ギャラリー" })}
+            </>
+          }
+          subtitleNode={tx({
+            EN: "A dedicated co-working space at Cyber Gateway, Hyderabad for Japanese businesses. Dedicated desks, private offices, resident Japan Desk support, and full office infrastructure.",
+            JP: "Cyber Gateway内に位置する日本企業専用スペース。専用デスク、個室、ジャパンデスク常駐環境を写真でご紹介。",
+          })}
+          tags={[
+            { EN: "Cyber Gateway Phase 2", JP: "Cyber Gateway Phase 2" },
+            { EN: "24/7 Biometric Access", JP: "24時間生体認証アクセス" },
+            { EN: "High-Speed Dual Fiber", JP: "二重化高速光回線" },
+          ]}
+        />
+      )}
 
       {/* ───────────────────────────────────────────────────────────
           Main Office Gallery Section

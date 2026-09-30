@@ -416,97 +416,22 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          LIVE BILATERAL CORRIDOR STATUS — Tokyo ↔ Hyderabad (Handshake Bg)
+          2. LIVE BILATERAL CORRIDOR STATUS — Tokyo ↔ Hyderabad
          ════════════════════════════════════════════════════════════ */}
       <BilateralCorridorVisualizer />
 
       {/* ════════════════════════════════════════════════════════════
-          3. CORE AGENDA — The 3 Bilateral Capabilities
+          3. ABOUT J-GATE — 3 Pillars, Bilateral Alliance & Mission/Vision
          ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad bg-ivory dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10">
-        <div className="container-jg">
-          <Reveal>
-            <div className="mx-auto mb-8 sm:mb-12 max-w-3xl text-center">
-              <Eyebrow>{tx({ EN: "Bilateral Expansion Support", JP: "ワンストップ進出支援" })}</Eyebrow>
-              <h2
-                className="mt-2.5 font-serif-jp font-bold leading-[1.18] text-ink dark:text-white"
-                style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.5rem)" }}
-              >
-                {tx({
-                  EN: "The 3 Pillars of Your India Expansion",
-                  JP: "インド進出を最短で実現する3つの柱",
-                })}
-              </h2>
-              <p
-                className="mx-auto mt-2.5 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300 text-[13px] sm:text-[14.5px]"
-              >
-                {tx({
-                  EN: "Physical office workspace, resident Japanese advisory, and local setup guidance with talent hiring advice — coordinated under one roof.",
-                  JP: "オフィス確保、現地常駐の日本語サポート、そして各種設立手続支援と高度IT人材採用まで、ワンストップで完結します。",
-                })}
-              </p>
-            </div>
-          </Reveal>
-
-          <div className="grid gap-5 md:grid-cols-3 items-stretch">
-            {coreAgenda.map((p, i) => {
-              const Icon = p.icon;
-              return (
-                <Reveal key={p.num} delay={i * 100} variant="scale">
-                  <article className="luxury-light-card card-sheen gold-hairline group relative h-full flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-5 sm:p-6 lg:p-7 shadow-lg hover:shadow-2xl hover:border-crimson/35 transition-all duration-300">
-                    <span
-                      className="pointer-events-none absolute -top-3 sm:-top-5 right-3 sm:right-4 font-serif-jp font-black leading-none text-slate-100/80 dark:text-white/[0.04] text-[52px] sm:text-[72px] lg:text-[88px] transition-all duration-500 group-hover:scale-110 group-hover:text-crimson/10 select-none"
-                      aria-hidden
-                    >
-                      {p.num}
-                    </span>
-                    <div className="relative z-10 flex-1 flex flex-col justify-between">
-                      <div>
-                        <div className="flex items-center justify-between">
-                          <div className="icon-pod h-11 w-11 sm:h-12 sm:w-12 shrink-0">
-                            <Icon className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.75} />
-                          </div>
-                          <span className="inline-flex items-center gap-1 rounded-full bg-crimson/[0.08] dark:bg-rose-950/50 border border-crimson/25 dark:border-rose-400/30 px-2.5 py-0.5 text-[10.5px] font-bold text-crimson dark:text-rose-400 tracking-wider">
-                            {tx(p.badge)}
-                          </span>
-                        </div>
-
-                        <h3
-                          className="mt-4 font-serif-jp font-bold leading-tight text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400 transition-colors"
-                          style={{ fontSize: "clamp(1.1rem, 1.6vw, 1.3rem)" }}
-                        >
-                          {p.title}
-                        </h3>
-                        <p className="mt-2.5 font-inter leading-relaxed text-slate-600 dark:text-slate-300 text-[12.5px] sm:text-[13.5px]">
-                          {p.desc}
-                        </p>
-
-                        {/* Bullet Highlights */}
-                        <div className="mt-4 space-y-1.5 border-t border-slate-100 dark:border-white/10 pt-3.5">
-                          {p.highlights.map((h, hi) => (
-                            <div key={hi} className="flex items-center gap-2 text-[11.5px] sm:text-[12px] font-inter text-slate-700 dark:text-slate-300">
-                              <CheckCircle2 className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-                              <span>{tx(h)}</span>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-                    </div>
-                  </article>
-                </Reveal>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <AboutSection id="about" hideHero />
 
       {/* ════════════════════════════════════════════════════════════
-          6. HYDERABAD LOCATION — 2-Column Strategic Map & Details
+          4. HYDERABAD LOCATION — 2-Column Strategic Map & Value Pillars
          ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad bg-ivory-warm dark:bg-[#0b111e] border-t border-slate-200/70 dark:border-white/10">
+      <section className="py-6 sm:py-8 lg:py-10 bg-ivory-warm dark:bg-[#0b111e] border-t border-slate-200/70 dark:border-white/10">
         <div className="container-jg">
           <Reveal>
-            <div className="mx-auto mb-10 max-w-3xl text-center">
+            <div className="mx-auto mb-8 sm:mb-10 max-w-3xl text-center">
               <Eyebrow>{tx({ EN: "Strategic Location Advantage", JP: "戦略的立地の優位性" })}</Eyebrow>
               <h2
                 className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink dark:text-white"
@@ -655,42 +580,37 @@ export default function HomePage() {
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          ABOUT J-GATE — Continuous Scroll
+          5. WHY J-GATE — Comparison Table & Detailed Pillars
          ════════════════════════════════════════════════════════════ */}
-      <AboutSection id="about" />
+      <WhyJGateSection id="why-jgate" hideHero />
 
       {/* ════════════════════════════════════════════════════════════
-          WHY J-GATE — Continuous Scroll
+          6. SERVICES & SOLUTIONS — Services Grid & Roadmap
          ════════════════════════════════════════════════════════════ */}
-      <WhyJGateSection id="why-jgate" />
+      <ServicesSection id="services" hideHero />
 
       {/* ════════════════════════════════════════════════════════════
-          SERVICES & SOLUTIONS — Continuous Scroll
+          7. LEADERSHIP & ADVISORY TEAM — Advisory & Operations Team
          ════════════════════════════════════════════════════════════ */}
-      <ServicesSection id="services" />
+      <TeamSection id="team" hideHero />
 
       {/* ════════════════════════════════════════════════════════════
-          LEADERSHIP & ADVISORY TEAM — Continuous Scroll
+          8. PRICING & MEMBERSHIP PLANS — Plan Cards & Guarantees
          ════════════════════════════════════════════════════════════ */}
-      <TeamSection id="team" />
+      <PricingSection id="pricing" hideHero />
 
       {/* ════════════════════════════════════════════════════════════
-          PRICING & MEMBERSHIP PLANS — Continuous Scroll
+          9. FACILITIES & OFFICE GALLERY — Photo Gallery Mosaic
          ════════════════════════════════════════════════════════════ */}
-      <PricingSection id="pricing" />
+      <BlogsSection id="blogs" hideHero />
 
       {/* ════════════════════════════════════════════════════════════
-          FACILITIES & OFFICE GALLERY — Continuous Scroll
-         ════════════════════════════════════════════════════════════ */}
-      <BlogsSection id="blogs" />
-
-      {/* ════════════════════════════════════════════════════════════
-          CONTACT & JAPAN DESK CONSOLE — Continuous Scroll
+          10. CONTACT & JAPAN DESK CONSOLE
          ════════════════════════════════════════════════════════════ */}
       <ContactSection id="contact" />
 
       {/* ════════════════════════════════════════════════════════════
-          FREQUENTLY ASKED QUESTIONS — Continuous Scroll
+          11. FREQUENTLY ASKED QUESTIONS
          ════════════════════════════════════════════════════════════ */}
       <FAQSection id="faq" />
     </>

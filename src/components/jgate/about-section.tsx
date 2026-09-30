@@ -111,31 +111,33 @@ const VISION = {
   tag: { EN: "Long-Term Vision", JP: "私たちが目指す未来" },
 } as const;
 
-export function AboutSection({ id }: { id?: string }) {
+export function AboutSection({ id, hideHero }: { id?: string; hideHero?: boolean }) {
   const { t, tx, lang } = useI18n();
 
   return (
     <div id={id} className="scroll-mt-16">
-      <PageHero
-        eyebrowKey="about.eyebrow"
-        layout="split"
-        titleNode={
-          <>
-            {tx({ EN: "From India Entry Spark ", JP: "インド展開の" })}
-            <br className="hidden sm:inline" />
-            {tx({ EN: "to Talent Development", JP: "きっかけ作りから育成まで" })}
-          </>
-        }
-        subtitleNode={tx({
-          EN: "Operated by Indobox India — a dedicated working hub for Japanese enterprises in Hyderabad.",
-          JP: "Indobox Indiaが運営する、ハイデラバードの日本企業専用ワーキングハブ。",
-        })}
-        tags={[
-          { EN: "Main Office in Hyderabad", JP: "Hyderabad 旗艦拠点" },
-          { EN: "On-Site Japanese Support", JP: "現地日本人常駐" },
-          { EN: "Incorporation Support", JP: "法人設立サポート" },
-        ]}
-      />
+      {!hideHero && (
+        <PageHero
+          eyebrowKey="about.eyebrow"
+          layout="split"
+          titleNode={
+            <>
+              {tx({ EN: "From India Entry Spark ", JP: "インド展開の" })}
+              <br className="hidden sm:inline" />
+              {tx({ EN: "to Talent Development", JP: "きっかけ作りから育成まで" })}
+            </>
+          }
+          subtitleNode={tx({
+            EN: "Operated by Indobox India — a dedicated working hub for Japanese enterprises in Hyderabad.",
+            JP: "Indobox Indiaが運営する、ハイデラバードの日本企業専用ワーキングハブ。",
+          })}
+          tags={[
+            { EN: "Main Office in Hyderabad", JP: "Hyderabad 旗艦拠点" },
+            { EN: "On-Site Japanese Support", JP: "現地日本人常駐" },
+            { EN: "Incorporation Support", JP: "法人設立サポート" },
+          ]}
+        />
+      )}
 
       {/* ════════════════════════════════════════════════════════════
           Section 1 — 3 Pillars Detailed

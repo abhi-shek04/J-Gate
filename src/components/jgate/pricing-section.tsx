@@ -317,7 +317,7 @@ const MATRIX_FEATURES = [
   },
 ];
 
-export function PricingSection({ id }: { id?: string }) {
+export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boolean }) {
   const { tx, lang } = useI18n();
   const [currency, setCurrency] = useState<"INR" | "JPY">("INR");
   const [billingCycle, setBillingCycle] = useState<"monthly" | "annual">("monthly");
@@ -327,30 +327,29 @@ export function PricingSection({ id }: { id?: string }) {
   const isAnnual = billingCycle === "annual";
 
   return (
-    <div id={id} className="min-h-screen bg-ivory dark:bg-[#0b111e] transition-colors scroll-mt-20">
-      {/* ───────────────────────────────────────────────────────────
-          1. Hero Banner
-         ─────────────────────────────────────────────────────────── */}
-      <PageHero
-        eyebrowKey="pricing.eyebrow"
-        layout="split"
-        titleNode={
-          <>
-            {tx({ EN: "Membership Fee Plans ", JP: "ハイデラバード拠点 " })}
-            <br className="hidden sm:inline" />
-            {tx({ EN: "— Hyderabad Operating Hub", JP: "メンバーシップ料金プラン" })}
-          </>
-        }
-        subtitleNode={tx({
-          EN: "Designed as a cost-effective solution — providing Japanese enterprises with a dedicated workspace and resident advisory in Hyderabad.",
-          JP: "日系企業に最適化された戦略的拠点モデル — ハイデラバードでの専用執務環境と日本人常駐サポートを提供。",
-        })}
-        tags={[
-          { EN: "Flexible Desk & Suite Plans", JP: "柔軟なデスク・個室プラン" },
-          { EN: "Transparent Monthly Billing", JP: "明朗な月額費用" },
-          { EN: "Enterprise Infrastructure Included", JP: "完全インフラ込み" },
-        ]}
-      />
+    <div id={id} className="bg-ivory dark:bg-[#0b111e] transition-colors scroll-mt-20">
+      {!hideHero && (
+        <PageHero
+          eyebrowKey="pricing.eyebrow"
+          layout="split"
+          titleNode={
+            <>
+              {tx({ EN: "Membership Fee Plans ", JP: "ハイデラバード拠点 " })}
+              <br className="hidden sm:inline" />
+              {tx({ EN: "— Hyderabad Operating Hub", JP: "メンバーシップ料金プラン" })}
+            </>
+          }
+          subtitleNode={tx({
+            EN: "Designed as a cost-effective solution — providing Japanese enterprises with a dedicated workspace and resident advisory in Hyderabad.",
+            JP: "日系企業に最適化された戦略的拠点モデル — ハイデラバードでの専用執務環境と日本人常駐サポートを提供。",
+          })}
+          tags={[
+            { EN: "Flexible Desk & Suite Plans", JP: "柔軟なデスク・個室プラン" },
+            { EN: "Transparent Monthly Billing", JP: "明朗な月額費用" },
+            { EN: "Enterprise Infrastructure Included", JP: "完全インフラ込み" },
+          ]}
+        />
+      )}
 
       {/* ───────────────────────────────────────────────────────────
           2. Three Executive Plan Cards

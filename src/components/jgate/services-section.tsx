@@ -305,7 +305,7 @@ export function ServicesSection({ id }: { id?: string }) {
       {/* ───────────────────────────────────────────────────────────
           3. Core Services (Simple, Clean, Professional Text Layout)
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-10 sm:py-16 md:py-20 bg-ivory-warm dark:bg-[#0b111e]">
+      <section className="py-12 sm:py-16 lg:py-24 bg-ivory-warm dark:bg-[#0b111e]">
         <div className="container-jg max-w-5xl">
           <Reveal>
             <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
@@ -401,7 +401,7 @@ export function ServicesSection({ id }: { id?: string }) {
       {/* ───────────────────────────────────────────────────────────
           4. Deployment Roadmap (From Consultation to Operations)
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-14 sm:py-18 bg-ivory dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10">
+      <section className="py-12 sm:py-16 lg:py-24 bg-ivory dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center mb-10">
@@ -423,7 +423,7 @@ export function ServicesSection({ id }: { id?: string }) {
               </p>
             </div>
 
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 max-w-5xl mx-auto timeline-connector">
+            <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4 max-w-5xl mx-auto timeline-connector">
               {DEPLOYMENT_STEPS.map((step, idx) => (
                 <div
                   key={idx}
@@ -454,7 +454,7 @@ export function ServicesSection({ id }: { id?: string }) {
           5. INDUSTRIAL-LEVEL BILATERAL GOVERNANCE ARCHITECTURE
              (Indobox × Genesys Info X — Luminous Mode Console)
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-10 sm:py-16 md:py-24 bg-ivory-warm dark:bg-[#0b111e] text-ink dark:text-white relative overflow-hidden border-t border-slate-200/70 dark:border-white/10">
+      <section className="py-12 sm:py-16 lg:py-24 bg-ivory-warm dark:bg-[#0b111e] text-ink dark:text-white relative overflow-hidden border-t border-slate-200/70 dark:border-white/10">
         {/* Subtle ambient lighting */}
         <div
           className="pointer-events-none absolute inset-0 opacity-40"
@@ -505,11 +505,11 @@ export function ServicesSection({ id }: { id?: string }) {
                     {/* Official Brand Logo Box */}
                     <div className="h-20 sm:h-24 w-full rounded-xl bg-white dark:bg-white/95 border border-slate-200/80 dark:border-white/10 p-4 flex items-center justify-center shadow-xs mb-3 group-hover:scale-[1.02] transition-transform">
                       <Image
-                        src="/logos/indobox.png"
+                        src="/logos/indobox-official-brand.png"
                         alt="Indobox India Private Limited."
                         width={280}
                         height={70}
-                        className="h-10 sm:h-12 md:h-14 w-auto object-contain"
+                        className="h-12 sm:h-15 md:h-16 w-auto object-contain"
                       />
                     </div>
 

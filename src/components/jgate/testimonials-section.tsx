@@ -115,7 +115,7 @@ export function TestimonialsSection() {
                   </div>
 
                   <blockquote
-                    className="mt-5 font-serif-jp italic leading-relaxed text-white/95 text-[15px] sm:text-[16px]"
+                    className="mt-5 font-serif-jp italic leading-relaxed text-white/95 text-[14.5px] sm:text-[15.5px]"
                   >
                     “{tx(t.quote)}”
                   </blockquote>

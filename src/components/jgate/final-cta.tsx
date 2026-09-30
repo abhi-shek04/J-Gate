@@ -37,7 +37,7 @@ export function FinalCta() {
       <div className="container-jg relative z-10">
         <Reveal>
           <div className="luxury-glass-card mx-auto max-w-[800px] text-center rounded-3xl border border-white/20 bg-white/[0.04] p-8 sm:p-14 shadow-2xl backdrop-blur-xl">
-            <span className="inline-flex items-center gap-2 rounded-full border border-saffron/30 bg-saffron/10 px-4 py-1 font-inter text-[11px] font-bold uppercase tracking-widest text-saffron mb-4">
+            <span className="inline-flex items-center gap-2 rounded-full border border-saffron/30 bg-saffron/10 px-4 py-1 font-inter text-[11px] sm:text-[12px] font-bold uppercase tracking-widest text-saffron mb-4">
               <span className="h-1.5 w-1.5 rounded-full bg-saffron animate-pulse" />
               Start in India with J-Gate
             </span>

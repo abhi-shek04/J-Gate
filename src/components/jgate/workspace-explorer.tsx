@@ -225,7 +225,7 @@ export function WorkspaceExplorer() {
                           <span className="block font-inter text-[9.5px] sm:text-[10.5px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 group-hover/spec:text-crimson dark:group-hover/spec:text-rose-400 transition-colors">
                             {tx(spec.label)}
                           </span>
-                          <span className="mt-0.5 block font-inter text-[12px] sm:text-[13px] font-bold text-ink dark:text-white truncate">
+                          <span className="mt-0.5 block font-inter text-[12.5px] sm:text-[13.5px] font-bold text-ink dark:text-white truncate">
                             {tx(spec.val)}
                           </span>
                         </div>

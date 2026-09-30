@@ -705,7 +705,7 @@ html[lang="ja"] .font-serif-jp {
 ::-webkit-scrollbar-track { background: #ede8de; }
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(180deg, #bc1a2c, #0d1b2a);
-  border-radius: 0;
+  border-radius: 5px;
   border: 2px solid #ede8de;
 }
 ::-webkit-scrollbar-thumb:hover { background: linear-gradient(180deg, #8b0f1e, #080f1a); }
@@ -755,22 +755,22 @@ section[id] { scroll-margin-top: 80px; }
   background-color: #0f1728 !important;
 }
 
-/* White cards and surfaces become deep luxury obsidian glass in dark mode */
-.dark .bg-white,
-.dark .bg-white\/90,
-.dark .bg-white\/95,
-.dark .bg-white\/80,
-.dark .bg-white\/70,
-.dark .bg-white\/60,
-.dark .bg-white\/50,
-.dark .luxury-light-card {
+/* White card containers become deep luxury obsidian glass in dark mode.
+   Scoped to actual card/surface elements to avoid overriding layout bg-white divs. */
+.dark .luxury-light-card,
+.dark article.bg-white,
+.dark div[class*="rounded"].bg-white,
+.dark div[class*="rounded"].bg-white\/90,
+.dark div[class*="rounded"].bg-white\/95,
+.dark div[class*="rounded"].bg-white\/80 {
   background: linear-gradient(145deg, rgba(20, 31, 52, 0.9) 0%, rgba(13, 22, 38, 0.96) 100%) !important;
   border-color: rgba(255, 255, 255, 0.09) !important;
   box-shadow: 0 12px 36px -10px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
 }
 
 .dark .luxury-light-card:hover,
-.dark .bg-white:hover {
+.dark article.bg-white:hover,
+.dark div[class*="rounded"].bg-white:hover {
   border-color: rgba(225, 29, 72, 0.45) !important;
   box-shadow: 0 22px 50px -10px rgba(0, 0, 0, 0.75), 0 0 28px rgba(225, 29, 72, 0.16), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
 }
@@ -921,6 +921,33 @@ section[id] { scroll-margin-top: 80px; }
 .dark ::-webkit-scrollbar-thumb {
   border-color: #0b111e;
   background: linear-gradient(180deg, #bc1a2c, #101a2c);
+}
+
+/* ── Smooth CSS Grid Accordion ── */
+.accordion-grid {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.accordion-grid.accordion-open {
+  grid-template-rows: 1fr;
+}
+.accordion-grid > .accordion-inner {
+  overflow: hidden;
+  min-height: 0;
+}
+
+/* ── Stat Card Hover ── */
+.stat-card-hover {
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, box-shadow;
+}
+.stat-card-hover:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 16px 40px -8px rgba(8, 15, 26, 0.12), 0 4px 12px rgba(188, 26, 44, 0.08);
+}
+.dark .stat-card-hover:hover {
+  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.5), 0 0 20px rgba(225, 29, 72, 0.15);
 }
 
 /* ── Extra Luxury UI Utilities ── */

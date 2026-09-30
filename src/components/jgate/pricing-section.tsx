@@ -355,7 +355,7 @@ export function PricingSection({ id }: { id?: string }) {
       {/* ───────────────────────────────────────────────────────────
           2. Three Executive Plan Cards
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-6 sm:py-10 lg:py-12 bg-ivory-warm dark:bg-[#0f1728] relative overflow-hidden transition-colors">
+      <section className="py-12 sm:py-16 lg:py-24 bg-ivory-warm dark:bg-[#0f1728] relative overflow-hidden transition-colors">
         {/* Ambient subtle warm lighting */}
         <div
           className="pointer-events-none absolute inset-0 opacity-35"
@@ -406,29 +406,6 @@ export function PricingSection({ id }: { id?: string }) {
                 >
                   JPY (¥)
                 </button>
-              </div>
-
-              {/* Team Filter */}
-              <div className="inline-flex flex-wrap items-center justify-center gap-1 bg-white/90 dark:bg-[#101a2c] p-1 rounded-2xl border border-slate-200/80 dark:border-white/10 shadow-xs">
-                {[
-                  { id: "all", label: { EN: "Show All (3)", JP: "すべて (3)" } },
-                  { id: "1-2", label: { EN: "1–2 Members", JP: "1〜2名利用" } },
-                  { id: "3-4", label: { EN: "3–4 Members", JP: "3〜4名利用" } },
-                  { id: "enterprise", label: { EN: "Enterprise", JP: "企業・特注規模" } },
-                ].map((tab) => (
-                  <button
-                    key={tab.id}
-                    type="button"
-                    onClick={() => setSelectedFilter(tab.id as any)}
-                    className={`px-3 py-1 rounded-xl text-[11.5px] font-inter font-semibold transition-all duration-200 cursor-pointer ${
-                      selectedFilter === tab.id
-                        ? "bg-slate-800 dark:bg-white/20 text-white shadow-xs"
-                        : "text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100/70 dark:hover:bg-white/10"
-                    }`}
-                  >
-                    {tx(tab.label)}
-                  </button>
-                ))}
               </div>
             </div>
           </Reveal>
@@ -682,7 +659,7 @@ export function PricingSection({ id }: { id?: string }) {
       {/* ───────────────────────────────────────────────────────────
           4. Billing Notes & Transparent Guarantees
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-8 sm:py-12 lg:py-14 bg-ivory dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10">
+      <section className="py-12 sm:py-16 lg:py-24 bg-ivory dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-4xl">

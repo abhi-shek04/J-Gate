@@ -147,21 +147,22 @@ const OPS_TEAM: OpsMember[] = [
     ],
   },
   {
-    id: "isogai",
-    name: "Tomio Isogai",
-    jpName: "磯貝 富雄",
-    role: "SENIOR ADVISOR",
-    subtitle: "Former MD, Sharp India | Corporate Advisor",
-    flag: "🇯🇵",
-    country: "Japan",
+    id: "abhishek",
+    name: "Abhishek Buduru",
+    jpName: "アブシェーク・ブドゥル",
+    role: "TECH OPERATIONS",
+    subtitle: "Smart Access & IT Infrastructure Specialist",
+    flag: "🇮🇳",
+    country: "India",
     email: "contact@indobox.co.jp",
-    image: "/advisory/isogai.png",
-    desc: "Former Managing Director of Sharp India. Advising on corporate relations, Japanese business customs, and strategic partnerships.",
-    tags: ["Corporate Relations", "Strategic Partnerships", "Business Customs"],
-    linkedin: "https://www.linkedin.com/in/tomio-isogai-416b9b16/",
+    image: "/team/abhishek.png",
+    desc: "Oversees smart access systems, IT support, workspace infrastructure, and digital systems at J-Gate Hyderabad.",
+    tags: ["Tech Support", "IT Infrastructure", "Smart Access"],
+    linkedin: "https://www.linkedin.com/in/buduru-abhishek/",
     languages: [
-      { EN: "Japanese", JP: "日本語", highlight: true },
-      { EN: "English", JP: "英語" },
+      { EN: "English", JP: "英語", highlight: true },
+      { EN: "Telugu", JP: "テルグ語" },
+      { EN: "Hindi", JP: "ヒンディー語" },
     ],
   },
   {
@@ -210,7 +211,7 @@ export function TeamSection({ id }: { id?: string }) {
       {/* ════════════════════════════════════════════════════════════
           1. ADVISORY COUNCIL — 3+2 Luxury Executive Grid (Light & Dark Support)
          ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad relative overflow-hidden bg-slate-50/70 dark:bg-[#070d18] border-b border-slate-200/80 dark:border-white/10 text-ink dark:text-white transition-colors duration-300">
+      <section className="py-12 sm:py-16 lg:py-24 relative overflow-hidden bg-slate-50/70 dark:bg-[#070d18] border-b border-slate-200/80 dark:border-white/10 text-ink dark:text-white transition-colors duration-300">
         {/* Ambient subtle Japanese Asanoha lattice backdrop */}
         <div className="pattern-asanoha opacity-[0.03] dark:pattern-asanoha-dark dark:opacity-20 absolute inset-0 pointer-events-none" />
         <div
@@ -235,7 +236,7 @@ export function TeamSection({ id }: { id?: string }) {
           </Reveal>
 
           {/* Row 1 — 3 Advisors across */}
-          <div className="mt-6 sm:mt-8 lg:mt-9 grid gap-4 sm:gap-5 md:grid-cols-3">
+          <div className="mt-6 sm:mt-8 lg:mt-9 grid gap-4 sm:gap-5 md:grid-cols-3 items-stretch">
             {ADVISORY_ROW_1.map((adv, i) => (
               <Reveal key={adv.id} delay={i * 80}>
                 <article className="group relative flex h-full flex-col justify-between items-center overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/12 bg-white dark:bg-[#101826] p-4 sm:p-5 text-center shadow-xs hover:shadow-lg hover:border-saffron/60 dark:hover:border-saffron/60 transition-all duration-300">
@@ -308,7 +309,7 @@ export function TeamSection({ id }: { id?: string }) {
           </div>
 
           {/* Row 2 — 2 Advisors centered */}
-          <div className="mt-4 sm:mt-5 grid gap-4 sm:gap-5 md:grid-cols-2 md:max-w-2xl lg:max-w-3xl md:mx-auto">
+          <div className="mt-4 sm:mt-5 grid gap-4 sm:gap-5 md:grid-cols-2 md:max-w-2xl lg:max-w-3xl md:mx-auto items-stretch">
             {ADVISORY_ROW_2.map((adv, i) => (
               <Reveal key={adv.id} delay={200 + i * 80}>
                 <article className="group relative flex h-full flex-col justify-between items-center overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/12 bg-white dark:bg-[#101826] p-4 sm:p-5 text-center shadow-xs hover:shadow-lg hover:border-saffron/60 dark:hover:border-saffron/60 transition-all duration-300">
@@ -401,7 +402,7 @@ export function TeamSection({ id }: { id?: string }) {
       {/* ════════════════════════════════════════════════════════════
           3. OPERATIONS TEAM — 4-Card Executive Grid (Warm Ivory)
          ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad bg-ivory dark:bg-[#0c1424]">
+      <section className="py-12 sm:py-16 lg:py-24 bg-ivory dark:bg-[#0c1424]">
         <div className="container-jg">
           <Reveal>
             <SectionHeading
@@ -577,7 +578,7 @@ export function TeamSection({ id }: { id?: string }) {
       {/* ════════════════════════════════════════════════════════════
           4. OUR PARTNERS — Infinite Side-Scrolling Company Marquee
          ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad relative overflow-hidden bg-ivory-warm dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10 transition-colors duration-300">
+      <section className="py-12 sm:py-16 lg:py-24 relative overflow-hidden bg-ivory-warm dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10 transition-colors duration-300">
         <div className="container-jg mb-8 sm:mb-10">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center">

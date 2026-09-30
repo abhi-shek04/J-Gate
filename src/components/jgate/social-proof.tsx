@@ -73,9 +73,9 @@ export function SocialProof() {
         <Reveal delay={80}>
           <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {stats.map((s) => (
-              <div key={s.key} className="luxury-light-card card-sheen rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-6 text-center shadow-card dark:shadow-2xl">
+              <div key={s.key} className="luxury-light-card card-sheen rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-6 text-center shadow-card dark:shadow-2xl hover:scale-[1.03] hover:shadow-lg transition-all duration-300">
                 <div className="font-serif-jp text-[clamp(2.2rem,4vw,3.2rem)] font-black text-crimson dark:text-saffron">{s.num}</div>
-                <div className="mt-2 font-inter text-[12px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
+                <div className="mt-2 font-inter text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
                   {t(s.key)}
                 </div>
               </div>

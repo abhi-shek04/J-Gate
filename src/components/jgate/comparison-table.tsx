@@ -163,7 +163,7 @@ function Cell({
 }) {
   return (
     <div
-      className={`flex items-start gap-2.5 px-5 py-4 font-inter text-[13px] leading-snug ${
+      className={`flex items-start gap-2.5 px-5 py-4 font-inter text-[12.5px] sm:text-[13.5px] leading-snug ${
         highlight ? "text-ink dark:text-white font-semibold" : "text-slate dark:text-slate-300"
       }`}
     >
@@ -229,9 +229,9 @@ export function ComparisonTable() {
             <div className="min-w-[920px] overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] shadow-2xl">
               {/* Header row */}
               <div className="grid grid-cols-[180px_minmax(210px,1.2fr)_1fr_1fr_1fr]">
-                <div className="border-b border-slate-200/80 dark:border-white/10 bg-slate-50/90 dark:bg-white/5 px-5 py-5 flex items-center">
+                <div className="sticky left-0 z-10 border-b border-slate-200/80 dark:border-white/10 bg-slate-50 dark:bg-[#101a2c] px-5 py-5 flex items-center">
                   <span
-                    className="font-inter text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400"
+                    className="font-inter text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400"
                   >
                     {tx({ EN: "Criteria", JP: "比較項目" })}
                   </span>
@@ -256,17 +256,17 @@ export function ComparisonTable() {
                 </div>
 
                 <div className="border-b border-slate-200/80 dark:border-white/10 bg-slate-50/90 dark:bg-white/5 px-5 py-5 flex items-center">
-                  <span className="font-inter text-[13px] font-bold text-ink dark:text-white">
+                  <span className="font-inter text-[12px] sm:text-[13px] font-bold text-ink dark:text-white">
                     {tx({ EN: "Major Consulting", JP: "大手コンサル" })}
                   </span>
                 </div>
                 <div className="border-b border-slate-200/80 dark:border-white/10 bg-slate-50/90 dark:bg-white/5 px-5 py-5 flex items-center">
-                  <span className="font-inter text-[13px] font-bold text-ink dark:text-white">
+                  <span className="font-inter text-[12px] sm:text-[13px] font-bold text-ink dark:text-white">
                     {tx({ EN: "Local Coworking", JP: "現地コワーキング" })}
                   </span>
                 </div>
                 <div className="border-b border-slate-200/80 dark:border-white/10 bg-slate-50/90 dark:bg-white/5 px-5 py-5 flex items-center">
-                  <span className="font-inter text-[13px] font-bold text-ink dark:text-white">
+                  <span className="font-inter text-[12px] sm:text-[13px] font-bold text-ink dark:text-white">
                     {tx({ EN: "Public Organizations", JP: "公的機関" })}
                   </span>
                 </div>
@@ -282,11 +282,11 @@ export function ComparisonTable() {
                   >
                     {/* Criteria label */}
                     <div
-                      className={`px-5 py-4 flex items-center ${
-                        zebra ? "bg-slate-50/60 dark:bg-white/[0.03]" : "bg-white dark:bg-transparent"
+                      className={`sticky left-0 z-10 px-5 py-4 flex items-center ${
+                        zebra ? "bg-slate-50 dark:bg-[#152136]" : "bg-white dark:bg-[#101a2c]"
                       }`}
                     >
-                      <span className="font-inter text-[12.5px] font-bold text-ink dark:text-white">
+                      <span className="font-inter text-[12.5px] sm:text-[13.5px] font-bold text-ink dark:text-white">
                         {tx(row.label)}
                       </span>
                     </div>
@@ -294,7 +294,7 @@ export function ComparisonTable() {
                     {/* J-Gate highlighted cell */}
                     <div
                       className={`relative border-x-2 border-crimson/60 ${
-                        zebra ? "bg-crimson/[0.05] dark:bg-crimson/10" : "bg-crimson/[0.03] dark:bg-crimson/[0.07]"
+                        zebra ? "bg-crimson/10 dark:bg-crimson/20" : "bg-crimson/5 dark:bg-crimson/10"
                       }`}
                     >
                       <Cell text={tx(row.jgate)} type={row.jgateType} highlight />

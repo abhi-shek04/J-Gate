@@ -406,8 +406,8 @@ export function FAQSection({ id }: { id?: string }) {
                       className="flex w-full items-center justify-between gap-3.5 p-4 sm:p-5 text-left transition-colors cursor-pointer"
                       aria-expanded={isOpen}
                     >
-                      <div className="flex items-center gap-3 flex-1 min-w-0 pr-1">
-                        <span className="inline-block shrink-0 rounded-md bg-crimson/10 dark:bg-rose-950/50 px-2.5 py-1 font-inter text-[10.5px] font-bold text-crimson dark:text-rose-400 uppercase tracking-wider">
+                      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 flex-1 min-w-0 pr-1">
+                        <span className="inline-block shrink-0 rounded-md bg-crimson/10 dark:bg-rose-950/50 px-2.5 py-1 font-inter text-[11.5px] sm:text-[12.5px] font-bold text-crimson dark:text-rose-400 uppercase tracking-wider max-w-full truncate">
                           {tx(item.categoryLabel)}
                         </span>
                         <h3
@@ -424,7 +424,7 @@ export function FAQSection({ id }: { id?: string }) {
 
                       <div
                         className={cn(
-                          "flex h-7 w-7 shrink-0 items-center justify-center rounded-lg transition-all duration-200",
+                          "flex h-7 w-7 shrink-0 items-center justify-center rounded-lg transition-transform duration-300",
                           isOpen
                             ? "bg-crimson text-white rotate-180 shadow-xs"
                             : "bg-slate-100 dark:bg-white/10 text-slate-500 dark:text-slate-400 group-hover:bg-slate-200 dark:group-hover:bg-white/20"
@@ -434,29 +434,36 @@ export function FAQSection({ id }: { id?: string }) {
                       </div>
                     </button>
 
-                    {isOpen && (
-                      <div className="border-t border-slate-100 dark:border-white/10 bg-slate-50/50 dark:bg-white/[0.02] p-4 sm:p-5 pt-3 sm:pt-3.5 animate-in fade-in-50 duration-200">
-                        <p className="font-inter text-[13px] sm:text-[14px] leading-relaxed text-slate-700 dark:text-slate-300">
-                          {tx(item.a)}
-                        </p>
+                    <div
+                      className={cn(
+                        "grid transition-[grid-template-rows] duration-[350ms] ease-[cubic-bezier(0.16,1,0.3,1)]",
+                        isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+                      )}
+                    >
+                      <div className="overflow-hidden min-h-0">
+                        <div className="border-t border-slate-100 dark:border-white/10 bg-slate-50/50 dark:bg-white/[0.02] p-4 sm:p-5 pt-3 sm:pt-3.5">
+                          <p className="font-inter text-[13px] sm:text-[14px] leading-relaxed text-slate-700 dark:text-slate-300">
+                            {tx(item.a)}
+                          </p>
 
-                        {item.highlights && item.highlights.length > 0 && (
-                          <div className="mt-3.5 grid gap-2 sm:grid-cols-3 pt-3 border-t border-slate-100 dark:border-white/10">
-                            {item.highlights.map((h, hIdx) => (
-                              <div
-                                key={hIdx}
-                                className="inline-flex items-center gap-2 rounded-xl bg-white dark:bg-white/[0.06] p-2.5 border border-slate-200/70 dark:border-white/10 shadow-2xs"
-                              >
-                                <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
-                                <span className="font-inter text-[11.5px] font-semibold text-slate-800 dark:text-slate-200">
-                                  {tx(h)}
-                                </span>
-                              </div>
-                            ))}
-                          </div>
-                        )}
+                          {item.highlights && item.highlights.length > 0 && (
+                            <div className="mt-3.5 grid gap-2 sm:grid-cols-3 pt-3 border-t border-slate-100 dark:border-white/10">
+                              {item.highlights.map((h, hIdx) => (
+                                <div
+                                  key={hIdx}
+                                  className="inline-flex items-center gap-2 rounded-xl bg-white dark:bg-white/[0.06] p-2.5 border border-slate-200/70 dark:border-white/10 shadow-2xs"
+                                >
+                                  <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
+                                  <span className="font-inter text-[11.5px] font-semibold text-slate-800 dark:text-slate-200">
+                                    {tx(h)}
+                                  </span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+                        </div>
                       </div>
-                    )}
+                    </div>
                   </div>
                 </Reveal>
               );

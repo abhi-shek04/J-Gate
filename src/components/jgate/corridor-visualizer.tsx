@@ -162,7 +162,7 @@ export function BilateralCorridorVisualizer() {
                   {/* Bullet Points */}
                   <ul className="mt-4 sm:mt-5 space-y-1.5 sm:space-y-2 border-t border-white/15 pt-3 sm:pt-3.5">
                     {s.points.map((pt, pi) => (
-                      <li key={pi} className="flex items-start gap-2 sm:gap-2.5 text-[11.5px] sm:text-[12px] font-inter text-slate-100">
+                      <li key={pi} className="flex items-start gap-2 sm:gap-2.5 text-[12px] sm:text-[13px] font-inter text-slate-100">
                         <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-success mt-0.5 drop-shadow-[0_0_6px_rgba(26,147,111,0.5)]" />
                         <span>{tx(pt)}</span>
                       </li>

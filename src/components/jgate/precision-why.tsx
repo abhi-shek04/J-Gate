@@ -271,7 +271,7 @@ export function PrecisionWhyPage() {
           ───────────────────────────────────────────────────────────── */}
       <section
         id="why-comparison"
-        className="relative z-10 px-6 sm:px-12 lg:px-24 xl:pl-[120px] xl:pr-24 py-24 border-b border-[rgba(184,146,74,0.18)]"
+        className="relative z-10 px-6 sm:px-12 lg:px-24 xl:pl-[120px] xl:pr-24 py-12 sm:py-16 lg:py-20 border-b border-[rgba(184,146,74,0.18)]"
       >
         <div className="max-w-7xl mx-auto">
           {/* Header */}
@@ -320,11 +320,11 @@ export function PrecisionWhyPage() {
 
           {/* Table Container */}
           <div className="overflow-x-auto border border-[rgba(184,146,74,0.25)] rounded-[2px] bg-[#0F0F18] shadow-2xl">
-            <table className="w-full text-left border-collapse min-w-[860px]">
+            <table className="w-full text-left border-collapse min-w-[680px]">
               {/* Sticky Column Header */}
               <thead>
                 <tr className="bg-[#08080E] border-b-2 border-[rgba(184,146,74,0.35)] h-[72px]">
-                  <th className="w-[22%] px-5 py-4 font-mono text-[10px] uppercase tracking-[0.2em] text-[#5C5A68] align-middle">
+                  <th className="w-[22%] px-5 py-4 font-mono text-[11px] sm:text-[12px] uppercase tracking-[0.2em] text-[#5C5A68] align-middle sticky left-0 z-10 bg-[#08080E]">
                     {tx({ EN: "Criteria", JP: "比較項目" })}
                   </th>
                   {/* J-Gate Column Header with Persistent Gold Left Border & Recommended Badge */}
@@ -352,7 +352,7 @@ export function PrecisionWhyPage() {
               <tbody className="divide-y divide-[rgba(255,255,255,0.04)] text-[13px]">
                 {/* Row 1: Target Audience */}
                 <tr className="bg-[#0F0F18] hover:bg-[#1E1E2E] transition-colors group">
-                  <td className="px-5 py-4 font-sans font-normal text-[#9A98A4]">
+                  <td className="px-5 py-4 font-sans font-normal text-[#9A98A4] sticky left-0 z-10 bg-[#0F0F18] group-hover:bg-[#1E1E2E] transition-colors">
                     {tx({ EN: "Target Audience", JP: "対象企業規模" })}
                   </td>
                   <td className="px-5 py-4 bg-[#161622] group-hover:bg-[rgba(184,146,74,0.06)] transition-colors" style={{ boxShadow: "inset 1px 0 0 #B8924A" }}>
@@ -387,7 +387,7 @@ export function PrecisionWhyPage() {
 
                 {/* Row 2: Monthly Cost */}
                 <tr className="bg-[#161622] hover:bg-[#1E1E2E] transition-colors group">
-                  <td className="px-5 py-4 font-sans font-normal text-[#9A98A4]">
+                  <td className="px-5 py-4 font-sans font-normal text-[#9A98A4] sticky left-0 z-10 bg-[#161622] group-hover:bg-[#1E1E2E] transition-colors">
                     {tx({ EN: "Monthly Cost", JP: "月額費用" })}
                   </td>
                   <td className="px-5 py-4 bg-[#161622] group-hover:bg-[rgba(184,146,74,0.06)] transition-colors" style={{ boxShadow: "inset 1px 0 0 #B8924A" }}>
@@ -425,7 +425,7 @@ export function PrecisionWhyPage() {
 
                 {/* Row 3: Dedicated Office Space */}
                 <tr className="bg-[#0F0F18] hover:bg-[#1E1E2E] transition-colors group">
-                  <td className="px-5 py-4 font-sans font-normal text-[#9A98A4]">
+                  <td className="px-5 py-4 font-sans font-normal text-[#9A98A4] sticky left-0 z-10 bg-[#0F0F18] group-hover:bg-[#1E1E2E] transition-colors">
                     {tx({ EN: "Dedicated Office Space", JP: "物理的拠点" })}
                   </td>
                   <td className="px-5 py-4 bg-[#161622] group-hover:bg-[rgba(184,146,74,0.06)] transition-colors" style={{ boxShadow: "inset 1px 0 0 #B8924A" }}>
@@ -463,7 +463,7 @@ export function PrecisionWhyPage() {
 
                 {/* Row 4: On-Site Japanese Support */}
                 <tr className="bg-[#161622] hover:bg-[#1E1E2E] transition-colors group">
-                  <td className="px-5 py-4 font-sans font-normal text-[#9A98A4]">
+                  <td className="px-5 py-4 font-sans font-normal text-[#9A98A4] sticky left-0 z-10 bg-[#161622] group-hover:bg-[#1E1E2E] transition-colors">
                     {tx({ EN: "On-Site Japanese Support", JP: "常駐日本語専門家" })}
                   </td>
                   <td className="px-5 py-4 bg-[#161622] group-hover:bg-[rgba(184,146,74,0.06)] transition-colors" style={{ boxShadow: "inset 1px 0 0 #B8924A" }}>
@@ -501,7 +501,7 @@ export function PrecisionWhyPage() {
 
                 {/* Row 5: Hands-on Support */}
                 <tr className="bg-[#0F0F18] hover:bg-[#1E1E2E] transition-colors group">
-                  <td className="px-5 py-4 font-sans font-normal text-[#9A98A4]">
+                  <td className="px-5 py-4 font-sans font-normal text-[#9A98A4] sticky left-0 z-10 bg-[#0F0F18] group-hover:bg-[#1E1E2E] transition-colors">
                     {tx({ EN: "Hands-on Support", JP: "実務伴走サポート" })}
                   </td>
                   <td className="px-5 py-4 bg-[#161622] group-hover:bg-[rgba(184,146,74,0.06)] transition-colors" style={{ boxShadow: "inset 1px 0 0 #B8924A" }}>
@@ -536,7 +536,7 @@ export function PrecisionWhyPage() {
 
                 {/* Row 6: Japanese Language */}
                 <tr className="bg-[#161622] hover:bg-[#1E1E2E] transition-colors group">
-                  <td className="px-5 py-4 font-sans font-normal text-[#9A98A4]">
+                  <td className="px-5 py-4 font-sans font-normal text-[#9A98A4] sticky left-0 z-10 bg-[#161622] group-hover:bg-[#1E1E2E] transition-colors">
                     {tx({ EN: "Japanese Language", JP: "日本語対応" })}
                   </td>
                   <td className="px-5 py-4 bg-[#161622] group-hover:bg-[rgba(184,146,74,0.06)] transition-colors" style={{ boxShadow: "inset 1px 0 0 #B8924A" }}>
@@ -574,7 +574,7 @@ export function PrecisionWhyPage() {
 
                 {/* Row 7: Hiring Support */}
                 <tr className="bg-[#0F0F18] hover:bg-[#1E1E2E] transition-colors group">
-                  <td className="px-5 py-4 font-sans font-normal text-[#9A98A4]">
+                  <td className="px-5 py-4 font-sans font-normal text-[#9A98A4] sticky left-0 z-10 bg-[#0F0F18] group-hover:bg-[#1E1E2E] transition-colors">
                     {tx({ EN: "Hiring Support", JP: "人材採用・育成支援" })}
                   </td>
                   <td className="px-5 py-4 bg-[#161622] group-hover:bg-[rgba(184,146,74,0.06)] transition-colors" style={{ boxShadow: "inset 1px 0 0 #B8924A" }}>
@@ -609,7 +609,7 @@ export function PrecisionWhyPage() {
 
                 {/* Row 8: Network & Alliances */}
                 <tr className="bg-[#161622] hover:bg-[#1E1E2E] transition-colors group">
-                  <td className="px-5 py-4 font-sans font-normal text-[#9A98A4]">
+                  <td className="px-5 py-4 font-sans font-normal text-[#9A98A4] sticky left-0 z-10 bg-[#161622] group-hover:bg-[#1E1E2E] transition-colors">
                     {tx({ EN: "Network & Alliances", JP: "現地ネットワーク・提携" })}
                   </td>
                   <td className="px-5 py-4 bg-[#161622] group-hover:bg-[rgba(184,146,74,0.06)] transition-colors" style={{ boxShadow: "inset 1px 0 0 #B8924A" }}>
@@ -686,7 +686,7 @@ export function PrecisionWhyPage() {
           ───────────────────────────────────────────────────────────── */}
       <section
         id="why-pillars"
-        className="relative z-10 px-6 sm:px-12 lg:px-24 xl:pl-[120px] xl:pr-24 py-24 border-b border-[rgba(184,146,74,0.18)]"
+        className="relative z-10 px-6 sm:px-12 lg:px-24 xl:pl-[120px] xl:pr-24 py-12 sm:py-16 lg:py-20 border-b border-[rgba(184,146,74,0.18)]"
       >
         <div className="max-w-7xl mx-auto">
           {/* Header */}
@@ -1081,7 +1081,7 @@ export function PrecisionWhyPage() {
           ───────────────────────────────────────────────────────────── */}
       <section
         id="why-estimator"
-        className="relative z-10 px-6 sm:px-12 lg:px-24 xl:pl-[120px] xl:pr-24 py-24 border-b border-[rgba(184,146,74,0.18)]"
+        className="relative z-10 px-6 sm:px-12 lg:px-24 xl:pl-[120px] xl:pr-24 py-12 sm:py-16 lg:py-20 border-b border-[rgba(184,146,74,0.18)]"
       >
         <div className="max-w-7xl mx-auto">
           {/* Header */}

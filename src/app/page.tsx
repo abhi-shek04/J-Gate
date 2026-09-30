@@ -317,7 +317,7 @@ export default function HomePage() {
           {/* 3. Executive Tagline Badge */}
           <Reveal delay={140}>
             <div className="mt-4 flex items-center justify-center">
-              <span className="inline-flex items-center gap-2 rounded-full bg-slate-100 dark:bg-white/10 border border-slate-200 dark:border-white/15 px-4 py-1.5 font-inter text-[13px] sm:text-[14px] font-semibold text-slate-700 dark:text-slate-200 tracking-wide shadow-2xs backdrop-blur-sm">
+              <span className="inline-flex items-center gap-2 rounded-full bg-slate-100 dark:bg-white/10 border border-slate-200 dark:border-white/15 px-4 py-1.5 font-inter text-[13px] sm:text-[14px] font-semibold text-slate-700 dark:text-slate-200 tracking-wide shadow-2xs backdrop-blur-sm" style={{ textWrap: "balance" }}>
                 <Sparkles className="h-3.5 w-3.5 text-crimson dark:text-rose-400" />
                 <span>
                   {tx({
@@ -343,7 +343,7 @@ export default function HomePage() {
 
           {/* 5. Co-Operating Partners Badges: Indobox & Genesys Info X */}
           <Reveal delay={260}>
-            <div className="mt-7 sm:mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+            <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4">
               <GlassBadge
                 imageSrc="/logos/indobox-icon.png"
                 primary={tx({ EN: "Indobox India Private Limited.", JP: "Indobox India Private Limited." })}

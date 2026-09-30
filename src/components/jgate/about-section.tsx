@@ -140,7 +140,7 @@ export function AboutSection({ id }: { id?: string }) {
       {/* ════════════════════════════════════════════════════════════
           Section 1 — 3 Pillars Detailed
          ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad bg-ivory dark:bg-[#0b111e] transition-colors duration-300">
+      <section className="py-12 sm:py-16 lg:py-24 bg-ivory dark:bg-[#0b111e] transition-colors duration-300">
         <div className="container-jg">
           <div className="grid gap-4 sm:gap-6 md:grid-cols-3">
             {PILLARS.map((p, i) => (
@@ -198,7 +198,7 @@ export function AboutSection({ id }: { id?: string }) {
       {/* ════════════════════════════════════════════════════════════
           Section 2 — Japan–India Bilateral Alliance & Executive Partnership
          ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad relative overflow-hidden bg-midnight text-white border-t border-white/10">
+      <section className="py-12 sm:py-16 lg:py-24 relative overflow-hidden bg-midnight text-white border-t border-white/10">
         <div className="pattern-asanoha-dark absolute inset-0 opacity-50 pointer-events-none" />
         <div
           className="absolute inset-0 pointer-events-none"
@@ -210,14 +210,14 @@ export function AboutSection({ id }: { id?: string }) {
 
         <div className="container-jg relative z-10">
           <Reveal>
-            <div className="mx-auto max-w-3xl text-center">
+            <div className="mx-auto max-w-3xl text-center mb-8 sm:mb-12">
               <span className="inline-flex items-center gap-2 rounded-full border border-saffron/30 bg-saffron/10 px-3.5 py-1 font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-saffron shadow-sm">
                 <Sparkles className="h-3.5 w-3.5" />
                 {tx({ EN: "Japan–India Partnership", JP: "日印の信頼と共創" })}
               </span>
               <h2
                 className="mt-2.5 sm:mt-3 font-serif-jp font-bold text-white"
-                style={{ fontSize: "clamp(1.65rem, 3.4vw, 2.75rem)" }}
+                style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.5rem)" }}
               >
                 {tx({
                   EN: "Connecting Two Nations. Supporting Global Businesses.",
@@ -234,7 +234,7 @@ export function AboutSection({ id }: { id?: string }) {
           </Reveal>
 
           {/* 3 Strategic Value Pillars Grid */}
-          <div className="mt-7 sm:mt-10 lg:mt-12 grid md:grid-cols-3 gap-5 sm:gap-6 max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-3 gap-5 sm:gap-6 max-w-6xl mx-auto">
             {BILATERAL_SYNERGIES.map((item, idx) => {
               const Icon = item.icon;
               return (
@@ -267,14 +267,14 @@ export function AboutSection({ id }: { id?: string }) {
       {/* ════════════════════════════════════════════════════════════
           Section 3 — Mission & Vision — 2 side-by-side cards
          ════════════════════════════════════════════════════════════ */}
-      <section className="section-pad relative overflow-hidden bg-ivory-warm dark:bg-[#080d17] border-t border-slate-200/70 dark:border-white/10 transition-colors duration-300">
+      <section className="py-12 sm:py-16 lg:py-24 relative overflow-hidden bg-ivory-warm dark:bg-[#080d17] border-t border-slate-200/70 dark:border-white/10 transition-colors duration-300">
         <div className="container-jg">
           <Reveal>
-            <div className="mx-auto max-w-3xl text-center">
+            <div className="mx-auto max-w-3xl text-center mb-8 sm:mb-12">
               <Eyebrow>{tx({ EN: "Mission & Vision", JP: "ミッション＆ビジョン" })}</Eyebrow>
               <h2
                 className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink dark:text-white"
-                style={{ fontSize: "clamp(1.625rem,3vw,2.25rem)" }}
+                style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.5rem)" }}
               >
                 {tx({ EN: "Our Purpose", JP: "私たちの存在意義" })}
               </h2>
@@ -290,7 +290,7 @@ export function AboutSection({ id }: { id?: string }) {
             </div>
           </Reveal>
 
-          <div className="mt-6 sm:mt-10 grid gap-4 sm:gap-6 md:grid-cols-2">
+          <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
             {/* Mission — crimson accent */}
             <Reveal delay={100}>
               <article className="luxury-light-card card-sheen relative h-full flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-7 lg:p-9 shadow-xl hover:shadow-2xl transition-all duration-300">

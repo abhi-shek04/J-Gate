@@ -404,41 +404,58 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center mb-10">
-              <h3 className="font-serif-jp text-xl sm:text-2xl font-bold text-ink dark:text-white">
+              <h3 className="font-serif-jp text-xl sm:text-2xl lg:text-3xl font-bold text-ink dark:text-white">
                 {tx({
                   EN: "From Initial Consultation to Starting Operations",
                   JP: "初回相談から初日の事業開始までのステップ",
                 })}
               </h3>
-              <p className="mt-1.5 text-[13px] font-inter text-slate-500 dark:text-slate-400">
+              <p className="mt-2 text-[13.5px] font-inter text-slate-600 dark:text-slate-300">
                 {tx({
                   EN: "A structured, efficient timeline designed for rapid corporate setup.",
                   JP: "無駄な手続きや遅延を排除した、日本企業のための迅速な立ち上げプロセス。",
                 })}
               </p>
             </div>
-
-            <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4 max-w-5xl mx-auto timeline-connector">
-              {DEPLOYMENT_STEPS.map((step, idx) => (
-                <div
-                  key={idx}
-                  className="rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-5 shadow-xs hover:shadow-lg transition-all relative overflow-hidden z-10"
-                >
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="font-mono text-2xl font-black text-crimson dark:text-saffron">
-                      {step.step}
-                    </span>
-                  </div>
-                  <h4 className="font-serif-jp text-[14.5px] font-bold text-ink dark:text-white">
-                    {tx(step.title)}
-                  </h4>
-                  <p className="mt-1.5 font-inter text-[12px] leading-relaxed text-slate-600 dark:text-slate-300">
-                    {tx(step.desc)}
-                  </p>
-                </div>
-              ))}
-            </div>
           </Reveal>
+
+          <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-4 max-w-5xl mx-auto">
+            {DEPLOYMENT_STEPS.map((step, idx) => (
+              <Reveal key={idx} delay={idx * 100} variant="scale">
+                <div
+                  className="luxury-light-card card-sheen group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/12 bg-white dark:bg-[#101a2c] p-5.5 sm:p-6 shadow-md hover:shadow-2xl hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300 hover:-translate-y-2"
+                >
+                  {/* Glowing Top Accent Bar */}
+                  <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-crimson via-saffron to-emerald-500 opacity-75 group-hover:opacity-100 transition-opacity" />
+
+                  {/* Faded Numeral Background */}
+                  <span
+                    className="pointer-events-none absolute -top-2 right-2 font-mono font-black text-slate-100/90 dark:text-white/[0.04] text-5xl select-none group-hover:scale-110 group-hover:text-crimson/10 transition-all duration-500"
+                    aria-hidden
+                  >
+                    {step.step}
+                  </span>
+
+                  <div className="relative z-10">
+                    {/* Header Pod */}
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-crimson/10 dark:bg-rose-950/60 border border-crimson/20 dark:border-rose-400/30 text-crimson dark:text-rose-400 font-mono font-extrabold text-sm group-hover:scale-110 transition-transform">
+                        {step.step}
+                      </span>
+                      <span className="flex h-2 w-2 rounded-full bg-emerald-500 shadow-sm animate-pulse" />
+                    </div>
+
+                    <h4 className="font-serif-jp text-[15px] font-bold text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400 transition-colors leading-snug">
+                      {tx(step.title)}
+                    </h4>
+                    <p className="mt-2 font-inter text-[12.5px] leading-relaxed text-slate-600 dark:text-slate-300">
+                      {tx(step.desc)}
+                    </p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 

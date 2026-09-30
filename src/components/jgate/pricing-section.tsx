@@ -470,7 +470,7 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
                       <div className="mt-3 rounded-xl bg-slate-50/90 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/8 p-3">
                         <div className="flex items-baseline justify-between gap-1">
                           <div className="flex items-baseline gap-1">
-                            <span className="font-serif-jp text-2xl sm:text-[26px] font-black text-ink dark:text-white tracking-tight">
+                            <span className="font-inter text-2xl sm:text-[28px] font-extrabold text-ink dark:text-white tracking-tight">
                               {currency === "INR"
                                 ? `₹${displayINR.toLocaleString()}`
                                 : `¥${displayJPY.toLocaleString()}`}
@@ -660,27 +660,32 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
       {/* ───────────────────────────────────────────────────────────
           4. Billing Notes & Transparent Guarantees
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-6 sm:py-8 lg:py-10 bg-ivory dark:bg-[#080d17] border-t border-slate-200/60 dark:border-white/10">
+      <section className="py-8 sm:py-10 lg:py-12 bg-ivory-warm dark:bg-[#080d17] border-t border-slate-200/70 dark:border-white/10 relative overflow-hidden">
         <div className="container-jg">
           <Reveal>
-            <div className="mx-auto max-w-4xl">
-              <div className="mb-5 sm:mb-7 flex items-center gap-3">
-                <span className="flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-crimson/10 text-crimson">
-                  <AlertCircle className="h-4.5 w-4.5 sm:h-5 sm:w-5" />
+            <div className="mx-auto max-w-5xl">
+              <div className="mb-6 sm:mb-8 text-center max-w-2xl mx-auto">
+                <span className="inline-flex items-center gap-2 rounded-full border border-crimson/25 dark:border-rose-400/30 bg-crimson/8 dark:bg-rose-950/40 px-3.5 py-1 font-inter text-[10.5px] font-bold uppercase tracking-wider text-crimson dark:text-rose-400">
+                  <ShieldCheck className="h-3.5 w-3.5" />
+                  {tx({ EN: "Transparent Terms", JP: "ご契約前の確認事項" })}
                 </span>
-                <div>
-                  <Eyebrow>{tx({ EN: "Transparent Terms", JP: "ご契約前の確認事項" })}</Eyebrow>
-                  <h3 className="font-serif-jp text-lg sm:text-2xl font-bold text-ink dark:text-white">
-                    {tx({ EN: "Billing Terms & Invoicing Policies", JP: "請求・決済および契約条件" })}
-                  </h3>
-                </div>
+                <h3 className="mt-2.5 font-serif-jp text-xl sm:text-2xl lg:text-3xl font-bold text-ink dark:text-white">
+                  {tx({ EN: "Billing Terms & Invoicing Policies", JP: "請求・決済および契約条件" })}
+                </h3>
+                <p className="mt-1.5 font-inter text-[13px] text-slate-600 dark:text-slate-300">
+                  {tx({
+                    EN: "Clear, predictable billing with zero hidden costs or surprises.",
+                    JP: "不透明な追加費用を完全に排除した明朗会計システム。",
+                  })}
+                </p>
               </div>
 
-              <div className="grid gap-3 sm:gap-4 sm:grid-cols-3">
+              <div className="grid gap-4 sm:gap-5 sm:grid-cols-3">
                 {[
                   {
                     icon: Receipt,
                     title: { EN: "Base Operating Fees", JP: "基本料金のみ" },
+                    badge: { EN: "Predictable Cost", JP: "明朗会計" },
                     desc: {
                       EN: "Amounts reflect predictable monthly office membership. Entity incorporation and recruitment services are priced separately based on your requirements.",
                       JP: "記載価格は月額基本料金です。法人設立手続きや人材紹介の手数料は実費・別途請求となります。",
@@ -689,6 +694,7 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
                   {
                     icon: Banknote,
                     title: { EN: "INR & JPY Settlement", JP: "INR / JPY決済対応" },
+                    badge: { EN: "Dual Currency", JP: "日印二通貨対応" },
                     desc: {
                       EN: "Invoicing is denominated in INR. Payments in Japanese Yen (JPY) by your Japan entity are fully supported using current exchange rates.",
                       JP: "請求はINR基準です。東京法人経由での日本円（JPY）決済にも対応しております（為替換算適用）。",
@@ -697,28 +703,35 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
                   {
                     icon: ShieldCheck,
                     title: { EN: "Compliant Tax Invoices", JP: "GST（消費税）別" },
+                    badge: { EN: "Full Compliance", JP: "正規インボイス" },
                     desc: {
-                      EN: "All membership rates exclude 18% India GST, itemized on compliant monthly tax invoices with eligible for input tax credit.",
+                      EN: "All membership rates exclude 18% India GST, itemized on compliant monthly tax invoices eligible for input tax credit.",
                       JP: "すべての料金表示はインドGST（18%）別となっております。正規のTax Invoiceを発行します。",
                     },
                   },
                 ].map((note, idx) => {
                   const Icon = note.icon;
                   return (
-                    <div
-                      key={idx}
-                      className="rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-3.5 sm:p-5 shadow-xs hover:shadow-md transition-shadow"
-                    >
-                      <div className="flex h-7 w-7 sm:h-8 sm:w-8 items-center justify-center rounded-lg bg-saffron/15 text-saffron-deep dark:text-saffron-light mb-2.5 sm:mb-3">
-                        <Icon className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                    <Reveal key={idx} delay={idx * 80} variant="scale">
+                      <div className="luxury-light-card card-sheen group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/12 bg-white dark:bg-[#101a2c] p-5.5 sm:p-6 shadow-md hover:shadow-xl hover:border-crimson/35 dark:hover:border-rose-400/40 transition-all duration-300 hover:-translate-y-1">
+                        <div>
+                          <div className="flex items-center justify-between mb-3.5">
+                            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-crimson/10 dark:bg-rose-950/60 border border-crimson/20 dark:border-rose-400/30 text-crimson dark:text-rose-400 group-hover:scale-110 transition-transform">
+                              <Icon className="h-5 w-5" />
+                            </div>
+                            <span className="rounded-full bg-slate-100 dark:bg-white/8 border border-slate-200/60 dark:border-white/10 px-2.5 py-0.5 font-inter text-[10px] font-bold text-slate-600 dark:text-slate-300">
+                              {tx(note.badge)}
+                            </span>
+                          </div>
+                          <h4 className="font-serif-jp text-[15px] font-bold text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400 transition-colors">
+                            {tx(note.title)}
+                          </h4>
+                          <p className="mt-2 font-inter text-[12.5px] leading-relaxed text-slate-600 dark:text-slate-300">
+                            {tx(note.desc)}
+                          </p>
+                        </div>
                       </div>
-                      <h4 className="font-serif-jp text-[13.5px] sm:text-[14.5px] font-bold text-ink dark:text-white">
-                        {tx(note.title)}
-                      </h4>
-                      <p className="mt-1 sm:mt-1.5 font-inter text-[11.5px] sm:text-[12px] leading-relaxed text-slate-600 dark:text-slate-300">
-                        {tx(note.desc)}
-                      </p>
-                    </div>
+                    </Reveal>
                   );
                 })}
               </div>

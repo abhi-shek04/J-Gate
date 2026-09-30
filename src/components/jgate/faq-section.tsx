@@ -243,31 +243,6 @@ export function FAQSection({ id }: { id?: string }) {
             </p>
           </Reveal>
 
-          {/* Header Row: Count Summary + Expand/Collapse Buttons */}
-          <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border-b border-slate-200/80 dark:border-white/10 pb-3 font-inter text-[12px] text-slate-500 dark:text-slate-400">
-            <span className="font-bold text-slate-800 dark:text-slate-200">
-              {tx({
-                EN: `Frequently Asked Questions (${FAQ_LIST.length})`,
-                JP: `よくあるご質問（全${FAQ_LIST.length}件）`,
-              })}
-            </span>
-            <div className="flex items-center gap-3 font-semibold">
-              <button
-                onClick={expandAll}
-                className="text-slate-700 dark:text-slate-300 hover:text-crimson dark:hover:text-rose-400 transition-colors cursor-pointer"
-              >
-                {tx({ EN: "Expand All", JP: "すべて開く" })}
-              </button>
-              <span className="text-slate-300 dark:text-white/20">|</span>
-              <button
-                onClick={collapseAll}
-                className="text-slate-700 dark:text-slate-300 hover:text-crimson dark:hover:text-rose-400 transition-colors cursor-pointer"
-              >
-                {tx({ EN: "Collapse All", JP: "すべて閉じる" })}
-              </button>
-            </div>
-          </div>
-
           {/* FAQ Accordion List (Matching Reference Card Layout) */}
           <div className="space-y-3">
             {FAQ_LIST.map((item, idx) => {

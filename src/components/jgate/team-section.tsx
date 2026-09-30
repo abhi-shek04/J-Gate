@@ -424,7 +424,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
               return (
                 <Reveal key={m.id} delay={i * 80}>
                   <article
-                    className={`group relative flex h-full flex-col justify-between items-center rounded-2xl border bg-white dark:bg-[#101a2c] p-4 sm:p-5 text-center shadow-xs transition-all duration-300 hover:shadow-lg ${
+                    className={`group relative flex h-full flex-col justify-between items-center rounded-2xl border bg-white dark:bg-[#09090b] p-4 sm:p-5 text-center shadow-xs transition-all duration-300 hover:shadow-lg ${
                       isTanji
                         ? "border-crimson/30 dark:border-rose-500/40 shadow-sm shadow-crimson/5"
                         : "border-slate-200/90 dark:border-white/10 hover:border-crimson/40 dark:hover:border-crimson/50"

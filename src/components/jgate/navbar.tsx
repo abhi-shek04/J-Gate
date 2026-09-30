@@ -145,16 +145,16 @@ export function Navbar() {
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
         open
           ? isDark
-            ? "bg-[#0b111e]/98 border-b border-white/10 shadow-2xl"
+            ? "bg-black/98 border-b border-white/10 shadow-2xl"
             : "bg-[#f5f0e8]/98 border-b border-slate-300/80 shadow-xl"
           : scrolled
             ? isDark
-              ? "bg-[#0b111e]/90 backdrop-blur-xl border-b border-white/10 shadow-2xl"
+              ? "bg-black/90 backdrop-blur-xl border-b border-white/10 shadow-2xl"
               : "bg-[#f5f0e8]/92 backdrop-blur-xl border-b border-slate-300/80 shadow-md"
             : isAuthPage
               ? "bg-transparent"
               : isDark
-                ? "bg-[#0b111e]/60 backdrop-blur-md border-b border-white/5"
+                ? "bg-black/60 backdrop-blur-md border-b border-white/5"
                 : "bg-transparent"
       )}
     >

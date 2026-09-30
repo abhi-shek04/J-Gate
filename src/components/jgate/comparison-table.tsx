@@ -179,7 +179,7 @@ export function ComparisonTable() {
   return (
     <section
       id="why-comparison"
-      className="section-pad bg-ivory-warm dark:bg-[#080d17] relative overflow-hidden"
+      className="section-pad bg-ivory-warm dark:bg-black relative overflow-hidden"
       aria-label="J-Gate side-by-side comparison"
     >
       <div className="container-jg relative z-10">
@@ -226,10 +226,10 @@ export function ComparisonTable() {
         {/* Table Container with Luxury Glass Card Styling */}
         <Reveal delay={120} variant="scale">
           <div className="mt-10 overflow-x-auto pb-4" style={{ scrollbarWidth: "thin" }}>
-            <div className="min-w-[920px] overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] shadow-2xl">
+            <div className="min-w-[920px] overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] shadow-2xl">
               {/* Header row */}
               <div className="grid grid-cols-[180px_minmax(210px,1.2fr)_1fr_1fr_1fr]">
-                <div className="sticky left-0 z-10 border-b border-slate-200/80 dark:border-white/10 bg-slate-50 dark:bg-[#101a2c] px-5 py-5 flex items-center">
+                <div className="sticky left-0 z-10 border-b border-slate-200/80 dark:border-white/10 bg-slate-50 dark:bg-[#09090b] px-5 py-5 flex items-center">
                   <span
                     className="font-inter text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400"
                   >
@@ -283,7 +283,7 @@ export function ComparisonTable() {
                     {/* Criteria label */}
                     <div
                       className={`sticky left-0 z-10 px-5 py-4 flex items-center ${
-                        zebra ? "bg-slate-50 dark:bg-[#152136]" : "bg-white dark:bg-[#101a2c]"
+                        zebra ? "bg-slate-50 dark:bg-[#0e0e11]" : "bg-white dark:bg-[#09090b]"
                       }`}
                     >
                       <span className="font-inter text-[12.5px] sm:text-[13.5px] font-bold text-ink dark:text-white">

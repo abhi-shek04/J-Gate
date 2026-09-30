@@ -215,7 +215,7 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
   const { tx } = useI18n();
 
   return (
-    <div id={id} className="bg-ivory dark:bg-[#080d17] scroll-mt-20">
+    <div id={id} className="bg-ivory dark:bg-black scroll-mt-20">
       {!hideHero && (
         <PageHero
           eyebrowKey="services.eyebrow"
@@ -244,7 +244,7 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
          ─────────────────────────────────────────────────────────── */}
       <section className="relative -mt-9 z-20 container-jg">
         <Reveal>
-          <div className="rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white/95 dark:bg-[#101a2c]/95 text-ink dark:text-white p-3.5 sm:p-6 shadow-[0_16px_40px_-12px_rgba(8,15,26,0.08)] backdrop-blur-md">
+          <div className="rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white/95 dark:bg-[#09090b]/95 text-ink dark:text-white p-3.5 sm:p-6 shadow-[0_16px_40px_-12px_rgba(8,15,26,0.08)] backdrop-blur-md">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:divide-x divide-slate-200/80 dark:divide-white/10">
               {[
                 {
@@ -308,7 +308,7 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
         <div className="container-jg max-w-5xl">
           <Reveal>
             <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
-              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 dark:border-white/10 bg-white dark:bg-[#101a2c] px-3.5 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 shadow-xs">
+              <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 dark:border-white/10 bg-white dark:bg-[#09090b] px-3.5 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 shadow-xs">
                 {tx({ EN: "Core Services", JP: "支援サービス" })}
               </span>
               <h2
@@ -335,7 +335,7 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
               const Icon = srv.icon;
               return (
                 <Reveal key={srv.id} delay={idx * 40} variant="up">
-                  <div className="h-full luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/16 bg-white dark:bg-[#101a2c] p-5 sm:p-7 shadow-card dark:shadow-2xl hover:shadow-2xl hover:border-crimson/40 dark:hover:border-saffron/40 transition-all duration-300 flex flex-col justify-between">
+                  <div className="h-full luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/16 bg-white dark:bg-[#09090b] p-5 sm:p-7 shadow-card dark:shadow-2xl hover:shadow-2xl hover:border-crimson/40 dark:hover:border-saffron/40 transition-all duration-300 flex flex-col justify-between">
                     <div>
                       {/* Top Header */}
                       <div className="flex items-center justify-between gap-3 pb-3.5 border-b border-slate-100 dark:border-white/10">
@@ -423,7 +423,7 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
             {DEPLOYMENT_STEPS.map((step, idx) => (
               <Reveal key={idx} delay={idx * 100} variant="scale">
                 <div
-                  className="luxury-light-card card-sheen group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/12 bg-white dark:bg-[#101a2c] p-5.5 sm:p-6 shadow-md hover:shadow-2xl hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300 hover:-translate-y-2"
+                  className="luxury-light-card card-sheen group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/12 bg-white dark:bg-[#09090b] p-5.5 sm:p-6 shadow-md hover:shadow-2xl hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300 hover:-translate-y-2"
                 >
                   {/* Glowing Top Accent Bar */}
                   <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-crimson via-saffron to-emerald-500 opacity-75 group-hover:opacity-100 transition-opacity" />
@@ -501,7 +501,7 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
           {/* Master Collaborative Vitrine: Museum-Grade Logo Pedestals & Joint Hub Medallion */}
           <div className="max-w-5xl mx-auto mb-8 sm:mb-12">
             <Reveal>
-              <div className="rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-6 lg:p-9 shadow-[0_12px_36px_-12px_rgba(8,15,26,0.08)]">
+              <div className="rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-4 sm:p-6 lg:p-9 shadow-[0_12px_36px_-12px_rgba(8,15,26,0.08)]">
                 <div className="grid md:grid-cols-11 items-center gap-4 sm:gap-6 lg:gap-8">
                   {/* Left Pedestal: Indobox India Private Limited. */}
                   <div className="md:col-span-5 rounded-xl sm:rounded-2xl border border-crimson/20 dark:border-crimson/30 bg-gradient-to-b from-rose-50/40 via-white to-slate-50/50 dark:from-rose-950/20 dark:via-[#101a2c] dark:to-[#0b111e] p-5 sm:p-7 text-center relative overflow-hidden group hover:border-crimson/50 hover:shadow-md transition-all duration-300 flex flex-col items-center justify-between">
@@ -540,7 +540,7 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
 
                   {/* Center Bilateral Fusion Medallion */}
                   <div className="md:col-span-1 flex flex-col items-center justify-center my-3 md:my-0">
-                    <div className="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border-2 border-saffron bg-white dark:bg-[#101a2c] font-bold text-base text-ink dark:text-white shadow-md">
+                    <div className="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border-2 border-saffron bg-white dark:bg-[#09090b] font-bold text-base text-ink dark:text-white shadow-md">
                       ×
                     </div>
                     <span className="mt-2 font-inter text-[9.5px] font-bold tracking-widest text-slate-500 dark:text-slate-400 uppercase text-center leading-tight">

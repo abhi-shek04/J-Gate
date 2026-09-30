@@ -107,7 +107,7 @@ export function ContactSection({ id }: { id?: string }) {
 
   return (
     <div id={id} className="scroll-mt-20">
-      <section className="py-8 sm:py-12 bg-ivory dark:bg-[#080d17] transition-colors">
+      <section className="py-8 sm:py-12 bg-ivory dark:bg-black transition-colors">
         <div className="container-jg">
           <div className="mx-auto max-w-4xl grid md:grid-cols-5 gap-8 md:gap-12 items-start">
 
@@ -177,7 +177,7 @@ export function ContactSection({ id }: { id?: string }) {
             {/* Right — Simple Form */}
             <div className="md:col-span-3">
               <Reveal variant="right" delay={70}>
-                <div className="rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#0c1424] p-5 sm:p-7 shadow-lg">
+                <div className="rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-5 sm:p-7 shadow-lg">
                   {sent ? (
                     <div className="flex flex-col items-center py-8 text-center">
                       <span className="flex h-14 w-14 items-center justify-center rounded-full bg-emerald-100 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400">

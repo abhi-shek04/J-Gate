@@ -222,7 +222,7 @@ export function FAQSection({ id }: { id?: string }) {
 
   return (
     <div id={id} className="scroll-mt-20">
-      <section className="py-6 sm:py-10 bg-ivory dark:bg-[#0b111e] transition-colors">
+      <section className="py-6 sm:py-10 bg-ivory dark:bg-black transition-colors">
         <div className="container-jg max-w-4xl">
           {/* Header styled matching reference layout */}
           <Reveal className="mb-8 sm:mb-10 text-center">
@@ -251,7 +251,7 @@ export function FAQSection({ id }: { id?: string }) {
                 <Reveal key={item.id} delay={idx * 15}>
                   <div
                     className={cn(
-                      "group overflow-hidden rounded-xl border bg-white dark:bg-[#101a2c] transition-all duration-200 shadow-xs",
+                      "group overflow-hidden rounded-xl border bg-white dark:bg-[#09090b] transition-all duration-200 shadow-xs",
                       isOpen
                         ? "border-crimson dark:border-rose-400/70 ring-1 ring-crimson/20 dark:ring-rose-400/20"
                         : "border-slate-200/80 dark:border-white/12 hover:border-slate-300 dark:hover:border-white/25"

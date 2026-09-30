@@ -354,7 +354,7 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
       {/* ───────────────────────────────────────────────────────────
           2. Three Executive Plan Cards
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-6 sm:py-8 lg:py-10 bg-ivory-warm dark:bg-[#0f1728] relative overflow-hidden transition-colors">
+      <section className="py-6 sm:py-8 lg:py-10 bg-ivory-warm dark:bg-black relative overflow-hidden transition-colors">
         {/* Ambient subtle warm lighting */}
         <div
           className="pointer-events-none absolute inset-0 opacity-35"
@@ -381,7 +381,7 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
 
             {/* Premium Currency Switcher Bar */}
             <div className="mt-6 mb-8 flex items-center justify-center">
-              <div className="inline-flex items-center gap-1.5 bg-white/90 dark:bg-[#101a2c] p-1.5 rounded-full border border-slate-200/90 dark:border-white/14 shadow-sm backdrop-blur-md">
+              <div className="inline-flex items-center gap-1.5 bg-white/90 dark:bg-[#09090b] p-1.5 rounded-full border border-slate-200/90 dark:border-white/14 shadow-sm backdrop-blur-md">
                 <span className="px-3 text-[11px] font-bold font-mono tracking-wider text-slate-600 dark:text-slate-300 uppercase">
                   {tx({ EN: "Currency:", JP: "表示通貨:" })}
                 </span>
@@ -424,7 +424,7 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
                 <Reveal key={plan.id} delay={i * 80} variant="up">
                   <div
                     className={cn(
-                      "luxury-light-card card-sheen group relative flex h-full flex-col justify-between rounded-2xl bg-white dark:bg-[#101a2c] border transition-all duration-300 p-4 sm:p-5 sm:p-6",
+                      "luxury-light-card card-sheen group relative flex h-full flex-col justify-between rounded-2xl bg-white dark:bg-[#09090b] border transition-all duration-300 p-4 sm:p-5 sm:p-6",
                       isFeatured
                         ? "border-crimson dark:border-rose-400/60 shadow-[0_16px_40px_-10px_rgba(188,26,44,0.22)] dark:shadow-[0_20px_50px_-10px_rgba(188,26,44,0.45)] ring-2 ring-crimson/40 lg:-translate-y-2"
                         : "border-slate-200/90 dark:border-white/16 shadow-card dark:shadow-2xl hover:border-slate-300 dark:hover:border-saffron/40 hover:-translate-y-1",
@@ -571,7 +571,7 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
             <button
               type="button"
               onClick={() => setShowMatrix(!showMatrix)}
-              className="inline-flex items-center gap-2 rounded-full border border-slate-300 dark:border-white/10 bg-white dark:bg-[#101a2c] px-6 py-3 font-inter text-[13px] font-semibold text-ink dark:text-white shadow-sm hover:bg-slate-50 dark:hover:bg-white/10 hover:border-slate-400 dark:hover:border-white/20 hover:shadow transition-all duration-200 cursor-pointer"
+              className="inline-flex items-center gap-2 rounded-full border border-slate-300 dark:border-white/10 bg-white dark:bg-[#09090b] px-6 py-3 font-inter text-[13px] font-semibold text-ink dark:text-white shadow-sm hover:bg-slate-50 dark:hover:bg-white/10 hover:border-slate-400 dark:hover:border-white/20 hover:shadow transition-all duration-200 cursor-pointer"
             >
               <Sparkles className="h-4 w-4 text-saffron" />
               <span>
@@ -585,7 +585,7 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
 
           {/* Expandable Feature Matrix Table */}
           {showMatrix && (
-            <div className="mt-8 rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-5 sm:p-8 shadow-xl overflow-hidden animate-in fade-in duration-300">
+            <div className="mt-8 rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-5 sm:p-8 shadow-xl overflow-hidden animate-in fade-in duration-300">
               <div className="border-b border-slate-200 dark:border-white/10 pb-4 mb-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                 <div>
                   <h3 className="font-serif-jp text-xl font-bold text-ink dark:text-white">
@@ -713,7 +713,7 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
                   const Icon = note.icon;
                   return (
                     <Reveal key={idx} delay={idx * 80} variant="scale">
-                      <div className="luxury-light-card card-sheen group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/12 bg-white dark:bg-[#101a2c] p-5.5 sm:p-6 shadow-md hover:shadow-xl hover:border-crimson/35 dark:hover:border-rose-400/40 transition-all duration-300 hover:-translate-y-1">
+                      <div className="luxury-light-card card-sheen group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/12 bg-white dark:bg-[#09090b] p-5.5 sm:p-6 shadow-md hover:shadow-xl hover:border-crimson/35 dark:hover:border-rose-400/40 transition-all duration-300 hover:-translate-y-1">
                         <div>
                           <div className="flex items-center justify-between mb-3.5">
                             <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-crimson/10 dark:bg-rose-950/60 border border-crimson/20 dark:border-rose-400/30 text-crimson dark:text-rose-400 group-hover:scale-110 transition-transform">

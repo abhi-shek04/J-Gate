@@ -535,7 +535,7 @@ export function BlogsSection({ id, hideHero }: { id?: string; hideHero?: boolean
       {/* ───────────────────────────────────────────────────────────
           Main Office Gallery Section
          ─────────────────────────────────────────────────────────── */}
-      <section className="section-pad bg-ivory-warm dark:bg-[#080d17]">
+      <section className="section-pad bg-ivory-warm dark:bg-black">
         <div className="container-jg">
           {/* View Mode Switcher Bar */}
           <Reveal>
@@ -548,7 +548,7 @@ export function BlogsSection({ id, hideHero }: { id?: string; hideHero?: boolean
               </div>
 
               {/* View Mode Toggle */}
-              <div className="flex items-center gap-1.5 rounded-2xl bg-white dark:bg-[#101a2c] border border-slate-200 dark:border-white/10 p-1.5 shadow-sm shrink-0">
+              <div className="flex items-center gap-1.5 rounded-2xl bg-white dark:bg-[#09090b] border border-slate-200 dark:border-white/10 p-1.5 shadow-sm shrink-0">
                 <button
                   onClick={() => setViewMode("zones")}
                   className={cn(
@@ -580,25 +580,25 @@ export function BlogsSection({ id, hideHero }: { id?: string; hideHero?: boolean
           {/* Clean Metrics Summary */}
           <Reveal delay={40}>
             <div className="my-5 sm:my-8 grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 max-w-5xl mx-auto">
-              <div className="luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-3 sm:p-5 text-center shadow-md hover:shadow-xl transition-all">
+              <div className="luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-3 sm:p-5 text-center shadow-md hover:shadow-xl transition-all">
                 <span className="block font-serif-jp text-2xl sm:text-3xl font-bold text-crimson dark:text-rose-400">40+</span>
                 <span className="mt-0.5 sm:mt-1 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
                   {tx({ EN: "Dedicated Desks", JP: "固定専用デスク" })}
                 </span>
               </div>
-              <div className="luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-3 sm:p-5 text-center shadow-md hover:shadow-xl transition-all">
+              <div className="luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-3 sm:p-5 text-center shadow-md hover:shadow-xl transition-all">
                 <span className="block font-serif-jp text-2xl sm:text-3xl font-bold text-saffron-dark dark:text-amber-300">16 & 4-Pax</span>
                 <span className="mt-0.5 sm:mt-1 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
                   {tx({ EN: "Boardroom & Meeting", JP: "国際会議室＆面談室" })}
                 </span>
               </div>
-              <div className="luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-3 sm:p-5 text-center shadow-md hover:shadow-xl transition-all">
+              <div className="luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-3 sm:p-5 text-center shadow-md hover:shadow-xl transition-all">
                 <span className="block font-serif-jp text-2xl sm:text-3xl font-bold text-crimson dark:text-rose-400">1 Gbps</span>
                 <span className="mt-0.5 sm:mt-1 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
                   {tx({ EN: "Dedicated Fiber Line", JP: "専用光回線" })}
                 </span>
               </div>
-              <div className="luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-3 sm:p-5 text-center shadow-md hover:shadow-xl transition-all">
+              <div className="luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-3 sm:p-5 text-center shadow-md hover:shadow-xl transition-all">
                 <span className="block font-serif-jp text-2xl sm:text-3xl font-bold text-emerald-600 dark:text-emerald-400">24/7</span>
                 <span className="mt-0.5 sm:mt-1 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
                   {tx({ EN: "Keycard Access", JP: "入退館管理・警備" })}
@@ -618,7 +618,7 @@ export function BlogsSection({ id, hideHero }: { id?: string; hideHero?: boolean
 
                 return (
                   <Reveal key={zone.id} delay={zIdx * 50}>
-                    <div className="luxury-light-card card-sheen rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-7 lg:p-9 shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
+                    <div className="luxury-light-card card-sheen rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-4 sm:p-7 lg:p-9 shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl">
                       {/* Zone Header Strip */}
                       <div className="grid lg:grid-cols-12 gap-4 sm:gap-6 items-start pb-4 sm:pb-6 border-b border-slate-100 dark:border-white/10">
                         <div className="lg:col-span-8">
@@ -663,7 +663,7 @@ export function BlogsSection({ id, hideHero }: { id?: string; hideHero?: boolean
                           <div
                             key={photo.id}
                             onClick={() => openPhotoModal(photo.id)}
-                            className="lift-card card-sheen group cursor-pointer rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#142036] overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
+                            className="lift-card card-sheen group cursor-pointer rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col justify-between"
                           >
                             {/* Photo Canvas */}
                             <div className="relative aspect-[4/3] w-full overflow-hidden bg-slate-950">
@@ -693,7 +693,7 @@ export function BlogsSection({ id, hideHero }: { id?: string; hideHero?: boolean
                             </div>
 
                             {/* Photo Metadata Card */}
-                            <div className="p-4 bg-white dark:bg-[#142036] flex-1 flex flex-col justify-between border-t border-slate-100 dark:border-white/10">
+                            <div className="p-4 bg-white dark:bg-[#09090b] flex-1 flex flex-col justify-between border-t border-slate-100 dark:border-white/10">
                               <div>
                                 <h4 className="font-serif-jp text-[14.5px] font-bold text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400 transition-colors leading-snug">
                                   {tx(photo.title)}
@@ -747,7 +747,7 @@ export function BlogsSection({ id, hideHero }: { id?: string; hideHero?: boolean
                         "flex items-center gap-2 rounded-xl px-4 py-2 font-inter text-[12.5px] font-semibold transition-all duration-200 shadow-sm",
                         isSelected
                           ? "bg-gradient-to-r from-crimson to-crimson-deep text-white shadow-md shadow-crimson/25 scale-105"
-                          : "bg-white dark:bg-[#101a2c] text-slate dark:text-slate-300 hover:bg-white/90 dark:hover:bg-white/10 hover:text-ink dark:hover:text-white border border-slate-200 dark:border-white/10"
+                          : "bg-white dark:bg-[#09090b] text-slate dark:text-slate-300 hover:bg-white/90 dark:hover:bg-white/10 hover:text-ink dark:hover:text-white border border-slate-200 dark:border-white/10"
                       )}
                     >
                       <span>{tx(cat.label)}</span>
@@ -789,7 +789,7 @@ export function BlogsSection({ id, hideHero }: { id?: string; hideHero?: boolean
 
                       {/* Top Badge */}
                       <div className="absolute top-2.5 left-2.5 right-2.5 sm:top-3 sm:left-3 sm:right-3 z-20 flex items-center justify-between">
-                        <span className="inline-flex items-center gap-1 sm:gap-1.5 rounded-lg bg-white/95 dark:bg-[#101a2c]/95 backdrop-blur-md px-2 py-0.5 sm:px-2.5 sm:py-1 font-inter text-[9.5px] sm:text-[10.5px] font-bold uppercase text-ink dark:text-white shadow-sm border border-white/60 dark:border-white/10">
+                        <span className="inline-flex items-center gap-1 sm:gap-1.5 rounded-lg bg-white/95 dark:bg-[#09090b]/95 backdrop-blur-md px-2 py-0.5 sm:px-2.5 sm:py-1 font-inter text-[9.5px] sm:text-[10.5px] font-bold uppercase text-ink dark:text-white shadow-sm border border-white/60 dark:border-white/10">
                           <span className="h-1.5 w-1.5 rounded-full bg-crimson" />
                           {tx(photo.badge)}
                         </span>
@@ -819,7 +819,7 @@ export function BlogsSection({ id, hideHero }: { id?: string; hideHero?: boolean
 
           {/* Subtle Location Footer */}
           <Reveal delay={60}>
-            <div className="mt-8 sm:mt-12 rounded-xl sm:rounded-2xl border border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#101a2c] p-3.5 sm:p-5 text-center shadow-sm max-w-3xl mx-auto flex items-center justify-center gap-2.5 sm:gap-3">
+            <div className="mt-8 sm:mt-12 rounded-xl sm:rounded-2xl border border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#09090b] p-3.5 sm:p-5 text-center shadow-sm max-w-3xl mx-auto flex items-center justify-center gap-2.5 sm:gap-3">
               <MapPin className="h-4 w-4 text-crimson shrink-0" />
               <p className="font-inter text-[12px] sm:text-[13px] text-slate dark:text-slate-300">
                 <strong className="text-ink dark:text-white">J-Gate Office:</strong> 2nd Floor, Block B, Wing-1, Cyber Gateway, Phase 2, Hyderabad, Telangana 500081

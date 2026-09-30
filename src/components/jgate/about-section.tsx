@@ -147,7 +147,7 @@ export function AboutSection({ id, hideHero }: { id?: string; hideHero?: boolean
           <div className="grid gap-4 sm:gap-6 md:grid-cols-3">
             {PILLARS.map((p, i) => (
               <Reveal key={p.num} delay={i * 100}>
-                <article className="luxury-light-card card-sheen group relative h-full flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-6 lg:p-7.5 shadow-card dark:shadow-2xl hover:shadow-2xl hover:border-crimson/35 dark:hover:border-rose-400/40 transition-all duration-300">
+                <article className="luxury-light-card card-sheen group relative h-full flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-4 sm:p-6 lg:p-7.5 shadow-card dark:shadow-2xl hover:shadow-2xl hover:border-crimson/35 dark:hover:border-rose-400/40 transition-all duration-300">
                   {/* Top gradient stripe */}
                   <span className={`absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r ${p.accent}`} />
                   {/* Faded large numeral */}
@@ -269,7 +269,7 @@ export function AboutSection({ id, hideHero }: { id?: string; hideHero?: boolean
       {/* ════════════════════════════════════════════════════════════
           Section 3 — Mission & Vision — 2 side-by-side cards
          ════════════════════════════════════════════════════════════ */}
-      <section className="py-6 sm:py-8 lg:py-10 relative overflow-hidden bg-ivory-warm dark:bg-[#080d17] border-t border-slate-200/70 dark:border-white/10 transition-colors duration-300">
+      <section className="py-6 sm:py-8 lg:py-10 relative overflow-hidden bg-ivory-warm dark:bg-[#050505] border-t border-slate-200/70 dark:border-white/10 transition-colors duration-300">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto max-w-3xl text-center mb-8 sm:mb-12">
@@ -295,7 +295,7 @@ export function AboutSection({ id, hideHero }: { id?: string; hideHero?: boolean
           <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
             {/* Mission — crimson accent */}
             <Reveal delay={100}>
-              <article className="luxury-light-card card-sheen relative h-full flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-7 lg:p-9 shadow-xl hover:shadow-2xl transition-all duration-300">
+              <article className="luxury-light-card card-sheen relative h-full flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-4 sm:p-7 lg:p-9 shadow-xl hover:shadow-2xl transition-all duration-300">
                 <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-crimson to-crimson-deep" />
                 <div>
                   <div className="flex items-center gap-3 sm:gap-4">
@@ -322,7 +322,7 @@ export function AboutSection({ id, hideHero }: { id?: string; hideHero?: boolean
 
             {/* Vision — saffron accent */}
             <Reveal delay={200}>
-              <article className="luxury-light-card card-sheen relative h-full flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-7 lg:p-9 shadow-xl hover:shadow-2xl transition-all duration-300">
+              <article className="luxury-light-card card-sheen relative h-full flex flex-col justify-between overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-4 sm:p-7 lg:p-9 shadow-xl hover:shadow-2xl transition-all duration-300">
                 <span className="absolute inset-x-0 top-0 h-1.5 bg-gradient-to-r from-saffron to-[#c9881a]" />
                 <div>
                   <div className="flex items-center gap-3 sm:gap-4">

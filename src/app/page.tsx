@@ -109,7 +109,7 @@ function GlassBadge({
   return (
     <div
       className={cn(
-        "luxury-light-card card-sheen group relative flex items-center gap-3.5 rounded-2xl px-5 py-3 sm:px-6 sm:py-3.5 bg-white/95 dark:bg-[#101a2c]/95 backdrop-blur-xl border shadow-lg shadow-slate-200/50 dark:shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl text-left",
+        "luxury-light-card card-sheen group relative flex items-center gap-3.5 rounded-2xl px-5 py-3 sm:px-6 sm:py-3.5 bg-white/95 dark:bg-[#09090b]/95 backdrop-blur-xl border shadow-lg shadow-slate-200/50 dark:shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl text-left",
         accentBorder
       )}
     >
@@ -251,7 +251,7 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════
           1. HERO — Ultra-Luxurious Japanese-Modern Executive Launchpad
          ════════════════════════════════════════════════════════════ */}
-      <section className="relative flex items-center justify-center overflow-hidden bg-slate-50/70 dark:bg-[#070c16] py-8 sm:py-12 border-b border-slate-200/80 dark:border-white/10 transition-colors duration-300">
+      <section className="relative flex items-center justify-center overflow-hidden bg-slate-50/70 dark:bg-black py-8 sm:py-12 border-b border-slate-200/80 dark:border-white/10 transition-colors duration-300">
         {/* Ambient warm layered glows — Clean Institutional Light & Dark */}
         <div
           className="absolute inset-0 dark:hidden pointer-events-none"
@@ -435,7 +435,7 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════
           4. HYDERABAD LOCATION — 2-Column Strategic Map & Value Pillars
          ════════════════════════════════════════════════════════════ */}
-      <section className="py-6 sm:py-8 lg:py-10 bg-ivory-warm dark:bg-[#0b111e] border-t border-slate-200/70 dark:border-white/10">
+      <section className="py-6 sm:py-8 lg:py-10 bg-ivory-warm dark:bg-[#050505] border-t border-slate-200/70 dark:border-white/10">
         <div className="container-jg">
           <Reveal>
             <div className="mx-auto mb-8 sm:mb-10 max-w-3xl text-center">
@@ -466,7 +466,7 @@ export default function HomePage() {
             {/* Left: India Map Graphic with Highlight Badge */}
             <div className="lg:col-span-5">
               <Reveal variant="scale">
-                <div className="luxury-light-card card-sheen gold-hairline group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#101a2c] p-4 sm:p-6 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-crimson/30">
+                <div className="luxury-light-card card-sheen gold-hairline group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-4 sm:p-6 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-crimson/30">
                   {/* Floating Live Badge with radar beacon */}
                   <div className="flex items-center justify-between mb-3 sm:mb-4">
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-crimson/10 dark:bg-rose-950/50 border border-crimson/25 dark:border-rose-400/30 px-2.5 py-0.5 sm:px-3 sm:py-1 text-[10.5px] sm:text-[11px] font-bold text-crimson dark:text-rose-400 uppercase tracking-wider">
@@ -546,7 +546,7 @@ export default function HomePage() {
               <div className="space-y-2.5 sm:space-y-3 pt-1 sm:pt-2">
                 {locationAdvantages.map((item, idx) => (
                   <Reveal key={idx} delay={100 + idx * 40}>
-                    <div className="group flex items-start gap-3 sm:gap-4 rounded-xl sm:rounded-2xl bg-white dark:bg-[#101a2c] p-3 sm:p-4 border border-slate-200/90 dark:border-white/10 shadow-sm transition-all duration-300 hover:shadow-md hover:border-crimson/35 smooth-lift">
+                    <div className="group flex items-start gap-3 sm:gap-4 rounded-xl sm:rounded-2xl bg-white dark:bg-[#09090b] p-3 sm:p-4 border border-slate-200/90 dark:border-white/10 shadow-sm transition-all duration-300 hover:shadow-md hover:border-crimson/35 smooth-lift">
                       <div className="flex h-7 w-7 sm:h-8 sm:w-8 shrink-0 items-center justify-center rounded-lg bg-crimson/10 dark:bg-rose-950/50 border border-crimson/25 dark:border-rose-400/30 text-crimson dark:text-rose-400 font-mono font-bold text-[11px] sm:text-[12px] group-hover:bg-crimson group-hover:text-white transition-colors mt-0.5">
                         {item.num}
                       </div>
@@ -575,7 +575,7 @@ export default function HomePage() {
                   </Link>
                   <Link
                     href="/pricing"
-                    className="inline-flex items-center gap-2 rounded-xl border border-slate-300 dark:border-white/20 bg-white dark:bg-[#101a2c] px-4 py-2.5 sm:px-6 sm:py-3.5 font-inter text-[12.5px] sm:text-[13.5px] font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/10 hover:border-slate-400 dark:hover:border-white/30 transition-all shadow-sm"
+                    className="inline-flex items-center gap-2 rounded-xl border border-slate-300 dark:border-white/20 bg-white dark:bg-[#09090b] px-4 py-2.5 sm:px-6 sm:py-3.5 font-inter text-[12.5px] sm:text-[13.5px] font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/10 hover:border-slate-400 dark:hover:border-white/30 transition-all shadow-sm"
                   >
                     {tx({ EN: "View Membership Plans", JP: "料金プランを見る" })}
                   </Link>

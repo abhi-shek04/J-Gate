@@ -251,71 +251,11 @@ export function FAQSection({ id }: { id?: string }) {
           EN: "Clear, authoritative answers regarding workspace options, resident Japan Desk operations, Indian incorporation, talent acquisition, and bilateral growth.",
           JP: "拠点利用、常駐ジャパンデスク、法人設立、人材採用、日印共創に関する疑問にお答えします。",
         })}
-        tags={[
-          { EN: "Incorporation & Tax Compliance", JP: "法人登記・税務関係" },
-          { EN: "Workspace & Resident Support", JP: "拠点利用・常駐支援" },
-          { EN: "Hiring & Recruitment", JP: "ITエンジニア採用" },
-        ]}
       />
 
-      {/* 2. REASSURANCE PODS (4 PILLARS) */}
-      <section className="border-b border-slate-200/80 dark:border-white/10 bg-white dark:bg-[#0f1728] py-8 transition-colors">
-        <div className="container-jg">
-          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-            {[
-              {
-                icon: ShieldCheck,
-                title: tx({ EN: "Resident Japan Desk", JP: "常駐ジャパンデスク" }),
-                desc: tx({ EN: "Japanese directors on site every day", JP: "日本人ディレクターが現地常駐" }),
-              },
-              {
-                icon: Building2,
-                title: tx({ EN: "Hyderabad Hub", JP: "ハイデラバード拠点" }),
-                desc: tx({ EN: "Fully equipped, ready-to-use offices", JP: "即日稼働可能な完全インフラ" }),
-              },
-              {
-                icon: Landmark,
-                title: tx({ EN: "Legal & Regulatory Setup", JP: "100% 法令順守" }),
-                desc: tx({ EN: "Registered office address & GST registration", JP: "公認商業登記住所・GST対応" }),
-              },
-              {
-                icon: MessageSquare,
-                title: tx({ EN: "Free Business Consultation", JP: "無料よろず相談" }),
-                desc: tx({ EN: "Practical guidance for entering the Indian market", JP: "進出検討企業への個別助言" }),
-              },
-            ].map((pod, idx) => (
-              <Reveal key={idx} delay={idx * 60}>
-                <div className="flex items-start gap-3 rounded-xl border border-slate-100 dark:border-white/10 bg-ivory/50 dark:bg-white/[0.04] p-4 transition-all hover:border-crimson/30 dark:hover:border-rose-400/40 hover:bg-ivory dark:hover:bg-white/[0.08] hover:shadow-sm">
-                  <div className="icon-pod h-9 w-9 shrink-0 mt-0.5">
-                    <pod.icon className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <h3 className="font-serif-jp text-[13.5px] font-bold text-ink dark:text-white">{pod.title}</h3>
-                    <p className="mt-0.5 font-inter text-[12px] text-slate-600 dark:text-slate-300 leading-snug">{pod.desc}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 3. MAIN FAQ ACCORDION SYSTEM */}
-      <section className="py-8 sm:py-14 bg-ivory dark:bg-[#0b111e] transition-colors">
+      {/* MAIN FAQ ACCORDION SYSTEM */}
+      <section className="py-8 sm:py-12 bg-ivory dark:bg-[#0b111e] transition-colors">
         <div className="container-jg max-w-4xl">
-          <Reveal className="mb-8">
-            <SectionHeading
-              eyebrow={tx({ EN: "Executive Knowledge Base", JP: "詳細情報・FAQ" })}
-              title={tx({
-                EN: "Everything You Need to Know About Expansion",
-                JP: "インド進出・拠点運営に関するFAQ",
-              })}
-              subtitle={tx({
-                EN: "Detailed guidance on workspace options, resident Japan Desk support, company incorporation, and local hiring.",
-                JP: "ハイデラバード拠点、ジャパンデスク伴走、現地法人設立、採用支援に関するよくある質問。",
-              })}
-            />
-          </Reveal>
 
           {/* Header Row: Count Summary + Expand/Collapse Buttons */}
           <div className="mb-5 flex flex-wrap items-center justify-between gap-3 border-b border-slate-200/80 dark:border-white/10 pb-3 font-inter text-[12px] text-slate-500 dark:text-slate-400">

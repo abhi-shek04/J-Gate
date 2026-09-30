@@ -17,9 +17,9 @@ const NAV_LINKS = [
   { href: "/#services", key: "nav.services" },
   { href: "/#team", key: "nav.team" },
   { href: "/#pricing", key: "nav.pricing" },
-  { href: "/#faq", key: "nav.faq" },
   { href: "/#blogs", key: "nav.blogs" },
   { href: "/#contact", key: "nav.contact" },
+  { href: "/#faq", key: "nav.faq" },
 ] as const;
 
 export function Navbar() {
@@ -86,9 +86,9 @@ export function Navbar() {
       "services",
       "team",
       "pricing",
-      "faq",
       "blogs",
       "contact",
+      "faq",
     ];
 
     const handleScroll = () => {

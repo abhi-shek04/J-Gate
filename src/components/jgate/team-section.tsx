@@ -188,6 +188,14 @@ const OPS_TEAM: OpsMember[] = [
 export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean }) {
   const { tx, lang } = useI18n();
 
+  // Split Advisors into Institutional Pillars (Top Tier) and Cross-Border Strategic Advisors (Tier 2)
+  const pillarAdvisors = ALL_ADVISORS.filter((a) => a.id === "mahankali" || a.id === "desai");
+  const strategicAdvisors = ALL_ADVISORS.filter((a) => a.id !== "mahankali" && a.id !== "desai");
+
+  // Split Operations Team into Resident Japan Desk and Hyderabad Ops Infrastructure
+  const japanDesk = OPS_TEAM.filter((m) => m.country === "Japan");
+  const hyderabadOps = OPS_TEAM.filter((m) => m.country === "India");
+
   return (
     <div id={id} className="scroll-mt-20">
       {!hideHero && (
@@ -234,77 +242,165 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
             />
           </Reveal>
 
-          {/* Unified 5-Column Responsive Executive Grid */}
-          <div className="mt-6 sm:mt-8 lg:mt-9 grid gap-4 sm:gap-4 lg:gap-4.5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 items-stretch">
-            {ALL_ADVISORS.map((adv, i) => (
-              <Reveal key={adv.id} delay={i * 60}>
-                <article className="group relative flex h-full flex-col justify-between items-center overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/12 bg-white dark:bg-black p-4 sm:p-4.5 text-center shadow-xs hover:shadow-lg hover:border-saffron/60 dark:hover:border-saffron/60 transition-all duration-300">
-                  {/* Top gold accent line */}
-                  <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-saffron via-saffron-light to-transparent opacity-90" />
+          {/* Tier 1: Institutional Pillar Leaders Showcase (Podium Highlights) */}
+          <div className="mt-8 sm:mt-10">
+            <div className="mb-3 flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-saffron animate-pulse" />
+              <h3 className="font-inter text-xs font-bold uppercase tracking-widest text-saffron-dark dark:text-saffron">
+                {tx({ EN: "Institutional Leadership & Innovation Pillars", JP: "基幹機関指導者・イノベーションの柱" })}
+              </h3>
+            </div>
 
-                  {/* Circular Portrait */}
-                  <div className="relative mt-1">
-                    <div className="h-20 w-20 sm:h-22 sm:w-22 rounded-full overflow-hidden border-2 border-saffron/50 dark:border-saffron/60 bg-slate-50 dark:bg-black shadow-md transition-transform duration-300 group-hover:scale-105 group-hover:border-saffron mx-auto">
-                      <img
-                        src={adv.image}
-                        alt={adv.name}
-                        className="h-full w-full object-cover object-top"
-                        loading="lazy"
-                      />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+              {pillarAdvisors.map((adv, i) => (
+                <Reveal key={adv.id} delay={i * 100}>
+                  <article className="group relative flex flex-col sm:flex-row items-center sm:items-start gap-5 rounded-2xl border border-saffron/40 dark:border-saffron/30 bg-gradient-to-br from-white via-amber-50/30 to-slate-50 dark:from-black dark:via-zinc-950 dark:to-black p-5 sm:p-6 shadow-md hover:shadow-xl hover:border-saffron dark:hover:border-saffron transition-all duration-300">
+                    {/* Gold corner accent badge */}
+                    <div className="absolute top-0 right-0 rounded-bl-xl bg-gradient-to-l from-saffron to-amber-500 px-3 py-1 font-inter text-[9.5px] font-extrabold uppercase tracking-wider text-black shadow-xs">
+                      {adv.badge}
                     </div>
-                  </div>
 
-                  {/* Role Eyebrow */}
-                  <span className="mt-3 font-inter text-[9.5px] sm:text-[10px] font-bold uppercase tracking-wider text-saffron-dark dark:text-saffron truncate w-full">
-                    {adv.badge}
-                  </span>
+                    {/* Left/Top Executive Portrait */}
+                    <div className="shrink-0 relative mt-2 sm:mt-0">
+                      <div className="h-24 w-24 sm:h-28 sm:w-28 rounded-2xl overflow-hidden border-2 border-saffron/70 dark:border-saffron/80 bg-slate-100 dark:bg-black shadow-lg group-hover:scale-105 transition-transform duration-300">
+                        <img
+                          src={adv.image}
+                          alt={adv.name}
+                          className="h-full w-full object-cover object-top"
+                          loading="lazy"
+                        />
+                      </div>
+                    </div>
 
-                  {/* Executive Name */}
-                  <h3 className="mt-1 font-serif-jp text-[15px] sm:text-[16px] font-bold text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-saffron-light transition-colors leading-tight">
-                    {adv.name}
-                  </h3>
-                  {lang === "JP" && <p className="mt-0.5 font-sans-jp text-[10.5px] text-slate-500 dark:text-slate-400">{adv.jpName}</p>}
+                    {/* Right Details */}
+                    <div className="flex-1 text-center sm:text-left">
+                      <h4 className="font-serif-jp text-lg sm:text-xl font-bold text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-saffron-light transition-colors">
+                        {adv.name}
+                      </h4>
+                      {lang === "JP" && <p className="font-sans-jp text-xs text-slate-500 dark:text-slate-400 mt-0.5">{adv.jpName}</p>}
 
-                  {/* Subtitle / Headline */}
-                  <p className="mt-1.5 font-inter text-[11px] sm:text-[11.5px] font-semibold text-crimson dark:text-saffron leading-snug">
-                    {adv.title}
-                  </p>
+                      <p className="mt-1 font-inter text-xs sm:text-[13px] font-semibold text-crimson dark:text-saffron leading-snug">
+                        {adv.title}
+                      </p>
 
-                  {/* Body Content */}
-                  <p className="mt-2 font-inter text-[11px] sm:text-[11.5px] leading-relaxed text-slate-600 dark:text-slate-300 flex-1">
-                    {adv.desc}
-                  </p>
+                      <p className="mt-2 font-inter text-xs sm:text-[12.5px] leading-relaxed text-slate-600 dark:text-slate-300">
+                        {adv.desc}
+                      </p>
 
-                  {/* Skill / Domain Pill Tags */}
-                  <div className="mt-3 flex flex-wrap items-center justify-center gap-1 w-full">
-                    {adv.tags.map((tag, ti) => (
-                      <span
-                        key={ti}
-                        className="rounded px-1.5 py-0.5 font-inter text-[9px] sm:text-[9.5px] font-medium bg-slate-100 dark:bg-white/[0.06] border border-slate-200/80 dark:border-white/10 text-slate-600 dark:text-slate-300"
-                      >
-                        {tag}
+                      {/* Domain Pills */}
+                      <div className="mt-3 flex flex-wrap items-center justify-center sm:justify-start gap-1.5">
+                        {adv.tags.map((tag, ti) => (
+                          <span
+                            key={ti}
+                            className="rounded-md px-2 py-0.5 font-inter text-[10px] font-semibold bg-saffron/10 dark:bg-saffron/15 border border-saffron/30 dark:border-saffron/30 text-saffron-dark dark:text-amber-200"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Connect Link */}
+                      <div className="mt-4 pt-3 border-t border-slate-200/70 dark:border-white/10 flex justify-center sm:justify-start">
+                        <a
+                          href={adv.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 rounded-lg border border-slate-300 dark:border-white/20 bg-white dark:bg-white/5 hover:bg-[#0A66C2]/10 hover:border-[#0A66C2] px-3 py-1.5 font-inter text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 hover:text-[#0A66C2] dark:hover:text-[#388bfd] transition-all shadow-xs"
+                        >
+                          <span className="flex h-4 w-4 items-center justify-center rounded bg-[#0A66C2] text-white text-[9px] font-black">
+                            in
+                          </span>
+                          <span>CONNECT EXECUTIVE</span>
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+
+          {/* Tier 2: Cross-Border & Industry Advisory Board */}
+          <div className="mt-10 sm:mt-12">
+            <div className="mb-3 flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-crimson" />
+              <h3 className="font-inter text-xs font-bold uppercase tracking-widest text-slate-700 dark:text-slate-300">
+                {tx({ EN: "Cross-Border Enterprise & Technology Advisors", JP: "日印企業・テクノロジー顧問陣" })}
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              {strategicAdvisors.map((adv, i) => (
+                <Reveal key={adv.id} delay={i * 90}>
+                  <article className="group relative flex h-full flex-col justify-between rounded-2xl border border-slate-200/90 dark:border-white/12 bg-white dark:bg-black p-5 text-center shadow-xs hover:shadow-lg hover:border-crimson/50 dark:hover:border-saffron/50 transition-all duration-300">
+                    {/* Top gold line */}
+                    <span className="absolute inset-x-0 top-0 h-1 rounded-t-2xl bg-gradient-to-r from-saffron via-crimson to-saffron opacity-80" />
+
+                    <div>
+                      {/* Portrait */}
+                      <div className="relative mt-2 mx-auto h-20 w-20 sm:h-22 sm:w-22 rounded-full overflow-hidden border-2 border-slate-200 dark:border-white/20 bg-slate-50 dark:bg-black shadow-md group-hover:scale-105 group-hover:border-saffron transition-all duration-300">
+                        <img
+                          src={adv.image}
+                          alt={adv.name}
+                          className="h-full w-full object-cover object-top"
+                          loading="lazy"
+                        />
+                      </div>
+
+                      {/* Badge */}
+                      <span className="mt-3 inline-block font-inter text-[10px] font-bold uppercase tracking-wider text-saffron-dark dark:text-saffron">
+                        {adv.badge}
                       </span>
-                    ))}
-                  </div>
 
-                  {/* Bottom Action: in CONNECT */}
-                  <div className="mt-3.5 pt-2.5 border-t border-slate-100 dark:border-white/10 w-full flex items-center justify-center">
-                    <a
-                      href={adv.linkedin || "#"}
-                      target={adv.linkedin ? "_blank" : undefined}
-                      rel={adv.linkedin ? "noopener noreferrer" : undefined}
-                      onClick={adv.linkedin ? undefined : (e) => e.preventDefault()}
-                      className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-200 dark:border-white/15 bg-slate-50 hover:bg-slate-100 dark:bg-white/5 dark:hover:bg-white/10 px-2.5 py-1 font-inter text-[10px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 hover:border-[#0A66C2] hover:text-[#0A66C2] dark:hover:text-[#388bfd] transition-all shadow-2xs"
-                    >
-                      <span className="flex h-3.5 w-3.5 items-center justify-center rounded bg-[#0A66C2] text-white text-[8.5px] font-black">
-                        in
-                      </span>
-                      <span>CONNECT</span>
-                    </a>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
+                      {/* Name */}
+                      <h4 className="mt-1 font-serif-jp text-base sm:text-lg font-bold text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-saffron-light transition-colors">
+                        {adv.name}
+                      </h4>
+                      {lang === "JP" && <p className="font-sans-jp text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">{adv.jpName}</p>}
+
+                      {/* Title */}
+                      <p className="mt-1.5 font-inter text-xs font-semibold text-crimson dark:text-saffron leading-snug">
+                        {adv.title}
+                      </p>
+
+                      {/* Desc */}
+                      <p className="mt-2 font-inter text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+                        {adv.desc}
+                      </p>
+                    </div>
+
+                    <div>
+                      {/* Tags */}
+                      <div className="mt-3 flex flex-wrap items-center justify-center gap-1">
+                        {adv.tags.map((tag, ti) => (
+                          <span
+                            key={ti}
+                            className="rounded px-1.5 py-0.5 font-inter text-[9.5px] font-medium bg-slate-100 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-slate-600 dark:text-slate-300"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Connect */}
+                      <div className="mt-4 pt-3 border-t border-slate-100 dark:border-white/10 flex justify-center">
+                        <a
+                          href={adv.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 dark:border-white/15 bg-slate-50 dark:bg-white/5 hover:bg-slate-100 dark:hover:bg-white/10 px-3 py-1 font-inter text-[10.5px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 hover:text-[#0A66C2] dark:hover:text-[#388bfd] transition-all"
+                        >
+                          <span className="flex h-3.5 w-3.5 items-center justify-center rounded bg-[#0A66C2] text-white text-[8.5px] font-black">
+                            in
+                          </span>
+                          <span>CONNECT</span>
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -325,132 +421,201 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
             />
           </Reveal>
 
-          {/* 4 Profile Cards Grid */}
-          <div className="mt-6 sm:mt-8 lg:mt-9 grid grid-cols-1 gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {OPS_TEAM.map((m, i) => {
-              const isTanji = m.id === "tanji";
-              return (
-                <Reveal key={m.id} delay={i * 80}>
-                  <article
-                    className={`group relative flex h-full flex-col justify-between items-center rounded-2xl border bg-white dark:bg-black p-4 sm:p-5 text-center shadow-xs transition-all duration-300 hover:shadow-lg ${
-                      isTanji
-                        ? "border-crimson/30 dark:border-rose-500/40 shadow-sm shadow-crimson/5"
-                        : "border-slate-200/90 dark:border-white/10 hover:border-crimson/40 dark:hover:border-crimson/50"
-                    }`}
-                  >
-                    {/* Top Circular Portrait with Flag Badge */}
-                    <div className="relative mt-1">
-                      <div
-                        className={`h-20 w-20 sm:h-22 sm:w-22 rounded-full overflow-hidden border-2 bg-slate-50 dark:bg-black shadow-md mx-auto transition-transform duration-300 group-hover:scale-105 ${
-                          isTanji
-                            ? "border-crimson/60 group-hover:border-crimson"
-                            : "border-slate-200/90 dark:border-white/20 group-hover:border-crimson/60"
-                        }`}
-                      >
+          {/* Wing A: Resident Japan Desk (Bicultural Leadership) */}
+          <div className="mt-8 sm:mt-10">
+            <div className="mb-4 flex items-center justify-between border-b border-slate-200 dark:border-white/10 pb-2">
+              <div className="flex items-center gap-2">
+                <JapanFlag className="h-4 w-6 rounded-xs shrink-0 shadow-2xs" />
+                <h3 className="font-serif-jp text-sm sm:text-base font-bold text-ink dark:text-white">
+                  {tx({ EN: "Resident Japan Desk Leadership", JP: "日本人常駐ディレクター陣 (Japan Desk)" })}
+                </h3>
+              </div>
+              <span className="rounded-full bg-crimson/10 dark:bg-rose-950/60 border border-crimson/30 dark:border-rose-400/40 px-2.5 py-0.5 font-inter text-[10px] font-bold text-crimson dark:text-rose-300">
+                {tx({ EN: "NATIVE & BICULTURAL SUPPORT", JP: "日本語ネイティブ常駐" })}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {japanDesk.map((m, i) => (
+                <Reveal key={m.id} delay={i * 100}>
+                  <article className="group relative flex flex-col sm:flex-row items-center sm:items-start gap-5 rounded-2xl border border-slate-200 dark:border-white/15 bg-white dark:bg-black p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-crimson/50 dark:hover:border-rose-500/50 transition-all duration-300">
+                    <div className="shrink-0 relative">
+                      <div className="h-24 w-24 sm:h-26 sm:w-26 rounded-2xl overflow-hidden border-2 border-crimson/40 dark:border-rose-400/40 bg-slate-50 dark:bg-black shadow-md group-hover:scale-105 transition-transform duration-300">
                         <img
                           src={m.image}
                           alt={m.name}
-                          className="h-full w-full object-cover object-top transition-transform duration-500"
+                          className="h-full w-full object-cover object-top"
                           loading="lazy"
                         />
                       </div>
-
-                      {/* Flag Tag */}
-                      <span className="absolute bottom-0 right-0 flex items-center gap-1 rounded-full bg-white/95 dark:bg-black/95 px-1.5 py-0.5 text-[9px] font-bold text-slate-700 dark:text-slate-200 shadow-sm border border-slate-200/80 dark:border-white/15 backdrop-blur-sm">
-                        {m.country === "Japan" ? <JapanFlag className="h-3 w-4.5 rounded-xs shrink-0" /> : <IndiaFlag className="h-3 w-4.5 rounded-xs shrink-0" />}
-                        <span className="text-[8.5px] tracking-wide uppercase font-inter">{m.country}</span>
+                      <span className="absolute -bottom-2 -right-1 flex items-center gap-1 rounded-full bg-white dark:bg-black px-2 py-0.5 text-[9px] font-bold text-slate-800 dark:text-slate-200 shadow-sm border border-slate-200 dark:border-white/20">
+                        <JapanFlag className="h-3 w-4.5 rounded-xs" />
+                        <span>JAPAN</span>
                       </span>
                     </div>
 
-                    {/* Role Eyebrow */}
-                    <span className="mt-3 font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-widest text-crimson dark:text-rose-400">
-                      {m.role}
-                    </span>
-
-                    {/* Executive Name */}
-                    <h3 className={`mt-1 font-serif-jp text-lg sm:text-[20px] font-bold leading-tight ${isTanji ? "text-crimson dark:text-rose-400" : "text-ink dark:text-white"}`}>
-                      {m.name}
-                    </h3>
-                    {lang === "JP" && (
-                      <p className="mt-0.5 font-sans-jp text-[11px] font-medium text-slate-500 dark:text-slate-400">
-                        {m.jpName}
+                    <div className="flex-1 text-center sm:text-left">
+                      <span className="font-inter text-[10.5px] font-extrabold uppercase tracking-widest text-crimson dark:text-rose-400">
+                        {m.role}
+                      </span>
+                      <h4 className="font-serif-jp text-lg sm:text-xl font-bold text-ink dark:text-white mt-0.5">
+                        {m.name} <span className="font-sans-jp text-sm font-normal text-slate-500 dark:text-slate-400">({m.jpName})</span>
+                      </h4>
+                      <p className="font-inter text-xs font-semibold text-slate-800 dark:text-slate-200 mt-1">
+                        {m.subtitle}
                       </p>
-                    )}
 
-                    {/* Subtitle / Headline */}
-                    <p className="mt-1.5 font-inter text-[11.5px] sm:text-[12px] font-semibold text-slate-800 dark:text-slate-200 leading-snug">
-                      {m.subtitle}
-                    </p>
+                      <p className="mt-2 font-inter text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+                        {m.desc}
+                      </p>
 
-                    {/* Short Bio */}
-                    <p className="mt-2 font-inter text-[11.5px] sm:text-[12px] leading-relaxed text-slate-600 dark:text-slate-300 flex-1">
-                      {m.desc}
-                    </p>
-
-                    {/* Skill / Domain Pill Tags */}
-                    <div className="mt-3 flex flex-wrap items-center justify-center gap-1 w-full">
-                      {m.tags.map((tag, ti) => (
-                        <span
-                          key={ti}
-                          className="rounded px-2 py-0.5 font-inter text-[9.5px] sm:text-[10px] font-medium bg-slate-100 dark:bg-white/5 border border-slate-200/70 dark:border-white/10 text-slate-600 dark:text-slate-300"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Spoken Languages Strip */}
-                    <div className="mt-2.5 flex flex-wrap items-center justify-center gap-1">
-                      {m.languages.map((lang, li) => (
-                        <span
-                          key={li}
-                          className={`inline-flex items-center rounded px-1.5 py-0.5 font-inter text-[9px] sm:text-[9.5px] font-semibold ${
-                            lang.highlight
-                              ? "bg-crimson/10 text-crimson dark:bg-rose-950/40 dark:text-rose-300 border border-crimson/20 dark:border-rose-400/30 font-bold"
-                              : "bg-slate-50 dark:bg-white/5 text-slate-500 dark:text-slate-400 border border-slate-200/50 dark:border-white/5"
-                          }`}
-                        >
-                          {tx(lang)}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Direct Contact Links & in CONNECT */}
-                    <div className="mt-3.5 pt-3 border-t border-slate-100 dark:border-white/10 w-full flex items-center justify-center gap-2">
-                      {m.linkedin && (
-                        <a
-                          href={m.linkedin}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-200/80 dark:border-white/15 bg-slate-50 dark:bg-white/5 px-2.5 py-1 font-inter text-[10.5px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 hover:border-[#0A66C2] hover:bg-[#0A66C2]/10 hover:text-[#0A66C2] dark:hover:text-[#388bfd] transition-all shadow-2xs"
-                        >
-                          <span className="flex h-3.5 w-3.5 items-center justify-center rounded bg-[#0A66C2] text-white text-[8.5px] font-black">
-                            in
+                      {/* Language badges */}
+                      <div className="mt-3 flex flex-wrap items-center justify-center sm:justify-start gap-1">
+                        {m.languages.map((l, li) => (
+                          <span
+                            key={li}
+                            className={`rounded px-1.5 py-0.5 font-inter text-[9.5px] font-semibold ${
+                              l.highlight
+                                ? "bg-crimson/10 text-crimson dark:bg-rose-950/60 dark:text-rose-300 border border-crimson/20 dark:border-rose-400/30"
+                                : "bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-400 border border-slate-200/60 dark:border-white/10"
+                            }`}
+                          >
+                            {tx(l)}
                           </span>
-                          <span>CONNECT</span>
-                        </a>
-                      )}
-                      {m.phone && (
+                        ))}
+                      </div>
+
+                      {/* Actions */}
+                      <div className="mt-4 pt-3 border-t border-slate-100 dark:border-white/10 flex items-center justify-center sm:justify-start gap-2">
+                        {m.linkedin && (
+                          <a
+                            href={m.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 dark:border-white/15 bg-slate-50 dark:bg-white/5 px-2.5 py-1 font-inter text-[10.5px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 hover:border-[#0A66C2] hover:text-[#0A66C2] dark:hover:text-[#388bfd] transition-all"
+                          >
+                            <span className="flex h-3.5 w-3.5 items-center justify-center rounded bg-[#0A66C2] text-white text-[8.5px] font-black">
+                              in
+                            </span>
+                            <span>CONNECT</span>
+                          </a>
+                        )}
                         <a
-                          href={`tel:${m.phone.replace(/[^0-9+]/g, "")}`}
-                          className="flex h-7 w-7 items-center justify-center rounded-lg border border-slate-200/80 dark:border-white/15 bg-slate-50 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:bg-crimson/10 hover:text-crimson dark:hover:text-rose-400 hover:border-crimson/30 transition-all shadow-2xs"
-                          title={m.phone}
+                          href={`mailto:${m.email}`}
+                          className="flex h-7 w-7 items-center justify-center rounded-lg border border-slate-200 dark:border-white/15 bg-slate-50 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:bg-crimson/10 hover:text-crimson transition-all"
+                          title={m.email}
                         >
-                          <Phone className="h-3 w-3" />
+                          <Mail className="h-3.5 w-3.5" />
                         </a>
-                      )}
-                      <a
-                        href={`mailto:${m.email}`}
-                        className="flex h-7 w-7 items-center justify-center rounded-lg border border-slate-200/80 dark:border-white/15 bg-slate-50 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:bg-crimson/10 hover:text-crimson dark:hover:text-rose-400 hover:border-crimson/30 transition-all shadow-2xs"
-                        title={m.email}
-                      >
-                        <Mail className="h-3 w-3" />
-                      </a>
+                      </div>
                     </div>
                   </article>
                 </Reveal>
-              );
-            })}
+              ))}
+            </div>
+          </div>
+
+          {/* Wing B: Hyderabad Operations & Workspace Concierge */}
+          <div className="mt-10 sm:mt-12">
+            <div className="mb-4 flex items-center justify-between border-b border-slate-200 dark:border-white/10 pb-2">
+              <div className="flex items-center gap-2">
+                <IndiaFlag className="h-4 w-6 rounded-xs shrink-0 shadow-2xs" />
+                <h3 className="font-serif-jp text-sm sm:text-base font-bold text-ink dark:text-white">
+                  {tx({ EN: "Hyderabad Operations & Concierge Infrastructure", JP: "ハイデラバード現地運営・ITサポート" })}
+                </h3>
+              </div>
+              <span className="rounded-full bg-saffron/15 dark:bg-amber-950/60 border border-saffron/40 dark:border-amber-400/40 px-2.5 py-0.5 font-inter text-[10px] font-bold text-saffron-dark dark:text-amber-300">
+                {tx({ EN: "ON-SITE HYDERABAD TEAM", JP: "ハイデラバード常駐" })}
+              </span>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {hyderabadOps.map((m, i) => (
+                <Reveal key={m.id} delay={i * 100}>
+                  <article className="group relative flex flex-col sm:flex-row items-center sm:items-start gap-5 rounded-2xl border border-slate-200 dark:border-white/15 bg-white dark:bg-black p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-saffron/60 dark:hover:border-saffron/60 transition-all duration-300">
+                    <div className="shrink-0 relative">
+                      <div className="h-24 w-24 sm:h-26 sm:w-26 rounded-2xl overflow-hidden border-2 border-slate-200/90 dark:border-white/20 bg-slate-50 dark:bg-black shadow-md group-hover:scale-105 transition-transform duration-300">
+                        <img
+                          src={m.image}
+                          alt={m.name}
+                          className="h-full w-full object-cover object-top"
+                          loading="lazy"
+                        />
+                      </div>
+                      <span className="absolute -bottom-2 -right-1 flex items-center gap-1 rounded-full bg-white dark:bg-black px-2 py-0.5 text-[9px] font-bold text-slate-800 dark:text-slate-200 shadow-sm border border-slate-200 dark:border-white/20">
+                        <IndiaFlag className="h-3 w-4.5 rounded-xs" />
+                        <span>INDIA</span>
+                      </span>
+                    </div>
+
+                    <div className="flex-1 text-center sm:text-left">
+                      <span className="font-inter text-[10.5px] font-extrabold uppercase tracking-widest text-saffron-dark dark:text-saffron">
+                        {m.role}
+                      </span>
+                      <h4 className="font-serif-jp text-lg sm:text-xl font-bold text-ink dark:text-white mt-0.5">
+                        {m.name} <span className="font-sans-jp text-sm font-normal text-slate-500 dark:text-slate-400">({m.jpName})</span>
+                      </h4>
+                      <p className="font-inter text-xs font-semibold text-slate-800 dark:text-slate-200 mt-1">
+                        {m.subtitle}
+                      </p>
+
+                      <p className="mt-2 font-inter text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+                        {m.desc}
+                      </p>
+
+                      {/* Language badges */}
+                      <div className="mt-3 flex flex-wrap items-center justify-center sm:justify-start gap-1">
+                        {m.languages.map((l, li) => (
+                          <span
+                            key={li}
+                            className={`rounded px-1.5 py-0.5 font-inter text-[9.5px] font-semibold ${
+                              l.highlight
+                                ? "bg-saffron/10 text-saffron-dark dark:bg-amber-950/60 dark:text-amber-300 border border-saffron/20 dark:border-amber-400/30"
+                                : "bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-400 border border-slate-200/60 dark:border-white/10"
+                            }`}
+                          >
+                            {tx(l)}
+                          </span>
+                        ))}
+                      </div>
+
+                      {/* Actions */}
+                      <div className="mt-4 pt-3 border-t border-slate-100 dark:border-white/10 flex items-center justify-center sm:justify-start gap-2">
+                        {m.linkedin && (
+                          <a
+                            href={m.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 dark:border-white/15 bg-slate-50 dark:bg-white/5 px-2.5 py-1 font-inter text-[10.5px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 hover:border-[#0A66C2] hover:text-[#0A66C2] dark:hover:text-[#388bfd] transition-all"
+                          >
+                            <span className="flex h-3.5 w-3.5 items-center justify-center rounded bg-[#0A66C2] text-white text-[8.5px] font-black">
+                              in
+                            </span>
+                            <span>CONNECT</span>
+                          </a>
+                        )}
+                        {m.phone && (
+                          <a
+                            href={`tel:${m.phone.replace(/[^0-9+]/g, "")}`}
+                            className="flex h-7 w-7 items-center justify-center rounded-lg border border-slate-200 dark:border-white/15 bg-slate-50 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:bg-saffron/20 hover:text-saffron-dark transition-all"
+                            title={m.phone}
+                          >
+                            <Phone className="h-3.5 w-3.5" />
+                          </a>
+                        )}
+                        <a
+                          href={`mailto:${m.email}`}
+                          className="flex h-7 w-7 items-center justify-center rounded-lg border border-slate-200 dark:border-white/15 bg-slate-50 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:bg-saffron/20 hover:text-saffron-dark transition-all"
+                          title={m.email}
+                        >
+                          <Mail className="h-3.5 w-3.5" />
+                        </a>
+                      </div>
+                    </div>
+                  </article>
+                </Reveal>
+              ))}
+            </div>
           </div>
 
           {/* Bilingual Concierge Reassurance Note */}

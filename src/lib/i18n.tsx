@@ -179,7 +179,7 @@ export const translations: Dictionary = {
   "why.row1.cowork": { EN: "Local Companies, Freelancers", JP: "現地企業・フリーランス" },
   "why.row1.public": { EN: "General / All", JP: "全企業対象（一般論中心）" },
   "why.row2.label": { EN: "Monthly Cost", JP: "月額費用" },
-  "why.row2.jgate": { EN: "From 50,000 INR", JP: "15,000 INR〜（約2.7万円〜）" },
+  "why.row2.jgate": { EN: "From 15,000 INR (~¥27,000)", JP: "15,000 INR〜（約2.7万円〜）" },
   "why.row2.consult": { EN: "¥500,000 – ¥1,000,000", JP: "月額 50万〜100万円以上" },
   "why.row2.cowork": { EN: "10,000 – 60,000 INR", JP: "月額 10,000〜60,000 INR" },
   "why.row2.public": { EN: "Free – Low Cost", JP: "無料〜低価格" },

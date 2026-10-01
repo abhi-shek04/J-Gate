@@ -79,13 +79,13 @@ const FAQ_LIST: FAQItem[] = [
       JP: "利用プランの種類と料金を教えてください。",
     },
     a: {
-      EN: "J-Gate offers three strategic plans (all prices listed in INR, excluding GST):\n\n• Satellite Plan (15,000 INR/month): Designed for Japanese companies already holding a legal entity in India; includes workspace access for up to 2 people.\n• Standard Plan (50,000 INR/month): Suited for Japanese companies exploring expansion; includes workspace access for up to 4 people, Japan Desk consultation, and study session access.\n• Advance Plan (120,000 INR/month): Targeted at companies accelerating full-scale entry, regional banks, and local governments; includes hands-on consulting, meeting accompaniment, and priority networking.",
-      JP: "J-Gateでは目的・規模に応じた3つの基本プランをご用意しています（表示価格は税別INR）：\n\n• サテライトプラン（15,000 INR/月）：既存現地法人保有企業向け。最大2名までの固定席・オフィス利用。\n• スタンダードプラン（50,000 INR/月）：市場調査・進出準備企業向け。最大4名利用、ジャパンデスク相談・勉強会参加権付き。\n• アドバンスプラン（120,000 INR/月）：本格進出・地方銀行・自治体・大手企業向け。ハンズオンコンサルティング・商談同席・優先マッチング付き。",
+      EN: "J-Gate offers three strategic plans (prices in INR and JPY equivalents, excluding GST):\n\n• Satellite Plan (15,000 INR / ~¥27,000 JPY/month): Designed for Japanese companies already holding a legal entity in India; includes workspace access for up to 2 people.\n• Standard Plan (50,000 INR / ~¥90,000 JPY/month): Suited for Japanese companies exploring expansion; includes workspace access for up to 4 people, Japan Desk consultation, and study session access.\n• Advance Plan (120,000 INR / ~¥216,000 JPY/month): Targeted at companies accelerating full-scale entry, regional banks, and local governments; includes hands-on consulting, meeting accompaniment, and priority networking.",
+      JP: "J-Gateでは目的・規模に応じた3つの基本プランをご用意しています（表示価格は税別INRおよび日本円換算）：\n\n• サテライトプラン（15,000 INR / 約2.7万円/月）：既存現地法人保有企業向け。最大2名までの固定席・オフィス利用。\n• スタンダードプラン（50,000 INR / 約9万円/月）：市場調査・進出準備企業向け。最大4名利用、ジャパンデスク相談・勉強会参加権付き。\n• アドバンスプラン（120,000 INR / 約21.6万円/月）：本格進出・地方銀行・自治体・大手企業向け。ハンズオンコンサルティング・商談同席・優先マッチング付き。",
     },
     highlights: [
-      { EN: "Satellite Plan: 15,000 INR/mo (Up to 2 members)", JP: "サテライトプラン：15,000 INR/月（最大2名利用）" },
-      { EN: "Standard Plan: 50,000 INR/mo (Up to 4 members)", JP: "スタンダードプラン：50,000 INR/月（最大4名利用）" },
-      { EN: "Advance Plan: 120,000 INR/mo (Full consulting)", JP: "アドバンスプラン：120,000 INR/月（フルサポート）" },
+      { EN: "Satellite Plan: 15,000 INR/mo (~¥27,000 JPY)", JP: "サテライトプラン：15,000 INR/月（約2.7万円）" },
+      { EN: "Standard Plan: 50,000 INR/mo (~¥90,000 JPY)", JP: "スタンダードプラン：50,000 INR/月（約9万円）" },
+      { EN: "Advance Plan: 120,000 INR/mo (~¥216,000 JPY)", JP: "アドバンスプラン：120,000 INR/月（約21.6万円）" },
     ],
   },
   {

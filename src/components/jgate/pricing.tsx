@@ -165,7 +165,9 @@ export function Pricing() {
                 {/* Price */}
                 <div className="mt-3.5">
                   <div className="flex items-baseline gap-1.5">
-                    <span className="font-serif-jp text-xl font-bold text-crimson">¥</span>
+                    {/^\d/.test(annual ? plan.annual : plan.monthly) && (
+                      <span className="font-serif-jp text-xl font-bold text-crimson">₹</span>
+                    )}
                     <span className="font-serif-jp text-2xl font-bold text-ink">
                       {annual ? plan.annual : plan.monthly}
                     </span>

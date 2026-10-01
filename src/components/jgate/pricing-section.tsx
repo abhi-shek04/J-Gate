@@ -35,8 +35,6 @@ type Plan = {
   tagline: Bilingual;
   priceINRMonthly: number;
   priceINRAnnual: number;
-  priceJPYMonthly: number;
-  priceJPYAnnual: number;
   capacity: Bilingual;
   capacityCategory: "1-2" | "3-4" | "enterprise";
   accentBorder: string;
@@ -69,8 +67,6 @@ const PLANS: Plan[] = [
     },
     priceINRMonthly: 15000,
     priceINRAnnual: 12750, // 15% discount
-    priceJPYMonthly: 27000,
-    priceJPYAnnual: 22950,
     capacity: { EN: "Up to 2 Members", JP: "最大2名" },
     capacityCategory: "1-2",
     accentBorder: "border-t-slate-400",
@@ -122,8 +118,6 @@ const PLANS: Plan[] = [
     },
     priceINRMonthly: 50000,
     priceINRAnnual: 42500, // 15% discount
-    priceJPYMonthly: 90000,
-    priceJPYAnnual: 76500,
     capacity: { EN: "Up to 4 Members", JP: "最大4名" },
     capacityCategory: "3-4",
     accentBorder: "border-t-crimson",
@@ -175,8 +169,6 @@ const PLANS: Plan[] = [
     },
     priceINRMonthly: 120000,
     priceINRAnnual: 102000, // 15% discount
-    priceJPYMonthly: 216000,
-    priceJPYAnnual: 183600,
     capacity: { EN: "Enterprise / Custom", JP: "企業・自治体向け" },
     capacityCategory: "enterprise",
     accentBorder: "border-t-saffron",
@@ -319,7 +311,6 @@ const MATRIX_FEATURES = [
 
 export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boolean }) {
   const { tx, lang } = useI18n();
-  const [currency, setCurrency] = useState<"INR" | "JPY">("INR");
   const [billingCycle, setBillingCycle] = useState<"monthly" | "annual">("monthly");
   const [selectedFilter, setSelectedFilter] = useState<"all" | "1-2" | "3-4" | "enterprise">("all");
   const [showMatrix, setShowMatrix] = useState(false);
@@ -378,37 +369,6 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
                 JP: "すべてのプランにハイデラバードオフィスの利用、1 Gbps光回線、常駐日本人ディレクターによるサポートが含まれています。",
               })}
             />
-
-            {/* Premium Currency Switcher Bar */}
-            <div className="mt-6 mb-8 flex items-center justify-center">
-              <div className="inline-flex items-center gap-1.5 bg-white/90 dark:bg-[#09090b] p-1.5 rounded-full border border-slate-200/90 dark:border-white/14 shadow-sm backdrop-blur-md">
-                <span className="px-3 text-[11px] font-bold font-mono tracking-wider text-slate-600 dark:text-slate-300 uppercase">
-                  {tx({ EN: "Currency:", JP: "表示通貨:" })}
-                </span>
-                <button
-                  type="button"
-                  onClick={() => setCurrency("INR")}
-                  className={`px-4 py-1.5 rounded-full text-[12px] font-inter font-bold transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
-                    currency === "INR"
-                      ? "bg-crimson text-white shadow-md shadow-crimson/25 scale-[1.02]"
-                      : "text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10"
-                  }`}
-                >
-                  <span>🇮🇳</span> INR (₹)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setCurrency("JPY")}
-                  className={`px-4 py-1.5 rounded-full text-[12px] font-inter font-bold transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
-                    currency === "JPY"
-                      ? "bg-crimson text-white shadow-md shadow-crimson/25 scale-[1.02]"
-                      : "text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10"
-                  }`}
-                >
-                  <span>🇯🇵</span> JPY (¥)
-                </button>
-              </div>
-            </div>
           </Reveal>
 
           {/* Grid of 3 Balanced Cards — Compact, Premium, High-End Presentation */}
@@ -416,7 +376,6 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
             {PLANS.map((plan, i) => {
               const Icon = plan.icon;
               const displayINR = isAnnual ? plan.priceINRAnnual : plan.priceINRMonthly;
-              const displayJPY = isAnnual ? plan.priceJPYAnnual : plan.priceJPYMonthly;
               const isSelected = selectedFilter === plan.capacityCategory;
               const isFeatured = plan.id === "standard";
 
@@ -471,12 +430,10 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
                         <div className="flex items-baseline justify-between gap-1">
                           <div className="flex items-baseline gap-1">
                             <span className="font-inter text-2xl sm:text-[28px] font-extrabold text-ink dark:text-white tracking-tight">
-                              {currency === "INR"
-                                ? `₹${displayINR.toLocaleString()}`
-                                : `¥${displayJPY.toLocaleString()}`}
+                              ₹{displayINR.toLocaleString()}
                             </span>
                             <span className="font-inter text-[11px] font-semibold text-slate-500 dark:text-slate-400">
-                              {currency === "INR" ? "/mo" : lang === "JP" ? "/月" : "/mo"}
+                              {lang === "JP" ? "/月" : "/mo"}
                             </span>
                           </div>
 
@@ -493,9 +450,7 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
 
                         <div className="mt-1 flex items-center justify-between text-[10.5px] font-inter text-slate-500 dark:text-slate-400">
                           <span>
-                            {currency === "INR"
-                              ? `Approx. ¥${displayJPY.toLocaleString()}${lang === "JP" ? "/月" : "/mo"}`
-                              : `Base ₹${displayINR.toLocaleString()} INR`}
+                            {tx({ EN: "Billed in INR", JP: "インドルピー基準" })}
                           </span>
                           {isAnnual && (
                             <span className="text-emerald-700 dark:text-emerald-400 font-medium">
@@ -690,11 +645,11 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
                   },
                   {
                     icon: Banknote,
-                    title: { EN: "INR & JPY Settlement", JP: "INR / JPY決済対応" },
-                    badge: { EN: "Dual Currency", JP: "日印二通貨対応" },
+                    title: { EN: "INR Corporate Invoicing", JP: "INR 決済対応" },
+                    badge: { EN: "Direct Settlement", JP: "インドルピー決済" },
                     desc: {
-                      EN: "Invoicing is denominated in INR. Payments in Japanese Yen (JPY) by your Japan entity are fully supported using current exchange rates.",
-                      JP: "請求はINR基準です。東京法人経由での日本円（JPY）決済にも対応しております（為替換算適用）。",
+                      EN: "All invoices are issued in Indian Rupees (INR) with full support for corporate bank transfer and credit card settlement.",
+                      JP: "請求および決済はすべてインドルピー（INR）基準です。法人向け銀行振込および各種カード決済に対応。",
                     },
                   },
                   {

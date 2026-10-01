@@ -24,7 +24,6 @@ export function PrecisionWhyPage() {
   const planData = {
     satellite: {
       jGate: 15000,
-      jpy: "27,000",
       market: 120000,
       saving: 105000,
       pct: 87,
@@ -33,7 +32,6 @@ export function PrecisionWhyPage() {
     },
     standard: {
       jGate: 50000,
-      jpy: "90,000",
       market: 260000,
       saving: 210000,
       pct: 81,
@@ -42,7 +40,6 @@ export function PrecisionWhyPage() {
     },
     advance: {
       jGate: 120000,
-      jpy: "216,000",
       market: 480000,
       saving: 360000,
       pct: 75,
@@ -151,10 +148,10 @@ export function PrecisionWhyPage() {
       <div className="relative z-20 w-full h-[40px] bg-[#0F0F18] border-b border-[rgba(184,146,74,0.35)] overflow-hidden flex items-center">
         <div className="ticker-track flex whitespace-nowrap will-change-transform animate-ticker">
           <span className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-[#B8924A] px-4 flex items-center gap-4">
-            <span>J-GATE</span> · <span>HYDERABAD OFFICE</span> · <span>INDOBOX INDIA</span> · {lang === "JP" && <><span>ジェーゲート</span> · </>}<span>CONNECTING JAPAN & INDIA</span> · <span>TEAMS OF 2–4</span> · <span>7 CORE SERVICES</span> · <span>FROM ¥27,000 /MO</span> · <span>HYDERABAD HUB</span> · <span>LAUNCHED JUNE 2026</span> ·
+            <span>J-GATE</span> · <span>HYDERABAD OFFICE</span> · <span>INDOBOX INDIA</span> · {lang === "JP" && <><span>ジェーゲート</span> · </>}<span>CONNECTING JAPAN & INDIA</span> · <span>TEAMS OF 2–4</span> · <span>7 CORE SERVICES</span> · <span>FROM ₹15,000 /MO</span> · <span>HYDERABAD HUB</span> · <span>LAUNCHED JUNE 2026</span> ·
           </span>
           <span className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-[#B8924A] px-4 flex items-center gap-4" aria-hidden="true">
-            <span>J-GATE</span> · <span>HYDERABAD OFFICE</span> · <span>INDOBOX INDIA</span> · {lang === "JP" && <><span>ジェーゲート</span> · </>}<span>CONNECTING JAPAN & INDIA</span> · <span>TEAMS OF 2–4</span> · <span>7 CORE SERVICES</span> · <span>FROM ¥27,000 /MO</span> · <span>HYDERABAD HUB</span> · <span>LAUNCHED JUNE 2026</span> ·
+            <span>J-GATE</span> · <span>HYDERABAD OFFICE</span> · <span>INDOBOX INDIA</span> · {lang === "JP" && <><span>ジェーゲート</span> · </>}<span>CONNECTING JAPAN & INDIA</span> · <span>TEAMS OF 2–4</span> · <span>7 CORE SERVICES</span> · <span>FROM ₹15,000 /MO</span> · <span>HYDERABAD HUB</span> · <span>LAUNCHED JUNE 2026</span> ·
           </span>
         </div>
       </div>
@@ -397,16 +394,13 @@ export function PrecisionWhyPage() {
                         <div className="font-sans font-medium text-[#F0EDE6]">
                           {tx({ EN: "From ₹15,000", JP: "月額 15,000 INR〜" })}
                         </div>
-                        <div className="font-mono text-[10px] text-[#B8924A] mt-0.5">
-                          {tx({ EN: "~¥27,000 /mo", JP: "約27,000円 /月" })}
-                        </div>
                       </div>
                     </div>
                   </td>
                   <td className="px-4 py-4 text-center text-[#9A98A4]">
                     <div className="flex items-center justify-center gap-1.5">
                       <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="none" stroke="#5C5A68" strokeWidth="1.5" /></svg>
-                      <span>{tx({ EN: "¥500K – ¥1M+", JP: "50万〜100万円+" })}</span>
+                      <span>{tx({ EN: "500K – 1M+ INR", JP: "50万〜100万 INR+" })}</span>
                     </div>
                   </td>
                   <td className="px-4 py-4 text-center text-[#9A98A4]">
@@ -1139,9 +1133,6 @@ export function PrecisionWhyPage() {
                               <span className="font-mono text-[13px] text-[#B8924A] font-bold">
                                 ₹{data.jGate.toLocaleString()}/mo
                               </span>
-                              <span className="block font-mono text-[9.5px] text-[#9A98A4]">
-                                ~¥{data.jpy}
-                              </span>
                             </div>
                           </div>
                           <p className="font-mono text-[9.5px] text-[#9A98A4] mt-1">
@@ -1242,7 +1233,7 @@ export function PrecisionWhyPage() {
                         {tx({ EN: "Estimated J-Gate Base Fee", JP: "月額J-Gate会費（目安）" })}
                       </span>
                       <span className="font-mono text-[10px] text-[#B8924A] mt-0.5">
-                        {planData[selectedPlan].jpy} JPY APPROX
+                        {tx({ EN: "Billed in INR", JP: "インドルピー表示" })}
                       </span>
                     </div>
                     <div className="text-right font-serif text-[32px] font-light text-[#F0EDE6] leading-none">

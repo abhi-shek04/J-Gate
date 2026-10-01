@@ -194,7 +194,7 @@ export function Membership() {
 
                   <div className="mt-4">
                     <div className="flex items-baseline gap-1.5">
-                      <span className="font-serif-jp text-2xl font-bold text-crimson">¥</span>
+                      {/^\d/.test(plan.price) && <span className="font-serif-jp text-2xl font-bold text-crimson">₹</span>}
                       <span className="font-serif-jp text-base font-bold text-ink">{plan.price}</span>
                     </div>
                     <p className="mt-1.5 font-inter text-[13px] italic text-slate">{plan.subPrice}</p>

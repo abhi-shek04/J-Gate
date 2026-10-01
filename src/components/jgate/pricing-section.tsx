@@ -364,15 +364,11 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
                 EN: "Choose Your Membership Plan",
                 JP: "進出段階に合わせて選べる3つのプラン",
               })}
-              subtitle={tx({
-                EN: "All tiers include full Hyderabad workspace infrastructure, 1 Gbps connectivity, and on-site Japanese leadership guidance.",
-                JP: "すべてのプランにハイデラバードオフィスの利用、1 Gbps光回線、常駐日本人ディレクターによるサポートが含まれています。",
-              })}
             />
           </Reveal>
 
           {/* Grid of 3 Balanced Cards — Compact, Premium, High-End Presentation */}
-          <div className="grid gap-4 sm:gap-5 lg:gap-5 lg:grid-cols-3 items-stretch">
+          <div className="mt-6 sm:mt-8 grid gap-4 sm:gap-5 lg:gap-5 lg:grid-cols-3 items-stretch">
             {PLANS.map((plan, i) => {
               const Icon = plan.icon;
               const displayINR = isAnnual ? plan.priceINRAnnual : plan.priceINRMonthly;

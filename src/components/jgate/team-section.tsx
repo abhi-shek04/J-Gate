@@ -20,8 +20,8 @@ import Link from "next/link";
    7. Closing CTA
    ============================================================ */
 
-/* Advisory Council Data */
-const ADVISORY_ROW_1 = [
+/* Unified Advisory Council List (5 Members) */
+const ALL_ADVISORS = [
   {
     id: "mahankali",
     name: "Srinivas Rao Mahankali (MSR)",
@@ -55,9 +55,6 @@ const ADVISORY_ROW_1 = [
     tags: ["Academic Leadership", "Semiconductor & AI", "Engineering Talent"],
     linkedin: "https://www.linkedin.com/in/uday-desai-4752b04/",
   },
-];
-
-const ADVISORY_ROW_2 = [
   {
     id: "sarikonda",
     name: "Dr. Viinay Sarikonda",
@@ -211,9 +208,9 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
       )}
 
       {/* ════════════════════════════════════════════════════════════
-          1. ADVISORY COUNCIL — 3+2 Luxury Executive Grid (Light & Dark Support)
+          1. ADVISORY COUNCIL — 5-Column Unified Luxury Executive Panel
          ════════════════════════════════════════════════════════════ */}
-      <section className="py-6 sm:py-8 lg:py-10 relative overflow-hidden bg-slate-50/70 dark:bg-black border-b border-slate-200/80 dark:border-white/10 text-ink dark:text-white transition-colors duration-300">
+      <section className="py-8 sm:py-10 lg:py-12 relative overflow-hidden bg-slate-50/70 dark:bg-black border-b border-slate-200/80 dark:border-white/10 text-ink dark:text-white transition-colors duration-300">
         {/* Ambient subtle Japanese Asanoha lattice backdrop */}
         <div className="pattern-asanoha opacity-[0.03] dark:pattern-asanoha-dark dark:opacity-20 absolute inset-0 pointer-events-none" />
         <div
@@ -237,11 +234,11 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
             />
           </Reveal>
 
-          {/* Row 1 — 3 Advisors across */}
-          <div className="mt-6 sm:mt-8 lg:mt-9 grid gap-4 sm:gap-5 md:grid-cols-3 items-stretch">
-            {ADVISORY_ROW_1.map((adv, i) => (
-              <Reveal key={adv.id} delay={i * 80}>
-                <article className="group relative flex h-full flex-col justify-between items-center overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/12 bg-white dark:bg-black p-4 sm:p-5 text-center shadow-xs hover:shadow-lg hover:border-saffron/60 dark:hover:border-saffron/60 transition-all duration-300">
+          {/* Unified 5-Column Responsive Executive Grid */}
+          <div className="mt-6 sm:mt-8 lg:mt-9 grid gap-4 sm:gap-4 lg:gap-4.5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 items-stretch">
+            {ALL_ADVISORS.map((adv, i) => (
+              <Reveal key={adv.id} delay={i * 60}>
+                <article className="group relative flex h-full flex-col justify-between items-center overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/12 bg-white dark:bg-black p-4 sm:p-4.5 text-center shadow-xs hover:shadow-lg hover:border-saffron/60 dark:hover:border-saffron/60 transition-all duration-300">
                   {/* Top gold accent line */}
                   <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-saffron via-saffron-light to-transparent opacity-90" />
 
@@ -258,23 +255,23 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                   </div>
 
                   {/* Role Eyebrow */}
-                  <span className="mt-3 font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-saffron-dark dark:text-saffron">
+                  <span className="mt-3 font-inter text-[9.5px] sm:text-[10px] font-bold uppercase tracking-wider text-saffron-dark dark:text-saffron truncate w-full">
                     {adv.badge}
                   </span>
 
                   {/* Executive Name */}
-                  <h3 className="mt-1 font-serif-jp text-[16px] sm:text-[17px] font-bold text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-saffron-light transition-colors leading-tight">
+                  <h3 className="mt-1 font-serif-jp text-[15px] sm:text-[16px] font-bold text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-saffron-light transition-colors leading-tight">
                     {adv.name}
                   </h3>
-                  {lang === "JP" && <p className="mt-0.5 font-sans-jp text-[11px] text-slate-500 dark:text-slate-400">{adv.jpName}</p>}
+                  {lang === "JP" && <p className="mt-0.5 font-sans-jp text-[10.5px] text-slate-500 dark:text-slate-400">{adv.jpName}</p>}
 
-                  {/* Subtitle / Headline with Pipe Dividers */}
-                  <p className="mt-1.5 font-inter text-[11.5px] sm:text-[12px] font-semibold text-crimson dark:text-saffron leading-snug">
+                  {/* Subtitle / Headline */}
+                  <p className="mt-1.5 font-inter text-[11px] sm:text-[11.5px] font-semibold text-crimson dark:text-saffron leading-snug">
                     {adv.title}
                   </p>
 
                   {/* Body Content */}
-                  <p className="mt-2 font-inter text-[11.5px] sm:text-[12px] leading-relaxed text-slate-600 dark:text-slate-300 flex-1">
+                  <p className="mt-2 font-inter text-[11px] sm:text-[11.5px] leading-relaxed text-slate-600 dark:text-slate-300 flex-1">
                     {adv.desc}
                   </p>
 
@@ -283,7 +280,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                     {adv.tags.map((tag, ti) => (
                       <span
                         key={ti}
-                        className="rounded px-2 py-0.5 font-inter text-[9.5px] sm:text-[10px] font-medium bg-slate-100 dark:bg-white/[0.06] border border-slate-200/80 dark:border-white/10 text-slate-600 dark:text-slate-300"
+                        className="rounded px-1.5 py-0.5 font-inter text-[9px] sm:text-[9.5px] font-medium bg-slate-100 dark:bg-white/[0.06] border border-slate-200/80 dark:border-white/10 text-slate-600 dark:text-slate-300"
                       >
                         {tag}
                       </span>
@@ -291,86 +288,13 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                   </div>
 
                   {/* Bottom Action: in CONNECT */}
-                  <div className="mt-3.5 pt-3 border-t border-slate-100 dark:border-white/10 w-full flex items-center justify-center">
+                  <div className="mt-3.5 pt-2.5 border-t border-slate-100 dark:border-white/10 w-full flex items-center justify-center">
                     <a
                       href={adv.linkedin || "#"}
                       target={adv.linkedin ? "_blank" : undefined}
                       rel={adv.linkedin ? "noopener noreferrer" : undefined}
                       onClick={adv.linkedin ? undefined : (e) => e.preventDefault()}
-                      className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-200 dark:border-white/15 bg-slate-50 hover:bg-slate-100 dark:bg-white/5 dark:hover:bg-white/10 px-3 py-1 font-inter text-[10.5px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 hover:border-[#0A66C2] hover:text-[#0A66C2] dark:hover:text-[#388bfd] transition-all shadow-2xs"
-                    >
-                      <span className="flex h-3.5 w-3.5 items-center justify-center rounded bg-[#0A66C2] text-white text-[8.5px] font-black">
-                        in
-                      </span>
-                      <span>CONNECT</span>
-                    </a>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-
-          {/* Row 2 — 2 Advisors centered */}
-          <div className="mt-4 sm:mt-5 grid gap-4 sm:gap-5 md:grid-cols-2 md:max-w-2xl lg:max-w-3xl md:mx-auto items-stretch">
-            {ADVISORY_ROW_2.map((adv, i) => (
-              <Reveal key={adv.id} delay={200 + i * 80}>
-                <article className="group relative flex h-full flex-col justify-between items-center overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/12 bg-white dark:bg-black p-4 sm:p-5 text-center shadow-xs hover:shadow-lg hover:border-saffron/60 dark:hover:border-saffron/60 transition-all duration-300">
-                  {/* Top gold accent line */}
-                  <span className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-saffron via-saffron-light to-transparent opacity-90" />
-
-                  {/* Circular Portrait */}
-                  <div className="relative mt-1">
-                    <div className="h-20 w-20 sm:h-22 sm:w-22 rounded-full overflow-hidden border-2 border-saffron/50 dark:border-saffron/60 bg-slate-50 dark:bg-black shadow-md transition-transform duration-300 group-hover:scale-105 group-hover:border-saffron mx-auto">
-                      <img
-                        src={adv.image}
-                        alt={adv.name}
-                        className="h-full w-full object-cover object-top"
-                        loading="lazy"
-                      />
-                    </div>
-                  </div>
-
-                  {/* Role Eyebrow */}
-                  <span className="mt-3 font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-saffron-dark dark:text-saffron">
-                    {adv.badge}
-                  </span>
-
-                  {/* Executive Name */}
-                  <h3 className="mt-1 font-serif-jp text-[16px] sm:text-[17px] font-bold text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-saffron-light transition-colors leading-tight">
-                    {adv.name}
-                  </h3>
-                  {lang === "JP" && <p className="mt-0.5 font-sans-jp text-[11px] text-slate-500 dark:text-slate-400">{adv.jpName}</p>}
-
-                  {/* Subtitle / Headline with Pipe Dividers */}
-                  <p className="mt-1.5 font-inter text-[11.5px] sm:text-[12px] font-semibold text-crimson dark:text-saffron leading-snug">
-                    {adv.title}
-                  </p>
-
-                  {/* Body Content */}
-                  <p className="mt-2 font-inter text-[11.5px] sm:text-[12px] leading-relaxed text-slate-600 dark:text-slate-300 flex-1">
-                    {adv.desc}
-                  </p>
-
-                  {/* Skill / Domain Pill Tags */}
-                  <div className="mt-3 flex flex-wrap items-center justify-center gap-1 w-full">
-                    {adv.tags.map((tag, ti) => (
-                      <span
-                        key={ti}
-                        className="rounded px-2 py-0.5 font-inter text-[9.5px] sm:text-[10px] font-medium bg-slate-100 dark:bg-white/[0.06] border border-slate-200/80 dark:border-white/10 text-slate-600 dark:text-slate-300"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-
-                  {/* Bottom Action: in CONNECT */}
-                  <div className="mt-3.5 pt-3 border-t border-slate-100 dark:border-white/10 w-full flex items-center justify-center">
-                    <a
-                      href={adv.linkedin || "#"}
-                      target={adv.linkedin ? "_blank" : undefined}
-                      rel={adv.linkedin ? "noopener noreferrer" : undefined}
-                      onClick={adv.linkedin ? undefined : (e) => e.preventDefault()}
-                      className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-200 dark:border-white/15 bg-slate-50 hover:bg-slate-100 dark:bg-white/5 dark:hover:bg-white/10 px-3 py-1 font-inter text-[10.5px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 hover:border-[#0A66C2] hover:text-[#0A66C2] dark:hover:text-[#388bfd] transition-all shadow-2xs"
+                      className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-200 dark:border-white/15 bg-slate-50 hover:bg-slate-100 dark:bg-white/5 dark:hover:bg-white/10 px-2.5 py-1 font-inter text-[10px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 hover:border-[#0A66C2] hover:text-[#0A66C2] dark:hover:text-[#388bfd] transition-all shadow-2xs"
                     >
                       <span className="flex h-3.5 w-3.5 items-center justify-center rounded bg-[#0A66C2] text-white text-[8.5px] font-black">
                         in
@@ -386,12 +310,23 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          2. OPERATIONS MANAGEMENT TEAM — Seamless Executive Cards Flow
+          2. RESIDENT EXECUTIVE & OPERATIONS LEADERSHIP
          ════════════════════════════════════════════════════════════ */}
-      <section className="py-4 sm:py-6 lg:py-8 bg-ivory dark:bg-black border-t border-slate-200/60 dark:border-white/10 transition-colors duration-300">
+      <section className="py-8 sm:py-10 lg:py-12 bg-ivory dark:bg-black transition-colors duration-300">
         <div className="container-jg">
-          {/* 4 Profile Cards across matching reference */}
-          <div className="grid grid-cols-1 gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <Reveal>
+            <SectionHeading
+              eyebrow={tx({ EN: "On-Ground Leadership", JP: "現地運営チーム" })}
+              title={tx({ EN: "Resident Executive & Operations Team", JP: "J-Gate 現地運営ディレクター陣" })}
+              subtitle={tx({
+                EN: "Bilingual Japanese & Indian directors based on-site in Hyderabad — guaranteeing daily management, business orientation, and executive concierge services.",
+                JP: "ハイデラバード現地に常駐する日印のバイリンガルプロフェッショナル陣が、日々の快適な拠点運営と個別支援を徹底サポート。",
+              })}
+            />
+          </Reveal>
+
+          {/* 4 Profile Cards Grid */}
+          <div className="mt-6 sm:mt-8 lg:mt-9 grid grid-cols-1 gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {OPS_TEAM.map((m, i) => {
               const isTanji = m.id === "tanji";
               return (
@@ -442,7 +377,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                       </p>
                     )}
 
-                    {/* Subtitle / Headline with Pipe Dividers */}
+                    {/* Subtitle / Headline */}
                     <p className="mt-1.5 font-inter text-[11.5px] sm:text-[12px] font-semibold text-slate-800 dark:text-slate-200 leading-snug">
                       {m.subtitle}
                     </p>
@@ -518,9 +453,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
             })}
           </div>
 
-          {/* ══════════════════════════════════════════════════════════
-              Bilingual Concierge Reassurance Note (Compact & Neatly Centered)
-             ══════════════════════════════════════════════════════════ */}
+          {/* Bilingual Concierge Reassurance Note */}
           <Reveal delay={200}>
             <div className="mt-6 sm:mt-7 max-w-2xl mx-auto">
               <div className="relative rounded-xl sm:rounded-2xl border border-saffron/50 dark:border-saffron/40 bg-amber-50/60 dark:bg-black p-3.5 sm:p-4 text-center shadow-xs">
@@ -551,7 +484,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
       </section>
 
       {/* ════════════════════════════════════════════════════════════
-          4. OUR PARTNERS — Infinite Side-Scrolling Company Marquee
+          3. OUR PARTNERS — Infinite Side-Scrolling Company Marquee
          ════════════════════════════════════════════════════════════ */}
       <section className="py-6 sm:py-8 lg:py-10 relative overflow-hidden bg-ivory-warm dark:bg-black border-t border-slate-200/60 dark:border-white/10 transition-colors duration-300">
         <div className="container-jg mb-8 sm:mb-10">

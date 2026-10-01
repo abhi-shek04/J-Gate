@@ -556,9 +556,6 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
                         <span>{tx({ EN: `Select ${plan.enName}`, JP: `${plan.jpName}を申し込む` })}</span>
                         <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" />
                       </Link>
-                      <p className="mt-1.5 text-center font-inter text-[10px] text-slate-400 dark:text-slate-500">
-                        {tx({ EN: "Free consultation · Fast setup", JP: "初回相談無料 · 最短即日利用可" })}
-                      </p>
                     </div>
                   </div>
                 </Reveal>

@@ -699,6 +699,247 @@ html[lang="ja"] .font-serif-jp {
 .btn-shine:hover::after { left: 130%; }
 
 /* ============================================================
+   PREMIUM ANIMATION SYSTEM v2.0
+   ============================================================ */
+
+/* Blur-to-sharp entrance */
+@keyframes jg-blur-in {
+  0%   { filter: blur(12px); opacity: 0; transform: translateY(8px); }
+  100% { filter: blur(0); opacity: 1; transform: translateY(0); }
+}
+.animate-blur-in {
+  animation: jg-blur-in 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Clip-path text reveal (left to right) */
+@keyframes jg-clip-reveal {
+  0%   { clip-path: inset(0 100% 0 0); }
+  100% { clip-path: inset(0 0% 0 0); }
+}
+.animate-clip-reveal {
+  animation: jg-clip-reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Counter completion pulse */
+@keyframes jg-counter-tick {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+.animate-counter-tick {
+  animation: jg-counter-tick 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Premium CTA shimmer (always active, very subtle) */
+@keyframes jg-shimmer-loop {
+  0%   { left: -150%; opacity: 0; }
+  40%  { opacity: 0.5; }
+  100% { left: 250%; opacity: 0; }
+}
+.shimmer-cta {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
+  transform: skewX(-20deg);
+  pointer-events: none;
+  animation: jg-shimmer-loop 4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  animation-delay: 1s;
+}
+
+/* Stagger children entrance */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: jg-stagger-child 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+@keyframes jg-stagger-child {
+  to { opacity: 1; transform: translateY(0); }
+}
+.stagger-children > *:nth-child(1) { animation-delay: 0ms; }
+.stagger-children > *:nth-child(2) { animation-delay: 60ms; }
+.stagger-children > *:nth-child(3) { animation-delay: 120ms; }
+.stagger-children > *:nth-child(4) { animation-delay: 180ms; }
+.stagger-children > *:nth-child(5) { animation-delay: 240ms; }
+.stagger-children > *:nth-child(6) { animation-delay: 300ms; }
+.stagger-children > *:nth-child(7) { animation-delay: 360ms; }
+.stagger-children > *:nth-child(8) { animation-delay: 420ms; }
+
+/* Magnetic hover tilt (CSS-only 3D perspective) */
+.magnetic-hover {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+.magnetic-hover:hover {
+  transform: perspective(800px) rotateX(-2deg) rotateY(2deg) translateY(-4px);
+}
+
+/* Animated gradient border for featured cards */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes jg-gradient-rotate {
+  0%   { --angle: 0deg; }
+  100% { --angle: 360deg; }
+}
+
+/* Smooth scroll */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+/* Reduced motion — disable all custom animations */
+@media (prefers-reduced-motion: reduce) {
+  .animate-blur-in,
+  .animate-clip-reveal,
+  .animate-counter-tick,
+  .shimmer-cta::before,
+  .stagger-children > *,
+  .animate-float,
+  .animate-float-delay,
+  .animate-float-slow,
+  .animate-marquee,
+  .animate-node-glow,
+  .animate-pulse-soft,
+  .animate-glow-pulse,
+  .animate-scroll-line {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+  .card-sheen::after,
+  .btn-shine::after {
+    display: none !important;
+  }
+  .reveal, .reveal-left, .reveal-right {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+/* Touch devices — disable hover-only effects */
+@media (hover: none) {
+  .luxury-light-card:hover,
+  .luxury-glass-card:hover,
+  .lift-card:hover,
+  .lift-card-dark:hover {
+    transform: none;
+  }
+  .card-sheen::after {
+    display: none;
+  }
+  .magnetic-hover:hover {
+    transform: none;
+  }
+}
+
+/* iOS safe area support */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 0);
+}
+
+/* Scroll snap for mobile carousels */
+.snap-x-mandatory {
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.snap-x-mandatory::-webkit-scrollbar { display: none; }
+.snap-x-mandatory > * {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+}
+
+/* GPU compositing hint for heavy sections */
+.gpu-layer {
+  contain: layout style paint;
+  will-change: transform;
+}
+
+/* Floating label animation for forms */
+.floating-label-group {
+  position: relative;
+}
+.floating-label-group input:focus ~ label,
+.floating-label-group input:not(:placeholder-shown) ~ label,
+.floating-label-group textarea:focus ~ label,
+.floating-label-group textarea:not(:placeholder-shown) ~ label,
+.floating-label-group select:focus ~ label,
+.floating-label-group select:valid ~ label {
+  transform: translateY(-22px) scale(0.82);
+  color: #bc1a2c;
+  background: white;
+  padding: 0 6px;
+}
+.dark .floating-label-group input:focus ~ label,
+.dark .floating-label-group input:not(:placeholder-shown) ~ label,
+.dark .floating-label-group textarea:focus ~ label,
+.dark .floating-label-group textarea:not(:placeholder-shown) ~ label,
+.dark .floating-label-group select:focus ~ label,
+.dark .floating-label-group select:valid ~ label {
+  background: #09090b;
+  color: #e8a01a;
+}
+.floating-label-group label {
+  position: absolute;
+  left: 14px;
+  top: 12px;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+  transform-origin: left top;
+}
+
+/* Social button glow effects */
+.social-glow-linkedin:hover {
+  box-shadow: 0 0 20px rgba(10, 102, 194, 0.4);
+  border-color: rgba(10, 102, 194, 0.6);
+}
+.social-glow-instagram:hover {
+  box-shadow: 0 0 20px rgba(225, 48, 108, 0.4);
+  border-color: rgba(225, 48, 108, 0.6);
+}
+.social-glow-mail:hover {
+  box-shadow: 0 0 20px rgba(188, 26, 44, 0.4);
+  border-color: rgba(188, 26, 44, 0.6);
+}
+
+/* Ken Burns photo effect */
+.ken-burns {
+  transition: transform 8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.group:hover .ken-burns {
+  transform: scale(1.08) translate(-2%, -1%);
+}
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 50;
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* ============================================================
    CUSTOM SCROLLBAR
    ============================================================ */
 ::-webkit-scrollbar { width: 10px; height: 10px; }

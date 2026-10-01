@@ -7,9 +7,7 @@ import {
   Sparkles,
   ShieldCheck,
   Users,
-  CheckCircle2,
   Layers,
-  ArrowRight,
 } from "lucide-react";
 
 type Pillar = {
@@ -110,6 +108,7 @@ const TAG_TONES: Record<Pillar["tags"][number]["tone"], string> = {
   crimson: "border-crimson/30 dark:border-rose-400/30 text-crimson dark:text-rose-400 bg-crimson/8 dark:bg-rose-950/40",
   saffron: "border-saffron/35 dark:border-amber-400/30 text-saffron dark:text-amber-400 bg-saffron/10 dark:bg-amber-950/40",
   success: "border-success/30 dark:border-emerald-400/30 text-success dark:text-emerald-400 bg-success/10 dark:bg-emerald-950/40",
+  slate: "bg-slate-100/80 dark:bg-white/8 text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-white/15",
 };
 
 export function PillarsDetail() {

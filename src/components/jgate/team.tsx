@@ -28,7 +28,7 @@ const CORE_LEADERSHIP = [
   },
   {
     name: "Dheeraj Yanneti",
-    jpName: "ディラジ・ヤンネティ",
+    jpName: "ディラージゥ・イェネティー",
     role: "COMMUNITY MANAGER",
     subtitle: "Operations Head | Member Experience",
     image: "/team/dheeraj.png",

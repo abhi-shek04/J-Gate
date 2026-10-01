@@ -3,14 +3,9 @@
 import { useState } from "react";
 import {
   ChevronDown,
-  Building2,
-  ShieldCheck,
-  Landmark,
   CheckCircle2,
-  MessageSquare,
 } from "lucide-react";
-import { PageHero } from "@/components/jgate/page-hero";
-import { Reveal, SectionHeading } from "@/components/jgate/shared";
+import { Reveal } from "@/components/jgate/shared";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
@@ -197,20 +192,33 @@ const FAQ_LIST: FAQItem[] = [
 
 export function FAQSection({ id }: { id?: string }) {
   const { tx } = useI18n();
+  const [selectedCategory, setSelectedCategory] = useState<"all" | "about" | "pricing" | "facilities" | "support">("all");
   const [openIds, setOpenIds] = useState<Record<string, boolean>>({});
 
+  const categories = [
+    { id: "all", label: { EN: "All Questions", JP: "すべて" } },
+    { id: "about", label: { EN: "About J-Gate", JP: "概要" } },
+    { id: "pricing", label: { EN: "Pricing", JP: "料金" } },
+    { id: "facilities", label: { EN: "Facilities", JP: "施設" } },
+    { id: "support", label: { EN: "Support", JP: "サポート" } },
+  ];
+
+  const filteredList = selectedCategory === "all"
+    ? FAQ_LIST
+    : FAQ_LIST.filter((item) => item.category === selectedCategory);
+
   // Toggle single accordion
-  const toggleItem = (id: string) => {
+  const toggleItem = (itemId: string) => {
     setOpenIds((prev) => ({
       ...prev,
-      [id]: !prev[id],
+      [itemId]: !prev[itemId],
     }));
   };
 
   // Expand all / Collapse all
   const expandAll = () => {
     const allOpen: Record<string, boolean> = {};
-    FAQ_LIST.forEach((item) => {
+    filteredList.forEach((item) => {
       allOpen[item.id] = true;
     });
     setOpenIds(allOpen);
@@ -225,7 +233,7 @@ export function FAQSection({ id }: { id?: string }) {
       <section className="py-6 sm:py-10 bg-ivory dark:bg-black transition-colors">
         <div className="container-jg max-w-4xl">
           {/* Header styled matching reference layout */}
-          <Reveal className="mb-8 sm:mb-10 text-center">
+          <Reveal className="mb-6 sm:mb-8 text-center">
             <div className="flex justify-center mb-3">
               <span className="inline-flex items-center gap-1.5 rounded-md bg-rose-100/90 dark:bg-rose-950/60 px-3 py-1 font-mono text-[11px] font-bold text-crimson dark:text-rose-400 tracking-wider uppercase">
                 <span className="h-2 w-2 bg-crimson dark:bg-rose-400 rounded-xs inline-block" />
@@ -241,11 +249,40 @@ export function FAQSection({ id }: { id?: string }) {
                 JP: "ワークスペース利用、ジャパンデスクサポート、現地法人設立、採用支援に関するよくある質問とお答え。",
               })}
             </p>
+
+            {/* Category Filter Tabs */}
+            <div className="mt-5 mb-4 flex flex-wrap items-center justify-center gap-1.5">
+              {categories.map((cat) => (
+                <button
+                  key={cat.id}
+                  type="button"
+                  onClick={() => setSelectedCategory(cat.id as any)}
+                  className={cn(
+                    "px-3.5 py-1.5 rounded-full text-[12px] font-inter font-bold transition-all duration-200 cursor-pointer",
+                    selectedCategory === cat.id
+                      ? "bg-crimson text-white shadow-xs"
+                      : "bg-white/80 dark:bg-white/8 text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-white/10 hover:bg-slate-100 dark:hover:bg-white/15"
+                  )}
+                >
+                  {tx(cat.label)}
+                </button>
+              ))}
+            </div>
+
+            <div className="flex items-center justify-center gap-3 mt-2 mb-2">
+              <button type="button" onClick={expandAll} className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-500 dark:text-slate-400 hover:text-crimson dark:hover:text-rose-400 transition-colors cursor-pointer">
+                {tx({ EN: "Expand All", JP: "すべて開く" })}
+              </button>
+              <span className="text-slate-300 dark:text-slate-600">|</span>
+              <button type="button" onClick={collapseAll} className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-500 dark:text-slate-400 hover:text-crimson dark:hover:text-rose-400 transition-colors cursor-pointer">
+                {tx({ EN: "Collapse All", JP: "すべて閉じる" })}
+              </button>
+            </div>
           </Reveal>
 
-          {/* FAQ Accordion List (Matching Reference Card Layout) */}
+          {/* FAQ Accordion List */}
           <div className="space-y-3">
-            {FAQ_LIST.map((item, idx) => {
+            {filteredList.map((item, idx) => {
               const isOpen = !!openIds[item.id];
               return (
                 <Reveal key={item.id} delay={idx * 15}>

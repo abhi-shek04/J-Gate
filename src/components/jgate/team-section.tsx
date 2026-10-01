@@ -146,7 +146,7 @@ const OPS_TEAM: OpsMember[] = [
   {
     id: "dheeraj",
     name: "Dheeraj Yenneti",
-    jpName: "ディラジ・ヤンネティ",
+    jpName: "ディラージゥ・イェネティー",
     role: "ADMINISTRATOR",
     subtitle: "Operations Head | Admissions Specialist",
     flag: "🇮🇳",
@@ -202,16 +202,11 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
         <PageHero
           eyebrowKey="team.eyebrow"
           layout="center"
-          titleNode={tx({ EN: "Leadership & Advisory", JP: "日印両国を知り尽くした経営陣・アドバイザー" })}
+          titleNode={tx({ EN: "Team", JP: "チーム" })}
           subtitleNode={tx({
             EN: "Experienced leaders and on-site specialists dedicated to supporting your business in India.",
             JP: "インドとの協業により、貴社ビジネスの新たな可能性を切り拓くプロフェッショナルチーム。",
           })}
-          tags={[
-            { EN: "Japan-India Business Specialists", JP: "日印実務のスペシャリスト" },
-            { EN: "Resident Director Support", JP: "日本人常駐ディレクター" },
-            { EN: "T-Hub & IIT Network", JP: "T-Hub・IIT連携" },
-          ]}
         />
       )}
 
@@ -232,34 +227,16 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
         <div className="container-jg relative z-10">
           <Reveal>
             <SectionHeading
-              icon={<Sparkles className="h-3.5 w-3.5 text-saffron" />}
-              eyebrow={tx({ EN: "Strategic Guidance", JP: "戦略的ガイダンス" })}
-              title={tx({ EN: "Advisory Council", JP: "諮問委員会（アドバイザリー・カウンシル）" })}
-              subtitle={tx({
-                EN: "Visionary leaders from premier innovation bodies, top engineering institutions, and cross-border enterprise directing the Japan-India corridor.",
-                JP: "最先端イノベーション機関、トップアカデミア、そして日印二国間ビジネスを牽引してきた最高峰のリーダー陣が戦略を監修。",
-              })}
+              title={tx({ EN: "Team", JP: "チーム" })}
             />
           </Reveal>
 
-          {/* Tier 1: Institutional Pillar Leaders Showcase (Podium Highlights) */}
-          <div className="mt-8 sm:mt-10">
-            <div className="mb-3 flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-saffron animate-pulse" />
-              <h3 className="font-inter text-xs font-bold uppercase tracking-widest text-saffron-dark dark:text-saffron">
-                {tx({ EN: "Institutional Leadership & Innovation Pillars", JP: "基幹機関指導者・イノベーションの柱" })}
-              </h3>
-            </div>
-
+          {/* Tier 1: Institutional Leaders Showcase */}
+          <div className="mt-6 sm:mt-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
               {pillarAdvisors.map((adv, i) => (
                 <Reveal key={adv.id} delay={i * 100}>
                   <article className="group relative flex flex-col sm:flex-row items-center sm:items-start gap-5 rounded-2xl border border-saffron/40 dark:border-saffron/30 bg-gradient-to-br from-white via-amber-50/30 to-slate-50 dark:from-black dark:via-zinc-950 dark:to-black p-5 sm:p-6 shadow-md hover:shadow-xl hover:border-saffron dark:hover:border-saffron transition-all duration-300">
-                    {/* Gold corner accent badge */}
-                    <div className="absolute top-0 right-0 rounded-bl-xl bg-gradient-to-l from-saffron to-amber-500 px-3 py-1 font-inter text-[9.5px] font-extrabold uppercase tracking-wider text-black shadow-xs">
-                      {adv.badge}
-                    </div>
-
                     {/* Left/Top Executive Portrait */}
                     <div className="shrink-0 relative mt-2 sm:mt-0">
                       <div className="h-24 w-24 sm:h-28 sm:w-28 rounded-2xl overflow-hidden border-2 border-saffron/70 dark:border-saffron/80 bg-slate-100 dark:bg-black shadow-lg group-hover:scale-105 transition-transform duration-300">
@@ -310,7 +287,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                           <span className="flex h-4 w-4 items-center justify-center rounded bg-[#0A66C2] text-white text-[9px] font-black">
                             in
                           </span>
-                          <span>CONNECT EXECUTIVE</span>
+                          <span>CONNECT</span>
                         </a>
                       </div>
                     </div>
@@ -412,17 +389,12 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
         <div className="container-jg">
           <Reveal>
             <SectionHeading
-              eyebrow={tx({ EN: "On-Ground Leadership", JP: "現地運営チーム" })}
               title={tx({ EN: "Resident Executive & Operations Team", JP: "J-Gate 現地運営ディレクター陣" })}
-              subtitle={tx({
-                EN: "Bilingual Japanese & Indian directors based on-site in Hyderabad — guaranteeing daily management, business orientation, and executive concierge services.",
-                JP: "ハイデラバード現地に常駐する日印のバイリンガルプロフェッショナル陣が、日々の快適な拠点運営と個別支援を徹底サポート。",
-              })}
             />
           </Reveal>
 
-          {/* Wing A: Resident Japan Desk (Bicultural Leadership) */}
-          <div className="mt-8 sm:mt-10">
+          {/* Wing A: Resident Japan Desk */}
+          <div className="mt-6 sm:mt-8">
             <div className="mb-4 flex items-center justify-between border-b border-slate-200 dark:border-white/10 pb-2">
               <div className="flex items-center gap-2">
                 <JapanFlag className="h-4 w-6 rounded-xs shrink-0 shadow-2xs" />
@@ -430,9 +402,6 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                   {tx({ EN: "Resident Japan Desk Leadership", JP: "日本人常駐ディレクター陣 (Japan Desk)" })}
                 </h3>
               </div>
-              <span className="rounded-full bg-crimson/10 dark:bg-rose-950/60 border border-crimson/30 dark:border-rose-400/40 px-2.5 py-0.5 font-inter text-[10px] font-bold text-crimson dark:text-rose-300">
-                {tx({ EN: "NATIVE & BICULTURAL SUPPORT", JP: "日本語ネイティブ常駐" })}
-              </span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -515,8 +484,8 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
             </div>
           </div>
 
-          {/* Wing B: Hyderabad Operations & Workspace Concierge */}
-          <div className="mt-10 sm:mt-12">
+          {/* Wing B: Hyderabad Operations */}
+          <div className="mt-8 sm:mt-10">
             <div className="mb-4 flex items-center justify-between border-b border-slate-200 dark:border-white/10 pb-2">
               <div className="flex items-center gap-2">
                 <IndiaFlag className="h-4 w-6 rounded-xs shrink-0 shadow-2xs" />
@@ -524,9 +493,6 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                   {tx({ EN: "Hyderabad Operations & Concierge Infrastructure", JP: "ハイデラバード現地運営・ITサポート" })}
                 </h3>
               </div>
-              <span className="rounded-full bg-saffron/15 dark:bg-amber-950/60 border border-saffron/40 dark:border-amber-400/40 px-2.5 py-0.5 font-inter text-[10px] font-bold text-saffron-dark dark:text-amber-300">
-                {tx({ EN: "ON-SITE HYDERABAD TEAM", JP: "ハイデラバード常駐" })}
-              </span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

@@ -6,21 +6,14 @@ import {
   MapPin,
   Flag,
   Users,
-  Eye,
   UtensilsCrossed,
-  Trees,
   Maximize2,
-  Coffee,
   CheckCircle2,
   ChevronLeft,
   ChevronRight,
   X,
   LayoutGrid,
   Layers,
-  Sparkle,
-  Wifi,
-  Lock,
-  Compass,
 } from "lucide-react";
 import { Reveal, Eyebrow } from "@/components/jgate/shared";
 import { PageHero } from "@/components/jgate/page-hero";

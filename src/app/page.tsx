@@ -5,25 +5,10 @@ import {
   ArrowRight,
   Users,
   Building2,
-  Wifi,
-  Mic,
-  Scale,
-  BarChart3,
-  ArrowDown,
   MapPin,
-  CheckCircle2,
-  ShieldCheck,
-  Handshake,
-  Landmark,
-  FileText,
-  Globe2,
   Sparkles,
-  Phone,
-  Mail,
-  MessageCircle,
-  Clock,
 } from "lucide-react";
-import { Reveal, Eyebrow } from "@/components/jgate/shared";
+import { Reveal, Eyebrow, StaggerReveal, TextReveal, AnimatedCounter, ParallaxLayer } from "@/components/jgate/shared";
 import { useI18n } from "@/lib/i18n";
 import {
   ToriiWatermark,
@@ -154,57 +139,6 @@ function GlassBadge({
 export default function HomePage() {
   const { t, tx } = useI18n();
 
-  /* 3 Core Capabilities — Clear, non-overlapping, executive */
-  const coreAgenda = [
-    {
-      num: "01",
-      kanji: "拠点",
-      icon: Building2,
-      badge: { EN: "Ready Workspace", JP: "即日利用オフィス" },
-      title: tx({ EN: "Ready-to-Use Enterprise Hub in Hyderabad", JP: "ハイデラバード即日稼働オフィス" }),
-      desc: tx({
-        EN: "Dedicated desks, private suites, enterprise fiber internet, meeting suites, and 24/7 biometric security in Hyderabad. Start operating on Day 1 without capital renovation costs or deposit delays.",
-        JP: "専用デスク、個室キャビン、高速光回線、会議室、24時間セキュリティを完備。初期内装投資や長期契約の負担なく、最短即日でインド拠点を立ち上げ可能です。",
-      }),
-      highlights: [
-        { EN: "Dedicated Desks & 4–20 Pax Cabins", JP: "専用デスク・4〜20名個室" },
-        { EN: "Meeting Suites & Event Canteen", JP: "会議室・専用カフェテリア" },
-        { EN: "24/7 Security & High-Speed Wi-Fi", JP: "24時間生体認証・高速回線" },
-      ],
-    },
-    {
-      num: "02",
-      kanji: "伴走",
-      icon: Sparkles,
-      badge: { EN: "100% Japanese", JP: "現地常駐・完全日本語" },
-      title: tx({ EN: "Resident Japan Desk & Daily Advisory", JP: "現地常駐日本人による日常相談" }),
-      desc: tx({
-        EN: "Resident Director Daisuke Tanji and bilingual specialists assist daily with business consultations, local partner vetting, contract reviews, and meeting translation in Japanese.",
-        JP: "現地代表・丹治をはじめとするスタッフが常駐。日々の業務相談（何でも相談）、現地会計・法務専門家の紹介、商談同行、通訳まで日本語で全面支援します。",
-      }),
-      highlights: [
-        { EN: "Native Japanese Director On-Site", JP: "日本人ディレクター現地常駐" },
-        { EN: "Everyday Business Consultation", JP: "日々の実務相談・トラブル対応" },
-        { EN: "Verified Accounting & Legal Introductions", JP: "現地提携専門家（法務・会計）紹介" },
-      ],
-    },
-    {
-      num: "03",
-      kanji: "展開",
-      icon: Users,
-      badge: { EN: "Setup & Talent Advisory", JP: "進出準備・人材採用支援" },
-      title: tx({ EN: "Incorporation Guidance & Tech Talent Advisory", JP: "法人設立手続支援・IT人材採用相談" }),
-      desc: tx({
-        EN: "Guidance for Private Limited (Pvt Ltd) company formation, local accounting & legal partner introductions, banking facilitation, and advisory support for recruiting software talent in Telangana.",
-        JP: "現地法人（Pvt Ltd）設立アドバイザリー、提携専門家（会計・法務）の紹介、銀行口座開設支援、および名門大学やT-Hubと連携した高度ITエンジニアの採用相談に対応します。",
-      }),
-      highlights: [
-        { EN: "Incorporation & GST Advisory Support", JP: "法人登記・税務手続支援" },
-        { EN: "Corporate Banking & Financial Introductions", JP: "法人口座開設・実務アドバイス" },
-        { EN: "Software Developers & PM Advisory", JP: "ITエンジニア採用サポート" },
-      ],
-    },
-  ];
 
   /* 3 Clean Strategic Location Pillars (Zero duplication with agenda!) */
   const locationAdvantages = [
@@ -248,9 +182,6 @@ export default function HomePage() {
       {/* ════════════════════════════════════════════════════════════
           1. HERO — Ultra-Luxurious Japanese-Modern Executive Launchpad
          ════════════════════════════════════════════════════════════ */}
-      {/* ════════════════════════════════════════════════════════════
-          1. HERO — Ultra-Luxurious Japanese-Modern Executive Launchpad
-         ════════════════════════════════════════════════════════════ */}
       <section className="relative flex items-center justify-center overflow-hidden bg-slate-50/70 dark:bg-black pt-24 sm:pt-32 pb-8 sm:pb-12 border-b border-slate-200/80 dark:border-white/10 transition-colors duration-300">
         {/* Ambient warm layered glows — Clean Institutional Light & Dark */}
         <div
@@ -270,10 +201,12 @@ export default function HomePage() {
 
         {/* Subtle asanoha texture overlay */}
         <div className="absolute inset-0 pattern-asanoha opacity-[0.025] dark:pattern-asanoha-dark dark:opacity-20 pointer-events-none" />
-        <ToriiWatermark
-          className="torii-watermark"
-          style={{ width: "70vw", maxWidth: "780px", right: "0", top: "8%", opacity: 0.025 }}
-        />
+        <ParallaxLayer speed={-0.12} className="absolute inset-0 pointer-events-none overflow-hidden">
+          <ToriiWatermark
+            className="torii-watermark"
+            style={{ width: "70vw", maxWidth: "780px", right: "0", top: "8%", opacity: 0.025 }}
+          />
+        </ParallaxLayer>
         <Particles />
 
         {/* Skyline silhouette — clean subtle neutral ambient */}
@@ -300,7 +233,7 @@ export default function HomePage() {
 
         <div className="container-jg relative z-10 pt-2 pb-6 sm:pt-4 sm:pb-8 text-center max-w-5xl mx-auto">
           {/* 1. Pre-title: Japan–India Business & Talent Hub */}
-          <Reveal>
+          <Reveal variant="blur" delay={0}>
             <div className="flex items-center justify-center gap-2.5 font-inter text-[11.5px] sm:text-[12.5px] font-bold uppercase tracking-[0.22em] text-crimson dark:text-rose-400">
               <span className="hidden sm:inline-block h-px w-8 bg-crimson/30 dark:bg-rose-400/30" />
               <span>{tx({ EN: "Japan–India Business & Talent Hub", JP: "日印ビジネス＆高度人材ハブ" })}</span>
@@ -308,23 +241,25 @@ export default function HomePage() {
             </div>
           </Reveal>
 
-          {/* 2. Main H1 Title: A Dedicated Workspace for Japanese Companies in India */}
+          {/* 2. Main H1 Title */}
           <Reveal delay={80}>
-            <h1
-              className="mx-auto mt-4 max-w-4xl font-serif-jp font-extrabold leading-[1.15] text-ink dark:text-white tracking-tight"
-              style={{ fontSize: "clamp(2.1rem, 4.8vw, 3.4rem)" }}
-            >
-              {tx({
-                EN: "A Dedicated Workspace for Japanese Companies in India",
-                JP: "日本企業専用のワーキングハブ誕生",
-              })}
-            </h1>
+            <TextReveal speed={0.6}>
+              <h1
+                className="mx-auto mt-4 max-w-4xl font-serif-jp font-extrabold leading-[1.15] text-ink dark:text-white tracking-tight"
+                style={{ fontSize: "clamp(2.1rem, 4.8vw, 3.4rem)" }}
+              >
+                {tx({
+                  EN: "A Dedicated Workspace for Japanese Companies in India",
+                  JP: "日本企業専用のワーキングハブ誕生",
+                })}
+              </h1>
+            </TextReveal>
           </Reveal>
 
           {/* 3. Executive Tagline Badge */}
           <Reveal delay={140}>
             <div className="mt-4 flex items-center justify-center">
-              <span className="inline-flex items-center gap-2 rounded-full bg-slate-100 dark:bg-white/10 border border-slate-200 dark:border-white/15 px-4 py-1.5 font-inter text-[13px] sm:text-[14px] font-semibold text-slate-700 dark:text-slate-200 tracking-wide shadow-2xs backdrop-blur-sm" style={{ textWrap: "balance" }}>
+              <span className="inline-flex items-center gap-2 rounded-full bg-white/90 dark:bg-white/10 border border-slate-200 dark:border-white/15 px-4 py-1.5 font-inter text-[13px] sm:text-[14px] font-semibold text-slate-700 dark:text-slate-200 tracking-wide shadow-2xs backdrop-blur-sm" style={{ textWrap: "balance" }}>
                 <Sparkles className="h-3.5 w-3.5 text-crimson dark:text-rose-400" />
                 <span>
                   {tx({
@@ -348,7 +283,7 @@ export default function HomePage() {
             </p>
           </Reveal>
 
-          {/* 5. Co-Operating Partners Badges: Indobox & Genesys Info X */}
+          {/* 5. Co-Operating Partners Badges */}
           <Reveal delay={260}>
             <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4">
               <GlassBadge
@@ -371,39 +306,47 @@ export default function HomePage() {
             <div className="mt-7 sm:mt-9 flex flex-col items-center justify-center gap-6">
               <Link
                 href="/why-jgate"
-                className="btn-shine group inline-flex items-center justify-center gap-2.5 rounded-xl bg-crimson hover:bg-crimson-deep px-7 py-3.5 sm:px-8 sm:py-4 font-inter text-[14px] sm:text-[15px] font-bold text-white shadow-lg shadow-crimson/20 hover:shadow-xl hover:shadow-crimson/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+                className="btn-shine group relative overflow-hidden inline-flex items-center justify-center gap-2.5 rounded-xl bg-crimson hover:bg-crimson-deep px-7 py-3.5 sm:px-8 sm:py-4 font-inter text-[14px] sm:text-[15px] font-bold text-white shadow-lg shadow-crimson/20 hover:shadow-xl hover:shadow-crimson/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
               >
                 <span>{tx({ EN: "Discover J-Gate", JP: "J-Gateを詳しく見る" })}</span>
                 <ArrowRight className="h-4.5 w-4.5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
 
-              {/* Stat Proof Cards Bar */}
-              <div className="w-full pt-4 border-t border-slate-200/70 dark:border-white/10 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto">
-                <div className="p-3 rounded-xl bg-white/80 dark:bg-white/5 border border-slate-200/70 dark:border-white/10 text-center shadow-2xs backdrop-blur-sm">
-                  <span className="block font-mono text-xl sm:text-2xl font-black text-crimson dark:text-rose-400">100%</span>
+              {/* Stat Proof Cards Bar with StaggerReveal & AnimatedCounter */}
+              <StaggerReveal delay={400} className="w-full pt-4 border-t border-slate-200/70 dark:border-white/10 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto">
+                <div className="p-3.5 rounded-xl bg-white/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-center shadow-2xs backdrop-blur-md hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300">
+                  <span className="block font-mono text-xl sm:text-2xl font-black text-crimson dark:text-rose-400">
+                    <AnimatedCounter target={100} suffix="%" />
+                  </span>
                   <span className="mt-0.5 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
                     {tx({ EN: "Japanese Director On-Site", JP: "日本人ディレクター現地常駐" })}
                   </span>
                 </div>
-                <div className="p-3 rounded-xl bg-white/80 dark:bg-white/5 border border-slate-200/70 dark:border-white/10 text-center shadow-2xs backdrop-blur-sm">
-                  <span className="block font-mono text-xl sm:text-2xl font-black text-ink dark:text-white">Enterprise</span>
+                <div className="p-3.5 rounded-xl bg-white/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-center shadow-2xs backdrop-blur-md hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300">
+                  <span className="block font-mono text-xl sm:text-2xl font-black text-ink dark:text-white">
+                    <AnimatedCounter target={100} suffix="%" />
+                  </span>
                   <span className="mt-0.5 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
-                    {tx({ EN: "Hyderabad Hub Facility", JP: "高規格ファシリティ" })}
+                    {tx({ EN: "Dedicated Japanese Suite", JP: "日系企業専用スペース" })}
                   </span>
                 </div>
-                <div className="p-3 rounded-xl bg-white/80 dark:bg-white/5 border border-slate-200/70 dark:border-white/10 text-center shadow-2xs backdrop-blur-sm">
-                  <span className="block font-mono text-xl sm:text-2xl font-black text-emerald-600 dark:text-emerald-400">40%+</span>
+                <div className="p-3.5 rounded-xl bg-white/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-center shadow-2xs backdrop-blur-md hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300">
+                  <span className="block font-mono text-xl sm:text-2xl font-black text-saffron-deep dark:text-saffron-light">
+                    <AnimatedCounter target={40} suffix="%+" />
+                  </span>
                   <span className="mt-0.5 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
-                    {tx({ EN: "Operational Savings", JP: "拠点開設・運営費削減" })}
+                    {tx({ EN: "Cost Advantage vs Tokyo/Mumbai", JP: "東京・ムンバイ比 40%+ コスト削減" })}
                   </span>
                 </div>
-                <div className="p-3 rounded-xl bg-white/80 dark:bg-white/5 border border-slate-200/70 dark:border-white/10 text-center shadow-2xs backdrop-blur-sm">
-                  <span className="block font-mono text-xl sm:text-2xl font-black text-ink dark:text-white">Full Support</span>
+                <div className="p-3.5 rounded-xl bg-white/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-center shadow-2xs backdrop-blur-md hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300">
+                  <span className="block font-mono text-xl sm:text-2xl font-black text-emerald-600 dark:text-emerald-400">
+                    <AnimatedCounter target={1} prefix="Day " />
+                  </span>
                   <span className="mt-0.5 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
-                    {tx({ EN: "Setup Advisory & Hiring Support", JP: "登記・会計・採用サポート" })}
+                    {tx({ EN: "Zero Setup Lag", JP: "渡航当日から即日開設" })}
                   </span>
                 </div>
-              </div>
+              </StaggerReveal>
             </div>
           </Reveal>
         </div>

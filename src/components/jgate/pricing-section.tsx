@@ -7,7 +7,6 @@ import { useI18n } from "@/lib/i18n";
 import {
   Check,
   ArrowRight,
-  AlertCircle,
   Banknote,
   Receipt,
   ShieldCheck,
@@ -18,8 +17,6 @@ import {
   Sparkles,
   ChevronDown,
   ChevronUp,
-  CheckCircle2,
-  Clock,
 } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -312,7 +309,6 @@ const MATRIX_FEATURES = [
 export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boolean }) {
   const { tx, lang } = useI18n();
   const [billingCycle, setBillingCycle] = useState<"monthly" | "annual">("monthly");
-  const [selectedFilter, setSelectedFilter] = useState<"all" | "1-2" | "3-4" | "enterprise">("all");
   const [showMatrix, setShowMatrix] = useState(false);
 
   const isAnnual = billingCycle === "annual";
@@ -366,24 +362,54 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
               })}
             />
           </Reveal>
+          {/* Billing Cycle Toggle */}
+          <Reveal>
+            <div className="mt-5 mb-7 flex items-center justify-center">
+              <div className="inline-flex items-center gap-0.5 bg-white/90 dark:bg-[#09090b] p-1 rounded-full border border-slate-200/90 dark:border-white/14 shadow-sm backdrop-blur-md">
+                <button
+                  type="button"
+                  onClick={() => setBillingCycle("monthly")}
+                  className={`px-5 py-2 rounded-full text-[12px] font-inter font-bold transition-all duration-200 cursor-pointer ${
+                    billingCycle === "monthly"
+                      ? "bg-crimson text-white shadow-md shadow-crimson/25"
+                      : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10"
+                  }`}
+                >
+                  {tx({ EN: "Monthly", JP: "月額" })}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setBillingCycle("annual")}
+                  className={`px-5 py-2 rounded-full text-[12px] font-inter font-bold transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
+                    billingCycle === "annual"
+                      ? "bg-crimson text-white shadow-md shadow-crimson/25"
+                      : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10"
+                  }`}
+                >
+                  {tx({ EN: "Annual", JP: "年額" })}
+                  <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-300/50 dark:border-emerald-700/40">
+                    -15%
+                  </span>
+                </button>
+              </div>
+            </div>
+          </Reveal>
 
           {/* Grid of 3 Balanced Cards — Compact, Premium, High-End Presentation */}
           <div className="mt-6 sm:mt-8 grid gap-4 sm:gap-5 lg:gap-5 lg:grid-cols-3 items-stretch">
             {PLANS.map((plan, i) => {
               const Icon = plan.icon;
               const displayINR = isAnnual ? plan.priceINRAnnual : plan.priceINRMonthly;
-              const isSelected = selectedFilter === plan.capacityCategory;
               const isFeatured = plan.id === "standard";
 
               return (
-                <Reveal key={plan.id} delay={i * 80} variant="up">
+                <Reveal key={plan.id} delay={i * 80} variant="up" className={isFeatured ? "order-first lg:order-none" : ""}>
                   <div
                     className={cn(
-                      "luxury-light-card card-sheen group relative flex h-full flex-col justify-between rounded-2xl bg-white dark:bg-[#09090b] border transition-all duration-300 p-4 sm:p-5 sm:p-6",
+                      "luxury-light-card card-sheen group relative flex h-full flex-col justify-between rounded-2xl bg-white dark:bg-[#09090b] border transition-all duration-300 p-4 sm:p-6",
                       isFeatured
                         ? "border-crimson dark:border-rose-400/60 shadow-[0_16px_40px_-10px_rgba(188,26,44,0.22)] dark:shadow-[0_20px_50px_-10px_rgba(188,26,44,0.45)] ring-2 ring-crimson/40 lg:-translate-y-2"
-                        : "border-slate-200/90 dark:border-white/16 shadow-card dark:shadow-2xl hover:border-slate-300 dark:hover:border-saffron/40 hover:-translate-y-1",
-                      isSelected ? "ring-2 ring-saffron/80" : ""
+                        : "border-slate-200/90 dark:border-white/16 shadow-card dark:shadow-2xl hover:border-slate-300 dark:hover:border-saffron/40 hover:-translate-y-1"
                     )}
                   >
                     {/* Top Content Area */}

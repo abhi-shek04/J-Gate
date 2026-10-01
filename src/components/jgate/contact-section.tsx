@@ -9,8 +9,7 @@ import {
   ExternalLink,
   ArrowRight,
 } from "lucide-react";
-import { Reveal, SectionHeading } from "@/components/jgate/shared";
-import { PageHero } from "@/components/jgate/page-hero";
+import { Reveal } from "@/components/jgate/shared";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
 
@@ -27,7 +26,7 @@ type ContactForm = {
 type FormErrors = Partial<Record<keyof ContactForm, string>>;
 
 export function ContactSection({ id }: { id?: string }) {
-  const { tx } = useI18n();
+  const { tx, lang } = useI18n();
   const [sent, setSent] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
@@ -67,7 +66,7 @@ export function ContactSection({ id }: { id?: string }) {
           email: form.email.trim(),
           subject: "General Inquiry",
           message: form.message.trim(),
-          lang: "EN",
+          lang,
         }),
       });
       const data = await res.json();
@@ -100,7 +99,6 @@ export function ContactSection({ id }: { id?: string }) {
     setErrors({});
   };
 
-  const [inquiryType, setInquiryType] = useState<string>("workspace");
 
   const inputClass =
     "w-full rounded-xl border border-slate-200 dark:border-white/12 bg-slate-50 dark:bg-white/[0.05] px-3.5 py-3 font-inter text-base sm:text-sm text-ink dark:text-white placeholder-slate-400 dark:placeholder-white/35 outline-none input-luxury";
@@ -162,7 +160,7 @@ export function ContactSection({ id }: { id?: string }) {
                         Telangana 500081, India
                       </p>
                       <a
-                        href="https://maps.google.com/?q=hyderabad+Hyderabad"
+                        href="https://maps.google.com/?q=Cyber+Gateway+Madhapur+Hyderabad+Telangana"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="mt-1.5 inline-flex items-center gap-1 font-inter text-xs font-medium text-crimson dark:text-rose-400 hover:underline"

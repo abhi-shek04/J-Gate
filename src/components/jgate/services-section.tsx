@@ -13,17 +13,7 @@ import {
   ArrowRight,
   FileCheck2,
   Compass,
-  Clock,
-  Wifi,
-  Zap,
   Check,
-  Globe2,
-  Briefcase,
-  GraduationCap,
-  Scale,
-  Server,
-  Lock,
-  Handshake,
 } from "lucide-react";
 import { JapanFlag, IndiaFlag } from "./icons";
 

@@ -34,7 +34,7 @@ export function Reveal({
           }
         });
       },
-      { threshold: 0.05, rootMargin: "0px 0px -15px 0px" }
+      { threshold: 0.05, rootMargin: "0px 0px -60px 0px" }
     );
     observer.observe(node);
     return () => observer.disconnect();
@@ -292,3 +292,160 @@ export function SectionDivider({
   );
 }
 
+/* ============================================================
+   StaggerReveal — cascading entrance for child elements
+   ============================================================ */
+export function StaggerReveal({
+  children,
+  className,
+  staggerMs = 60,
+}: {
+  children: ReactNode;
+  className?: string;
+  staggerMs?: number;
+}) {
+  const ref = useRef<HTMLDivElement | null>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.05, rootMargin: "0px 0px -60px 0px" }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div
+      ref={ref}
+      className={cn(visible && "stagger-children", className)}
+    >
+      {children}
+    </div>
+  );
+}
+
+/* ============================================================
+   ParallaxLayer — lightweight scroll-driven parallax
+   ============================================================ */
+export function ParallaxLayer({
+  children,
+  speed = 0.15,
+  className,
+}: {
+  children: ReactNode;
+  speed?: number;
+  className?: string;
+}) {
+  const ref = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    const handler = () => {
+      const rect = node.getBoundingClientRect();
+      const windowH = window.innerHeight;
+      if (rect.top < windowH && rect.bottom > 0) {
+        const centerOffset = rect.top - windowH / 2;
+        node.style.transform = `translate3d(0, ${centerOffset * speed}px, 0)`;
+      }
+    };
+    window.addEventListener("scroll", handler, { passive: true });
+    handler();
+    return () => window.removeEventListener("scroll", handler);
+  }, [speed]);
+
+  return (
+    <div ref={ref} className={cn("will-change-transform", className)}>
+      {children}
+    </div>
+  );
+}
+
+/* ============================================================
+   TextReveal — clip-path heading reveal animation
+   ============================================================ */
+export function TextReveal({
+  children,
+  className,
+  delay = 0,
+  as: Tag = "span",
+}: {
+  children: ReactNode;
+  className?: string;
+  delay?: number;
+  as?: React.ElementType;
+}) {
+  const ref = useRef<HTMLElement | null>(null);
+  const [visible, setVisible] = useState(false);
+  useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setVisible(true);
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  const Component = Tag as any;
+  return (
+    <Component
+      ref={ref}
+      className={cn("inline-block", className)}
+      style={{
+        clipPath: visible ? "inset(0 0% 0 0)" : "inset(0 100% 0 0)",
+        transition: `clip-path 0.9s cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
+      }}
+    >
+      {children}
+    </Component>
+  );
+}
+
+/* ============================================================
+   BackToTop — floating scroll-to-top button
+   ============================================================ */
+export function BackToTop() {
+  const [vis, setVis] = useState(false);
+  useEffect(() => {
+    const handler = () => setVis(window.scrollY > 600);
+    window.addEventListener("scroll", handler, { passive: true });
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
+
+  return (
+    <button
+      onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+      className={cn(
+        "back-to-top rounded-full h-11 w-11 flex items-center justify-center",
+        "bg-crimson text-white shadow-lg shadow-crimson/25 hover:bg-crimson-deep",
+        "border border-crimson/50 transition-colors duration-200",
+        vis && "visible"
+      )}
+      aria-label="Back to top"
+    >
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M8 13V3M8 3L3 8M8 3L13 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    </button>
+  );
+}

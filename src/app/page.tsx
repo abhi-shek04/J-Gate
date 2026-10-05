@@ -261,11 +261,21 @@ export default function HomePage() {
                 style={{ fontSize: "clamp(2.1rem, 4.8vw, 3.4rem)" }}
               >
                 {tx({
-                  EN: "A Dedicated Workspace for Japanese Companies in India",
+                  EN: "Birth of Dedicated Working Hub for Japanese Companies",
                   JP: "日本企業専用のワーキングハブ誕生",
                 })}
               </h1>
             </TextReveal>
+          </Reveal>
+
+          {/* 2b. Secondary Sub-heading */}
+          <Reveal delay={110}>
+            <p className="mx-auto mt-3 max-w-3xl font-serif-jp text-lg sm:text-xl font-bold text-slate-700 dark:text-slate-200 tracking-tight">
+              {tx({
+                EN: "A Dedicated Workspace for Japanese Companies in India",
+                JP: "インドにおける日本企業のための専用ワークスペース",
+              })}
+            </p>
           </Reveal>
 
           {/* 3. Executive Tagline Badge */}

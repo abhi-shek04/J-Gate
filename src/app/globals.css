@@ -1217,6 +1217,32 @@ section[id] { scroll-margin-top: 80px; }
   transform: translateY(-1px);
 }
 
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3.5rem); /* Scales smoothly from 32px to 56px */
+  line-height: 1.12;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  text-align: center;
+}
+
+/* Color classes */
+.text-dark {
+  color: #0f172a; /* Dark Navy / Slate */
+}
+
+.text-red {
+  color: #d92d20; /* Crimson Red */
+}
+
+.dark .text-dark {
+  color: #ffffff;
+}
+
+.dark .text-red {
+  color: #fb7185;
+}
+
+
 
 
 

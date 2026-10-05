@@ -257,12 +257,11 @@ export default function HomePage() {
           <Reveal
             delay={80}
             as="h1"
-            className="mx-auto mt-4 sm:mt-6 max-w-5xl font-inter font-black leading-[1.04] text-slate-900 dark:text-white tracking-tighter text-center"
-            style={{ fontSize: "clamp(3rem, 7.5vw, 5.8rem)" }}
+            className="hero-title mx-auto mt-4 sm:mt-5 max-w-4xl font-inter text-center"
           >
-            <span className="block">{tx({ EN: "Birth of a Dedicated", JP: "日本企業専用の" })}</span>
-            <span className="block">{tx({ EN: "Workspace for Japanese", JP: "ワーキングハブ" })}</span>
-            <span className="block">{tx({ EN: "Companies in India", JP: "誕生" })}</span>
+            <span className="block text-dark">{tx({ EN: "Birth of a Dedicated", JP: "日本企業専用の" })}</span>
+            <span className="block text-red">{tx({ EN: "Workspace for Japanese", JP: "ワーキングハブ" })}</span>
+            <span className="block text-red">{tx({ EN: "Companies in India", JP: "誕生" })}</span>
           </Reveal>
 
           {/* 3. Executive Tagline Badge */}

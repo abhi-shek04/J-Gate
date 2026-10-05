@@ -24,7 +24,11 @@ export function Reveal({
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     const node = ref.current;
-    if (!node) return;
+    if (!node) {
+      setVisible(true);
+      return;
+    }
+    const timer = setTimeout(() => setVisible(true), 250 + delay);
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -34,11 +38,14 @@ export function Reveal({
           }
         });
       },
-      { threshold: 0.05, rootMargin: "0px 0px -60px 0px" }
+      { threshold: 0.01, rootMargin: "100px" }
     );
     observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, [delay]);
 
   const variantClass =
     variant === "left"
@@ -390,7 +397,11 @@ export function TextReveal({
   const [visible, setVisible] = useState(false);
   useEffect(() => {
     const node = ref.current;
-    if (!node) return;
+    if (!node) {
+      setVisible(true);
+      return;
+    }
+    const timer = setTimeout(() => setVisible(true), 200 + delay);
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -400,11 +411,14 @@ export function TextReveal({
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.01 }
     );
     observer.observe(node);
-    return () => observer.disconnect();
-  }, []);
+    return () => {
+      clearTimeout(timer);
+      observer.disconnect();
+    };
+  }, [delay]);
 
   const Component = Tag as any;
   return (

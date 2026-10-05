@@ -254,18 +254,16 @@ export default function HomePage() {
           </Reveal>
 
           {/* 2. Main H1 Title */}
-          <Reveal delay={80}>
-            <TextReveal speed={0.6}>
-              <h1
-                className="mx-auto mt-4 max-w-4xl font-inter font-black leading-[1.12] text-slate-900 dark:text-white tracking-tight text-center"
-                style={{ fontSize: "clamp(2.4rem, 5.6vw, 4.2rem)" }}
-              >
-                {tx({
-                  EN: "Birth of a Dedicated Workspace for Japanese Companies in India",
-                  JP: "日本企業専用のワーキングハブ誕生",
-                })}
-              </h1>
-            </TextReveal>
+          <Reveal
+            delay={80}
+            as="h1"
+            className="mx-auto mt-4 max-w-4xl font-inter font-black leading-[1.12] text-slate-900 dark:text-white tracking-tight text-center"
+            style={{ fontSize: "clamp(2.4rem, 5.6vw, 4.2rem)" }}
+          >
+            {tx({
+              EN: "Birth of a Dedicated Workspace for Japanese Companies in India",
+              JP: "日本企業専用のワーキングハブ誕生",
+            })}
           </Reveal>
 
           {/* 3. Executive Tagline Badge */}

@@ -263,34 +263,41 @@ export default function HomePage() {
           <Reveal delay={80}>
             <TextReveal speed={0.6}>
               <h1
-                className="mx-auto mt-4 max-w-4xl font-inter font-black leading-[1.1] text-slate-900 dark:text-white tracking-tight"
+                className="mx-auto mt-4 max-w-4xl font-inter font-black leading-[1.08] tracking-tight text-center"
                 style={{ fontSize: "clamp(2.5rem, 5.8vw, 4.4rem)" }}
               >
-                {tx({
-                  EN: "A Dedicated Workspace for Japanese Companies in India",
-                  JP: "日本企業専用のワーキングハブ誕生",
-                })}
+                <span className="block text-slate-900 dark:text-white">
+                  {tx({ EN: "Birth of a Dedicated", JP: "日本企業専用の" })}
+                </span>
+                <span className="block text-crimson dark:text-rose-400">
+                  {tx({ EN: "Working Hub for Japanese", JP: "ワーキングハブ" })}
+                </span>
+                <span className="block text-crimson dark:text-rose-400">
+                  {tx({ EN: "Companies", JP: "誕生" })}
+                </span>
               </h1>
             </TextReveal>
           </Reveal>
 
-          {/* 3. Executive Tagline Badges */}
+          {/* 2b. Secondary Sub-heading */}
+          <Reveal delay={110}>
+            <p className="mx-auto mt-3 max-w-3xl font-serif-jp text-lg sm:text-xl font-bold text-slate-700 dark:text-slate-200 tracking-tight">
+              {tx({
+                EN: "A Dedicated Workspace for Japanese Companies in India",
+                JP: "インドにおける日本企業のための専用ワークスペース",
+              })}
+            </p>
+          </Reveal>
+
+          {/* 3. Executive Tagline Badge */}
           <Reveal delay={140}>
-            <div className="mt-4 flex flex-col sm:flex-row items-center justify-center gap-2.5">
-              <span className="inline-flex items-center gap-2 rounded-full bg-rose-50/90 dark:bg-rose-950/40 border border-rose-200/80 dark:border-rose-800/40 px-4 py-1.5 font-inter text-[13px] sm:text-[14px] font-semibold text-crimson dark:text-rose-300 tracking-wide shadow-2xs backdrop-blur-sm" style={{ textWrap: "balance" }}>
+            <div className="mt-4 flex items-center justify-center">
+              <span className="inline-flex items-center gap-2 rounded-full bg-white/90 dark:bg-white/10 border border-slate-200 dark:border-white/15 px-4 py-1.5 font-inter text-[13px] sm:text-[14px] font-semibold text-slate-700 dark:text-slate-200 tracking-wide shadow-2xs backdrop-blur-sm" style={{ textWrap: "balance" }}>
                 <Sparkles className="h-3.5 w-3.5 text-crimson dark:text-rose-400" />
                 <span>
                   {tx({
-                    EN: "Birth of a Dedicated Working Hub for Japanese Companies",
-                    JP: "日本企業専用のワーキングハブ誕生",
-                  })}
-                </span>
-              </span>
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/90 dark:bg-white/10 border border-slate-200 dark:border-white/15 px-4 py-1.5 font-inter text-[13px] sm:text-[14px] font-semibold text-slate-700 dark:text-slate-200 tracking-wide shadow-2xs backdrop-blur-sm" style={{ textWrap: "balance" }}>
-                <span>
-                  {tx({
-                    EN: "Enterprise Grade Workspace & Resident Advisory in Hyderabad",
-                    JP: "ハイデラバード拠点の完全日本語伴走型インフラ",
+                    EN: "Enterprise Grade Workspace & Resident Japanese Advisory in Hyderabad",
+                    JP: "ハイデラバード拠点の日本企業専用・完全日本語伴走型ワーキングハブ",
                   })}
                 </span>
               </span>

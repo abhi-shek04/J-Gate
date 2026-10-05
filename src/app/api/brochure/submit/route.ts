@@ -64,9 +64,9 @@ export async function POST(req: NextRequest) {
       console.warn("[brochure/submit] DB write warning (e.g. serverless read-only SQLite):", dbErr);
     }
 
-    // Await notification dispatch so serverless runtime does not terminate before transmission
-    await Promise.race([
-      sendAdminNotification({
+    // Dispatch email notification to contact@indobox.co.jp
+    try {
+      await sendAdminNotification({
         fullName: fullName.trim(),
         organization: organization.trim(),
         email: email.trim(),
@@ -74,11 +74,10 @@ export async function POST(req: NextRequest) {
         sourceIp,
         timestamp: new Date().toISOString(),
         leadId,
-      }),
-      new Promise((resolve) => setTimeout(resolve, 3500)),
-    ]).catch((mailErr) => {
-      console.warn("[brochure/submit] Background notification error:", mailErr);
-    });
+      });
+    } catch (mailErr) {
+      console.warn("[brochure/submit] Mail dispatch error:", mailErr);
+    }
 
     return NextResponse.json({
       ok: true,

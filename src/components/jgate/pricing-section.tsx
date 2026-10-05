@@ -362,38 +362,6 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
               })}
             />
           </Reveal>
-          {/* Billing Cycle Toggle */}
-          <Reveal>
-            <div className="mt-5 mb-7 flex items-center justify-center">
-              <div className="inline-flex items-center gap-0.5 bg-white/90 dark:bg-[#09090b] p-1 rounded-full border border-slate-200/90 dark:border-white/14 shadow-sm backdrop-blur-md">
-                <button
-                  type="button"
-                  onClick={() => setBillingCycle("monthly")}
-                  className={`px-5 py-2 rounded-full text-[12px] font-inter font-bold transition-all duration-200 cursor-pointer ${
-                    billingCycle === "monthly"
-                      ? "bg-crimson text-white shadow-md shadow-crimson/25"
-                      : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10"
-                  }`}
-                >
-                  {tx({ EN: "Monthly", JP: "月額" })}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setBillingCycle("annual")}
-                  className={`px-5 py-2 rounded-full text-[12px] font-inter font-bold transition-all duration-200 cursor-pointer flex items-center gap-1.5 ${
-                    billingCycle === "annual"
-                      ? "bg-crimson text-white shadow-md shadow-crimson/25"
-                      : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/10"
-                  }`}
-                >
-                  {tx({ EN: "Annual", JP: "年額" })}
-                  <span className="text-[9px] font-bold px-1.5 py-0.5 rounded-md bg-emerald-100 dark:bg-emerald-950/60 text-emerald-700 dark:text-emerald-300 border border-emerald-300/50 dark:border-emerald-700/40">
-                    -15%
-                  </span>
-                </button>
-              </div>
-            </div>
-          </Reveal>
 
           {/* Grid of 3 Balanced Cards — Compact, Premium, High-End Presentation */}
           <div className="mt-6 sm:mt-8 grid gap-4 sm:gap-5 lg:gap-5 lg:grid-cols-3 items-stretch">

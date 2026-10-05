@@ -68,6 +68,7 @@ function GlassBadge({
   primary,
   secondary,
   accent,
+  href,
 }: {
   icon?: React.ComponentType<{ className?: string }>;
   flag?: React.ReactNode;
@@ -76,6 +77,7 @@ function GlassBadge({
   primary: string;
   secondary: string;
   accent: "saffron" | "crimson" | "slate";
+  href?: string;
 }) {
   const accentBorder =
     accent === "saffron"
@@ -91,10 +93,10 @@ function GlassBadge({
       ? "text-crimson dark:text-rose-400"
       : "text-slate-800 dark:text-white";
 
-  return (
+  const BadgeContent = (
     <div
       className={cn(
-        "luxury-light-card card-sheen group relative flex items-center gap-3.5 rounded-2xl px-5 py-3 sm:px-6 sm:py-3.5 bg-white/95 dark:bg-[#09090b]/95 backdrop-blur-xl border shadow-lg shadow-slate-200/50 dark:shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl text-left",
+        "luxury-light-card card-sheen group relative flex items-center gap-3.5 rounded-2xl px-5 py-3 sm:px-6 sm:py-3.5 bg-white/95 dark:bg-[#09090b]/95 backdrop-blur-xl border shadow-lg shadow-slate-200/50 dark:shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl text-left cursor-pointer",
         accentBorder
       )}
     >
@@ -132,6 +134,16 @@ function GlassBadge({
       </div>
     </div>
   );
+
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className="block">
+        {BadgeContent}
+      </a>
+    );
+  }
+
+  return BadgeContent;
 }
 
 
@@ -287,12 +299,14 @@ export default function HomePage() {
           <Reveal delay={260}>
             <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4">
               <GlassBadge
+                href="https://indobox.co.jp/"
                 imageSrc="/logos/indobox-icon.png"
                 primary={tx({ EN: "Indobox India Private Limited.", JP: "Indobox India Private Limited." })}
                 secondary={tx({ EN: "Japan Operator", JP: "日本側運営主体" })}
                 accent="slate"
               />
               <GlassBadge
+                href="https://www.genesysinfox.com/"
                 imageSrc="/logos/genesys-info-x.png"
                 primary="Genesys Info X"
                 secondary={tx({ EN: "Infrastructure Partner", JP: "現地インフラ提携" })}
@@ -312,38 +326,30 @@ export default function HomePage() {
                 <ArrowRight className="h-4.5 w-4.5 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
 
-              {/* Stat Proof Cards Bar with StaggerReveal & AnimatedCounter */}
+              {/* Stat Proof Cards Bar */}
               <StaggerReveal delay={400} className="w-full pt-4 border-t border-slate-200/70 dark:border-white/10 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto">
                 <div className="p-3.5 rounded-xl bg-white/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-center shadow-2xs backdrop-blur-md hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300">
-                  <span className="block font-mono text-xl sm:text-2xl font-black text-crimson dark:text-rose-400">
-                    <AnimatedCounter target={100} suffix="%" />
-                  </span>
+                  <span className="block font-mono text-xl sm:text-2xl font-black text-crimson dark:text-rose-400">100%</span>
                   <span className="mt-0.5 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
                     {tx({ EN: "Japanese Director On-Site", JP: "日本人ディレクター現地常駐" })}
                   </span>
                 </div>
                 <div className="p-3.5 rounded-xl bg-white/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-center shadow-2xs backdrop-blur-md hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300">
-                  <span className="block font-mono text-xl sm:text-2xl font-black text-ink dark:text-white">
-                    <AnimatedCounter target={100} suffix="%" />
-                  </span>
+                  <span className="block font-mono text-xl sm:text-2xl font-black text-ink dark:text-white">Enterprise</span>
                   <span className="mt-0.5 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
-                    {tx({ EN: "Dedicated Japanese Suite", JP: "日系企業専用スペース" })}
+                    {tx({ EN: "Hyderabad Hub Facility", JP: "高規格ファシリティ" })}
                   </span>
                 </div>
                 <div className="p-3.5 rounded-xl bg-white/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-center shadow-2xs backdrop-blur-md hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300">
-                  <span className="block font-mono text-xl sm:text-2xl font-black text-saffron-deep dark:text-saffron-light">
-                    <AnimatedCounter target={40} suffix="%+" />
-                  </span>
+                  <span className="block font-mono text-xl sm:text-2xl font-black text-saffron-deep dark:text-saffron-light">40%+</span>
                   <span className="mt-0.5 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
-                    {tx({ EN: "Cost Advantage vs Tokyo/Mumbai", JP: "東京・ムンバイ比 40%+ コスト削減" })}
+                    {tx({ EN: "Operational Savings", JP: "拠点開設・運営費削減" })}
                   </span>
                 </div>
                 <div className="p-3.5 rounded-xl bg-white/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-center shadow-2xs backdrop-blur-md hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300">
-                  <span className="block font-mono text-xl sm:text-2xl font-black text-emerald-600 dark:text-emerald-400">
-                    <AnimatedCounter target={1} prefix="Day " />
-                  </span>
+                  <span className="block font-mono text-xl sm:text-2xl font-black text-emerald-600 dark:text-emerald-400">Full Support</span>
                   <span className="mt-0.5 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
-                    {tx({ EN: "Zero Setup Lag", JP: "渡航当日から即日開設" })}
+                    {tx({ EN: "Setup Advisory & Hiring Support", JP: "登記・会計・採用サポート" })}
                   </span>
                 </div>
               </StaggerReveal>

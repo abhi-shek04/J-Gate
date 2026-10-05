@@ -246,16 +246,10 @@ export default function HomePage() {
         <div className="container-jg relative z-10 pt-2 pb-6 sm:pt-4 sm:pb-8 text-center max-w-5xl mx-auto">
           {/* 1. Pre-title: Japan–India Business & Talent Hub */}
           <Reveal variant="blur" delay={0}>
-            <div className="flex flex-col items-center justify-center gap-2.5">
-              <div className="inline-flex items-center gap-2 rounded-full bg-white/90 dark:bg-slate-900/80 border border-slate-200/80 dark:border-white/15 px-3.5 py-1 text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-200 shadow-2xs backdrop-blur-sm">
-                <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                <span>🇮🇳 HYDERABAD · CYBER GATEWAY</span>
-              </div>
-              <div className="flex items-center justify-center gap-2.5 font-inter text-[11.5px] sm:text-[12.5px] font-bold uppercase tracking-[0.22em] text-crimson dark:text-rose-400 mt-1">
-                <span className="hidden sm:inline-block h-px w-8 bg-crimson/30 dark:bg-rose-400/30" />
-                <span>{tx({ EN: "Japan × India Talent & Business Bridge", JP: "日印ビジネス＆高度人材ハブ" })}</span>
-                <span className="hidden sm:inline-block h-px w-8 bg-crimson/30 dark:bg-rose-400/30" />
-              </div>
+            <div className="flex items-center justify-center gap-2.5 font-inter text-[11.5px] sm:text-[12.5px] font-bold uppercase tracking-[0.22em] text-crimson dark:text-rose-400">
+              <span className="hidden sm:inline-block h-px w-8 bg-crimson/30 dark:bg-rose-400/30" />
+              <span>{tx({ EN: "Japan–India Business & Talent Hub", JP: "日印ビジネス＆高度人材ハブ" })}</span>
+              <span className="hidden sm:inline-block h-px w-8 bg-crimson/30 dark:bg-rose-400/30" />
             </div>
           </Reveal>
 
@@ -263,30 +257,15 @@ export default function HomePage() {
           <Reveal delay={80}>
             <TextReveal speed={0.6}>
               <h1
-                className="mx-auto mt-4 max-w-4xl font-inter font-black leading-[1.08] tracking-tight text-center"
+                className="mx-auto mt-3 max-w-4xl font-inter font-black leading-[1.1] text-slate-900 dark:text-white tracking-tight"
                 style={{ fontSize: "clamp(2.5rem, 5.8vw, 4.4rem)" }}
               >
-                <span className="block text-slate-900 dark:text-white">
-                  {tx({ EN: "Birth of a Dedicated", JP: "日本企業専用の" })}
-                </span>
-                <span className="block text-crimson dark:text-rose-400">
-                  {tx({ EN: "Working Hub for Japanese", JP: "ワーキングハブ" })}
-                </span>
-                <span className="block text-crimson dark:text-rose-400">
-                  {tx({ EN: "Companies", JP: "誕生" })}
-                </span>
+                {tx({
+                  EN: "A Dedicated Workspace for Japanese Companies in India",
+                  JP: "日本企業専用のワーキングハブ誕生",
+                })}
               </h1>
             </TextReveal>
-          </Reveal>
-
-          {/* 2b. Secondary Sub-heading */}
-          <Reveal delay={110}>
-            <p className="mx-auto mt-3 max-w-3xl font-serif-jp text-lg sm:text-xl font-bold text-slate-700 dark:text-slate-200 tracking-tight">
-              {tx({
-                EN: "A Dedicated Workspace for Japanese Companies in India",
-                JP: "インドにおける日本企業のための専用ワークスペース",
-              })}
-            </p>
           </Reveal>
 
           {/* 3. Executive Tagline Badge */}

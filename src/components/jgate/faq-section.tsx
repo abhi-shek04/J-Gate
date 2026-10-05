@@ -249,39 +249,10 @@ export function FAQSection({ id }: { id?: string }) {
                 JP: "ワークスペース利用、ジャパンデスクサポート、現地法人設立、採用支援に関するよくある質問とお答え。",
               })}
             </p>
-
-            {/* Category Filter Tabs */}
-            <div className="mt-5 mb-4 flex flex-wrap items-center justify-center gap-1.5">
-              {categories.map((cat) => (
-                <button
-                  key={cat.id}
-                  type="button"
-                  onClick={() => setSelectedCategory(cat.id as any)}
-                  className={cn(
-                    "px-3.5 py-1.5 rounded-full text-[12px] font-inter font-bold transition-all duration-200 cursor-pointer",
-                    selectedCategory === cat.id
-                      ? "bg-crimson text-white shadow-xs"
-                      : "bg-white/80 dark:bg-white/8 text-slate-600 dark:text-slate-300 border border-slate-200/80 dark:border-white/10 hover:bg-slate-100 dark:hover:bg-white/15"
-                  )}
-                >
-                  {tx(cat.label)}
-                </button>
-              ))}
-            </div>
-
-            <div className="flex items-center justify-center gap-3 mt-2 mb-2">
-              <button type="button" onClick={expandAll} className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-500 dark:text-slate-400 hover:text-crimson dark:hover:text-rose-400 transition-colors cursor-pointer">
-                {tx({ EN: "Expand All", JP: "すべて開く" })}
-              </button>
-              <span className="text-slate-300 dark:text-slate-600">|</span>
-              <button type="button" onClick={collapseAll} className="text-[11px] font-mono font-bold tracking-wider uppercase text-slate-500 dark:text-slate-400 hover:text-crimson dark:hover:text-rose-400 transition-colors cursor-pointer">
-                {tx({ EN: "Collapse All", JP: "すべて閉じる" })}
-              </button>
-            </div>
           </Reveal>
 
           {/* FAQ Accordion List */}
-          <div className="space-y-3">
+          <div className="mt-8 space-y-3">
             {filteredList.map((item, idx) => {
               const isOpen = !!openIds[item.id];
               return (

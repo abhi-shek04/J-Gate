@@ -460,13 +460,15 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                             <span>CONNECT</span>
                           </a>
                         )}
-                        <a
-                          href={`mailto:${m.email}`}
-                          className="flex h-7 w-7 items-center justify-center rounded-lg border border-slate-200 dark:border-white/15 bg-slate-50 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:bg-crimson/10 hover:text-crimson transition-all"
-                          title={m.email}
-                        >
-                          <Mail className="h-3.5 w-3.5" />
-                        </a>
+                        {m.id !== "hanaoka" && m.email && (
+                          <a
+                            href={`mailto:${m.email}`}
+                            className="flex h-7 w-7 items-center justify-center rounded-lg border border-slate-200 dark:border-white/15 bg-slate-50 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:bg-crimson/10 hover:text-crimson transition-all"
+                            title={m.email}
+                          >
+                            <Mail className="h-3.5 w-3.5" />
+                          </a>
+                        )}
                       </div>
                     </div>
                   </article>
@@ -476,16 +478,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
           </div>
 
           {/* Wing B: Hyderabad Operations */}
-          <div className="mt-8 sm:mt-10">
-            <div className="mb-4 flex items-center justify-between border-b border-slate-200 dark:border-white/10 pb-2">
-              <div className="flex items-center gap-2">
-                <IndiaFlag className="h-4 w-6 rounded-xs shrink-0 shadow-2xs" />
-                <h3 className="font-serif-jp text-sm sm:text-base font-bold text-ink dark:text-white">
-                  {tx({ EN: "Hyderabad Operations & Concierge Infrastructure", JP: "ハイデラバード現地運営・ITサポート" })}
-                </h3>
-              </div>
-            </div>
-
+          <div className="mt-6 sm:mt-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {hyderabadOps.map((m, i) => (
                 <Reveal key={m.id} delay={i * 100}>
@@ -560,13 +553,15 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                             <Phone className="h-3.5 w-3.5" />
                           </a>
                         )}
-                        <a
-                          href={`mailto:${m.email}`}
-                          className="flex h-7 w-7 items-center justify-center rounded-lg border border-slate-200 dark:border-white/15 bg-slate-50 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:bg-saffron/20 hover:text-saffron-dark transition-all"
-                          title={m.email}
-                        >
-                          <Mail className="h-3.5 w-3.5" />
-                        </a>
+                        {m.id !== "abhishek" && m.email && (
+                          <a
+                            href={`mailto:${m.email}`}
+                            className="flex h-7 w-7 items-center justify-center rounded-lg border border-slate-200 dark:border-white/15 bg-slate-50 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:bg-saffron/20 hover:text-saffron-dark transition-all"
+                            title={m.email}
+                          >
+                            <Mail className="h-3.5 w-3.5" />
+                          </a>
+                        )}
                       </div>
                     </div>
                   </article>

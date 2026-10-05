@@ -208,24 +208,9 @@ export function ComparisonTable() {
           </div>
         </Reveal>
 
-        {/* Legend */}
-        <Reveal delay={80}>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-            {LEGEND.map((l) => (
-              <span
-                key={l.label.EN}
-                className="inline-flex items-center gap-2 font-inter text-[12px] font-medium text-slate dark:text-slate-300"
-              >
-                <span className={`inline-block h-2.5 w-2.5 rounded-full ${l.color}`} />
-                {tx(l.label)}
-              </span>
-            ))}
-          </div>
-        </Reveal>
-
         {/* Table Container with Luxury Glass Card Styling */}
-        <Reveal delay={120} variant="scale">
-          <div className="mt-10 overflow-x-auto pb-4" style={{ scrollbarWidth: "thin" }}>
+        <Reveal delay={100} variant="scale">
+          <div className="mt-8 overflow-x-auto pb-4" style={{ scrollbarWidth: "thin" }}>
             <div className="min-w-[920px] overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] shadow-2xl">
               {/* Header row */}
               <div className="grid grid-cols-[180px_minmax(210px,1.2fr)_1fr_1fr_1fr]">
@@ -239,12 +224,6 @@ export function ComparisonTable() {
 
                 {/* J-Gate Highlighted Column Header */}
                 <div className="relative border-b border-crimson/40 bg-gradient-to-br from-crimson to-crimson-deep px-5 py-5 text-white shadow-lg">
-                  <span
-                    className="absolute right-3 top-3 inline-flex items-center gap-1 rounded-full bg-white/20 backdrop-blur-sm px-2.5 py-0.5 font-inter text-[10px] font-bold uppercase text-white shadow-sm"
-                  >
-                    <Sparkles className="h-3 w-3 text-saffron" />
-                    Recommended
-                  </span>
                   <span className="font-serif-jp text-lg font-bold tracking-tight block">
                     J-Gate
                   </span>

@@ -159,15 +159,6 @@ export function ContactSection({ id }: { id?: string }) {
                         <br />
                         Telangana 500081, India
                       </p>
-                      <a
-                        href="https://maps.google.com/?q=Cyber+Gateway+Madhapur+Hyderabad+Telangana"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-1.5 inline-flex items-center gap-1 font-inter text-xs font-medium text-crimson dark:text-rose-400 hover:underline"
-                      >
-                        <ExternalLink className="h-3 w-3" />
-                        {tx({ EN: "View on Google Maps", JP: "Googleマップで確認" })}
-                      </a>
                     </div>
                   </div>
                 </div>

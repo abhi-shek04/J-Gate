@@ -530,6 +530,33 @@ export function BlogsSection({ id, hideHero }: { id?: string; hideHero?: boolean
          ─────────────────────────────────────────────────────────── */}
       <section className="section-pad bg-ivory-warm dark:bg-black">
         <div className="container-jg">
+          {/* Section Heading — visible when hero is hidden (homepage embed) */}
+          {hideHero && (
+            <Reveal>
+              <div className="mx-auto mb-10 sm:mb-12 max-w-3xl text-center">
+                <Eyebrow>{tx({ EN: "Workspace & Facilities", JP: "ワークスペース＆施設" })}</Eyebrow>
+                <h2
+                  className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink dark:text-white"
+                  style={{ fontSize: "clamp(1.625rem, 3vw, 2.25rem)" }}
+                >
+                  {tx({
+                    EN: "Office & Facilities Gallery",
+                    JP: "オフィス・施設ギャラリー",
+                  })}
+                </h2>
+                <p
+                  className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300"
+                  style={{ fontSize: "clamp(0.9rem, 1.3vw, 1.05rem)" }}
+                >
+                  {tx({
+                    EN: "Explore our dedicated Japanese enterprise workspace at Cyber Gateway, Hyderabad — dedicated desks, private offices, meeting rooms, and full office infrastructure.",
+                    JP: "Cyber Gateway内の日本企業専用スペースをご覧ください。専用デスク、個室オフィス、会議室、充実したオフィスインフラをご紹介。",
+                  })}
+                </p>
+              </div>
+            </Reveal>
+          )}
+
           {/* View Mode Switcher Bar */}
           <Reveal>
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 border-b border-slate-200/80 dark:border-white/10">

@@ -395,15 +395,6 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
 
           {/* Wing A: Resident Japan Desk */}
           <div className="mt-6 sm:mt-8">
-            <div className="mb-4 flex items-center justify-between border-b border-slate-200 dark:border-white/10 pb-2">
-              <div className="flex items-center gap-2">
-                <JapanFlag className="h-4 w-6 rounded-xs shrink-0 shadow-2xs" />
-                <h3 className="font-serif-jp text-sm sm:text-base font-bold text-ink dark:text-white">
-                  {tx({ EN: "Resident Japan Desk Leadership", JP: "日本人常駐ディレクター陣 (Japan Desk)" })}
-                </h3>
-              </div>
-            </div>
-
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {japanDesk.map((m, i) => (
                 <Reveal key={m.id} delay={i * 100}>

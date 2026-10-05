@@ -335,21 +335,21 @@ export default function HomePage() {
                   </span>
                 </div>
                 <div className="p-3.5 rounded-xl bg-white/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-center shadow-2xs backdrop-blur-md hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300">
-                  <span className="block font-mono text-xl sm:text-2xl font-black text-ink dark:text-white">Enterprise</span>
+                  <span className="block font-mono text-xl sm:text-2xl font-black text-ink dark:text-white">100%</span>
                   <span className="mt-0.5 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
-                    {tx({ EN: "Hyderabad Hub Facility", JP: "高規格ファシリティ" })}
+                    {tx({ EN: "Dedicated Japanese Suite", JP: "日本企業専用スイート" })}
                   </span>
                 </div>
                 <div className="p-3.5 rounded-xl bg-white/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-center shadow-2xs backdrop-blur-md hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300">
                   <span className="block font-mono text-xl sm:text-2xl font-black text-saffron-deep dark:text-saffron-light">40%+</span>
                   <span className="mt-0.5 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
-                    {tx({ EN: "Operational Savings", JP: "拠点開設・運営費削減" })}
+                    {tx({ EN: "Cost Advantage vs Tokyo/Mumbai", JP: "東京・ムンバイ比コスト優位" })}
                   </span>
                 </div>
                 <div className="p-3.5 rounded-xl bg-white/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-center shadow-2xs backdrop-blur-md hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300">
-                  <span className="block font-mono text-xl sm:text-2xl font-black text-emerald-600 dark:text-emerald-400">Full Support</span>
+                  <span className="block font-mono text-xl sm:text-2xl font-black text-emerald-600 dark:text-emerald-400">Day 1</span>
                   <span className="mt-0.5 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
-                    {tx({ EN: "Setup Advisory & Hiring Support", JP: "登記・会計・採用サポート" })}
+                    {tx({ EN: "Zero Setup Lag", JP: "即日稼働" })}
                   </span>
                 </div>
               </StaggerReveal>
@@ -523,14 +523,14 @@ export default function HomePage() {
       <TeamSection id="team" hideHero />
 
       {/* ════════════════════════════════════════════════════════════
-          8. PRICING & MEMBERSHIP PLANS — Plan Cards & Guarantees
-         ════════════════════════════════════════════════════════════ */}
-      <PricingSection id="pricing" hideHero />
-
-      {/* ════════════════════════════════════════════════════════════
-          9. FACILITIES & OFFICE GALLERY — Photo Gallery Mosaic
+          8. FACILITIES & OFFICE GALLERY — Photo Gallery Mosaic
          ════════════════════════════════════════════════════════════ */}
       <BlogsSection id="blogs" hideHero />
+
+      {/* ════════════════════════════════════════════════════════════
+          9. PRICING & MEMBERSHIP PLANS — Plan Cards & Guarantees
+         ════════════════════════════════════════════════════════════ */}
+      <PricingSection id="pricing" hideHero />
 
       {/* ════════════════════════════════════════════════════════════
           10. CONTACT & JAPAN DESK CONSOLE

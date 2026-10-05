@@ -257,11 +257,11 @@ export default function HomePage() {
           <Reveal delay={80}>
             <TextReveal speed={0.6}>
               <h1
-                className="mx-auto mt-3 max-w-4xl font-inter font-black leading-[1.1] text-slate-900 dark:text-white tracking-tight"
-                style={{ fontSize: "clamp(2.5rem, 5.8vw, 4.4rem)" }}
+                className="mx-auto mt-4 max-w-4xl font-inter font-black leading-[1.12] text-slate-900 dark:text-white tracking-tight text-center"
+                style={{ fontSize: "clamp(2.4rem, 5.6vw, 4.2rem)" }}
               >
                 {tx({
-                  EN: "A Dedicated Workspace for Japanese Companies in India",
+                  EN: "Birth of a Dedicated Workspace for Japanese Companies in India",
                   JP: "日本企業専用のワーキングハブ誕生",
                 })}
               </h1>
@@ -270,7 +270,7 @@ export default function HomePage() {
 
           {/* 3. Executive Tagline Badge */}
           <Reveal delay={140}>
-            <div className="mt-4 flex items-center justify-center">
+            <div className="mt-5 flex items-center justify-center">
               <span className="inline-flex items-center gap-2 rounded-full bg-white/90 dark:bg-white/10 border border-slate-200 dark:border-white/15 px-4 py-1.5 font-inter text-[13px] sm:text-[14px] font-semibold text-slate-700 dark:text-slate-200 tracking-wide shadow-2xs backdrop-blur-sm" style={{ textWrap: "balance" }}>
                 <Sparkles className="h-3.5 w-3.5 text-crimson dark:text-rose-400" />
                 <span>
@@ -337,7 +337,7 @@ export default function HomePage() {
                 <div className="p-3.5 rounded-xl bg-white/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-center shadow-2xs backdrop-blur-md hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300">
                   <span className="block font-mono text-xl sm:text-2xl font-black text-ink dark:text-white">100%</span>
                   <span className="mt-0.5 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
-                    {tx({ EN: "Dedicated Japanese Suite", JP: "日本企業専用スイート" })}
+                    {tx({ EN: "Resident Japan Desk", JP: "常駐ジャパンデスク支援" })}
                   </span>
                 </div>
                 <div className="p-3.5 rounded-xl bg-white/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-center shadow-2xs backdrop-blur-md hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300">

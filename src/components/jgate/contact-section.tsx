@@ -107,11 +107,9 @@ export function ContactSection({ id }: { id?: string }) {
     <div id={id} className="scroll-mt-20">
       <section className="py-8 sm:py-12 bg-ivory dark:bg-black transition-colors">
         <div className="container-jg">
-          <div className="mx-auto max-w-4xl grid md:grid-cols-5 gap-8 md:gap-12 items-start">
-
-            {/* Left — Contact Info */}
-            <div className="md:col-span-2 space-y-6">
-              <Reveal>
+          <div className="mx-auto max-w-2xl">
+            <Reveal>
+              <div className="text-center mb-8">
                 <h2 className="font-serif-jp text-xl sm:text-2xl font-bold text-ink dark:text-white">
                   {tx({ EN: "Reach Out to Us", JP: "お気軽にご連絡ください" })}
                 </h2>
@@ -121,53 +119,12 @@ export function ContactSection({ id }: { id?: string }) {
                     JP: "J-Gateについてのご質問やお問い合わせは、お気軽にメッセージをお送りください。",
                   })}
                 </p>
-              </Reveal>
+              </div>
+            </Reveal>
 
-              <Reveal delay={50}>
-                <div className="space-y-4">
-                  {/* Email */}
-                  <a
-                    href="mailto:contact@indobox.co.jp"
-                    className="flex items-center gap-3 group"
-                  >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-crimson/10 dark:bg-rose-950/50 text-crimson dark:text-rose-400">
-                      <Mail className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <p className="font-inter text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                        {tx({ EN: "Email", JP: "メール" })}
-                      </p>
-                      <p className="font-inter text-sm font-medium text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-rose-400 transition-colors">
-                        contact@indobox.co.jp
-                      </p>
-                    </div>
-                  </a>
-
-                  {/* Address */}
-                  <div className="flex items-start gap-3">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-slate-100 dark:bg-white/5 text-slate-600 dark:text-slate-300">
-                      <MapPin className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <p className="font-inter text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-                        {tx({ EN: "Office", JP: "オフィス" })}
-                      </p>
-                      <p className="font-inter text-sm text-ink dark:text-white leading-relaxed">
-                        2nd Floor, Genesys Info X, Block B, Wing 1
-                        <br />
-                        Cyber Gateway, Madhapur, Hyderabad
-                        <br />
-                        Telangana 500081, India
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </Reveal>
-            </div>
-
-            {/* Right — Simple Form */}
-            <div className="md:col-span-3">
-              <Reveal variant="right" delay={70}>
+            {/* Simple Form */}
+            <div>
+              <Reveal delay={70}>
                 <div className="rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-5 sm:p-7 shadow-lg">
                   {sent ? (
                     <div className="flex flex-col items-center py-8 text-center">

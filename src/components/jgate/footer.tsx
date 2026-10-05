@@ -36,7 +36,7 @@ export function Footer() {
             {/* Outlined square social buttons */}
             <div className="flex items-center gap-2 pt-1">
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/indobox-inc"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
@@ -45,7 +45,7 @@ export function Footer() {
                 <LinkedInIcon className="h-4 w-4" />
               </a>
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/indobox.inc"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"

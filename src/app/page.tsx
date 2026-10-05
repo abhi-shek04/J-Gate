@@ -257,8 +257,8 @@ export default function HomePage() {
           <Reveal
             delay={80}
             as="h1"
-            className="mx-auto mt-4 sm:mt-5 max-w-4xl font-inter font-black leading-[1.08] text-slate-900 dark:text-white tracking-tight text-center"
-            style={{ fontSize: "clamp(2.5rem, 6vw, 4.5rem)" }}
+            className="mx-auto mt-4 sm:mt-6 max-w-5xl font-inter font-black leading-[1.04] text-slate-900 dark:text-white tracking-tighter text-center"
+            style={{ fontSize: "clamp(3rem, 7.5vw, 5.8rem)" }}
           >
             <span className="block">{tx({ EN: "Birth of a Dedicated", JP: "日本企業専用の" })}</span>
             <span className="block">{tx({ EN: "Workspace for Japanese", JP: "ワーキングハブ" })}</span>

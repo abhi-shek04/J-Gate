@@ -146,7 +146,7 @@ export function Contact() {
                 <span className="flex h-9 w-9 animate-pulse-soft items-center justify-center rounded-full bg-saffron text-ink shadow-hover">
                   <Building2 className="h-4 w-4" />
                 </span>
-                <span className="mt-1 whitespace-nowrap rounded bg-midnight/80 px-2 py-0.5 font-inter text-[11px] font-semibold text-white">J-Gate India Hub</span>
+                <span className="mt-1 whitespace-nowrap rounded bg-midnight/80 px-2 py-0.5 font-inter text-[11px] font-semibold text-white">J-Gate Enterprise Hub</span>
               </div>
               <div className="absolute bottom-4 left-4 rounded-md bg-midnight/70 px-3 py-2 backdrop-blur">
                 <p className="font-inter text-[11px] text-white/80">📍 India</p>

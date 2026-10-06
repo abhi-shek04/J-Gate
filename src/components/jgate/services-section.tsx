@@ -240,8 +240,8 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
                 {
                   icon: Building2,
                   badge: tx({ EN: "Ready Workspace", JP: "即日利用可能" }),
-                  title: tx({ EN: "India Hub", JP: "インド拠点" }),
-                  desc: tx({ EN: "Dedicated suites & high-speed fiber", JP: "専用キャビン・高速光回線" }),
+                  title: tx({ EN: "Enterprise Workspace", JP: "専用ワークスペース" }),
+                  desc: tx({ EN: "Private cabins & high-speed internet", JP: "専用個室・高速インターネット" }),
                   accent: "text-crimson dark:text-rose-400 bg-crimson/10 dark:bg-rose-950/50 border-crimson/20 dark:border-rose-400/30",
                 },
                 {

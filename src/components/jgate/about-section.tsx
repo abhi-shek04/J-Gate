@@ -96,7 +96,7 @@ const BILATERAL_SYNERGIES = [
 const MISSION = {
   title: { EN: "Our Mission", JP: "ミッション" },
   body: {
-    EN: "To remove every barrier of India expansion for Japanese enterprises by providing ready workspace, resident Japanese advisory, and statutory guidance in Hyderabad.",
+    EN: "To remove every barrier of India expansion for Japanese enterprises by providing ready workspace, resident Japanese advisory, and statutory guidance in India.",
     JP: "即日利用可能な執務環境、現地常駐の日本語支援、そして確実な法人登記・行政手続きを通じて、日本企業のインド進出におけるあらゆる摩擦をゼロにすること。",
   },
   tag: { EN: "Current Focus", JP: "私たちの使命" },

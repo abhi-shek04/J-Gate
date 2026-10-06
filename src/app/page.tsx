@@ -172,8 +172,8 @@ export default function HomePage() {
         JP: "優れたアクセスと最適化された運営コスト",
       },
       desc: {
-        EN: "2-minute walk to Metro Station, 35 minutes to Rajiv Gandhi International Airport, and over 40% operational cost savings compared to Tokyo, Tokyo Bay, or Mumbai.",
-        JP: "最寄りのメトロ駅から徒歩2分、国際空港まで車で35分。東京やムンバイと比較して拠点運営費を40%以上削減できます。",
+        EN: "2-minute walk to Metro Station, 35 minutes to Rajiv Gandhi International Airport, and over 40% operational cost savings for enterprise setups.",
+        JP: "最寄りのメトロ駅から徒歩2分、国際空港まで車で35分。拠点開設・運営費用を40%以上削減できます。",
       },
     },
     {
@@ -339,7 +339,7 @@ export default function HomePage() {
                 <div className="p-3.5 rounded-xl bg-white/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-center shadow-2xs backdrop-blur-md hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300">
                   <span className="block font-mono text-xl sm:text-2xl font-black text-saffron-deep dark:text-saffron-light">40%+</span>
                   <span className="mt-0.5 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
-                    {tx({ EN: "Cost Advantage vs Tokyo/Mumbai", JP: "東京・ムンバイ比コスト優位" })}
+                    {tx({ EN: "Operational Cost Advantage", JP: "現地拠点の運営コスト削減" })}
                   </span>
                 </div>
                 <div className="p-3.5 rounded-xl bg-white/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-center shadow-2xs backdrop-blur-md hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300">

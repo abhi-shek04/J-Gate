@@ -343,9 +343,9 @@ export default function HomePage() {
                   </span>
                 </div>
                 <div className="p-3.5 rounded-xl bg-white/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-center shadow-2xs backdrop-blur-md hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300">
-                  <span className="block font-mono text-xl sm:text-2xl font-black text-emerald-600 dark:text-emerald-400">Day 1</span>
+                  <span className="block font-mono text-xl sm:text-2xl font-black text-emerald-600 dark:text-emerald-400">Plug &amp; Play</span>
                   <span className="mt-0.5 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
-                    {tx({ EN: "Zero Setup Lag", JP: "即日稼働" })}
+                    {tx({ EN: "Zero Setup Lag in India", JP: "即日稼働・シームレス開設" })}
                   </span>
                 </div>
               </StaggerReveal>

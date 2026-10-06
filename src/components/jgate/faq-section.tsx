@@ -251,6 +251,45 @@ export function FAQSection({ id }: { id?: string }) {
             </p>
           </Reveal>
 
+          {/* Category Filter Tabs & Expand Controls */}
+          <Reveal delay={40} className="mt-6 mb-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-b border-slate-200/80 dark:border-white/10 pb-4">
+            <div className="flex flex-wrap items-center justify-center sm:justify-start gap-1.5">
+              {categories.map((cat) => (
+                <button
+                  key={cat.id}
+                  type="button"
+                  onClick={() => setSelectedCategory(cat.id as any)}
+                  className={cn(
+                    "rounded-full px-3.5 py-1.5 font-inter text-xs sm:text-xs font-bold transition-all duration-200 cursor-pointer",
+                    selectedCategory === cat.id
+                      ? "bg-crimson text-white shadow-sm"
+                      : "bg-slate-100 dark:bg-white/10 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-white/15"
+                  )}
+                >
+                  {tx(cat.label)}
+                </button>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-2 text-xs font-inter font-semibold">
+              <button
+                type="button"
+                onClick={expandAll}
+                className="text-slate-600 dark:text-slate-400 hover:text-crimson dark:hover:text-rose-400 transition-colors cursor-pointer"
+              >
+                {tx({ EN: "Expand All", JP: "すべて開く" })}
+              </button>
+              <span className="text-slate-300 dark:text-slate-700">•</span>
+              <button
+                type="button"
+                onClick={collapseAll}
+                className="text-slate-600 dark:text-slate-400 hover:text-crimson dark:hover:text-rose-400 transition-colors cursor-pointer"
+              >
+                {tx({ EN: "Collapse All", JP: "すべて閉じる" })}
+              </button>
+            </div>
+          </Reveal>
+
           {/* FAQ Accordion List */}
           <div className="mt-8 space-y-3">
             {filteredList.map((item, idx) => {

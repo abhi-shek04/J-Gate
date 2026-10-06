@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
+import { sendNotificationEmail } from "@/lib/mailer";
 
 /* ============================================================
    POST /api/brochure/submit
@@ -99,7 +100,6 @@ export async function POST(req: NextRequest) {
    Uses Nodemailer if SMTP env vars present, otherwise logs
    a structured notification to the server console.
    ============================================================ */
-import { sendNotificationEmail } from "@/lib/mailer";
 
 async function sendAdminNotification(data: {
   fullName: string;

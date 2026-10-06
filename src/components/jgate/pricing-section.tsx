@@ -363,6 +363,41 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
             />
           </Reveal>
 
+          {/* Billing Cycle Toggle Pill */}
+          <Reveal delay={60}>
+            <div className="mt-6 mb-2 flex items-center justify-center">
+              <div className="inline-flex items-center rounded-full bg-slate-100/90 dark:bg-white/10 p-1 border border-slate-200 dark:border-white/15 shadow-inner">
+                <button
+                  type="button"
+                  onClick={() => setBillingCycle("monthly")}
+                  className={cn(
+                    "rounded-full px-4 py-1.5 font-inter text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer",
+                    billingCycle === "monthly"
+                      ? "bg-white dark:bg-crimson text-slate-900 dark:text-white shadow-sm"
+                      : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
+                  )}
+                >
+                  {tx({ EN: "Monthly Billing", JP: "月払い" })}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setBillingCycle("annual")}
+                  className={cn(
+                    "inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 font-inter text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer",
+                    billingCycle === "annual"
+                      ? "bg-crimson text-white shadow-sm"
+                      : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
+                  )}
+                >
+                  <span>{tx({ EN: "Annual Billing", JP: "年払い" })}</span>
+                  <span className="rounded-full bg-saffron text-slate-950 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider">
+                    {tx({ EN: "Save 15%", JP: "15%OFF" })}
+                  </span>
+                </button>
+              </div>
+            </div>
+          </Reveal>
+
           {/* Grid of 3 Balanced Cards — Compact, Premium, High-End Presentation */}
           <div className="mt-6 sm:mt-8 grid gap-4 sm:gap-5 lg:gap-5 lg:grid-cols-3 items-stretch">
             {PLANS.map((plan, i) => {

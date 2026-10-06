@@ -41,13 +41,13 @@ const CORE_SERVICES: ServiceItem[] = [
       JP: "進出準備・ローカルアドバイザリーサポート",
     },
     desc: {
-      EN: "We assist Japanese companies with location setup in Hyderabad, introduce vetted local accounting and legal partners for company incorporation (Pvt. Ltd.) and statutory tax registrations (PAN/TAN/GSTIN), and provide local banking guidance.",
-      JP: "ハイデラバードIT特区での拠点準備、現地提携の専門家（会計事務所・弁護士）を通じた会社設立（Pvt. Ltd.）および税務登録（PAN/TAN/GSTIN）の手続きサポート、現地口座開設アドバイザリーを包括支援します。",
+      EN: "We assist Japanese companies with location setup in India, introduce vetted local accounting and legal partners for company incorporation (Pvt. Ltd.) and statutory tax registrations (PAN/TAN/GSTIN), and provide local banking guidance.",
+      JP: "インド拠点準備、現地提携の専門家（会計事務所・弁護士）を通じた会社設立（Pvt. Ltd.）および税務登録（PAN/TAN/GSTIN）の手続きサポート、現地口座開設アドバイザリーを包括支援します。",
     },
     points: [
       {
-        EN: "Official business location setup support in Hyderabad",
-        JP: "ハイデラバードIT特区での拠点準備・入居手続サポート",
+        EN: "Official business location setup support in India",
+        JP: "インドでの拠点準備・入居手続サポート",
       },
       {
         EN: "Introductions to vetted accounting & legal partners for company setup",

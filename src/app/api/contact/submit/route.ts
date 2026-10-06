@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
+import { sendNotificationEmail } from "@/lib/mailer";
 
 /* ============================================================
    POST /api/contact/submit
@@ -87,8 +88,6 @@ export async function POST(req: NextRequest) {
     );
   }
 }
-
-import { sendNotificationEmail } from "@/lib/mailer";
 
 async function sendContactNotification(data: {
   name: string;

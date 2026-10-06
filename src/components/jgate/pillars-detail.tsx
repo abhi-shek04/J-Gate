@@ -32,8 +32,8 @@ const PILLARS: Pillar[] = [
     jp: "即日稼働",
     en: { EN: "Day-1 Operational Readiness", JP: "最短即日での事業立ち上げ" },
     desc: {
-      EN: "Eliminate months of capital lockup, lease negotiation, and office renovation. Move into fully equipped dedicated desks or private suites in Hyderabad immediately.",
-      JP: "多額な初期敷金や内装工事などの投資、煩雑な不動産契約をゼロに。ハイデラバードオフィスの専用執務空間で、渡航当日からビジネスを開始できます。",
+      EN: "Eliminate months of capital lockup, lease negotiation, and office renovation. Move into fully equipped dedicated desks or private suites in India immediately.",
+      JP: "多額な初期敷金や内装工事などの投資、煩雑な不動産契約をゼロに。インドオフィスの専用執務空間で、渡航当日からビジネスを開始できます。",
     },
     solutionBadge: { EN: "Zero Setup Lag", JP: "立ち上げ期間短縮" },
     tags: [

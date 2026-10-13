@@ -70,11 +70,11 @@ const ALL_ADVISORS = [
     id: "isogai",
     name: "Tomio Isogai",
     jpName: "磯貝 富雄 · 元シャープ・インディア社長",
-    title: "Former MD, Sharp India | Indobox Corporate Advisor",
-    desc: "Over 35 years directing Japanese manufacturing & consumer electronics in India. specializing in cross-cultural business collaboration.",
+    title: "Former Managing Director, Sharp India | Senior Adviser, Kochhar Law Firm",
+    desc: "Based in Pune, West India. 37 years of experience in global business. Former president of Sharp India, lived in India for 12 years. Board member of the Kansai Japan-India Cultural Association. Senior advisor at Kochhar Law Firm in India.\n\nResident of Pune, Western India. Global business 37 years. Former Managing Director of Sharp India, 12 years in India. Director of Kansai Japan-India Cultural Association. Senior Adviser of Kochhar Law Firm, India.",
     image: "/advisory/isogai.png",
     badge: "EX-SHARP INDIA MD",
-    tags: ["Corporate Advisory", "Manufacturing", "Cross-Cultural Management"],
+    tags: ["Global Business (37 Yrs)", "Kansai Japan-India Cultural Assoc.", "Kochhar Law Firm Adviser"],
     linkedin: "https://www.linkedin.com/in/tomio-isogai-416b9b16/",
   },
 ];
@@ -110,13 +110,13 @@ const OPS_TEAM: OpsMember[] = [
     name: "Daisuke Tanji",
     jpName: "丹治 大佑",
     role: "DIRECTOR",
-    subtitle: "Bilateral Business Facilitator | Indobox Inc.",
+    subtitle: "B2B, Sales & Marketing | New Business Development | MPD",
     flag: "🇯🇵",
     country: "Japan",
     email: "contact@indobox.co.jp",
     image: "/team/tanji.png",
-    desc: "Bilateral business facilitator linking India and Japan. Directing the vision to connect Indian talent with career opportunities.",
-    tags: ["Business Strategy", "Career Placement", "Bilateral Relations"],
+    desc: "With 20 years of experience working for a major trading company (including 5 years stationed in India / Delhi and Mumbai), this Indian business activist has strong connections in both Japan and India. Specializes in B2B, sales and marketing, and new business development. Holds a Master of Business Planning (MPD) degree.\n\nWorked at a Japanese Trading company for 20 years (5 years in India, Delhi/Mumbai). BtoB, Sales & Marketing, New business development. Master of Project Design (MPD).",
+    tags: ["B2B Sales & Marketing", "New Business Development", "Master of Project Design (MPD)"],
     linkedin: "https://www.linkedin.com/in/daisuke-tanji/",
     languages: [
       { EN: "Japanese", JP: "日本語", highlight: true },
@@ -129,18 +129,19 @@ const OPS_TEAM: OpsMember[] = [
     name: "Mariko Hanaoka",
     jpName: "花岡 真理子",
     role: "DIRECTOR",
-    subtitle: "Native Educator | 9+ Years Exp. in India",
+    subtitle: "Business Development, PR & Design | Certified Japanese Teacher (IIT Palakkad)",
     flag: "🇯🇵",
     country: "Japan",
     email: "contact@indobox.co.jp",
     image: "/team/hanaoka.png",
-    desc: "Japanese Language Teacher at IIT Palakkad. Qualified educator teaching in India since 2015. Leading academic direction, native pedagogy, and bicultural curriculum design.",
-    tags: ["Curriculum Design", "Pedagogy", "N4 & N3"],
+    desc: "After living in Bangladesh (Dhaka), I have been residing in Coimbatore, Tamil Nadu, South India since 2015. I am involved in BizDev for new businesses in India, as well as public relations, design, and content writing. I am also a certified Japanese language teacher (IIT Palakkad). I speak English, Tamil, and Bengali.\n\nAfter living in Dhaka in Bangladesh, settled in Coimbatore, Tamil Nadu, India since 2015. Business development for new business in India and Japan. Public relations, Design, Content writing. Qualified Japanese language teacher (IIT Palakkad). English, Tamil, Bengali.",
+    tags: ["Business Development", "PR & Design", "Content Writing", "IIT Palakkad"],
     linkedin: "https://www.linkedin.com/in/marikohanaoka/",
     languages: [
       { EN: "Japanese", JP: "日本語", highlight: true },
       { EN: "English", JP: "英語" },
       { EN: "Tamil", JP: "タミル語" },
+      { EN: "Bengali", JP: "ベンガル語" },
     ],
   },
   {
@@ -341,7 +342,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                       </p>
 
                       {/* Desc */}
-                      <p className="mt-2 font-inter text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+                      <p className="mt-2 font-inter text-xs leading-relaxed text-slate-600 dark:text-slate-300 whitespace-pre-line">
                         {adv.desc}
                       </p>
                     </div>
@@ -425,7 +426,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                         {m.subtitle}
                       </p>
 
-                      <p className="mt-2 font-inter text-xs leading-relaxed text-slate-600 dark:text-slate-300">
+                      <p className="mt-2 font-inter text-xs leading-relaxed text-slate-600 dark:text-slate-300 whitespace-pre-line">
                         {m.desc}
                       </p>
 

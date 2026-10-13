@@ -119,6 +119,15 @@ export async function POST(req: NextRequest) {
         subject: `🎫 [J-Gate Brochure Lead] ${fullName.trim()} (${organization.trim()})`,
         html,
         text: `New Brochure Download\nName: ${fullName.trim()}\nOrganization: ${organization.trim()}\nEmail: ${email.trim()}\nQuestions: ${questions?.trim() || "None"}\nTime: ${timestamp}\nLead ID: ${leadId}`,
+        fields: {
+          "Full Name": fullName.trim(),
+          "Organization / Company": organization.trim(),
+          "Corporate Email": email.trim(),
+          "Questions / Expansion Requests": questions?.trim() || "None provided",
+          "Auth Method": authMethod || "manual",
+          "Time": timestamp,
+          "Lead ID": leadId,
+        },
       });
       emailDelivered = !!mailRes.ok;
     } catch (mailErr) {

@@ -119,6 +119,15 @@ export async function POST(req: NextRequest) {
         subject: `📩 [J-Gate Contact Inquiry] from ${name.trim()} (${subject?.trim() || "General Inquiry"})`,
         html,
         text: `New Contact Inquiry\nName: ${name.trim()}\nEmail: ${email.trim()}\nSubject: ${subject?.trim() || "General Inquiry"}\nMessage:\n${message.trim()}\nLanguage: ${lang || "EN"}\nTime: ${timestamp}\nID: ${inquiryId}`,
+        fields: {
+          "Client Name": name.trim(),
+          "Client Email": email.trim(),
+          "Subject": subject?.trim() || "General Inquiry",
+          "Message": message.trim(),
+          "Language": lang === "JP" ? "Japanese (JP)" : "English (EN)",
+          "Time": timestamp,
+          "Inquiry ID": inquiryId,
+        },
       });
       emailDelivered = !!mailRes.ok;
     } catch (mailErr) {

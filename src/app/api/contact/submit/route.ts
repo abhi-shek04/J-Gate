@@ -1,13 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { db } from "@/lib/db";
-import { sendNotificationEmail } from "@/lib/mailer";
+import { sendNotificationEmail, RECEIVER_EMAIL } from "@/lib/mailer";
 
 /* ============================================================
    POST /api/contact/submit
-   - Handles general contact inquiries from /contact
-   - Persists inquiry to SQLite (ContactInquiry)
-   - Dispatches notification to contact@indobox.co.jp
-   - Sets reply-to header to sender's email for easy one-click responses
+   - Validates contact form inquiry
+   - Saves to database (ContactInquiry)
+   - Dispatches email notification directly to contact@indobox.co.jp
    ============================================================ */
 
 type ContactInput = {
@@ -41,36 +40,44 @@ export async function POST(req: NextRequest) {
       req.headers.get("x-real-ip") ||
       "unknown";
 
-    // Save to database (resilient to serverless read-only environments)
     let inquiryId = `inq_${Date.now()}`;
     try {
       const inquiry = await db.contactInquiry.create({
         data: {
           name: name.trim(),
           email: email.trim(),
-          subject: subject?.trim() || null,
+          subject: subject?.trim() || "General Inquiry",
           message: message.trim(),
-          lang: lang || "JP",
+          lang: lang || "EN",
           sourceIp,
         },
       });
       inquiryId = inquiry.id;
     } catch (dbErr) {
-      console.warn("[contact/submit] DB write warning (e.g. serverless read-only SQLite):", dbErr);
+      console.warn("[contact/submit] DB write warning:", dbErr);
     }
 
-    // Dispatch email notification to contact@indobox.co.jp
+    const timestamp = new Date().toISOString();
+    let emailDelivered = false;
+
     try {
-      await sendContactNotification({
-        name: name.trim(),
-        email: email.trim(),
-        subject: subject?.trim() || "General Inquiry",
-        message: message.trim(),
-        lang: lang || "JP",
-        sourceIp,
-        timestamp: new Date().toISOString(),
-        inquiryId,
+      const mailRes = await sendNotificationEmail({
+        to: RECEIVER_EMAIL,
+        replyTo: email.trim(),
+        subject: `📩 [J-Gate Contact Inquiry] from ${name.trim()}`,
+        fields: {
+          Form_Type: "Contact Us Form",
+          Name: name.trim(),
+          Email: email.trim(),
+          Subject: subject?.trim() || "General Inquiry",
+          Message: message.trim(),
+          Language: lang === "JP" ? "Japanese (JP)" : "English (EN)",
+          Submitted_At: timestamp,
+          Inquiry_ID: inquiryId,
+        },
+        text: `New Contact Inquiry\nName: ${name.trim()}\nEmail: ${email.trim()}\nMessage:\n${message.trim()}\nLanguage: ${lang || "EN"}\nTime: ${timestamp}`,
       });
+      emailDelivered = !!mailRes.ok;
     } catch (mailErr) {
       console.warn("[contact/submit] Mail dispatch error:", mailErr);
     }
@@ -78,6 +85,8 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({
       ok: true,
       inquiryId,
+      emailDelivered,
+      receiver: RECEIVER_EMAIL,
       message: "Inquiry received successfully",
     });
   } catch (err) {
@@ -87,61 +96,4 @@ export async function POST(req: NextRequest) {
       { status: 500 }
     );
   }
-}
-
-async function sendContactNotification(data: {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-  lang: string;
-  sourceIp: string;
-  timestamp: string;
-  inquiryId: string;
-}) {
-  const adminEmail = process.env.ADMIN_EMAIL || "contact@indobox.co.jp";
-
-  const html = `
-<div style="font-family: 'Inter', Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #f5f0e8; padding: 32px;">
-  <div style="background: #080f1a; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1);">
-    <div style="background: linear-gradient(90deg, #bc1a2c, #e8a01a); height: 4px;"></div>
-    <div style="padding: 28px 32px;">
-      <h1 style="color: #ffffff; font-size: 22px; margin: 0 0 4px; font-weight: 700;">📩 New Contact Inquiry</h1>
-      <p style="color: #8892a4; font-size: 13px; margin: 0;">J-Gate × Indobox — Direct Inquiry Alert</p>
-    </div>
-    <div style="background: #000000; padding: 24px 32px;">
-      <table style="width: 100%; color: #ffffff; font-size: 14px; border-collapse: collapse;">
-        <tr><td style="padding: 10px 0; color: #8892a4; width: 140px;">Name</td><td style="padding: 10px 0; font-weight: 600; color: #ffffff;">${escapeHtml(data.name)}</td></tr>
-        <tr><td style="padding: 10px 0; color: #8892a4;">Email</td><td style="padding: 10px 0;"><a href="mailto:${escapeHtml(data.email)}" style="color: #e8a01a; text-decoration: none; font-weight: 600;">${escapeHtml(data.email)}</a></td></tr>
-        <tr><td style="padding: 10px 0; color: #8892a4;">Subject</td><td style="padding: 10px 0; font-weight: 600; color: #ffffff;">${escapeHtml(data.subject)}</td></tr>
-        <tr><td style="padding: 10px 0; color: #8892a4; vertical-align: top;">Message</td><td style="padding: 10px 0; color: #c9d1e0; line-height: 1.6; white-space: pre-wrap;">${escapeHtml(data.message)}</td></tr>
-        <tr><td style="padding: 10px 0; color: #8892a4;">Preferred Language</td><td style="padding: 10px 0; color: #ffffff;">${data.lang === "JP" ? "🇯🇵 Japanese" : "🇬🇧 English"}</td></tr>
-        <tr><td style="padding: 10px 0; color: #8892a4;">Source IP</td><td style="padding: 10px 0; font-family: monospace; font-size: 12px; color: #a0aec0;">${escapeHtml(data.sourceIp)}</td></tr>
-        <tr><td style="padding: 10px 0; color: #8892a4;">Timestamp</td><td style="padding: 10px 0; font-size: 12px; color: #a0aec0;">${data.timestamp}</td></tr>
-        <tr><td style="padding: 10px 0; color: #8892a4;">Inquiry ID</td><td style="padding: 10px 0; font-family: monospace; font-size: 12px; color: #8892a4;">${data.inquiryId}</td></tr>
-      </table>
-    </div>
-    <div style="background: #080f1a; padding: 16px 32px; text-align: center;">
-      <p style="color: #64748b; font-size: 11px; margin: 0;">© 2026 J-Gate · Indobox India Private Limited · Hyderabad</p>
-      <p style="color: #475569; font-size: 10px; margin: 4px 0 0;">Delivering to: ${escapeHtml(adminEmail)}</p>
-    </div>
-  </div>
-</div>`;
-
-  await sendNotificationEmail({
-    to: adminEmail,
-    replyTo: data.email,
-    subject: `📩 [J-Gate Inquiry] ${data.subject} — from ${data.name}`,
-    html,
-    text: `New Contact Inquiry:\nName: ${data.name}\nEmail: ${data.email}\nSubject: ${data.subject}\nLanguage: ${data.lang}\nMessage:\n${data.message}\nTime: ${data.timestamp}\nID: ${data.inquiryId}`,
-  });
-}
-
-function escapeHtml(s: string): string {
-  return s
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#039;");
 }

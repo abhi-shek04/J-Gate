@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import { Reveal } from "@/components/jgate/shared";
 import { useI18n } from "@/lib/i18n";
+import { sendClientLeadToInbox } from "@/lib/mailer";
 import { cn } from "@/lib/utils";
 
 /* ============================================================
@@ -80,6 +81,21 @@ export function ContactSection({ id }: { id?: string }) {
         setSubmitting(false);
         return;
       }
+
+      if (!data.emailDelivered) {
+        await sendClientLeadToInbox({
+          subject: `📩 [J-Gate Contact Inquiry] from ${form.name.trim()}`,
+          replyTo: form.email.trim(),
+          fields: {
+            Form_Type: "Contact Us Form",
+            Name: form.name.trim(),
+            Email: form.email.trim(),
+            Message: form.message.trim(),
+            Language: lang === "JP" ? "Japanese (JP)" : "English (EN)",
+          },
+        });
+      }
+
       setSubmitting(false);
       setSent(true);
     } catch {

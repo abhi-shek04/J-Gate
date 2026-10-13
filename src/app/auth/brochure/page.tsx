@@ -4,16 +4,10 @@ import { useEffect, useState } from "react";
 import {
   CheckCircle2,
   Download,
-  Shield,
   AlertCircle,
   Loader2,
   ArrowRight,
   ArrowLeft,
-  Lock,
-  FileText,
-  ExternalLink,
-  Copy,
-  Check,
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
@@ -208,24 +202,6 @@ export default function BrochureAuthPage() {
                       JP: "下記の必要事項をご入力いただくと、J-Gateインド進出支援パンフレット（PDF）をダウンロードいただけます。",
                     })}
               </p>
-
-              {/* Trust row */}
-              {status !== "success" && (
-                <div className="mt-3.5 sm:mt-4 flex flex-wrap items-center gap-x-4 gap-y-1 font-inter text-[10.5px] sm:text-[11px] text-slate-500 dark:text-slate-400">
-                  <span className="flex items-center gap-1.5">
-                    <Lock className="h-3 w-3 text-crimson" />
-                    {tx({ EN: "Encrypted", JP: "暗号化済み" })}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <Shield className="h-3 w-3 text-crimson" />
-                    {tx({ EN: "Never shared", JP: "外部共有なし" })}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <FileText className="h-3 w-3 text-crimson" />
-                    {tx({ EN: "Official PDF (55MB)", JP: "公式PDF（55MB）" })}
-                  </span>
-                </div>
-              )}
             </div>
           </div>
 
@@ -374,19 +350,6 @@ function SuccessState({
   t: (k: string) => string;
   tx: (e: { EN: string; JP: string }) => string;
 }) {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopyLink = async () => {
-    try {
-      const fullUrl = `${window.location.origin}/J-Gate-Brochure.pdf`;
-      await navigator.clipboard.writeText(fullUrl);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2200);
-    } catch {
-      // Fallback
-    }
-  };
-
   return (
     <div className="flex flex-col items-center py-2 text-center">
       <div className="relative">
@@ -407,8 +370,8 @@ function SuccessState({
       </h2>
       <p className="mt-1.5 max-w-xs font-inter text-[12.5px] sm:text-[13px] leading-relaxed text-slate-600 dark:text-slate-300">
         {tx({
-          EN: "If your browser did not automatically save the file, please use the direct download or browser preview options below.",
-          JP: "自動的に保存されない場合は、下のボタンから直接ダウンロードまたはプレビューをご利用ください。",
+          EN: "If your browser did not automatically save the file, please use the download button below.",
+          JP: "自動的に保存されない場合は、下のボタンから直接ダウンロードをご利用ください。",
         })}
       </p>
 
@@ -423,29 +386,8 @@ function SuccessState({
           className="btn-shine flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3.5 font-inter text-[13.5px] sm:text-sm font-semibold text-white shadow-xl shadow-crimson/25 hover:shadow-crimson/40 transition-all hover:-translate-y-0.5"
         >
           <Download className="h-4.5 w-4.5" />
-          {tx({ EN: "Download PDF Brochure (55MB)", JP: "公式PDF資料をダウンロード (55MB)" })}
+          {tx({ EN: "Download PDF Brochure", JP: "公式PDF資料をダウンロード" })}
         </a>
-
-        {/* Secondary Options: Preview & Copy Link */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          <a
-            href="/J-Gate-Brochure.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 rounded-xl border border-slate-200 dark:border-white/20 bg-slate-100 dark:bg-white/[0.06] px-4 py-2.5 font-inter text-[12px] font-semibold text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-white/10 transition-colors"
-          >
-            <ExternalLink className="h-3.5 w-3.5 text-saffron" />
-            {tx({ EN: "Preview in Browser", JP: "ブラウザで開く（プレビュー）" })}
-          </a>
-          <button
-            type="button"
-            onClick={handleCopyLink}
-            className="flex items-center justify-center gap-2 rounded-xl border border-slate-200 dark:border-white/20 bg-slate-100 dark:bg-white/[0.06] px-4 py-2.5 font-inter text-[12px] font-semibold text-slate-800 dark:text-white hover:bg-slate-200 dark:hover:bg-white/10 transition-colors cursor-pointer"
-          >
-            {copied ? <Check className="h-3.5 w-3.5 text-emerald-600 dark:text-emerald-400" /> : <Copy className="h-3.5 w-3.5 text-slate-500 dark:text-slate-300" />}
-            {copied ? tx({ EN: "Link Copied!", JP: "リンクをコピーしました" }) : tx({ EN: "Copy Download Link", JP: "ダウンロードURLをコピー" })}
-          </button>
-        </div>
 
         {/* Navigation row */}
         <div className="flex flex-col gap-2 sm:flex-row pt-2">

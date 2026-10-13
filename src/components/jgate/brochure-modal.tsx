@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { X, CheckCircle2, Download, AlertCircle, Loader2, ExternalLink } from "lucide-react";
+import { X, CheckCircle2, Download, AlertCircle, Loader2 } from "lucide-react";
 import { useBrochure } from "@/lib/brochure-context";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
@@ -175,12 +174,12 @@ export function BrochureModal() {
           <p className="mt-1 text-[12px] sm:text-[12.5px] leading-relaxed text-slate-600 dark:text-slate-300">
             {status === "success"
               ? tx({
-                  EN: "If the download didn't start automatically, use the direct download or browser preview options below.",
-                  JP: "自動的に始まらない場合は、下のボタンから直接ダウンロードまたはブラウザで閲覧いただけます。",
+                  EN: "If the download didn't start automatically, use the direct download button below.",
+                  JP: "自動的に始まらない場合は、下のボタンから直接ダウンロードいただけます。",
                 })
               : tx({
-                  EN: "Please provide your details below to download the J-Gate India expansion guide (PDF, 55MB).",
-                  JP: "下記の必要事項をご入力いただくと、J-Gateインド進出支援パンフレット（公式PDF・55MB）をダウンロードいただけます。",
+                  EN: "Please provide your details below to download the J-Gate India expansion guide (PDF).",
+                  JP: "下記の必要事項をご入力いただくと、J-Gateインド進出支援パンフレット（公式PDF）をダウンロードいただけます。",
                 })}
           </p>
         </div>
@@ -208,28 +207,17 @@ export function BrochureModal() {
                   className="btn-shine flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3 font-inter text-sm font-semibold text-white transition-all hover:-translate-y-0.5 shadow-lg shadow-crimson/25"
                 >
                   <Download className="h-4 w-4" />
-                  {tx({ EN: "Download PDF (55MB)", JP: "PDF資料をダウンロード (55MB)" })}
+                  {tx({ EN: "Download PDF Brochure", JP: "公式PDF資料をダウンロード" })}
                 </a>
-                <div className="grid grid-cols-2 gap-2">
-                  <a
-                    href="/J-Gate-Brochure.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-1.5 rounded-xl border border-slate-200 dark:border-white/20 bg-slate-100 dark:bg-white/[0.06] px-3 py-2.5 font-inter text-[12px] font-semibold text-slate-800 dark:text-white transition-colors hover:bg-slate-200 dark:hover:bg-white/10"
-                  >
-                    <ExternalLink className="h-3.5 w-3.5 text-saffron" />
-                    {tx({ EN: "Preview Online", JP: "ブラウザで開く" })}
-                  </a>
-                  <button
-                    onClick={() => {
-                      reset();
-                      close();
-                    }}
-                    className="rounded-xl border border-slate-200 dark:border-white/20 px-3 py-2.5 font-inter text-[12px] font-semibold text-slate-800 dark:text-white transition-colors hover:bg-slate-100 dark:hover:bg-white/10 cursor-pointer"
-                  >
-                    {tx({ EN: "Close", JP: "閉じる" })}
-                  </button>
-                </div>
+                <button
+                  onClick={() => {
+                    reset();
+                    close();
+                  }}
+                  className="rounded-xl border border-slate-200 dark:border-white/20 px-4 py-2.5 font-inter text-[12.5px] font-semibold text-slate-800 dark:text-white transition-colors hover:bg-slate-100 dark:hover:bg-white/10 cursor-pointer w-full mt-1"
+                >
+                  {tx({ EN: "Close", JP: "閉じる" })}
+                </button>
               </div>
             </div>
           ) : (

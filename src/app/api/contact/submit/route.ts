@@ -72,9 +72,8 @@ export async function POST(req: NextRequest) {
     const html = `
 <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 620px; margin: 0 auto; background: #080f1a; color: #ffffff; border-radius: 12px; overflow: hidden; border: 1px solid rgba(255,255,255,0.12);">
   <div style="background: linear-gradient(90deg, #bc1a2c, #e8a01a); height: 4px;"></div>
-  <div style="padding: 24px 28px; background: #0c1424; border-bottom: 1px solid rgba(255,255,255,0.08);">
-    <h1 style="color: #ffffff; font-size: 20px; margin: 0 0 6px; font-weight: 700;">📩 New Contact Inquiry</h1>
-    <p style="color: #94a3b8; font-size: 13px; margin: 0;">J-Gate × Indobox — Direct Client Message</p>
+  <div style="padding: 20px 24px; background: #0c1424; border-bottom: 1px solid rgba(255,255,255,0.08);">
+    <h1 style="color: #ffffff; font-size: 18px; margin: 0; font-weight: 700;">New Contact Inquiry</h1>
   </div>
   <div style="padding: 24px 28px;">
     <table style="width: 100%; border-collapse: collapse; font-size: 14px;">

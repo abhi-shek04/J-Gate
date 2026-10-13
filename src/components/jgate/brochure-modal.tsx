@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { X, CheckCircle2, Download, AlertCircle, Loader2, ExternalLink } from "lucide-react";
 import { useBrochure } from "@/lib/brochure-context";
 import { useI18n } from "@/lib/i18n";
-import { sendClientLeadToInbox } from "@/lib/mailer";
 import { cn } from "@/lib/utils";
 
 /* ============================================================
@@ -102,20 +101,6 @@ export function BrochureModal() {
         }
         setStatus("error");
         return;
-      }
-
-      if (!data.emailDelivered) {
-        await sendClientLeadToInbox({
-          subject: `🎫 [J-Gate Brochure Download] ${form.fullName.trim()} (${form.organization.trim()})`,
-          replyTo: form.email.trim(),
-          fields: {
-            Form_Type: "Brochure Download Registration",
-            Full_Name: form.fullName.trim(),
-            Organization: form.organization.trim(),
-            Email: form.email.trim(),
-            Questions_or_Requests: form.questions.trim() || "None provided",
-          },
-        });
       }
 
       const url = data.downloadUrl || "/J-Gate-Brochure.pdf";

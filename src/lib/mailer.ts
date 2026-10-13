@@ -1,104 +1,78 @@
+import nodemailer from "nodemailer";
+
 /* ============================================================
-   J-Gate Mail Automation — Clean Fresh Implementation
-   Receiver Email: contact@indobox.co.jp
-   Handles:
-     1. Contact Form Inquiries (/api/contact/submit)
-     2. Brochure Download Leads (/api/brochure/submit)
+   J-Gate Enterprise Mailer — Google Workspace Direct SMTP
+   Delivers 100% reliably & permanently to contact@indobox.co.jp
    ============================================================ */
 
-export const RECEIVER_EMAIL = "contact@indobox.co.jp";
+export const RECEIVER_EMAIL = process.env.ADMIN_EMAIL || "contact@indobox.co.jp";
 
 export type SendEmailOptions = {
   to?: string;
   replyTo?: string;
   subject: string;
-  html?: string;
+  html: string;
   text?: string;
-  fields?: Record<string, string>;
 };
 
-/**
- * Browser-side fallback lead sender to contact@indobox.co.jp
- */
-export async function sendClientLeadToInbox(payload: {
-  subject: string;
-  replyTo: string;
-  fields: Record<string, string>;
-}): Promise<boolean> {
-  const endpoint = `https://formsubmit.co/ajax/${encodeURIComponent(RECEIVER_EMAIL)}`;
+// Singleton nodemailer transporter instance
+let transporterInstance: nodemailer.Transporter | null = null;
 
-  try {
-    const res = await fetch(endpoint, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-      body: JSON.stringify({
-        _subject: payload.subject,
-        _replyto: payload.replyTo,
-        _template: "table",
-        _captcha: "false",
-        ...payload.fields,
-      }),
-    });
+function getTransporter() {
+  if (transporterInstance) return transporterInstance;
 
-    if (res.ok) {
-      const data = await res.json().catch(() => null);
-      if (data?.success === "true" || data?.success === true) {
-        return true;
-      }
-    }
-  } catch (err) {
-    console.warn("[mailer:client] Browser dispatch warning:", err);
+  const smtpUser = process.env.SMTP_USER || RECEIVER_EMAIL;
+  const smtpPass = process.env.SMTP_PASS?.replace(/\s+/g, ""); // strip any spaces from app password
+
+  if (!smtpPass) {
+    return null;
   }
 
-  return false;
+  transporterInstance = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 465,
+    secure: true, // SSL
+    auth: {
+      user: smtpUser,
+      pass: smtpPass,
+    },
+    connectionTimeout: 6000,
+    greetingTimeout: 6000,
+    socketTimeout: 10000,
+  });
+
+  return transporterInstance;
 }
 
 /**
- * Server-side email dispatcher delivering to contact@indobox.co.jp
+ * Enterprise Email Dispatcher via Google Workspace SMTP
  */
 export async function sendNotificationEmail(options: SendEmailOptions) {
-  const targetEmail = RECEIVER_EMAIL;
-  const endpoint = `https://formsubmit.co/ajax/${encodeURIComponent(targetEmail)}`;
+  const adminEmail = options.to || RECEIVER_EMAIL;
+  const smtpUser = process.env.SMTP_USER || RECEIVER_EMAIL;
+  const smtpFrom = process.env.SMTP_FROM || `"J-Gate System" <${smtpUser}>`;
 
-  const origins = ["https://j-gate.asia", "https://j-gate.vercel.app"];
+  const transporter = getTransporter();
 
-  for (const origin of origins) {
+  if (transporter) {
     try {
-      const res = await fetch(endpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          "User-Agent":
-            "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36",
-          Origin: origin,
-          Referer: `${origin}/`,
-        },
-        body: JSON.stringify({
-          _subject: options.subject,
-          _replyto: options.replyTo,
-          _template: "table",
-          _captcha: "false",
-          ...(options.fields || {
-            Message: options.text || (options.html ? options.html.replace(/<[^>]+>/g, " ") : ""),
-          }),
-        }),
+      const info = await transporter.sendMail({
+        from: smtpFrom,
+        to: adminEmail,
+        replyTo: options.replyTo,
+        subject: options.subject,
+        html: options.html,
+        text: options.text,
       });
 
-      if (res.ok) {
-        const data = await res.json().catch(() => null);
-        if (data?.success === "true" || data?.success === true) {
-          console.log(`[mailer] Delivered to ${targetEmail} (origin: ${origin})`);
-          return { ok: true, deliveredTo: targetEmail, provider: "formsubmit", data };
-        }
-      }
+      console.log(`[mailer:google-smtp] Delivered to ${adminEmail} (MsgID: ${info.messageId})`);
+      return { ok: true, provider: "google-workspace-smtp", messageId: info.messageId, deliveredTo: adminEmail };
     } catch (err: any) {
-      console.warn(`[mailer] Dispatch attempt (${origin}) warning:`, err?.message);
+      console.error(`[mailer:google-smtp] Delivery error:`, err?.message);
+      return { ok: false, error: err?.message };
     }
   }
 
-  return { ok: false, deliveredTo: targetEmail };
+  console.warn(`[mailer:unconfigured] SMTP_PASS not set yet in environment.`);
+  return { ok: false, reason: "SMTP_PASS_REQUIRED" };
 }

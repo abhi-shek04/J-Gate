@@ -191,7 +191,7 @@ const OPS_TEAM: OpsMember[] = [
     email: "contact@indobox.co.jp",
     image: "/team/tanji.png",
     desc: {
-      EN: "With 20 years of experience working for a major trading company (including 5 years stationed in India / Delhi and Mumbai), this Indian business activist has strong connections in both Japan and India. Specializes in B2B, sales and marketing, and new business development. Holds a Master of Business Planning (MPD) degree.\n\nWorked at a Japanese Trading company for 20 years (5 years in India, Delhi/Mumbai). BtoB, Sales & Marketing, New business development. Master of Project Design (MPD).",
+      EN: "Worked at a Japanese Trading company for 20 years (5 years in India, Delhi/Mumbai). BtoB, Sales & Marketing, New business development. Master of Project Design (MPD).",
       JP: "大手商社勤務20年（うちインド駐在5年／デリー・ムンバイ）の経験を持ち、日印双方に強いコネクションを持つインドビジネスアクティビスト。BtoB、営業・マーケティング、新規事業開発が専門。事業構想修士（MPD）。",
     },
     tags: [
@@ -220,7 +220,7 @@ const OPS_TEAM: OpsMember[] = [
     email: "contact@indobox.co.jp",
     image: "/team/hanaoka.png",
     desc: {
-      EN: "After living in Bangladesh (Dhaka), I have been residing in Coimbatore, Tamil Nadu, South India since 2015. I am involved in BizDev for new businesses in India, as well as public relations, design, and content writing. I am also a certified Japanese language teacher (IIT Palakkad). I speak English, Tamil, and Bengali.\n\nAfter living in Dhaka in Bangladesh, settled in Coimbatore, Tamil Nadu, India since 2015. Business development for new business in India and Japan. Public relations, Design, Content writing. Qualified Japanese language teacher (IIT Palakkad). English, Tamil, Bengali.",
+      EN: "After living in Dhaka in Bangladesh, settled in Coimbatore, Tamil Nadu, India since 2015. Business development for new business in India and Japan. Public relations, Design, Content writing. Qualified Japanese language teacher (IIT Palakkad). English, Tamil, Bengali.",
       JP: "バングラデシュ（ダッカ）在住を経て、2015年より南インド・タミルナードゥ州コインバトール在住。インドでの新規事業のBizDev、広報・デザイン・コンテンツライティングに携わる。日本語教師有資格者（IITパラッカド校）。英語、タミル語、ベンガル語。",
     },
     tags: [

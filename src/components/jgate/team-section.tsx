@@ -6,75 +6,148 @@ import { LogoMarquee } from "@/components/jgate/logo-marquee";
 import { useI18n } from "@/lib/i18n";
 import { Phone, Mail, Sparkles } from "lucide-react";
 import { JapanFlag, IndiaFlag } from "./icons";
-import Link from "next/link";
 
 /* ============================================================
    /team — Executive Leadership, Advisory Council & Core Team
-   Layout structured per client hand-sketch:
-   1. PageHero
-   2. Advisory Council (5 Advisors — 3 in Row 1, 2 in Row 2)
-   3. Architectural Divider
-   4. Operations / Organizing Team (4 Core Members in a row)
-   5. Japanese Consultation Reassurance Banner
-   6. Ecosystem Partners (12 Partners with verified logos)
-   7. Closing CTA
    ============================================================ */
 
+type BilingualText = {
+  EN: string;
+  JP: string;
+};
+
+type AdvisorMember = {
+  id: string;
+  name: string;
+  jpName: string;
+  title: BilingualText;
+  desc: BilingualText;
+  image: string;
+  badge: BilingualText;
+  tags: BilingualText[];
+  linkedin: string;
+};
+
 /* Unified Advisory Council List (5 Members) */
-const ALL_ADVISORS = [
+const ALL_ADVISORS: AdvisorMember[] = [
   {
     id: "mahankali",
     name: "Srinivas Rao Mahankali (MSR)",
-    jpName: "スリニヴァス・ラオ・マハンカリ",
-    title: "Former CEO, T-Hub | IT Enterprise Leader",
-    desc: "Led T-Hub, the world's largest startup incubator. Brings decades of senior leadership experience across international IT markets and startup ventures.",
+    jpName: "スリニヴァス・ラオ・マハンカリ (MSR)",
+    title: {
+      EN: "Former CEO, T-Hub | IT Enterprise Leader",
+      JP: "T-Hub 元CEO｜ITエンタープライズリーダー",
+    },
+    desc: {
+      EN: "Led T-Hub, the world's largest startup incubator. Brings decades of senior leadership experience across international IT markets and startup ventures.",
+      JP: "世界最大級のスタートアップ・インキュベーター「T-Hub」を率いた元最高経営責任者。国際的なIT市場やスタートアップ投資において数十年にわたる経営指導実績を持つ。",
+    },
     image: "/advisory/mahankali.png",
-    badge: "T-HUB LEADERSHIP",
-    tags: ["Startup Incubation", "Enterprise IT", "Global Business"],
+    badge: {
+      EN: "T-HUB LEADERSHIP",
+      JP: "T-HUB 元最高経営責任者",
+    },
+    tags: [
+      { EN: "Startup Incubation", JP: "スタートアップ育成" },
+      { EN: "Enterprise IT", JP: "エンタープライズIT" },
+      { EN: "Global Business", JP: "グローバルビジネス" },
+    ],
     linkedin: "https://www.linkedin.com/in/mahankali-srinivas-rao-msr-3112662/",
   },
   {
     id: "jagirdar",
     name: "Sujit Jagirdar",
     jpName: "スジット・ジャギルダー",
-    title: "Former CIO, T-Hub | Technology & Innovation Advisor",
-    desc: "Helped design Telangana's startup initiatives and built international incubation partnerships between India and global tech centers.",
+    title: {
+      EN: "Former CIO, T-Hub | Technology & Innovation Advisor",
+      JP: "T-Hub 元CIO｜テクノロジー＆イノベーション顧問",
+    },
+    desc: {
+      EN: "Helped design Telangana's startup initiatives and built international incubation partnerships between India and global tech centers.",
+      JP: "テランガーナ州のスタートアップ支援施策の立案に携わり、インドと世界の主要テック拠点を結ぶ国際インキュベーション提携を構築。",
+    },
     image: "/advisory/jagirdar.png",
-    badge: "TECHNOLOGY STRATEGIST",
-    tags: ["Innovation Strategy", "International Partnerships", "Startup Programs"],
+    badge: {
+      EN: "TECHNOLOGY STRATEGIST",
+      JP: "テクノロジー戦略顧問",
+    },
+    tags: [
+      { EN: "Innovation Strategy", JP: "イノベーション戦略" },
+      { EN: "International Partnerships", JP: "国際パートナーシップ" },
+      { EN: "Startup Programs", JP: "スタートアップ支援" },
+    ],
     linkedin: "https://www.linkedin.com/in/sujitjagirdar/",
   },
   {
     id: "desai",
     name: "Dr. Uday B. Desai",
     jpName: "ウダイ・B・デサイ博士",
-    title: "Founding Director, IIT Hyderabad | Academic Leader",
-    desc: "Pioneered Japan-India academic collaboration and specialized engineering talent across semiconductor, wireless communications, and AI.",
+    title: {
+      EN: "Founding Director, IIT Hyderabad | Academic Leader",
+      JP: "インド工科大学ハイデラバード校（IITH）初代学長｜学術リーダー",
+    },
+    desc: {
+      EN: "Pioneered Japan-India academic collaboration and specialized engineering talent across semiconductor, wireless communications, and AI.",
+      JP: "日印間の産学連携を先導し、半導体・無線通信・AI分野における高度エンジニアリング人材の育成と学術交流の礎を築いたパイオニア。",
+    },
     image: "/advisory/desai.png",
-    badge: "IIT FOUNDING DIRECTOR",
-    tags: ["Academic Leadership", "Semiconductor & AI", "Engineering Talent"],
+    badge: {
+      EN: "IIT FOUNDING DIRECTOR",
+      JP: "IITハイデラバード 初代学長",
+    },
+    tags: [
+      { EN: "Academic Leadership", JP: "学術リーダーシップ" },
+      { EN: "Semiconductor & AI", JP: "半導体・AI研究" },
+      { EN: "Engineering Talent", JP: "高度技術人材育成" },
+    ],
     linkedin: "https://www.linkedin.com/in/uday-desai-4752b04/",
   },
   {
     id: "sarikonda",
     name: "Dr. Viinay Sarikonda",
     jpName: "ヴィーナイ・サリコンダ博士",
-    title: "CEO, Genesys Info X | Strategic Enterprise Advisor",
-    desc: "Bilateral enterprise strategist driving digital transformation, strategic partnerships, and market entry for Japanese multinationals.",
+    title: {
+      EN: "CEO, Genesys Info X | Strategic Enterprise Advisor",
+      JP: "Genesys Info X 最高経営責任者（CEO）｜戦略企業顧問",
+    },
+    desc: {
+      EN: "Bilateral enterprise strategist driving digital transformation, strategic partnerships, and market entry for Japanese multinationals.",
+      JP: "日系グローバル企業のインド市場参入、デジタルトランスフォーメーション（DX）、および戦略的パートナーシップ構築を推進する日印ビジネスストラテジスト。",
+    },
     image: "/advisory/sarikonda.png",
-    badge: "GENESYS INFO X",
-    tags: ["Digital Transformation", "Strategic Partnerships", "Market Entry"],
+    badge: {
+      EN: "GENESYS INFO X",
+      JP: "GENESYS INFO X 代表",
+    },
+    tags: [
+      { EN: "Digital Transformation", JP: "DX推進" },
+      { EN: "Strategic Partnerships", JP: "戦略的提携" },
+      { EN: "Market Entry", JP: "インド市場参入" },
+    ],
     linkedin: "https://www.linkedin.com/in/dr-viinay-sarikonda-5b23261a/",
   },
   {
     id: "isogai",
     name: "Tomio Isogai",
-    jpName: "磯貝 富雄 · 元シャープ・インディア社長",
-    title: "Former Managing Director, Sharp India | Senior Adviser, Kochhar Law Firm",
-    desc: "Based in Pune, West India. 37 years of experience in global business. Former president of Sharp India, lived in India for 12 years. Board member of the Kansai Japan-India Cultural Association. Senior advisor at Kochhar Law Firm in India.\n\nResident of Pune, Western India. Global business 37 years. Former Managing Director of Sharp India, 12 years in India. Director of Kansai Japan-India Cultural Association. Senior Adviser of Kochhar Law Firm, India.",
+    jpName: "磯貝 富雄",
+    title: {
+      EN: "Former Managing Director, Sharp India | Senior Adviser, Kochhar Law Firm",
+      JP: "元シャープ・インディア社長｜関西日印文化協会理事｜コッチャル法律事務所シニアアドバイザー",
+    },
+    desc: {
+      EN: "Based in Pune, West India. 37 years of experience in global business. Former president of Sharp India, lived in India for 12 years. Board member of the Kansai Japan-India Cultural Association. Senior advisor at Kochhar Law Firm in India.\n\nResident of Pune, Western India. Global business 37 years. Former Managing Director of Sharp India, 12 years in India. Director of Kansai Japan-India Cultural Association. Senior Adviser of Kochhar Law Firm, India.",
+      JP: "西インド・プネ在住。グローバルビジネス歴37年。元シャープ・インディア社長、インド在住12年。関西日印文化協会理事。インド・コッチャル法律事務所シニアアドバイザー。",
+    },
     image: "/advisory/isogai.png",
-    badge: "EX-SHARP INDIA MD",
-    tags: ["Global Business (37 Yrs)", "Kansai Japan-India Cultural Assoc.", "Kochhar Law Firm Adviser"],
+    badge: {
+      EN: "EX-SHARP INDIA MD",
+      JP: "元シャープ・インディア社長",
+    },
+    tags: [
+      { EN: "Global Business (37 Yrs)", JP: "グローバルビジネス37年" },
+      { EN: "Kansai Japan-India Cultural Assoc.", JP: "関西日印文化協会理事" },
+      { EN: "Kochhar Law Firm Adviser", JP: "コッチャル法律事務所顧問" },
+    ],
     linkedin: "https://www.linkedin.com/in/tomio-isogai-416b9b16/",
   },
 ];
@@ -89,16 +162,15 @@ type OpsMember = {
   id: string;
   name: string;
   jpName: string;
-  role: string;
-  badge?: string;
-  subtitle: string;
+  role: BilingualText;
+  subtitle: BilingualText;
   flag: string;
-  country: string;
+  country: "Japan" | "India";
   phone?: string;
   email: string;
   image: string;
-  desc: string;
-  tags: string[];
+  desc: BilingualText;
+  tags: BilingualText[];
   linkedin: string;
   languages: SpokenLanguage[];
 };
@@ -109,14 +181,24 @@ const OPS_TEAM: OpsMember[] = [
     id: "tanji",
     name: "Daisuke Tanji",
     jpName: "丹治 大佑",
-    role: "DIRECTOR",
-    subtitle: "B2B, Sales & Marketing | New Business Development | MPD",
+    role: { EN: "DIRECTOR", JP: "ディレクター" },
+    subtitle: {
+      EN: "B2B, Sales & Marketing | New Business Development | MPD",
+      JP: "BtoB・営業マーケティング｜新規事業開発｜事業構想修士（MPD）",
+    },
     flag: "🇯🇵",
     country: "Japan",
     email: "contact@indobox.co.jp",
     image: "/team/tanji.png",
-    desc: "With 20 years of experience working for a major trading company (including 5 years stationed in India / Delhi and Mumbai), this Indian business activist has strong connections in both Japan and India. Specializes in B2B, sales and marketing, and new business development. Holds a Master of Business Planning (MPD) degree.\n\nWorked at a Japanese Trading company for 20 years (5 years in India, Delhi/Mumbai). BtoB, Sales & Marketing, New business development. Master of Project Design (MPD).",
-    tags: ["B2B Sales & Marketing", "New Business Development", "Master of Project Design (MPD)"],
+    desc: {
+      EN: "With 20 years of experience working for a major trading company (including 5 years stationed in India / Delhi and Mumbai), this Indian business activist has strong connections in both Japan and India. Specializes in B2B, sales and marketing, and new business development. Holds a Master of Business Planning (MPD) degree.\n\nWorked at a Japanese Trading company for 20 years (5 years in India, Delhi/Mumbai). BtoB, Sales & Marketing, New business development. Master of Project Design (MPD).",
+      JP: "大手商社勤務20年（うちインド駐在5年／デリー・ムンバイ）の経験を持ち、日印双方に強いコネクションを持つインドビジネスアクティビスト。BtoB、営業・マーケティング、新規事業開発が専門。事業構想修士（MPD）。",
+    },
+    tags: [
+      { EN: "B2B Sales & Marketing", JP: "BtoB・営業マーケティング" },
+      { EN: "New Business Development", JP: "新規事業開発" },
+      { EN: "Master of Project Design (MPD)", JP: "事業構想修士 (MPD)" },
+    ],
     linkedin: "https://www.linkedin.com/in/daisuke-tanji/",
     languages: [
       { EN: "Japanese", JP: "日本語", highlight: true },
@@ -128,14 +210,25 @@ const OPS_TEAM: OpsMember[] = [
     id: "hanaoka",
     name: "Mariko Hanaoka",
     jpName: "花岡 真理子",
-    role: "DIRECTOR",
-    subtitle: "Business Development, PR & Design | Certified Japanese Teacher (IIT Palakkad)",
+    role: { EN: "DIRECTOR", JP: "ディレクター" },
+    subtitle: {
+      EN: "Business Development, PR & Design | Certified Japanese Teacher (IIT Palakkad)",
+      JP: "新規事業開発・広報・デザイン｜日本語教師有資格者（IITパラッカド校）",
+    },
     flag: "🇯🇵",
     country: "Japan",
     email: "contact@indobox.co.jp",
     image: "/team/hanaoka.png",
-    desc: "After living in Bangladesh (Dhaka), I have been residing in Coimbatore, Tamil Nadu, South India since 2015. I am involved in BizDev for new businesses in India, as well as public relations, design, and content writing. I am also a certified Japanese language teacher (IIT Palakkad). I speak English, Tamil, and Bengali.\n\nAfter living in Dhaka in Bangladesh, settled in Coimbatore, Tamil Nadu, India since 2015. Business development for new business in India and Japan. Public relations, Design, Content writing. Qualified Japanese language teacher (IIT Palakkad). English, Tamil, Bengali.",
-    tags: ["Business Development", "PR & Design", "Content Writing", "IIT Palakkad"],
+    desc: {
+      EN: "After living in Bangladesh (Dhaka), I have been residing in Coimbatore, Tamil Nadu, South India since 2015. I am involved in BizDev for new businesses in India, as well as public relations, design, and content writing. I am also a certified Japanese language teacher (IIT Palakkad). I speak English, Tamil, and Bengali.\n\nAfter living in Dhaka in Bangladesh, settled in Coimbatore, Tamil Nadu, India since 2015. Business development for new business in India and Japan. Public relations, Design, Content writing. Qualified Japanese language teacher (IIT Palakkad). English, Tamil, Bengali.",
+      JP: "バングラデシュ（ダッカ）在住を経て、2015年より南インド・タミルナードゥ州コインバトール在住。インドでの新規事業のBizDev、広報・デザイン・コンテンツライティングに携わる。日本語教師有資格者（IITパラッカド校）。英語、タミル語、ベンガル語。",
+    },
+    tags: [
+      { EN: "Business Development", JP: "新規事業開発 (BizDev)" },
+      { EN: "PR & Design", JP: "広報・デザイン" },
+      { EN: "Content Writing", JP: "コンテンツ制作" },
+      { EN: "IIT Palakkad", JP: "IITパラッカド校" },
+    ],
     linkedin: "https://www.linkedin.com/in/marikohanaoka/",
     languages: [
       { EN: "Japanese", JP: "日本語", highlight: true },
@@ -148,15 +241,25 @@ const OPS_TEAM: OpsMember[] = [
     id: "dheeraj",
     name: "Dheeraj Yenneti",
     jpName: "ディラージゥ・イェネティー",
-    role: "ADMINISTRATOR",
-    subtitle: "Operations Head | Admissions Specialist",
+    role: { EN: "ADMINISTRATOR", JP: "アドミニストレーター" },
+    subtitle: {
+      EN: "Operations Head | Admissions Specialist",
+      JP: "現地運営責任者｜コミュニティ＆バイリンガル窓口",
+    },
     flag: "🇮🇳",
     country: "India",
     phone: "+91-98498 11543",
     email: "contact@indobox.co.jp",
     image: "/team/dheeraj.png",
-    desc: "Directing admissions, operational infrastructure, and enrollment pipelines for hybrid offline and online learning batches.",
-    tags: ["Admissions", "Operations", "Hybrid Learning"],
+    desc: {
+      EN: "Directing admissions, operational infrastructure, and enrollment pipelines for hybrid offline and online learning batches.",
+      JP: "ハイデラバード拠点における日常運営インフラの統括、入居企業サポート、および日本語・英語でのバイリンガル窓口業務を担当。",
+    },
+    tags: [
+      { EN: "Admissions", JP: "入居・窓口対応" },
+      { EN: "Operations", JP: "拠点運営統括" },
+      { EN: "Hybrid Learning", JP: "バイリンガル支援" },
+    ],
     linkedin: "https://www.linkedin.com/in/dheeraj-yenneti-41866531b/",
     languages: [
       { EN: "Japanese", JP: "日本語", highlight: true },
@@ -169,14 +272,23 @@ const OPS_TEAM: OpsMember[] = [
     id: "abhishek",
     name: "Abhishek Buduru",
     jpName: "アブシェーク・ブドゥル",
-    role: "IT & OPERATIONS",
-    subtitle: "IT Support & Workspace Operations",
+    role: { EN: "IT & OPERATIONS", JP: "IT＆オペレーション" },
+    subtitle: {
+      EN: "IT Support & Workspace Operations",
+      JP: "ITサポート＆ワークスペース運営",
+    },
     flag: "🇮🇳",
     country: "India",
     email: "contact@indobox.co.jp",
     image: "/team/abhishek.png",
-    desc: "Assists with IT setup, member support, and day-to-day workspace operations at J-Gate Hyderabad.",
-    tags: ["IT Support", "Workspace Operations"],
+    desc: {
+      EN: "Assists with IT setup, member support, and day-to-day workspace operations at J-Gate Hyderabad.",
+      JP: "J-Gateハイデラバード拠点におけるIT環境セットアップ、入居メンバーサポート、および日常のワークスペース運営実務を担当。",
+    },
+    tags: [
+      { EN: "IT Support", JP: "ITサポート" },
+      { EN: "Workspace Operations", JP: "ワークスペース運営" },
+    ],
     linkedin: "https://www.linkedin.com/in/buduru-abhishek/",
     languages: [
       { EN: "English", JP: "英語", highlight: true },
@@ -253,16 +365,20 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                     {/* Right Details */}
                     <div className="flex-1 text-center sm:text-left">
                       <h4 className="font-serif-jp text-lg sm:text-xl font-bold text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-saffron-light transition-colors">
-                        {adv.name}
+                        {lang === "JP" ? adv.jpName : adv.name}
                       </h4>
-                      {lang === "JP" && <p className="font-sans-jp text-xs text-slate-500 dark:text-slate-400 mt-0.5">{adv.jpName}</p>}
+                      {lang === "JP" && (
+                        <p className="font-inter text-xs text-slate-500 dark:text-slate-400 mt-0.5">
+                          {adv.name}
+                        </p>
+                      )}
 
                       <p className="mt-1 font-inter text-xs sm:text-[13px] font-semibold text-crimson dark:text-saffron leading-snug">
-                        {adv.title}
+                        {tx(adv.title)}
                       </p>
 
-                      <p className="mt-2 font-inter text-xs sm:text-[12.5px] leading-relaxed text-slate-600 dark:text-slate-300">
-                        {adv.desc}
+                      <p className="mt-2 font-inter text-xs sm:text-[12.5px] leading-relaxed text-slate-600 dark:text-slate-300 whitespace-pre-line">
+                        {tx(adv.desc)}
                       </p>
 
                       {/* Domain Pills */}
@@ -272,7 +388,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                             key={ti}
                             className="rounded-md px-2 py-0.5 font-inter text-[10px] font-semibold bg-saffron/10 dark:bg-saffron/15 border border-saffron/30 dark:border-saffron/30 text-saffron-dark dark:text-amber-200"
                           >
-                            {tag}
+                            {tx(tag)}
                           </span>
                         ))}
                       </div>
@@ -288,7 +404,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                           <span className="flex h-4 w-4 items-center justify-center rounded bg-[#0A66C2] text-white text-[9px] font-black">
                             in
                           </span>
-                          <span>CONNECT</span>
+                          <span>{tx({ EN: "CONNECT", JP: "LinkedIn" })}</span>
                         </a>
                       </div>
                     </div>
@@ -327,23 +443,27 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
 
                       {/* Badge */}
                       <span className="mt-3 inline-block font-inter text-[10px] font-bold uppercase tracking-wider text-saffron-dark dark:text-saffron">
-                        {adv.badge}
+                        {tx(adv.badge)}
                       </span>
 
                       {/* Name */}
                       <h4 className="mt-1 font-serif-jp text-base sm:text-lg font-bold text-ink dark:text-white group-hover:text-crimson dark:group-hover:text-saffron-light transition-colors">
-                        {adv.name}
+                        {lang === "JP" ? adv.jpName : adv.name}
                       </h4>
-                      {lang === "JP" && <p className="font-sans-jp text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">{adv.jpName}</p>}
+                      {lang === "JP" && (
+                        <p className="font-inter text-[11px] text-slate-500 dark:text-slate-400 mt-0.5">
+                          {adv.name}
+                        </p>
+                      )}
 
                       {/* Title */}
                       <p className="mt-1.5 font-inter text-xs font-semibold text-crimson dark:text-saffron leading-snug">
-                        {adv.title}
+                        {tx(adv.title)}
                       </p>
 
                       {/* Desc */}
                       <p className="mt-2 font-inter text-xs leading-relaxed text-slate-600 dark:text-slate-300 whitespace-pre-line">
-                        {adv.desc}
+                        {tx(adv.desc)}
                       </p>
                     </div>
 
@@ -355,7 +475,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                             key={ti}
                             className="rounded px-1.5 py-0.5 font-inter text-[9.5px] font-medium bg-slate-100 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-slate-600 dark:text-slate-300"
                           >
-                            {tag}
+                            {tx(tag)}
                           </span>
                         ))}
                       </div>
@@ -371,7 +491,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                           <span className="flex h-3.5 w-3.5 items-center justify-center rounded bg-[#0A66C2] text-white text-[8.5px] font-black">
                             in
                           </span>
-                          <span>CONNECT</span>
+                          <span>{tx({ EN: "CONNECT", JP: "LinkedIn" })}</span>
                         </a>
                       </div>
                     </div>
@@ -411,23 +531,26 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                       </div>
                       <span className="absolute -bottom-2 -right-1 flex items-center gap-1 rounded-full bg-white dark:bg-black px-2 py-0.5 text-[9px] font-bold text-slate-800 dark:text-slate-200 shadow-sm border border-slate-200 dark:border-white/20">
                         <JapanFlag className="h-3 w-4.5 rounded-xs" />
-                        <span>JAPAN</span>
+                        <span>{tx({ EN: "JAPAN", JP: "日本" })}</span>
                       </span>
                     </div>
 
                     <div className="flex-1 text-center sm:text-left">
                       <span className="font-inter text-[10.5px] font-extrabold uppercase tracking-widest text-crimson dark:text-rose-400">
-                        {m.role}
+                        {tx(m.role)}
                       </span>
                       <h4 className="font-serif-jp text-lg sm:text-xl font-bold text-ink dark:text-white mt-0.5">
-                        {m.name} <span className="font-sans-jp text-sm font-normal text-slate-500 dark:text-slate-400">({m.jpName})</span>
+                        {lang === "JP" ? m.jpName : m.name}{" "}
+                        <span className="font-sans-jp text-sm font-normal text-slate-500 dark:text-slate-400">
+                          ({lang === "JP" ? m.name : m.jpName})
+                        </span>
                       </h4>
                       <p className="font-inter text-xs font-semibold text-slate-800 dark:text-slate-200 mt-1">
-                        {m.subtitle}
+                        {tx(m.subtitle)}
                       </p>
 
                       <p className="mt-2 font-inter text-xs leading-relaxed text-slate-600 dark:text-slate-300 whitespace-pre-line">
-                        {m.desc}
+                        {tx(m.desc)}
                       </p>
 
                       {/* Language badges */}
@@ -458,7 +581,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                             <span className="flex h-3.5 w-3.5 items-center justify-center rounded bg-[#0A66C2] text-white text-[8.5px] font-black">
                               in
                             </span>
-                            <span>CONNECT</span>
+                            <span>{tx({ EN: "CONNECT", JP: "LinkedIn" })}</span>
                           </a>
                         )}
                         {m.id !== "hanaoka" && m.email && (
@@ -495,23 +618,26 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                       </div>
                       <span className="absolute -bottom-2 -right-1 flex items-center gap-1 rounded-full bg-white dark:bg-black px-2 py-0.5 text-[9px] font-bold text-slate-800 dark:text-slate-200 shadow-sm border border-slate-200 dark:border-white/20">
                         <IndiaFlag className="h-3 w-4.5 rounded-xs" />
-                        <span>INDIA</span>
+                        <span>{tx({ EN: "INDIA", JP: "インド" })}</span>
                       </span>
                     </div>
 
                     <div className="flex-1 text-center sm:text-left">
                       <span className="font-inter text-[10.5px] font-extrabold uppercase tracking-widest text-saffron-dark dark:text-saffron">
-                        {m.role}
+                        {tx(m.role)}
                       </span>
                       <h4 className="font-serif-jp text-lg sm:text-xl font-bold text-ink dark:text-white mt-0.5">
-                        {m.name} <span className="font-sans-jp text-sm font-normal text-slate-500 dark:text-slate-400">({m.jpName})</span>
+                        {lang === "JP" ? m.jpName : m.name}{" "}
+                        <span className="font-sans-jp text-sm font-normal text-slate-500 dark:text-slate-400">
+                          ({lang === "JP" ? m.name : m.jpName})
+                        </span>
                       </h4>
                       <p className="font-inter text-xs font-semibold text-slate-800 dark:text-slate-200 mt-1">
-                        {m.subtitle}
+                        {tx(m.subtitle)}
                       </p>
 
-                      <p className="mt-2 font-inter text-xs leading-relaxed text-slate-600 dark:text-slate-300">
-                        {m.desc}
+                      <p className="mt-2 font-inter text-xs leading-relaxed text-slate-600 dark:text-slate-300 whitespace-pre-line">
+                        {tx(m.desc)}
                       </p>
 
                       {/* Language badges */}
@@ -542,7 +668,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                             <span className="flex h-3.5 w-3.5 items-center justify-center rounded bg-[#0A66C2] text-white text-[8.5px] font-black">
                               in
                             </span>
-                            <span>CONNECT</span>
+                            <span>{tx({ EN: "CONNECT", JP: "LinkedIn" })}</span>
                           </a>
                         )}
                         {m.phone && (
@@ -577,11 +703,11 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
               <div className="relative rounded-xl sm:rounded-2xl border border-saffron/50 dark:border-saffron/40 bg-amber-50/60 dark:bg-black p-3.5 sm:p-4 text-center shadow-xs">
                 <div className="flex flex-wrap items-center justify-center gap-1.5 mb-2">
                   <span className="inline-block rounded-full bg-saffron/20 dark:bg-black border border-saffron/40 dark:border-amber-400/30 px-2 py-0.5 font-inter text-[9px] sm:text-[9.5px] font-bold uppercase tracking-wider text-saffron-dark dark:text-amber-300">
-                    {tx({ EN: "BILINGUAL CONCIERGE SUPPORT", JP: "BILINGUAL CONCIERGE · バイリンガル対応" })}
+                    {tx({ EN: "BILINGUAL CONCIERGE SUPPORT", JP: "バイリンガル・コンシェルジュ対応" })}
                   </span>
                   <span className="inline-flex items-center gap-1 rounded-full bg-crimson/10 dark:bg-rose-950/60 border border-crimson/20 dark:border-rose-400/30 px-2 py-0.5 font-inter text-[9px] sm:text-[9.5px] font-bold text-crimson dark:text-rose-300">
                     <Sparkles className="h-2.5 w-2.5" />
-                    <span>Dheeraj (Community Manager)</span>
+                    <span>{tx({ EN: "Dheeraj (Community Manager)", JP: "ディラージゥ（コミュニティマネージャー）" })}</span>
                   </span>
                 </div>
 

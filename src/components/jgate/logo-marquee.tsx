@@ -1,38 +1,95 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { useI18n } from "@/lib/i18n";
 
 /* ============================================================
    LogoMarquee — infinite scrolling ecosystem partner logo wall
    Only verified partners from client brochure & official corridor ties
    ============================================================ */
 
+type BilingualText = {
+  EN: string;
+  JP: string;
+};
+
 type Logo = {
   name: string;
   src: string;
-  category: string;
-  desc?: string;
+  category: BilingualText;
+  desc?: BilingualText;
 };
 
 // Row 1 — Innovation Hub, Academia, MoU, Deep-Tech & Communications (5 partners)
 const ECOSYSTEM_ROW_1: Logo[] = [
-  { name: "T-Hub", src: "/logos/thub.png", category: "INNOVATION HUB", desc: "World's Largest Innovation Center" },
-  { name: "Woxsen University", src: "/logos/woxsen.png", category: "ACADEMIC PARTNER", desc: "Executive Talent & Research" },
-  { name: "Genesys Info X", src: "/logos/genesys-info-x.png", category: "MoU PARTNER", desc: "Global Digital Solutions" },
-  { name: "Kodryx.ai", src: "/logos/kodryx.png", category: "DATA INTELLIGENCE", desc: "Enterprise AI & Analytics" },
-  { name: "Daakia", src: "/logos/daakia.png", category: "COMMUNICATIONS", desc: "Bridging Distance with AI" },
+  {
+    name: "T-Hub",
+    src: "/logos/thub.png",
+    category: { EN: "INNOVATION HUB", JP: "イノベーション拠点" },
+    desc: { EN: "World's Largest Innovation Center", JP: "世界最大級のイノベーションセンター" },
+  },
+  {
+    name: "Woxsen University",
+    src: "/logos/woxsen.png",
+    category: { EN: "ACADEMIC PARTNER", JP: "学術提携パートナー" },
+    desc: { EN: "Executive Talent & Research", JP: "高度人材育成＆先端研究" },
+  },
+  {
+    name: "Genesys Info X",
+    src: "/logos/genesys-info-x.png",
+    category: { EN: "MoU PARTNER", JP: "MoU戦略提携パートナー" },
+    desc: { EN: "Global Digital Solutions", JP: "グローバルデジタルソリューション" },
+  },
+  {
+    name: "Kodryx.ai",
+    src: "/logos/kodryx.png",
+    category: { EN: "DATA INTELLIGENCE", JP: "データインテリジェンス" },
+    desc: { EN: "Enterprise AI & Analytics", JP: "エンタープライズAI＆データ分析" },
+  },
+  {
+    name: "Daakia",
+    src: "/logos/daakia.png",
+    category: { EN: "COMMUNICATIONS", JP: "コミュニケーション" },
+    desc: { EN: "Bridging Distance with AI", JP: "AIで世界の距離をつなぐ" },
+  },
 ];
 
 // Row 2 — Tech Platforms, Media, Community, Youth Forum & Analytics (5 partners)
 const ECOSYSTEM_ROW_2: Logo[] = [
-  { name: "MXC", src: "/logos/mxc.png", category: "TECH PLATFORMS", desc: "Next-Gen Software Solutions" },
-  { name: "Fingerprint Films", src: "/logos/fingerprint-films.png", category: "CREATIVE STUDIO", desc: "Brand Storytelling & Media" },
-  { name: "Hyderabad Anime Club", src: "/logos/hyderabad-anime-club.png", category: "CULTURAL COMMUNITY", desc: "Cultural & Community Network" },
-  { name: "YANC", src: "/logos/yanc.png", category: "NETWORKING", desc: "Young Minds Global Forum" },
-  { name: "DMI", src: "/logos/dmi.png", category: "ANALYTICS", desc: "Market & Talent Intelligence" },
+  {
+    name: "MXC",
+    src: "/logos/mxc.png",
+    category: { EN: "TECH PLATFORMS", JP: "テックプラットフォーム" },
+    desc: { EN: "Next-Gen Software Solutions", JP: "次世代ソフトウェアソリューション" },
+  },
+  {
+    name: "Fingerprint Films",
+    src: "/logos/fingerprint-films.png",
+    category: { EN: "CREATIVE STUDIO", JP: "クリエイティブスタジオ" },
+    desc: { EN: "Brand Storytelling & Media", JP: "ブランドストーリー＆メディア制作" },
+  },
+  {
+    name: "Hyderabad Anime Club",
+    src: "/logos/hyderabad-anime-club.png",
+    category: { EN: "CULTURAL COMMUNITY", JP: "日印カルチャーコミュニティ" },
+    desc: { EN: "Cultural & Community Network", JP: "文化交流・コミュニティネットワーク" },
+  },
+  {
+    name: "YANC",
+    src: "/logos/yanc.png",
+    category: { EN: "NETWORKING", JP: "ネットワーキング" },
+    desc: { EN: "Young Minds Global Forum", JP: "次世代リーダー国際フォーラム" },
+  },
+  {
+    name: "DMI",
+    src: "/logos/dmi.png",
+    category: { EN: "ANALYTICS", JP: "マーケット分析" },
+    desc: { EN: "Market & Talent Intelligence", JP: "市場・人材インテリジェンス" },
+  },
 ];
 
 function PartnerCard({ logo, variant = "light" }: { logo: Logo; variant?: "light" | "dark" }) {
+  const { tx } = useI18n();
   const isDark = variant === "dark";
 
   return (
@@ -85,7 +142,7 @@ function PartnerCard({ logo, variant = "light" }: { logo: Logo; variant?: "light
             isDark ? "text-saffron" : "text-crimson dark:text-rose-400"
           )}
         >
-          {logo.category}
+          {tx(logo.category)}
         </span>
         {logo.desc && (
           <p
@@ -94,7 +151,7 @@ function PartnerCard({ logo, variant = "light" }: { logo: Logo; variant?: "light
               isDark ? "text-mist" : "text-slate-500 dark:text-slate-400"
             )}
           >
-            {logo.desc}
+            {tx(logo.desc)}
           </p>
         )}
       </div>
@@ -128,7 +185,7 @@ export function LogoMarquee({ variant = "light" }: { variant?: "light" | "dark" 
       {/* Row 2 — Continuous Flow (Rightward) */}
       <div className="marquee-track relative overflow-hidden py-0.5 sm:py-1" style={maskStyle}>
         <div
-          className="flex w-max gap-2.5 sm:gap-4 animate-marquee"
+          className="flex w-max gap-2.5 sm:py-0 sm:gap-4 animate-marquee"
           style={{ animationDirection: "reverse", animationDuration: "40s" }}
         >
           {row2.map((logo, i) => (

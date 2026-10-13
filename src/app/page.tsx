@@ -21,7 +21,7 @@ import { AboutSection } from "@/components/jgate/about-section";
 import { WhyJGateSection } from "@/components/jgate/why-jgate-section";
 import { ServicesSection } from "@/components/jgate/services-section";
 import { TeamSection } from "@/components/jgate/team-section";
-import { PricingSection } from "@/components/jgate/pricing-section";
+
 import { FAQSection } from "@/components/jgate/faq-section";
 import { BlogsSection } from "@/components/jgate/blogs-section";
 import { ContactSection } from "@/components/jgate/contact-section";
@@ -490,12 +490,7 @@ export default function HomePage() {
                     {tx({ EN: "View Office Gallery & Photos", JP: "オフィス施設写真を見る" })}
                     <ArrowRight className="h-4 w-4" />
                   </Link>
-                  <Link
-                    href="/pricing"
-                    className="inline-flex items-center gap-2 rounded-xl border border-slate-300 dark:border-white/20 bg-white dark:bg-[#09090b] px-4 py-2.5 sm:px-6 sm:py-3.5 font-inter text-[12.5px] sm:text-[13.5px] font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/10 hover:border-slate-400 dark:hover:border-white/30 transition-all shadow-sm"
-                  >
-                    {tx({ EN: "View Membership Plans", JP: "料金プランを見る" })}
-                  </Link>
+
                 </div>
               </Reveal>
             </div>
@@ -523,10 +518,7 @@ export default function HomePage() {
          ════════════════════════════════════════════════════════════ */}
       <BlogsSection id="blogs" hideHero />
 
-      {/* ════════════════════════════════════════════════════════════
-          9. PRICING & MEMBERSHIP PLANS — Plan Cards & Guarantees
-         ════════════════════════════════════════════════════════════ */}
-      <PricingSection id="pricing" hideHero />
+
 
       {/* ════════════════════════════════════════════════════════════
           10. CONTACT & JAPAN DESK CONSOLE

@@ -17,7 +17,7 @@ const NAV_LINKS = [
   { href: "/#services", key: "nav.services" },
   { href: "/#team", key: "nav.team" },
   { href: "/#blogs", key: "nav.blogs" },
-  { href: "/#pricing", key: "nav.pricing" },
+
   { href: "/#contact", key: "nav.contact" },
   { href: "/#faq", key: "nav.faq" },
 ] as const;
@@ -86,7 +86,7 @@ export function Navbar() {
       "services",
       "team",
       "blogs",
-      "pricing",
+
       "contact",
       "faq",
     ];

@@ -105,9 +105,8 @@ export async function POST(req: NextRequest) {
         </td>
       </tr>
     </table>
-    <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 11.5px; color: #64748b;">
-      <p style="margin: 0;">Time: ${timestamp} · IP: ${escapeHtml(sourceIp)} · ID: ${inquiryId}</p>
-      <p style="margin: 4px 0 0; color: #4ade80;">💡 Tip: Click "Reply" in your email client to respond directly to ${escapeHtml(email.trim())}.</p>
+    <div style="margin-top: 20px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 12px; color: #64748b;">
+      <p style="margin: 0;">Received: ${new Date().toLocaleString("en-US", { timeZone: "Asia/Tokyo", dateStyle: "medium", timeStyle: "short" })} JST</p>
     </div>
   </div>
 </div>`;
@@ -118,7 +117,7 @@ export async function POST(req: NextRequest) {
         replyTo: email.trim(),
         subject: `📩 [J-Gate Contact Inquiry] from ${name.trim()} (${subject?.trim() || "General Inquiry"})`,
         html,
-        text: `New Contact Inquiry\nName: ${name.trim()}\nEmail: ${email.trim()}\nSubject: ${subject?.trim() || "General Inquiry"}\nMessage:\n${message.trim()}\nLanguage: ${lang || "EN"}\nTime: ${timestamp}\nID: ${inquiryId}`,
+        text: `New Contact Inquiry\nName: ${name.trim()}\nEmail: ${email.trim()}\nSubject: ${subject?.trim() || "General Inquiry"}\nMessage:\n${message.trim()}`,
         fields: {
           "Client Name": name.trim(),
           "Client Email": email.trim(),

@@ -105,9 +105,8 @@ export async function POST(req: NextRequest) {
         </td>
       </tr>
     </table>
-    <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 11.5px; color: #64748b;">
-      <p style="margin: 0;">Time: ${timestamp} · IP: ${escapeHtml(sourceIp)} · ID: ${leadId}</p>
-      <p style="margin: 4px 0 0; color: #4ade80;">💡 Tip: Click "Reply" in your email client to reach out to ${escapeHtml(fullName.trim())} (${escapeHtml(email.trim())}).</p>
+    <div style="margin-top: 20px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,0.08); font-size: 12px; color: #64748b;">
+      <p style="margin: 0;">Received: ${new Date().toLocaleString("en-US", { timeZone: "Asia/Tokyo", dateStyle: "medium", timeStyle: "short" })} JST</p>
     </div>
   </div>
 </div>`;
@@ -118,7 +117,7 @@ export async function POST(req: NextRequest) {
         replyTo: email.trim(),
         subject: `🎫 [J-Gate Brochure Lead] ${fullName.trim()} (${organization.trim()})`,
         html,
-        text: `New Brochure Download\nName: ${fullName.trim()}\nOrganization: ${organization.trim()}\nEmail: ${email.trim()}\nQuestions: ${questions?.trim() || "None"}\nTime: ${timestamp}\nLead ID: ${leadId}`,
+        text: `New Brochure Download\nName: ${fullName.trim()}\nOrganization: ${organization.trim()}\nEmail: ${email.trim()}\nQuestions: ${questions?.trim() || "None"}`,
         fields: {
           "Full Name": fullName.trim(),
           "Organization / Company": organization.trim(),

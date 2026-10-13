@@ -135,7 +135,7 @@ const ALL_ADVISORS: AdvisorMember[] = [
       JP: "元シャープ・インディア社長｜関西日印文化協会理事｜コッチャル法律事務所シニアアドバイザー",
     },
     desc: {
-      EN: "Based in Pune, West India. 37 years of experience in global business. Former president of Sharp India, lived in India for 12 years. Board member of the Kansai Japan-India Cultural Association. Senior advisor at Kochhar Law Firm in India.\n\nResident of Pune, Western India. Global business 37 years. Former Managing Director of Sharp India, 12 years in India. Director of Kansai Japan-India Cultural Association. Senior Adviser of Kochhar Law Firm, India.",
+      EN: "Resident of Pune, Western India. Global business 37 years. Former Managing Director of Sharp India, 12 years in India. Director of Kansai Japan-India Cultural Association. Senior Adviser of Kochhar Law Firm, India.",
       JP: "西インド・プネ在住。グローバルビジネス歴37年。元シャープ・インディア社長、インド在住12年。関西日印文化協会理事。インド・コッチャル法律事務所シニアアドバイザー。",
     },
     image: "/advisory/isogai.png",

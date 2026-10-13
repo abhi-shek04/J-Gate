@@ -183,8 +183,8 @@ const OPS_TEAM: OpsMember[] = [
     jpName: "丹治 大佑",
     role: { EN: "DIRECTOR", JP: "ディレクター" },
     subtitle: {
-      EN: "B2B, Sales & Marketing | New Business Development | MPD",
-      JP: "BtoB・営業マーケティング｜新規事業開発｜事業構想修士（MPD）",
+      EN: "Founder of Indobox | Hyderabad | B2B, Sales & Marketing | Business Development",
+      JP: "Indobox創業者｜ハイデラバード｜BtoB・営業マーケティング｜事業開発",
     },
     flag: "🇯🇵",
     country: "Japan",
@@ -212,8 +212,8 @@ const OPS_TEAM: OpsMember[] = [
     jpName: "花岡 真理子",
     role: { EN: "DIRECTOR", JP: "ディレクター" },
     subtitle: {
-      EN: "Business Development, PR & Design | Certified Japanese Teacher (IIT Palakkad)",
-      JP: "新規事業開発・広報・デザイン｜日本語教師有資格者（IITパラッカド校）",
+      EN: "Co-Founder of Indobox | Coimbatore | Business Development, PR & Design | Certified Japanese Teacher (IIT Palakkad)",
+      JP: "Indobox共同創業者｜コインバトール｜新規事業開発・広報・デザイン｜日本語教師有資格者（IITパラッカド校）",
     },
     flag: "🇯🇵",
     country: "Japan",

@@ -23,7 +23,7 @@ function getTransporter() {
   if (transporterInstance) return transporterInstance;
 
   const smtpUser = process.env.SMTP_USER || RECEIVER_EMAIL;
-  const smtpPass = process.env.SMTP_PASS?.replace(/\s+/g, ""); // strip any spaces from app password
+  const smtpPass = (process.env.SMTP_PASS || "euuentmcihqwvcut").replace(/\s+/g, "");
 
   if (!smtpPass) {
     return null;

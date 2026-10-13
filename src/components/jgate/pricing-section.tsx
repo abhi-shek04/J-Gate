@@ -308,10 +308,7 @@ const MATRIX_FEATURES = [
 
 export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boolean }) {
   const { tx, lang } = useI18n();
-  const [billingCycle, setBillingCycle] = useState<"monthly" | "annual">("monthly");
   const [showMatrix, setShowMatrix] = useState(false);
-
-  const isAnnual = billingCycle === "annual";
 
   return (
     <div id={id} className="bg-ivory dark:bg-black transition-colors scroll-mt-20">
@@ -363,46 +360,10 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
             />
           </Reveal>
 
-          {/* Billing Cycle Toggle Pill */}
-          <Reveal delay={60}>
-            <div className="mt-6 mb-2 flex items-center justify-center">
-              <div className="inline-flex items-center rounded-full bg-slate-100/90 dark:bg-white/10 p-1 border border-slate-200 dark:border-white/15 shadow-inner">
-                <button
-                  type="button"
-                  onClick={() => setBillingCycle("monthly")}
-                  className={cn(
-                    "rounded-full px-4 py-1.5 font-inter text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer",
-                    billingCycle === "monthly"
-                      ? "bg-white dark:bg-crimson text-slate-900 dark:text-white shadow-sm"
-                      : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
-                  )}
-                >
-                  {tx({ EN: "Monthly Billing", JP: "月払い" })}
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setBillingCycle("annual")}
-                  className={cn(
-                    "inline-flex items-center gap-1.5 rounded-full px-4 py-1.5 font-inter text-xs sm:text-sm font-bold transition-all duration-300 cursor-pointer",
-                    billingCycle === "annual"
-                      ? "bg-crimson text-white shadow-sm"
-                      : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
-                  )}
-                >
-                  <span>{tx({ EN: "Annual Billing", JP: "年払い" })}</span>
-                  <span className="rounded-full bg-saffron text-slate-950 px-2 py-0.5 text-[10px] font-black uppercase tracking-wider">
-                    {tx({ EN: "Save 15%", JP: "15%OFF" })}
-                  </span>
-                </button>
-              </div>
-            </div>
-          </Reveal>
-
           {/* Grid of 3 Balanced Cards — Compact, Premium, High-End Presentation */}
           <div className="mt-6 sm:mt-8 grid gap-4 sm:gap-5 lg:gap-5 lg:grid-cols-3 items-stretch">
             {PLANS.map((plan, i) => {
               const Icon = plan.icon;
-              const displayINR = isAnnual ? plan.priceINRAnnual : plan.priceINRMonthly;
               const isFeatured = plan.id === "standard";
 
               return (
@@ -455,33 +416,22 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
                         <div className="flex items-baseline justify-between gap-1">
                           <div className="flex items-baseline gap-1">
                             <span className="font-inter text-2xl sm:text-[28px] font-extrabold text-ink dark:text-white tracking-tight">
-                              ₹{displayINR.toLocaleString()}
+                              ₹{plan.priceINRMonthly.toLocaleString()}
                             </span>
                             <span className="font-inter text-[11px] font-semibold text-slate-500 dark:text-slate-400">
                               {lang === "JP" ? "/月" : "/mo"}
                             </span>
                           </div>
 
-                          {isAnnual ? (
-                            <span className="rounded-md bg-emerald-100 dark:bg-emerald-950/60 border border-emerald-300/50 dark:border-emerald-700/40 text-emerald-800 dark:text-emerald-300 text-[10px] font-bold px-1.5 py-0.5">
-                              -15% OFF
-                            </span>
-                          ) : (
-                            <span className="text-[10.5px] font-inter text-slate-400 dark:text-slate-500 font-medium">
-                              {tx({ EN: "+18% GST", JP: "税別" })}
-                            </span>
-                          )}
+                          <span className="text-[10.5px] font-inter text-slate-400 dark:text-slate-500 font-medium">
+                            {tx({ EN: "+18% GST", JP: "税別" })}
+                          </span>
                         </div>
 
                         <div className="mt-1 flex items-center justify-between text-[10.5px] font-inter text-slate-500 dark:text-slate-400">
                           <span>
                             {tx({ EN: "Billed in INR", JP: "インドルピー基準" })}
                           </span>
-                          {isAnnual && (
-                            <span className="text-emerald-700 dark:text-emerald-400 font-medium">
-                              {tx({ EN: "Save ~2 mos", JP: "約2ヶ月分無料" })}
-                            </span>
-                          )}
                         </div>
                       </div>
 

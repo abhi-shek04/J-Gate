@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import { useState } from "react";
 import { Reveal, SectionHeading, Eyebrow } from "@/components/jgate/shared";
 import { PageHero } from "@/components/jgate/page-hero";
 import { useI18n } from "@/lib/i18n";
@@ -14,9 +14,6 @@ import {
   Compass,
   Briefcase,
   Building2,
-  Sparkles,
-  ChevronDown,
-  ChevronUp,
 } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -204,111 +201,9 @@ const PLANS: Plan[] = [
   },
 ];
 
-const MATRIX_FEATURES = [
-  {
-    category: { EN: "1. Workspace & Physical Infrastructure", JP: "1. ワークスペース・利用環境" },
-    items: [
-      {
-        name: { EN: "Hyderabad Location", JP: "ハイデラバード（Hyderabad）拠点" },
-        satellite: "✓ Included",
-        standard: "✓ Included",
-        advance: "✓ Included",
-      },
-      {
-        name: { EN: "Team Capacity", JP: "利用可能人数" },
-        satellite: "Up to 2 people",
-        standard: "Up to 4 people",
-        advance: "Custom Enterprise",
-      },
-      {
-        name: { EN: "24/7 Keycard Security", JP: "24時間入退室管理・セキュリティ" },
-        satellite: "✓ Included",
-        standard: "✓ Included",
-        advance: "✓ Included",
-      },
-      {
-        name: { EN: "1 Gbps High-Speed Fiber & UPS Backup", JP: "1 Gbps光回線・無停電電源" },
-        satellite: "✓ Included",
-        standard: "✓ Included",
-        advance: "✓ Included",
-      },
-      {
-        name: { EN: "Meeting Room & Video Booth Credits", JP: "会議室・オンライン商談ブース利用" },
-        satellite: "Basic Allocation",
-        standard: "Priority Credits",
-        advance: "Dedicated Booking",
-      },
-      {
-        name: { EN: "Cafeteria & Refreshment Amenities", JP: "カフェテリア・リフレッシュラウンジ" },
-        satellite: "✓ Included",
-        standard: "✓ Included",
-        advance: "✓ Included",
-      },
-    ],
-  },
-  {
-    category: { EN: "2. On-Site Japanese Advisory Support", JP: "2. ジャパンデスク・常駐相談支援" },
-    items: [
-      {
-        name: { EN: "Bilingual Concierge & Reception", JP: "バイリンガル総合受付・現地案内" },
-        satellite: "✓ Included",
-        standard: "✓ Included",
-        advance: "✓ Included",
-      },
-      {
-        name: { EN: "Daily Japanese Business Advisory (何でも相談)", JP: "日々の対面ビジネス「よろず相談」" },
-        satellite: "—",
-        standard: "✓ Daily Unlimited",
-        advance: "✓ Daily Unlimited",
-      },
-      {
-        name: { EN: "Monthly Regulatory & Tax Market Briefings & Seminars", JP: "月例インド進出・法務税務勉強会" },
-        satellite: "—",
-        standard: "✓ Included",
-        advance: "✓ Included",
-      },
-      {
-        name: { EN: "Verified Accounting & Legal Introductions", JP: "信頼できる現地専門家（会計・法務）紹介" },
-        satellite: "On Request",
-        standard: "✓ Included",
-        advance: "✓ Priority Introduction",
-      },
-    ],
-  },
-  {
-    category: { EN: "3. Market Entry & Business Development", JP: "3. 実践コンサル・アライアンス支援" },
-    items: [
-      {
-        name: { EN: "Indobox Hands-on Market Entry Consulting", JP: "Indoboxによる初期実践コンサル" },
-        satellite: "—",
-        standard: "—",
-        advance: "✓ Included",
-      },
-      {
-        name: { EN: "Business Meeting Support (商談同席)", JP: "重要商談・現地企業訪問への同席支援" },
-        satellite: "—",
-        standard: "—",
-        advance: "1× / Month Included",
-      },
-      {
-        name: { EN: "Incubator & University Access (T-Hub, Woxsen)", JP: "T-Hub・大学連携パイプライン" },
-        satellite: "Standard",
-        standard: "Priority",
-        advance: "Dedicated VIP",
-      },
-      {
-        name: { EN: "Corporate Registration (MCA/GST) Support", JP: "法人登記（MCA・GST）支援窓口" },
-        satellite: "Available",
-        standard: "✓ Included",
-        advance: "Priority Liaison",
-      },
-    ],
-  },
-];
 
 export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boolean }) {
   const { tx, lang } = useI18n();
-  const [showMatrix, setShowMatrix] = useState(false);
 
   return (
     <div id={id} className="bg-ivory dark:bg-black transition-colors scroll-mt-20">
@@ -493,94 +388,7 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
             })}
           </div>
 
-          {/* Detailed Matrix Accordion Toggle */}
-          <div className="mt-12 text-center">
-            <button
-              type="button"
-              onClick={() => setShowMatrix(!showMatrix)}
-              className="inline-flex items-center gap-2 rounded-full border border-slate-300 dark:border-white/10 bg-white dark:bg-[#09090b] px-6 py-3 font-inter text-[13px] font-semibold text-ink dark:text-white shadow-sm hover:bg-slate-50 dark:hover:bg-white/10 hover:border-slate-400 dark:hover:border-white/20 hover:shadow transition-all duration-200 cursor-pointer"
-            >
-              <Sparkles className="h-4 w-4 text-saffron" />
-              <span>
-                {showMatrix
-                  ? tx({ EN: "Hide Detailed Feature Matrix", JP: "詳細比較表を閉じる" })
-                  : tx({ EN: "Compare All 15 Features Side-by-Side ↓", JP: "全プラン詳細比較表を見る ↓" })}
-              </span>
-              {showMatrix ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
-            </button>
-          </div>
 
-          {/* Expandable Feature Matrix Table */}
-          {showMatrix && (
-            <div className="mt-8 rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-5 sm:p-8 shadow-xl overflow-hidden animate-in fade-in duration-300">
-              <div className="border-b border-slate-200 dark:border-white/10 pb-4 mb-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
-                <div>
-                  <h3 className="font-serif-jp text-xl font-bold text-ink dark:text-white">
-                    {tx({ EN: "Full Feature Comparison Table", JP: "全プラン項目別 詳細比較表" })}
-                  </h3>
-                  <p className="font-inter text-[12.5px] text-slate-500 dark:text-slate-400">
-                    {tx({
-                      EN: "Clear features across physical facilities, resident Japan Desk advisory, and strategic GTM consulting.",
-                      JP: "オフィス設備、常駐相談、実践コンサルティング支援の項目別詳細。",
-                    })}
-                  </p>
-                </div>
-                <span className="text-[11.5px] font-inter text-slate-400 dark:text-slate-400 bg-slate-50 dark:bg-white/5 px-3 py-1 rounded-md border border-slate-200/60 dark:border-white/10">
-                  {tx({ EN: "Monthly INR (excl. 18% GST)", JP: "※料金は税抜月額INR表示" })}
-                </span>
-              </div>
-
-              <div className="overflow-x-auto">
-                <table className="w-full text-left border-collapse min-w-[650px]">
-                  <thead>
-                    <tr className="border-b-2 border-slate-200 dark:border-white/10 text-[12.5px] font-inter uppercase text-slate-500 dark:text-slate-400">
-                      <th className="py-3 px-4 w-2/5 font-bold">{tx({ EN: "Feature / Service", JP: "項目・サポート内容" })}</th>
-                      <th className="py-3 px-4 text-center w-1/5 bg-slate-50/70 dark:bg-white/5 rounded-t-lg font-bold text-slate-700 dark:text-slate-200">
-                        Satellite
-                      </th>
-                      <th className="py-3 px-4 text-center w-1/5 bg-slate-50/70 dark:bg-white/5 rounded-t-lg font-bold text-slate-700 dark:text-slate-200">
-                        Standard
-                      </th>
-                      <th className="py-3 px-4 text-center w-1/5 bg-slate-50/70 dark:bg-white/5 rounded-t-lg font-bold text-slate-700 dark:text-slate-200">
-                        Advance
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {MATRIX_FEATURES.map((group, gi) => (
-                      <React.Fragment key={`grp-${gi}`}>
-                        <tr className="bg-slate-100/80 dark:bg-white/5">
-                          <td
-                            colSpan={4}
-                            className="py-2.5 px-4 font-inter text-[11.5px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300"
-                          >
-                            {tx(group.category)}
-                          </td>
-                        </tr>
-                        {group.items.map((item, ii) => (
-                          <tr
-                            key={`row-${gi}-${ii}`}
-                            className="border-b border-slate-100 dark:border-white/10 hover:bg-slate-50/70 dark:hover:bg-white/5 transition-colors text-[13px] font-inter"
-                          >
-                            <td className="py-3 px-4 text-slate-800 dark:text-slate-200 font-medium">{tx(item.name)}</td>
-                            <td className="py-3 px-4 text-center text-slate-600 dark:text-slate-400 bg-slate-50/20 dark:bg-transparent">
-                              {item.satellite}
-                            </td>
-                            <td className="py-3 px-4 text-center text-slate-700 dark:text-slate-200 bg-slate-50/20 dark:bg-transparent font-semibold">
-                              {item.standard}
-                            </td>
-                            <td className="py-3 px-4 text-center text-slate-700 dark:text-slate-200 bg-slate-50/20 dark:bg-transparent font-semibold">
-                              {item.advance}
-                            </td>
-                          </tr>
-                        ))}
-                      </React.Fragment>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          )}
         </div>
       </section>
 

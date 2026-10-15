@@ -13,7 +13,6 @@ import {
   Compass,
   Briefcase,
   Building2,
-  Target,
   Wifi,
   Video,
   Printer,
@@ -440,52 +439,16 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
                         </span>
                       </div>
 
-                      {/* Target Audience Summary Callout */}
-                      <div className="mt-3.5 rounded-xl bg-slate-50/90 dark:bg-white/[0.03] p-3 border border-slate-200/70 dark:border-white/8">
-                        <div className="flex items-center gap-1.5 mb-1">
-                          <Target className="h-3 w-3 text-crimson dark:text-rose-400 shrink-0" />
-                          <span className="font-mono text-[9.5px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
-                            {tx({ EN: "Target Audience", JP: "対象企業" })}
-                          </span>
-                        </div>
-                        <p className="font-inter text-[11.5px] sm:text-[12px] text-slate-700 dark:text-slate-200 leading-snug font-medium">
-                          {tx(plan.target)}
-                        </p>
-                      </div>
-
-                      {/* Operational Specifications (Fully Visible, No Truncation) */}
-                      <div className="mt-3 grid grid-cols-3 gap-2 rounded-xl bg-slate-100/70 dark:bg-white/[0.04] p-2.5 sm:p-3 border border-slate-200/80 dark:border-white/8">
-                        <div className="flex flex-col">
-                          <span className="font-mono text-[9px] uppercase tracking-wider text-slate-600 dark:text-slate-300 font-bold">
-                            {tx({ EN: "Term", JP: "契約形態" })}
-                          </span>
-                          <span className="mt-1 font-inter text-[11px] sm:text-[11.5px] font-semibold text-slate-800 dark:text-slate-200 leading-tight">
-                            {tx(plan.specs.term)}
-                          </span>
-                        </div>
-                        <div className="flex flex-col border-l border-slate-200/80 dark:border-white/10 pl-2">
-                          <span className="font-mono text-[9px] uppercase tracking-wider text-slate-600 dark:text-slate-300 font-bold">
-                            {tx({ EN: "Building Access", JP: "利用時間" })}
-                          </span>
-                          <span className="mt-1 font-inter text-[11px] sm:text-[11.5px] font-semibold text-slate-800 dark:text-slate-200 leading-tight">
-                            {tx(plan.specs.access)}
-                          </span>
-                        </div>
-                        <div className="flex flex-col border-l border-slate-200/80 dark:border-white/10 pl-2">
-                          <span className="font-mono text-[9px] uppercase tracking-wider text-crimson dark:text-rose-400 font-bold">
-                            {tx({ EN: "Support & Infra", JP: "支援・インフラ" })}
-                          </span>
-                          <span className="mt-1 font-inter text-[11px] sm:text-[11.5px] font-bold text-crimson dark:text-rose-400 leading-tight">
-                            {tx(plan.specs.support)}
-                          </span>
-                        </div>
-                      </div>
+                      {/* Plan Description & Scope */}
+                      <p className="mt-3.5 font-inter text-[12.5px] sm:text-[13px] text-slate-700 dark:text-slate-200 leading-relaxed font-normal">
+                        {tx(plan.target)}
+                      </p>
 
                       {/* Primary Plan Deliverables Checklist */}
                       <div className="mt-4 pt-3.5 border-t border-slate-100 dark:border-white/8">
                         <div className="flex items-center gap-1.5 mb-2.5">
                           <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
-                            {tx({ EN: "Core Deliverables & Scope", JP: "提供サービス・特徴" })}
+                            {tx({ EN: "Plan Inclusions", JP: "提供サービス・特徴" })}
                           </span>
                         </div>
                         <ul className="space-y-2">

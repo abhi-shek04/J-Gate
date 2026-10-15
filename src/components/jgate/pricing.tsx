@@ -21,7 +21,7 @@ type Plan = {
 
 const PLANS: Plan[] = [
   {
-    name: "Starter",
+    name: "Satellite",
     subtitle: "Hot Desk Access",
     monthly: "Contact for Pricing",
     annual: "Contact for Pricing",

@@ -74,13 +74,13 @@ const FAQ_LIST: FAQItem[] = [
       JP: "利用プランの種類について教えてください。",
     },
     a: {
-      EN: "J-Gate offers three strategic membership tiers tailored to your expansion stage:\n\n• Starter / Satellite Plan: Designed for Japanese companies already holding an Indian entity or solo representatives needing a professional executive base; includes workspace access for up to 2 members.\n• Standard Plan: Suited for Japanese companies actively preparing or launching in India; includes workspace access for up to 4 members, resident Japan Desk daily consultations, and monthly regulatory sessions.\n• Advanced Plan: Targeted at companies accelerating full-scale entry, regional banks, and enterprise delegations; includes hands-on market entry consulting, business meeting accompaniment, and priority ecosystem networking.\n\nCustom proposals and fee quotes are provided based on your exact team size and support scope.",
-      JP: "J-Gateでは目的・進出段階に応じた3つの基本プランをご用意しています：\n\n• サテライトプラン（Starter）：既存現地法人保有企業や遠隔役員向け。最大2名までの執務デスク・登記住所・オフィス利用。\n• スタンダードプラン（Standard）：市場調査・進出準備企業向け。最大4名利用、常駐日本人ディレクターによる対面相談・勉強会参加権付き。\n• アドバンスプラン（Advanced）：本格展開・地方銀行・自治体・大手企業向け。専任ハンズオンコンサルティング・商談同席・産学官優先マッチング付き。\n\n詳細なお見積りやカスタマイズ提案については、貴社のご要望に合わせて個別にご案内しております。",
+      EN: "J-Gate offers three strategic membership tiers tailored to your expansion stage:\n\n• Satellite Plan: Exclusively for Japanese companies that already have a legal entity in India; includes unlimited coworking access for up to 2 people, infrastructure access, and an operating base in Hyderabad and Andhra Pradesh.\n• Standard Plan: For Japanese companies considering expansion into India (large enterprises, SMEs, and startups); includes coworking space for up to 4 people, in-person consultation, and India study sessions.\n• Advanced Plan: For companies accelerating serious preparations, regional banks, and local governments; includes Standard Plan services plus Indobox consulting, monthly meeting accompaniment, and partner matching.\n\nCustom proposals are provided based on your exact team scale and support scope.",
+      JP: "J-Gateでは目的・進出段階に応じた3つの基本プランをご用意しています：\n\n• サテライトプラン：既にインド現地法人をお持ちの日系企業様専用。コワーキングスペース利用（無制限、最大2名）、各種インフラ設備利用、ハイデラバード・AP州販路開拓拠点。\n• スタンダードプラン：インド進出をご検討中の日系企業様（大企業、中小企業、スタートアップ）。コワーキングスペース利用（無制限、最大4名）、対面での相談、インド勉強会参加・ネットワーキング。\n• アドバンスプラン：本格的な進出準備を加速させたい企業様、地方銀行、自治体様。スタンダード全特典＋Indobox進出コンサル、商談同席（月1回まで）、現地パートナー紹介。\n\n詳細なお見積りやカスタマイズ提案については、貴社のご要望に合わせて個別にご案内しております。",
     },
     highlights: [
-      { EN: "Starter Plan: Flexible base (Up to 2 members)", JP: "サテライトプラン：最大2名利用・柔軟拠点" },
-      { EN: "Standard Plan: Resident Japan Desk (Up to 4 members)", JP: "スタンダードプラン：常駐ジャパンデスク付き（最大4名）" },
-      { EN: "Advanced Plan: Hands-on Consulting & Meeting Support", JP: "アドバンスプラン：実践コンサル・商談同席付き" },
+      { EN: "Satellite Plan: Existing India entities (Up to 2 members)", JP: "サテライトプラン：現地法人保有企業向け（最大2名）" },
+      { EN: "Standard Plan: In-person advisory & study sessions (Up to 4 members)", JP: "スタンダードプラン：対面相談・勉強会付き（最大4名）" },
+      { EN: "Advanced Plan: Consulting, meeting accompaniment & partner matching", JP: "アドバンスプラン：実践コンサル・商談同席・提携先紹介" },
     ],
   },
   {

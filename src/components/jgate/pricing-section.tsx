@@ -6,7 +6,6 @@ import { PageHero } from "@/components/jgate/page-hero";
 import { useI18n } from "@/lib/i18n";
 import {
   Check,
-  ArrowRight,
   Banknote,
   Receipt,
   ShieldCheck,
@@ -15,7 +14,6 @@ import {
   Briefcase,
   Building2,
 } from "lucide-react";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 type Bilingual = { EN: string; JP: string };
@@ -39,7 +37,7 @@ type Plan = {
   target: Bilingual;
   features: {
     title: Bilingual;
-    desc: Bilingual;
+    desc?: Bilingual;
   }[];
 };
 
@@ -48,14 +46,14 @@ const PLANS: Plan[] = [
     id: "satellite",
     icon: Compass,
     jpName: "サテライトプラン",
-    enName: "Starter Plan",
+    enName: "Satellite Plan",
     tierSubtitle: {
-      EN: "Flexible Office Base",
-      JP: "低コスト進出・サテライト拠点",
+      EN: "Market Development Hub",
+      JP: "販路開拓サテライト拠点",
     },
     tagline: {
-      EN: "A cost-effective base in Hyderabad for visiting executives & remote directors",
-      JP: "ハイデラバードIT特区に低コストで拠点を確保。出張・遠隔ディレクター向け",
+      EN: "Ideal as a market development base in Hyderabad and Andhra Pradesh.",
+      JP: "ハイデラバードおよびアーンドラ・プラデーシュ州での販路開拓拠点として最適。",
     },
     capacity: { EN: "Up to 2 Members", JP: "最大2名" },
     capacityCategory: "1-2",
@@ -64,32 +62,30 @@ const PLANS: Plan[] = [
     specs: {
       term: { EN: "Flexible / Monthly", JP: "月単位・柔軟契約" },
       access: { EN: "24/7 Keycard", JP: "24時間入退室管理" },
-      support: { EN: "Reception & Community Access", JP: "受付案内・コミュニティ" },
+      support: { EN: "Infrastructure Access", JP: "インフラ設備完備" },
     },
     target: {
-      EN: "Existing India entities, solo consultants & visiting remote directors needing a physical executive presence in Hyderabad.",
-      JP: "既にインド法人をお持ちの企業や、遠隔役員の出張・営業展開、ハイデラバード公式住所の確保に最適。",
+      EN: "Exclusively for Japanese companies that already have a legal entity in India.",
+      JP: "既にインド現地法人をお持ちの日系企業様専用。",
     },
     features: [
       {
-        title: { EN: "Workspace Access", JP: "ワークスペース利用" },
-        desc: { EN: "Unlimited desk access for up to 2 team members", JP: "最大2名までの執務デスク無制限利用" },
+        title: {
+          EN: "Use of coworking space (unlimited, up to 2 people)",
+          JP: "コワーキングスペース利用（無制限、最大2名）",
+        },
       },
       {
-        title: { EN: "1 Gbps High-Speed Fiber", JP: "1 Gbps光回線・UPS電源" },
-        desc: { EN: "High-speed internet with dual-provider backup during Japan business hours", JP: "東京業務時間にも対応する二重化光回線" },
+        title: {
+          EN: "Access to various infrastructure facilities",
+          JP: "各種インフラ設備の利用",
+        },
       },
       {
-        title: { EN: "Meeting Room Credits", JP: "会議室・プレゼン設備" },
-        desc: { EN: "Soundproof video call booths & client meeting rooms", JP: "オンライン商談ブースおよび会議室利用枠" },
-      },
-      {
-        title: { EN: "Official Registered Address", JP: "公式登記住所利用" },
-        desc: { EN: "Hyderabad commercial address for MCA/GST", JP: "ハイデラバード（Hyderabad）公式住所" },
-      },
-      {
-        title: { EN: "Japan-India Community Access", JP: "日印コミュニティ参加" },
-        desc: { EN: "Invitations to Japan-India networking events and discussions", JP: "日印ネットワーキング・交流会への定期招待" },
+        title: {
+          EN: "Ideal as a market development base in Hyderabad and Andhra Pradesh",
+          JP: "ハイデラバードおよびアーンドラ・プラデーシュ州での販路開拓拠点として最適",
+        },
       },
     ],
   },
@@ -99,12 +95,12 @@ const PLANS: Plan[] = [
     jpName: "スタンダードプラン",
     enName: "Standard Plan",
     tierSubtitle: {
-      EN: "Resident Japan Desk Hub",
-      JP: "常駐ジャパンデスク付き主力プラン",
+      EN: "Resident Advisory & Core Hub",
+      JP: "常駐相談付き進出拠点",
     },
     tagline: {
-      EN: "Full resident Japan Desk & daily bilingual 'Yorozu' consultation for growing teams",
-      JP: "常駐ジャパンデスクによる日々の「よろず相談」付き。本格的な事業展開向け",
+      EN: "In-person consultation & study sessions for companies expanding to India.",
+      JP: "対面相談・インド勉強会参加付きの本格的進出拠点。",
     },
     capacity: { EN: "Up to 4 Members", JP: "最大4名" },
     capacityCategory: "3-4",
@@ -116,29 +112,33 @@ const PLANS: Plan[] = [
       support: { EN: "Daily In-Person Desk", JP: "常駐日本人ディレクター" },
     },
     target: {
-      EN: "Japanese SMEs, high-growth startups & corporate investment teams entering the Indian market with local staff.",
-      JP: "インド市場へ本格参入する日本の中小企業・急成長スタートアップ、現地コアチームの立ち上げに最適。",
+      EN: "Japanese companies considering expansion into India (large enterprises, small and medium-sized enterprises, and startups).",
+      JP: "インド進出をご検討中の日系企業様（大企業、中小企業、スタートアップ）。",
     },
     features: [
       {
-        title: { EN: "Expanded Team Facilities", JP: "サテライト全設備完備" },
-        desc: { EN: "Full workspace amenities with expanded seating for up to 4 members", JP: "最大4名まで利用可能な拡張ワークスペース" },
+        title: {
+          EN: "Use of coworking space (unlimited, up to 4 people)",
+          JP: "コワーキングスペース利用（無制限、最大4名）",
+        },
       },
       {
-        title: { EN: "Daily Japanese Business Advisory", JP: "日々の対面「よろず相談」" },
-        desc: { EN: "Direct in-person strategic guidance with resident Japanese directors", JP: "常駐日本人ディレクターによる対面ビジネス相談" },
+        title: {
+          EN: "Access to various infrastructure facilities",
+          JP: "各種インフラ設備の利用",
+        },
       },
       {
-        title: { EN: "Monthly Regulatory Sessions", JP: "月例 法務・税務勉強会" },
-        desc: { EN: "Workshops covering RBI/FDI compliance, GST & labor laws", JP: "月例インド進出・法務規制勉強会への優先参加" },
+        title: {
+          EN: "Consultation (in person)",
+          JP: "対面での相談",
+        },
       },
       {
-        title: { EN: "Verified Professional Introductions", JP: "厳選現地専門家の紹介" },
-        desc: { EN: "Direct introductions to trusted local tax, audit & legal practitioners", JP: "信頼できる現地会計事務所・弁護士の直接紹介" },
-      },
-      {
-        title: { EN: "Priority Meeting Room Booking", JP: "ボードルーム優先予約" },
-        desc: { EN: "Generous booking allocation for key client and investor meetings", JP: "重要商談・来客対応用の会議室優先予約枠" },
+        title: {
+          EN: "Participation in India study sessions and networking introductions (initial stage)",
+          JP: "インド勉強会への参加、ネットワーキングの紹介（初期段階）",
+        },
       },
     ],
   },
@@ -148,14 +148,14 @@ const PLANS: Plan[] = [
     jpName: "アドバンスプラン",
     enName: "Advanced Plan",
     tierSubtitle: {
-      EN: "Hands-on Market Entry & Consulting",
-      JP: "実践コンサル・商談同席付きプラン",
+      EN: "Hands-on Acceleration Hub",
+      JP: "実践コンサル・本格進出拠点",
     },
     tagline: {
-      EN: "Hands-on entry consulting & monthly business meeting support by Indobox leadership",
-      JP: "Indobox実践コンサルティング＆月1回の現地重要商談同席支援付き",
+      EN: "Hands-on entry consulting & monthly business meeting support by Indobox leadership.",
+      JP: "Indobox実践コンサルティング＆月1回の現地重要商談同席支援付き。",
     },
-    capacity: { EN: "Enterprise / Custom", JP: "企業・自治体向け" },
+    capacity: { EN: "Enterprise / Delegations", JP: "企業・自治体向け" },
     capacityCategory: "enterprise",
     accentBorder: "border-t-saffron",
     accentColor: "saffron",
@@ -165,29 +165,33 @@ const PLANS: Plan[] = [
       support: { EN: "Hands-on Partner + VIP", JP: "実践コンサル＋VIP窓口" },
     },
     target: {
-      EN: "Large corporations, regional banks & governmental delegations requiring hands-on partner evaluation and executive meeting support.",
-      JP: "大手企業・地方銀行・自治体の本格的なインド事業推進、提携先開拓、重要商談の同行支援向け。",
+      EN: "Companies wishing to accelerate serious preparations for entering the Indian market, regional banks, and local governments.",
+      JP: "インド市場への本格的な進出準備を加速させたい企業様、地方銀行、自治体様。",
     },
     features: [
       {
-        title: { EN: "Custom Office Layout", JP: "個別最適化デスク仕様" },
-        desc: { EN: "Everything in Standard Plan with customized seating & team branding", JP: "スタンダード全特典＋個別レイアウト最適化" },
+        title: {
+          EN: "All services included in the Standard Plan, plus initial-stage support and consulting for the Indobox expansion phase",
+          JP: "スタンダードプランの全サービス込み、Indobox進出フェーズにおける初期段階支援・コンサルティング",
+        },
       },
       {
-        title: { EN: "Hands-on Market Entry Consulting", JP: "初期実践ハンズオンコンサル" },
-        desc: { EN: "Direct market entry strategy planning with senior Indobox specialists", JP: "Indobox専任チームによる参入戦略ハンズオン" },
+        title: {
+          EN: "Business meeting accompaniment support (up to once a month)",
+          JP: "商談同席支援（月1回まで）",
+        },
       },
       {
-        title: { EN: "Meeting Support (1×/mo)", JP: "現地重要商談への同席" },
-        desc: { EN: "Director accompaniment on strategic negotiations and government visits", JP: "現地重要商談・政府機関訪問への月1回同席支援" },
+        title: {
+          EN: "Priority invitations to business networking events",
+          JP: "ビジネスネットワーキングイベントへの優先招待",
+        },
       },
       {
-        title: { EN: "T-Hub & University Partnerships", JP: "T-Hub・大学連携パイプライン" },
-        desc: { EN: "Priority matchmaking with T-Hub incubators & Woxsen University", JP: "T-HubおよびWoxsen大学との産学連携パイプライン" },
-      },
-      {
-        title: { EN: "Custom Partner Due Diligence", JP: "詳細デューデリジェンス" },
-        desc: { EN: "In-depth background checks and operational risk assessments", JP: "提携候補先の詳細調査およびリスク検証支援" },
+        title: {
+          EN: "Introduction to local business partners (detailed information and matching)",
+          JP: "現地ビジネスパートナーの紹介（詳細情報提供およびマッチング）",
+        },
       },
     ],
   },
@@ -300,7 +304,7 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
 
                       {/* Target Audience Summary Callout */}
                       <p className="mt-2.5 font-inter text-[11px] sm:text-[11.5px] text-slate-600 dark:text-slate-300 leading-snug">
-                        <strong className="text-ink dark:text-slate-100 font-semibold">{tx({ EN: "Best for: ", JP: "対象: " })}</strong>
+                        <strong className="text-ink dark:text-slate-100 font-semibold">{tx({ EN: "Target: ", JP: "対象: " })}</strong>
                         {tx(plan.target)}
                       </p>
 
@@ -315,40 +319,19 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
 
                       {/* Compact Features Checklist */}
                       <div className="mt-3 pt-2.5 border-t border-slate-100 dark:border-white/8">
-                        <ul className="space-y-1.5 sm:space-y-2">
+                        <ul className="space-y-2">
                           {plan.features.map((feat, fi) => (
-                            <li key={fi} className="flex items-start gap-2 text-[11.5px] sm:text-[12px] font-inter text-slate-700 dark:text-slate-300 leading-tight">
+                            <li key={fi} className="flex items-start gap-2 text-[11.5px] sm:text-[12px] font-inter text-slate-700 dark:text-slate-300 leading-snug">
                               <span className="mt-0.5 flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-700/40">
                                 <Check className="h-2 w-2 stroke-[3]" />
                               </span>
-                              <span className="min-w-0 flex-1">
-                                <span className="font-semibold text-slate-900 dark:text-slate-100 mr-1">
-                                  {tx(feat.title)}
-                                </span>
-                                <span className="text-slate-600 dark:text-slate-300 hidden sm:inline">
-                                  — {tx(feat.desc)}
-                                </span>
+                              <span className="min-w-0 flex-1 text-slate-800 dark:text-slate-200 font-medium">
+                                {tx(feat.title)}
                               </span>
                             </li>
                           ))}
                         </ul>
                       </div>
-                    </div>
-
-                    {/* Bottom Action CTA */}
-                    <div className="mt-4 pt-3 border-t border-slate-100 dark:border-white/8">
-                      <Link
-                        href={`/contact?plan=${plan.id}`}
-                        className={cn(
-                          "group/btn relative w-full inline-flex items-center justify-center gap-1.5 rounded-xl py-2.5 font-inter text-[12.5px] sm:text-[13px] font-semibold transition-all duration-300",
-                          isFeatured
-                            ? "bg-gradient-to-r from-crimson to-crimson-deep text-white shadow-md shadow-crimson/25 hover:shadow-lg hover:shadow-crimson/40 hover:-translate-y-0.5"
-                            : "bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-crimson dark:hover:bg-crimson dark:hover:text-white hover:-translate-y-0.5 shadow-xs"
-                        )}
-                      >
-                        <span>{tx({ EN: `Select ${plan.enName}`, JP: `${plan.jpName}を申し込む` })}</span>
-                        <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" />
-                      </Link>
                     </div>
                   </div>
                 </Reveal>

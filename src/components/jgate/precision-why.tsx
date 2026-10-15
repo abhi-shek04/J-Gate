@@ -27,7 +27,7 @@ export function PrecisionWhyPage() {
       market: 120000,
       saving: 105000,
       pct: 87,
-      name: { EN: "Starter Plan", JP: "サテライトプラン" },
+      name: { EN: "Satellite Plan", JP: "サテライトプラン" },
       desc: { EN: "For a single representative or initial market research — solo rep or initial setup", JP: "初期調査・駐在員1名からのエントリー拠点" },
     },
     standard: {

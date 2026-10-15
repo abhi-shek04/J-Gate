@@ -79,7 +79,7 @@ const PLANS: Plan[] = [
     specs: {
       term: { EN: "Flexible / Monthly", JP: "月単位・柔軟契約" },
       access: { EN: "24/7 Keycard Entry", JP: "24時間入退室管理" },
-      support: { EN: "Infrastructure Access", JP: "インフラ設備完備" },
+      support: { EN: "Coworking (2 Pax) & All Facilities", JP: "コワーキング（最大2名）・各種設備利用" },
     },
     target: {
       EN: "Exclusively for Japanese companies that already have a legal entity in India.",
@@ -164,7 +164,7 @@ const PLANS: Plan[] = [
     specs: {
       term: { EN: "Flexible / Monthly", JP: "月単位・柔軟契約" },
       access: { EN: "24/7 Keycard Entry", JP: "24時間入退室管理" },
-      support: { EN: "Daily In-Person Desk", JP: "常駐日本人ディレクター" },
+      support: { EN: "Coworking (4 Pax) & In-Person Advisory", JP: "コワーキング（最大4名）・対面相談" },
     },
     target: {
       EN: "Japanese companies considering expansion into India (large enterprises, small and medium-sized enterprises, and startups).",
@@ -255,7 +255,7 @@ const PLANS: Plan[] = [
     specs: {
       term: { EN: "Custom / Annual", JP: "年間または個別設計" },
       access: { EN: "24/7 Keycard Entry", JP: "24時間入退室管理" },
-      support: { EN: "Hands-on Partner + VIP", JP: "実践コンサル＋VIP窓口" },
+      support: { EN: "Indobox Consulting & Meeting Support", JP: "進出コンサル・商談同席支援" },
     },
     target: {
       EN: "Companies wishing to accelerate serious preparations for entering the Indian market, regional banks, and local governments.",
@@ -317,10 +317,10 @@ const PLANS: Plan[] = [
         },
       },
       {
-        icon: Sparkles,
+        icon: Zap,
         text: {
-          EN: "Direct access pipeline to T-Hub & Woxsen University incubators",
-          JP: "T-Hubインキュベーター・Woxsen大学産学連携パイプライン",
+          EN: "100% continuous UPS power backup & executive lounge",
+          JP: "無停電電源装置（UPS）完備＆エグゼクティブラウンジ利用",
         },
       },
     ],

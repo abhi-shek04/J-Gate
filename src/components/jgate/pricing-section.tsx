@@ -3,7 +3,6 @@
 import { Reveal, SectionHeading } from "@/components/jgate/shared";
 import { PageHero } from "@/components/jgate/page-hero";
 import { useI18n } from "@/lib/i18n";
-import Link from "next/link";
 import {
   Check,
   Banknote,
@@ -13,8 +12,6 @@ import {
   Compass,
   Briefcase,
   Building2,
-  Sparkles,
-  ArrowRight,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -350,38 +347,6 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
               );
             })}
           </div>
-
-          {/* Executive Consultation & Custom Inquiries Banner */}
-          <Reveal delay={200}>
-            <div className="mt-8 sm:mt-10 mx-auto max-w-4xl rounded-2xl border border-slate-200/90 dark:border-white/12 bg-white/95 dark:bg-[#09090b]/95 p-5 sm:p-6 shadow-md backdrop-blur-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              <div className="flex items-start gap-3.5">
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-crimson/10 dark:bg-rose-950/60 border border-crimson/20 dark:border-rose-400/30 text-crimson dark:text-rose-400">
-                  <Briefcase className="h-5 w-5" />
-                </div>
-                <div>
-                  <h4 className="font-serif-jp text-sm sm:text-[15px] font-bold text-ink dark:text-white">
-                    {tx({
-                      EN: "Need a Custom Corporate Proposal or Entity Guidance?",
-                      JP: "企業規模に応じた個別提案や法人設立のご相談はこちら",
-                    })}
-                  </h4>
-                  <p className="mt-0.5 font-inter text-xs text-slate-600 dark:text-slate-300">
-                    {tx({
-                      EN: "Our bilingual Japan Desk in Tokyo and Hyderabad provides custom seat allocations, incorporation packages, and confidential briefing sessions.",
-                      JP: "東京およびハイデラバードのバイリンガルチームが、座席数のカスタマイズ、法人設立、個別視察のアレンジまで丁寧に対応いたします。",
-                    })}
-                  </p>
-                </div>
-              </div>
-              <Link
-                href="/contact"
-                className="btn-shine inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-2.5 font-inter text-[12.5px] sm:text-[13px] font-semibold text-white shadow-md shadow-crimson/25 hover:shadow-lg hover:shadow-crimson/40 hover:-translate-y-0.5 transition-all shrink-0 w-full sm:w-auto justify-center"
-              >
-                <span>{tx({ EN: "Contact Japan Desk", JP: "日本人デスクに相談する" })}</span>
-                <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
-          </Reveal>
         </div>
       </section>
 

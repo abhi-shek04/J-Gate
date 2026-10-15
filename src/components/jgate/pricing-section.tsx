@@ -26,14 +26,14 @@ type Plan = {
   tagline: Bilingual;
   capacity: Bilingual;
   capacityCategory: "1-2" | "3-4" | "enterprise";
-  accentBorder: string;
-  accentBadge: string;
-  accentBg: string;
-  specs: {
-    term: Bilingual;
-    access: Bilingual;
-    support: Bilingual;
-  };
+  gradientBar: string;
+  glowAura: string;
+  iconBg: string;
+  capacityBadge: string;
+  checkBadge: string;
+  cardBorder: string;
+  dotColor: string;
+  footerBadge: Bilingual;
   target: Bilingual;
   features: {
     title: Bilingual;
@@ -57,14 +57,14 @@ const PLANS: Plan[] = [
     },
     capacity: { EN: "Up to 2 Members", JP: "最大2名" },
     capacityCategory: "1-2",
-    accentBorder: "border-t-4 border-t-slate-400 dark:border-t-slate-500",
-    accentBadge: "text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-white/10 border-slate-200 dark:border-white/15",
-    accentBg: "bg-slate-100 dark:bg-white/5 border-slate-200/80 dark:border-white/10 text-slate-800 dark:text-white",
-    specs: {
-      term: { EN: "Flexible / Monthly", JP: "月単位・柔軟契約" },
-      access: { EN: "24/7 Keycard Entry", JP: "24時間入退室管理" },
-      support: { EN: "Coworking (2 Pax) & All Facilities", JP: "コワーキング（最大2名）・各種設備利用" },
-    },
+    gradientBar: "from-blue-600 via-indigo-500 to-cyan-400",
+    glowAura: "from-indigo-500/20 via-blue-500/10 to-transparent",
+    iconBg: "bg-indigo-50/90 dark:bg-indigo-950/60 text-indigo-600 dark:text-blue-400 border-indigo-200/80 dark:border-indigo-800/40 group-hover:border-indigo-400 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.25)]",
+    capacityBadge: "text-indigo-700 dark:text-blue-300 bg-indigo-50/90 dark:bg-blue-950/60 border-indigo-200 dark:border-blue-800/50",
+    checkBadge: "bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-blue-400 border-indigo-200/80 dark:border-indigo-700/40",
+    cardBorder: "border-slate-200/80 dark:border-white/10 hover:border-indigo-400/60 dark:hover:border-blue-400/50 hover:shadow-[0_20px_45px_-10px_rgba(99,102,241,0.18)] dark:hover:shadow-[0_20px_45px_-10px_rgba(59,130,246,0.25)]",
+    dotColor: "bg-indigo-500",
+    footerBadge: { EN: "Hyderabad Hub · 2 Pax Coworking", JP: "拠点開設 · コワーキング最大2名" },
     target: {
       EN: "Exclusively for Japanese companies that already have a legal entity in India.",
       JP: "既にインド現地法人をお持ちの日系企業様専用。",
@@ -105,14 +105,14 @@ const PLANS: Plan[] = [
     },
     capacity: { EN: "Up to 4 Members", JP: "最大4名" },
     capacityCategory: "3-4",
-    accentBorder: "border-t-4 border-t-crimson dark:border-t-rose-500",
-    accentBadge: "text-crimson dark:text-rose-400 bg-crimson/10 dark:bg-rose-950/60 border-crimson/25 dark:border-rose-400/30",
-    accentBg: "bg-crimson/10 dark:bg-rose-950/40 border-crimson/30 dark:border-rose-400/30 text-crimson dark:text-rose-400",
-    specs: {
-      term: { EN: "Flexible / Monthly", JP: "月単位・柔軟契約" },
-      access: { EN: "24/7 Keycard Entry", JP: "24時間入退室管理" },
-      support: { EN: "Coworking (4 Pax) & In-Person Advisory", JP: "コワーキング（最大4名）・対面相談" },
-    },
+    gradientBar: "from-crimson via-rose-500 to-amber-500",
+    glowAura: "from-crimson/25 via-rose-500/12 to-transparent",
+    iconBg: "bg-crimson/10 dark:bg-rose-950/60 text-crimson dark:text-rose-400 border-crimson/30 dark:border-rose-400/30 group-hover:border-crimson group-hover:shadow-[0_0_22px_rgba(188,26,44,0.3)]",
+    capacityBadge: "text-crimson dark:text-rose-300 bg-crimson/10 dark:bg-rose-950/60 border-crimson/30 dark:border-rose-500/40",
+    checkBadge: "bg-crimson/10 dark:bg-rose-950/60 text-crimson dark:text-rose-400 border-crimson/25 dark:border-rose-700/40",
+    cardBorder: "border-crimson/40 dark:border-rose-400/40 shadow-[0_16px_40px_-12px_rgba(188,26,44,0.14)] dark:shadow-[0_18px_45px_-12px_rgba(188,26,44,0.3)] ring-1 ring-crimson/20 hover:border-crimson dark:hover:border-rose-400 hover:shadow-[0_25px_60px_-12px_rgba(188,26,44,0.28)] dark:hover:shadow-[0_28px_65px_-12px_rgba(188,26,44,0.45)]",
+    dotColor: "bg-crimson",
+    footerBadge: { EN: "Resident Japan Desk · In-Person Advisory", JP: "常駐デスク · 対面コンサル支援" },
     target: {
       EN: "Japanese companies considering expansion into India (large enterprises, small and medium-sized enterprises, and startups).",
       JP: "インド進出をご検討中の日系企業様（大企業、中小企業、スタートアップ）。",
@@ -159,14 +159,14 @@ const PLANS: Plan[] = [
     },
     capacity: { EN: "Enterprise / Delegations", JP: "企業・自治体向け" },
     capacityCategory: "enterprise",
-    accentBorder: "border-t-4 border-t-amber-500 dark:border-t-amber-400",
-    accentBadge: "text-amber-700 dark:text-amber-300 bg-amber-500/10 dark:bg-amber-950/60 border-amber-500/30 dark:border-amber-400/30",
-    accentBg: "bg-amber-500/10 dark:bg-amber-950/40 border-amber-500/30 dark:border-amber-400/30 text-amber-700 dark:text-amber-300",
-    specs: {
-      term: { EN: "Custom / Annual", JP: "年間または個別設計" },
-      access: { EN: "24/7 Keycard Entry", JP: "24時間入退室管理" },
-      support: { EN: "Indobox Consulting & Meeting Support", JP: "進出コンサル・商談同席支援" },
-    },
+    gradientBar: "from-amber-500 via-amber-400 to-yellow-500",
+    glowAura: "from-amber-500/20 via-yellow-500/10 to-transparent",
+    iconBg: "bg-amber-50/90 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400 border-amber-300/80 dark:border-amber-400/30 group-hover:border-amber-400 group-hover:shadow-[0_0_20px_rgba(232,160,26,0.25)]",
+    capacityBadge: "text-amber-800 dark:text-amber-300 bg-amber-50/90 dark:bg-amber-950/60 border-amber-300 dark:border-amber-700/50",
+    checkBadge: "bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400 border-amber-200/80 dark:border-amber-700/40",
+    cardBorder: "border-slate-200/80 dark:border-white/10 hover:border-amber-400/70 dark:hover:border-amber-400/50 hover:shadow-[0_20px_45px_-10px_rgba(232,160,26,0.2)] dark:hover:shadow-[0_20px_45px_-10px_rgba(232,160,26,0.28)]",
+    dotColor: "bg-amber-500",
+    footerBadge: { EN: "Indobox Acceleration · Partner Matching", JP: "本格進出 · パートナーマッチング" },
     target: {
       EN: "Companies wishing to accelerate serious preparations for entering the Indian market, regional banks, and local governments.",
       JP: "インド市場への本格的な進出準備を加速させたい企業様、地方銀行、自治体様。",
@@ -254,92 +254,121 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
           </Reveal>
 
           {/* Grid of 3 Balanced Cards — High-End Executive Presentation */}
-          <div className="mt-8 sm:mt-10 grid gap-5 sm:gap-6 lg:gap-6 lg:grid-cols-3 items-stretch">
+          <div className="mt-8 sm:mt-10 grid gap-6 lg:gap-7 lg:grid-cols-3 items-stretch">
             {PLANS.map((plan, i) => {
               const Icon = plan.icon;
               const isFeatured = plan.id === "standard";
 
               return (
-                <Reveal key={plan.id} delay={i * 80} variant="up">
+                <Reveal key={plan.id} delay={i * 90} variant="up">
                   <div
                     className={cn(
-                      "luxury-light-card card-sheen group relative flex h-full flex-col justify-between rounded-2xl bg-white dark:bg-[#09090b] border transition-all duration-300 p-5 sm:p-6 lg:p-6.5",
-                      plan.accentBorder,
-                      isFeatured
-                        ? "border-crimson/70 dark:border-rose-400/60 shadow-[0_18px_45px_-10px_rgba(188,26,44,0.18)] dark:shadow-[0_22px_55px_-10px_rgba(188,26,44,0.35)] ring-1 ring-crimson/25"
-                        : "border-slate-200/90 dark:border-white/12 shadow-card dark:shadow-2xl hover:border-slate-300 dark:hover:border-white/25 hover:-translate-y-1"
+                      "card-sheen group relative flex h-full flex-col justify-between overflow-hidden rounded-2xl bg-white/95 dark:bg-[#09090b]/95 backdrop-blur-xl border transition-all duration-500 p-6 sm:p-6.5 lg:p-7 hover:-translate-y-2",
+                      plan.cardBorder
                     )}
                   >
+                    {/* Top 3.5px Glowing Accent Bar with Gradient */}
+                    <div className={cn("absolute top-0 inset-x-0 h-1 bg-gradient-to-r shadow-xs", plan.gradientBar)} />
+
+                    {/* Ambient Corner Aura Glow */}
+                    <div
+                      className={cn(
+                        "pointer-events-none absolute -right-14 -top-14 h-44 w-44 rounded-full opacity-35 blur-2xl transition-opacity duration-500 group-hover:opacity-75",
+                        plan.glowAura
+                      )}
+                    />
+
+                    {/* Faint Asanoha Japanese Geometric Texture */}
+                    <div className="pattern-asanoha-navy pointer-events-none absolute inset-0 opacity-[0.025] dark:opacity-[0.04] transition-opacity duration-700 group-hover:opacity-[0.06]" />
+
                     {/* Top Content Area */}
-                    <div>
-                      {/* Header Row: Icon + Title + Capacity Badge */}
-                      <div className="flex items-start justify-between gap-3 pb-3.5 border-b border-slate-100 dark:border-white/8">
-                        <div className="flex items-center gap-3">
-                          <div
+                    <div className="relative z-10 flex flex-col justify-between h-full">
+                      <div>
+                        {/* Header Row: Icon + Title + Capacity Badge */}
+                        <div className="flex items-start justify-between gap-3 pb-4 border-b border-slate-100 dark:border-white/8">
+                          <div className="flex items-center gap-3.5">
+                            <div
+                              className={cn(
+                                "flex h-11 w-11 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-2xl border shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:rotate-1",
+                                plan.iconBg
+                              )}
+                            >
+                              <Icon className="h-5.5 w-5.5" />
+                            </div>
+                            <div>
+                              <div className="flex items-center gap-2">
+                                <h3 className="font-serif-jp text-[18px] sm:text-[19px] font-bold text-ink dark:text-white leading-tight">
+                                  {plan.enName}
+                                </h3>
+                              </div>
+                              <div className="flex items-center gap-1.5 mt-1">
+                                {lang === "JP" && (
+                                  <span className="text-[12px] font-medium text-slate-500 dark:text-slate-400 font-sans-jp">
+                                    {plan.jpName} ·
+                                  </span>
+                                )}
+                                <span className="text-[11.5px] font-semibold text-slate-600 dark:text-slate-300">
+                                  {tx(plan.tierSubtitle)}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+
+                          <span
                             className={cn(
-                              "flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl border shadow-2xs transition-transform duration-300 group-hover:scale-105",
-                              plan.accentBg
+                              "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-inter text-[10.5px] font-bold shrink-0 border shadow-2xs transition-transform duration-300 group-hover:scale-105",
+                              plan.capacityBadge
                             )}
                           >
-                            <Icon className="h-5 w-5" />
-                          </div>
-                          <div>
-                            <div className="flex items-center gap-2">
-                              <h3 className="font-serif-jp text-[17px] sm:text-[18px] font-bold text-ink dark:text-white leading-tight">
-                                {plan.enName}
-                              </h3>
-                            </div>
-                            <div className="flex items-center gap-1.5 mt-0.5">
-                              {lang === "JP" && (
-                                <span className="text-[11.5px] font-medium text-slate-500 dark:text-slate-400 font-sans-jp">
-                                  {plan.jpName} ·
-                                </span>
-                              )}
-                              <span className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">
-                                {tx(plan.tierSubtitle)}
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-
-                        <span
-                          className={cn(
-                            "inline-flex items-center gap-1 rounded-full px-2.5 py-1 font-inter text-[10px] sm:text-[10.5px] font-bold shrink-0 border shadow-2xs",
-                            plan.accentBadge
-                          )}
-                        >
-                          <Users className="h-2.5 w-2.5" />
-                          {tx(plan.capacity)}
-                        </span>
-                      </div>
-
-                      {/* Plan Description & Scope */}
-                      <p className="mt-3.5 font-inter text-[12.5px] sm:text-[13px] text-slate-700 dark:text-slate-200 leading-relaxed font-normal">
-                        {tx(plan.target)}
-                      </p>
-
-                      {/* Primary Plan Deliverables Checklist */}
-                      <div className="mt-4 pt-3.5 border-t border-slate-100 dark:border-white/8">
-                        <div className="flex items-center gap-1.5 mb-2.5">
-                          <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
-                            {tx({ EN: "Plan Inclusions", JP: "提供サービス・特徴" })}
+                            <Users className="h-2.5 w-2.5" />
+                            {tx(plan.capacity)}
                           </span>
                         </div>
-                        <ul className="space-y-2">
-                          {plan.features.map((feat, fi) => (
-                            <li
-                              key={fi}
-                              className="flex items-start gap-2 text-[11.5px] sm:text-[12px] font-inter text-slate-800 dark:text-slate-200 leading-snug"
-                            >
-                              <span className="mt-0.5 flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-700/40">
-                                <Check className="h-2 w-2 stroke-[3]" />
-                              </span>
-                              <span className="min-w-0 flex-1 font-medium">
-                                {tx(feat.title)}
-                              </span>
-                            </li>
-                          ))}
-                        </ul>
+
+                        {/* Plan Description & Scope */}
+                        <p className="mt-4 font-inter text-[13px] text-slate-700 dark:text-slate-200 leading-relaxed font-normal">
+                          {tx(plan.target)}
+                        </p>
+
+                        {/* Primary Plan Deliverables Checklist */}
+                        <div className="mt-5 pt-4 border-t border-slate-100 dark:border-white/8">
+                          <div className="flex items-center gap-1.5 mb-2.5">
+                            <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
+                              {tx({ EN: "Plan Inclusions", JP: "提供サービス・特徴" })}
+                            </span>
+                          </div>
+                          <ul className="space-y-1">
+                            {plan.features.map((feat, fi) => (
+                              <li
+                                key={fi}
+                                className="group/item flex items-start gap-2.5 rounded-xl p-2 -mx-2 transition-all duration-200 hover:bg-slate-50/90 dark:hover:bg-white/[0.04]"
+                              >
+                                <span
+                                  className={cn(
+                                    "mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border shadow-2xs transition-transform duration-200 group-hover/item:scale-110",
+                                    plan.checkBadge
+                                  )}
+                                >
+                                  <Check className="h-2.5 w-2.5 stroke-[3]" />
+                                </span>
+                                <span className="min-w-0 flex-1 text-[12px] sm:text-[12.5px] font-inter font-medium text-slate-800 dark:text-slate-200 leading-snug group-hover/item:text-ink dark:group-hover/item:text-white transition-colors">
+                                  {tx(feat.title)}
+                                </span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+
+                      {/* Grounding Base Strip */}
+                      <div className="mt-6 pt-3.5 border-t border-slate-100/90 dark:border-white/8 flex items-center justify-between">
+                        <span className="font-inter text-[11px] font-medium text-slate-600 dark:text-slate-300 flex items-center gap-1.5">
+                          <span className={cn("h-1.5 w-1.5 rounded-full animate-pulse", plan.dotColor)} />
+                          {tx(plan.footerBadge)}
+                        </span>
+                        <span className="font-mono text-[9.5px] uppercase tracking-wider text-slate-600 dark:text-slate-300 font-semibold">
+                          J-Gate Hub
+                        </span>
                       </div>
                     </div>
                   </div>

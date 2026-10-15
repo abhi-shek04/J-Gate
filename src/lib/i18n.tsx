@@ -26,7 +26,7 @@ export const translations: Dictionary = {
   "nav.why": { EN: "Why J-Gate", JP: "特長" },
   "nav.services": { EN: "Services", JP: "サービス" },
   "nav.team": { EN: "Team", JP: "チーム" },
-  "nav.pricing": { EN: "Pricing", JP: "料金" },
+  "nav.pricing": { EN: "Membership", JP: "メンバーシップ" },
   "nav.faq": { EN: "FAQ", JP: "FAQ" },
   "nav.blogs": { EN: "Office", JP: "オフィス" },
   "nav.contact": { EN: "Contact", JP: "お問合せ" },

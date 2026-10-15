@@ -3,6 +3,7 @@
 import { Reveal, SectionHeading } from "@/components/jgate/shared";
 import { PageHero } from "@/components/jgate/page-hero";
 import { useI18n } from "@/lib/i18n";
+import Link from "next/link";
 import {
   Check,
   Banknote,
@@ -12,6 +13,7 @@ import {
   Compass,
   Briefcase,
   Building2,
+  ArrowRight,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -32,8 +34,7 @@ type Plan = {
   capacityBadge: string;
   checkBadge: string;
   cardBorder: string;
-  dotColor: string;
-  footerBadge: Bilingual;
+  buttonStyle: string;
   target: Bilingual;
   features: {
     title: Bilingual;
@@ -63,8 +64,7 @@ const PLANS: Plan[] = [
     capacityBadge: "text-indigo-700 dark:text-blue-300 bg-indigo-50/90 dark:bg-blue-950/60 border-indigo-200 dark:border-blue-800/50",
     checkBadge: "bg-indigo-50 dark:bg-indigo-950/60 text-indigo-600 dark:text-blue-400 border-indigo-200/80 dark:border-indigo-700/40",
     cardBorder: "border-slate-200/80 dark:border-white/10 hover:border-indigo-400/60 dark:hover:border-blue-400/50 hover:shadow-[0_20px_45px_-10px_rgba(99,102,241,0.18)] dark:hover:shadow-[0_20px_45px_-10px_rgba(59,130,246,0.25)]",
-    dotColor: "bg-indigo-500",
-    footerBadge: { EN: "Hyderabad Hub · 2 Pax Coworking", JP: "拠点開設 · コワーキング最大2名" },
+    buttonStyle: "bg-indigo-50/80 dark:bg-indigo-950/50 text-indigo-700 dark:text-blue-300 border border-indigo-200/90 dark:border-blue-800/40 hover:bg-indigo-600 hover:text-white dark:hover:bg-indigo-600 dark:hover:text-white hover:border-indigo-600 hover:shadow-md hover:shadow-indigo-500/25",
     target: {
       EN: "Exclusively for Japanese companies that already have a legal entity in India.",
       JP: "既にインド現地法人をお持ちの日系企業様専用。",
@@ -111,8 +111,7 @@ const PLANS: Plan[] = [
     capacityBadge: "text-crimson dark:text-rose-300 bg-crimson/10 dark:bg-rose-950/60 border-crimson/30 dark:border-rose-500/40",
     checkBadge: "bg-crimson/10 dark:bg-rose-950/60 text-crimson dark:text-rose-400 border-crimson/25 dark:border-rose-700/40",
     cardBorder: "border-crimson/40 dark:border-rose-400/40 shadow-[0_16px_40px_-12px_rgba(188,26,44,0.14)] dark:shadow-[0_18px_45px_-12px_rgba(188,26,44,0.3)] ring-1 ring-crimson/20 hover:border-crimson dark:hover:border-rose-400 hover:shadow-[0_25px_60px_-12px_rgba(188,26,44,0.28)] dark:hover:shadow-[0_28px_65px_-12px_rgba(188,26,44,0.45)]",
-    dotColor: "bg-crimson",
-    footerBadge: { EN: "Resident Japan Desk · In-Person Advisory", JP: "常駐デスク · 対面コンサル支援" },
+    buttonStyle: "bg-gradient-to-r from-crimson to-crimson-deep text-white border border-crimson/30 shadow-md shadow-crimson/25 hover:shadow-lg hover:shadow-crimson/40 hover:-translate-y-0.5",
     target: {
       EN: "Japanese companies considering expansion into India (large enterprises, small and medium-sized enterprises, and startups).",
       JP: "インド進出をご検討中の日系企業様（大企業、中小企業、スタートアップ）。",
@@ -165,8 +164,7 @@ const PLANS: Plan[] = [
     capacityBadge: "text-amber-800 dark:text-amber-300 bg-amber-50/90 dark:bg-amber-950/60 border-amber-300 dark:border-amber-700/50",
     checkBadge: "bg-amber-50 dark:bg-amber-950/60 text-amber-700 dark:text-amber-400 border-amber-200/80 dark:border-amber-700/40",
     cardBorder: "border-slate-200/80 dark:border-white/10 hover:border-amber-400/70 dark:hover:border-amber-400/50 hover:shadow-[0_20px_45px_-10px_rgba(232,160,26,0.2)] dark:hover:shadow-[0_20px_45px_-10px_rgba(232,160,26,0.28)]",
-    dotColor: "bg-amber-500",
-    footerBadge: { EN: "Indobox Acceleration · Partner Matching", JP: "本格進出 · パートナーマッチング" },
+    buttonStyle: "bg-amber-50/80 dark:bg-amber-950/50 text-amber-800 dark:text-amber-300 border border-amber-300/90 dark:border-amber-700/40 hover:bg-amber-500 hover:text-ink dark:hover:bg-amber-500 dark:hover:text-black hover:border-amber-500 hover:shadow-md hover:shadow-amber-500/25",
     target: {
       EN: "Companies wishing to accelerate serious preparations for entering the Indian market, regional banks, and local governments.",
       JP: "インド市場への本格的な進出準備を加速させたい企業様、地方銀行、自治体様。",
@@ -204,7 +202,10 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
   const { tx, lang } = useI18n();
 
   return (
-    <div id={id} className="bg-ivory dark:bg-black transition-colors scroll-mt-20">
+    <div id={id || "pricing"} className="bg-ivory dark:bg-black transition-colors scroll-mt-20 relative">
+      {/* Anchor targets so both #pricing and #membership scroll smoothly */}
+      {id !== "membership" && <div id="membership" className="absolute -top-24 pointer-events-none" />}
+      {id === "membership" && <div id="pricing" className="absolute -top-24 pointer-events-none" />}
       {!hideHero && (
         <PageHero
           eyebrowKey="pricing.eyebrow"
@@ -245,10 +246,10 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
           <Reveal>
             <SectionHeading
               icon={<Briefcase className="h-3.5 w-3.5 text-crimson dark:text-rose-400" />}
-              eyebrow={tx({ EN: "Membership Plans", JP: "透明で明瞭なメンバーシップ体系" })}
+              eyebrow={tx({ EN: "Membership", JP: "メンバーシップ" })}
               title={tx({
-                EN: "Choose Your Membership Plan",
-                JP: "進出段階に合わせて選べる3つのプラン",
+                EN: "Membership Plans",
+                JP: "メンバーシッププラン",
               })}
             />
           </Reveal>
@@ -360,15 +361,18 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
                         </div>
                       </div>
 
-                      {/* Grounding Base Strip */}
-                      <div className="mt-6 pt-3.5 border-t border-slate-100/90 dark:border-white/8 flex items-center justify-between">
-                        <span className="font-inter text-[11px] font-medium text-slate-600 dark:text-slate-300 flex items-center gap-1.5">
-                          <span className={cn("h-1.5 w-1.5 rounded-full animate-pulse", plan.dotColor)} />
-                          {tx(plan.footerBadge)}
-                        </span>
-                        <span className="font-mono text-[9.5px] uppercase tracking-wider text-slate-600 dark:text-slate-300 font-semibold">
-                          J-Gate Hub
-                        </span>
+                      {/* Action Button: Inquiries about price */}
+                      <div className="mt-6 pt-3.5 border-t border-slate-100 dark:border-white/8">
+                        <Link
+                          href={`/contact?plan=${plan.id}`}
+                          className={cn(
+                            "w-full inline-flex items-center justify-center gap-2 rounded-xl py-2.5 px-4 font-inter text-[12.5px] sm:text-[13px] font-semibold transition-all duration-300 shadow-xs",
+                            plan.buttonStyle
+                          )}
+                        >
+                          <span>{tx({ EN: "Inquiries about price", JP: "料金のお問い合わせ" })}</span>
+                          <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
+                        </Link>
                       </div>
                     </div>
                   </div>

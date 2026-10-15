@@ -179,7 +179,7 @@ export const translations: Dictionary = {
   "why.row1.cowork": { EN: "Local Companies, Freelancers", JP: "現地企業・フリーランス" },
   "why.row1.public": { EN: "General / All", JP: "全企業対象（一般論中心）" },
   "why.row2.label": { EN: "Monthly Cost", JP: "月額費用" },
-  "why.row2.jgate": { EN: "From 15,000 INR", JP: "15,000 INR〜" },
+  "why.row2.jgate": { EN: "Inquire for Rates", JP: "個別お見積り" },
   "why.row2.consult": { EN: "500,000 – 1,000,000 INR+", JP: "月額 500,000〜1,000,000 INR以上" },
   "why.row2.cowork": { EN: "10,000 – 60,000 INR", JP: "月額 10,000〜60,000 INR" },
   "why.row2.public": { EN: "Free – Low Cost", JP: "無料〜低価格" },
@@ -373,14 +373,14 @@ export const translations: Dictionary = {
   "contact.form.submit": { EN: "Send Message", JP: "送信する" },
   "contact.form.success": { EN: "Thank you! We'll respond within 24 hours — in Japanese.", JP: "お問い合わせありがとうございます。24時間以内に日本語担当者よりご返信いたします。" },
 
-  // Pricing — NEW (Slide 9: Membership Fee Plans — Hyderabad)
+  // Pricing — NEW (Slide 9: Membership Plans — Hyderabad)
   "pricing.eyebrow": { EN: "Membership", JP: "メンバーシップ" },
   "pricing.title": {
-    EN: "Membership Fee Plans — Hyderabad",
-    JP: "ハイデラバード拠点 メンバーシップ料金プラン",
+    EN: "Membership Plans — Hyderabad",
+    JP: "ハイデラバード拠点 メンバーシッププラン",
   },
   "pricing.subtitle": {
-    EN: "Designed as a cost-effective solution — providing Japanese enterprises with a dedicated workspace and resident advisory in Hyderabad.",
+    EN: "Designed as a strategic enterprise solution — providing Japanese enterprises with a dedicated workspace and resident advisory in Hyderabad.",
     JP: "日系企業に最適化された戦略的拠点モデル — ハイデラバードでの専用執務環境と日本人常駐サポートを提供。",
   },
 
@@ -388,7 +388,7 @@ export const translations: Dictionary = {
   "brochure.title": { EN: "Download the J-Gate Brochure", JP: "J-Gate公式資料請求・パンフレットダウンロード" },
   "brochure.subtitle": {
     EN: "Get the full overview of our services, track record, and partnership model. Register below to download instantly.",
-    JP: "進出支援サービス、施設詳細、費用プラン、実績の最新資料をダウンロードいただけます。",
+    JP: "進出支援サービス、施設詳細、拠点プラン、実績の最新資料をダウンロードいただけます。",
   },
   "brochure.google": { EN: "Continue with Google", JP: "Googleアカウントで登録" },
   "brochure.divider": { EN: "Or register details manually", JP: "またはフォームから入力" },

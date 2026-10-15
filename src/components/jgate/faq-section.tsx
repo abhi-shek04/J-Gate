@@ -71,16 +71,16 @@ const FAQ_LIST: FAQItem[] = [
     categoryLabel: { EN: "Membership & Pricing", JP: "料金プラン・お支払い" },
     q: {
       EN: "What membership plans are available?",
-      JP: "利用プランの種類と料金を教えてください。",
+      JP: "利用プランの種類について教えてください。",
     },
     a: {
-      EN: "J-Gate offers three strategic plans (all prices listed in INR, excluding GST):\n\n• Satellite Plan (15,000 INR/month): Designed for Japanese companies already holding a legal entity in India; includes workspace access for up to 2 people.\n• Standard Plan (50,000 INR/month): Suited for Japanese companies exploring expansion; includes workspace access for up to 4 people, Japan Desk consultation, and study session access.\n• Advance Plan (120,000 INR/month): Targeted at companies accelerating full-scale entry, regional banks, and local governments; includes hands-on consulting, meeting accompaniment, and priority networking.",
-      JP: "J-Gateでは目的・規模に応じた3つの基本プランをご用意しています（表示価格は税別INR）：\n\n• サテライトプラン（15,000 INR/月）：既存現地法人保有企業向け。最大2名までの固定席・オフィス利用。\n• スタンダードプラン（50,000 INR/月）：市場調査・進出準備企業向け。最大4名利用、ジャパンデスク相談・勉強会参加権付き。\n• アドバンスプラン（120,000 INR/月）：本格進出・地方銀行・自治体・大手企業向け。ハンズオンコンサルティング・商談同席・優先マッチング付き。",
+      EN: "J-Gate offers three strategic membership tiers tailored to your expansion stage:\n\n• Starter / Satellite Plan: Designed for Japanese companies already holding an Indian entity or solo representatives needing a professional executive base; includes workspace access for up to 2 members.\n• Standard Plan: Suited for Japanese companies actively preparing or launching in India; includes workspace access for up to 4 members, resident Japan Desk daily consultations, and monthly regulatory sessions.\n• Advanced Plan: Targeted at companies accelerating full-scale entry, regional banks, and enterprise delegations; includes hands-on market entry consulting, business meeting accompaniment, and priority ecosystem networking.\n\nCustom proposals and fee quotes are provided based on your exact team size and support scope.",
+      JP: "J-Gateでは目的・進出段階に応じた3つの基本プランをご用意しています：\n\n• サテライトプラン（Starter）：既存現地法人保有企業や遠隔役員向け。最大2名までの執務デスク・登記住所・オフィス利用。\n• スタンダードプラン（Standard）：市場調査・進出準備企業向け。最大4名利用、常駐日本人ディレクターによる対面相談・勉強会参加権付き。\n• アドバンスプラン（Advanced）：本格展開・地方銀行・自治体・大手企業向け。専任ハンズオンコンサルティング・商談同席・産学官優先マッチング付き。\n\n詳細なお見積りやカスタマイズ提案については、貴社のご要望に合わせて個別にご案内しております。",
     },
     highlights: [
-      { EN: "Satellite Plan: 15,000 INR/mo (Up to 2 members)", JP: "サテライトプラン：15,000 INR/月（最大2名利用）" },
-      { EN: "Standard Plan: 50,000 INR/mo (Up to 4 members)", JP: "スタンダードプラン：50,000 INR/月（最大4名利用）" },
-      { EN: "Advance Plan: 120,000 INR/mo (Full consulting)", JP: "アドバンスプラン：120,000 INR/月（フルサポート）" },
+      { EN: "Starter Plan: Flexible base (Up to 2 members)", JP: "サテライトプラン：最大2名利用・柔軟拠点" },
+      { EN: "Standard Plan: Resident Japan Desk (Up to 4 members)", JP: "スタンダードプラン：常駐ジャパンデスク付き（最大4名）" },
+      { EN: "Advanced Plan: Hands-on Consulting & Meeting Support", JP: "アドバンスプラン：実践コンサル・商談同席付き" },
     ],
   },
   {

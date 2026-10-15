@@ -14,6 +14,7 @@ import {
   Compass,
   Briefcase,
   Building2,
+  Sparkles,
 } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -27,8 +28,6 @@ type Plan = {
   enName: string;
   tierSubtitle: Bilingual;
   tagline: Bilingual;
-  priceINRMonthly: number;
-  priceINRAnnual: number;
   capacity: Bilingual;
   capacityCategory: "1-2" | "3-4" | "enterprise";
   accentBorder: string;
@@ -59,8 +58,6 @@ const PLANS: Plan[] = [
       EN: "A cost-effective base in Hyderabad for visiting executives & remote directors",
       JP: "ハイデラバードIT特区に低コストで拠点を確保。出張・遠隔ディレクター向け",
     },
-    priceINRMonthly: 15000,
-    priceINRAnnual: 12750, // 15% discount
     capacity: { EN: "Up to 2 Members", JP: "最大2名" },
     capacityCategory: "1-2",
     accentBorder: "border-t-slate-400",
@@ -110,8 +107,6 @@ const PLANS: Plan[] = [
       EN: "Full resident Japan Desk & daily bilingual 'Yorozu' consultation for growing teams",
       JP: "常駐ジャパンデスクによる日々の「よろず相談」付き。本格的な事業展開向け",
     },
-    priceINRMonthly: 50000,
-    priceINRAnnual: 42500, // 15% discount
     capacity: { EN: "Up to 4 Members", JP: "最大4名" },
     capacityCategory: "3-4",
     accentBorder: "border-t-crimson",
@@ -161,8 +156,6 @@ const PLANS: Plan[] = [
       EN: "Hands-on entry consulting & monthly business meeting support by Indobox leadership",
       JP: "Indobox実践コンサルティング＆月1回の現地重要商談同席支援付き",
     },
-    priceINRMonthly: 120000,
-    priceINRAnnual: 102000, // 15% discount
     capacity: { EN: "Enterprise / Custom", JP: "企業・自治体向け" },
     capacityCategory: "enterprise",
     accentBorder: "border-t-saffron",
@@ -213,18 +206,18 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
           layout="split"
           titleNode={
             <>
-              {tx({ EN: "Membership Fee Plans ", JP: "ハイデラバード拠点 " })}
+              {tx({ EN: "Membership Plans ", JP: "ハイデラバード拠点 " })}
               <br className="hidden sm:inline" />
-              {tx({ EN: "— Hyderabad Operating Hub", JP: "メンバーシップ料金プラン" })}
+              {tx({ EN: "— Hyderabad Operating Hub", JP: "メンバーシッププラン" })}
             </>
           }
           subtitleNode={tx({
-            EN: "Designed as a cost-effective solution — providing Japanese enterprises with a dedicated workspace and resident advisory in Hyderabad.",
+            EN: "Designed as a strategic enterprise solution — providing Japanese enterprises with a dedicated workspace and resident advisory in Hyderabad.",
             JP: "日系企業に最適化された戦略的拠点モデル — ハイデラバードでの専用執務環境と日本人常駐サポートを提供。",
           })}
           tags={[
             { EN: "Flexible Desk & Suite Plans", JP: "柔軟なデスク・個室プラン" },
-            { EN: "Transparent Monthly Billing", JP: "明朗な月額費用" },
+            { EN: "Custom Corporate Proposals", JP: "規模に応じた個別提案" },
             { EN: "Enterprise Infrastructure Included", JP: "完全インフラ込み" },
           ]}
         />
@@ -247,10 +240,10 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
           <Reveal>
             <SectionHeading
               icon={<Briefcase className="h-3.5 w-3.5 text-crimson dark:text-rose-400" />}
-              eyebrow={tx({ EN: "Membership Plans", JP: "透明で明瞭なメンバーシップ体系" })}
+              eyebrow={tx({ EN: "Strategic Membership Plans", JP: "規模に応じたメンバーシップ体系" })}
               title={tx({
-                EN: "Choose Your Membership Plan",
-                JP: "進出段階に合わせて選べる3つのプラン",
+                EN: "Strategic Plans for Japanese Enterprises",
+                JP: "進出段階に合わせて選べる3つの戦略プラン",
               })}
             />
           </Reveal>
@@ -271,73 +264,84 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
                         : "border-slate-200/90 dark:border-white/16 shadow-card dark:shadow-2xl hover:border-slate-300 dark:hover:border-saffron/40 hover:-translate-y-1"
                     )}
                   >
+                    {/* Featured Ribbon */}
+                    {isFeatured && (
+                      <div className="absolute -top-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-gradient-to-r from-crimson to-crimson-deep px-3.5 py-0.5 text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-white shadow-md shadow-crimson/30 border border-white/20 flex items-center gap-1.5 z-20">
+                        <Sparkles className="h-3 w-3 text-amber-200" />
+                        <span>{tx({ EN: "Most Popular · Resident Japan Desk", JP: "人気No.1 · 常駐ジャパンデスク" })}</span>
+                      </div>
+                    )}
+
                     {/* Top Content Area */}
                     <div>
                       {/* Header Row: Icon + Title + Capacity Badge */}
-                      <div className="flex items-start justify-between gap-2.5 pb-3 border-b border-slate-100 dark:border-white/8">
-                        <div className="flex items-center gap-2.5">
+                      <div className="flex items-start justify-between gap-2.5 pb-3.5 border-b border-slate-100 dark:border-white/8">
+                        <div className="flex items-center gap-3">
                           <div
                             className={cn(
-                              "flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border transition-colors",
+                              "flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border transition-all duration-300",
                               isFeatured
-                                ? "bg-crimson/10 border-crimson/30 text-crimson dark:text-rose-400"
+                                ? "bg-crimson/10 border-crimson/30 text-crimson dark:text-rose-400 shadow-sm"
                                 : "bg-slate-50 dark:bg-white/5 border-slate-200/80 dark:border-white/10 text-ink dark:text-white"
                             )}
                           >
-                            <Icon className={cn("h-4.5 w-4.5", isFeatured ? "text-crimson dark:text-rose-400" : "text-slate-700 dark:text-slate-300")} />
+                            <Icon className={cn("h-5 w-5", isFeatured ? "text-crimson dark:text-rose-400" : "text-slate-700 dark:text-slate-300")} />
                           </div>
                           <div>
                             <div className="flex items-center gap-2">
-                              <h3 className="font-serif-jp text-[16px] sm:text-[17px] font-bold text-ink dark:text-white leading-tight">
+                              <h3 className="font-serif-jp text-[17px] sm:text-[18px] font-bold text-ink dark:text-white leading-tight">
                                 {plan.enName}
                               </h3>
                             </div>
-                            {lang === "JP" && (
-                              <span className="text-[11px] sm:text-[11.5px] font-medium text-slate-500 dark:text-slate-400 font-sans-jp">
-                                {plan.jpName}
-                              </span>
-                            )}
+                            <span className="text-[11.5px] font-medium text-slate-500 dark:text-slate-400 font-sans-jp block mt-0.5">
+                              {lang === "JP" ? plan.jpName : tx(plan.tierSubtitle)}
+                            </span>
                           </div>
                         </div>
 
-                        <span className="inline-flex items-center gap-1 rounded-full bg-slate-100/90 dark:bg-white/8 px-2.5 py-0.5 font-inter text-[10px] sm:text-[10.5px] font-bold text-slate-700 dark:text-slate-300 shrink-0 border border-slate-200/60 dark:border-white/10">
+                        <span className="inline-flex items-center gap-1 rounded-full bg-slate-100/90 dark:bg-white/8 px-2.5 py-1 font-inter text-[10.5px] font-bold text-slate-700 dark:text-slate-300 shrink-0 border border-slate-200/60 dark:border-white/10">
                           <Users className="h-2.5 w-2.5 text-crimson dark:text-rose-400" />
                           {tx(plan.capacity)}
                         </span>
                       </div>
 
-                      {/* Pricing Display */}
-                      <div className="mt-3 rounded-xl bg-slate-50/90 dark:bg-white/[0.03] border border-slate-200/70 dark:border-white/8 p-3">
-                        <div className="flex items-baseline justify-between gap-1">
-                          <div className="flex items-baseline gap-1">
-                            <span className="font-inter text-2xl sm:text-[28px] font-extrabold text-ink dark:text-white tracking-tight">
-                              ₹{plan.priceINRMonthly.toLocaleString()}
+                      {/* Executive Proposal / Bespoke Rates Block */}
+                      <div className="mt-3.5 rounded-xl bg-slate-50/90 dark:bg-white/[0.03] border border-slate-200/80 dark:border-white/8 p-3.5 sm:p-4">
+                        <div className="flex items-center justify-between gap-2">
+                          <div>
+                            <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 font-semibold block">
+                              {tx({ EN: "Pricing Tier", JP: "料金区分" })}
                             </span>
-                            <span className="font-inter text-[11px] font-semibold text-slate-500 dark:text-slate-400">
-                              {lang === "JP" ? "/月" : "/mo"}
-                            </span>
+                            <div className="font-serif-jp text-lg sm:text-[20px] font-bold text-ink dark:text-white tracking-tight mt-0.5">
+                              {tx({ EN: "Custom Proposal", JP: "個別お見積り" })}
+                            </div>
                           </div>
 
-                          <span className="text-[10.5px] font-inter text-slate-400 dark:text-slate-500 font-medium">
-                            {tx({ EN: "+18% GST", JP: "税別" })}
+                          <span
+                            className={cn(
+                              "inline-flex items-center gap-1 rounded-full px-2.5 py-1 font-inter text-[10.5px] font-semibold shrink-0 border",
+                              isFeatured
+                                ? "bg-crimson/10 border-crimson/30 text-crimson dark:text-rose-400"
+                                : "bg-slate-200/60 dark:bg-white/10 border-slate-300/60 dark:border-white/15 text-slate-700 dark:text-slate-300"
+                            )}
+                          >
+                            {tx({ EN: "Inquire for Rates", JP: "料金はお問い合わせ" })}
                           </span>
                         </div>
 
-                        <div className="mt-1 flex items-center justify-between text-[10.5px] font-inter text-slate-500 dark:text-slate-400">
-                          <span>
-                            {tx({ EN: "Billed in INR", JP: "インドルピー基準" })}
-                          </span>
-                        </div>
+                        <p className="mt-2 text-[11.5px] text-slate-600 dark:text-slate-400 leading-snug font-inter border-t border-slate-200/60 dark:border-white/6 pt-2">
+                          {tx(plan.tagline)}
+                        </p>
                       </div>
 
                       {/* Target Audience Summary Callout */}
-                      <p className="mt-2.5 font-inter text-[11px] sm:text-[11.5px] text-slate-600 dark:text-slate-300 leading-snug">
+                      <p className="mt-3 font-inter text-[11.5px] sm:text-[12px] text-slate-600 dark:text-slate-300 leading-snug">
                         <strong className="text-ink dark:text-slate-100 font-semibold">{tx({ EN: "Best for: ", JP: "対象: " })}</strong>
                         {tx(plan.target)}
                       </p>
 
                       {/* Specs Micro-Pills */}
-                      <div className="mt-2.5 flex items-center justify-between gap-1 rounded-lg bg-slate-100/60 dark:bg-white/[0.04] p-1.5 text-center text-[10px] font-inter border border-slate-200/50 dark:border-white/8 text-slate-600 dark:text-slate-300">
+                      <div className="mt-3 flex items-center justify-between gap-1 rounded-lg bg-slate-100/60 dark:bg-white/[0.04] p-2 text-center text-[10.5px] font-inter border border-slate-200/50 dark:border-white/8 text-slate-600 dark:text-slate-300">
                         <span className="truncate flex-1 font-medium">{tx(plan.specs.term)}</span>
                         <span className="text-slate-300 dark:text-white/20">·</span>
                         <span className="truncate flex-1 font-medium">{tx(plan.specs.access)}</span>
@@ -346,7 +350,10 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
                       </div>
 
                       {/* Compact Features Checklist */}
-                      <div className="mt-3 pt-2.5 border-t border-slate-100 dark:border-white/8">
+                      <div className="mt-3.5 pt-3 border-t border-slate-100 dark:border-white/8">
+                        <div className="text-[10.5px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 font-semibold mb-2">
+                          {tx({ EN: "Included Capabilities", JP: "含まれる基本機能・設備" })}
+                        </div>
                         <ul className="space-y-1.5 sm:space-y-2">
                           {plan.features.map((feat, fi) => (
                             <li key={fi} className="flex items-start gap-2 text-[11.5px] sm:text-[12px] font-inter text-slate-700 dark:text-slate-300 leading-tight">
@@ -368,17 +375,17 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
                     </div>
 
                     {/* Bottom Action CTA */}
-                    <div className="mt-4 pt-3 border-t border-slate-100 dark:border-white/8">
+                    <div className="mt-5 pt-3.5 border-t border-slate-100 dark:border-white/8">
                       <Link
                         href={`/contact?plan=${plan.id}`}
                         className={cn(
-                          "group/btn relative w-full inline-flex items-center justify-center gap-1.5 rounded-xl py-2.5 font-inter text-[12.5px] sm:text-[13px] font-semibold transition-all duration-300",
+                          "group/btn relative w-full inline-flex items-center justify-center gap-1.5 rounded-xl py-2.5 sm:py-3 font-inter text-[12.5px] sm:text-[13px] font-semibold transition-all duration-300",
                           isFeatured
                             ? "bg-gradient-to-r from-crimson to-crimson-deep text-white shadow-md shadow-crimson/25 hover:shadow-lg hover:shadow-crimson/40 hover:-translate-y-0.5"
                             : "bg-slate-900 dark:bg-white text-white dark:text-slate-900 hover:bg-crimson dark:hover:bg-crimson dark:hover:text-white hover:-translate-y-0.5 shadow-xs"
                         )}
                       >
-                        <span>{tx({ EN: `Select ${plan.enName}`, JP: `${plan.jpName}を申し込む` })}</span>
+                        <span>{tx({ EN: `Inquire About ${plan.enName}`, JP: `${plan.jpName}を相談・見積り` })}</span>
                         <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/btn:translate-x-1" />
                       </Link>
                     </div>
@@ -419,11 +426,11 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
                 {[
                   {
                     icon: Receipt,
-                    title: { EN: "Base Operating Fees", JP: "基本料金のみ" },
-                    badge: { EN: "Predictable Cost", JP: "明朗会計" },
+                    title: { EN: "Tailored Corporate Proposals", JP: "柔軟な個別提案" },
+                    badge: { EN: "Custom Scope", JP: "個別設計" },
                     desc: {
-                      EN: "Amounts reflect predictable monthly office membership. Entity incorporation and recruitment services are priced separately based on your requirements.",
-                      JP: "記載価格は月額基本料金です。法人設立手続きや人材紹介の手数料は実費・別途請求となります。",
+                      EN: "Every proposal is customized according to your team size, seating duration, and support needs. Incorporation and recruitment services can be seamlessly integrated.",
+                      JP: "チーム規模、利用期間、支援内容に応じて個別の提案書・お見積りを作成いたします。法人設立や人材採用の支援も柔軟に組み合わせてご提案可能です。",
                     },
                   },
                   {

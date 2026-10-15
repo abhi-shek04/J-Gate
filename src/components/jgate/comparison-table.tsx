@@ -34,7 +34,7 @@ const ROWS: Row[] = [
   },
   {
     label: { EN: "Monthly Cost", JP: "月額費用" },
-    jgate: { EN: "From 15,000 INR", JP: "15,000 INR〜" },
+    jgate: { EN: "Inquire for Rates", JP: "個別お見積り" },
     consult: { EN: "500K – 1M+ INR", JP: "500,000〜1,000,000 INR+" },
     cowork: { EN: "10K – 60K INR", JP: "10,000〜60,000 INR" },
     publicOrg: { EN: "Free – Low cost", JP: "無料〜低額" },

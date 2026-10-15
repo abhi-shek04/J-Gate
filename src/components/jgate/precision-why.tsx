@@ -148,10 +148,10 @@ export function PrecisionWhyPage() {
       <div className="relative z-20 w-full h-[40px] bg-[#0F0F18] border-b border-[rgba(184,146,74,0.35)] overflow-hidden flex items-center">
         <div className="ticker-track flex whitespace-nowrap will-change-transform animate-ticker">
           <span className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-[#B8924A] px-4 flex items-center gap-4">
-            <span>J-GATE</span> · <span>HYDERABAD OFFICE</span> · <span>INDOBOX INDIA</span> · {lang === "JP" && <><span>ジェーゲート</span> · </>}<span>CONNECTING JAPAN & INDIA</span> · <span>TEAMS OF 2–4</span> · <span>7 CORE SERVICES</span> · <span>FROM ₹15,000 /MO</span> · <span>HYDERABAD HUB</span> · <span>LAUNCHED JUNE 2026</span> ·
+            <span>J-GATE</span> · <span>HYDERABAD OFFICE</span> · <span>INDOBOX INDIA</span> · {lang === "JP" && <><span>ジェーゲート</span> · </>}<span>CONNECTING JAPAN & INDIA</span> · <span>TEAMS OF 2–4</span> · <span>7 CORE SERVICES</span> · <span>FLEXIBLE MEMBERSHIP TIERS</span> · <span>HYDERABAD HUB</span> · <span>LAUNCHED JUNE 2026</span> ·
           </span>
           <span className="font-mono text-[10.5px] uppercase tracking-[0.2em] text-[#B8924A] px-4 flex items-center gap-4" aria-hidden="true">
-            <span>J-GATE</span> · <span>HYDERABAD OFFICE</span> · <span>INDOBOX INDIA</span> · {lang === "JP" && <><span>ジェーゲート</span> · </>}<span>CONNECTING JAPAN & INDIA</span> · <span>TEAMS OF 2–4</span> · <span>7 CORE SERVICES</span> · <span>FROM ₹15,000 /MO</span> · <span>HYDERABAD HUB</span> · <span>LAUNCHED JUNE 2026</span> ·
+            <span>J-GATE</span> · <span>HYDERABAD OFFICE</span> · <span>INDOBOX INDIA</span> · {lang === "JP" && <><span>ジェーゲート</span> · </>}<span>CONNECTING JAPAN & INDIA</span> · <span>TEAMS OF 2–4</span> · <span>7 CORE SERVICES</span> · <span>FLEXIBLE MEMBERSHIP TIERS</span> · <span>HYDERABAD HUB</span> · <span>LAUNCHED JUNE 2026</span> ·
           </span>
         </div>
       </div>
@@ -392,7 +392,7 @@ export function PrecisionWhyPage() {
                       <svg className="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="#2D7A5F" /></svg>
                       <div>
                         <div className="font-sans font-medium text-[#F0EDE6]">
-                          {tx({ EN: "From ₹15,000", JP: "月額 15,000 INR〜" })}
+                          {tx({ EN: "Inquire for Rates", JP: "個別お見積り" })}
                         </div>
                       </div>
                     </div>
@@ -1130,8 +1130,8 @@ export function PrecisionWhyPage() {
                               {tx(data.name)}
                             </span>
                             <div className="text-right">
-                              <span className="font-mono text-[13px] text-[#B8924A] font-bold">
-                                ₹{data.jGate.toLocaleString()}/mo
+                              <span className="font-mono text-[11px] text-[#B8924A] font-bold uppercase tracking-wider">
+                                {tx({ EN: "Custom Quote", JP: "個別お見積り" })}
                               </span>
                             </div>
                           </div>
@@ -1230,15 +1230,17 @@ export function PrecisionWhyPage() {
                   <div className="pb-3 border-b border-[rgba(184,146,74,0.2)] flex items-end justify-between">
                     <div>
                       <span className="block font-mono text-[10px] uppercase tracking-wider text-[#9A98A4]">
-                        {tx({ EN: "Estimated J-Gate Base Fee", JP: "月額J-Gate会費（目安）" })}
+                        {tx({ EN: "J-Gate Operating Model", JP: "J-Gate 導入モデル" })}
                       </span>
                       <span className="font-mono text-[10px] text-[#B8924A] mt-0.5">
-                        {tx({ EN: "Billed in INR", JP: "インドルピー表示" })}
+                        {tx({ EN: "Tailored Corporate Membership", JP: "規模に応じた個別提案" })}
                       </span>
                     </div>
-                    <div className="text-right font-serif text-[32px] font-light text-[#F0EDE6] leading-none">
-                      ₹{displayedJGate.toLocaleString()}
-                      <span className="font-sans text-[12px] text-[#5C5A68] ml-1">/mo + GST</span>
+                    <div className="text-right font-serif text-[26px] font-light text-[#F0EDE6] leading-none">
+                      {tx({ EN: "Custom Quote", JP: "個別お見積り" })}
+                      <span className="block font-sans text-[11px] text-[#5C5A68] mt-1 font-mono uppercase tracking-wider">
+                        {tx({ EN: "Upon Consultation", JP: "要ご相談" })}
+                      </span>
                     </div>
                   </div>
 
@@ -1246,14 +1248,14 @@ export function PrecisionWhyPage() {
                   <div className="pb-3 border-b border-[rgba(184,146,74,0.2)] flex items-end justify-between">
                     <div>
                       <span className="block font-mono text-[10px] uppercase tracking-wider text-[#5C5A68]">
-                        {tx({ EN: "Traditional Office Rental (Market Rate)", JP: "単独オフィス開設（相場費用）" })}
+                        {tx({ EN: "Traditional Entity Setup (Market Burden)", JP: "単独オフィス開設（従来型負担）" })}
                       </span>
                       <span className="font-mono text-[9px] text-[#5C5A68] mt-0.5">
-                        COMMERCIAL LEASE + STAFF + SETUP
+                        COMMERCIAL LEASE + DIRECT STAFF + CAPEX
                       </span>
                     </div>
-                    <div className="text-right font-serif text-[32px] font-light text-[#5C5A68] leading-none line-through">
-                      ₹{displayedMarket.toLocaleString()}
+                    <div className="text-right font-sans text-[13px] font-medium text-[#5C5A68] leading-tight">
+                      <span className="line-through">{tx({ EN: "High Fixed CAPEX", JP: "高額な固定初期費用" })}</span>
                     </div>
                   </div>
 
@@ -1261,14 +1263,17 @@ export function PrecisionWhyPage() {
                   <div className="pt-2 flex items-end justify-between">
                     <div>
                       <span className="block font-mono text-[10.5px] uppercase tracking-wider text-[#2D7A5F] font-bold">
-                        {tx({ EN: "Estimated Monthly Savings", JP: "月間経費削減額（推定）" })}
+                        {tx({ EN: "Estimated Cost Efficiency", JP: "初期投資・リスク削減効果" })}
                       </span>
                       <span className="font-mono text-[9px] text-[#2D7A5F] mt-0.5">
-                        TOTAL ESTIMATED MONTHLY SAVINGS
+                        OPTIMIZED EXPANSION TCO
                       </span>
                     </div>
-                    <div className="text-right font-serif text-[40px] font-light text-[#2D7A5F] leading-none">
-                      ₹{displayedSaving.toLocaleString()}+
+                    <div className="text-right font-serif text-[34px] font-light text-[#2D7A5F] leading-none">
+                      ~70–85%
+                      <span className="block font-mono text-[10px] text-[#2D7A5F] mt-1 tracking-wider">
+                        {tx({ EN: "CAPEX SAVED", JP: "コスト削減" })}
+                      </span>
                     </div>
                   </div>
                 </div>

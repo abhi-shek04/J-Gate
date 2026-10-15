@@ -13,23 +13,12 @@ import {
   Compass,
   Briefcase,
   Building2,
-  Wifi,
-  Video,
-  Printer,
-  KeyRound,
-  Zap,
-  Coffee,
   Sparkles,
   ArrowRight,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type Bilingual = { EN: string; JP: string };
-
-type InfrastructureFeature = {
-  icon: typeof Wifi;
-  text: Bilingual;
-};
 
 type Plan = {
   id: "satellite" | "standard" | "advance";
@@ -53,46 +42,7 @@ type Plan = {
     title: Bilingual;
     desc?: Bilingual;
   }[];
-  infrastructure: InfrastructureFeature[];
 };
-
-const SHARED_INFRASTRUCTURE: InfrastructureFeature[] = [
-  {
-    icon: Wifi,
-    text: {
-      EN: "1 Gbps dedicated high-speed fiber internet & Wi-Fi",
-      JP: "1 Gbps 専用高速光ファイバー回線＆Wi-Fi完備",
-    },
-  },
-  {
-    icon: Video,
-    text: {
-      EN: "16-seat conference boardroom & private discussion rooms",
-      JP: "16名用国際会議室および面談・討議室の利用",
-    },
-  },
-  {
-    icon: Zap,
-    text: {
-      EN: "100% continuous dual DG generator & UPS power backup",
-      JP: "非常用発電機（DG）＆UPS無停電電源装置（100%バックアップ）",
-    },
-  },
-  {
-    icon: KeyRound,
-    text: {
-      EN: "24/7 building security, CCTV surveillance & RFID card entry",
-      JP: "24時間ビル警備・CCTV監視カメラ・RFIDスマートカード入退室",
-    },
-  },
-  {
-    icon: Printer,
-    text: {
-      EN: "High-speed multifunction color printer, scanner & copier",
-      JP: "高性能カラー複合機・スキャナー・コピー完備",
-    },
-  },
-];
 
 const PLANS: Plan[] = [
   {
@@ -142,7 +92,6 @@ const PLANS: Plan[] = [
         },
       },
     ],
-    infrastructure: SHARED_INFRASTRUCTURE,
   },
   {
     id: "standard",
@@ -197,7 +146,6 @@ const PLANS: Plan[] = [
         },
       },
     ],
-    infrastructure: SHARED_INFRASTRUCTURE,
   },
   {
     id: "advance",
@@ -252,7 +200,6 @@ const PLANS: Plan[] = [
         },
       },
     ],
-    infrastructure: SHARED_INFRASTRUCTURE,
   },
 ];
 
@@ -396,35 +343,6 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
                             </li>
                           ))}
                         </ul>
-                      </div>
-
-                      {/* Detailed Infrastructure Facilities Section */}
-                      <div className="mt-4 pt-3.5 border-t border-slate-100 dark:border-white/8">
-                        <div className="flex items-center gap-1.5 mb-2">
-                          <Building2 className="h-3 w-3 text-crimson dark:text-rose-400" />
-                          <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
-                            {tx({ EN: "Infrastructure Facilities", JP: "各種インフラ設備" })}
-                          </span>
-                        </div>
-
-                        <div className="space-y-1.5 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] p-2.5 border border-slate-200/60 dark:border-white/6">
-                          {plan.infrastructure.map((infra, ii) => {
-                            const InfraIcon = infra.icon;
-                            return (
-                              <div
-                                key={ii}
-                                className="flex items-start gap-2 text-[10.5px] sm:text-[11px] font-inter text-slate-700 dark:text-slate-300 leading-tight"
-                              >
-                                <span className="mt-0.5 flex h-3 w-3 shrink-0 items-center justify-center text-slate-500 dark:text-slate-400">
-                                  <InfraIcon className="h-2.5 w-2.5" />
-                                </span>
-                                <span className="text-slate-600 dark:text-slate-300 font-normal">
-                                  {tx(infra.text)}
-                                </span>
-                              </div>
-                            );
-                          })}
-                        </div>
                       </div>
                     </div>
                   </div>

@@ -56,6 +56,44 @@ type Plan = {
   infrastructure: InfrastructureFeature[];
 };
 
+const SHARED_INFRASTRUCTURE: InfrastructureFeature[] = [
+  {
+    icon: Wifi,
+    text: {
+      EN: "1 Gbps dedicated high-speed fiber internet & Wi-Fi",
+      JP: "1 Gbps 専用高速光ファイバー回線＆Wi-Fi完備",
+    },
+  },
+  {
+    icon: Video,
+    text: {
+      EN: "16-seat conference boardroom & private discussion rooms",
+      JP: "16名用国際会議室および面談・討議室の利用",
+    },
+  },
+  {
+    icon: Zap,
+    text: {
+      EN: "100% continuous dual DG generator & UPS power backup",
+      JP: "非常用発電機（DG）＆UPS無停電電源装置（100%バックアップ）",
+    },
+  },
+  {
+    icon: KeyRound,
+    text: {
+      EN: "24/7 building security, CCTV surveillance & RFID card entry",
+      JP: "24時間ビル警備・CCTV監視カメラ・RFIDスマートカード入退室",
+    },
+  },
+  {
+    icon: Printer,
+    text: {
+      EN: "High-speed multifunction color printer, scanner & copier",
+      JP: "高性能カラー複合機・スキャナー・コピー完備",
+    },
+  },
+];
+
 const PLANS: Plan[] = [
   {
     id: "satellite",
@@ -104,43 +142,7 @@ const PLANS: Plan[] = [
         },
       },
     ],
-    infrastructure: [
-      {
-        icon: Wifi,
-        text: {
-          EN: "High-speed 1 Gbps dual-fiber Wi-Fi with provider backup",
-          JP: "1 Gbps 高速光回線Wi-Fi（回線冗長化バックアップ完備）",
-        },
-      },
-      {
-        icon: Video,
-        text: {
-          EN: "Dedicated meeting rooms & soundproof video booths",
-          JP: "専用会議室および防音オンライン商談ブース利用",
-        },
-      },
-      {
-        icon: Printer,
-        text: {
-          EN: "Xerox high-speed multifunction color printer & scanner",
-          JP: "Xerox 高性能カラー複合機・スキャナー完備",
-        },
-      },
-      {
-        icon: KeyRound,
-        text: {
-          EN: "24/7 biometric & keycard access with CCTV security",
-          JP: "24時間対応のICカード・生体認証セキュリティ",
-        },
-      },
-      {
-        icon: Zap,
-        text: {
-          EN: "100% continuous UPS power backup & commercial address",
-          JP: "無停電電源装置（UPS）＆登記可能商業アドレス",
-        },
-      },
-    ],
+    infrastructure: SHARED_INFRASTRUCTURE,
   },
   {
     id: "standard",
@@ -195,43 +197,7 @@ const PLANS: Plan[] = [
         },
       },
     ],
-    infrastructure: [
-      {
-        icon: Users,
-        text: {
-          EN: "Full workspace amenities with expanded seating for up to 4",
-          JP: "最大4名まで利用可能なチーム専用執務エリア",
-        },
-      },
-      {
-        icon: Wifi,
-        text: {
-          EN: "Dedicated 1 Gbps high-speed network with Japan hours priority",
-          JP: "1 Gbps 専用高速回線（日本時間帯優先ネットワーク）",
-        },
-      },
-      {
-        icon: Video,
-        text: {
-          EN: "Priority conference room booking & presentation facilities",
-          JP: "クライアント商談用会議室の優先予約・プレゼン設備",
-        },
-      },
-      {
-        icon: Printer,
-        text: {
-          EN: "Full Xerox enterprise document center & personal lockers",
-          JP: "Xerox 高性能印刷センター＆施錠付き個人ロッカー",
-        },
-      },
-      {
-        icon: Coffee,
-        text: {
-          EN: "Resident bilingual Japan Desk access & refreshment lounge",
-          JP: "常駐日本人デスク・日英対応＆カフェラウンジ利用",
-        },
-      },
-    ],
+    infrastructure: SHARED_INFRASTRUCTURE,
   },
   {
     id: "advance",
@@ -286,43 +252,7 @@ const PLANS: Plan[] = [
         },
       },
     ],
-    infrastructure: [
-      {
-        icon: Building2,
-        text: {
-          EN: "Custom executive office layout with corporate branding",
-          JP: "個別最適化エグゼクティブオフィス＆社名プレート掲示",
-        },
-      },
-      {
-        icon: Video,
-        text: {
-          EN: "VIP executive boardroom access for government delegations",
-          JP: "政府機関・要人来訪対応VIPエグゼクティブ会議室",
-        },
-      },
-      {
-        icon: Wifi,
-        text: {
-          EN: "Dedicated high-security enterprise VLAN & encrypted network",
-          JP: "専用高セキュリティ企業向けVLAN・暗号化ネットワーク",
-        },
-      },
-      {
-        icon: KeyRound,
-        text: {
-          EN: "Private executive lockable cabinets & biometric control",
-          JP: "専用施錠キャビネット＆生体認証厳格アクセス管理",
-        },
-      },
-      {
-        icon: Zap,
-        text: {
-          EN: "100% continuous UPS power backup & executive lounge",
-          JP: "無停電電源装置（UPS）完備＆エグゼクティブラウンジ利用",
-        },
-      },
-    ],
+    infrastructure: SHARED_INFRASTRUCTURE,
   },
 ];
 
@@ -468,17 +398,12 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
                         </ul>
                       </div>
 
-                      {/* Detailed Infrastructure & Amenities Section (Addressing "based on that add more information") */}
+                      {/* Detailed Infrastructure Facilities Section */}
                       <div className="mt-4 pt-3.5 border-t border-slate-100 dark:border-white/8">
-                        <div className="flex items-center justify-between mb-2">
-                          <div className="flex items-center gap-1.5">
-                            <Building2 className="h-3 w-3 text-crimson dark:text-rose-400" />
-                            <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
-                              {tx({ EN: "Infrastructure Inclusions", JP: "利用可能インフラ設備" })}
-                            </span>
-                          </div>
-                          <span className="text-[9.5px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-200/80 dark:border-emerald-700/40 font-mono">
-                            {tx({ EN: "Included", JP: "設備完備" })}
+                        <div className="flex items-center gap-1.5 mb-2">
+                          <Building2 className="h-3 w-3 text-crimson dark:text-rose-400" />
+                          <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
+                            {tx({ EN: "Infrastructure Facilities", JP: "各種インフラ設備" })}
                           </span>
                         </div>
 

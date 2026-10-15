@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { Reveal, SectionHeading, Eyebrow } from "@/components/jgate/shared";
+import { Reveal, SectionHeading } from "@/components/jgate/shared";
 import { PageHero } from "@/components/jgate/page-hero";
 import { useI18n } from "@/lib/i18n";
+import Link from "next/link";
 import {
   Check,
   Banknote,
@@ -13,10 +13,24 @@ import {
   Compass,
   Briefcase,
   Building2,
+  Target,
+  Wifi,
+  Video,
+  Printer,
+  KeyRound,
+  Zap,
+  Coffee,
+  Sparkles,
+  ArrowRight,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type Bilingual = { EN: string; JP: string };
+
+type InfrastructureFeature = {
+  icon: typeof Wifi;
+  text: Bilingual;
+};
 
 type Plan = {
   id: "satellite" | "standard" | "advance";
@@ -28,7 +42,8 @@ type Plan = {
   capacity: Bilingual;
   capacityCategory: "1-2" | "3-4" | "enterprise";
   accentBorder: string;
-  accentColor: string;
+  accentBadge: string;
+  accentBg: string;
   specs: {
     term: Bilingual;
     access: Bilingual;
@@ -39,6 +54,7 @@ type Plan = {
     title: Bilingual;
     desc?: Bilingual;
   }[];
+  infrastructure: InfrastructureFeature[];
 };
 
 const PLANS: Plan[] = [
@@ -57,11 +73,12 @@ const PLANS: Plan[] = [
     },
     capacity: { EN: "Up to 2 Members", JP: "最大2名" },
     capacityCategory: "1-2",
-    accentBorder: "border-t-slate-400",
-    accentColor: "slate",
+    accentBorder: "border-t-4 border-t-slate-400 dark:border-t-slate-500",
+    accentBadge: "text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-white/10 border-slate-200 dark:border-white/15",
+    accentBg: "bg-slate-100 dark:bg-white/5 border-slate-200/80 dark:border-white/10 text-slate-800 dark:text-white",
     specs: {
       term: { EN: "Flexible / Monthly", JP: "月単位・柔軟契約" },
-      access: { EN: "24/7 Keycard", JP: "24時間入退室管理" },
+      access: { EN: "24/7 Keycard Entry", JP: "24時間入退室管理" },
       support: { EN: "Infrastructure Access", JP: "インフラ設備完備" },
     },
     target: {
@@ -88,6 +105,43 @@ const PLANS: Plan[] = [
         },
       },
     ],
+    infrastructure: [
+      {
+        icon: Wifi,
+        text: {
+          EN: "High-speed 1 Gbps dual-fiber Wi-Fi with provider backup",
+          JP: "1 Gbps 高速光回線Wi-Fi（回線冗長化バックアップ完備）",
+        },
+      },
+      {
+        icon: Video,
+        text: {
+          EN: "Dedicated meeting rooms & soundproof video booths",
+          JP: "専用会議室および防音オンライン商談ブース利用",
+        },
+      },
+      {
+        icon: Printer,
+        text: {
+          EN: "Xerox high-speed multifunction color printer & scanner",
+          JP: "Xerox 高性能カラー複合機・スキャナー完備",
+        },
+      },
+      {
+        icon: KeyRound,
+        text: {
+          EN: "24/7 biometric & keycard access with CCTV security",
+          JP: "24時間対応のICカード・生体認証セキュリティ",
+        },
+      },
+      {
+        icon: Zap,
+        text: {
+          EN: "100% continuous UPS power backup & commercial address",
+          JP: "無停電電源装置（UPS）＆登記可能商業アドレス",
+        },
+      },
+    ],
   },
   {
     id: "standard",
@@ -104,11 +158,12 @@ const PLANS: Plan[] = [
     },
     capacity: { EN: "Up to 4 Members", JP: "最大4名" },
     capacityCategory: "3-4",
-    accentBorder: "border-t-crimson",
-    accentColor: "crimson",
+    accentBorder: "border-t-4 border-t-crimson dark:border-t-rose-500",
+    accentBadge: "text-crimson dark:text-rose-400 bg-crimson/10 dark:bg-rose-950/60 border-crimson/25 dark:border-rose-400/30",
+    accentBg: "bg-crimson/10 dark:bg-rose-950/40 border-crimson/30 dark:border-rose-400/30 text-crimson dark:text-rose-400",
     specs: {
       term: { EN: "Flexible / Monthly", JP: "月単位・柔軟契約" },
-      access: { EN: "24/7 Keycard", JP: "24時間入退室管理" },
+      access: { EN: "24/7 Keycard Entry", JP: "24時間入退室管理" },
       support: { EN: "Daily In-Person Desk", JP: "常駐日本人ディレクター" },
     },
     target: {
@@ -141,6 +196,43 @@ const PLANS: Plan[] = [
         },
       },
     ],
+    infrastructure: [
+      {
+        icon: Users,
+        text: {
+          EN: "Full workspace amenities with expanded seating for up to 4",
+          JP: "最大4名まで利用可能なチーム専用執務エリア",
+        },
+      },
+      {
+        icon: Wifi,
+        text: {
+          EN: "Dedicated 1 Gbps high-speed network with Japan hours priority",
+          JP: "1 Gbps 専用高速回線（日本時間帯優先ネットワーク）",
+        },
+      },
+      {
+        icon: Video,
+        text: {
+          EN: "Priority conference room booking & presentation facilities",
+          JP: "クライアント商談用会議室の優先予約・プレゼン設備",
+        },
+      },
+      {
+        icon: Printer,
+        text: {
+          EN: "Full Xerox enterprise document center & personal lockers",
+          JP: "Xerox 高性能印刷センター＆施錠付き個人ロッカー",
+        },
+      },
+      {
+        icon: Coffee,
+        text: {
+          EN: "Resident bilingual Japan Desk access & refreshment lounge",
+          JP: "常駐日本人デスク・日英対応＆カフェラウンジ利用",
+        },
+      },
+    ],
   },
   {
     id: "advance",
@@ -157,11 +249,12 @@ const PLANS: Plan[] = [
     },
     capacity: { EN: "Enterprise / Delegations", JP: "企業・自治体向け" },
     capacityCategory: "enterprise",
-    accentBorder: "border-t-saffron",
-    accentColor: "saffron",
+    accentBorder: "border-t-4 border-t-amber-500 dark:border-t-amber-400",
+    accentBadge: "text-amber-700 dark:text-amber-300 bg-amber-500/10 dark:bg-amber-950/60 border-amber-500/30 dark:border-amber-400/30",
+    accentBg: "bg-amber-500/10 dark:bg-amber-950/40 border-amber-500/30 dark:border-amber-400/30 text-amber-700 dark:text-amber-300",
     specs: {
       term: { EN: "Custom / Annual", JP: "年間または個別設計" },
-      access: { EN: "24/7 Keycard", JP: "24時間入退室管理" },
+      access: { EN: "24/7 Keycard Entry", JP: "24時間入退室管理" },
       support: { EN: "Hands-on Partner + VIP", JP: "実践コンサル＋VIP窓口" },
     },
     target: {
@@ -194,9 +287,45 @@ const PLANS: Plan[] = [
         },
       },
     ],
+    infrastructure: [
+      {
+        icon: Building2,
+        text: {
+          EN: "Custom executive office layout with corporate branding",
+          JP: "個別最適化エグゼクティブオフィス＆社名プレート掲示",
+        },
+      },
+      {
+        icon: Video,
+        text: {
+          EN: "VIP executive boardroom access for government delegations",
+          JP: "政府機関・要人来訪対応VIPエグゼクティブ会議室",
+        },
+      },
+      {
+        icon: Wifi,
+        text: {
+          EN: "Dedicated high-security enterprise VLAN & encrypted network",
+          JP: "専用高セキュリティ企業向けVLAN・暗号化ネットワーク",
+        },
+      },
+      {
+        icon: KeyRound,
+        text: {
+          EN: "Private executive lockable cabinets & biometric control",
+          JP: "専用施錠キャビネット＆生体認証厳格アクセス管理",
+        },
+      },
+      {
+        icon: Sparkles,
+        text: {
+          EN: "Direct access pipeline to T-Hub & Woxsen University incubators",
+          JP: "T-Hubインキュベーター・Woxsen大学産学連携パイプライン",
+        },
+      },
+    ],
   },
 ];
-
 
 export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boolean }) {
   const { tx, lang } = useI18n();
@@ -229,7 +358,7 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
       {/* ───────────────────────────────────────────────────────────
           2. Three Executive Plan Cards
          ─────────────────────────────────────────────────────────── */}
-      <section className="py-6 sm:py-8 lg:py-10 bg-ivory-warm dark:bg-black relative overflow-hidden transition-colors">
+      <section className="py-8 sm:py-10 lg:py-14 bg-ivory-warm dark:bg-black relative overflow-hidden transition-colors">
         {/* Ambient subtle warm lighting */}
         <div
           className="pointer-events-none absolute inset-0 opacity-35"
@@ -251,86 +380,163 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
             />
           </Reveal>
 
-          {/* Grid of 3 Balanced Cards — Compact, Premium, High-End Presentation */}
-          <div className="mt-6 sm:mt-8 grid gap-4 sm:gap-5 lg:gap-5 lg:grid-cols-3 items-stretch">
+          {/* Grid of 3 Balanced Cards — High-End Executive Presentation */}
+          <div className="mt-8 sm:mt-10 grid gap-5 sm:gap-6 lg:gap-6 lg:grid-cols-3 items-stretch">
             {PLANS.map((plan, i) => {
               const Icon = plan.icon;
               const isFeatured = plan.id === "standard";
 
               return (
-                <Reveal key={plan.id} delay={i * 80} variant="up" className={isFeatured ? "order-first lg:order-none" : ""}>
+                <Reveal key={plan.id} delay={i * 80} variant="up">
                   <div
                     className={cn(
-                      "luxury-light-card card-sheen group relative flex h-full flex-col justify-between rounded-2xl bg-white dark:bg-[#09090b] border transition-all duration-300 p-4 sm:p-6",
+                      "luxury-light-card card-sheen group relative flex h-full flex-col justify-between rounded-2xl bg-white dark:bg-[#09090b] border transition-all duration-300 p-5 sm:p-6 lg:p-6.5",
+                      plan.accentBorder,
                       isFeatured
-                        ? "border-crimson dark:border-rose-400/60 shadow-[0_16px_40px_-10px_rgba(188,26,44,0.22)] dark:shadow-[0_20px_50px_-10px_rgba(188,26,44,0.45)] ring-2 ring-crimson/40 lg:-translate-y-2"
-                        : "border-slate-200/90 dark:border-white/16 shadow-card dark:shadow-2xl hover:border-slate-300 dark:hover:border-saffron/40 hover:-translate-y-1"
+                        ? "border-crimson/70 dark:border-rose-400/60 shadow-[0_18px_45px_-10px_rgba(188,26,44,0.18)] dark:shadow-[0_22px_55px_-10px_rgba(188,26,44,0.35)] ring-1 ring-crimson/25"
+                        : "border-slate-200/90 dark:border-white/12 shadow-card dark:shadow-2xl hover:border-slate-300 dark:hover:border-white/25 hover:-translate-y-1"
                     )}
                   >
                     {/* Top Content Area */}
                     <div>
                       {/* Header Row: Icon + Title + Capacity Badge */}
-                      <div className="flex items-start justify-between gap-2.5 pb-3 border-b border-slate-100 dark:border-white/8">
-                        <div className="flex items-center gap-2.5">
+                      <div className="flex items-start justify-between gap-3 pb-3.5 border-b border-slate-100 dark:border-white/8">
+                        <div className="flex items-center gap-3">
                           <div
                             className={cn(
-                              "flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border transition-colors",
-                              isFeatured
-                                ? "bg-crimson/10 border-crimson/30 text-crimson dark:text-rose-400"
-                                : "bg-slate-50 dark:bg-white/5 border-slate-200/80 dark:border-white/10 text-ink dark:text-white"
+                              "flex h-10 w-10 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-xl border shadow-2xs transition-transform duration-300 group-hover:scale-105",
+                              plan.accentBg
                             )}
                           >
-                            <Icon className={cn("h-4.5 w-4.5", isFeatured ? "text-crimson dark:text-rose-400" : "text-slate-700 dark:text-slate-300")} />
+                            <Icon className="h-5 w-5" />
                           </div>
                           <div>
                             <div className="flex items-center gap-2">
-                              <h3 className="font-serif-jp text-[16px] sm:text-[17px] font-bold text-ink dark:text-white leading-tight">
+                              <h3 className="font-serif-jp text-[17px] sm:text-[18px] font-bold text-ink dark:text-white leading-tight">
                                 {plan.enName}
                               </h3>
                             </div>
-                            {lang === "JP" && (
-                              <span className="text-[11px] sm:text-[11.5px] font-medium text-slate-500 dark:text-slate-400 font-sans-jp">
-                                {plan.jpName}
+                            <div className="flex items-center gap-1.5 mt-0.5">
+                              {lang === "JP" && (
+                                <span className="text-[11.5px] font-medium text-slate-500 dark:text-slate-400 font-sans-jp">
+                                  {plan.jpName} ·
+                                </span>
+                              )}
+                              <span className="text-[11px] font-semibold text-slate-600 dark:text-slate-300">
+                                {tx(plan.tierSubtitle)}
                               </span>
-                            )}
+                            </div>
                           </div>
                         </div>
 
-                        <span className="inline-flex items-center gap-1 rounded-full bg-slate-100/90 dark:bg-white/8 px-2.5 py-0.5 font-inter text-[10px] sm:text-[10.5px] font-bold text-slate-700 dark:text-slate-300 shrink-0 border border-slate-200/60 dark:border-white/10">
-                          <Users className="h-2.5 w-2.5 text-crimson dark:text-rose-400" />
+                        <span
+                          className={cn(
+                            "inline-flex items-center gap-1 rounded-full px-2.5 py-1 font-inter text-[10px] sm:text-[10.5px] font-bold shrink-0 border shadow-2xs",
+                            plan.accentBadge
+                          )}
+                        >
+                          <Users className="h-2.5 w-2.5" />
                           {tx(plan.capacity)}
                         </span>
                       </div>
 
                       {/* Target Audience Summary Callout */}
-                      <p className="mt-2.5 font-inter text-[11px] sm:text-[11.5px] text-slate-600 dark:text-slate-300 leading-snug">
-                        <strong className="text-ink dark:text-slate-100 font-semibold">{tx({ EN: "Target: ", JP: "対象: " })}</strong>
-                        {tx(plan.target)}
-                      </p>
-
-                      {/* Specs Micro-Pills */}
-                      <div className="mt-2.5 flex items-center justify-between gap-1 rounded-lg bg-slate-100/60 dark:bg-white/[0.04] p-1.5 text-center text-[10px] font-inter border border-slate-200/50 dark:border-white/8 text-slate-600 dark:text-slate-300">
-                        <span className="truncate flex-1 font-medium">{tx(plan.specs.term)}</span>
-                        <span className="text-slate-300 dark:text-white/20">·</span>
-                        <span className="truncate flex-1 font-medium">{tx(plan.specs.access)}</span>
-                        <span className="text-slate-300 dark:text-white/20">·</span>
-                        <span className="truncate flex-1 font-medium text-crimson dark:text-rose-400 font-semibold">{tx(plan.specs.support)}</span>
+                      <div className="mt-3.5 rounded-xl bg-slate-50/90 dark:bg-white/[0.03] p-3 border border-slate-200/70 dark:border-white/8">
+                        <div className="flex items-center gap-1.5 mb-1">
+                          <Target className="h-3 w-3 text-crimson dark:text-rose-400 shrink-0" />
+                          <span className="font-mono text-[9.5px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300">
+                            {tx({ EN: "Target Audience", JP: "対象企業" })}
+                          </span>
+                        </div>
+                        <p className="font-inter text-[11.5px] sm:text-[12px] text-slate-700 dark:text-slate-200 leading-snug font-medium">
+                          {tx(plan.target)}
+                        </p>
                       </div>
 
-                      {/* Compact Features Checklist */}
-                      <div className="mt-3 pt-2.5 border-t border-slate-100 dark:border-white/8">
+                      {/* Operational Specifications (Fully Visible, No Truncation) */}
+                      <div className="mt-3 grid grid-cols-3 gap-2 rounded-xl bg-slate-100/70 dark:bg-white/[0.04] p-2.5 sm:p-3 border border-slate-200/80 dark:border-white/8">
+                        <div className="flex flex-col">
+                          <span className="font-mono text-[9px] uppercase tracking-wider text-slate-600 dark:text-slate-300 font-bold">
+                            {tx({ EN: "Term", JP: "契約形態" })}
+                          </span>
+                          <span className="mt-1 font-inter text-[11px] sm:text-[11.5px] font-semibold text-slate-800 dark:text-slate-200 leading-tight">
+                            {tx(plan.specs.term)}
+                          </span>
+                        </div>
+                        <div className="flex flex-col border-l border-slate-200/80 dark:border-white/10 pl-2">
+                          <span className="font-mono text-[9px] uppercase tracking-wider text-slate-600 dark:text-slate-300 font-bold">
+                            {tx({ EN: "Building Access", JP: "利用時間" })}
+                          </span>
+                          <span className="mt-1 font-inter text-[11px] sm:text-[11.5px] font-semibold text-slate-800 dark:text-slate-200 leading-tight">
+                            {tx(plan.specs.access)}
+                          </span>
+                        </div>
+                        <div className="flex flex-col border-l border-slate-200/80 dark:border-white/10 pl-2">
+                          <span className="font-mono text-[9px] uppercase tracking-wider text-crimson dark:text-rose-400 font-bold">
+                            {tx({ EN: "Support & Infra", JP: "支援・インフラ" })}
+                          </span>
+                          <span className="mt-1 font-inter text-[11px] sm:text-[11.5px] font-bold text-crimson dark:text-rose-400 leading-tight">
+                            {tx(plan.specs.support)}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Primary Plan Deliverables Checklist */}
+                      <div className="mt-4 pt-3.5 border-t border-slate-100 dark:border-white/8">
+                        <div className="flex items-center gap-1.5 mb-2.5">
+                          <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
+                            {tx({ EN: "Core Deliverables & Scope", JP: "提供サービス・特徴" })}
+                          </span>
+                        </div>
                         <ul className="space-y-2">
                           {plan.features.map((feat, fi) => (
-                            <li key={fi} className="flex items-start gap-2 text-[11.5px] sm:text-[12px] font-inter text-slate-700 dark:text-slate-300 leading-snug">
+                            <li
+                              key={fi}
+                              className="flex items-start gap-2 text-[11.5px] sm:text-[12px] font-inter text-slate-800 dark:text-slate-200 leading-snug"
+                            >
                               <span className="mt-0.5 flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-emerald-50 dark:bg-emerald-950/60 text-emerald-600 dark:text-emerald-400 border border-emerald-200/80 dark:border-emerald-700/40">
                                 <Check className="h-2 w-2 stroke-[3]" />
                               </span>
-                              <span className="min-w-0 flex-1 text-slate-800 dark:text-slate-200 font-medium">
+                              <span className="min-w-0 flex-1 font-medium">
                                 {tx(feat.title)}
                               </span>
                             </li>
                           ))}
                         </ul>
+                      </div>
+
+                      {/* Detailed Infrastructure & Amenities Section (Addressing "based on that add more information") */}
+                      <div className="mt-4 pt-3.5 border-t border-slate-100 dark:border-white/8">
+                        <div className="flex items-center justify-between mb-2">
+                          <div className="flex items-center gap-1.5">
+                            <Building2 className="h-3 w-3 text-crimson dark:text-rose-400" />
+                            <span className="font-mono text-[10px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-300">
+                              {tx({ EN: "Infrastructure Inclusions", JP: "利用可能インフラ設備" })}
+                            </span>
+                          </div>
+                          <span className="text-[9.5px] font-bold text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/60 px-2 py-0.5 rounded border border-emerald-200/80 dark:border-emerald-700/40 font-mono">
+                            {tx({ EN: "Included", JP: "設備完備" })}
+                          </span>
+                        </div>
+
+                        <div className="space-y-1.5 rounded-xl bg-slate-50/70 dark:bg-white/[0.02] p-2.5 border border-slate-200/60 dark:border-white/6">
+                          {plan.infrastructure.map((infra, ii) => {
+                            const InfraIcon = infra.icon;
+                            return (
+                              <div
+                                key={ii}
+                                className="flex items-start gap-2 text-[10.5px] sm:text-[11px] font-inter text-slate-700 dark:text-slate-300 leading-tight"
+                              >
+                                <span className="mt-0.5 flex h-3 w-3 shrink-0 items-center justify-center text-slate-500 dark:text-slate-400">
+                                  <InfraIcon className="h-2.5 w-2.5" />
+                                </span>
+                                <span className="text-slate-600 dark:text-slate-300 font-normal">
+                                  {tx(infra.text)}
+                                </span>
+                              </div>
+                            );
+                          })}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -339,7 +545,37 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
             })}
           </div>
 
-
+          {/* Executive Consultation & Custom Inquiries Banner */}
+          <Reveal delay={200}>
+            <div className="mt-8 sm:mt-10 mx-auto max-w-4xl rounded-2xl border border-slate-200/90 dark:border-white/12 bg-white/95 dark:bg-[#09090b]/95 p-5 sm:p-6 shadow-md backdrop-blur-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="flex items-start gap-3.5">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-crimson/10 dark:bg-rose-950/60 border border-crimson/20 dark:border-rose-400/30 text-crimson dark:text-rose-400">
+                  <Briefcase className="h-5 w-5" />
+                </div>
+                <div>
+                  <h4 className="font-serif-jp text-sm sm:text-[15px] font-bold text-ink dark:text-white">
+                    {tx({
+                      EN: "Need a Custom Corporate Proposal or Entity Guidance?",
+                      JP: "企業規模に応じた個別提案や法人設立のご相談はこちら",
+                    })}
+                  </h4>
+                  <p className="mt-0.5 font-inter text-xs text-slate-600 dark:text-slate-300">
+                    {tx({
+                      EN: "Our bilingual Japan Desk in Tokyo and Hyderabad provides custom seat allocations, incorporation packages, and confidential briefing sessions.",
+                      JP: "東京およびハイデラバードのバイリンガルチームが、座席数のカスタマイズ、法人設立、個別視察のアレンジまで丁寧に対応いたします。",
+                    })}
+                  </p>
+                </div>
+              </div>
+              <Link
+                href="/contact"
+                className="btn-shine inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-2.5 font-inter text-[12.5px] sm:text-[13px] font-semibold text-white shadow-md shadow-crimson/25 hover:shadow-lg hover:shadow-crimson/40 hover:-translate-y-0.5 transition-all shrink-0 w-full sm:w-auto justify-center"
+              >
+                <span>{tx({ EN: "Contact Japan Desk", JP: "日本人デスクに相談する" })}</span>
+                <ArrowRight className="h-3.5 w-3.5" />
+              </Link>
+            </div>
+          </Reveal>
         </div>
       </section>
 

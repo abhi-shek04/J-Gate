@@ -24,8 +24,8 @@ import { Reveal } from "./shared";
 const STEPS = [
   {
     step: "01",
-    tag: { EN: "Step 1 · Feasibility", JP: "ステップ 1 · 事前調査" },
-    title: { EN: "Feasibility Study", JP: "フィージビリティ調査" },
+    tag: { EN: "Step 1 · Research & Partner", JP: "ステップ 1 · 市場調査・提携" },
+    title: { EN: "Market Research & Identify Partner", JP: "市場調査・パートナー選定" },
     desc: {
       EN: "Evaluate Indian market potential, regulatory requirements, and identify reliable local partners to establish a viable expansion foundation.",
       JP: "インド市場の規模、法規制要件を分析し、最適な現地パートナーの特定・選定を通じて進出の確実な根拠を構築します。",
@@ -38,22 +38,22 @@ const STEPS = [
   },
   {
     step: "02",
-    tag: { EN: "Step 2 · GTM Strategy", JP: "ステップ 2 · 意思決定・戦略" },
-    title: { EN: "Decision Making & GTM", JP: "意思決定・参入戦略（GTM）" },
+    tag: { EN: "Step 2 · Go / Not Go", JP: "ステップ 2 · 意思決定・判断" },
+    title: { EN: "Decision Making & Go / Not Go", JP: "意思決定・参入判断（Go / Not Go）" },
     desc: {
-      EN: "Make informed executive decisions, structure your business model, and define a clear Go-To-Market (GTM) roadmap tailored to India.",
-      JP: "進出形態やビジネスモデルを確定し、現地パートナー選定や販路開拓に向けた実効性の高いGTM戦略を策定します。",
+      EN: "Make informed executive decisions, structure your business model, and define a clear Go / Not Go framework tailored to India.",
+      JP: "進出形態やビジネスモデルを確定し、客観的なGo / Not Go基準に基づいて実効性の高い事業参入の意思決定を行います。",
     },
     icon: Target,
     points: [
       { EN: "Validated go/no-go entry strategy", JP: "参入形態と投資計画の明確な意思決定" },
-      { EN: "Custom Go-To-Market (GTM) roadmap", JP: "インド市場向けGTM戦略のロードマップ" },
+      { EN: "Clear Go / Not Go milestone assessment", JP: "インド展開に向けたGo / Not Go判断基準" },
     ],
   },
   {
     step: "03",
     tag: { EN: "Step 3 · Establishment", JP: "ステップ 3 · 法人設立・採用" },
-    title: { EN: "Company Setup & Hiring", JP: "法人設立とスタッフ採用" },
+    title: { EN: "Company Setup & Hiring Staff", JP: "法人設立とスタッフ採用" },
     desc: {
       EN: "Incorporate your legal entity in India, secure tax and bank accounts, and recruit core staff with full statutory compliance, payroll structure, and smooth operational onboarding.",
       JP: "インドでの現地法人設立、税務登録・銀行口座開設を完了し、現地労働法準拠の雇用契約と給与計算設定のもと、優秀なコアスタッフを採用・オンボーディングします。",
@@ -118,8 +118,8 @@ export function BilateralCorridorVisualizer() {
             </h2>
             <p className="mt-1.5 sm:mt-2 font-inter text-[12.5px] sm:text-[14px] leading-relaxed text-slate-100 max-w-2xl mx-auto drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
               {tx({
-                EN: "From initial feasibility study to GTM strategy, company setup, and live operations — full executive support in Hyderabad.",
-                JP: "フィージビリティ調査からGTM戦略策定、法人設立・採用、そして本格稼働まで — ハイデラバード現地から一貫して伴走します。",
+                EN: "From market research and partner identification to decision making, company setup, and live operations — full executive support in Hyderabad.",
+                JP: "市場調査・パートナー選定から意思決定（Go / Not Go）、法人設立・スタッフ採用、そして本格稼働まで — ハイデラバード現地から一貫して伴走します。",
               })}
             </p>
           </div>

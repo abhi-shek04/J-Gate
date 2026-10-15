@@ -152,16 +152,16 @@ const ALL_REAL_PHOTOS: RealPhotoItem[] = [
     src: "/gallery/workspace-wide.jpg",
     zone: "workspace",
     zoneNumber: "03",
-    alt: "J-Gate open workspace floor with 40+ dedicated workstations",
+    alt: "J-Gate open workspace floor with 20+ dedicated workstations",
     title: { EN: "Dedicated Workstation Floor", JP: "固定専用デスク 執務エリア" },
     subtitle: {
-      EN: "Air-conditioned open floor equipped with 40+ dedicated desks and ergonomic high-back mesh chairs.",
-      JP: "40席以上の固定専用デスクと人間工学メッシュチェアを備えた冷暖房完備の執務エリア。",
+      EN: "Air-conditioned open floor equipped with 20+ dedicated desks and ergonomic high-back mesh chairs.",
+      JP: "20席以上の固定専用デスクと人間工学メッシュチェアを備えた冷暖房完備の執務エリア。",
     },
-    badge: { EN: "40+ Dedicated Desks", JP: "40席以上 固定席" },
+    badge: { EN: "20+ Dedicated Desks", JP: "20席以上 固定席" },
     location: { EN: "Main Floor Workstation Area", JP: "メイン執務フロア" },
     specs: [
-      { label: { EN: "Desks", JP: "席数" }, val: { EN: "40+ Assigned Desks", JP: "40席以上の固定席" } },
+      { label: { EN: "Desks", JP: "席数" }, val: { EN: "20+ Assigned Desks", JP: "20席以上の固定席" } },
       { label: { EN: "Seating", JP: "チェア" }, val: { EN: "High-Back Mesh Chairs", JP: "ハイバックメッシュ" } },
       { label: { EN: "Internet", JP: "回線" }, val: { EN: "1 Gbps Dedicated Fiber", JP: "専用1 Gbps光回線" } },
       { label: { EN: "Climate", JP: "空調" }, val: { EN: "Central Air Conditioning", JP: "全館集中空調" } },
@@ -384,14 +384,14 @@ const ZONES: ZoneDef[] = [
     id: "workspace",
     num: "03",
     tag: { EN: "Dedicated Workstations", JP: "固定執務エリア" },
-    title: { EN: "40+ Dedicated Workstations Floor", JP: "40席規模 固定専用デスクフロア" },
+    title: { EN: "20+ Dedicated Workstations Floor", JP: "20席規模 固定専用デスクフロア" },
     lead: {
-      EN: "Air-conditioned open floor office configured with 40+ dedicated desks. Each desk is assigned with ergonomic mesh chairs, personal lockable drawer units, and 1 Gbps fiber internet.",
-      JP: "40席以上の固定専用デスクを備えた冷暖房完備の執務フロア。各席に人間工学メッシュチェア、鍵付き3段キャビネット、専用1 Gbps光回線を配備。",
+      EN: "Air-conditioned open floor office configured with 20+ dedicated desks. Each desk is assigned with ergonomic mesh chairs, personal lockable drawer units, and 1 Gbps fiber internet.",
+      JP: "20席以上の固定専用デスクを備えた冷暖房完備の執務フロア。各席に人間工学メッシュチェア、鍵付き3段キャビネット、専用1 Gbps光回線を配備。",
     },
     icon: Building2,
     highlights: [
-      { EN: "40+ Dedicated desks with ergonomic high-back mesh chairs", JP: "40席以上の固定専用席・メッシュチェア完備" },
+      { EN: "20+ Dedicated desks with ergonomic high-back mesh chairs", JP: "20席以上の固定専用席・メッシュチェア完備" },
       { EN: "Dedicated 1 Gbps fiber internet with LAN ports and WiFi", JP: "有線LANポートおよびWi-Fi対応の1 Gbps専用回線" },
       { EN: "Individual key-locked 3-drawer pedestal unit per desk", JP: "全席に個人用鍵付き3段キャビネット配備" },
     ],
@@ -601,7 +601,7 @@ export function BlogsSection({ id, hideHero }: { id?: string; hideHero?: boolean
           <Reveal delay={40}>
             <div className="my-5 sm:my-8 grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 max-w-5xl mx-auto">
               <div className="luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-3 sm:p-5 text-center shadow-md hover:shadow-xl transition-all">
-                <span className="block font-serif-jp text-2xl sm:text-3xl font-bold text-crimson dark:text-rose-400">40+</span>
+                <span className="block font-serif-jp text-2xl sm:text-3xl font-bold text-crimson dark:text-rose-400">20+</span>
                 <span className="mt-0.5 sm:mt-1 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
                   {tx({ EN: "Dedicated Desks", JP: "固定専用デスク" })}
                 </span>

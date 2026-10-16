@@ -45,7 +45,7 @@ const ROWS: Row[] = [
   },
   {
     label: { EN: "Dedicated Office Space", JP: "物理拠点" },
-    jgate: { EN: "Dedicated workspace in Hyderabad", JP: "ハイデラバードIT特区に専用拠点" },
+    jgate: { EN: "Dedicated working hub in Hyderabad", JP: "ハイデラバードIT特区に専用ワーキングハブ" },
     consult: { EN: "None — separate contract", JP: "なし（別契約）" },
     cowork: { EN: "Shared space only", JP: "共有スペースのみ" },
     publicOrg: { EN: "None", JP: "なし" },

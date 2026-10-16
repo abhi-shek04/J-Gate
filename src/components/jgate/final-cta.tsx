@@ -51,14 +51,14 @@ export function FinalCta() {
             </h2>
             <p className="mt-4 font-serif-jp text-[16px] sm:text-[18px] text-saffron/90 font-bold">
               {tx({
-                EN: "A Dedicated Workspace and Support Hub for Japanese Companies",
-                JP: "日本企業向け専用ワーキングスペース — 日印ビジネスの新しい地平",
+                EN: "A Dedicated Working Hub and Support Platform for Japanese Companies",
+                JP: "日本企業向け専用ワーキングハブ — 日印ビジネスの新しい地平",
               })}
             </p>
             <p className="mx-auto mt-4 max-w-[560px] font-inter font-light leading-relaxed text-mist" style={{ fontSize: "clamp(0.95rem,1.6vw,1.0625rem)" }}>
               Whether you are exploring, ready to establish operations, or
               looking to scale — J-Gate is your partner at every stage. Book a
-              private tour of our Hyderabad workspace, or contact us to
+              private tour of our Hyderabad working hub, or contact us to
               receive a tailored proposal in English or Japanese.
             </p>
 

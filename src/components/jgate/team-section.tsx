@@ -274,20 +274,20 @@ const OPS_TEAM: OpsMember[] = [
     jpName: "アブシェーク・ブドゥル",
     role: { EN: "IT & OPERATIONS", JP: "IT＆オペレーション" },
     subtitle: {
-      EN: "IT Support & Workspace Operations",
-      JP: "ITサポート＆ワークスペース運営",
+      EN: "IT Support & Working Hub Operations",
+      JP: "ITサポート＆ワーキングハブ運営",
     },
     flag: "🇮🇳",
     country: "India",
     email: "contact@indobox.co.jp",
     image: "/team/abhishek.png",
     desc: {
-      EN: "Assists with IT setup, member support, and day-to-day workspace operations at J-Gate Hyderabad.",
-      JP: "J-Gateハイデラバード拠点におけるIT環境セットアップ、入居メンバーサポート、および日常のワークスペース運営実務を担当。",
+      EN: "Assists with IT setup, member support, and day-to-day working hub operations at J-Gate Hyderabad.",
+      JP: "J-Gateハイデラバード拠点におけるIT環境セットアップ、入居メンバーサポート、および日常のワーキングハブ運営実務を担当。",
     },
     tags: [
       { EN: "IT Support", JP: "ITサポート" },
-      { EN: "Workspace Operations", JP: "ワークスペース運営" },
+      { EN: "Working Hub Operations", JP: "ワーキングハブ運営" },
     ],
     linkedin: "https://www.linkedin.com/in/buduru-abhishek/",
     languages: [

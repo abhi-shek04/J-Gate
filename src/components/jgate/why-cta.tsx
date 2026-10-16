@@ -63,8 +63,8 @@ export function WhyCTA() {
               className="mx-auto mt-4 max-w-xl font-inter font-light leading-relaxed text-mist/90 text-[14px] sm:text-[15px]"
             >
               {tx({
-                EN: "Full PDF brochure with membership tiers, workspace photos, Japan Desk details, and partner network — or talk to our team in Japanese.",
-                JP: "会員プラン・ワークスペース写真・ジャパンデスク詳細・パートナーエコシステムを収録したPDFパンフレット、または日本語でチームにお問い合わせください。",
+                EN: "Full PDF brochure with membership tiers, working hub photos, Japan Desk details, and partner network — or talk to our team in Japanese.",
+                JP: "会員プラン・ワーキングハブ写真・ジャパンデスク詳細・パートナーエコシステムを収録したPDFパンフレット、または日本語でチームにお問い合わせください。",
               })}
             </p>
 

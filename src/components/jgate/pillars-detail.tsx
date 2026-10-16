@@ -39,7 +39,7 @@ const PILLARS: Pillar[] = [
     tags: [
       { text: { EN: "Zero CapEx", JP: "初期投資ゼロ" }, tone: "crimson" },
       { text: { EN: "Day-1 Launch", JP: "即日稼働" }, tone: "saffron" },
-      { text: { EN: "Enterprise Workspace", JP: "専用ワークスペース" }, tone: "slate" },
+      { text: { EN: "Enterprise Working Hub", JP: "専用ワーキングハブ" }, tone: "slate" },
     ],
   },
   {

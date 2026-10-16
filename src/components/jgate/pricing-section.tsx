@@ -218,7 +218,7 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
             </>
           }
           subtitleNode={tx({
-            EN: "Designed as a strategic enterprise solution — providing Japanese enterprises with a dedicated workspace and resident advisory in Hyderabad.",
+            EN: "Designed as a strategic enterprise solution — providing Japanese enterprises with a dedicated working hub and resident advisory in Hyderabad.",
             JP: "日系企業に最適化された戦略的拠点モデル — ハイデラバードでの専用執務環境と日本人常駐サポートを提供。",
           })}
           tags={[

@@ -33,17 +33,16 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   title: "J-Gate | Connecting Japan and India — Talent, Training, Business",
   description:
-    "J-Gate bridges global and Indian talent with Japan's enterprise opportunities through dedicated workspaces, Japan Desk support, and bilateral business consulting. Operated by Indobox India Private Limited.",
+    "J-Gate bridges global and Indian talent with Japan's enterprise opportunities through a dedicated working hub, Japan Desk support, and bilateral business consulting. Operated by Indobox India Private Limited.",
   keywords: [
     "J-Gate",
     "Jゲート",
     "Japan India talent",
     "Japan India coworking",
-    
-    
+    "Japan India working hub",
     "Japan India business",
     "Indobox India",
-    "Hyderabad India Workspace",
+    "Hyderabad India Working Hub",
   ],
   authors: [{ name: "Indobox India Private Limited" }],
   icons: {

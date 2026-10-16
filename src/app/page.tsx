@@ -271,7 +271,7 @@ export default function HomePage() {
                 <Sparkles className="h-3.5 w-3.5 text-crimson dark:text-rose-400" />
                 <span>
                   {tx({
-                    EN: "Enterprise Grade Workspace & Resident Japanese Advisory in Hyderabad",
+                    EN: "Enterprise Grade Working Hub & Resident Japanese Advisory in Hyderabad",
                     JP: "ハイデラバード拠点の日本企業専用・完全日本語伴走型ワーキングハブ",
                   })}
                 </span>
@@ -452,7 +452,7 @@ export default function HomePage() {
                   </h3>
                   <p className="mt-2 sm:mt-2.5 font-inter text-[13px] sm:text-[13.5px] leading-relaxed text-slate dark:text-slate-300">
                     {tx({
-                      EN: "Hyderabad is India's fastest-growing technology metropolis, recognized for modern commercial infrastructure, high quality of living, and pro-business government policies. J-Gate offers a fully managed Japanese enterprise workspace with resident Japan Desk advisory.",
+                      EN: "Hyderabad is India's fastest-growing technology metropolis, recognized for modern commercial infrastructure, high quality of living, and pro-business government policies. J-Gate offers a fully managed Japanese enterprise working hub with resident Japan Desk advisory.",
                       JP: "ハイデラバードは、整備された都市インフラと州政府の手厚い支援により、インドで最も急速に発展するIT・イノベーション都市です。J-Gateは、日本人常駐チームによる伴走支援と高品質なオフィス環境を提供し、日本企業の確実な進出をサポートします。",
                     })}
                   </p>

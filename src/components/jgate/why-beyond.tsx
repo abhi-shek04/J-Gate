@@ -51,7 +51,7 @@ export function WhyBeyond() {
               className="mt-4 font-serif-jp font-bold leading-[1.15] text-white"
               style={{ fontSize: "clamp(2rem, 4.5vw, 2.75rem)" }}
             >
-              Complete Business Support Built Around Your Workspace.
+              Complete Business Support Built Around Your Working Hub.
             </h2>
             <p className="mx-auto mt-6 max-w-[660px] font-inter leading-relaxed text-mist" style={{ fontSize: "clamp(0.95rem,1.6vw,1.125rem)" }}>
               Every coworking space has desks, WiFi, and meeting rooms. J-Gate

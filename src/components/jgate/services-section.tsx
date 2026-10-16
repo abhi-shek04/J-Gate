@@ -67,7 +67,7 @@ const CORE_SERVICES: ServiceItem[] = [
     num: "02",
     id: "workspace",
     icon: Building2,
-    badge: { EN: "Workspace & Facilities", JP: "執務空間・オフィス施設" },
+    badge: { EN: "Working Hub & Facilities", JP: "ワーキングハブ・オフィス施設" },
     title: {
       EN: "Ready-to-Use Private Office & Facilities",
       JP: "即日入居可能な専用オフィス・執務設備",
@@ -239,8 +239,8 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
               {[
                 {
                   icon: Building2,
-                  badge: tx({ EN: "Ready Workspace", JP: "即日利用可能" }),
-                  title: tx({ EN: "Enterprise Workspace", JP: "専用ワークスペース" }),
+                  badge: tx({ EN: "Ready Working Hub", JP: "即日利用可能" }),
+                  title: tx({ EN: "Enterprise Working Hub", JP: "専用ワーキングハブ" }),
                   desc: tx({ EN: "Private cabins & high-speed internet", JP: "専用個室・高速インターネット" }),
                   accent: "text-crimson dark:text-rose-400 bg-crimson/10 dark:bg-rose-950/50 border-crimson/20 dark:border-rose-400/30",
                 },
@@ -312,8 +312,8 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
               </h2>
               <p className="mt-2 font-inter text-[13px] sm:text-[13.5px] leading-relaxed text-slate-600 dark:text-slate-300">
                 {tx({
-                  EN: "A structured, reliable operational foundation combining ready-to-use office workspace, statutory corporate legal setup, resident Japanese executive advisory, and qualified local talent recruitment.",
-                  JP: "公式登記住所・法人設立から、専用オフィス環境、日本人による日常よろず相談、優秀な現地人材の採用まで、インド進出に必要なすべてを一貫して支援します。",
+                  EN: "A structured, reliable operational foundation combining a ready-to-use working hub, statutory corporate legal setup, resident Japanese executive advisory, and qualified local talent recruitment.",
+                  JP: "公式登記住所・法人設立から、専用ワーキングハブ環境、日本人による日常よろず相談、優秀な現地人材の採用まで、インド進出に必要なすべてを一貫して支援します。",
                 })}
               </p>
             </div>
@@ -562,12 +562,12 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
                         Genesys Info X
                       </h4>
                       <p className="font-inter text-[13px] font-semibold text-slate-500 dark:text-slate-400 mt-0.5">
-                        {tx({ EN: "Hyderabad Workspace & Facilities Operator", JP: "ハイデラバード 拠点施設運営パートナー" })}
+                        {tx({ EN: "Hyderabad Working Hub & Facilities Operator", JP: "ハイデラバード ワーキングハブ運営パートナー" })}
                       </p>
                       <p className="text-[12.5px] text-slate-600 dark:text-slate-300 font-inter mt-2.5 leading-relaxed">
                         {tx({
-                          EN: "Fully equipped workspace suites, high-speed fiber connectivity, 100% UPS & generator power backup, 24/7 biometric security, and facilities care.",
-                          JP: "完全家具付きオフィス、高速光回線、24時間無停電電源・発電設備、スマート生体認証セキュリティ、施設保守管理。",
+                          EN: "Fully equipped working hub suites, high-speed fiber connectivity, 100% UPS & generator power backup, 24/7 biometric security, and facilities care.",
+                          JP: "完全家具付きワーキングハブ、高速光回線、24時間無停電電源・発電設備、スマート生体認証セキュリティ、施設保守管理。",
                         })}
                       </p>
                     </div>

@@ -69,12 +69,12 @@ const STEPS = [
     tag: { EN: "Step 4 · Execution", JP: "ステップ 4 · 事業開始・運用" },
     title: { EN: "Start Operations", JP: "本格稼働・事業開始" },
     desc: {
-      EN: "Launch on-site operations immediately with a safe and secure workspace in India, resident Japanese advisory, and ecosystem partnership support.",
-      JP: "安心・安全な高規格オフィス環境でインド事業を即日開始。常駐日本人ディレクターによる伴走と現地エコシステム連携でスムーズに運用します。",
+      EN: "Launch on-site operations immediately with a safe and secure working hub in India, resident Japanese advisory, and ecosystem partnership support.",
+      JP: "安心・安全な高規格ワーキングハブ環境でインド事業を即日開始。常駐日本人ディレクターによる伴走と現地エコシステム連携でスムーズに運用します。",
     },
     icon: Rocket,
     points: [
-      { EN: "Safe & secure workspace in India", JP: "安心・安全なインド現地の執務オフィス環境" },
+      { EN: "Safe & secure working hub in India", JP: "安心・安全なインド現地のワーキングハブ環境" },
       { EN: "Resident Japanese advisory & ecosystem ties", JP: "日本人ディレクター常駐・事業拡大支援" },
     ],
   },

@@ -534,7 +534,7 @@ export function BlogsSection({ id, hideHero }: { id?: string; hideHero?: boolean
           {hideHero && (
             <Reveal>
               <div className="mx-auto mb-10 sm:mb-12 max-w-3xl text-center">
-                <Eyebrow>{tx({ EN: "Workspace & Facilities", JP: "ワークスペース＆施設" })}</Eyebrow>
+                <Eyebrow>{tx({ EN: "Working Hub & Facilities", JP: "ワーキングハブ＆施設" })}</Eyebrow>
                 <h2
                   className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink dark:text-white"
                   style={{ fontSize: "clamp(1.625rem, 3vw, 2.25rem)" }}
@@ -549,8 +549,8 @@ export function BlogsSection({ id, hideHero }: { id?: string; hideHero?: boolean
                   style={{ fontSize: "clamp(0.9rem, 1.3vw, 1.05rem)" }}
                 >
                   {tx({
-                    EN: "Explore our dedicated Japanese enterprise workspace at Cyber Gateway, Hyderabad — dedicated desks, private offices, meeting rooms, and full office infrastructure.",
-                    JP: "Cyber Gateway内の日本企業専用スペースをご覧ください。専用デスク、個室オフィス、会議室、充実したオフィスインフラをご紹介。",
+                    EN: "Explore our dedicated Japanese enterprise working hub at Cyber Gateway, Hyderabad — dedicated desks, private offices, meeting rooms, and full office infrastructure.",
+                    JP: "Cyber Gateway内の日本企業専用ワーキングハブをご覧ください。専用デスク、個室オフィス、会議室、充実したオフィスインフラをご紹介。",
                   })}
                 </p>
               </div>
@@ -563,7 +563,7 @@ export function BlogsSection({ id, hideHero }: { id?: string; hideHero?: boolean
               <div className="flex items-center gap-2">
                 <Building2 className="h-4 w-4 text-crimson dark:text-rose-400" />
                 <span className="font-inter text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300">
-                  {tx({ EN: "Filter Workspace Photos by Zone:", JP: "ゾーンで写真を絞り込み:" })}
+                  {tx({ EN: "Filter Working Hub Photos by Zone:", JP: "ゾーンで写真を絞り込み:" })}
                 </span>
               </div>
 

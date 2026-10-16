@@ -105,8 +105,8 @@ const FAQ_LIST: FAQItem[] = [
       JP: "法人設立費用や採用手数料は月額利用料に含まれますか？",
     },
     a: {
-      EN: "No, the monthly plans cover basic membership and workspace usage. Additional agency fees for legal entity incorporation or recruitment commissions are billed separately as needed.",
-      JP: "いいえ、月額プランには基本会員権およびワークスペース利用料が含まれます。現地法人設立の各種手続費用や人材採用・EOR手数料などは、必要に応じて個別見積もり・都度清算となります。",
+      EN: "No, the monthly plans cover basic membership and working hub usage. Additional agency fees for legal entity incorporation or recruitment commissions are billed separately as needed.",
+      JP: "いいえ、月額プランには基本会員権およびワーキングハブ利用料が含まれます。現地法人設立の各種手続費用や人材採用・EOR手数料などは、必要に応じて個別見積もり・都度清算となります。",
     },
   },
 
@@ -116,8 +116,8 @@ const FAQ_LIST: FAQItem[] = [
     category: "facilities",
     categoryLabel: { EN: "Facilities & Services", JP: "施設設備・サービス" },
     q: {
-      EN: "What amenities and infrastructure are provided at the workspace?",
-      JP: "施設内で利用できる設備やインフラを教えてください。",
+      EN: "What amenities and infrastructure are provided at the working hub?",
+      JP: "ワーキングハブ内で利用できる設備やインフラを教えてください。",
     },
     a: {
       EN: "Members receive fixed desks, private cabinets, personal lockers, high-speed Wi-Fi, Xerox multifunction printers, dedicated meeting rooms, and 24/7 keycard access with full security management.",
@@ -245,8 +245,8 @@ export function FAQSection({ id }: { id?: string }) {
             </h2>
             <p className="mt-3 font-inter text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
               {tx({
-                EN: "Everything you need to know about workspace options, resident Japan Desk support, company incorporation, and local hiring.",
-                JP: "ワークスペース利用、ジャパンデスクサポート、現地法人設立、採用支援に関するよくある質問とお答え。",
+                EN: "Everything you need to know about working hub options, resident Japan Desk support, company incorporation, and local hiring.",
+                JP: "ワーキングハブ利用、ジャパンデスクサポート、現地法人設立、採用支援に関するよくある質問とお答え。",
               })}
             </p>
           </Reveal>

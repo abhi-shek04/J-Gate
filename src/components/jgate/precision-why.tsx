@@ -36,7 +36,7 @@ export function PrecisionWhyPage() {
       saving: 210000,
       pct: 81,
       name: { EN: "Standard Plan", JP: "スタンダードプラン" },
-      desc: { EN: "Core team workspace — most popular option", JP: "本格進出・コアチーム向け一番人気プラン" },
+      desc: { EN: "Core team working hub — most popular option", JP: "本格進出・コアチーム向け一番人気プラン" },
     },
     advance: {
       jGate: 120000,
@@ -430,7 +430,7 @@ export function PrecisionWhyPage() {
                           {tx({ EN: "Hyderabad", JP: "ハイデラバードIT特区" })}
                         </div>
                         <div className="font-mono text-[10px] text-[#B8924A] mt-0.5">
-                          {tx({ EN: "Dedicated workspace", JP: "専用固定ワークスペース" })}
+                          {tx({ EN: "Dedicated working hub", JP: "専用固定ワーキングハブ" })}
                         </div>
                       </div>
                     </div>
@@ -696,7 +696,7 @@ export function PrecisionWhyPage() {
             </h2>
             <p className="mt-2 font-sans text-[14px] sm:text-[15px] font-light text-[#9A98A4] max-w-2xl">
               {tx({
-                EN: "Seven pillars accelerating Japanese business in India — the complete membership value that turns a workspace into a strategic launchpad.",
+                EN: "Seven pillars accelerating Japanese business in India — the complete membership value that turns a working hub into a strategic launchpad.",
                 JP: "日本企業のインド展開を加速させる7つの柱 — 単なるデスク空間を超え、戦略的ローンチパッドとして機能する会員価値。",
               })}
             </p>
@@ -762,7 +762,7 @@ export function PrecisionWhyPage() {
 
                 <div className="relative z-10 pt-6">
                   <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#B8924A]">
-                    {tx({ EN: "WORKSPACE", JP: "ワークスペース" })}
+                    {tx({ EN: "WORKING HUB", JP: "ワーキングハブ" })}
                   </div>
                   {/* Custom Minimal Stroke SVG (Desk + Monitor) */}
                   <div className="mt-4 w-10 h-10 flex items-center justify-center">
@@ -774,12 +774,12 @@ export function PrecisionWhyPage() {
                     </svg>
                   </div>
                   <h3 className="mt-4 font-serif text-[22px] font-normal text-[#F0EDE6] group-hover:text-[#B8924A] transition-colors">
-                    {tx({ EN: "Workspace Access", JP: "ワークスペース利用" })}
+                    {tx({ EN: "Working Hub Access", JP: "ワーキングハブ利用" })}
                   </h3>
                   <p className="mt-2 font-sans text-[13px] text-[#9A98A4] leading-relaxed">
                     {tx({
-                      EN: "Dedicated desk space for 2–4 people per company — your personal workspace in a shared professional environment.",
-                      JP: "1社あたり2〜4名の専用デスクスペース。共有プロフェッショナル環境内に貴社専用の執務空間を確保。",
+                      EN: "Dedicated desk space for 2–4 people per company — your personal working hub in a shared professional environment.",
+                      JP: "1社あたり2〜4名の専用デスクスペース。共有プロフェッショナル環境内に貴社専用のワーキングハブ執務空間を確保。",
                     })}
                   </p>
                 </div>
@@ -913,7 +913,7 @@ export function PrecisionWhyPage() {
                   </h3>
                   <p className="mt-2 font-sans text-[13px] text-[#9A98A4] leading-relaxed">
                     {tx({
-                      EN: "Step-by-step guidance from workspace registration to legal incorporation — end-to-end.",
+                      EN: "Step-by-step guidance from working hub registration to legal incorporation — end-to-end.",
                       JP: "拠点住所登録から現地法人登記（MCA・GST）、銀行口座開設まで一気通貫で伴走支援。",
                     })}
                   </p>
@@ -1002,7 +1002,7 @@ export function PrecisionWhyPage() {
                   </h3>
                   <p className="mt-2 font-sans text-[13px] text-[#9A98A4] leading-relaxed">
                     {tx({
-                      EN: "Ongoing India market seminars held at the workspace — scheduled regularly to keep your team informed.",
+                      EN: "Ongoing India market seminars held at the working hub — scheduled regularly to keep your team informed.",
                       JP: "拠点内で定期開催されるインド市場実務セミナー。単発イベントにとどまらない継続的な知見共有。",
                     })}
                   </p>

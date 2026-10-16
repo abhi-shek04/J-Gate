@@ -97,17 +97,17 @@ export function Footer() {
                 {tx({ EN: "AN INITIATIVE OF", JP: "共同事業・提携母体" })}
               </span>
               <div className="inline-flex items-center gap-2 sm:gap-2.5 rounded-xl border border-slate-200/90 dark:border-white/15 bg-slate-50/90 dark:bg-[#09090b] px-3 py-2 sm:px-3.5 sm:py-2.5 shadow-2xs backdrop-blur-sm whitespace-nowrap">
-                {/* Indobox Inc. */}
+                {/* Indobox India */}
                 <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
                   <div className="flex h-6 w-6 items-center justify-center rounded-md bg-white dark:bg-[#121215] p-0.5 border border-slate-200/80 dark:border-white/20 shadow-2xs">
                     <img
-                      src="/logos/indobox-icon.png"
-                      alt="Indobox Inc."
+                      src="/logos/indobox-india-icon.png"
+                      alt="Indobox India"
                       className="h-full w-full object-contain shrink-0"
                     />
                   </div>
                   <span className="font-inter text-[12.5px] sm:text-[13px] font-bold text-ink dark:text-white whitespace-nowrap">
-                    Indobox Inc.
+                    Indobox India
                   </span>
                 </div>
 

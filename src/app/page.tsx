@@ -259,9 +259,9 @@ export default function HomePage() {
             as="h1"
             className="hero-title mx-auto mt-4 sm:mt-5 max-w-4xl font-inter text-center"
           >
-            <span className="block text-dark">{tx({ EN: "Birth of a Dedicated", JP: "日本企業専用の" })}</span>
-            <span className="block text-red">{tx({ EN: "Working Hub for Japanese", JP: "ワーキングハブ" })}</span>
-            <span className="block text-red">{tx({ EN: "Companies in India", JP: "誕生" })}</span>
+            <span className="block text-dark">{tx({ EN: "Birth of a Dedicated", JP: "インド初の" })}</span>
+            <span className="block text-red">{tx({ EN: "Working Hub for Japanese", JP: "日本企業専用" })}</span>
+            <span className="block text-red">{tx({ EN: "Companies in India", JP: "ワーキングハブ" })}</span>
           </Reveal>
 
           {/* 3. Executive Tagline Badge */}

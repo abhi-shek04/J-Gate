@@ -48,7 +48,7 @@ export const translations: Dictionary = {
     EN: "A dedicated working hub in Hyderabad for Japanese businesses. Dedicated desks, private offices, resident Japan Desk support, and full office infrastructure to start operations smoothly in India.",
     JP: "インド・ハイデラバードにおける日本企業専用のワーキングハブ。専用デスク、個室オフィス、日本人常駐サポート、充実したオフィスインフラを備え、スムーズな現地事業立ち上げを強力に支援します。",
   },
-  "hero.jptag": { EN: "「日本企業専用のワーキングハブ誕生」", JP: "「日本企業専用のワーキングハブ誕生」" },
+  "hero.jptag": { EN: "「インド初の日本企業専用ワーキングハブ」", JP: "「インド初の日本企業専用ワーキングハブ」" },
   "hero.entag": { EN: "A Dedicated Working Hub for Japanese Companies in India in Hyderabad", JP: "A Dedicated Working Hub for Japanese Companies in India in Hyderabad" },
   "hero.cta1": { EN: "Download Brochure", JP: "パンフレットをダウンロード" },
   "hero.cta2": { EN: "Explore Services", JP: "サービスを見る" },

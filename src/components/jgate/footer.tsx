@@ -6,13 +6,13 @@ import { JGateLogo, LinkedInIcon, InstagramIcon } from "./icons";
 import { useI18n } from "@/lib/i18n";
 
 const ECOSYSTEM = [
-  "DMI",
-  "Kodryx.ai",
-  "YANC",
-  "Daakia",
-  "Fingerprint Films",
-  "MXC",
-  "Hyderabad Anime Club",
+  { name: "DMI", href: "https://www.datamintelligence.com/" },
+  { name: "Kodryx.ai", href: "https://kodryx.ai/" },
+  { name: "YANC", href: "https://yanc.in/" },
+  { name: "Daakia", href: "https://www.daakia.co.in/" },
+  { name: "Fingerprint Films", href: "https://fingerprintfilms.tv/" },
+  { name: "MXC", href: "https://mxcignite.com/" },
+  { name: "Hyderabad Anime Club", href: "https://www.instagram.com/hyderabadanimeclub" },
 ] as const;
 
 export function Footer() {
@@ -69,11 +69,16 @@ export function Footer() {
               {tx({ EN: "OUR PARTNERS", JP: "エコシステムパートナー" })}
             </h3>
             <ul className="mt-3.5 space-y-1.5">
-              {ECOSYSTEM.map((name) => (
-                <li key={name}>
-                  <span className="font-inter text-[12px] sm:text-[12.5px] text-slate-600 dark:text-slate-400 block truncate">
-                    {name}
-                  </span>
+              {ECOSYSTEM.map((partner) => (
+                <li key={partner.name}>
+                  <a
+                    href={partner.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-inter text-[12px] sm:text-[12.5px] text-slate-600 dark:text-slate-400 hover:text-crimson dark:hover:text-crimson transition-colors block truncate"
+                  >
+                    {partner.name}
+                  </a>
                 </li>
               ))}
             </ul>

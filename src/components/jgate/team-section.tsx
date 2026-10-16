@@ -140,8 +140,8 @@ const ALL_ADVISORS: AdvisorMember[] = [
     },
     image: "/advisory/isogai.png",
     badge: {
-      EN: "EX-SHARP INDIA MD",
-      JP: "元シャープ・インディア社長",
+      EN: "Indobox Advisor",
+      JP: "Indobox アドバイザー",
     },
     tags: [
       { EN: "Global Business (37 Yrs)", JP: "グローバルビジネス37年" },

@@ -514,8 +514,8 @@ export function BlogsSection({ id, hideHero }: { id?: string; hideHero?: boolean
             </>
           }
           subtitleNode={tx({
-            EN: "A dedicated co-working space at Cyber Gateway, Hyderabad for Japanese businesses. Dedicated desks, private offices, resident Japan Desk support, and full office infrastructure.",
-            JP: "Cyber Gateway内に位置する日本企業専用スペース。専用デスク、個室、ジャパンデスク常駐環境を写真でご紹介。",
+            EN: "A dedicated working hub at Cyber Gateway, Hyderabad for Japanese businesses. Dedicated desks, private offices, resident Japan Desk support, and full office infrastructure.",
+            JP: "Cyber Gateway内に位置する日本企業専用ワーキングハブ。専用デスク、個室、ジャパンデスク常駐環境を写真でご紹介。",
           })}
           tags={[
             { EN: "Cyber Gateway Phase 2", JP: "Cyber Gateway Phase 2" },

@@ -453,7 +453,18 @@ type I18nContextType = {
 const I18nContext = createContext<I18nContextType | null>(null);
 
 export function I18nProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>("EN");
+  const [lang, setLangState] = useState<Lang>("JP");
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("jgate_lang") as Lang | null;
+      if (saved === "EN" || saved === "JP") {
+        setLangState(saved);
+      }
+    } catch {
+      // ignore storage errors
+    }
+  }, []);
 
   useEffect(() => {
     if (typeof document !== "undefined") {
@@ -461,8 +472,25 @@ export function I18nProvider({ children }: { children: ReactNode }) {
     }
   }, [lang]);
 
+  const setLang = useCallback((l: Lang) => {
+    setLangState(l);
+    try {
+      localStorage.setItem("jgate_lang", l);
+    } catch {
+      // ignore storage errors
+    }
+  }, []);
+
   const toggle = useCallback(() => {
-    setLang((l) => (l === "EN" ? "JP" : "EN"));
+    setLangState((l) => {
+      const next = l === "EN" ? "JP" : "EN";
+      try {
+        localStorage.setItem("jgate_lang", next);
+      } catch {
+        // ignore storage errors
+      }
+      return next;
+    });
   }, []);
 
   const t = useCallback(
@@ -490,11 +518,11 @@ export function useI18n() {
   const ctx = useContext(I18nContext);
   if (!ctx) {
     return {
-      lang: "EN" as Lang,
+      lang: "JP" as Lang,
       setLang: () => {},
       toggle: () => {},
-      t: (key: string) => translations[key]?.EN ?? key,
-      tx: (entry: { EN: string; JP: string }) => entry.EN,
+      t: (key: string) => translations[key]?.JP ?? key,
+      tx: (entry: { EN: string; JP: string }) => entry.JP,
     };
   }
   return ctx;

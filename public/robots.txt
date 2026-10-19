@@ -1,14 +1,21 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /auth/
+
 User-agent: Googlebot
 Allow: /
+Disallow: /api/
+Disallow: /auth/
 
 User-agent: Bingbot
 Allow: /
+Disallow: /api/
+Disallow: /auth/
 
-User-agent: Twitterbot
-Allow: /
+# Host
+Host: https://www.j-gate.work
 
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: *
-Allow: /
+# Sitemap
+Sitemap: https://www.j-gate.work/sitemap.xml

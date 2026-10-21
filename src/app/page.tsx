@@ -287,15 +287,17 @@ export default function HomePage() {
           {/* 4. Lead Description Paragraph */}
           <Reveal delay={200}>
             <p
-              className="mx-auto mt-4 sm:mt-5 max-w-[820px] font-inter font-normal leading-relaxed text-slate-600 dark:text-slate-300 text-[14.5px] sm:text-[15.5px]"
+              className="mx-auto mt-4 sm:mt-5 max-w-5xl font-inter font-normal leading-relaxed text-slate-600 dark:text-slate-300 text-[13.5px] sm:text-[14px] md:text-[14.5px] lg:text-[15px]"
             >
               {lang === "JP" ? (
                 <>
-                  <span className="block">ハイデラバードに誕生した日本企業専用ワーキングハブ。</span>
-                  <span className="block">専用デスク、個室キャビン、常駐ジャパンデスク、充実したオフィスインフラで、インド事業の円滑な立ち上げを包括支援。</span>
+                  <span className="block md:whitespace-nowrap">ハイデラバードに誕生した日本企業専用ワーキングハブ。</span>
+                  <span className="block md:whitespace-nowrap">専用デスク、個室キャビン、常駐ジャパンデスク、充実したオフィスインフラで、インド事業の円滑な立ち上げを包括支援。</span>
                 </>
               ) : (
-                "A dedicated working hub in Hyderabad, India for Japanese businesses. Dedicated desks, private offices, resident Japan Desk support, and full office infrastructure to start operations smoothly in India."
+                <span className="block max-w-[720px] mx-auto">
+                  A dedicated working hub in Hyderabad, India for Japanese businesses. Dedicated desks, private offices, resident Japan Desk support, and full office infrastructure to start operations smoothly in India.
+                </span>
               )}
             </p>
           </Reveal>

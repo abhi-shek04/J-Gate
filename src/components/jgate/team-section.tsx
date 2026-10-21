@@ -291,7 +291,8 @@ const OPS_TEAM: OpsMember[] = [
     ],
     linkedin: "https://www.linkedin.com/in/buduru-abhishek/",
     languages: [
-      { EN: "English", JP: "英語", highlight: true },
+      { EN: "Japanese", JP: "日本語", highlight: true },
+      { EN: "English", JP: "英語" },
       { EN: "Telugu", JP: "テルグ語" },
       { EN: "Hindi", JP: "ヒンディー語" },
     ],

@@ -202,7 +202,7 @@ const DEPLOYMENT_STEPS = [
 ];
 
 export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: boolean }) {
-  const { tx } = useI18n();
+  const { tx, lang } = useI18n();
 
   return (
     <div id={id} className="bg-ivory dark:bg-black scroll-mt-20">
@@ -297,12 +297,12 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
       <section className="py-6 sm:py-8 lg:py-10 bg-ivory-warm dark:bg-black">
         <div className="container-jg max-w-5xl">
           <Reveal>
-            <div className="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+            <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
               <span className="inline-flex items-center gap-1.5 rounded-full border border-slate-200 dark:border-white/10 bg-white dark:bg-[#09090b] px-3.5 py-1 font-inter text-[11px] font-bold uppercase tracking-wider text-slate-600 dark:text-slate-300 shadow-xs">
                 {tx({ EN: "Core Services", JP: "支援サービス" })}
               </span>
               <h2
-                className="mt-3 font-serif-jp font-bold text-ink dark:text-white"
+                className="mt-3 font-serif-jp font-bold text-ink dark:text-white sm:whitespace-nowrap"
                 style={{ fontSize: "clamp(1.6rem, 3.2vw, 2.35rem)" }}
               >
                 {tx({
@@ -311,10 +311,14 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
                 })}
               </h2>
               <p className="mt-2 font-inter text-[13px] sm:text-[13.5px] leading-relaxed text-slate-600 dark:text-slate-300">
-                {tx({
-                  EN: "A structured, reliable operational foundation combining a ready-to-use working hub, statutory corporate legal setup, resident Japanese executive advisory, and qualified local talent recruitment.",
-                  JP: "公式登記住所・法人設立から、専用ワーキングハブ環境、日本人による日常よろず相談、優秀な現地人材の採用まで、インド進出に必要なすべてを一貫して支援します。",
-                })}
+                {lang === "JP" ? (
+                  <>
+                    <span className="block">公式登記住所・法人設立から、専用ワーキングハブ環境、日本人による日常よろず相談、優秀な現地人材の採用まで、</span>
+                    <span className="block">インド進出に必要なすべてを一貫して支援します。</span>
+                  </>
+                ) : (
+                  "A structured, reliable operational foundation combining a ready-to-use working hub, statutory corporate legal setup, resident Japanese executive advisory, and qualified local talent recruitment."
+                )}
               </p>
             </div>
           </Reveal>
@@ -465,13 +469,13 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
 
         <div className="container-jg relative z-10">
           <Reveal>
-            <div className="mx-auto max-w-3xl text-center mb-8 sm:mb-12">
+            <div className="mx-auto max-w-4xl text-center mb-8 sm:mb-12">
               <span className="inline-flex items-center gap-2 rounded-full border border-amber-900/15 dark:border-amber-400/30 bg-amber-50/90 dark:bg-amber-950/40 px-3.5 py-0.5 sm:px-4 sm:py-1 font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-amber-900 dark:text-amber-300 shadow-xs">
                 <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
                 {tx({ EN: "Joint Operating Partnership", JP: "日印共同運営アーキテクチャ" })}
               </span>
               <h2
-                className="mt-3 sm:mt-4 font-serif-jp font-bold text-ink dark:text-white tracking-tight"
+                className="mt-3 sm:mt-4 font-serif-jp font-bold text-ink dark:text-white tracking-tight sm:whitespace-nowrap"
                 style={{ fontSize: "clamp(1.65rem, 3.6vw, 2.75rem)" }}
               >
                 {tx({

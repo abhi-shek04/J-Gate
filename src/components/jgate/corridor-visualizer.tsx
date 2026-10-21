@@ -81,7 +81,7 @@ const STEPS = [
 ];
 
 export function BilateralCorridorVisualizer() {
-  const { tx } = useI18n();
+  const { tx, lang } = useI18n();
 
   return (
     <section className="relative overflow-hidden py-10 sm:py-14 lg:py-16 bg-[#080d1a] text-white border-y border-white/10">
@@ -117,10 +117,14 @@ export function BilateralCorridorVisualizer() {
               })}
             </h2>
             <p className="mt-1.5 sm:mt-2 font-inter text-[12.5px] sm:text-[14px] leading-relaxed text-slate-100 max-w-2xl mx-auto drop-shadow-[0_1px_4px_rgba(0,0,0,0.8)]">
-              {tx({
-                EN: "From market research and partner identification to decision making, company setup, and live operations — full executive support in Hyderabad.",
-                JP: "市場調査・パートナー選定から意思決定（Go / Not Go）、法人設立・スタッフ採用、そして本格稼働まで — ハイデラバード現地から一貫して伴走します。",
-              })}
+              {lang === "JP" ? (
+                <>
+                  <span className="block">市場調査・パートナー選定から意思決定（Go / Not Go）、法人設立・スタッフ採用、</span>
+                  <span className="block">そして本格稼働まで — ハイデラバード現地から一貫して伴走します。</span>
+                </>
+              ) : (
+                "From market research and partner identification to decision making, company setup, and live operations — full executive support in Hyderabad."
+              )}
             </p>
           </div>
         </Reveal>

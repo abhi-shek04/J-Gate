@@ -437,7 +437,7 @@ type GalleryViewMode = "zones" | "mosaic";
 type ZoneFilter = "all" | "building" | "reception" | "workspace" | "meetings" | "dining";
 
 export function BlogsSection({ id, hideHero }: { id?: string; hideHero?: boolean }) {
-  const { tx } = useI18n();
+  const { tx, lang } = useI18n();
   const [viewMode, setViewMode] = useState<GalleryViewMode>("zones");
   const [selectedZone, setSelectedZone] = useState<ZoneFilter>("all");
 
@@ -548,10 +548,14 @@ export function BlogsSection({ id, hideHero }: { id?: string; hideHero?: boolean
                   className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300"
                   style={{ fontSize: "clamp(0.9rem, 1.3vw, 1.05rem)" }}
                 >
-                  {tx({
-                    EN: "Explore our dedicated Japanese enterprise working hub at Cyber Gateway, Hyderabad — dedicated desks, private offices, meeting rooms, and full office infrastructure.",
-                    JP: "Cyber Gateway内の日本企業専用ワーキングハブをご覧ください。専用デスク、個室オフィス、会議室、充実したオフィスインフラをご紹介。",
-                  })}
+                  {lang === "JP" ? (
+                    <>
+                      <span className="block">Cyber Gateway内の日本企業専用ワーキングハブをご覧ください。専用デスク、</span>
+                      <span className="block">個室オフィス、会議室、充実したオフィスインフラをご紹介。</span>
+                    </>
+                  ) : (
+                    "Explore our dedicated Japanese enterprise working hub at Cyber Gateway, Hyderabad — dedicated desks, private offices, meeting rooms, and full office infrastructure."
+                  )}
                 </p>
               </div>
             </Reveal>

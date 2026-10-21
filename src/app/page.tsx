@@ -149,7 +149,7 @@ function GlassBadge({
 
 
 export default function HomePage() {
-  const { t, tx } = useI18n();
+  const { t, tx, lang } = useI18n();
 
 
   /* 3 Clean Strategic Location Pillars (Zero duplication with agenda!) */
@@ -284,10 +284,14 @@ export default function HomePage() {
             <p
               className="mx-auto mt-4 sm:mt-5 max-w-[680px] font-inter font-normal leading-relaxed text-slate-600 dark:text-slate-300 text-[14.5px] sm:text-[15.5px]"
             >
-              {tx({
-                EN: "A dedicated working hub in Hyderabad, India for Japanese businesses. Dedicated desks, private offices, resident Japan Desk support, and full office infrastructure to start operations smoothly in India.",
-                JP: "ハイデラバードに誕生した日本企業専用ワーキングハブ。専用デスク、個室キャビン、常駐ジャパンデスク、充実したオフィスインフラで、インド事業の円滑な立ち上げを包括支援。",
-              })}
+              {lang === "JP" ? (
+                <>
+                  <span className="block">ハイデラバードに誕生した日本企業専用ワーキングハブ。専用デスク、個室キャビン、常駐ジャパンデスク、</span>
+                  <span className="block">充実したオフィスインフラで、インド事業の円滑な立ち上げを包括支援。</span>
+                </>
+              ) : (
+                "A dedicated working hub in Hyderabad, India for Japanese businesses. Dedicated desks, private offices, resident Japan Desk support, and full office infrastructure to start operations smoothly in India."
+              )}
             </p>
           </Reveal>
 
@@ -383,25 +387,33 @@ export default function HomePage() {
       <section className="py-6 sm:py-8 lg:py-10 bg-ivory-warm dark:bg-black border-t border-slate-200/70 dark:border-white/10">
         <div className="container-jg">
           <Reveal>
-            <div className="mx-auto mb-8 sm:mb-10 max-w-3xl text-center">
+            <div className="mx-auto mb-8 sm:mb-10 max-w-4xl text-center">
               <Eyebrow>{tx({ EN: "Strategic Location Advantage", JP: "戦略的立地の優位性" })}</Eyebrow>
               <h2
                 className="mt-2 font-serif-jp font-bold leading-[1.18] text-ink dark:text-white"
                 style={{ fontSize: "clamp(1.625rem, 3vw, 2.25rem)" }}
               >
-                {tx({
-                  EN: "Hyderabad: India's Premier Innovation Capital",
-                  JP: "インド最大のIT・イノベーション拠点 ハイデラバード",
-                })}
+                {lang === "JP" ? (
+                  <>
+                    <span className="block">インド最大のIT・イノベーション拠点</span>
+                    <span className="block">ハイデラバード</span>
+                  </>
+                ) : (
+                  "Hyderabad: India's Premier Innovation Capital"
+                )}
               </h2>
               <p
-                className="mx-auto mt-2 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300"
+                className="mx-auto mt-2 max-w-3xl font-inter leading-relaxed text-slate dark:text-slate-300"
                 style={{ fontSize: "clamp(0.9rem, 1.3vw, 1.05rem)" }}
               >
-                {tx({
-                  EN: "Situated in the heart of Hyderabad, J-Gate delivers a strategic operational base with direct access to elite software engineering talent, enterprise infrastructure, and bilateral business networks.",
-                  JP: "ハイデラバード・Hyderabadの中心に位置するJ-Gate。優秀なIT人材、最新のオフィス環境、そして日印の強力なビジネスネットワークへのアクセスを提供します。",
-                })}
+                {lang === "JP" ? (
+                  <>
+                    <span className="block">ハイデラバード・Hyderabadの中心に位置するJ-Gate。</span>
+                    <span className="block sm:whitespace-nowrap">優秀なIT人材、最新のオフィス環境、そして日印の強力なビジネスネットワークへのアクセスを提供します。</span>
+                  </>
+                ) : (
+                  "Situated in the heart of Hyderabad, J-Gate delivers a strategic operational base with direct access to elite software engineering talent, enterprise infrastructure, and bilateral business networks."
+                )}
               </p>
             </div>
           </Reveal>

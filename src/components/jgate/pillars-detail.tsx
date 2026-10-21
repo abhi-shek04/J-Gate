@@ -127,10 +127,16 @@ export function PillarsDetail() {
             icon={<Layers className="h-3.5 w-3.5 text-crimson dark:text-rose-400" />}
             eyebrow={tx({ EN: "Strategic Problem Solving", JP: "インド進出の課題を解消" })}
             title={tx({ EN: "How J-Gate Eliminates Expansion Friction", JP: "J-Gateが解決する4つの進出障壁" })}
-            subtitle={tx({
-              EN: "Traditional India expansion is slow, bureaucratic, and risky. J-Gate replaces friction with proven, ready-to-use bilateral infrastructure.",
-              JP: "従来のインド進出に伴う長期契約、言語の壁、税務リスク、人材採用の難しさを、J-Gateのワンストップ基盤が解消します。",
-            })}
+            subtitle={
+              lang === "JP" ? (
+                <>
+                  <span className="block">従来のインド進出に伴う長期契約、言語の壁、税務リスク、人材採用の難しさを、</span>
+                  <span className="block">J-Gateのワンストップ基盤が解消します。</span>
+                </>
+              ) : (
+                "Traditional India expansion is slow, bureaucratic, and risky. J-Gate replaces friction with proven, ready-to-use bilateral infrastructure."
+              )
+            }
           />
         </Reveal>
 

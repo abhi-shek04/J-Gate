@@ -221,10 +221,14 @@ export function AboutSection({ id, hideHero }: { id?: string; hideHero?: boolean
                 className="mt-2.5 sm:mt-3 font-serif-jp font-bold text-white"
                 style={{ fontSize: "clamp(1.75rem, 3.2vw, 2.5rem)" }}
               >
-                {tx({
-                  EN: "Connecting Two Nations. Supporting Global Businesses.",
-                  JP: "日印の架け橋となり、企業のグローバル展開を加速する",
-                })}
+                {lang === "JP" ? (
+                  <>
+                    <span className="block">日印の架け橋となり、</span>
+                    <span className="block">企業のグローバル展開を加速する</span>
+                  </>
+                ) : (
+                  "Connecting Two Nations. Supporting Global Businesses."
+                )}
               </h2>
               <p className="mt-2 sm:mt-2.5 font-inter text-[12.5px] sm:text-[13.5px] leading-relaxed text-mist max-w-2xl mx-auto">
                 {tx({

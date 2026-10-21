@@ -9,6 +9,12 @@ Allow: /
 Disallow: /api/
 Disallow: /auth/
 
+User-agent: Googlebot-Favicon
+Allow: /
+
+User-agent: Googlebot-Image
+Allow: /
+
 User-agent: Bingbot
 Allow: /
 Disallow: /api/

@@ -7,6 +7,7 @@ import {
   Building2,
   MapPin,
   Sparkles,
+  Download,
 } from "lucide-react";
 import { Reveal, Eyebrow, StaggerReveal, TextReveal, AnimatedCounter, ParallaxLayer } from "@/components/jgate/shared";
 import { useI18n } from "@/lib/i18n";
@@ -325,13 +326,25 @@ export default function HomePage() {
           {/* 6. Primary Action Button & Executive Proof Strip */}
           <Reveal delay={320}>
             <div className="mt-7 sm:mt-9 flex flex-col items-center justify-center gap-6">
-              <Link
-                href="/why-jgate"
-                className="btn-shine group relative overflow-hidden inline-flex items-center justify-center gap-2.5 rounded-xl bg-crimson hover:bg-crimson-deep px-7 py-3.5 sm:px-8 sm:py-4 font-inter text-[14px] sm:text-[15px] font-bold text-white shadow-lg shadow-crimson/20 hover:shadow-xl hover:shadow-crimson/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
-              >
-                <span>{tx({ EN: "Discover J-Gate", JP: "J-Gateを詳しく見る" })}</span>
-                <ArrowRight className="h-4.5 w-4.5 transition-transform duration-300 group-hover:translate-x-1" />
-              </Link>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto">
+                <Link
+                  href="/why-jgate"
+                  prefetch={true}
+                  className="btn-shine group relative overflow-hidden inline-flex items-center justify-center gap-2.5 rounded-xl bg-crimson hover:bg-crimson-deep px-7 py-3.5 sm:px-8 sm:py-4 font-inter text-[14px] sm:text-[15px] font-bold text-white shadow-lg shadow-crimson/20 hover:shadow-xl hover:shadow-crimson/30 hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 w-full sm:w-auto"
+                >
+                  <span>{tx({ EN: "Discover J-Gate", JP: "J-Gateを詳しく見る" })}</span>
+                  <ArrowRight className="h-4.5 w-4.5 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+
+                <Link
+                  href="/auth/brochure"
+                  prefetch={true}
+                  className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 dark:border-white/20 bg-white/90 dark:bg-white/10 hover:bg-slate-100 dark:hover:bg-white/15 px-6 py-3.5 sm:py-4 font-inter text-[14px] sm:text-[15px] font-bold text-slate-800 dark:text-white shadow-sm hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 w-full sm:w-auto"
+                >
+                  <Download className="h-4.5 w-4.5 text-crimson dark:text-rose-400" />
+                  <span>{tx({ EN: "Download Brochure (PDF)", JP: "公式資料請求（無料）" })}</span>
+                </Link>
+              </div>
 
               {/* Stat Proof Cards Bar */}
               <StaggerReveal delay={400} className="w-full pt-4 border-t border-slate-200/70 dark:border-white/10 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto">

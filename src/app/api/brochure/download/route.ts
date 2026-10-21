@@ -7,6 +7,8 @@ import { NextRequest, NextResponse } from "next/server";
    ============================================================ */
 
 export async function GET(req: NextRequest) {
-  return NextResponse.redirect(new URL("/J-Gate-Brochure.pdf", req.url), 307);
+  const res = NextResponse.redirect(new URL("/J-Gate-Brochure.pdf", req.url), 307);
+  res.headers.set("Content-Disposition", 'attachment; filename="J-Gate-Brochure.pdf"');
+  return res;
 }
 

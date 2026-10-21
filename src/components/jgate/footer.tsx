@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { MapPin, Mail } from "lucide-react";
+import { MapPin, Mail, Download } from "lucide-react";
 import { JGateLogo, LinkedInIcon, InstagramIcon } from "./icons";
 import { useI18n } from "@/lib/i18n";
 
@@ -60,6 +60,18 @@ export function Footer() {
               >
                 <Mail className="h-4 w-4" />
               </a>
+            </div>
+
+            {/* Direct Brochure Download Link */}
+            <div className="pt-1.5">
+              <Link
+                href="/auth/brochure"
+                prefetch={true}
+                className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 px-2.5 py-1.5 font-inter text-[11.5px] font-semibold text-slate-800 dark:text-slate-200 hover:text-crimson dark:hover:text-rose-400 hover:border-crimson/30 transition-all"
+              >
+                <Download className="h-3.5 w-3.5 text-crimson dark:text-rose-400 shrink-0" />
+                <span>{tx({ EN: "Download Official Brochure", JP: "公式パンフレット資料請求" })}</span>
+              </Link>
             </div>
           </div>
 

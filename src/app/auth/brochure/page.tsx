@@ -8,6 +8,7 @@ import {
   Loader2,
   ArrowRight,
   ArrowLeft,
+  ExternalLink,
 } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
 import { cn } from "@/lib/utils";
@@ -98,20 +99,18 @@ export default function BrochureAuthPage() {
       setDownloadUrl(url);
       setStatus("success");
 
-      // Auto-trigger direct native download
+      // Auto-trigger direct native download without popup blocker interruption
       try {
         const link = document.createElement("a");
         link.href = url;
         link.download = "J-Gate-Brochure.pdf";
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
         document.body.appendChild(link);
         link.click();
         setTimeout(() => {
           if (document.body.contains(link)) document.body.removeChild(link);
         }, 1500);
       } catch {
-        window.open(url, "_blank");
+        window.location.href = url;
       }
     } catch {
       setErrors({ form: tx({ EN: "Network error. Please try again.", JP: "通信エラーが発生しました。もう一度お試しください。" }) });
@@ -327,6 +326,18 @@ export default function BrochureAuthPage() {
                     </>
                   )}
                 </button>
+
+                {/* Direct download fallback for mobile users who want immediate access */}
+                <div className="pt-2 text-center">
+                  <a
+                    href="/J-Gate-Brochure.pdf"
+                    download="J-Gate-Brochure.pdf"
+                    className="inline-flex items-center gap-1.5 font-inter text-[11.5px] text-slate-500 hover:text-crimson dark:text-slate-400 dark:hover:text-rose-400 underline transition-colors cursor-pointer"
+                  >
+                    <Download className="h-3 w-3 shrink-0" />
+                    <span>{tx({ EN: "Direct download without filling form", JP: "入力せずに直接PDF資料をダウンロード" })}</span>
+                  </a>
+                </div>
               </form>
             )}
           </div>
@@ -377,16 +388,25 @@ function SuccessState({
 
       {/* Action Buttons */}
       <div className="mt-5 sm:mt-6 flex w-full flex-col gap-2.5">
-        {/* Primary Download Button */}
+        {/* Primary Download Button (Direct attachment download) */}
         <a
           href="/J-Gate-Brochure.pdf"
           download="J-Gate-Brochure.pdf"
-          target="_blank"
-          rel="noopener noreferrer"
           className="btn-shine flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3.5 font-inter text-[13.5px] sm:text-sm font-semibold text-white shadow-xl shadow-crimson/25 hover:shadow-crimson/40 transition-all hover:-translate-y-0.5"
         >
-          <Download className="h-4.5 w-4.5" />
-          {tx({ EN: "Download PDF Brochure", JP: "公式PDF資料をダウンロード" })}
+          <Download className="h-4.5 w-4.5 shrink-0" />
+          <span>{tx({ EN: "Download PDF Brochure (Save File)", JP: "公式PDF資料をダウンロード（端末に保存）" })}</span>
+        </a>
+
+        {/* Secondary View in Browser Button */}
+        <a
+          href="/J-Gate-Brochure.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-2 rounded-xl border border-slate-300 dark:border-white/20 bg-slate-100/80 dark:bg-white/5 hover:bg-slate-200 dark:hover:bg-white/10 px-5 py-3 font-inter text-[12.5px] sm:text-[13px] font-semibold text-slate-800 dark:text-white transition-all"
+        >
+          <ExternalLink className="h-4 w-4 text-crimson dark:text-rose-400 shrink-0" />
+          <span>{tx({ EN: "Open PDF in Browser Tab", JP: "ブラウザタブで直接閲覧する" })}</span>
         </a>
 
         {/* Navigation row */}

@@ -257,13 +257,24 @@ export function Navbar() {
             )}
           </button>
 
-          {/* Download Brochure CTA — routes to /auth/brochure */}
+          {/* Download Brochure CTA — desktop */}
           <Link
             href="/auth/brochure"
+            prefetch={true}
             className="btn-shine hidden items-center gap-1.5 rounded-md bg-gradient-to-r from-crimson to-crimson-deep px-3.5 xl:px-4 py-2 font-inter text-[12px] xl:text-[13px] font-semibold text-white shadow-[0_0_20px_rgba(188,26,44,0.4)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_28px_rgba(188,26,44,0.6)] shrink-0 lg:inline-flex"
           >
             <Download className="h-3.5 w-3.5 shrink-0" />
             <span>{t("nav.brochure")}</span>
+          </Link>
+
+          {/* Mobile Download Brochure CTA Pill — visible on mobile (< lg) */}
+          <Link
+            href="/auth/brochure"
+            prefetch={true}
+            className="btn-shine flex lg:hidden items-center gap-1.5 rounded-lg bg-gradient-to-r from-crimson to-crimson-deep px-2.5 py-1.5 font-inter text-[11px] font-bold text-white shadow-xs shadow-crimson/30 active:scale-95 transition-all shrink-0"
+          >
+            <Download className="h-3 w-3 shrink-0" />
+            <span>{lang === "JP" ? "資料請求" : "Brochure"}</span>
           </Link>
 
           {/* Hamburger Menu Toggle Button */}
@@ -393,7 +404,10 @@ export function Navbar() {
 
           <Link
             href="/auth/brochure"
-            onClick={() => setOpen(false)}
+            prefetch={true}
+            onClick={() => {
+              setTimeout(() => setOpen(false), 80);
+            }}
             className="btn-shine flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3.5 font-inter text-sm font-bold text-white shadow-lg shadow-crimson/40"
           >
             <Download className="h-4 w-4" />

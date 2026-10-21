@@ -244,10 +244,11 @@ export default function HomePage() {
         />
 
         <div className="container-jg relative z-10 pt-2 pb-6 sm:pt-4 sm:pb-8 text-center max-w-5xl mx-auto">
-          {/* 1. Pre-title: Japan–India Business & Talent Hub */}
+          {/* 1. Pre-title: J-Gate | Japan–India Business & Talent Hub */}
           <Reveal variant="blur" delay={0}>
-            <div className="flex items-center justify-center gap-2.5 font-inter text-[11.5px] sm:text-[12.5px] font-bold uppercase tracking-[0.22em] text-crimson dark:text-rose-400">
+            <div className="flex items-center justify-center gap-2 font-inter text-[11.5px] sm:text-[12.5px] font-bold uppercase tracking-[0.22em] text-crimson dark:text-rose-400">
               <span className="hidden sm:inline-block h-px w-8 bg-crimson/30 dark:bg-rose-400/30" />
+              <span className="tracking-normal text-ink dark:text-white font-extrabold mr-1">J-Gate ·</span>
               <span>{tx({ EN: "Japan–India Business & Talent Hub", JP: "日印ビジネス＆高度人材ハブ" })}</span>
               <span className="hidden sm:inline-block h-px w-8 bg-crimson/30 dark:bg-rose-400/30" />
             </div>
@@ -270,10 +271,14 @@ export default function HomePage() {
               <span className="inline-flex items-center gap-2 rounded-full bg-white/90 dark:bg-white/10 border border-slate-200 dark:border-white/15 px-4 py-1.5 font-inter text-[13px] sm:text-[14px] font-semibold text-slate-700 dark:text-slate-200 tracking-wide shadow-2xs backdrop-blur-sm" style={{ textWrap: "balance" }}>
                 <Sparkles className="h-3.5 w-3.5 text-crimson dark:text-rose-400" />
                 <span>
-                  {tx({
-                    EN: "Enterprise Grade Working Hub & Resident Japanese Advisory in Hyderabad",
-                    JP: "ハイデラバード拠点の日本企業専用・完全日本語伴走型ワーキングハブ",
-                  })}
+                  <strong className="font-bold text-crimson dark:text-rose-400 mr-1.5">J-Gate</strong>
+                  <span className="text-slate-400 dark:text-white/30 mr-1.5">|</span>
+                  <span>
+                    {tx({
+                      EN: "Enterprise Grade Working Hub & Resident Japanese Advisory in Hyderabad",
+                      JP: "ハイデラバード拠点の日本企業専用・完全日本語伴走型ワーキングハブ",
+                    })}
+                  </span>
                 </span>
               </span>
             </div>

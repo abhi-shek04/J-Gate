@@ -32,16 +32,25 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.j-gate.work"),
+  applicationName: "J-Gate",
   title: {
-    default: "J-Gate | Dedicated Working Hub for Japanese Companies in India",
+    default: "J-Gate (J Gate) | Dedicated Working Hub for Japanese Companies in India",
     template: "%s | J-Gate",
   },
   description:
-    "India's first dedicated working hub for Japanese enterprises in Hyderabad. Dedicated desks, private cabins, resident bilingual Japan Desk support, company incorporation, and bilateral IT talent bridge. Operated by Indobox India Private Limited.",
+    "J-Gate (J Gate) is India's first dedicated working hub for Japanese enterprises in Hyderabad. Dedicated desks, private cabins, resident bilingual Japan Desk support, company incorporation, and bilateral IT talent bridge. Operated by Indobox India Private Limited.",
   keywords: [
     "J-Gate",
-    "Jゲート",
+    "J Gate",
+    "jgate",
+    "j-gate",
+    "J-Gate India",
+    "J Gate India",
+    "J-Gate Hyderabad",
     "J Gate Hyderabad",
+    "j-gate.work",
+    "Jゲート",
+    "Jゲート インド",
     "Indobox India",
     "Indobox India Private Limited",
     "Japanese Working Hub India",
@@ -77,12 +86,12 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "J-Gate | Dedicated Working Hub for Japanese Companies in India",
+    title: "J-Gate (J Gate) | Dedicated Working Hub for Japanese Companies in India",
     description:
       "India's first dedicated working hub in Hyderabad with resident Japan Desk, private cabins, and bilateral business bridge. Operated by Indobox India.",
     url: "https://www.j-gate.work",
     siteName: "J-Gate",
-    locale: "en_US",
+    locale: "ja_JP",
     type: "website",
     images: [
       {
@@ -95,7 +104,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "J-Gate | Dedicated Working Hub for Japanese Companies in India",
+    title: "J-Gate (J Gate) | Dedicated Working Hub for Japanese Companies in India",
     description:
       "India's first dedicated working hub in Hyderabad for Japanese enterprises.",
     images: ["/jgate-logo-official.png"],
@@ -120,9 +129,40 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebSite",
+      "@id": "https://www.j-gate.work/#website",
+      url: "https://www.j-gate.work",
+      name: "J-Gate",
+      alternateName: [
+        "J Gate",
+        "JGate",
+        "j-gate",
+        "J-Gate India",
+        "J Gate India",
+        "J-Gate Hyderabad",
+        "J Gate Hyderabad",
+        "Jゲート",
+      ],
+      description:
+        "Official website of J-Gate: India's first dedicated working hub for Japanese enterprises in Hyderabad.",
+      publisher: {
+        "@id": "https://www.j-gate.work/#organization",
+      },
+      inLanguage: ["ja", "en"],
+    },
+    {
       "@type": "Organization",
       "@id": "https://www.j-gate.work/#organization",
       name: "J-Gate",
+      alternateName: [
+        "J Gate",
+        "JGate",
+        "j-gate",
+        "J-Gate India",
+        "J Gate India",
+        "J-Gate Hyderabad",
+        "Jゲート",
+      ],
       legalName: "Indobox India Private Limited",
       url: "https://www.j-gate.work",
       logo: "https://www.j-gate.work/jgate-logo-official.png",
@@ -141,6 +181,7 @@ const jsonLd = {
       "@type": "LocalBusiness",
       "@id": "https://www.j-gate.work/#localbusiness",
       name: "J-Gate Working Hub",
+      alternateName: ["J-Gate", "J Gate", "JGate", "J-Gate Hyderabad"],
       image: "https://www.j-gate.work/jgate-logo-official.png",
       url: "https://www.j-gate.work",
       email: "contact@indobox.co.jp",

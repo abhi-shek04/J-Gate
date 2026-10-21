@@ -10,7 +10,7 @@ type Indicator = "check" | "cross" | "warn" | "optimal" | "text";
 
 type Row = {
   label: { EN: string; JP: string };
-  jgate: { EN: string; JP: string };
+  jgate: { EN: ReactNode; JP: ReactNode };
   consult: { EN: string; JP: string };
   cowork: { EN: string; JP: string };
   publicOrg: { EN: string; JP: string };
@@ -89,7 +89,35 @@ const ROWS: Row[] = [
   },
   {
     label: { EN: "Hiring Support", JP: "採用支援" },
-    jgate: { EN: "Full recruitment support via Indobox", JP: "Indoboxと完全連携" },
+    jgate: {
+      EN: (
+        <span>
+          Full recruitment support via{" "}
+          <a
+            href="https://indigate.work/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline font-bold text-crimson dark:text-rose-400 hover:opacity-80 transition-opacity"
+          >
+            Indigate
+          </a>{" "}
+          Supported by Indobox
+        </span>
+      ),
+      JP: (
+        <span>
+          <a
+            href="https://indigate.work/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline font-bold text-crimson dark:text-rose-400 hover:opacity-80 transition-opacity"
+          >
+            Indigate
+          </a>
+          （Indobox支援）と完全連携
+        </span>
+      ),
+    },
     consult: { EN: "Referral only — expensive", JP: "紹介のみ・高額" },
     cowork: { EN: "None", JP: "なし" },
     publicOrg: { EN: "None", JP: "なし" },
@@ -157,7 +185,7 @@ function Cell({
   type,
   highlight = false,
 }: {
-  text: string;
+  text: ReactNode;
   type: Indicator;
   highlight?: boolean;
 }) {
@@ -202,8 +230,8 @@ export function ComparisonTable() {
             >
               {lang === "JP" ? (
                 <>
-                  <span className="block">インド進出を検討する日本企業が直面する4つの選択肢を、コスト・伴走体制・</span>
-                  <span className="block">人脈・投資対効果の視点から徹底比較。</span>
+                  <span className="block">インド進出を検討する日本企業が直面する4つの選択肢を、コスト</span>
+                  <span className="block">伴走体制・人脈・投資対効果の視点から徹底比較。</span>
                 </>
               ) : (
                 "A direct comparison across the four paths Japanese enterprises consider when entering India — cost, support, network, and overall value."

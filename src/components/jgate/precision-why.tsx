@@ -576,7 +576,35 @@ export function PrecisionWhyPage() {
                       <svg className="w-4 h-4 mt-0.5 shrink-0" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6" fill="#2D7A5F" /></svg>
                       <div>
                         <div className="font-sans font-medium text-[#F0EDE6]">
-                          {tx({ EN: "Full recruitment support via Indobox", JP: "Indoboxと完全連携" })}
+                          {tx({
+                            EN: (
+                              <span>
+                                Full recruitment support via{" "}
+                                <a
+                                  href="https://indigate.work/"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="underline font-bold text-[#E5C158] hover:text-[#ffd977] transition-colors"
+                                >
+                                  Indigate
+                                </a>{" "}
+                                Supported by Indobox
+                              </span>
+                            ),
+                            JP: (
+                              <span>
+                                <a
+                                  href="https://indigate.work/"
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="underline font-bold text-[#E5C158] hover:text-[#ffd977] transition-colors"
+                                >
+                                  Indigate
+                                </a>
+                                （Indobox支援）と完全連携
+                              </span>
+                            ),
+                          })}
                         </div>
                       </div>
                     </div>

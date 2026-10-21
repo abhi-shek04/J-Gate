@@ -447,7 +447,7 @@ type I18nContextType = {
   toggle: () => void;
   t: (key: string) => string;
   /** Inline bilingual helper — for page-specific content */
-  tx: (entry: { EN: string; JP: string }) => string;
+  tx: <T = string>(entry: { EN: T; JP: T }) => T;
 };
 
 const I18nContext = createContext<I18nContextType | null>(null);
@@ -503,7 +503,7 @@ export function I18nProvider({ children }: { children: ReactNode }) {
   );
 
   const tx = useCallback(
-    (entry: { EN: string; JP: string }) => entry[lang],
+    <T,>(entry: { EN: T; JP: T }): T => entry[lang],
     [lang]
   );
 
@@ -522,7 +522,7 @@ export function useI18n() {
       setLang: () => {},
       toggle: () => {},
       t: (key: string) => translations[key]?.JP ?? key,
-      tx: (entry: { EN: string; JP: string }) => entry.JP,
+      tx: <T,>(entry: { EN: T; JP: T }): T => entry.JP,
     };
   }
   return ctx;

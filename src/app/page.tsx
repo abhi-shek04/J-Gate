@@ -291,7 +291,8 @@ export default function HomePage() {
             >
               {lang === "JP" ? (
                 <>
-                  <span className="block">ハイデラバードに誕生した日本企業専用ワーキングハブ。専用デスク、個室キャビン、</span>
+                  <span className="block">ハイデラバードに誕生した日本企業専用ワーキングハブ。</span>
+                  <span className="block">専用デスク、個室キャビン、</span>
                   <span className="block">常駐ジャパンデスク、充実したオフィスインフラで、インド事業の円滑な立ち上げを包括支援。</span>
                 </>
               ) : (

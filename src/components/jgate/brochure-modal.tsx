@@ -106,20 +106,18 @@ export function BrochureModal() {
       setDownloadUrl(url);
       setStatus("success");
 
-      // Auto-trigger direct native download
+      // Auto-trigger direct native download without popup blocking
       try {
         const link = document.createElement("a");
         link.href = url;
         link.download = "J-Gate-Brochure.pdf";
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
         document.body.appendChild(link);
         link.click();
         setTimeout(() => {
           if (document.body.contains(link)) document.body.removeChild(link);
         }, 1500);
       } catch {
-        window.open(url, "_blank");
+        window.location.href = url;
       }
     } catch {
       setErrors({ form: tx({ EN: "Network error. Please try again.", JP: "通信エラーが発生しました。もう一度お試しください。" }) });
@@ -202,9 +200,7 @@ export function BrochureModal() {
                 <a
                   href="/J-Gate-Brochure.pdf"
                   download="J-Gate-Brochure.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-shine flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3 font-inter text-sm font-semibold text-white transition-all hover:-translate-y-0.5 shadow-lg shadow-crimson/25"
+                  className="btn-shine flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3 font-inter text-sm font-semibold text-white transition-all hover:-translate-y-0.5 shadow-lg shadow-crimson/25 cursor-pointer"
                 >
                   <Download className="h-4 w-4" />
                   {tx({ EN: "Download PDF Brochure", JP: "公式PDF資料をダウンロード" })}

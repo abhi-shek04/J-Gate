@@ -242,11 +242,22 @@ export function ComparisonTable() {
 
         {/* Table Container with Luxury Glass Card Styling */}
         <Reveal delay={100} variant="scale">
-          <div className="mt-8 overflow-x-auto pb-4" style={{ scrollbarWidth: "thin" }}>
+          {/* Mobile Swipe Helper Pill */}
+          <div className="flex items-center justify-between text-[11px] text-slate-500 dark:text-slate-400 mb-2.5 px-1 lg:hidden">
+            <span className="flex items-center gap-1.5 font-medium">
+              <span className="inline-block animate-pulse">👉</span>
+              {tx({ EN: "Scroll horizontally to compare all options", JP: "横スクロールで全ての選択肢を比較できます" })}
+            </span>
+            <span className="font-mono text-[10px] uppercase tracking-wider bg-slate-200/80 dark:bg-white/10 px-2 py-0.5 rounded-full font-bold">
+              {tx({ EN: "Swipe", JP: "スワイプ" })} →
+            </span>
+          </div>
+
+          <div className="mt-2 lg:mt-8 overflow-x-auto pb-4" style={{ scrollbarWidth: "thin" }}>
             <div className="min-w-[920px] overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] shadow-2xl">
               {/* Header row */}
               <div className="grid grid-cols-[180px_minmax(210px,1.2fr)_1fr_1fr_1fr]">
-                <div className="sticky left-0 z-10 border-b border-slate-200/80 dark:border-white/10 bg-slate-50 dark:bg-[#09090b] px-5 py-5 flex items-center">
+                <div className="sticky left-0 z-10 border-b border-r border-slate-200/80 dark:border-white/10 bg-slate-50 dark:bg-[#09090b] px-4 sm:px-5 py-5 flex items-center shadow-[4px_0_10px_-3px_rgba(0,0,0,0.06)] dark:shadow-[4px_0_12px_-3px_rgba(0,0,0,0.4)]">
                   <span
                     className="font-inter text-[12px] sm:text-[13px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400"
                   >
@@ -293,7 +304,7 @@ export function ComparisonTable() {
                   >
                     {/* Criteria label */}
                     <div
-                      className={`sticky left-0 z-10 px-5 py-4 flex items-center ${
+                      className={`sticky left-0 z-10 border-r border-slate-200/80 dark:border-white/10 px-4 sm:px-5 py-4 flex items-center shadow-[4px_0_10px_-3px_rgba(0,0,0,0.06)] dark:shadow-[4px_0_12px_-3px_rgba(0,0,0,0.4)] ${
                         zebra ? "bg-slate-50 dark:bg-[#0e0e11]" : "bg-white dark:bg-[#09090b]"
                       }`}
                     >
@@ -329,7 +340,7 @@ export function ComparisonTable() {
 
         {/* Verdict Banner */}
         <Reveal delay={160} variant="scale">
-          <div className="mx-auto mt-10 max-w-4xl overflow-hidden rounded-2xl border-2 border-crimson/40 dark:border-crimson/60 bg-gradient-to-r from-red-50/90 via-white to-amber-50/80 dark:from-rose-950/40 dark:via-[#09090b] dark:to-amber-950/30 p-6 sm:p-8 shadow-xl">
+          <div className="mx-auto mt-10 max-w-4xl overflow-hidden rounded-2xl border-2 border-crimson/40 dark:border-crimson/60 bg-gradient-to-r from-red-50/90 via-white to-amber-50/80 dark:from-rose-950/40 dark:via-[#09090b] dark:to-amber-950/30 p-5 sm:p-8 shadow-xl">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
               <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-crimson text-white shadow-crimp">
                 <ShieldCheck className="h-6 w-6" />
@@ -351,7 +362,7 @@ export function ComparisonTable() {
               </div>
               <Link
                 href="/pricing"
-                className="btn-shine shrink-0 inline-flex items-center gap-1.5 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-2.5 font-inter text-[13px] font-semibold text-white shadow-md shadow-crimson/30 hover:opacity-95 transition-all"
+                className="btn-shine shrink-0 inline-flex items-center justify-center gap-1.5 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3 font-inter text-[13px] font-semibold text-white shadow-md shadow-crimson/30 hover:opacity-95 transition-all w-full sm:w-auto text-center"
               >
                 {tx({ EN: "View Plans", JP: "料金を見る" })}
                 <ArrowRight className="h-4 w-4" />

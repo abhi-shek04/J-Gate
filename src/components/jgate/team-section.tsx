@@ -399,7 +399,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                           href={adv.linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1.5 rounded-lg border border-slate-300 dark:border-white/20 bg-white dark:bg-white/5 hover:bg-[#0A66C2]/10 hover:border-[#0A66C2] px-3 py-1.5 font-inter text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 hover:text-[#0A66C2] dark:hover:text-[#388bfd] transition-all shadow-xs"
+                          className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-300 dark:border-white/20 bg-white dark:bg-white/5 hover:bg-[#0A66C2]/10 hover:border-[#0A66C2] px-3 py-1.5 font-inter text-xs font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 hover:text-[#0A66C2] dark:hover:text-[#388bfd] transition-all shadow-xs w-full sm:w-auto text-center"
                         >
                           <span className="flex h-4 w-4 items-center justify-center rounded bg-[#0A66C2] text-white text-[9px] font-black">
                             in
@@ -576,7 +576,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                             href={m.linkedin}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 dark:border-white/15 bg-slate-50 dark:bg-white/5 px-2.5 py-1 font-inter text-[10.5px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 hover:border-[#0A66C2] hover:text-[#0A66C2] dark:hover:text-[#388bfd] transition-all"
+                            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 dark:border-white/15 bg-slate-50 dark:bg-white/5 px-2.5 py-1.5 font-inter text-[10.5px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 hover:border-[#0A66C2] hover:text-[#0A66C2] dark:hover:text-[#388bfd] transition-all"
                           >
                             <span className="flex h-3.5 w-3.5 items-center justify-center rounded bg-[#0A66C2] text-white text-[8.5px] font-black">
                               in
@@ -587,10 +587,10 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                         {m.id !== "hanaoka" && m.email && (
                           <a
                             href={`mailto:${m.email}`}
-                            className="flex h-7 w-7 items-center justify-center rounded-lg border border-slate-200 dark:border-white/15 bg-slate-50 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:bg-crimson/10 hover:text-crimson transition-all"
+                            className="flex h-8 w-8 sm:h-7 sm:w-7 items-center justify-center rounded-lg border border-slate-200 dark:border-white/15 bg-slate-50 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:bg-crimson/10 hover:text-crimson transition-all"
                             title={m.email}
                           >
-                            <Mail className="h-3.5 w-3.5" />
+                            <Mail className="h-4 w-4 sm:h-3.5 sm:w-3.5" />
                           </a>
                         )}
                       </div>
@@ -663,7 +663,7 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                             href={m.linkedin}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 dark:border-white/15 bg-slate-50 dark:bg-white/5 px-2.5 py-1 font-inter text-[10.5px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 hover:border-[#0A66C2] hover:text-[#0A66C2] dark:hover:text-[#388bfd] transition-all"
+                            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 dark:border-white/15 bg-slate-50 dark:bg-white/5 px-2.5 py-1.5 font-inter text-[10.5px] font-bold uppercase tracking-wider text-slate-700 dark:text-slate-200 hover:border-[#0A66C2] hover:text-[#0A66C2] dark:hover:text-[#388bfd] transition-all"
                           >
                             <span className="flex h-3.5 w-3.5 items-center justify-center rounded bg-[#0A66C2] text-white text-[8.5px] font-black">
                               in
@@ -674,10 +674,10 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
                         {m.phone && (
                           <a
                             href={`tel:${m.phone.replace(/[^0-9+]/g, "")}`}
-                            className="flex h-7 w-7 items-center justify-center rounded-lg border border-slate-200 dark:border-white/15 bg-slate-50 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:bg-saffron/20 hover:text-saffron-dark transition-all"
+                            className="flex h-8 w-8 sm:h-7 sm:w-7 items-center justify-center rounded-lg border border-slate-200 dark:border-white/15 bg-slate-50 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:bg-saffron/20 hover:text-saffron-dark transition-all"
                             title={m.phone}
                           >
-                            <Phone className="h-3.5 w-3.5" />
+                            <Phone className="h-4 w-4 sm:h-3.5 sm:w-3.5" />
                           </a>
                         )}
                         {m.id !== "abhishek" && m.email && (

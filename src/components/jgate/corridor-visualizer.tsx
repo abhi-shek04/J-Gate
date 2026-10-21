@@ -180,9 +180,9 @@ export function BilateralCorridorVisualizer() {
 
         {/* ── Bottom 3-Item Highlights Strip (Compact, High Contrast) ── */}
         <Reveal delay={180}>
-          <div className="mt-5 sm:mt-7 rounded-xl sm:rounded-2xl border border-white/20 bg-[#080d1a]/85 px-3 py-3 sm:px-4 sm:py-3.5 backdrop-blur-md shadow-2xl">
-            <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-3 sm:divide-x sm:divide-white/15 text-center">
-              <div className="px-2">
+          <div className="mt-5 sm:mt-7 rounded-xl sm:rounded-2xl border border-white/20 bg-[#080d1a]/85 px-3 py-2 sm:px-4 sm:py-3.5 backdrop-blur-md shadow-2xl">
+            <div className="grid grid-cols-1 divide-y divide-white/10 sm:divide-y-0 sm:grid-cols-3 sm:divide-x sm:divide-white/15 text-center">
+              <div className="py-2.5 sm:py-0 px-2 sm:px-3">
                 <span className="inline-flex items-center gap-1.5 font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-saffron">
                   <Zap className="h-3 w-3" />
                   {tx({ EN: "Fast Setup", JP: "初期費用ゼロ" })}
@@ -194,7 +194,7 @@ export function BilateralCorridorVisualizer() {
                   })}
                 </span>
               </div>
-              <div className="px-2">
+              <div className="py-2.5 sm:py-0 px-2 sm:px-3">
                 <span className="inline-flex items-center gap-1.5 font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-saffron">
                   <Users2 className="h-3 w-3" />
                   {tx({ EN: "Japanese Support", JP: "安心の現地支援" })}
@@ -206,7 +206,7 @@ export function BilateralCorridorVisualizer() {
                   })}
                 </span>
               </div>
-              <div className="px-2">
+              <div className="py-2.5 sm:py-0 px-2 sm:px-3">
                 <span className="inline-flex items-center gap-1.5 font-inter text-[10.5px] sm:text-[11px] font-bold uppercase tracking-wider text-saffron">
                   <MapPin className="h-3 w-3" />
                   {tx({ EN: "Prime Location", JP: "最高の立地" })}

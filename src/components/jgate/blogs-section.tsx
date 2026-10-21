@@ -563,38 +563,38 @@ export function BlogsSection({ id, hideHero }: { id?: string; hideHero?: boolean
 
           {/* View Mode Switcher Bar */}
           <Reveal>
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pb-6 border-b border-slate-200/80 dark:border-white/10">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3 sm:gap-4 pb-4 sm:pb-6 border-b border-slate-200/80 dark:border-white/10">
               <div className="flex items-center gap-2">
-                <Building2 className="h-4 w-4 text-crimson dark:text-rose-400" />
+                <Building2 className="h-4 w-4 text-crimson dark:text-rose-400 shrink-0" />
                 <span className="font-inter text-xs sm:text-sm font-semibold text-slate-700 dark:text-slate-300">
                   {tx({ EN: "Filter Working Hub Photos by Zone:", JP: "ゾーンで写真を絞り込み:" })}
                 </span>
               </div>
 
               {/* View Mode Toggle */}
-              <div className="flex items-center gap-1.5 rounded-2xl bg-white dark:bg-[#09090b] border border-slate-200 dark:border-white/10 p-1.5 shadow-sm shrink-0">
+              <div className="flex items-center gap-1.5 rounded-2xl bg-white dark:bg-[#09090b] border border-slate-200 dark:border-white/10 p-1 sm:p-1.5 shadow-sm shrink-0 w-full sm:w-auto">
                 <button
                   onClick={() => setViewMode("zones")}
                   className={cn(
-                    "flex items-center gap-1.5 rounded-xl px-4 py-2 font-inter text-[12.5px] font-semibold transition-all duration-300",
+                    "flex-1 sm:flex-initial flex items-center justify-center gap-1.5 rounded-xl px-3 sm:px-4 py-2 font-inter text-[12px] sm:text-[12.5px] font-semibold transition-all duration-300",
                     viewMode === "zones"
                       ? "bg-gradient-to-r from-crimson to-crimson-deep text-white shadow-md shadow-crimson/30"
                       : "text-slate dark:text-slate-300 hover:text-ink dark:hover:text-white hover:bg-slate-50 dark:hover:bg-white/5"
                   )}
                 >
-                  <Layers className="h-4 w-4 text-saffron" />
+                  <Layers className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-saffron shrink-0" />
                   {tx({ EN: "By Area", JP: "エリア別" })}
                 </button>
                 <button
                   onClick={() => setViewMode("mosaic")}
                   className={cn(
-                    "flex items-center gap-1.5 rounded-xl px-4 py-2 font-inter text-[12.5px] font-semibold transition-all duration-300",
+                    "flex-1 sm:flex-initial flex items-center justify-center gap-1.5 rounded-xl px-3 sm:px-4 py-2 font-inter text-[12px] sm:text-[12.5px] font-semibold transition-all duration-300",
                     viewMode === "mosaic"
                       ? "bg-gradient-to-r from-crimson to-crimson-deep text-white shadow-md shadow-crimson/30"
                       : "text-slate dark:text-slate-300 hover:text-ink dark:hover:text-white hover:bg-slate-50 dark:hover:bg-white/5"
                   )}
                 >
-                  <LayoutGrid className="h-4 w-4 text-saffron" />
+                  <LayoutGrid className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-saffron shrink-0" />
                   {tx({ EN: "Grid View (14)", JP: "写真一覧 (14枚)" })}
                 </button>
               </div>
@@ -605,25 +605,25 @@ export function BlogsSection({ id, hideHero }: { id?: string; hideHero?: boolean
           <Reveal delay={40}>
             <div className="my-5 sm:my-8 grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-4 max-w-5xl mx-auto">
               <div className="luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-3 sm:p-5 text-center shadow-md hover:shadow-xl transition-all">
-                <span className="block font-serif-jp text-2xl sm:text-3xl font-bold text-crimson dark:text-rose-400">20+</span>
+                <span className="block font-serif-jp text-xl sm:text-3xl font-bold text-crimson dark:text-rose-400">20+</span>
                 <span className="mt-0.5 sm:mt-1 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
                   {tx({ EN: "Dedicated Desks", JP: "固定専用デスク" })}
                 </span>
               </div>
               <div className="luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-3 sm:p-5 text-center shadow-md hover:shadow-xl transition-all">
-                <span className="block font-serif-jp text-2xl sm:text-3xl font-bold text-saffron-dark dark:text-amber-300">16 & 4-Pax</span>
+                <span className="block font-serif-jp text-xl sm:text-3xl font-bold text-saffron-dark dark:text-amber-300">16 & 4-Pax</span>
                 <span className="mt-0.5 sm:mt-1 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
                   {tx({ EN: "Boardroom & Meeting", JP: "国際会議室＆面談室" })}
                 </span>
               </div>
               <div className="luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-3 sm:p-5 text-center shadow-md hover:shadow-xl transition-all">
-                <span className="block font-serif-jp text-2xl sm:text-3xl font-bold text-crimson dark:text-rose-400">1 Gbps</span>
+                <span className="block font-serif-jp text-xl sm:text-3xl font-bold text-crimson dark:text-rose-400">1 Gbps</span>
                 <span className="mt-0.5 sm:mt-1 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
                   {tx({ EN: "Dedicated Fiber Line", JP: "専用光回線" })}
                 </span>
               </div>
               <div className="luxury-light-card card-sheen gold-hairline rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-3 sm:p-5 text-center shadow-md hover:shadow-xl transition-all">
-                <span className="block font-serif-jp text-2xl sm:text-3xl font-bold text-emerald-600 dark:text-emerald-400">24/7</span>
+                <span className="block font-serif-jp text-xl sm:text-3xl font-bold text-emerald-600 dark:text-emerald-400">24/7</span>
                 <span className="mt-0.5 sm:mt-1 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
                   {tx({ EN: "Keycard Access", JP: "入退館管理・警備" })}
                 </span>
@@ -858,20 +858,20 @@ export function BlogsSection({ id, hideHero }: { id?: string; hideHero?: boolean
          ═══════════════════════════════════════════════════════════════ */}
       {activeLightboxPhoto && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 sm:p-8 backdrop-blur-xl animate-in fade-in duration-200"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-2.5 sm:p-6 lg:p-8 backdrop-blur-xl animate-in fade-in duration-200"
           onClick={() => setLightboxIndex(null)}
           role="dialog"
           aria-modal="true"
         >
           {/* Modal Container */}
           <div
-            className="relative flex flex-col lg:flex-row max-w-5xl w-full max-h-[90vh] bg-slate-900 rounded-3xl overflow-hidden border border-white/15 shadow-2xl"
+            className="relative flex flex-col lg:flex-row max-w-5xl w-full max-h-[92vh] bg-slate-900 rounded-2xl sm:rounded-3xl overflow-hidden border border-white/15 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
               onClick={() => setLightboxIndex(null)}
-              className="absolute top-4 right-4 z-30 flex h-9 w-9 items-center justify-center rounded-full bg-black/70 text-white hover:bg-crimson hover:scale-110 transition-all"
+              className="absolute top-2.5 right-2.5 sm:top-4 sm:right-4 z-30 flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-black/75 text-white hover:bg-crimson hover:scale-110 transition-all cursor-pointer"
               aria-label="Close"
             >
               <X className="h-4 w-4" />
@@ -882,7 +882,7 @@ export function BlogsSection({ id, hideHero }: { id?: string; hideHero?: boolean
               <img
                 src={activeLightboxPhoto.src}
                 alt={activeLightboxPhoto.alt}
-                className="max-h-[55vh] lg:max-h-[80vh] w-full object-contain"
+                className="max-h-[38vh] sm:max-h-[50vh] lg:max-h-[80vh] w-full object-contain"
               />
 
               {/* Prev / Next Nav Buttons */}
@@ -892,36 +892,36 @@ export function BlogsSection({ id, hideHero }: { id?: string; hideHero?: boolean
                     (lightboxIndex! - 1 + ALL_REAL_PHOTOS.length) % ALL_REAL_PHOTOS.length
                   )
                 }
-                className="absolute left-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-black/60 text-white hover:bg-crimson hover:scale-110 transition-all"
+                className="absolute left-2.5 sm:left-3 top-1/2 -translate-y-1/2 flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-black/60 text-white hover:bg-crimson hover:scale-110 transition-all cursor-pointer"
                 aria-label="Previous photo"
               >
-                <ChevronLeft className="h-5 w-5" />
+                <ChevronLeft className="h-4 w-4 sm:h-5 sm:w-5" />
               </button>
               <button
                 onClick={() =>
                   setLightboxIndex((lightboxIndex! + 1) % ALL_REAL_PHOTOS.length)
                 }
-                className="absolute right-3 top-1/2 -translate-y-1/2 flex h-9 w-9 items-center justify-center rounded-full bg-black/60 text-white hover:bg-crimson hover:scale-110 transition-all"
+                className="absolute right-2.5 sm:right-3 top-1/2 -translate-y-1/2 flex h-8 w-8 sm:h-9 sm:w-9 items-center justify-center rounded-full bg-black/60 text-white hover:bg-crimson hover:scale-110 transition-all cursor-pointer"
                 aria-label="Next photo"
               >
-                <ChevronRight className="h-5 w-5" />
+                <ChevronRight className="h-4 w-4 sm:h-5 sm:w-5" />
               </button>
 
               {/* Photo Counter Overlay */}
-              <span className="absolute bottom-3 left-3 rounded-md bg-black/70 px-2.5 py-1 font-mono text-[11px] font-bold text-white border border-white/10">
+              <span className="absolute bottom-2.5 left-2.5 sm:bottom-3 sm:left-3 rounded-md bg-black/70 px-2 py-0.5 sm:px-2.5 sm:py-1 font-mono text-[10px] sm:text-[11px] font-bold text-white border border-white/10">
                 {lightboxIndex! + 1} / {ALL_REAL_PHOTOS.length}
               </span>
             </div>
 
             {/* Sidebar Details */}
-            <div className="lg:w-5/12 p-6 sm:p-7 flex flex-col justify-between overflow-y-auto bg-slate-900 border-t lg:border-t-0 lg:border-l border-white/10 text-white">
+            <div className="lg:w-5/12 p-4 sm:p-6 lg:p-7 flex flex-col justify-between overflow-y-auto bg-slate-900 border-t lg:border-t-0 lg:border-l border-white/10 text-white">
               <div>
                 {/* Zone & Category Badge */}
                 <div className="flex items-center gap-2">
-                  <span className="inline-block rounded-full bg-crimson px-3 py-0.5 font-inter text-[10.5px] font-bold uppercase tracking-wider text-white">
+                  <span className="inline-block rounded-full bg-crimson px-2.5 py-0.5 sm:px-3 font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-white">
                     Zone {activeLightboxPhoto.zoneNumber}
                   </span>
-                  <span className="inline-block rounded-full bg-white/10 px-3 py-0.5 font-inter text-[10.5px] font-medium text-saffron">
+                  <span className="inline-block rounded-full bg-white/10 px-2.5 py-0.5 sm:px-3 font-inter text-[10px] sm:text-[10.5px] font-medium text-saffron">
                     {tx(activeLightboxPhoto.badge)}
                   </span>
                 </div>

@@ -235,7 +235,7 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
       <section className="relative -mt-9 z-20 container-jg">
         <Reveal>
           <div className="rounded-xl sm:rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white/95 dark:bg-[#09090b]/95 text-ink dark:text-white p-3.5 sm:p-6 shadow-[0_16px_40px_-12px_rgba(8,15,26,0.08)] backdrop-blur-md">
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:divide-x divide-slate-200/80 dark:divide-white/10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4 lg:divide-x divide-slate-200/80 dark:divide-white/10">
               {[
                 {
                   icon: Building2,
@@ -268,7 +268,7 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
               ].map((pod, i) => {
                 const Icon = pod.icon;
                 return (
-                  <div key={i} className={`flex items-start gap-2.5 sm:gap-3.5 p-2 rounded-xl bg-slate-50/50 dark:bg-white/[0.02] lg:bg-transparent lg:p-0 ${i > 0 ? "lg:pl-5" : ""}`}>
+                  <div key={i} className={`flex items-start gap-3 sm:gap-3.5 p-2.5 sm:p-2 rounded-xl bg-slate-50/50 dark:bg-white/[0.02] lg:bg-transparent lg:p-0 ${i > 0 ? "lg:pl-5" : ""}`}>
                     <div className="flex h-9 w-9 sm:h-11 sm:w-11 shrink-0 items-center justify-center rounded-lg sm:rounded-xl bg-slate-100 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-ink dark:text-white shadow-2xs">
                       <Icon className="h-4.5 w-4.5 sm:h-5 sm:w-5 text-crimson dark:text-rose-400" />
                     </div>
@@ -579,8 +579,8 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
                 </div>
 
                 {/* Single-Window Accountability Guarantee Bar */}
-                <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-slate-100 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-center sm:text-left rounded-xl sm:rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-700/40 p-3.5 sm:p-5">
-                  <div className="flex items-center gap-3">
+                <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-slate-100 dark:border-white/10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3.5 sm:gap-4 text-center sm:text-left rounded-xl sm:rounded-2xl bg-emerald-50/70 dark:bg-emerald-950/30 border border-emerald-200/80 dark:border-emerald-700/40 p-3.5 sm:p-5">
+                  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-3 text-center sm:text-left">
                     <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-100 dark:bg-emerald-900/50 text-emerald-800 dark:text-emerald-300 border border-emerald-200 dark:border-emerald-700/60">
                       <ShieldCheck className="h-5 w-5" />
                     </span>
@@ -588,7 +588,7 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
                       <h4 className="font-serif-jp text-[14.5px] font-bold text-ink dark:text-white">
                         {tx({ EN: "Single Point of Contact & One Simple Agreement", JP: "ワンストップ契約＆一元管理保証" })}
                       </h4>
-                      <p className="font-inter text-[12.5px] text-slate-600 dark:text-slate-300 leading-snug">
+                      <p className="font-inter text-[12.5px] text-slate-600 dark:text-slate-300 leading-snug mt-0.5">
                         {tx({
                           EN: "One unified agreement. No need to manage multiple vendors, no language barriers, and direct communication with senior leadership.",
                           JP: "窓口一本化。複数業者との個別交渉不要、言語障壁なし、日本品質基準での確実な実行体制を保証。",
@@ -599,7 +599,7 @@ export function ServicesSection({ id, hideHero }: { id?: string; hideHero?: bool
 
                   <Link
                     href="/contact"
-                    className="shrink-0 inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep hover:opacity-95 px-5 py-2.5 font-inter text-[12.5px] font-semibold text-white shadow-md shadow-crimson/30 transition-all duration-200"
+                    className="shrink-0 inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep hover:opacity-95 px-5 py-2.5 font-inter text-[12.5px] font-semibold text-white shadow-md shadow-crimson/30 transition-all duration-200 w-full sm:w-auto text-center"
                   >
                     <span>{tx({ EN: "Contact Japan Desk", JP: "ジャパンデスクに相談する" })}</span>
                     <ArrowRight className="h-4 w-4" />

@@ -128,17 +128,17 @@ export function Hero() {
         )}
 
         {/* CTAs */}
-        <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div className="mt-10 flex flex-col items-center justify-center gap-3.5 sm:gap-4 sm:flex-row w-full sm:w-auto">
           <button
             onClick={openBrochure}
-            className="btn-shine flex items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-crimson via-crimson to-crimson-deep px-8 py-4 font-inter text-[15px] font-semibold text-white shadow-[0_0_28px_rgba(188,26,44,0.45)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_36px_rgba(188,26,44,0.65)]"
+            className="btn-shine flex items-center justify-center gap-2.5 rounded-xl bg-gradient-to-r from-crimson via-crimson to-crimson-deep px-8 py-3.5 sm:py-4 font-inter text-[14px] sm:text-[15px] font-semibold text-white shadow-[0_0_28px_rgba(188,26,44,0.45)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_36px_rgba(188,26,44,0.65)] w-full sm:w-auto cursor-pointer"
           >
             <Download className="h-4 w-4" />
             {t("hero.cta1")}
           </button>
           <button
             onClick={() => scrollTo("services")}
-            className="flex items-center justify-center gap-2 rounded-xl border border-white/30 bg-white/5 px-8 py-4 font-inter text-[15px] font-semibold text-white backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:bg-white/15 hover:border-white/50"
+            className="flex items-center justify-center gap-2 rounded-xl border border-white/30 bg-white/5 px-8 py-3.5 sm:py-4 font-inter text-[14px] sm:text-[15px] font-semibold text-white backdrop-blur-sm transition-all hover:-translate-y-0.5 hover:bg-white/15 hover:border-white/50 w-full sm:w-auto cursor-pointer"
           >
             {t("hero.cta2")}
             <ArrowRight className="h-4 w-4 text-saffron" />

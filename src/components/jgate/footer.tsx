@@ -67,7 +67,7 @@ export function Footer() {
               <Link
                 href="/auth/brochure"
                 prefetch={true}
-                className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 px-2.5 py-1.5 font-inter text-[11.5px] font-semibold text-slate-800 dark:text-slate-200 hover:text-crimson dark:hover:text-rose-400 hover:border-crimson/30 transition-all"
+                className="inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-200 dark:border-white/10 bg-slate-50 dark:bg-white/5 px-3 py-2 font-inter text-[11.5px] font-semibold text-slate-800 dark:text-slate-200 hover:text-crimson dark:hover:text-rose-400 hover:border-crimson/30 transition-all w-full sm:w-auto text-center"
               >
                 <Download className="h-3.5 w-3.5 text-crimson dark:text-rose-400 shrink-0" />
                 <span>{tx({ EN: "Download Official Brochure", JP: "公式パンフレット資料請求" })}</span>
@@ -113,7 +113,7 @@ export function Footer() {
               <span className="font-inter text-[10px] sm:text-[10.5px] font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 block mb-2">
                 {tx({ EN: "AN INITIATIVE OF", JP: "共同事業・提携母体" })}
               </span>
-              <div className="inline-flex items-center gap-2 sm:gap-2.5 rounded-xl border border-slate-200/90 dark:border-white/15 bg-slate-50/90 dark:bg-[#09090b] px-3 py-2 sm:px-3.5 sm:py-2.5 shadow-2xs backdrop-blur-sm whitespace-nowrap">
+              <div className="inline-flex max-w-full flex-wrap sm:flex-nowrap items-center gap-2 sm:gap-2.5 rounded-xl border border-slate-200/90 dark:border-white/15 bg-slate-50/90 dark:bg-[#09090b] px-3 py-2 sm:px-3.5 sm:py-2.5 shadow-2xs backdrop-blur-sm">
                 {/* Indobox India */}
                 <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
                   <div className="flex h-6 w-6 items-center justify-center rounded-md bg-white dark:bg-[#121215] p-0.5 border border-slate-200/80 dark:border-white/20 shadow-2xs">

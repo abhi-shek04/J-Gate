@@ -286,8 +286,8 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
                     <div className="relative z-10 flex flex-col justify-between h-full">
                       <div>
                         {/* Header Row: Icon + Title + Capacity Badge */}
-                        <div className="flex items-start justify-between gap-3 pb-4 border-b border-slate-100 dark:border-white/8">
-                          <div className="flex items-center gap-3.5">
+                        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2.5 sm:gap-3 pb-4 border-b border-slate-100 dark:border-white/8">
+                          <div className="flex items-center gap-3 sm:gap-3.5">
                             <div
                               className={cn(
                                 "flex h-11 w-11 sm:h-12 sm:w-12 shrink-0 items-center justify-center rounded-2xl border shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:rotate-1",
@@ -299,7 +299,7 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
                             <div>
                               <div className="flex items-center gap-2">
                                 <h3 className="font-serif-jp text-[18px] sm:text-[19px] font-bold text-ink dark:text-white leading-tight">
-                                  {plan.enName}
+                                   {plan.enName}
                                 </h3>
                               </div>
                               <div className="flex items-center gap-1.5 mt-1">
@@ -317,7 +317,7 @@ export function PricingSection({ id, hideHero }: { id?: string; hideHero?: boole
 
                           <span
                             className={cn(
-                              "inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-inter text-[10.5px] font-bold shrink-0 border shadow-2xs transition-transform duration-300 group-hover:scale-105",
+                              "self-start sm:self-auto inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 font-inter text-[10.5px] font-bold shrink-0 border shadow-2xs transition-transform duration-300 group-hover:scale-105",
                               plan.capacityBadge
                             )}
                           >

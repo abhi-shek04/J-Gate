@@ -165,12 +165,12 @@ export function Navbar() {
         {/* Logo — official J-Gate logo with protected non-shrinking dimensions */}
         <Link
           href="/"
-          className="group flex items-center shrink-0 min-w-[130px]"
+          className="group flex items-center shrink min-w-0 sm:min-w-[130px]"
           aria-label="J-Gate home"
         >
           <JGateLogo
             size="md"
-            className="h-9 sm:h-10 w-auto shrink-0 transition-opacity duration-300 group-hover:opacity-90"
+            className="h-8 sm:h-10 w-auto shrink-0 transition-opacity duration-300 group-hover:opacity-90"
           />
         </Link>
 
@@ -206,7 +206,7 @@ export function Navbar() {
         </ul>
 
         {/* Right controls */}
-        <div className="flex items-center gap-2 xl:gap-2.5 shrink-0">
+        <div className="flex items-center gap-1 sm:gap-2 xl:gap-2.5 shrink-0">
           {/* JP/EN language toggle — working pill switch */}
           <div className={cn(
             "flex items-center rounded-full border p-0.5 shrink-0 transition-colors",
@@ -220,7 +220,7 @@ export function Navbar() {
                 onClick={() => setLang(l)}
                 aria-label={`Switch to ${l}`}
                 className={cn(
-                  "rounded-full px-2.5 py-1 font-inter text-[11px] font-bold transition-all",
+                  "rounded-full px-2 py-0.5 sm:px-2.5 sm:py-1 font-inter text-[10.5px] sm:text-[11px] font-bold transition-all",
                   lang === l
                     ? "bg-crimson text-white shadow-xs"
                     : useLightNavText
@@ -240,7 +240,7 @@ export function Navbar() {
             aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
             title={isDark ? (lang === "JP" ? "ライトモードに切り替え" : "Switch to Light Mode") : (lang === "JP" ? "ダークモードに切り替え" : "Switch to Dark Mode")}
             className={cn(
-              "flex h-8 w-8 items-center justify-center rounded-full border transition-all duration-200 active:scale-95 shrink-0 cursor-pointer",
+              "flex h-7.5 w-7.5 sm:h-8 sm:w-8 items-center justify-center rounded-full border transition-all duration-200 active:scale-95 shrink-0 cursor-pointer",
               useLightNavText
                 ? "border-slate-300 bg-slate-100/80 text-slate-800 hover:bg-slate-200 hover:text-crimson shadow-xs"
                 : "border-white/15 bg-white/5 text-white/80 hover:bg-white/15 hover:text-white"
@@ -271,7 +271,7 @@ export function Navbar() {
           <Link
             href="/auth/brochure"
             prefetch={true}
-            className="btn-shine flex lg:hidden items-center gap-1.5 rounded-lg bg-gradient-to-r from-crimson to-crimson-deep px-2.5 py-1.5 font-inter text-[11px] font-bold text-white shadow-xs shadow-crimson/30 active:scale-95 transition-all shrink-0"
+            className="btn-shine flex lg:hidden items-center gap-1 sm:gap-1.5 rounded-lg bg-gradient-to-r from-crimson to-crimson-deep px-2 py-1 sm:px-2.5 sm:py-1.5 font-inter text-[10.5px] sm:text-[11px] font-bold text-white shadow-xs shadow-crimson/30 active:scale-95 transition-all shrink-0"
           >
             <Download className="h-3 w-3 shrink-0" />
             <span>{lang === "JP" ? "資料請求" : "Brochure"}</span>
@@ -281,7 +281,7 @@ export function Navbar() {
           <button
             onClick={() => setOpen((v) => !v)}
             className={cn(
-              "inline-flex h-10 w-10 items-center justify-center rounded-xl border transition-all duration-200 lg:hidden shrink-0 active:scale-95",
+              "inline-flex h-9 w-9 sm:h-10 sm:w-10 items-center justify-center rounded-xl border transition-all duration-200 lg:hidden shrink-0 active:scale-95",
               open
                 ? "bg-crimson/20 border-crimson/50 text-crimson dark:text-white shadow-xs"
                 : useLightNavText

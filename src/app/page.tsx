@@ -97,7 +97,7 @@ function GlassBadge({
   const BadgeContent = (
     <div
       className={cn(
-        "luxury-light-card card-sheen group relative flex items-center gap-3.5 rounded-2xl px-5 py-3 sm:px-6 sm:py-3.5 bg-white/95 dark:bg-[#09090b]/95 backdrop-blur-xl border shadow-lg shadow-slate-200/50 dark:shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl text-left cursor-pointer",
+        "luxury-light-card card-sheen group relative flex items-center gap-3.5 rounded-2xl px-5 py-3 sm:px-6 sm:py-3.5 bg-white/95 dark:bg-[#09090b]/95 backdrop-blur-xl border shadow-lg shadow-slate-200/50 dark:shadow-2xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl text-left cursor-pointer w-full sm:w-auto",
         accentBorder
       )}
     >
@@ -138,7 +138,7 @@ function GlassBadge({
 
   if (href) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className="block">
+      <a href={href} target="_blank" rel="noopener noreferrer" className="block w-full sm:w-auto">
         {BadgeContent}
       </a>
     );
@@ -247,7 +247,7 @@ export default function HomePage() {
         <div className="container-jg relative z-10 pt-2 pb-6 sm:pt-4 sm:pb-8 text-center max-w-5xl mx-auto">
           {/* 1. Pre-title: J-Gate | Japan–India Business & Talent Hub */}
           <Reveal variant="blur" delay={0}>
-            <div className="flex items-center justify-center gap-2 font-inter text-[11.5px] sm:text-[12.5px] font-bold uppercase tracking-[0.22em] text-crimson dark:text-rose-400">
+            <div className="flex items-center justify-center gap-1.5 sm:gap-2 font-inter text-[10.5px] sm:text-[12.5px] font-bold uppercase tracking-[0.14em] sm:tracking-[0.22em] text-crimson dark:text-rose-400">
               <span className="hidden sm:inline-block h-px w-8 bg-crimson/30 dark:bg-rose-400/30" />
               <span className="tracking-normal text-ink dark:text-white font-extrabold mr-1">J-Gate ·</span>
               <span>{tx({ EN: "Japan–India Business & Talent Hub", JP: "日印ビジネス＆高度人材ハブ" })}</span>
@@ -268,9 +268,9 @@ export default function HomePage() {
 
           {/* 3. Executive Tagline Badge */}
           <Reveal delay={140}>
-            <div className="mt-5 flex items-center justify-center">
-              <span className="inline-flex items-center gap-2 rounded-full bg-white/90 dark:bg-white/10 border border-slate-200 dark:border-white/15 px-4 py-1.5 font-inter text-[13px] sm:text-[14px] font-semibold text-slate-700 dark:text-slate-200 tracking-wide shadow-2xs backdrop-blur-sm" style={{ textWrap: "balance" }}>
-                <Sparkles className="h-3.5 w-3.5 text-crimson dark:text-rose-400" />
+            <div className="mt-4 sm:mt-5 flex items-center justify-center px-2">
+              <span className="inline-flex items-center gap-2 rounded-xl sm:rounded-full bg-white/90 dark:bg-white/10 border border-slate-200 dark:border-white/15 px-3.5 py-1.5 sm:px-4 sm:py-1.5 font-inter text-[12px] sm:text-[14px] font-semibold text-slate-700 dark:text-slate-200 tracking-wide shadow-2xs backdrop-blur-sm leading-snug" style={{ textWrap: "balance" }}>
+                <Sparkles className="h-3.5 w-3.5 text-crimson dark:text-rose-400 shrink-0" />
                 <span>
                   <strong className="font-bold text-crimson dark:text-rose-400 mr-1.5">J-Gate</strong>
                   <span className="text-slate-400 dark:text-white/30 mr-1.5">|</span>
@@ -305,7 +305,7 @@ export default function HomePage() {
 
           {/* 5. Co-Operating Partners Badges */}
           <Reveal delay={260}>
-            <div className="mt-7 sm:mt-8 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3 sm:gap-4">
+            <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row flex-wrap items-center justify-center gap-2.5 sm:gap-4 max-w-xl mx-auto">
               <GlassBadge
                 href="https://indobox.co.jp/"
                 imageSrc="/logos/indobox-icon.png"
@@ -325,7 +325,7 @@ export default function HomePage() {
 
           {/* 6. Primary Action Button & Executive Proof Strip */}
           <Reveal delay={320}>
-            <div className="mt-7 sm:mt-9 flex flex-col items-center justify-center gap-6">
+            <div className="mt-6 sm:mt-9 flex flex-col items-center justify-center gap-5 sm:gap-6">
               <div className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full sm:w-auto">
                 <Link
                   href="/why-jgate"
@@ -347,27 +347,27 @@ export default function HomePage() {
               </div>
 
               {/* Stat Proof Cards Bar */}
-              <StaggerReveal delay={400} className="w-full pt-4 border-t border-slate-200/70 dark:border-white/10 grid grid-cols-2 md:grid-cols-4 gap-3 max-w-4xl mx-auto">
-                <div className="p-3.5 rounded-xl bg-white/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-center shadow-2xs backdrop-blur-md hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300">
-                  <span className="block font-mono text-xl sm:text-2xl font-black text-crimson dark:text-rose-400">100%</span>
+              <StaggerReveal delay={400} className="w-full pt-4 border-t border-slate-200/70 dark:border-white/10 grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3 max-w-4xl mx-auto">
+                <div className="p-3 sm:p-3.5 rounded-xl bg-white/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-center shadow-2xs backdrop-blur-md hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300">
+                  <span className="block font-mono text-lg sm:text-2xl font-black text-crimson dark:text-rose-400">100%</span>
                   <span className="mt-0.5 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
                     {tx({ EN: "Japanese Director On-Site", JP: "日本人ディレクター現地常駐" })}
                   </span>
                 </div>
-                <div className="p-3.5 rounded-xl bg-white/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-center shadow-2xs backdrop-blur-md hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300">
-                  <span className="block font-mono text-xl sm:text-2xl font-black text-ink dark:text-white">100%</span>
+                <div className="p-3 sm:p-3.5 rounded-xl bg-white/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-center shadow-2xs backdrop-blur-md hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300">
+                  <span className="block font-mono text-lg sm:text-2xl font-black text-ink dark:text-white">100%</span>
                   <span className="mt-0.5 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
                     {tx({ EN: "Resident Japan Desk", JP: "常駐ジャパンデスク支援" })}
                   </span>
                 </div>
-                <div className="p-3.5 rounded-xl bg-white/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-center shadow-2xs backdrop-blur-md hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300">
-                  <span className="block font-mono text-xl sm:text-2xl font-black text-saffron-deep dark:text-saffron-light">40%+</span>
+                <div className="p-3 sm:p-3.5 rounded-xl bg-white/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-center shadow-2xs backdrop-blur-md hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300">
+                  <span className="block font-mono text-lg sm:text-2xl font-black text-saffron-deep dark:text-saffron-light">40%+</span>
                   <span className="mt-0.5 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
                     {tx({ EN: "Operational Cost Advantage", JP: "現地拠点の運営コスト削減" })}
                   </span>
                 </div>
-                <div className="p-3.5 rounded-xl bg-white/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-center shadow-2xs backdrop-blur-md hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300">
-                  <span className="block font-mono text-xl sm:text-2xl font-black text-emerald-600 dark:text-emerald-400">Plug &amp; Play</span>
+                <div className="p-3 sm:p-3.5 rounded-xl bg-white/90 dark:bg-white/5 border border-slate-200/80 dark:border-white/10 text-center shadow-2xs backdrop-blur-md hover:border-crimson/40 dark:hover:border-rose-400/40 transition-all duration-300">
+                  <span className="block font-mono text-lg sm:text-2xl font-black text-emerald-600 dark:text-emerald-400">Plug &amp; Play</span>
                   <span className="mt-0.5 block font-inter text-[11px] sm:text-[12px] font-semibold text-slate-700 dark:text-slate-300">
                     {tx({ EN: "Zero Setup Lag in India", JP: "即日稼働・シームレス開設" })}
                   </span>
@@ -445,7 +445,7 @@ export default function HomePage() {
               <Reveal variant="scale">
                 <div className="luxury-light-card card-sheen gold-hairline group relative overflow-hidden rounded-2xl sm:rounded-3xl border border-slate-200/90 dark:border-white/10 bg-white dark:bg-[#09090b] p-4 sm:p-6 shadow-xl transition-all duration-300 hover:shadow-2xl hover:border-crimson/30">
                   {/* Floating Live Badge with radar beacon */}
-                  <div className="flex items-center justify-between mb-3 sm:mb-4">
+                  <div className="flex flex-wrap items-center justify-between gap-2 mb-3 sm:mb-4">
                     <span className="inline-flex items-center gap-1.5 rounded-full bg-crimson/10 dark:bg-rose-950/50 border border-crimson/25 dark:border-rose-400/30 px-2.5 py-0.5 sm:px-3 sm:py-1 text-[10.5px] sm:text-[11px] font-bold text-crimson dark:text-rose-400 uppercase tracking-wider">
                       <MapPin className="h-3 w-3 sm:h-3.5 sm:w-3.5" />
                       {tx({ EN: "Flagship Hub", JP: "旗艦拠点" })}
@@ -514,21 +514,20 @@ export default function HomePage() {
 
               {/* Action Buttons */}
               <Reveal delay={280}>
-                <div className="pt-2 flex flex-wrap items-center gap-2.5 sm:gap-3">
+                <div className="pt-2 flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3">
                   <Link
                     href="/blogs"
-                    className="btn-shine inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-4 py-2.5 sm:px-6 sm:py-3.5 font-inter text-[12.5px] sm:text-[13.5px] font-semibold text-white shadow-lg shadow-crimson/25 hover:-translate-y-0.5 hover:shadow-crimson/40 transition-all"
+                    className="btn-shine inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-4 py-2.5 sm:px-6 sm:py-3.5 font-inter text-[12.5px] sm:text-[13.5px] font-semibold text-white shadow-lg shadow-crimson/25 hover:-translate-y-0.5 hover:shadow-crimson/40 transition-all w-full sm:w-auto text-center"
                   >
                     {tx({ EN: "View Office Gallery & Photos", JP: "オフィス施設写真を見る" })}
                     <ArrowRight className="h-4 w-4" />
                   </Link>
                   <Link
                     href="/pricing"
-                    className="inline-flex items-center gap-2 rounded-xl border border-slate-300 dark:border-white/20 bg-white dark:bg-[#09090b] px-4 py-2.5 sm:px-6 sm:py-3.5 font-inter text-[12.5px] sm:text-[13.5px] font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/10 hover:border-slate-400 dark:hover:border-white/30 transition-all shadow-sm"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 dark:border-white/20 bg-white dark:bg-[#09090b] px-4 py-2.5 sm:px-6 sm:py-3.5 font-inter text-[12.5px] sm:text-[13.5px] font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-white/10 hover:border-slate-400 dark:hover:border-white/30 transition-all shadow-sm w-full sm:w-auto text-center"
                   >
                     {tx({ EN: "View Membership Plans", JP: "料金プランを見る" })}
                   </Link>
-
                 </div>
               </Reveal>
             </div>

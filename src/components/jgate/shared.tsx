@@ -132,9 +132,9 @@ export function SectionHeading({
 
       <h2
         className={cn(
-          "font-serif-jp font-bold leading-[1.16] tracking-tight",
+          "font-serif-jp font-bold leading-[1.18] tracking-tight",
           light ? "text-white drop-shadow-sm" : "text-ink dark:text-white",
-          "text-[clamp(2rem,4.2vw,3rem)]",
+          "text-[clamp(1.65rem,4.5vw,2.75rem)]",
           align === "center" ? "mx-auto" : ""
         )}
       >

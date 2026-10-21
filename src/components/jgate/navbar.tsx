@@ -334,85 +334,11 @@ export function Navbar() {
           })}
         </ul>
 
-        <div className={cn(
-          "container-jg flex flex-col gap-3 pb-8 pt-3 border-t shrink-0",
-          isDark ? "border-white/10 bg-[#0b111e]/95" : "border-slate-300/80 bg-[#f5f0e8]/95"
-        )}>
-          {/* Mobile theme toggle */}
-          <div className={cn(
-            "flex items-center justify-between rounded-xl border p-3",
-            isDark ? "border-white/10 bg-white/5" : "border-slate-300 bg-white/60"
-          )}>
-            <span className={cn("font-inter text-xs font-semibold", isDark ? "text-mist" : "text-slate-600")}>
-              {lang === "JP" ? "表示テーマ" : "Theme / モード"}
-            </span>
-            <div className={cn(
-              "flex items-center rounded-full border p-0.5",
-              isDark ? "border-white/15 bg-white/10" : "border-slate-300 bg-slate-100"
-            )}>
-              <button
-                onClick={() => setTheme("light")}
-                className={cn(
-                  "flex items-center gap-1.5 rounded-full px-3 py-1 font-inter text-[11px] font-bold transition-all",
-                  !isDark ? "bg-crimson text-white shadow-xs" : "text-white/60 hover:text-white"
-                )}
-              >
-                <Sun className="h-3.5 w-3.5" />
-                <span>Light</span>
-              </button>
-              <button
-                onClick={() => setTheme("dark")}
-                className={cn(
-                  "flex items-center gap-1.5 rounded-full px-3 py-1 font-inter text-[11px] font-bold transition-all",
-                  isDark ? "bg-crimson text-white shadow-xs" : "text-slate-600 hover:text-ink"
-                )}
-              >
-                <Moon className="h-3.5 w-3.5" />
-                <span>Dark</span>
-              </button>
-            </div>
-          </div>
-
-          {/* Mobile lang toggle */}
-          <div className={cn(
-            "flex items-center justify-between rounded-xl border p-3",
-            isDark ? "border-white/10 bg-white/5" : "border-slate-300 bg-white/60"
-          )}>
-            <span className={cn("font-inter text-xs font-semibold", isDark ? "text-mist" : "text-slate-600")}>Language / 言語</span>
-            <div className={cn(
-              "flex items-center rounded-full border p-0.5",
-              isDark ? "border-white/15 bg-white/10" : "border-slate-300 bg-slate-100"
-            )}>
-              {(["JP", "EN"] as const).map((l) => (
-                <button
-                  key={l}
-                  onClick={() => setLang(l)}
-                  className={cn(
-                    "rounded-full px-3 py-1 font-inter text-[11px] font-bold transition-all",
-                    lang === l
-                      ? "bg-crimson text-white shadow-xs"
-                      : isDark
-                        ? "text-white/60 hover:text-white"
-                        : "text-slate-600 hover:text-ink"
-                  )}
-                >
-                  {l}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <Link
-            href="/auth/brochure"
-            prefetch={true}
-            onClick={() => {
-              setTimeout(() => setOpen(false), 80);
-            }}
-            className="btn-shine flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-crimson to-crimson-deep px-5 py-3.5 font-inter text-sm font-bold text-white shadow-lg shadow-crimson/40"
-          >
-            <Download className="h-4 w-4" />
-            <span>{t("nav.brochure")}</span>
-          </Link>
+        {/* Clean institutional drawer footer note without repeating navbar controls */}
+        <div className="container-jg pb-8 pt-4 text-center">
+          <p className="font-mono text-[11px] text-slate-400 dark:text-slate-500">
+            J-Gate · Japan ⇄ India Global Hub
+          </p>
         </div>
       </div>
     </header>

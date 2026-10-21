@@ -231,10 +231,14 @@ export function AboutSection({ id, hideHero }: { id?: string; hideHero?: boolean
                 )}
               </h2>
               <p className="mt-2 sm:mt-2.5 font-inter text-[12.5px] sm:text-[13.5px] leading-relaxed text-mist max-w-2xl mx-auto">
-                {tx({
-                  EN: "J-Gate unites Japanese corporate precision, governance, and trust with India's strong technology sector, skilled workforce, and fast-growing market.",
-                  JP: "日本の卓越した品質・ガバナンスと、インドの高度な技術力・豊富な人材・ダイナミックな市場推進力をシームレスに融合します。",
-                })}
+                {lang === "JP" ? (
+                  <>
+                    <span className="block">日本の卓越した品質・ガバナンスと、インドの高度な技術力・豊富な人材・</span>
+                    <span className="block">ダイナミックな市場推進力をシームレスに融合します。</span>
+                  </>
+                ) : (
+                  "J-Gate unites Japanese corporate precision, governance, and trust with India's strong technology sector, skilled workforce, and fast-growing market."
+                )}
               </p>
             </div>
           </Reveal>

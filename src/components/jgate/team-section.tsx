@@ -744,10 +744,14 @@ export function TeamSection({ id, hideHero }: { id?: string; hideHero?: boolean 
               <p
                 className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300 text-[13px] sm:text-[15px]"
               >
-                {tx({
-                  EN: "Government trade organizations, premier incubators, universities, and industry partners to help our members succeed.",
-                  JP: "政府機関、アジア最大級のインキュベーション施設、トップ大学、そして先進テクノロジー企業との緊密な連携基盤。",
-                })}
+                {lang === "JP" ? (
+                  <>
+                    <span className="block">政府機関、アジア最大級のインキュベーション施設、トップ大学</span>
+                    <span className="block">そして先進テクノロジー企業との緊密な連携基盤。</span>
+                  </>
+                ) : (
+                  "Government trade organizations, premier incubators, universities, and industry partners to help our members succeed."
+                )}
               </p>
             </div>
           </Reveal>

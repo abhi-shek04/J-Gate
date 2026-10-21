@@ -291,8 +291,8 @@ export default function HomePage() {
             >
               {lang === "JP" ? (
                 <>
-                  <span className="block">ハイデラバードに誕生した日本企業専用ワーキングハブ。専用デスク、個室キャビン、常駐ジャパンデスク、</span>
-                  <span className="block">充実したオフィスインフラで、インド事業の円滑な立ち上げを包括支援。</span>
+                  <span className="block">ハイデラバードに誕生した日本企業専用ワーキングハブ。専用デスク、個室キャビン、</span>
+                  <span className="block">常駐ジャパンデスク、充実したオフィスインフラで、インド事業の円滑な立ち上げを包括支援。</span>
                 </>
               ) : (
                 "A dedicated working hub in Hyderabad, India for Japanese businesses. Dedicated desks, private offices, resident Japan Desk support, and full office infrastructure to start operations smoothly in India."

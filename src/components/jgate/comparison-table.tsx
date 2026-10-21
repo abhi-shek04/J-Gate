@@ -200,10 +200,14 @@ export function ComparisonTable() {
               className="mx-auto mt-3 max-w-2xl font-inter leading-relaxed text-slate dark:text-slate-300"
               style={{ fontSize: "clamp(0.95rem, 1.4vw, 1.05rem)" }}
             >
-              {tx({
-                EN: "A direct comparison across the four paths Japanese enterprises consider when entering India — cost, support, network, and overall value.",
-                JP: "インド進出を検討する日本企業が直面する4つの選択肢を、コスト・伴走体制・人脈・投資対効果の視点から徹底比較。",
-              })}
+              {lang === "JP" ? (
+                <>
+                  <span className="block">インド進出を検討する日本企業が直面する4つの選択肢を、コスト・伴走体制・</span>
+                  <span className="block">人脈・投資対効果の視点から徹底比較。</span>
+                </>
+              ) : (
+                "A direct comparison across the four paths Japanese enterprises consider when entering India — cost, support, network, and overall value."
+              )}
             </p>
           </div>
         </Reveal>

@@ -191,7 +191,7 @@ const FAQ_LIST: FAQItem[] = [
 ];
 
 export function FAQSection({ id }: { id?: string }) {
-  const { tx } = useI18n();
+  const { tx, lang } = useI18n();
   const [selectedCategory, setSelectedCategory] = useState<"all" | "about" | "pricing" | "facilities" | "support">("all");
   const [openIds, setOpenIds] = useState<Record<string, boolean>>({});
 
@@ -244,10 +244,14 @@ export function FAQSection({ id }: { id?: string }) {
               {tx({ EN: "Frequently Asked Questions", JP: "よくあるご質問" })}
             </h2>
             <p className="mt-3 font-inter text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-2xl mx-auto leading-relaxed">
-              {tx({
-                EN: "Everything you need to know about working hub options, resident Japan Desk support, company incorporation, and local hiring.",
-                JP: "ワーキングハブ利用、ジャパンデスクサポート、現地法人設立、採用支援に関するよくある質問とお答え。",
-              })}
+              {lang === "JP" ? (
+                <>
+                  <span className="block">ワーキングハブ利用、ジャパンデスクサポート、現地法人設立、</span>
+                  <span className="block">採用支援に関するよくある質問とお答え。</span>
+                </>
+              ) : (
+                "Everything you need to know about working hub options, resident Japan Desk support, company incorporation, and local hiring."
+              )}
             </p>
           </Reveal>
 

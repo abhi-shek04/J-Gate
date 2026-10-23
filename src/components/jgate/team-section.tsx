@@ -131,12 +131,12 @@ const ALL_ADVISORS: AdvisorMember[] = [
     name: "Tomio Isogai",
     jpName: "磯貝 富雄",
     title: {
-      EN: "Former Managing Director, Sharp India | Senior Adviser, Kochhar Law Firm",
-      JP: "元シャープ・インディア社長｜関西日印文化協会理事｜コッチャル法律事務所シニアアドバイザー",
+      EN: "Former Managing Director, Sharp India | Vice President, Kansai Japan-India Cultural Association | Senior Adviser, Kochhar Law Firm",
+      JP: "元シャープ・インディア社長｜関西日印文化協会 副会長｜コッチャル法律事務所シニアアドバイザー",
     },
     desc: {
-      EN: "Resident of Pune, Western India. Global business 37 years. Former Managing Director of Sharp India, 12 years in India. Director of Kansai Japan-India Cultural Association. Senior Adviser of Kochhar Law Firm, India.",
-      JP: "西インド・プネ在住。グローバルビジネス歴37年。元シャープ・インディア社長、インド在住12年。関西日印文化協会理事。インド・コッチャル法律事務所シニアアドバイザー。",
+      EN: "Resident of Pune, Western India. Global business 37 years. Former Managing Director of Sharp India, 12 years in India. Vice President of Kansai Japan-India Cultural Association. Senior Adviser of Kochhar Law Firm, India.",
+      JP: "西インド・プネ在住。グローバルビジネス歴37年。元シャープ・インディア社長、インド在住12年。関西日印文化協会 副会長。インド・コッチャル法律事務所シニアアドバイザー。",
     },
     image: "/advisory/isogai.png",
     badge: {
@@ -145,7 +145,7 @@ const ALL_ADVISORS: AdvisorMember[] = [
     },
     tags: [
       { EN: "Global Business (37 Yrs)", JP: "グローバルビジネス37年" },
-      { EN: "Kansai Japan-India Cultural Assoc.", JP: "関西日印文化協会理事" },
+      { EN: "Vice President, Kansai Japan-India Cultural Assoc.", JP: "関西日印文化協会 副会長" },
       { EN: "Kochhar Law Firm Adviser", JP: "コッチャル法律事務所顧問" },
     ],
     linkedin: "https://www.linkedin.com/in/tomio-isogai-416b9b16/",
